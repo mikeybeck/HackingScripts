@@ -4,10 +4,11 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{ baseurl }}/stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="{{ baseurl }}/stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="{{ baseurl }}/stylesheets/print.css" media="print" />
-    <link rel="stylesheet" type="text/css" href="{{ baseurl }}/stylesheets/styles.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/stylesheets/styles.css" media="print" />
+    <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico">
 
 
     <!--[if lt IE 9]>
@@ -20,7 +21,7 @@
   <body>
     <header>
       <div class="inner">
-        <h1> <a href="{{ baseurl }}/">{{ site.name }}</a> </h1>
+        <h1> <a href="{{ site.baseurl }}/">{{ site.name }}</a> </h1>
         <h2>Hack Scripts for everybody</h2>
       </div>
     </header>
@@ -34,13 +35,13 @@
         </section>
 
         <aside id="sidebar">
-          <a href="{{ baseurl }}/upload/" class="button">
+          <a href="{{ site.baseurl }}/upload/" class="button">
             <small>Upload</small>
             a file
           </a>
 
 
-          <a href="{{ baseurl }}/scripts/" class="button">
+          <a href="{{ site.baseurl }}/scripts/" class="button">
             <small>The entire list of</small>
             hack scripts
           </a>
