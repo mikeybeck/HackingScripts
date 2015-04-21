@@ -1,15 +1,12 @@
 ---
 layout: default
-title: HackingScripts
+title: List of Hacking Scripts
 ---
 
 <div id="home">
-  <h1>Newest Scripts</h1>
   <ul class="posts">
-    {% for post in site.posts  limit:5 %}
+    {% for post in site.posts %}
       <li>Added <span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-      {{ post.excerpt }}<br>
-            <a href="{{ post.url }}">Read more...</a><br><br>
-    {% endfor %}
+         {% endfor %}
   </ul>
 </div>

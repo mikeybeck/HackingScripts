@@ -1,0 +1,8 @@
+name: HackingScripts
+markdown: redcarpet
+
+# Outputting
+permalink: /scripts/:title
+excerpt_separator: "\n\n\n"
+
+highlighter: pygments
