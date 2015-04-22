@@ -30,7 +30,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
 
 ### Madspot shell source code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}&lt;?php
 
     /**
      * @author Ikram ALI
@@ -2046,7 +2046,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
     ?&gt;
 
 
-</pre>
+    {% endhighlight %}
 
 A screenshot of Madspot Shell in action.  
 <figure id="attachment_380" style="width: 604px;" class="wp-caption aligncenter">[<img src="{{ site.baseurl }}/wp-content/uploads/2014/03/madspot-shell-1024x540.png" alt="madspot shell screenshot" width="604" height="318" class="size-large wp-image-380" />][1]<figcaption class="wp-caption-text">Screenshot of the Madspot shell</figcaption></figure>
