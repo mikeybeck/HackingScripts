@@ -870,3 +870,6 @@ dl dd {
 h1 a {
     color: white;
 }
+#main-content h2 {
+  display: inline;
+}

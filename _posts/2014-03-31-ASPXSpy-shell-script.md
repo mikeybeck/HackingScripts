@@ -16,8 +16,9 @@ This is the summary from Microsoft Malware Center:
 
 > This threat is classified as a Trojan &#8211; Backdoor.  
 > A backdoor trojan provides remote, usually surreptitious, access to affected systems.
-> 
-> A backdoor trojan may be used to conduct distributed denial of service (DDoS) attacks, or it may be used to install additional trojans or other forms of malicious software. For example, a backdoor trojan may be used to install a downloader or dropper trojan, which may in turn install a proxy trojan used to relay spam or a keylogger trojan which monitors and sends keystrokes to remote attackers.A backdoor Trojan may also open ports on the affected system and thus potentially lead to further compromise by other attackers. This threat is detected by the Microsoft antivirus engine. Technical details are not currently available. 
+>
+> A backdoor trojan may be used to conduct distributed denial of service (DDoS) attacks, or it may be used to install additional trojans or other forms of malicious software. For example, a backdoor trojan may be used to install a downloader or dropper trojan, which may in turn install a proxy trojan used to relay spam or a keylogger trojan which monitors and sends keystrokes to remote attackers.A backdoor Trojan may also open ports on the affected system and thus potentially lead to further compromise by other attackers. This threat is detected by the Microsoft antivirus engine. Technical details are not currently available.
+
 
 This script is fairly old now (it seems to have been released in 2009) and the vulnerability it exploited ([token kidnapping][1]) has been patched in the more recent versions of Windows (Windows Server 2003 and 2008 were affected by the exploit). So if your Windows software is up to date, you should have no problems with this script.
 

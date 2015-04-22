@@ -7,7 +7,7 @@ title: HackingScripts
   <h1>Newest Scripts</h1>
   <ul class="posts">
     {% for post in site.posts  limit:5 %}
-      <li>Added <span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2> &raquo; Added <span>{{ post.date | date_to_string }}</span>
       {{ post.excerpt }}<br>
             <a href="{{ post.url }}">Read more...</a><br><br>
     {% endfor %}
