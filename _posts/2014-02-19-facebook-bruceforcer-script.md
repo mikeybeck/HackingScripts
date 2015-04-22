@@ -17,7 +17,7 @@ This Facebook Bruceforcer Script v1.0 was written in Python, by \*Cyb3rK!ng\*
 
 ### Facebok Bruteforcer Script Source Code
 
-<pre class="brush: python; title: ; notranslate" title="">#!/usr/bin/python
+{% highlight python %}#!/usr/bin/python
 # This is facebook bruteforcer tools
 # This was written for educational purpose and pentest only. Use it at your own risk.
 # Author will not be responsible for any damage !!

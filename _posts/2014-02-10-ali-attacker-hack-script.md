@@ -18,9 +18,9 @@ This script looks incomplete and is not commented at all. It appears to have bee
 <pre class="brush: jscript; title: ; notranslate" title="">function c_$(id){
         return document.getElementById(id);
     }
-    
+
 			if (parent.frames.length) top.location.href= document.location;
-		
+
 	setTodayDate = function(){
 		document.write('?? ???? 16 ??? 1392');
 		/*1293979*/	}
@@ -30,7 +30,7 @@ This script looks incomplete and is not commented at all. It appears to have bee
 	try{
 		var commentCnt = new Array();
 			} catch(e){}
-	
+
 	newComment = function(post_id){
 		try{
 			window.open('/post/comment/'+post_id,'comment','status=yes,scrollbars=yes,toolbar=no,menubar=no,location=no ,width=480px,height=540px');
@@ -54,14 +54,14 @@ This script looks incomplete and is not commented at all. It appears to have bee
 	getStatVar = function(index){
 		if(statInfo[index]) document.write(statInfo[index]);
 	}
-	
+
 	setStatVar('total_post','0');
 	setStatVar('total_author','0');
 	setStatVar('modify_date','?? ???? 16 ??? 1392');
-	
+
 	setStatVar('today_view','4');
 	setStatVar('yesterday_view','1');
-	
+
 	setStatVar('this_month_view','10');
 	setStatVar('last_month_view','0');
 
@@ -70,7 +70,7 @@ This script looks incomplete and is not commented at all. It appears to have bee
 
 
 
-    
+
 &lt;/script&gt;&lt;script&gt;
 	messageForm = function(post_id){
 		try{
@@ -94,7 +94,7 @@ function GetMihanBlogShowAds(){
 		if(containerWidth&gt;=200){
 			var adsCnt = parseInt(containerWidth / 200) ;
 			if(adsCnt&gt;MihanblogShopAdsArray.length){
-				adsCnt = MihanblogShopAdsArray.length ; 
+				adsCnt = MihanblogShopAdsArray.length ;
 			}
 //			var OneAdsWidth = parseInt(containerWidth / adsCnt) ;
 			var OneAdsWidth = containerWidth / adsCnt ;
@@ -114,12 +114,12 @@ function GetMihanBlogShowAds(){
 				imgWidth = 90;
 			}
 			for(adsOne=0;adsOne&lt;adsCnt;adsOne++){
-				
+
 				img = MihanblogShopAdsArray[adsOne]['img'];
 				link = MihanblogShopAdsArray[adsOne]['link'];
 				title = MihanblogShopAdsArray[adsOne]['title'];
 				description = MihanblogShopAdsArray[adsOne]['description'];
-				
+
 				OutHtml += '&lt;td style="background-color:#FFF;width: '+OneAdsWidth+'px;border:1px solid #f00;margin:0px 0px;font-size:11px;font-family:tahoma;padding:2px;margin:0px 0px;font-size:11px;border: 1px solid BurlyWood; padding: 1px; height: '+(imgWidth+25)+'px;"&gt;';
 
 				OutHtml += '	&lt;a href="'+link+'" target="_blank" style="text-decoration:none"&gt;';
@@ -140,11 +140,11 @@ function GetMihanBlogShowAds(){
 
 				OutHtml += '&lt;/td&gt;';
 			}
-			
-			var Out = '&lt;table align="center" cellpadding="0" cellspacing="2" style="width:'+(OneAdsWidth*adsCnt)+'px;"&gt;&lt;tr&gt;'+OutHtml+'&lt;/tr&gt;&lt;/table&gt;'; 
-			
-			Out = '&lt;div style="text-align:center;padding:0px;margin:3px auto;"&gt;'+Out+'&lt;/div&gt;'; 
-			
+
+			var Out = '&lt;table align="center" cellpadding="0" cellspacing="2" style="width:'+(OneAdsWidth*adsCnt)+'px;"&gt;&lt;tr&gt;'+OutHtml+'&lt;/tr&gt;&lt;/table&gt;';
+
+			Out = '&lt;div style="text-align:center;padding:0px;margin:3px auto;"&gt;'+Out+'&lt;/div&gt;';
+
 			document.getElementById(adsTarget).style.height = (imgWidth+35)+'px' ;
 			document.getElementById(adsTarget).innerHTML = Out ;
 		}
@@ -645,4 +645,4 @@ document.onclick=reEnable
 
 &lt;center&gt;
 &lt;script&gt;
-{% endhighlight %}
+</pre>
