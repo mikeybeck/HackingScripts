@@ -12,6 +12,7 @@ tags:
 ---
 This encrypted script came with no identifying features, but it&#8217;s probably just a C99 shell.
 
+
 ### Unknown Shell Script Source Code (encrypted)
 
 {% highlight php %}GIG89a;

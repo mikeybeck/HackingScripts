@@ -14,6 +14,7 @@ I previously called this &#8216;best friends shell&#8217;. I now know that it&#8
 
 Coded by Hossein Asgary, an Iranian hacker who is part of Simorgh Security Group.
 
+
 ### SimAttacker Shell Source Code
 
 {% highlight php %}<?
@@ -395,6 +396,7 @@ exit(0);
 
 &lt;/html&gt;
 {% endhighlight %}
+
 
 ### SimAttacker Shell screenshot<figure id="attachment_409" style="width: 604px;" class="wp-caption aligncenter">
 

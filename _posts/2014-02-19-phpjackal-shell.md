@@ -13,6 +13,7 @@ tags:
 ---
 PHPJackal v$v &#8211; Powered By NetJackal
 
+
 ### PHPJackal Shell Source Code
 
 {% highlight php %}<?php
@@ -1437,6 +1438,7 @@ default: echo $intro;
 }}else echo $intro;
 echo $footer;?>&lt;/body&gt;&lt;/html&gt;
 {% endhighlight %}
+
 
 ### PHPJackal v1.5 Shell screenshot<figure id="attachment_422" style="width: 604px;" class="wp-caption aligncenter">
 

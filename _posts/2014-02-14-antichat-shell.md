@@ -13,6 +13,7 @@ tags:
 ---
 Antichat Shell v1.3 by Grinay
 
+
 ### Antichat Shell Source Code
 
 {% highlight php %}<?php
@@ -196,6 +197,7 @@ echo "&lt;form method=\"POST\"&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table width="100%" bgcolor="#336600" align="right" colspan="2" border="0" cellspacing="0" cellpadding="0"&gt;&lt;tr&gt;&lt;td&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;a href="http://antichat.ru"&gt;COPYRIGHT BY ANTICHAT.RU <?php echo $version;?>&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/tr&gt;&lt;/td&gt;&lt;/table&gt;
 <? echo $footer;?>
 {% endhighlight %}
+
 
 ### Antichat shell version 1.3 screenshot<figure id="attachment_437" style="width: 808px;" class="wp-caption aligncenter">
 

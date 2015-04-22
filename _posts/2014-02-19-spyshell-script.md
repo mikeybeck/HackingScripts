@@ -14,6 +14,7 @@ tags:
 ---
 SpyShell Script, powered by Security Angel Team [S4T].
 
+
 ### SpyShell Script Source Code
 
 {% highlight php %}<?php
@@ -2161,6 +2162,7 @@ function pr($s){
 
 ?>
 {% endhighlight %}
+
 
 ### Spyshell Script screenshot<figure id="attachment_432" style="width: 604px;" class="wp-caption aligncenter">
 

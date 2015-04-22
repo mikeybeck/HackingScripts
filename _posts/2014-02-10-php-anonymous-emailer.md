@@ -13,6 +13,7 @@ tags:
 ---
 Ok, so this isn&#8217;t really a hack script as such, but is also used for nefarious activities, and therefore is included here.
 
+
 ### PHP Anonymous Emailer/Mail Bomber Source Code
 
 {% highlight php %}&lt;html&gt;

@@ -14,6 +14,7 @@ tags:
 ---
 This is a very basic uploader script, which simply enables the user to upload whatever they want to the server.
 
+
 ### Uploader Script Source Code
 
 {% highlight php %}<?php
@@ -26,6 +27,7 @@ if( $_POST['_upl'] == "Upload" ) {
 }
 ?>
 {% endhighlight %}
+
 
 ### Uploader Script Screenshot
 

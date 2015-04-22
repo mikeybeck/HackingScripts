@@ -14,6 +14,7 @@ tags:
 ---
 This file was called &#8216;enitan AKA virus&#8217;, and this is the content of the title tag in the script, so I guess that&#8217;s what it&#8217;s called.
 
+
 ### Enitan AKA virus Source Code
 
 {% highlight php %}<?php
@@ -254,6 +255,7 @@ $numemails\\r\\n-Shout Lastborn and Hustle On!');
 &lt;/body&gt;
 &lt;/html&gt;
 {% endhighlight %}
+
 
 ### Enitan AKA virus screenshot
 

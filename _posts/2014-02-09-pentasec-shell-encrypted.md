@@ -14,6 +14,7 @@ tags:
 ---
 This is a new and interesting shell coded by Pentagon Security, I think. I haven&#8217;t decrypted it yet, so not really sure exactly what it does.
 
+
 ### PentaSec Shell Source Code (encrypted)
 
 {% highlight php %}<?php

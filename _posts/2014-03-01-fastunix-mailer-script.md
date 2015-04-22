@@ -13,6 +13,7 @@ tags:
 ---
 A simple mailer script by FastUnix.net
 
+
 ### FastUnix Mailer Script Source Code
 
 {% highlight php %}&lt;html&gt;
@@ -246,6 +247,7 @@ if(isset($_POST['action']) && $numemails !==0 ){echo
 &lt;/body&gt;
 &lt;/html&gt;
 {% endhighlight %}
+
 
 ### FastUnix.Net Mailer Script screenshot<figure id="attachment_401" style="width: 777px;" class="wp-caption aligncenter">
 

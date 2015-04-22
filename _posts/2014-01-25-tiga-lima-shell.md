@@ -14,6 +14,7 @@ tags:
 ---
 This simple script enables the attacker to execute commands, change directories, and upload files to the compromised server.
 
+
 ### Tiga-Lima Shell Script Source Code
 
 {% highlight php %}&lt;html&gt;
@@ -114,6 +115,7 @@ exit;
 ?>
 &lt;/html&gt;
 {% endhighlight %}
+
 
 ### Tiga-Lima Shell Screenshot
 
