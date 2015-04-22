@@ -16,7 +16,7 @@ This Storm7Shell is a modified Locus7Shell.
 
 By sToRm, a 15 year old hacker (apparently).
 
-## Storm7Shell Script Source Code
+### Storm7Shell Script Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
 
@@ -8362,7 +8362,7 @@ if(isset($_GET['directory'])) {
 &lt;/body&gt;&lt;/html&gt;&lt;?php chdir($lastdir); c99shexit(); ?&gt;
 </pre>
 
-## Storm7Shell script screenshot<figure id="attachment_406" style="width: 604px;" class="wp-caption aligncenter">
+### Storm7Shell script screenshot<figure id="attachment_406" style="width: 604px;" class="wp-caption aligncenter">
 
 [<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/locus7shell_storm-1024x612.png" alt="Storm7Shell script screenshot" width="604" height="360" class="size-large wp-image-406" />][1]<figcaption class="wp-caption-text">Storm7Shell script screenshot</figcaption></figure>
 

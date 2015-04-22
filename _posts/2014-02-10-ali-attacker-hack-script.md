@@ -12,7 +12,7 @@ tags:
 ---
 This script looks incomplete and is not commented at all. It appears to have been coded by &#8216;Ali Attacker&#8217;.
 
-## Ali Attacker Hack Script Source Code
+### Ali Attacker Hack Script Source Code
 
 <pre class="brush: jscript; title: ; notranslate" title="">function c_$(id){
         return document.getElementById(id);

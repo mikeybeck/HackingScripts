@@ -15,13 +15,13 @@ tags:
 ---
 This is supposedly a c102 shell, but it just looks like a c99 script to me..
 
-## C102Shell (encrypted) Source Code
+### C102Shell (encrypted) Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php 
 /*
-#################################################################
+#################################################################################################
 #                        EGY-MaF!4                              #
-#################################################################
+#################################################################################################
 // C102Shell
 // Coded By EGY-MaF!4
 // Contact: v4r@w.cn

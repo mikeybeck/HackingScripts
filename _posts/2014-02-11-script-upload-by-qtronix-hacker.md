@@ -13,7 +13,7 @@ tags:
 ---
 A simple uploader script by QtRoNiX HaCkEr.
 
-## Script Upload By QtRoNiX HaCkEr Source Code
+### Script Upload By QtRoNiX HaCkEr Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
 echo '&lt;center&gt;&lt;font color="Red" size="4"&gt;';

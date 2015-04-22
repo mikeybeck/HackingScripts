@@ -12,7 +12,7 @@ tags:
 ---
 This encrypted script came with no identifying features, but it&#8217;s probably just a C99 shell.
 
-## Unknown Shell Script Source Code (encrypted)
+### Unknown Shell Script Source Code (encrypted)
 
 <pre class="brush: php; title: ; notranslate" title="">GIG89a;
 &lt;? 

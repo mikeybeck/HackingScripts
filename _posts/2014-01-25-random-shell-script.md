@@ -12,7 +12,7 @@ tags:
 ---
 A random shell script.. I don&#8217;t know what this one does, or find any information on it. I don&#8217;t even know what it&#8217;s called! Anyway, it is very nicely written and commented.
 
-## Random Shell Script Source Code
+### Random Shell Script Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
 set_time_limit (0);

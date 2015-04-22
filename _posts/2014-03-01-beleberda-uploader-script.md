@@ -13,7 +13,7 @@ tags:
 ---
 Beleberda uploader script
 
-## Beleberda Uploader Script source code
+### Beleberda Uploader Script source code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;html&gt;
 

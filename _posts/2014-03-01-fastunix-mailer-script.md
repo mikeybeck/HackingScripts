@@ -13,7 +13,7 @@ tags:
 ---
 A simple mailer script by FastUnix.net
 
-## FastUnix Mailer Script Source Code
+### FastUnix Mailer Script Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;html&gt;
 &lt;head&gt;&lt;title&gt;FastUnix.net&lt;/title&gt;
@@ -247,7 +247,7 @@ if(isset($_POST['action']) && $numemails !==0 ){echo
 &lt;/html&gt;
 </pre>
 
-## FastUnix.Net Mailer Script screenshot<figure id="attachment_401" style="width: 777px;" class="wp-caption aligncenter">
+### FastUnix.Net Mailer Script screenshot<figure id="attachment_401" style="width: 777px;" class="wp-caption aligncenter">
 
 [<img src="{{ site.baseurl }}/wp-content/uploads/2014/03/fastunix_net.png" alt="FastUnix.Net mailer script screenshot" width="777" height="410" class="size-full wp-image-401" />][1]<figcaption class="wp-caption-text">FastUnix.Net mailer script screenshot</figcaption></figure>
 

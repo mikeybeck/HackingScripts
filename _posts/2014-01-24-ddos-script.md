@@ -18,7 +18,7 @@ This is a [DoS/DDoS][1] (denial-of-service/distributed denial-of-service) script
 
 This particular script contained a lot of bad language, which I have censored for net-friendlinmess purposes.
 
-## DDoS Script Source Code
+### DDoS Script Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?
 if($_GET['act'] == 'lol'){

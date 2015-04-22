@@ -14,7 +14,7 @@ tags:
 ---
 This file was called &#8216;enitan AKA virus&#8217;, and this is the content of the title tag in the script, so I guess that&#8217;s what it&#8217;s called.
 
-## Enitan AKA virus Source Code
+### Enitan AKA virus Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
 @session_start();
@@ -255,7 +255,7 @@ $numemails\\r\\n-Shout Lastborn and Hustle On!');
 &lt;/html&gt;
 </pre>
 
-## Enitan AKA virus screenshot
+### Enitan AKA virus screenshot
 
 [<img src="{{ site.baseurl }}/wp-content/uploads/2014/01/enitan.png" alt="enitan aka virus screenshot" width="411" height="293" class="aligncenter size-full wp-image-352" />][1]
 

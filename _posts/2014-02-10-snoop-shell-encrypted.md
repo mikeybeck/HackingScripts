@@ -13,7 +13,7 @@ tags:
 ---
 This E L I T E! shell was called &#8216;snoop.php&#8217;.
 
-## snoop Shell Source Code (encrypted)
+### snoop Shell Source Code (encrypted)
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
 /*

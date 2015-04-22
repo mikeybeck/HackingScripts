@@ -13,7 +13,7 @@ tags:
 ---
 PHPJackal v$v &#8211; Powered By NetJackal
 
-## PHPJackal Shell Source Code
+### PHPJackal Shell Source Code
 
 <pre class="brush: php; title: ; notranslate" title="">&lt;?php
 #--Config--#
@@ -1438,7 +1438,7 @@ default: echo $intro;
 echo $footer;?&gt;&lt;/body&gt;&lt;/html&gt;
 </pre>
 
-## PHPJackal v1.5 Shell screenshot<figure id="attachment_422" style="width: 604px;" class="wp-caption aligncenter">
+### PHPJackal v1.5 Shell screenshot<figure id="attachment_422" style="width: 604px;" class="wp-caption aligncenter">
 
 [<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/php_jackal_shell-1024x319.png" alt="PHPJackal v1.5 Shell screenshot" width="604" height="188" class="size-large wp-image-422" />][1]<figcaption class="wp-caption-text">PHPJackal v1.5 Shell screenshot</figcaption></figure>
 
