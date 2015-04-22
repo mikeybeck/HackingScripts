@@ -15,7 +15,7 @@ Emailer script &#8211; Coded by Hangaw_HawlerY of H4KurD-TeaM
 
 ### Emailer Script Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 
 /* 
 H4KurD-TeaM
@@ -44,5 +44,5 @@ $body        = '
 $handle = @fopen("h4kurd.txt", "a+");
 @fwrite($handle, $posts);
 fclose($handle);
-?&gt;
-</pre>
+?>
+{% endhighlight %}

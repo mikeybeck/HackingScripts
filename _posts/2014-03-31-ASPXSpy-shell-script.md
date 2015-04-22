@@ -37,7 +37,7 @@ TL;DR &#8211; Put a web.config file containing the following code into the uploa
         &lt;deny users="*" />
       &lt;/authorization>
     &lt;/system.web>
-&lt;/configuration></pre>
+&lt;/configuration>{% endhighlight %}
 
 To help prevent getting Trojans or having server security problems, install the latest patches/updates and check MS Technet for latest security information. You can also install and setup Urlscan from IIS Net Download Center, which may help prevent some types of attacks.
 
@@ -2635,7 +2635,7 @@ SQLExec : &lt;asp:DropDownList runat="server" ID="FGEy" AutoPostBack="True" OnSe
 &lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+{% endhighlight %}
 
 You can read more about the script [here][3]
 

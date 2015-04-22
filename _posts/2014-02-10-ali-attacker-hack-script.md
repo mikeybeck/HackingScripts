@@ -644,4 +644,4 @@ document.onclick=reEnable
 
 &lt;center&gt;
 &lt;script&gt;
-</pre>
+{% endhighlight %}

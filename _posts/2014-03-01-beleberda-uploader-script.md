@@ -15,14 +15,14 @@ Beleberda uploader script
 
 ### Beleberda Uploader Script source code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;html&gt;
+{% highlight php %}&lt;html&gt;
 
 &lt;head&gt;
   &lt;title&gt;bele&lt;/title&gt;
 &lt;/head&gt;
 
 &lt;body&gt;
-&lt;?php
+<?php
 
 
  if(empty($_GET['Nfiles']))$Nfiles=15;else $Nfiles=$_GET['Nfiles'];
@@ -41,17 +41,17 @@ if($_FILES['userfile']['tmp_name'][0]!=''){
 	print "&lt;/pre&gt;";
 	}
 }
-?&gt;
-&lt;form action="&lt;?php echo $_SERVER['PHP_SELF'].'?Nfiles='.$Nfiles; ?&gt;" method="post" enctype="multipart/form-data"&gt;
+?>
+&lt;form action="<?php echo $_SERVER['PHP_SELF'].'?Nfiles='.$Nfiles; ?>" method="post" enctype="multipart/form-data"&gt;
   Send beleberda:&lt;br&gt;
-  &lt;?php for($i=0;$i&lt;$Nfiles;$i++){echo '&lt;input name="userfile[]" type="file"&gt;&lt;br&gt;';}?&gt;
+  <?php for($i=0;$i&lt;$Nfiles;$i++){echo '&lt;input name="userfile[]" type="file"&gt;&lt;br&gt;';}?>
   &lt;input type="submit" value="Send files"&gt;
 &lt;/form&gt;
 
 &lt;/body&gt;
 
 &lt;/html&gt;
-</pre>
+{% endhighlight %}
 
 A screenshot of the Beleberda script:<figure id="attachment_392" style="width: 268px;" class="wp-caption aligncenter">
 

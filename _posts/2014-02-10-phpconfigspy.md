@@ -15,7 +15,7 @@ This script appears to try to obtain login details for a compromised server.
 
 ### PhpConfigSpy Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php 
+{% highlight php %}<?php 
 echo "&lt;html&gt;"; 
 echo "&lt;title&gt;PhpConfigSpy v0.1&lt;/title&gt;&lt;body&gt;"; 
 
@@ -116,5 +116,5 @@ function ftp_check($login,$pass) {
 echo "&lt;/textarea&gt;&lt;br&gt;"; 
 
 echo "&lt;/body&gt;&lt;/html&gt;"; 
-?&gt;
-</pre>
+?>
+{% endhighlight %}

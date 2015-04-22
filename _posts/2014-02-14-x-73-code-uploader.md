@@ -15,13 +15,13 @@ tags:
 
 ### X-73 Code Uploader Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">GIF89;a
-&lt;?php
+{% highlight php %}GIF89;a
+<?php
     $myUpload = new maxUpload(); 
     //$myUpload-&gt;setUploadLocation(getcwd().DIRECTORY_SEPARATOR);
     $myUpload-&gt;uploadFile();
-?&gt;
-&lt;?php
+?>
+<?php
 class maxUpload{
     var $uploadLocation;
     
@@ -48,19 +48,19 @@ class maxUpload{
     }
     
     function showUploadForm($msg='',$error=''){
-?&gt;
+?>
        &lt;div id="container"&gt;
             &lt;div id="header"&gt;&lt;div id="header_left"&gt;&lt;/div&gt;
             &lt;div id="header_main"&gt;SUL-BAR LINK&lt;div id="header_right"&gt;&lt;/div&gt;&lt;/div&gt;
             &lt;div id="content"&gt;
-&lt;?php
+<?php
 if ($msg != ''){
     echo '&lt;p class="msg"&gt;'.$msg.'&lt;/p&gt;';
 } else if ($error != ''){
     echo '&lt;p class="emsg"&gt;'.$error.'&lt;/p&gt;';
 
 }
-?&gt;
+?>
 &lt;body bgcolor="#000000"&gt;&lt;center&gt;&lt;div style="background-image:url(''); width="1040" height="710" class="shakeimage" onMouseOver="init(this);rattleimage()" onMouseOut="stoprattle(this);top.focus()" onClick="top.focus()" alt="" border="0"&gt;&lt;br&gt;&lt;div
 id="example1"&gt;&lt;/div&gt;&lt;p id="example2"&gt;&lt;font face="Papyrus"; color="red"; size="6"&gt;&lt;br&gt;--==@[-- X-73 CODE UPLOADER --]==--
 
@@ -77,7 +77,7 @@ id="example1"&gt;&lt;/div&gt;&lt;p id="example2"&gt;&lt;font face="Papyrus"; col
              &lt;/div&gt;
              &lt;div id="footer"&gt;&lt;a href="http://www.sekedar-online.com" target="_blank"&gt;Sulbar-Link&lt;/a&gt;&lt;/div&gt;
          &lt;/div&gt;
-&lt;?php
+<?php
     }
 
     function uploadFile(){
@@ -109,8 +109,8 @@ id="example1"&gt;&lt;/div&gt;&lt;p id="example2"&gt;&lt;font face="Papyrus"; col
     }
 
 }
-?&gt;
-</pre>
+?>
+{% endhighlight %}
 
 ### X-73 Code Uploader screenshot<figure id="attachment_434" style="width: 604px;" class="wp-caption aligncenter">
 

