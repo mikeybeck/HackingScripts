@@ -38,11 +38,3 @@ This work is licensed under a [Creative Commons Attribution 4.0 International](h
 [2]: https://github.com/jasonlong
 [3]: http://pages.github.com/
 [4]: http://github.com/jasonlong/architect-theme
-
-;  
-&nbsp;  
-&nbsp;  
-&nbsp;  
-&nbsp;  
-
-&nbsp;
