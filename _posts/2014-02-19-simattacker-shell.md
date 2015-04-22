@@ -142,7 +142,7 @@ exit();
 &nbsp;Note : SimAttacker&nbsp; Have copyright from simorgh security Group  &lt;br&gt;
 &nbsp;please : If you find bug or problems in program , tell me by : &lt;br&gt;
 &nbsp;e-mail : admin(at)simorgh-ev(dot)com&lt;br&gt;
-Enjoy <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> [Only 4 Best Friends ] &lt;br&gt;
+Enjoy <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> [Only 4 Best Friends ] &lt;br&gt;
 ***************************************************************************&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
 ";
 
@@ -398,6 +398,6 @@ exit(0);
 
 ## SimAttacker Shell screenshot<figure id="attachment_409" style="width: 604px;" class="wp-caption aligncenter">
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/02/best_friends_shell-1024x547.png" alt="SimAttacker script screenshot" width="604" height="322" class="size-large wp-image-409" />][1]<figcaption class="wp-caption-text">SimAttacker script screenshot</figcaption></figure>
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/best_friends_shell-1024x547.png" alt="SimAttacker script screenshot" width="604" height="322" class="size-large wp-image-409" />][1]<figcaption class="wp-caption-text">SimAttacker script screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/02/best_friends_shell.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/02/best_friends_shell.png

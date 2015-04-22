@@ -29,6 +29,6 @@ if( $_POST['_upl'] == "Upload" ) {
 
 ## Uploader Script Screenshot
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/01/uploader.png" alt="uploader script screenshot" width="495" height="108" class="aligncenter size-full wp-image-333" />][1]
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/01/uploader.png" alt="uploader script screenshot" width="495" height="108" class="aligncenter size-full wp-image-333" />][1]
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/01/uploader.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/01/uploader.png

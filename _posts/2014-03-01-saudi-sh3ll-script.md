@@ -3883,6 +3883,6 @@ exit; }
 
 ## Screenshot of Saudi Sh3ll v1.0<figure id="attachment_399" style="width: 604px;" class="wp-caption aligncenter">
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/03/saudi_shell-1024x544.png" alt="Saudi Shell screenshot" width="604" height="320" class="size-large wp-image-399" />][1]<figcaption class="wp-caption-text">Saudi Shell screenshot</figcaption></figure>
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/03/saudi_shell-1024x544.png" alt="Saudi Shell screenshot" width="604" height="320" class="size-large wp-image-399" />][1]<figcaption class="wp-caption-text">Saudi Shell screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/03/saudi_shell.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/03/saudi_shell.png

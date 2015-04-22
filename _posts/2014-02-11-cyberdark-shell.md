@@ -1387,8 +1387,8 @@ function madspot()
   |/  o) (o  \|    | | ')(' | |   /,'-----'.\   |/ (')(') \|
    \   ._.   /      \ \    / /   {_/(') (')\_}   \   __   /
    ,&gt;-_,,,_-&lt;.       &gt;'=jf='&lt;     `.   _   .'    ,'--__--'.
- / Waqar.Khan  \    /        \     /'-___-'\    /    <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_neutral.gif" alt=":|" class="wp-smiley" />    \
-(_)     .     (_)  /  Ikram   \   / M-Usman \  (_)   <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_neutral.gif" alt=":|" class="wp-smiley" />   (_)
+ / Waqar.Khan  \    /        \     /'-___-'\    /    <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_neutral.gif" alt=":|" class="wp-smiley" />    \
+(_)     .     (_)  /  Ikram   \   / M-Usman \  (_)   <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_neutral.gif" alt=":|" class="wp-smiley" />   (_)
  \_-----'____--/  (_)  Ali   (_) (_)_______(_)   |___:|____|
   \___________/     |________|     \_______/     | Afrasiab|
 

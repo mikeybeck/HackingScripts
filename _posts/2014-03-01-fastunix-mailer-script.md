@@ -249,6 +249,6 @@ if(isset($_POST['action']) && $numemails !==0 ){echo
 
 ## FastUnix.Net Mailer Script screenshot<figure id="attachment_401" style="width: 777px;" class="wp-caption aligncenter">
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/03/fastunix_net.png" alt="FastUnix.Net mailer script screenshot" width="777" height="410" class="size-full wp-image-401" />][1]<figcaption class="wp-caption-text">FastUnix.Net mailer script screenshot</figcaption></figure>
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/03/fastunix_net.png" alt="FastUnix.Net mailer script screenshot" width="777" height="410" class="size-full wp-image-401" />][1]<figcaption class="wp-caption-text">FastUnix.Net mailer script screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/03/fastunix_net.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/03/fastunix_net.png

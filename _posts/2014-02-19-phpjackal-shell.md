@@ -1440,6 +1440,6 @@ echo $footer;?&gt;&lt;/body&gt;&lt;/html&gt;
 
 ## PHPJackal v1.5 Shell screenshot<figure id="attachment_422" style="width: 604px;" class="wp-caption aligncenter">
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/02/php_jackal_shell-1024x319.png" alt="PHPJackal v1.5 Shell screenshot" width="604" height="188" class="size-large wp-image-422" />][1]<figcaption class="wp-caption-text">PHPJackal v1.5 Shell screenshot</figcaption></figure>
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/php_jackal_shell-1024x319.png" alt="PHPJackal v1.5 Shell screenshot" width="604" height="188" class="size-large wp-image-422" />][1]<figcaption class="wp-caption-text">PHPJackal v1.5 Shell screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/02/php_jackal_shell.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/02/php_jackal_shell.png

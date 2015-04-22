@@ -127,6 +127,6 @@ c99shexit(); ?&gt;
 
 ## aLeRHaB ALsauDi shell screenshot<figure id="attachment_443" style="width: 825px;" class="wp-caption aligncenter">
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/02/aLeRHaB-ALsauDi_shell.png" alt="aLeRHaB ALsauDi shell screenshot" width="825" height="132" class="size-full wp-image-443" />][1]<figcaption class="wp-caption-text">aLeRHaB ALsauDi shell screenshot</figcaption></figure>
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/aLeRHaB-ALsauDi_shell.png" alt="aLeRHaB ALsauDi shell screenshot" width="825" height="132" class="size-full wp-image-443" />][1]<figcaption class="wp-caption-text">aLeRHaB ALsauDi shell screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/02/aLeRHaB-ALsauDi_shell.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/02/aLeRHaB-ALsauDi_shell.png

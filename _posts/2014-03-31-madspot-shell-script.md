@@ -1400,8 +1400,8 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
      |/  o) (o  \|    | | ')(' | |   /,'-----'.\   |/ (')(') \|
       \   ._.   /      \ \    / /   {_/(') (')\_}   \   __   /
       ,&gt;-_,,,_-&lt;.       &gt;'=jf='&lt;     `.   _   .'    ,'--__--'.
-    / Waqar.Khan  \    /        \     /'-___-'\    /    <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_neutral.gif" alt=":|" class="wp-smiley" />    \
-    (_)     .     (_)  /  Ikram   \   / M-Usman \  (_)   <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_neutral.gif" alt=":|" class="wp-smiley" />   (_)
+    / Waqar.Khan  \    /        \     /'-___-'\    /    <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_neutral.gif" alt=":|" class="wp-smiley" />    \
+    (_)     .     (_)  /  Ikram   \   / M-Usman \  (_)   <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_neutral.gif" alt=":|" class="wp-smiley" />   (_)
     \_-----'____--/  (_)  Ali   (_) (_)_______(_)   |___:|____|
      \___________/     |________|     \_______/     | Afrasiab|
 
@@ -2049,6 +2049,6 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
 </pre>
 
 A screenshot of Madspot Shell in action.  
-<figure id="attachment_380" style="width: 604px;" class="wp-caption aligncenter">[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/03/madspot-shell-1024x540.png" alt="madspot shell screenshot" width="604" height="318" class="size-large wp-image-380" />][1]<figcaption class="wp-caption-text">Screenshot of the Madspot shell</figcaption></figure>
+<figure id="attachment_380" style="width: 604px;" class="wp-caption aligncenter">[<img src="{{ site.baseurl }}/wp-content/uploads/2014/03/madspot-shell-1024x540.png" alt="madspot shell screenshot" width="604" height="318" class="size-large wp-image-380" />][1]<figcaption class="wp-caption-text">Screenshot of the Madspot shell</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/03/madspot-shell.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/03/madspot-shell.png

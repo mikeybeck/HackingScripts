@@ -257,6 +257,6 @@ $numemails\\r\\n-Shout Lastborn and Hustle On!');
 
 ## Enitan AKA virus screenshot
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/01/enitan.png" alt="enitan aka virus screenshot" width="411" height="293" class="aligncenter size-full wp-image-352" />][1]
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/01/enitan.png" alt="enitan aka virus screenshot" width="411" height="293" class="aligncenter size-full wp-image-352" />][1]
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/01/enitan.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/01/enitan.png

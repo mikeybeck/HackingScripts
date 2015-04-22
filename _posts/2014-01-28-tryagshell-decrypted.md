@@ -2351,7 +2351,7 @@ access.&lt;/CENTER&gt;&lt;/FONT&gt;");
 
 ## Tryagshell v1.3 screenshot
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/01/tryagshell-1024x513.png" alt="tryagshell screenshot" width="604" height="302" class="aligncenter size-large wp-image-347" />][2]
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/01/tryagshell-1024x513.png" alt="tryagshell screenshot" width="604" height="302" class="aligncenter size-large wp-image-347" />][2]
 
  [1]: http://hackingscripts.com/tryagshell-encrypted/ "Tryagshell (encrypted)"
- [2]: http://hackingscripts.com/wp/wp-content/uploads/2014/01/tryagshell.png
+ [2]: {{ site.baseurl }}/wp-content/uploads/2014/01/tryagshell.png

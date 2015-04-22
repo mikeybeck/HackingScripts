@@ -117,6 +117,6 @@ exit;
 
 ## Tiga-Lima Shell Screenshot
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/01/tiga-lima-1024x483.png" alt="tiga-lima shell screenshot" width="604" height="284" class="aligncenter size-large wp-image-331" />][1]
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/01/tiga-lima-1024x483.png" alt="tiga-lima shell screenshot" width="604" height="284" class="aligncenter size-large wp-image-331" />][1]
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/01/tiga-lima.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/01/tiga-lima.png

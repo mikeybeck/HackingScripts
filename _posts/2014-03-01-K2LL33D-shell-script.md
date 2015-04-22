@@ -283,6 +283,6 @@ elseif(isset($_GET['mkdir']) &amp;&amp; ($_GET['mkdir'] != &quot;&quot;)){$path 
 {% endhighlight %}
 
 Here is a screenshot of the lovely K2LL33D Shell in action.
-<a href="http://hackingscripts.com/wp/wp-content/uploads/2014/03/k2ll33dshell.png"><img src="http://hackingscripts.com/wp/wp-content/uploads/2014/03/k2ll33dshell-1024x369.png" alt="Screenshot of the K2LL33D Shell" width="604" height="217" class="size-large wp-image-371" /></a>
+<a href="{{ site.baseurl }}/wp-content/uploads/2014/03/k2ll33dshell.png"><img src="{{ site.baseurl }}/wp-content/uploads/2014/03/k2ll33dshell-1024x369.png" alt="Screenshot of the K2LL33D Shell" width="604" height="217" class="size-large wp-image-371" /></a>
 
 A screenshot alone doesn't do this script justice, as it is just so nice looking and really user friendly too.  

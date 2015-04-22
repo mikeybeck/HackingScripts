@@ -3125,6 +3125,6 @@ chdir($lastdir); exshexit();
 </pre>
 
 A screenshot of the MFTeaM shell:  
-<figure id="attachment_395" style="width: 604px;" class="wp-caption aligncenter">[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/03/MFTeaM-1024x575.png" alt="MFTeaM shell screenshot" width="604" height="339" class="size-large wp-image-395" />][1]<figcaption class="wp-caption-text">MFTeaM shell screenshot</figcaption></figure>
+<figure id="attachment_395" style="width: 604px;" class="wp-caption aligncenter">[<img src="{{ site.baseurl }}/wp-content/uploads/2014/03/MFTeaM-1024x575.png" alt="MFTeaM shell screenshot" width="604" height="339" class="size-large wp-image-395" />][1]<figcaption class="wp-caption-text">MFTeaM shell screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/03/MFTeaM.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/03/MFTeaM.png

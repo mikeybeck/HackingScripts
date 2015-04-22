@@ -2957,7 +2957,7 @@ if ($act == "about") {echo "&lt;center&gt;&lt;b&gt;Credits:&lt;br&gt;Idea, leadi
 
 ## C99 shell (beta) screenshot
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/02/c99-beta-1024x509.png" alt="c99 shell beta screenshot" width="604" height="300" class="aligncenter size-large wp-image-327" />][2]
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/c99-beta-1024x509.png" alt="c99 shell beta screenshot" width="604" height="300" class="aligncenter size-large wp-image-327" />][2]
 
  [1]: http://hackingscripts.com/c99-shell/ "C99 shell"
- [2]: http://hackingscripts.com/wp/wp-content/uploads/2014/02/c99-beta.png
+ [2]: {{ site.baseurl }}/wp-content/uploads/2014/02/c99-beta.png

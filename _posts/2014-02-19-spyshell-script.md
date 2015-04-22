@@ -2164,6 +2164,6 @@ function pr($s){
 
 ## Spyshell Script screenshot<figure id="attachment_432" style="width: 604px;" class="wp-caption aligncenter">
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/02/spyshell_script-1024x601.png" alt="Spyshell script screenshot" width="604" height="354" class="size-large wp-image-432" />][1]<figcaption class="wp-caption-text">Spyshell script screenshot</figcaption></figure>
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/spyshell_script-1024x601.png" alt="Spyshell script screenshot" width="604" height="354" class="size-large wp-image-432" />][1]<figcaption class="wp-caption-text">Spyshell script screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/02/spyshell_script.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/02/spyshell_script.png

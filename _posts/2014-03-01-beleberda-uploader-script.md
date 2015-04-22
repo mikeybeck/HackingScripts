@@ -55,6 +55,6 @@ if($_FILES['userfile']['tmp_name'][0]!=''){
 
 A screenshot of the Beleberda script:<figure id="attachment_392" style="width: 268px;" class="wp-caption aligncenter">
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/03/beleberda.png" alt="beleberda script screenshot" width="268" height="468" class="size-full wp-image-392" />][1]<figcaption class="wp-caption-text">Beleberda script screenshot</figcaption></figure>
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/03/beleberda.png" alt="beleberda script screenshot" width="268" height="468" class="size-full wp-image-392" />][1]<figcaption class="wp-caption-text">Beleberda script screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/03/beleberda.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/03/beleberda.png

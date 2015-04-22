@@ -743,6 +743,6 @@ echo "&lt;font color=red&gt;$func&lt;/font&gt;&lt;/b&gt;";
 
 ## Saqueer shell screenshot<figure id="attachment_440" style="width: 541px;" class="wp-caption aligncenter">
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/02/Saqueer-shell-541x1024.png" alt="Saqueer shell screenshot" width="541" height="1024" class="size-large wp-image-440" />][1]<figcaption class="wp-caption-text">Saqueer shell screenshot</figcaption></figure>
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/Saqueer-shell-541x1024.png" alt="Saqueer shell screenshot" width="541" height="1024" class="size-large wp-image-440" />][1]<figcaption class="wp-caption-text">Saqueer shell screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/02/Saqueer-shell.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/02/Saqueer-shell.png

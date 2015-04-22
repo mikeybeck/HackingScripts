@@ -114,6 +114,6 @@ id="example1"&gt;&lt;/div&gt;&lt;p id="example2"&gt;&lt;font face="Papyrus"; col
 
 ## X-73 Code Uploader screenshot<figure id="attachment_434" style="width: 604px;" class="wp-caption aligncenter">
 
-[<img src="http://hackingscripts.com/wp/wp-content/uploads/2014/02/x-73-code-uploader-1024x351.png" alt="X-73 code uploader screenshot" width="604" height="207" class="size-large wp-image-434" />][1]<figcaption class="wp-caption-text">X-73 code uploader screenshot</figcaption></figure>
+[<img src="{{ site.baseurl }}/wp-content/uploads/2014/02/x-73-code-uploader-1024x351.png" alt="X-73 code uploader screenshot" width="604" height="207" class="size-large wp-image-434" />][1]<figcaption class="wp-caption-text">X-73 code uploader screenshot</figcaption></figure>
 
- [1]: http://hackingscripts.com/wp/wp-content/uploads/2014/02/x-73-code-uploader.png
+ [1]: {{ site.baseurl }}/wp-content/uploads/2014/02/x-73-code-uploader.png
