@@ -46,7 +46,8 @@ If you run Microsoft Security Essentials as part of IIS Server maintenance you c
 
 ### ASPXSpy Script Source Code
 
-<pre class="brush: jscript; title: ; notranslate" title="">&lt;%@ Page Language="C#" Debug="true" trace="false" validateRequest="false" EnableViewStateMac="false" EnableViewState="true"%&gt;
+{% highlight aspx-cs %}
+&lt;%@ Page Language="C#" Debug="true" trace="false" validateRequest="false" EnableViewStateMac="false" EnableViewState="true"%&gt;
 &lt;%@ import Namespace="System.IO"%&gt;
 &lt;%@ import Namespace="System.Diagnostics"%&gt;
 &lt;%@ import Namespace="System.Data"%&gt;
@@ -2644,7 +2645,7 @@ SQLExec : &lt;asp:DropDownList runat="server" ID="FGEy" AutoPostBack="True" OnSe
 &lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+{% endhighlight %}
 
 You can read more about the script [here][3]
 
