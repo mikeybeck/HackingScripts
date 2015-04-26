@@ -7,4 +7,4 @@ excerpt_separator: "\n\n\n"
 
 highlighter: pygments
 
-baseurl: http://hackingscripts.com/
+baseurl: ""
