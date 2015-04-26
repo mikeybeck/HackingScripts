@@ -104,7 +104,7 @@
 <span class="s"> / _|             | |               | |</span>
 <span class="s">| |_ __ _  ___ ___| |__   ___   ___ | | __</span>
 <span class="s">|  _/ _` |/ __/ _ \ &#39;_ \ / _ \ / _ \| |/ /</span>
-<span class="s">| || (_| | (_|  __/ |_) | (_) | (_) |   &amp;lt;</span>
+<span class="s">| || (_| | (_|  __/ |_) | (_) | (_) |   &lt;</span>
 <span class="s">|_| \__,_|\___\___|_.__/ \___/ \___/|_|\_</span><span class="se">\\</span><span class="s"></span>
 <span class="s">                    bruteforcer...</span>
 
@@ -166,7 +166,7 @@
                     <span class="n">verbose</span> <span class="o">=</span> <span class="bp">True</span>
             <span class="k">elif</span> <span class="n">arg</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s">&#39;-h&#39;</span> <span class="ow">or</span> <span class="n">arg</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s">&#39;--help&#39;</span><span class="p">:</span>
                 <span class="n">helpme</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">helpmee</span><span class="p">()</span>
     <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
         <span class="n">helpme</span><span class="p">()</span>
@@ -246,7 +246,7 @@
         <span class="n">preventstrokes</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">wordlist</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
         <span class="n">words</span>          <span class="o">=</span> <span class="n">preventstrokes</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
         <span class="n">count</span>          <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="n">count</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+        <span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
             <span class="n">words</span><span class="p">[</span><span class="n">count</span><span class="p">]</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="n">count</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
             <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
