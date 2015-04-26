@@ -5,9 +5,7 @@ author: admin
 layout: page
 guid: http://hackingscripts.com/?page_id=361
 ---
-# File upload facility. Note: 10MB limit
-
-## We apologise, this facility is currently unavailable.  Please check back later!
+# <a href="http://upload.hackingscripts.com">File upload facility</a>. Note: 10MB limit
 
 
 
