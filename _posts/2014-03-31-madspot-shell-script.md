@@ -31,7 +31,7 @@ The Madspot shell is written in PHP, runs on both Linux and Windows serves, and 
 
 ### Madspot shell source code
 
-{% highlight php %}
+{% highlight php linenos=table %}
 <?php
 
     /**
