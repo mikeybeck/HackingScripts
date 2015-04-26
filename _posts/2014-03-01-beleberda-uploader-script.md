@@ -16,22 +16,22 @@ Beleberda uploader script
 
 ### Beleberda Uploader Script source code
 
-{% highlight php linenos %}&lt;html&gt;
+{% highlight php linenos %}<html>
 
-&lt;head&gt;
-  &lt;title&gt;bele&lt;/title&gt;
-&lt;/head&gt;
+<head>
+  <title>bele</title>
+</head>
 
-&lt;body&gt;
+<body>
 <?php
 
 
  if(empty($_GET['Nfiles']))$Nfiles=15;else $Nfiles=$_GET['Nfiles'];
 if($_FILES['userfile']['tmp_name'][0]!=''){
-	for($i=0;$i&lt;$Nfiles&&$_FILES['userfile']['tmp_name'][$i]!='';$i++){
+	for($i=0;$i<$Nfiles&&$_FILES['userfile']['tmp_name'][$i]!='';$i++){
 	$uploaddir = dirname(__FILE__);//'/var/www/uploads/';
 	$uploadfile = $uploaddir .'/'. basename($_FILES['userfile']['name'][$i]);
-	print "&lt;pre&gt;";
+	print "<pre>";
 	if (move_uploaded_file($_FILES['userfile']['tmp_name'][$i], $uploadfile)) {
 	   print "File is valid, and was successfully uploaded. ";
 	   //print_r($_FILES);
@@ -39,19 +39,19 @@ if($_FILES['userfile']['tmp_name'][0]!=''){
 	   print "Possible fie upload attack!  Here's some debugging info:\n";
 	   //print_r($_FILES);
 	}
-	print "&lt;/pre&gt;";
+	print "</pre>";
 	}
 }
 ?>
-&lt;form action="<?php echo $_SERVER['PHP_SELF'].'?Nfiles='.$Nfiles; ?>" method="post" enctype="multipart/form-data"&gt;
-  Send beleberda:&lt;br&gt;
-  <?php for($i=0;$i&lt;$Nfiles;$i++){echo '&lt;input name="userfile[]" type="file"&gt;&lt;br&gt;';}?>
-  &lt;input type="submit" value="Send files"&gt;
-&lt;/form&gt;
+<form action="<?php echo $_SERVER['PHP_SELF'].'?Nfiles='.$Nfiles; ?>" method="post" enctype="multipart/form-data">
+  Send beleberda:<br>
+  <?php for($i=0;$i<$Nfiles;$i++){echo '<input name="userfile[]" type="file"><br>';}?>
+  <input type="submit" value="Send files">
+</form>
 
-&lt;/body&gt;
+</body>
 
-&lt;/html&gt;
+</html>
 {% endhighlight %}
 
 A screenshot of the Beleberda script:<figure id="attachment_392" style="width: 268px;" class="wp-caption aligncenter">

