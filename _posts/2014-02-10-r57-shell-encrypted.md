@@ -17,7 +17,7 @@ I&#8217;m pretty sure the r57 and c99 shells are more or less the same, but this
 
 ### r57 Shell Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 /******************************************************************************************************/
 /*										 WW.R57.GEN.TR
 /*                                     #    #        #    #

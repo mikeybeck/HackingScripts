@@ -19,7 +19,7 @@ UPDATE: This is actually just a g00nshell v1.3. How disappointing.
 
 ### OPeNHaxshell v1.3 final Source Code
 
-{% highlight php %}GIF89;a
+{% highlight php linenos %}GIF89;a
 666
 <?php
 /*

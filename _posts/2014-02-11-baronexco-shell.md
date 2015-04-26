@@ -15,7 +15,7 @@ I don&#8217;t know what this script is called, but the default password seems to
 
 ### Baronexco Shell Source Code
 
-{% highlight php %}<?
+{% highlight php linenos %}<?
 @session_start();
 @set_time_limit(0);
 @set_magic_quotes_runtime(0);

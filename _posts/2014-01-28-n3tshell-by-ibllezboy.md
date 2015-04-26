@@ -18,7 +18,7 @@ It seems to me that some script kiddie going by the handle of &#8216;ibllezboy&#
 
 ### n3tshell by ibllezboy (encrypted) Source Code
 
-{% highlight php %}||  '||      '||  '||                  '||                   
+{% highlight php linenos %}||  '||      '||  '||                  '||                   
                                 ...   || ...   ||   ||    ....  ......   || ...    ...   .... ...
                                  ||   ||'  ||  ||   ||  .|...|| '  .|'   ||'  || .|  '|.  '|.  |     
                                  ||   ||    |  ||   ||  ||       .|'     ||    | ||   ||   '|.| 

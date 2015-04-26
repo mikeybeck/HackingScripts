@@ -19,7 +19,7 @@ It&#8217;s also private! private! private! &#8230;
 
 ### The Acid Shell Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
     /*
     -------------------------------------------------------------------------------------------
     private! private! private! private! private! private! private! private! private! private!

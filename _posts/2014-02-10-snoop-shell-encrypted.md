@@ -16,7 +16,7 @@ This E L I T E! shell was called &#8216;snoop.php&#8217;.
 
 ### snoop Shell Source Code (encrypted)
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 /*
  E L I T E! 
 

@@ -19,7 +19,7 @@ You can see the encrypted version here: [Tryagshell (encrypted)][1]
 
 ### Tryagshell v1.3 (decrypted) Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 /******************************************************************************************************/
 /*
 /*                                     #    #        #    #

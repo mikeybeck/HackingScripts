@@ -16,7 +16,7 @@ This script appears to try to obtain login details for a compromised server.
 
 ### PhpConfigSpy Source Code
 
-{% highlight php %}<?php 
+{% highlight php linenos %}<?php 
 echo "&lt;html&gt;"; 
 echo "&lt;title&gt;PhpConfigSpy v0.1&lt;/title&gt;&lt;body&gt;"; 
 

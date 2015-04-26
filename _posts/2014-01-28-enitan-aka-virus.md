@@ -17,7 +17,7 @@ This file was called &#8216;enitan AKA virus&#8217;, and this is the content of 
 
 ### Enitan AKA virus Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 @session_start();
 @set_time_limit(0);
 //PASSWORD CONFIGURATION

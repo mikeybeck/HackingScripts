@@ -15,7 +15,7 @@ cPanel Turbo Force v3 &#8211; Coded By SaQEeR aL jNoOoB
 
 ### cPanel Turbo Force v3 Source Code
 
-{% highlight php %}&lt;html&gt;
+{% highlight php linenos %}&lt;html&gt;
 
 &lt;head&gt;
 &lt;title&gt;cPanel Turbo Force v3&lt;/title&gt;

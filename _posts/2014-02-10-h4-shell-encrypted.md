@@ -19,7 +19,7 @@ Includes the following words of wisdom: &#8216;Cuz We Back Rude This Time&#8217;
 
 ### H4 Shell Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 # H4 Shell 1.0
 # c0ded by H4KOOOM
 # http://sa-hacker.com

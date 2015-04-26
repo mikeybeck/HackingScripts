@@ -16,7 +16,7 @@ tags:
 ---
 Interestingly, this script references the [FilesMan][1] script, but looks quite different (at least at the beginning anyway)..
 
-{% highlight php %}<?php 
+{% highlight php linenos %}<?php 
 
 /*/
 // http://suram-crew.info/

@@ -16,7 +16,7 @@ tags:
 
 ### X-73 Code Uploader Source Code
 
-{% highlight php %}GIF89;a
+{% highlight php linenos %}GIF89;a
 <?php
     $myUpload = new maxUpload(); 
     //$myUpload-&gt;setUploadLocation(getcwd().DIRECTORY_SEPARATOR);

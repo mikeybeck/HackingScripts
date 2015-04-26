@@ -16,7 +16,7 @@ A simple mailer script by FastUnix.net
 
 ### FastUnix Mailer Script Source Code
 
-{% highlight php %}&lt;html&gt;
+{% highlight php linenos %}&lt;html&gt;
 &lt;head&gt;&lt;title&gt;FastUnix.net&lt;/title&gt;
 &lt;style type="text/css"&gt;
 p {color:#FF0000;font-size:14px;text-align:center}

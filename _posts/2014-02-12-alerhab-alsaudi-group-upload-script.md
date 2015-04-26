@@ -16,7 +16,7 @@ Upload Script by aLeRHaB ALsauDi Group.
 
 ### aLeRHaB ALsauDi Group Upload Script Source Code (encrypted)
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 /*
 online encode by cha88.cn!
 */
@@ -27,7 +27,7 @@ eval(gzinflate(base64_decode('FZjHDsTGEUTv+hFL4IE5wYIFZi5z5pIXgznnzK/3+jbHme6url
 
 ### aLeRHaB ALsauDi Group Upload Script Source Code (decrypted)
 
-{% highlight php %}<head>
+{% highlight php linenos %}<head>
 <style>
 <!--
 p {MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 150%}-->

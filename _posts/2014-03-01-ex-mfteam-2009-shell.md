@@ -16,7 +16,7 @@ eX MFTeaM 2009 shell by By FakoMast3r, CopyRight MFTeaM.
 
 ### eX MFTeaM 2009 shell Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 
 ###
 ###

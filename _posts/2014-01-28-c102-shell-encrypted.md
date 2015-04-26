@@ -18,7 +18,7 @@ This is supposedly a c102 shell, but it just looks like a c99 script to me..
 
 ### C102Shell (encrypted) Source Code
 
-{% highlight php %}<?php 
+{% highlight php linenos %}<?php 
 /*
 
 ###

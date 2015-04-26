@@ -18,7 +18,7 @@ tags:
 
 ### CYBERDARK Shell Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 
 /**
  * @author CYBERDARK

@@ -16,7 +16,7 @@ A simple uploader script by QtRoNiX HaCkEr.
 
 ### Script Upload By QtRoNiX HaCkEr Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 echo '&lt;center&gt;&lt;font color="Red" size="4"&gt;';
 /// Script Upload By QtRoNiX HaCkEr \\\
 if(isset($_POST['Submit'])){

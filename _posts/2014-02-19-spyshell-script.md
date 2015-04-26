@@ -17,7 +17,7 @@ SpyShell Script, powered by Security Angel Team [S4T].
 
 ### SpyShell Script Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 error_reporting(7);
 @set_magic_quotes_runtime(0);
 ob_start();

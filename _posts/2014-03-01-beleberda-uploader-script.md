@@ -16,7 +16,7 @@ Beleberda uploader script
 
 ### Beleberda Uploader Script source code
 
-{% highlight php %}&lt;html&gt;
+{% highlight php linenos %}&lt;html&gt;
 
 &lt;head&gt;
   &lt;title&gt;bele&lt;/title&gt;

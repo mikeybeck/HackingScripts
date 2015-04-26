@@ -16,7 +16,7 @@ Emailer script &#8211; Coded by Hangaw_HawlerY of H4KurD-TeaM
 
 ### Emailer Script Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 
 /* 
 H4KurD-TeaM

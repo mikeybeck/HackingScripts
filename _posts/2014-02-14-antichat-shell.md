@@ -16,7 +16,7 @@ Antichat Shell v1.3 by Grinay
 
 ### Antichat Shell Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 
 session_start();
 set_time_limit(9999999);

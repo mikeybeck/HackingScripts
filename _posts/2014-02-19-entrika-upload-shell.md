@@ -18,7 +18,7 @@ Entrika upload shell &#8211; javascript and a little bit of PHP.
 
 ### Entrika upload shell source code
 
-{% highlight php %}&lt;FORM ENCTYPE="multipart/form-data" ACTION="uploader.php" METHOD="POST"&gt;
+{% highlight php linenos %}&lt;FORM ENCTYPE="multipart/form-data" ACTION="uploader.php" METHOD="POST"&gt;
 &lt;INPUT TYPE="hidden" name="MAX_FILE_SIZE" value="100000"&gt;
 Send this file: &lt;INPUT NAME="userfile" TYPE="file"&gt;
 &lt;INPUT TYPE="submit" VALUE="Send"&gt;

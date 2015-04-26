@@ -17,7 +17,7 @@ This is a very basic uploader script, which simply enables the user to upload wh
 
 ### Uploader Script Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 echo '&lt;b&gt;&lt;br&gt;&lt;br&gt;'.php_uname().'&lt;br&gt;&lt;/b&gt;';
 echo '&lt;form action="" method="post" enctype="multipart/form-data" name="uploader" id="uploader"&gt;';
 echo '&lt;input type="file" name="file" size="50"&gt;&lt;input name="_upl" type="submit" id="_upl" value="Upload"&gt;&lt;/form&gt;';

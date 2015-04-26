@@ -17,7 +17,7 @@ This shell is very similar to the [N3tShell][1] AKA Web Shell by oRb, with a few
 
 ### FilesMan Shell Source Code (encrypted)
 
-{% highlight php %}<?php #v2.3		//Version
+{% highlight php linenos %}<?php #v2.3		//Version
 $auth_pass = ""; 	//75b43eac8d215582f6bcab4532eb854e 
 $color = "#00FF66";	//Colour
 $default_action = "FilesMan";

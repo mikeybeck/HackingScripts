@@ -14,7 +14,7 @@ tags:
 ---
 This is the encoded version of the Tryagshell (version 1.3 apparently)
 
-{% highlight php %}GIF89aP;
+{% highlight php linenos %}GIF89aP;
 
 <?
 

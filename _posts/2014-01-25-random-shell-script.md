@@ -15,7 +15,7 @@ A random shell script.. I don&#8217;t know what this one does, or find any infor
 
 ### Random Shell Script Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 set_time_limit (0);
 $VERSION = "1.0";
 $ip = $_GET["ip"]; 

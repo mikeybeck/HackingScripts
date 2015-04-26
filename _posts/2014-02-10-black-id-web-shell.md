@@ -17,7 +17,7 @@ This Web Shell by Black-ID version 3.0 is based On PHP, Ajax Posts, CSS3 and was
 
 ### Black-ID Web Shell Source Code (encrypted)
 
-{% highlight php %}<?php 
+{% highlight php linenos %}<?php 
 	/**
  ____  _            _           _____ _____  
 |  _ \| |          | |         |_   _|  __ \ 

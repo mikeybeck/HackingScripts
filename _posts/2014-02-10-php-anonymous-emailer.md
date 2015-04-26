@@ -16,7 +16,7 @@ Ok, so this isn&#8217;t really a hack script as such, but is also used for nefar
 
 ### PHP Anonymous Emailer/Mail Bomber Source Code
 
-{% highlight php %}&lt;html&gt;
+{% highlight php linenos %}&lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;PHP Anonymous Emailer/Mail Bomber&lt;/title&gt;
 &lt;body bgcolor="black" text="white"&gt;

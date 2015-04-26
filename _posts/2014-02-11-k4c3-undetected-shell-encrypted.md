@@ -16,7 +16,7 @@ This shell was probably written by an Indonesion hacker who goes by the handle K
 
 ### K4C3 Undetected Shell Source Code (encrypted)
 
-{% highlight php %}<?php
+{% highlight php linenos %}<?php
 error_reporting(0);
 @set_time_limit(0);
 @session_start();
