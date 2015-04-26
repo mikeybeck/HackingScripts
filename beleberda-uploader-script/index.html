@@ -37,42 +37,42 @@
 
 <h3>Beleberda Uploader Script source code</h3>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&amp;lt;html&amp;gt;</span>
-
-<span class="x">&amp;lt;head&amp;gt;</span>
-<span class="x">  &amp;lt;title&amp;gt;bele&amp;lt;/title&amp;gt;</span>
-<span class="x">&amp;lt;/head&amp;gt;</span>
-
-<span class="x">&amp;lt;body&amp;gt;</span>
-<span class="cp">&lt;?php</span>
-
-
- <span class="k">if</span><span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;Nfiles&#39;</span><span class="p">]))</span><span class="nv">$Nfiles</span><span class="o">=</span><span class="mi">15</span><span class="p">;</span><span class="k">else</span> <span class="nv">$Nfiles</span><span class="o">=</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;Nfiles&#39;</span><span class="p">];</span>
-<span class="k">if</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;userfile&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">){</span>
-    <span class="k">for</span><span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nv">$i</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nv">$Nfiles</span><span class="o">&amp;&amp;</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;userfile&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">][</span><span class="nv">$i</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">;</span><span class="nv">$i</span><span class="o">++</span><span class="p">){</span>
-    <span class="nv">$uploaddir</span> <span class="o">=</span> <span class="nb">dirname</span><span class="p">(</span><span class="k">__FILE__</span><span class="p">);</span><span class="c1">//&#39;/var/www/uploads/&#39;;</span>
-    <span class="nv">$uploadfile</span> <span class="o">=</span> <span class="nv">$uploaddir</span> <span class="o">.</span><span class="s1">&#39;/&#39;</span><span class="o">.</span> <span class="nb">basename</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;userfile&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="nv">$i</span><span class="p">]);</span>
-    <span class="k">print</span> <span class="s2">&quot;&amp;lt;pre&amp;gt;&quot;</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;userfile&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">][</span><span class="nv">$i</span><span class="p">],</span> <span class="nv">$uploadfile</span><span class="p">))</span> <span class="p">{</span>
-       <span class="k">print</span> <span class="s2">&quot;File is valid, and was successfully uploaded. &quot;</span><span class="p">;</span>
-       <span class="c1">//print_r($_FILES);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-       <span class="k">print</span> <span class="s2">&quot;Possible fie upload attack!  Here&#39;s some debugging info:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-       <span class="c1">//print_r($_FILES);</span>
-    <span class="p">}</span>
-    <span class="k">print</span> <span class="s2">&quot;&amp;lt;/pre&amp;gt;&quot;</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&amp;lt;form action=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;PHP_SELF&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39;?Nfiles=&#39;</span><span class="o">.</span><span class="nv">$Nfiles</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&amp;gt;</span>
-<span class="x">  Send beleberda:&amp;lt;br&amp;gt;</span>
-<span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">for</span><span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nv">$i</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nv">$Nfiles</span><span class="p">;</span><span class="nv">$i</span><span class="o">++</span><span class="p">){</span><span class="k">echo</span> <span class="s1">&#39;&amp;lt;input name=&quot;userfile[]&quot; type=&quot;file&quot;&amp;gt;&amp;lt;br&amp;gt;&#39;</span><span class="p">;}</span><span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">  &amp;lt;input type=&quot;submit&quot; value=&quot;Send files&quot;&amp;gt;</span>
-<span class="x">&amp;lt;/form&amp;gt;</span>
-
-<span class="x">&amp;lt;/body&amp;gt;</span>
-
-<span class="x">&amp;lt;/html&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="x">&amp;lt;html&amp;gt;</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="x">&amp;lt;head&amp;gt;</span>
+<span class="lineno"> 4</span> <span class="x">  &amp;lt;title&amp;gt;bele&amp;lt;/title&amp;gt;</span>
+<span class="lineno"> 5</span> <span class="x">&amp;lt;/head&amp;gt;</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> <span class="x">&amp;lt;body&amp;gt;</span>
+<span class="lineno"> 8</span> <span class="cp">&lt;?php</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> 
+<span class="lineno">11</span>  <span class="k">if</span><span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;Nfiles&#39;</span><span class="p">]))</span><span class="nv">$Nfiles</span><span class="o">=</span><span class="mi">15</span><span class="p">;</span><span class="k">else</span> <span class="nv">$Nfiles</span><span class="o">=</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;Nfiles&#39;</span><span class="p">];</span>
+<span class="lineno">12</span> <span class="k">if</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;userfile&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">){</span>
+<span class="lineno">13</span>  <span class="k">for</span><span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nv">$i</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nv">$Nfiles</span><span class="o">&amp;&amp;</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;userfile&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">][</span><span class="nv">$i</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">;</span><span class="nv">$i</span><span class="o">++</span><span class="p">){</span>
+<span class="lineno">14</span>  <span class="nv">$uploaddir</span> <span class="o">=</span> <span class="nb">dirname</span><span class="p">(</span><span class="k">__FILE__</span><span class="p">);</span><span class="c1">//&#39;/var/www/uploads/&#39;;</span>
+<span class="lineno">15</span>  <span class="nv">$uploadfile</span> <span class="o">=</span> <span class="nv">$uploaddir</span> <span class="o">.</span><span class="s1">&#39;/&#39;</span><span class="o">.</span> <span class="nb">basename</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;userfile&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="nv">$i</span><span class="p">]);</span>
+<span class="lineno">16</span>  <span class="k">print</span> <span class="s2">&quot;&amp;lt;pre&amp;gt;&quot;</span><span class="p">;</span>
+<span class="lineno">17</span>  <span class="k">if</span> <span class="p">(</span><span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;userfile&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">][</span><span class="nv">$i</span><span class="p">],</span> <span class="nv">$uploadfile</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">18</span>     <span class="k">print</span> <span class="s2">&quot;File is valid, and was successfully uploaded. &quot;</span><span class="p">;</span>
+<span class="lineno">19</span>     <span class="c1">//print_r($_FILES);</span>
+<span class="lineno">20</span>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">21</span>     <span class="k">print</span> <span class="s2">&quot;Possible fie upload attack!  Here&#39;s some debugging info:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">22</span>     <span class="c1">//print_r($_FILES);</span>
+<span class="lineno">23</span>  <span class="p">}</span>
+<span class="lineno">24</span>  <span class="k">print</span> <span class="s2">&quot;&amp;lt;/pre&amp;gt;&quot;</span><span class="p">;</span>
+<span class="lineno">25</span>  <span class="p">}</span>
+<span class="lineno">26</span> <span class="p">}</span>
+<span class="lineno">27</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="lineno">28</span> <span class="x">&amp;lt;form action=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;PHP_SELF&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39;?Nfiles=&#39;</span><span class="o">.</span><span class="nv">$Nfiles</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&amp;gt;</span>
+<span class="lineno">29</span> <span class="x">  Send beleberda:&amp;lt;br&amp;gt;</span>
+<span class="lineno">30</span> <span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">for</span><span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nv">$i</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nv">$Nfiles</span><span class="p">;</span><span class="nv">$i</span><span class="o">++</span><span class="p">){</span><span class="k">echo</span> <span class="s1">&#39;&amp;lt;input name=&quot;userfile[]&quot; type=&quot;file&quot;&amp;gt;&amp;lt;br&amp;gt;&#39;</span><span class="p">;}</span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="lineno">31</span> <span class="x">  &amp;lt;input type=&quot;submit&quot; value=&quot;Send files&quot;&amp;gt;</span>
+<span class="lineno">32</span> <span class="x">&amp;lt;/form&amp;gt;</span>
+<span class="lineno">33</span> 
+<span class="lineno">34</span> <span class="x">&amp;lt;/body&amp;gt;</span>
+<span class="lineno">35</span> 
+<span class="lineno">36</span> <span class="x">&amp;lt;/html&amp;gt;</span></code></pre></div>
 
 <p>A screenshot of the Beleberda script:<figure id="attachment_392" style="width: 268px;" class="wp-caption aligncenter"></p>
 

