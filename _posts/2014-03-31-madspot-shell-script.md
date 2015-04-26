@@ -13,7 +13,7 @@ tags:
 ---
 Madspot shell script. From the Madspot Security Team (madspot.net), or was the author Ikram Ali, as the script says?. You can find the Madspot Security Team website at pcbots.org.
 
-The Madspot shell is written in PHP, runs on both Linux and Windows serves, and provides the following features:
+The Madspot shell is written in PHP, runs on both Linux and Windows servers, and provides the following features:
 
   * Process List
   * Eval
