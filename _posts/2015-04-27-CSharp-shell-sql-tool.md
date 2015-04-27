@@ -1,6 +1,6 @@
 ---
 id: 24
-title: VBA Shell Forcer
+title: C# Shell SQL tool
 author: admin
 layout: post
 categories:
