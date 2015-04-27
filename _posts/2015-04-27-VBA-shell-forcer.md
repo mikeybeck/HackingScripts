@@ -12,6 +12,7 @@ categories:
 
 ## Edited & developed by VBATEAM
 
+
 {% highlight php linenos %}
 <?php
 /****************************************\
@@ -2168,4 +2169,5 @@ function pr($a) {
     print_r($a);
     echo '</pre>';
 }
+?>
 {% endhighlight %}
