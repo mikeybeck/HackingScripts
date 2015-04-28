@@ -1,10 +1,10 @@
 ---
 id: 24
-title: VBA Shell Forcer
+title: Komut Shell
 author: admin
 layout: post
 categories:
-  - VBA
+  - PHP
 ---
 
 
