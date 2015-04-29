@@ -1,0 +1,659 @@
+[
+  
+    {
+      "title"    : "WHMCS Killer source code",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/scripts/WHMCS-Killer",
+      "date"     : "2015-04-28 00:00:00 +1200"
+    } ,
+  
+    {
+      "title"    : "Komut Shell",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/scripts/Komut-shell",
+      "date"     : "2015-04-28 00:00:00 +1200"
+    } ,
+  
+    {
+      "title"    : "Bypass Shell source code",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/scripts/Bypass-shell",
+      "date"     : "2015-04-28 00:00:00 +1200"
+    } ,
+  
+    {
+      "title"    : "Shell Uploader source code",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/scripts/Armenian-Shell-Uploader",
+      "date"     : "2015-04-28 00:00:00 +1200"
+    } ,
+  
+    {
+      "title"    : "VBA Shell Forcer",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/scripts/VBA-shell-forcer",
+      "date"     : "2015-04-27 00:00:00 +1200"
+    } ,
+  
+    {
+      "title"    : "C# Shell SQL tool",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/scripts/CSharp-shell-sql-tool",
+      "date"     : "2015-04-27 00:00:00 +1200"
+    } ,
+  
+    {
+      "title"    : "Madspot shell script",
+      "category" : "",
+      "tags"     : "madspot, PHP",
+      "url"      : "/madspot-shell-script/",
+      "date"     : "2014-03-31 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "ASPXSpy shell script",
+      "category" : "",
+      "tags"     : "ASPX",
+      "url"      : "/aspxspy-shell-script/",
+      "date"     : "2014-03-31 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Saudi Sh3ll v1.0 Script",
+      "category" : "",
+      "tags"     : "PHP, saudi sh3ll",
+      "url"      : "/saudi-sh3ll-script/",
+      "date"     : "2014-03-01 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "K2LL33D shell script",
+      "category" : "",
+      "tags"     : "PHP, ReZK2LL Team",
+      "url"      : "/k2ll33d-team-shell-script/",
+      "date"     : "2014-03-01 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Fi73 M4n4g3r script",
+      "category" : "",
+      "tags"     : "file manager, PHP",
+      "url"      : "/fi73-m4n4g3r-script/",
+      "date"     : "2014-03-01 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "FastUnix Mailer script",
+      "category" : "",
+      "tags"     : "mailer, PHP",
+      "url"      : "/fastunix-mailer-script/",
+      "date"     : "2014-03-01 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "eX MFTeaM 2009 shell",
+      "category" : "",
+      "tags"     : "eX MFTeaM, PHP",
+      "url"      : "/ex-mfteam-2009-shell/",
+      "date"     : "2014-03-01 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "beleberda uploader script",
+      "category" : "",
+      "tags"     : "PHP, uploader",
+      "url"      : "/beleberda-uploader-script/",
+      "date"     : "2014-03-01 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "302 S*hell script",
+      "category" : "",
+      "tags"     : "302 shell, PHP",
+      "url"      : "/302-shell-script/",
+      "date"     : "2014-03-01 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "xML Shell",
+      "category" : "",
+      "tags"     : "PHP, XML",
+      "url"      : "/xml-shell/",
+      "date"     : "2014-02-19 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Storm7Shell Script",
+      "category" : "",
+      "tags"     : "Locus7Shell, PHP, Storm7Shell",
+      "url"      : "/storm7shell-script/",
+      "date"     : "2014-02-19 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "SpyShell Script",
+      "category" : "",
+      "tags"     : "PHP, phpspy, spyshell",
+      "url"      : "/spyshell-script/",
+      "date"     : "2014-02-19 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "SimAttacker Shell",
+      "category" : "",
+      "tags"     : "PHP",
+      "url"      : "/simattacker-shell/",
+      "date"     : "2014-02-19 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "PHPJackal Shell",
+      "category" : "",
+      "tags"     : "PHP, PHPJackal",
+      "url"      : "/phpjackal-shell/",
+      "date"     : "2014-02-19 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Pekalongan Cyber Shell",
+      "category" : "",
+      "tags"     : "cyber, Pekalongan, PHP",
+      "url"      : "/pekalongan-cyber-shell/",
+      "date"     : "2014-02-19 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "I-47 shell",
+      "category" : "",
+      "tags"     : "Arjun, I-47, PHP",
+      "url"      : "/i-47-shell/",
+      "date"     : "2014-02-19 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Facebook Bruceforcer Script",
+      "category" : "",
+      "tags"     : "bruteforcer, facebook, Python",
+      "url"      : "/facebook-bruceforcer-script/",
+      "date"     : "2014-02-19 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Entrika upload shell",
+      "category" : "",
+      "tags"     : "entrika, Javascript, PHP",
+      "url"      : "/entrika-upload-shell/",
+      "date"     : "2014-02-19 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "EgY_SpIdEr Shell",
+      "category" : "",
+      "tags"     : "egy-spider, PHP",
+      "url"      : "/egy_spider-shell/",
+      "date"     : "2014-02-19 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "X-73 Code Uploader",
+      "category" : "",
+      "tags"     : "PHP, X-73",
+      "url"      : "/x-73-code-uploader/",
+      "date"     : "2014-02-14 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Antichat Shell",
+      "category" : "",
+      "tags"     : "antichat, PHP",
+      "url"      : "/antichat-shell/",
+      "date"     : "2014-02-14 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Emailer script",
+      "category" : "",
+      "tags"     : "emailer, PHP",
+      "url"      : "/emailer-script/",
+      "date"     : "2014-02-13 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "cPanel Turbo Force v3",
+      "category" : "",
+      "tags"     : "PHP. cpanel",
+      "url"      : "/cpanel-turbo-force-v3/",
+      "date"     : "2014-02-13 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "1n73ction Shell",
+      "category" : "",
+      "tags"     : "1n73ction, PHP",
+      "url"      : "/1n73ction-shell/",
+      "date"     : "2014-02-13 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Symlink_Sa 2.0 Shell",
+      "category" : "",
+      "tags"     : "PHP, Symlink_sa",
+      "url"      : "/symlink_sa-2-0-shell/",
+      "date"     : "2014-02-12 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Robot Pirates Property Shell",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/robot-pirates-property-shell/",
+      "date"     : "2014-02-12 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "GNY Shell",
+      "category" : "",
+      "tags"     : "GNY, PHP",
+      "url"      : "/gny-shell/",
+      "date"     : "2014-02-12 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Dhanush Shell",
+      "category" : "",
+      "tags"     : "Dhanush, PHP",
+      "url"      : "/dhanush-shell/",
+      "date"     : "2014-02-12 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "c99madshell Script",
+      "category" : "",
+      "tags"     : "C99, PHP",
+      "url"      : "/c99madshell-script/",
+      "date"     : "2014-02-12 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "aLeRHaB ALsauDi Group Upload Script",
+      "category" : "",
+      "tags"     : "PHP, upload",
+      "url"      : "/alerhab-alsaudi-group-upload-script/",
+      "date"     : "2014-02-12 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "WSO 2.1 Web Shell",
+      "category" : "",
+      "tags"     : "PHP, WSO",
+      "url"      : "/wso-2-1-web-shell/",
+      "date"     : "2014-02-11 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Script Upload By QtRoNiX HaCkEr",
+      "category" : "",
+      "tags"     : "PHP, uploader",
+      "url"      : "/script-upload-by-qtronix-hacker/",
+      "date"     : "2014-02-11 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "K4C3 Undetected Shell (encrypted)",
+      "category" : "",
+      "tags"     : "K4C3, PHP",
+      "url"      : "/k4c3-undetected-shell-encrypted/",
+      "date"     : "2014-02-11 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "CYBERDARK Shell",
+      "category" : "",
+      "tags"     : "CYBERDARK, FilesMan, PHP",
+      "url"      : "/cyberdark-shell/",
+      "date"     : "2014-02-11 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Baronexco shell",
+      "category" : "",
+      "tags"     : "PHP",
+      "url"      : "/baronexco-shell/",
+      "date"     : "2014-02-11 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "b374k Backdoor Script",
+      "category" : "",
+      "tags"     : "b374k, PHP",
+      "url"      : "/b374k-backdoor-script/",
+      "date"     : "2014-02-11 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "XgroupVn Shell (encrypted)",
+      "category" : "",
+      "tags"     : "PHP, XgroupVn",
+      "url"      : "/xgroupvn-shell-encrypted/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Web Shell b374k",
+      "category" : "",
+      "tags"     : "b374k web shell, PHP",
+      "url"      : "/web-shell-b374k/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Unknown Shell Script (encrypted)",
+      "category" : "",
+      "tags"     : "PHP",
+      "url"      : "/unknown-shell-script-encrypted/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "The Acid Shell",
+      "category" : "",
+      "tags"     : "Acid Shell, PHP",
+      "url"      : "/the-acid-shell/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Suram-Crew Private Backdoor Script (encrypted)",
+      "category" : "",
+      "tags"     : "FilesMan, PHP, Suram-Crew",
+      "url"      : "/suram-crew-private-backdoor-script-encrypted/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "snoop Shell (encrypted)",
+      "category" : "",
+      "tags"     : "PHP, snoop shell",
+      "url"      : "/snoop-shell-encrypted/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "SnIpEr_SA Shell",
+      "category" : "",
+      "tags"     : "PHP, Sniper-SA",
+      "url"      : "/sniper_sa-shell/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "r57 Shell (encrypted)",
+      "category" : "",
+      "tags"     : "PHP, r57",
+      "url"      : "/r57-shell-encrypted/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "PhpConfigSpy",
+      "category" : "",
+      "tags"     : "PHP, PhpConfigSpy",
+      "url"      : "/phpconfigspy/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "PHP Anonymous Emailer/Mail Bomber",
+      "category" : "",
+      "tags"     : "Email bomber, PHP",
+      "url"      : "/php-anonymous-emailer/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "payme shell (encrypted)",
+      "category" : "",
+      "tags"     : "payme, PHP",
+      "url"      : "/payme-shell-encrypted/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "H4 Shell (encrypted)",
+      "category" : "",
+      "tags"     : "H4, PHP",
+      "url"      : "/h4-shell-encrypted/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "c99 Shell (updated version)",
+      "category" : "",
+      "tags"     : "C99, PHP",
+      "url"      : "/c99-shell-updated-version/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "BoffMax Web Shell (encrypted)",
+      "category" : "",
+      "tags"     : "BoffMax, PHP",
+      "url"      : "/boffmax-web-shell-encrypted/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Black-ID Web Shell (encrypted)",
+      "category" : "",
+      "tags"     : "Black-ID, PHP",
+      "url"      : "/black-id-web-shell/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Ali Attacker Hack Script",
+      "category" : "",
+      "tags"     : "Javascript",
+      "url"      : "/ali-attacker-hack-script/",
+      "date"     : "2014-02-10 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "PentaSec Shell (encrypted)",
+      "category" : "",
+      "tags"     : "PentaSec, PHP",
+      "url"      : "/pentasec-shell-encrypted/",
+      "date"     : "2014-02-09 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "OPeNHaxshell Script",
+      "category" : "",
+      "tags"     : "OPeNHaxshell, PHP",
+      "url"      : "/openhaxshell/",
+      "date"     : "2014-02-09 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "FilesMan Shell (encrypted)",
+      "category" : "",
+      "tags"     : "FilesMan, PHP",
+      "url"      : "/filesman-shell-encrypted/",
+      "date"     : "2014-02-09 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "FilesMan Shell (decrypted)",
+      "category" : "",
+      "tags"     : "FilesMan, PHP",
+      "url"      : "/filesman-shell-decrypted/",
+      "date"     : "2014-02-09 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Tryagshell v1.3 (decrypted)",
+      "category" : "",
+      "tags"     : "PHP, Tryagshell",
+      "url"      : "/tryagshell-decrypted/",
+      "date"     : "2014-01-28 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "n3tshell by ibllezboy (encrypted)",
+      "category" : "",
+      "tags"     : "N3tShell, PHP",
+      "url"      : "/n3tshell-by-ibllezboy/",
+      "date"     : "2014-01-28 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Locus7s Shell",
+      "category" : "",
+      "tags"     : "C100, Locus7s, PHP",
+      "url"      : "/locus7s-shell/",
+      "date"     : "2014-01-28 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "enitan AKA virus",
+      "category" : "",
+      "tags"     : "enitan AKA virus, PHP",
+      "url"      : "/enitan-aka-virus/",
+      "date"     : "2014-01-28 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "C102 Shell (encrypted)",
+      "category" : "",
+      "tags"     : "C102, C99, PHP",
+      "url"      : "/c102-shell-encrypted/",
+      "date"     : "2014-01-28 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "C102 Shell",
+      "category" : "",
+      "tags"     : "C102, C99, PHP",
+      "url"      : "/c102-shell/",
+      "date"     : "2014-01-28 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Tryagshell v1.3 (encrypted)",
+      "category" : "",
+      "tags"     : "PHP, Tryagshell",
+      "url"      : "/tryagshell-encrypted/",
+      "date"     : "2014-01-26 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Tiga-Lima remote shell",
+      "category" : "",
+      "tags"     : "PHP, Tiga-Lima",
+      "url"      : "/tiga-lima-remote-shell/",
+      "date"     : "2014-01-26 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "VB Script",
+      "category" : "",
+      "tags"     : "VB",
+      "url"      : "/vb-script/",
+      "date"     : "2014-01-25 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Uploader Script",
+      "category" : "",
+      "tags"     : "PHP, uploader",
+      "url"      : "/uploader-script/",
+      "date"     : "2014-01-25 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Tiga-Lima Shell Script",
+      "category" : "",
+      "tags"     : "PHP, Tiga-Lima",
+      "url"      : "/tiga-lima-shell/",
+      "date"     : "2014-01-25 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Random Shell Script",
+      "category" : "",
+      "tags"     : "PHP",
+      "url"      : "/random-shell-script/",
+      "date"     : "2014-01-25 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "N3tShell v. Emp3ror Undetectable #18 (encrypted)",
+      "category" : "",
+      "tags"     : "N3tShell, PHP",
+      "url"      : "/n3tshell/",
+      "date"     : "2014-01-25 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "Mr.HiTman shell script (encrypted)",
+      "category" : "",
+      "tags"     : "Mr.HiTman, PHP",
+      "url"      : "/mr-hitman-shell-encrypted/",
+      "date"     : "2014-01-25 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "g00nshell v1.3",
+      "category" : "",
+      "tags"     : "g00nshell, PHP",
+      "url"      : "/g00nshell/",
+      "date"     : "2014-01-25 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "FaTaLisTiCz_Fx Fx29 Shell",
+      "category" : "",
+      "tags"     : "Fx29, PHP",
+      "url"      : "/fx29-shell/",
+      "date"     : "2014-01-25 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "DDoS script",
+      "category" : "",
+      "tags"     : "DDoS, DoS, PHP",
+      "url"      : "/ddos-script/",
+      "date"     : "2014-01-24 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "C999 shell",
+      "category" : "",
+      "tags"     : "C99, C999, PHP",
+      "url"      : "/c999-shell/",
+      "date"     : "2014-01-24 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "c99 shell (encrypted)",
+      "category" : "",
+      "tags"     : "C99, encrypted, PHP",
+      "url"      : "/c99-shell-encrypted/",
+      "date"     : "2014-01-24 00:00:00 +1300"
+    } ,
+  
+    {
+      "title"    : "C99 shell",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/c99-shell/",
+      "date"     : "2014-01-24 00:00:00 +1300"
+    } 
+  
+]
