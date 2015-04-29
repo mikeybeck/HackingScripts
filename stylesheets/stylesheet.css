@@ -623,10 +623,7 @@ form {
 }
 
 #main-content h1:before {
-  padding-right: 0.3em;
-  margin-left: -0.9em;
-  color: #9ddcff;
-  content: "/";
+
 }
 
 #main-content h2 {
@@ -638,10 +635,7 @@ form {
   text-indent: 4px;
 }
 #main-content h2:before {
-  padding-right: 0.3em;
-  margin-left: -1.5em;
-  content: "//";
-  color: #9ddcff;
+
 }
 
 #main-content h3 {
@@ -655,10 +649,7 @@ form {
 }
 
 #main-content h3:before {
-  padding-right: 0.3em;
-  margin-left: -2em;
-  content: "///";
-  color: #9ddcff;
+
 }
 
 #main-content h4 {
@@ -671,10 +662,7 @@ form {
 }
 
 h4:before {
-  padding-right: 0.3em;
-  margin-left: -2.8em;
-  content: "////";
-  color: #9ddcff;
+
 }
 
 #main-content h5 {
@@ -685,10 +673,7 @@ h4:before {
   text-indent: 3px;
 }
 h5:before {
-  padding-right: 0.3em;
-  margin-left: -3.2em;
-  content: "/////";
-  color: #9ddcff;
+
 }
 
 #main-content h6 {
@@ -699,10 +684,7 @@ h5:before {
   text-indent: 3px;
 }
 h6:before {
-  padding-right: 0.3em;
-  margin-left: -3.7em;
-  content: "//////";
-  color: #9ddcff;
+
 }
 
 p {
@@ -872,4 +854,7 @@ h1 a {
 }
 #main-content h2 {
   display: inline;
+}
+#search-input {
+  width: 198px;
 }
