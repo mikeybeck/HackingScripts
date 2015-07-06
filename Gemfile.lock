@@ -129,3 +129,6 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jgd
+
+BUNDLED WITH
+   1.10.3

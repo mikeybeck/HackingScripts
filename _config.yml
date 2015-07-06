@@ -5,6 +5,8 @@ markdown: redcarpet
 permalink: /scripts/:title
 excerpt_separator: "\n\n\n"
 
+
 highlighter: pygments
 
 baseurl: ""
+

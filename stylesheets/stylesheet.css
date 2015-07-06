@@ -858,3 +858,6 @@ h1 a {
 #search-input {
   width: 198px;
 }
+pre {
+    border:1px solid black;
+}
