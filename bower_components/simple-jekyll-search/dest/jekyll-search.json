@@ -1,6 +1,22 @@
 [
   
     {
+      "title"    : "Sokot Security Team Web-based file manager",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/scripts/Sokot-Security-file-manager",
+      "date"     : "2015-05-14 00:00:00 +1200"
+    } ,
+  
+    {
+      "title"    : "404 shell code",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/scripts/404-shell-code",
+      "date"     : "2015-05-14 00:00:00 +1200"
+    } ,
+  
+    {
       "title"    : "WHMCS Killer source code",
       "category" : "",
       "tags"     : "",
